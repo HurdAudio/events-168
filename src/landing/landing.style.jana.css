@@ -1,0 +1,1101 @@
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.container_JanuaryA {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+.imageDiv_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/landing/january/over_the_icy_moon_by_joeyjazz_dcvgaj9-pre.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 12.5% [col2] 12.5% [col3] 12.5% [col4] 12.5% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [rightEdge];
+    grid-template-rows: [row1] 12.5% [row2] 12.5% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [rowEnd];
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.midiImage_JanuaryA {
+    height: 100%;
+    margin: 2% 25%;
+    transform: scale(0.5) rotateX(0deg) rotateY(0deg) rotateZ(180deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col1row1_JanuaryA {
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol1row1_JanuaryA {
+    height: 80%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: scale(0.5) rotateX(70deg) rotateY(-70deg) rotateZ(270deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col2row1_JanuaryA {
+    grid-column: col2 / col3;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol2row1_JanuaryA {
+    height: 100%;
+    left: 45%;
+    position: absolute;
+    top: 5%;
+    transform: scale(0.5) rotateX(70deg) rotateY(-50deg) rotateZ(240deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col3row1_JanuaryA {
+    grid-column: col3 / col4;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol3row1_JanuaryA {
+    height: 100%;
+    left: 35%;
+    position: absolute;
+    top: 4%;
+    transform: scale(0.5) rotateX(70deg) rotateY(-20deg) rotateZ(210deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col4row1_JanuaryA {
+    grid-column: col4 / col5;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol4row1_JanuaryA {
+    height: 100%;
+    left: 25%;
+    position: absolute;
+    top: 3%;
+    transform: scale(0.5) rotateX(70deg) rotateY(0deg) rotateZ(180deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col5row1_JanuaryA {
+    grid-column: col5 / col6;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol5row1_JanuaryA {
+    height: 100%;
+    left: 15%;
+    position: absolute;
+    top: 3%;
+    transform: scale(0.5) rotateX(70deg) rotateY(20deg) rotateZ(150deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col6row1_JanuaryA {
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol6row1_JanuaryA {
+    height: 100%;
+    left: 10%;
+    position: absolute;
+    top: 3%;
+    transform: scale(0.5) rotateX(70deg) rotateY(40deg) rotateZ(120deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col7row1_JanuaryA {
+    grid-column: col7 / col8;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol7row1_JanuaryA {
+    height: 80%;
+    left: 0;
+    position: absolute;
+    top: -3%;
+    transform: scale(0.5) rotateX(70deg) rotateY(60deg) rotateZ(90deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col8row1_JanuaryA {
+    grid-column: col8 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol8row1_JanuaryA {
+    height: 80%;
+    left: -15%;
+    position: absolute;
+    top: 1%;
+    transform: scale(0.5) rotateX(70deg) rotateY(70deg) rotateZ(60deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col1row2_JanuaryA {
+    grid-column: col1 / col2;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol1row2_JanuaryA {
+    height: 80%;
+    left: 50%;
+    position: absolute;
+    top: -10%;
+    transform: scale(0.5) rotateX(50deg) rotateY(-70deg) rotateZ(270deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col2row2_JanuaryA {
+    grid-column: col2 / col3;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol2row2_JanuaryA {
+    height: 90%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: scale(0.5) rotateX(50deg) rotateY(-50deg) rotateZ(240deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col3row2_JanuaryA {
+    grid-column: col3 / col4;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol3row2_JanuaryA {
+    height: 100%;
+    left: 30%;
+    position: absolute;
+    top: 1%;
+    transform: scale(0.5) rotateX(50deg) rotateY(-30deg) rotateZ(210deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col4row2_JanuaryA {
+    grid-column: col4 / col5;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol4row2_JanuaryA {
+    height: 100%;
+    left: 25%;
+    position: absolute;
+    top: 2%;
+    transform: scale(0.5) rotateX(50deg) rotateY(-10deg) rotateZ(180deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col5row2_JanuaryA {
+    grid-column: col5 / col6;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol5row2_JanuaryA {
+    height: 100%;
+    left: 20%;
+    position: absolute;
+    top: 2%;
+    transform: scale(0.5) rotateX(50deg) rotateY(10deg) rotateZ(150deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col6row2_JanuaryA {
+    grid-column: col6 / col7;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol6row2_JanuaryA {
+    height: 100%;
+    left: 15%;
+    position: absolute;
+    top: 0;
+    transform: scale(0.5) rotateX(50deg) rotateY(30deg) rotateZ(120deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col7row2_JanuaryA {
+    grid-column: col7 / col8;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol7row2_JanuaryA {
+    height: 80%;
+    left: 5%;
+    position: absolute;
+    top: -7%;
+    transform: scale(0.5) rotateX(50deg) rotateY(50deg) rotateZ(90deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col8row2_JanuaryA {
+    grid-column: col8 / rightEdge;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol8row2_JanuaryA {
+    height: 80%;
+    left: -10%;
+    position: absolute;
+    top: -5%;
+    transform: scale(0.5) rotateX(50deg) rotateY(70deg) rotateZ(60deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col1row3_JanuaryA {
+    grid-column: col1 / col2;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol1row3_JanuaryA {
+    height: 90%;
+    left: 50%;
+    position: absolute;
+    top: -6%;
+    transform: scale(0.5) rotateX(30deg) rotateY(-70deg) rotateZ(270deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col2row3_JanuaryA {
+    grid-column: col2 / col3;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol2row3_JanuaryA {
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: -3%;
+    transform: scale(0.5) rotateX(30deg) rotateY(-50deg) rotateZ(240deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col3row3_JanuaryA {
+    grid-column: col3 / col4;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol3row3_JanuaryA {
+    height: 100%;
+    left: 35%;
+    position: absolute;
+    top: 0;
+    transform: scale(0.5) rotateX(30deg) rotateY(-30deg) rotateZ(210deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col4row3_JanuaryA {
+    grid-column: col4 / col5;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol4row3_JanuaryA {
+    height: 100%;
+    left: 20%;
+    position: absolute;
+    top: 2%;
+    transform: scale(0.5) rotateX(30deg) rotateY(-10deg) rotateZ(180deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col5row3_JanuaryA {
+    grid-column: col5 / col6;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol5row3_JanuaryA {
+    height: 100%;
+    left: 15%;
+    position: absolute;
+    top: 2%;
+    transform: scale(0.5) rotateX(30deg) rotateY(10deg) rotateZ(150deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col6row3_JanuaryA {
+    grid-column: col6 / col7;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol6row3_JanuaryA {
+    height: 100%;
+    left: 5%;
+    position: absolute;
+    top: 3%;
+    transform: scale(0.5) rotateX(30deg) rotateY(30deg) rotateZ(120deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col7row3_JanuaryA {
+    grid-column: col7 / col8;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol7row3_JanuaryA {
+    height: 90%;
+    left: 0;
+    position: absolute;
+    top: 4%;
+    transform: scale(0.5) rotateX(30deg) rotateY(50deg) rotateZ(90deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col8row3_JanuaryA {
+    grid-column: col8 / rightEdge;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol8row3_JanuaryA {
+    height: 80%;
+    left: -15%;
+    position: absolute;
+    top: 4%;
+    transform: scale(0.5) rotateX(30deg) rotateY(70deg) rotateZ(60deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col1row4_JanuaryA {
+    grid-column: col1 / col2;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol1row4_JanuaryA {
+    height: 80%;
+    left: 65%;
+    position: absolute;
+    top: 4%;
+    transform: scale(0.5) rotateX(10deg) rotateY(-70deg) rotateZ(270deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col2row4_JanuaryA {
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol2row4_JanuaryA {
+    height: 90%;
+    left: 55%;
+    position: absolute;
+    top: 5%;
+    transform: scale(0.5) rotateX(10deg) rotateY(-50deg) rotateZ(240deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col3row4_JanuaryA {
+    grid-column: col3 / col4;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol3row4_JanuaryA {
+    height: 100%;
+    left: 45%;
+    position: absolute;
+    top: 5%;
+    transform: scale(0.5) rotateX(10deg) rotateY(-30deg) rotateZ(210deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col4row4_JanuaryA {
+    grid-column: col4 / col5;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol4row4_JanuaryA {
+    height: 100%;
+    left: 35%;
+    position: absolute;
+    top: 5%;
+    transform: scale(0.5) rotateX(10deg) rotateY(-10deg) rotateZ(180deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col5row4_JanuaryA {
+    grid-column: col5 / col6;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol5row4_JanuaryA {
+    height: 100%;
+    left: 25%;
+    position: absolute;
+    top: 5%;
+    transform: scale(0.5) rotateX(10deg) rotateY(10deg) rotateZ(150deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col6row4_JanuaryA {
+    grid-column: col6 / col7;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol6row4_JanuaryA {
+    height: 100%;
+    left: 15%;
+    position: absolute;
+    top: 5%;
+    transform: scale(0.5) rotateX(10deg) rotateY(30deg) rotateZ(120deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col7row4_JanuaryA {
+    grid-column: col7 / col8;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol7row4_JanuaryA {
+    height: 90%;
+    left: 5%;
+    position: absolute;
+    top: 5%;
+    transform: scale(0.5) rotateX(10deg) rotateY(50deg) rotateZ(90deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col8row4_JanuaryA {
+    grid-column: col8 / rightEdge;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol8row4_JanuaryA {
+    height: 80%;
+    left: -15%;
+    position: absolute;
+    top: 5%;
+    transform: scale(0.5) rotateX(10deg) rotateY(70deg) rotateZ(60deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col1row5_JanuaryA {
+    grid-column: col1 / col2;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol1row5_JanuaryA {
+    height: 80%;
+    left: 70%;
+    position: absolute;
+    top: 5%;
+    transform: scale(0.5) rotateX(30deg) rotateY(-70deg) rotateZ(270deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col2row5_JanuaryA {
+    grid-column: col2 / col3;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol2row5_JanuaryA {
+    height: 90%;
+    left: 60%;
+    position: absolute;
+    top: 5%;
+    transform: scale(0.5) rotateX(30deg) rotateY(-50deg) rotateZ(240deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col3row5_JanuaryA {
+    grid-column: col3 / col4;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol3row5_JanuaryA {
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 5%;
+    transform: scale(0.5) rotateX(30deg) rotateY(-30deg) rotateZ(210deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col4row5_JanuaryA {
+    grid-column: col4 / col5;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol4row5_JanuaryA {
+    height: 100%;
+    left: 30%;
+    position: absolute;
+    top: 3%;
+    transform: scale(0.5) rotateX(30deg) rotateY(-10deg) rotateZ(180deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col5row5_JanuaryA {
+    grid-column: col5 / col6;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol5row5_JanuaryA {
+    height: 100%;
+    left: 20%;
+    position: absolute;
+    top: 0;
+    transform: scale(0.5) rotateX(30deg) rotateY(10deg) rotateZ(150deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col6row5_JanuaryA {
+    grid-column: col6 / col7;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol6row5_JanuaryA {
+    height: 100%;
+    left: 10%;
+    position: absolute;
+    top: -5%;
+    transform: scale(0.5) rotateX(30deg) rotateY(30deg) rotateZ(120deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col7row5_JanuaryA {
+    grid-column: col7 / col8;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol7row5_JanuaryA {
+    height: 90%;
+    left: -10%;
+    position: absolute;
+    top: -9%;
+    transform: scale(0.5) rotateX(30deg) rotateY(50deg) rotateZ(90deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col8row5_JanuaryA {
+    grid-column: col8 / rightEdge;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol8row5_JanuaryA {
+    height: 80%;
+    left: -20%;
+    position: absolute;
+    top: -20%;
+    transform: scale(0.5) rotateX(30deg) rotateY(70deg) rotateZ(60deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col1row6_JanuaryA {
+    grid-column: col1 / col2;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol1row6_JanuaryA {
+    height: 80%;
+    left: 70%;
+    position: absolute;
+    top: 2%;
+    transform: scale(0.5) rotateX(50deg) rotateY(-70deg) rotateZ(270deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col2row6_JanuaryA {
+    grid-column: col2 / col3;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol2row6_JanuaryA {
+    height: 90%;
+    left: 60%;
+    position: absolute;
+    top: 1%;
+    transform: scale(0.5) rotateX(50deg) rotateY(-50deg) rotateZ(240deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col3row6_JanuaryA {
+    grid-column: col3 / col4;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol3row6_JanuaryA {
+    height: 100%;
+    left: 45%;
+    position: absolute;
+    top: 1%;
+    transform: scale(0.5) rotateX(50deg) rotateY(-30deg) rotateZ(210deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col4row6_JanuaryA {
+    grid-column: col4 / col5;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol4row6_JanuaryA {
+    height: 100%;
+    left: 30%;
+    position: absolute;
+    top: 1%;
+    transform: scale(0.5) rotateX(50deg) rotateY(-10deg) rotateZ(180deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col5row6_JanuaryA {
+    grid-column: col5 / col6;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol5row6_JanuaryA {
+    height: 100%;
+    left: 15%;
+    position: absolute;
+    top: -9%;
+    transform: scale(0.5) rotateX(50deg) rotateY(10deg) rotateZ(150deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col6row6_JanuaryA {
+    grid-column: col6 / col7;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol6row6_JanuaryA {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: -13%;
+    transform: scale(0.5) rotateX(50deg) rotateY(30deg) rotateZ(120deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col7row6_JanuaryA {
+    grid-column: col7 / col8;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol7row6_JanuaryA {
+    height: 90%;
+    left: -10%;
+    position: absolute;
+    top: -19%;
+    transform: scale(0.5) rotateX(50deg) rotateY(50deg) rotateZ(90deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col8row6_JanuaryA {
+    grid-column: col8 / rightEdge;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol8row6_JanuaryA {
+    height: 80%;
+    left: -20%;
+    position: absolute;
+    top: -22%;
+    transform: scale(0.5) rotateX(50deg) rotateY(70deg) rotateZ(60deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col1row7_JanuaryA {
+    grid-column: col1 / col2;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol1row7_JanuaryA {
+    height: 70%;
+    left: 70%;
+    position: absolute;
+    top: 0;
+    transform: scale(0.5) rotateX(70deg) rotateY(-70deg) rotateZ(270deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col2row7_JanuaryA {
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol2row7_JanuaryA {
+    height: 80%;
+    left: 60%;
+    position: absolute;
+    top: -5%;
+    transform: scale(0.5) rotateX(70deg) rotateY(-50deg) rotateZ(240deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col3row7_JanuaryA {
+    grid-column: col3 / col4;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol3row7_JanuaryA {
+    height: 90%;
+    left: 50%;
+    position: absolute;
+    top: -5%;
+    transform: scale(0.5) rotateX(70deg) rotateY(-30deg) rotateZ(210deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col4row7_JanuaryA {
+    grid-column: col4 / col5;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol4row7_JanuaryA {
+    height: 100%;
+    left: 35%;
+    position: absolute;
+    top: -5%;
+    transform: scale(0.5) rotateX(70deg) rotateY(-10deg) rotateZ(180deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col5row7_JanuaryA {
+    grid-column: col5 / col6;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol5row7_JanuaryA {
+    height: 100%;
+    left: 20%;
+    position: absolute;
+    top: -20%;
+    transform: scale(0.5) rotateX(70deg) rotateY(10deg) rotateZ(150deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col6row7_JanuaryA {
+    grid-column: col6 / col7;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol6row7_JanuaryA {
+    height: 90%;
+    left: 5%;
+    position: absolute;
+    top: -25%;
+    transform: scale(0.5) rotateX(70deg) rotateY(30deg) rotateZ(120deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col7row7_JanuaryA {
+    grid-column: col7 / col8;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol7row7_JanuaryA {
+    height: 80%;
+    left: -10%;
+    position: absolute;
+    top: -25%;
+    transform: scale(0.5) rotateX(70deg) rotateY(50deg) rotateZ(90deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col8row7_JanuaryA {
+    grid-column: col8 / rightEdge;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol8row7_JanuaryA {
+    height: 70%;
+    left: -25%;
+    position: absolute;
+    top: -27%;
+    transform: scale(0.5) rotateX(70deg) rotateY(70deg) rotateZ(60deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col1row8_JanuaryA {
+    grid-column: col1 / col2;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol1row8_JanuaryA {
+    height: 10%;
+    left: 70%;
+    position: absolute;
+    top: 0;
+    transform: scale(0.5) rotateX(85deg) rotateY(-70deg) rotateZ(270deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col2row8_JanuaryA {
+    grid-column: col2 / col3;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol2row8_JanuaryA {
+    height: 20%;
+    left: 55%;
+    position: absolute;
+    top: 0;
+    transform: scale(0.5) rotateX(85deg) rotateY(-50deg) rotateZ(240deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col3row8_JanuaryA {
+    grid-column: col3 / col4;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol3row8_JanuaryA {
+    height: 30%;
+    left: 40%;
+    position: absolute;
+    top: 0;
+    transform: scale(0.5) rotateX(85deg) rotateY(-30deg) rotateZ(210deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col4row8_JanuaryA {
+    grid-column: col4 / col5;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol4row8_JanuaryA {
+    height: 40%;
+    left: 25%;
+    position: absolute;
+    top: -15%;
+    transform: scale(0.5) rotateX(85deg) rotateY(-10deg) rotateZ(180deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col5row8_JanuaryA {
+    grid-column: col5 / col6;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol5row8_JanuaryA {
+    height: 50%;
+    left: 10%;
+    position: absolute;
+    top: -17%;
+    transform: scale(0.5) rotateX(85deg) rotateY(10deg) rotateZ(150deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col6row8_JanuaryA {
+    grid-column: col5 / col6;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol6row8_JanuaryA {
+    height: 40%;
+    left: -5%;
+    position: absolute;
+    top: -12%;
+    transform: scale(0.5) rotateX(85deg) rotateY(30deg) rotateZ(120deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col7row8_JanuaryA {
+    grid-column: col7 / col8;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol7row8_JanuaryA {
+    height: 30%;
+    left: -20%;
+    position: absolute;
+    top: -12%;
+    transform: scale(0.5) rotateX(85deg) rotateY(50deg) rotateZ(90deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.col8row8_JanuaryA {
+    grid-column: col8 / rightEdge;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol8row8_JanuaryA {
+    height: 10%;
+    left: -25%;
+    position: absolute;
+    top: -1%;
+    transform: scale(0.5) rotateX(85deg) rotateY(70deg) rotateZ(60deg);
+    transition: all 4s linear;
+    width: 50%;
+}
+
+.landingTitleDiv_JanuaryA {
+    grid-column: col1 / col2;
+    grid-row: row1 / rowEnd;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 1;
+}
+
+.landingTitle_JanuaryA {
+    color: #00081a;
+    cursor: none;
+    filter: saturate(0%);
+    font-family: 'Audiowide', cursive;
+    font-size: 90px;
+    left: -220px;
+    position: absolute;
+    top: 33%;
+    transform: rotateZ(-90deg);
+    transition: all 4s linear;
+    z-index: 55;
+}
+
+.landingTitle_JanuaryA:hover {
+    color: #f3ffff;
+    filter: saturate(500%);
+    transition: all 4s linear;
+}
+
+.landingByline_JanuaryA {
+    color: #00081a;
+    cursor: none;
+    filter: saturate(0%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    left: -100px;
+    position: absolute;
+    top: 43%;
+    transform: rotateZ(-90deg);
+    transition: all 4s linear;
+    z-index: 55;
+}
+
+.landingByline_JanuaryA:hover {
+    color: #f3ffff;
+    filter: saturate(500%);
+    transition: all 4s linear;
+}
+
+.userLogin_JanuaryA {
+    backdrop-filter: hue-rotate(270deg);
+    background: transparent;
+    border: none;
+    color: #00081a;
+    cursor: pointer;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: col7 / col8;
+    grid-row: row1 / row2;
+    outline-color: #0094ee;
+    position: absolute;
+    top: 10%;
+    transition: all 0.3s linear;
+}
+
+.userLogin_JanuaryA:hover {
+    backdrop-filter: hue-rotate(180deg);
+    color: #f3ffff;
+    transition: all 0.3s linear;
+}
+
+.aboutButton_JanuaryA {
+    backdrop-filter: hue-rotate(270deg);
+    background: transparent;
+    border: none;
+    color: #00081a;
+    cursor: pointer;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: col8 / rightEdge;
+    grid-row: row1 / row2;
+    outline-color: #0094ee;
+    position: absolute;
+    top: 10%;
+    transition: all 0.3s linear;
+}
+
+.aboutButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(180deg);
+    color: #f3ffff;
+    transition: all 0.3s linear;
+}
+
+.landingFooterDiv_JanuaryA {
+    bottom: 0;
+    height: auto;
+    left: 1%;
+    position: absolute;
+    width: 30%;
+}
+
+.landingFooter_JanuaryA {
+    color: #00081a;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+}
