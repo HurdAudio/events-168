@@ -7,6 +7,10 @@ function Landing() {
     const [landingMonth, setLandingMonth] = useState('_JanuaryA');
     const [midiImageClass, setMidiImageClass] = useState('midiImage');
     
+    const now = new Date();
+    
+    const footerText = now.getFullYear() + ' HurdAudio';
+    
     const adjustImage = (colString, rowString) => {
         setMidiImageClass('midiImage' + colString + rowString);
     }
@@ -79,9 +83,19 @@ function Landing() {
                     <div class={'col6row8' + landingMonth} onMouseOver={() => adjustImage('col6', 'row8')}></div>
                     <div class={'col7row8' + landingMonth} onMouseOver={() => adjustImage('col7', 'row8')}></div>
                     <div class={'col8row8' + landingMonth} onMouseOver={() => adjustImage('col8', 'row8')}></div>
+                    <div class={'landingTitleDiv' + landingMonth}>
+                        <h1 class={'landingTitle' + landingMonth}>168 Events</h1>
+                        <p class={'landingByline' + landingMonth}>MIDI Librarian &amp; Sequencing Tool</p>
+                    </div>
+                    <button class={'userLogin' + landingMonth}>login</button>
+                    <button class={'aboutButton' + landingMonth}>about</button>
                 </div>
                 <img className={midiImageClass + landingMonth} src={midi5pin}></img>
+                <div className={'landingFooterDiv' + landingMonth}>
+                    <p className={'landingFooter' + landingMonth}>&copy;{footerText}</p>
+                </div>
             </div>
+            
         
         );
     

@@ -28,7 +28,7 @@ body {
 .midiImage_JanuaryA {
     height: 100%;
     margin: 2% 25%;
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(180deg);
+    transform: scale(0.5) rotateX(0deg) rotateY(0deg) rotateZ(180deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -43,7 +43,7 @@ body {
     left: 50%;
     position: absolute;
     top: 0;
-    transform: rotateX(70deg) rotateY(-70deg) rotateZ(270deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(-70deg) rotateZ(270deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -58,7 +58,7 @@ body {
     left: 45%;
     position: absolute;
     top: 5%;
-    transform: rotateX(70deg) rotateY(-50deg) rotateZ(240deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(-50deg) rotateZ(240deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -73,7 +73,7 @@ body {
     left: 35%;
     position: absolute;
     top: 4%;
-    transform: rotateX(70deg) rotateY(-20deg) rotateZ(210deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(-20deg) rotateZ(210deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -88,7 +88,7 @@ body {
     left: 25%;
     position: absolute;
     top: 3%;
-    transform: rotateX(70deg) rotateY(0deg) rotateZ(180deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(0deg) rotateZ(180deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -103,7 +103,7 @@ body {
     left: 15%;
     position: absolute;
     top: 3%;
-    transform: rotateX(70deg) rotateY(20deg) rotateZ(150deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(20deg) rotateZ(150deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -118,7 +118,7 @@ body {
     left: 10%;
     position: absolute;
     top: 3%;
-    transform: rotateX(70deg) rotateY(40deg) rotateZ(120deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(40deg) rotateZ(120deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -133,7 +133,7 @@ body {
     left: 0;
     position: absolute;
     top: -3%;
-    transform: rotateX(70deg) rotateY(60deg) rotateZ(90deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(60deg) rotateZ(90deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -148,7 +148,7 @@ body {
     left: -15%;
     position: absolute;
     top: 1%;
-    transform: rotateX(70deg) rotateY(70deg) rotateZ(60deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(70deg) rotateZ(60deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -163,7 +163,7 @@ body {
     left: 50%;
     position: absolute;
     top: -10%;
-    transform: rotateX(50deg) rotateY(-70deg) rotateZ(270deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(-70deg) rotateZ(270deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -178,7 +178,7 @@ body {
     left: 50%;
     position: absolute;
     top: 0;
-    transform: rotateX(50deg) rotateY(-50deg) rotateZ(240deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(-50deg) rotateZ(240deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -193,7 +193,7 @@ body {
     left: 30%;
     position: absolute;
     top: 1%;
-    transform: rotateX(50deg) rotateY(-30deg) rotateZ(210deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(-30deg) rotateZ(210deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -208,7 +208,7 @@ body {
     left: 25%;
     position: absolute;
     top: 2%;
-    transform: rotateX(50deg) rotateY(-10deg) rotateZ(180deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(-10deg) rotateZ(180deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -223,7 +223,7 @@ body {
     left: 20%;
     position: absolute;
     top: 2%;
-    transform: rotateX(50deg) rotateY(10deg) rotateZ(150deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(10deg) rotateZ(150deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -238,7 +238,7 @@ body {
     left: 15%;
     position: absolute;
     top: 0;
-    transform: rotateX(50deg) rotateY(30deg) rotateZ(120deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(30deg) rotateZ(120deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -253,7 +253,7 @@ body {
     left: 5%;
     position: absolute;
     top: -7%;
-    transform: rotateX(50deg) rotateY(50deg) rotateZ(90deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(50deg) rotateZ(90deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -268,7 +268,7 @@ body {
     left: -10%;
     position: absolute;
     top: -5%;
-    transform: rotateX(50deg) rotateY(70deg) rotateZ(60deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(70deg) rotateZ(60deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -283,7 +283,7 @@ body {
     left: 50%;
     position: absolute;
     top: -6%;
-    transform: rotateX(30deg) rotateY(-70deg) rotateZ(270deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(-70deg) rotateZ(270deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -298,7 +298,7 @@ body {
     left: 50%;
     position: absolute;
     top: -3%;
-    transform: rotateX(30deg) rotateY(-50deg) rotateZ(240deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(-50deg) rotateZ(240deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -313,7 +313,7 @@ body {
     left: 35%;
     position: absolute;
     top: 0;
-    transform: rotateX(30deg) rotateY(-30deg) rotateZ(210deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(-30deg) rotateZ(210deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -328,7 +328,7 @@ body {
     left: 20%;
     position: absolute;
     top: 2%;
-    transform: rotateX(30deg) rotateY(-10deg) rotateZ(180deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(-10deg) rotateZ(180deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -343,7 +343,7 @@ body {
     left: 15%;
     position: absolute;
     top: 2%;
-    transform: rotateX(30deg) rotateY(10deg) rotateZ(150deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(10deg) rotateZ(150deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -358,7 +358,7 @@ body {
     left: 5%;
     position: absolute;
     top: 3%;
-    transform: rotateX(30deg) rotateY(30deg) rotateZ(120deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(30deg) rotateZ(120deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -373,7 +373,7 @@ body {
     left: 0;
     position: absolute;
     top: 4%;
-    transform: rotateX(30deg) rotateY(50deg) rotateZ(90deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(50deg) rotateZ(90deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -388,7 +388,7 @@ body {
     left: -15%;
     position: absolute;
     top: 4%;
-    transform: rotateX(30deg) rotateY(70deg) rotateZ(60deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(70deg) rotateZ(60deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -403,7 +403,7 @@ body {
     left: 65%;
     position: absolute;
     top: 4%;
-    transform: rotateX(10deg) rotateY(-70deg) rotateZ(270deg);
+    transform: scale(0.5) rotateX(10deg) rotateY(-70deg) rotateZ(270deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -418,7 +418,7 @@ body {
     left: 55%;
     position: absolute;
     top: 5%;
-    transform: rotateX(10deg) rotateY(-50deg) rotateZ(240deg);
+    transform: scale(0.5) rotateX(10deg) rotateY(-50deg) rotateZ(240deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -433,7 +433,7 @@ body {
     left: 45%;
     position: absolute;
     top: 5%;
-    transform: rotateX(10deg) rotateY(-30deg) rotateZ(210deg);
+    transform: scale(0.5) rotateX(10deg) rotateY(-30deg) rotateZ(210deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -448,7 +448,7 @@ body {
     left: 35%;
     position: absolute;
     top: 5%;
-    transform: rotateX(10deg) rotateY(-10deg) rotateZ(180deg);
+    transform: scale(0.5) rotateX(10deg) rotateY(-10deg) rotateZ(180deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -463,7 +463,7 @@ body {
     left: 25%;
     position: absolute;
     top: 5%;
-    transform: rotateX(10deg) rotateY(10deg) rotateZ(150deg);
+    transform: scale(0.5) rotateX(10deg) rotateY(10deg) rotateZ(150deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -478,7 +478,7 @@ body {
     left: 15%;
     position: absolute;
     top: 5%;
-    transform: rotateX(10deg) rotateY(30deg) rotateZ(120deg);
+    transform: scale(0.5) rotateX(10deg) rotateY(30deg) rotateZ(120deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -493,7 +493,7 @@ body {
     left: 5%;
     position: absolute;
     top: 5%;
-    transform: rotateX(10deg) rotateY(50deg) rotateZ(90deg);
+    transform: scale(0.5) rotateX(10deg) rotateY(50deg) rotateZ(90deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -508,7 +508,7 @@ body {
     left: -15%;
     position: absolute;
     top: 5%;
-    transform: rotateX(10deg) rotateY(70deg) rotateZ(60deg);
+    transform: scale(0.5) rotateX(10deg) rotateY(70deg) rotateZ(60deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -523,7 +523,7 @@ body {
     left: 70%;
     position: absolute;
     top: 5%;
-    transform: rotateX(30deg) rotateY(-70deg) rotateZ(270deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(-70deg) rotateZ(270deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -538,7 +538,7 @@ body {
     left: 60%;
     position: absolute;
     top: 5%;
-    transform: rotateX(30deg) rotateY(-50deg) rotateZ(240deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(-50deg) rotateZ(240deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -553,7 +553,7 @@ body {
     left: 50%;
     position: absolute;
     top: 5%;
-    transform: rotateX(30deg) rotateY(-30deg) rotateZ(210deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(-30deg) rotateZ(210deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -568,7 +568,7 @@ body {
     left: 30%;
     position: absolute;
     top: 3%;
-    transform: rotateX(30deg) rotateY(-10deg) rotateZ(180deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(-10deg) rotateZ(180deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -583,7 +583,7 @@ body {
     left: 20%;
     position: absolute;
     top: 0;
-    transform: rotateX(30deg) rotateY(10deg) rotateZ(150deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(10deg) rotateZ(150deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -598,7 +598,7 @@ body {
     left: 10%;
     position: absolute;
     top: -5%;
-    transform: rotateX(30deg) rotateY(30deg) rotateZ(120deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(30deg) rotateZ(120deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -613,7 +613,7 @@ body {
     left: -10%;
     position: absolute;
     top: -9%;
-    transform: rotateX(30deg) rotateY(50deg) rotateZ(90deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(50deg) rotateZ(90deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -628,7 +628,7 @@ body {
     left: -20%;
     position: absolute;
     top: -20%;
-    transform: rotateX(30deg) rotateY(70deg) rotateZ(60deg);
+    transform: scale(0.5) rotateX(30deg) rotateY(70deg) rotateZ(60deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -643,7 +643,7 @@ body {
     left: 70%;
     position: absolute;
     top: 2%;
-    transform: rotateX(50deg) rotateY(-70deg) rotateZ(270deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(-70deg) rotateZ(270deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -658,7 +658,7 @@ body {
     left: 60%;
     position: absolute;
     top: 1%;
-    transform: rotateX(50deg) rotateY(-50deg) rotateZ(240deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(-50deg) rotateZ(240deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -673,7 +673,7 @@ body {
     left: 45%;
     position: absolute;
     top: 1%;
-    transform: rotateX(50deg) rotateY(-30deg) rotateZ(210deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(-30deg) rotateZ(210deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -688,7 +688,7 @@ body {
     left: 30%;
     position: absolute;
     top: 1%;
-    transform: rotateX(50deg) rotateY(-10deg) rotateZ(180deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(-10deg) rotateZ(180deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -703,7 +703,7 @@ body {
     left: 15%;
     position: absolute;
     top: -9%;
-    transform: rotateX(50deg) rotateY(10deg) rotateZ(150deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(10deg) rotateZ(150deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -718,7 +718,7 @@ body {
     left: 0;
     position: absolute;
     top: -13%;
-    transform: rotateX(50deg) rotateY(30deg) rotateZ(120deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(30deg) rotateZ(120deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -733,7 +733,7 @@ body {
     left: -10%;
     position: absolute;
     top: -19%;
-    transform: rotateX(50deg) rotateY(50deg) rotateZ(90deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(50deg) rotateZ(90deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -748,7 +748,7 @@ body {
     left: -20%;
     position: absolute;
     top: -22%;
-    transform: rotateX(50deg) rotateY(70deg) rotateZ(60deg);
+    transform: scale(0.5) rotateX(50deg) rotateY(70deg) rotateZ(60deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -763,7 +763,7 @@ body {
     left: 70%;
     position: absolute;
     top: 0;
-    transform: rotateX(70deg) rotateY(-70deg) rotateZ(270deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(-70deg) rotateZ(270deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -778,7 +778,7 @@ body {
     left: 60%;
     position: absolute;
     top: -5%;
-    transform: rotateX(70deg) rotateY(-50deg) rotateZ(240deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(-50deg) rotateZ(240deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -793,7 +793,7 @@ body {
     left: 50%;
     position: absolute;
     top: -5%;
-    transform: rotateX(70deg) rotateY(-30deg) rotateZ(210deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(-30deg) rotateZ(210deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -808,7 +808,7 @@ body {
     left: 35%;
     position: absolute;
     top: -5%;
-    transform: rotateX(70deg) rotateY(-10deg) rotateZ(180deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(-10deg) rotateZ(180deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -823,7 +823,7 @@ body {
     left: 20%;
     position: absolute;
     top: -20%;
-    transform: rotateX(70deg) rotateY(10deg) rotateZ(150deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(10deg) rotateZ(150deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -838,7 +838,7 @@ body {
     left: 5%;
     position: absolute;
     top: -25%;
-    transform: rotateX(70deg) rotateY(30deg) rotateZ(120deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(30deg) rotateZ(120deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -853,7 +853,7 @@ body {
     left: -10%;
     position: absolute;
     top: -25%;
-    transform: rotateX(70deg) rotateY(50deg) rotateZ(90deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(50deg) rotateZ(90deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -868,7 +868,7 @@ body {
     left: -25%;
     position: absolute;
     top: -27%;
-    transform: rotateX(70deg) rotateY(70deg) rotateZ(60deg);
+    transform: scale(0.5) rotateX(70deg) rotateY(70deg) rotateZ(60deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -883,7 +883,7 @@ body {
     left: 70%;
     position: absolute;
     top: 0;
-    transform: rotateX(85deg) rotateY(-70deg) rotateZ(270deg);
+    transform: scale(0.5) rotateX(85deg) rotateY(-70deg) rotateZ(270deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -898,7 +898,7 @@ body {
     left: 55%;
     position: absolute;
     top: 0;
-    transform: rotateX(85deg) rotateY(-50deg) rotateZ(240deg);
+    transform: scale(0.5) rotateX(85deg) rotateY(-50deg) rotateZ(240deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -913,7 +913,7 @@ body {
     left: 40%;
     position: absolute;
     top: 0;
-    transform: rotateX(85deg) rotateY(-30deg) rotateZ(210deg);
+    transform: scale(0.5) rotateX(85deg) rotateY(-30deg) rotateZ(210deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -928,7 +928,7 @@ body {
     left: 25%;
     position: absolute;
     top: -15%;
-    transform: rotateX(85deg) rotateY(-10deg) rotateZ(180deg);
+    transform: scale(0.5) rotateX(85deg) rotateY(-10deg) rotateZ(180deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -943,7 +943,7 @@ body {
     left: 10%;
     position: absolute;
     top: -17%;
-    transform: rotateX(85deg) rotateY(10deg) rotateZ(150deg);
+    transform: scale(0.5) rotateX(85deg) rotateY(10deg) rotateZ(150deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -958,7 +958,7 @@ body {
     left: -5%;
     position: absolute;
     top: -12%;
-    transform: rotateX(85deg) rotateY(30deg) rotateZ(120deg);
+    transform: scale(0.5) rotateX(85deg) rotateY(30deg) rotateZ(120deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -973,7 +973,7 @@ body {
     left: -20%;
     position: absolute;
     top: -12%;
-    transform: rotateX(85deg) rotateY(50deg) rotateZ(90deg);
+    transform: scale(0.5) rotateX(85deg) rotateY(50deg) rotateZ(90deg);
     transition: all 4s linear;
     width: 50%;
 }
@@ -988,7 +988,114 @@ body {
     left: -25%;
     position: absolute;
     top: -1%;
-    transform: rotateX(85deg) rotateY(70deg) rotateZ(60deg);
+    transform: scale(0.5) rotateX(85deg) rotateY(70deg) rotateZ(60deg);
     transition: all 4s linear;
     width: 50%;
+}
+
+.landingTitleDiv_JanuaryA {
+    grid-column: col1 / col2;
+    grid-row: row1 / rowEnd;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 1;
+}
+
+.landingTitle_JanuaryA {
+    color: #00081a;
+    cursor: none;
+    filter: saturate(0%);
+    font-family: 'Audiowide', cursive;
+    font-size: 90px;
+    left: -220px;
+    position: absolute;
+    top: 33%;
+    transform: rotateZ(-90deg);
+    transition: all 4s linear;
+    z-index: 55;
+}
+
+.landingTitle_JanuaryA:hover {
+    color: #f3ffff;
+    filter: saturate(500%);
+    transition: all 4s linear;
+}
+
+.landingByline_JanuaryA {
+    color: #00081a;
+    cursor: none;
+    filter: saturate(0%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    left: -100px;
+    position: absolute;
+    top: 43%;
+    transform: rotateZ(-90deg);
+    transition: all 4s linear;
+    z-index: 55;
+}
+
+.landingByline_JanuaryA:hover {
+    color: #f3ffff;
+    filter: saturate(500%);
+    transition: all 4s linear;
+}
+
+.userLogin_JanuaryA {
+    backdrop-filter: hue-rotate(270deg);
+    background: transparent;
+    border: none;
+    color: #00081a;
+    cursor: pointer;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: col7 / col8;
+    grid-row: row1 / row2;
+    outline-color: #0094ee;
+    position: absolute;
+    top: 10%;
+    transition: all 0.3s linear;
+}
+
+.userLogin_JanuaryA:hover {
+    backdrop-filter: hue-rotate(180deg);
+    color: #f3ffff;
+    transition: all 0.3s linear;
+}
+
+.aboutButton_JanuaryA {
+    backdrop-filter: hue-rotate(270deg);
+    background: transparent;
+    border: none;
+    color: #00081a;
+    cursor: pointer;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: col8 / rightEdge;
+    grid-row: row1 / row2;
+    outline-color: #0094ee;
+    position: absolute;
+    top: 10%;
+    transition: all 0.3s linear;
+}
+
+.aboutButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(180deg);
+    color: #f3ffff;
+    transition: all 0.3s linear;
+}
+
+.landingFooterDiv_JanuaryA {
+    bottom: 0;
+    height: auto;
+    left: 1%;
+    position: absolute;
+    width: 30%;
+}
+
+.landingFooter_JanuaryA {
+    color: #00081a;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
 }
