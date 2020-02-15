@@ -1,0 +1,108 @@
+.loginContainer_JanuaryA {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.loginImageDiv_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/january/southeastAlaska.jpg);
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.loginOuterBox_JanuaryA {
+    backdrop-filter: blur(5px) hue-rotate(180deg);
+    background: #75a7cc;
+    height: 60vh;
+    left: 25%;
+    opacity: 0.3;
+    position: absolute;
+    top: 20%;
+    transform: rotateX(25deg) skew(-15deg);
+    width: 50%;
+}
+
+.loginBoxContainer_JanuaryA {
+    background: transparent;
+    border: 2px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/january/southeastAlaska.jpg) 50 stretch;
+    height: 46vh;
+    justify-content: center;
+    left: 28%;
+    perspective: 200px;
+    position: absolute;
+    top: 27%;
+    transform: rotateY(-25deg) skew(-15deg);
+    width: 45%;
+}
+
+.loginBoxContainer_JanuaryA input {
+    background: #838c9d;
+    border: none;
+    color: #060910;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    margin: 24px 48px;
+    outline-color: #253556;
+    padding: 5px 5px 5px 15px;
+    width: 80%;
+}
+
+.loginBoxContainer_JanuaryA input::placeholder {
+    color: #324f7b;
+}
+
+.loginBoxContainer_JanuaryA button {
+    background: #294062;
+    border: none;
+    color: #bad3e6;
+    cursor: pointer;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    left: 43%;
+    margin-top: 18px;
+    outline-color: #324f7b;
+    padding: 5px;
+    position: relative;
+    transition: all 0.2s linear;
+}
+.loginBoxContainer_JanuaryA button:hover {
+    background: #75a7cc;
+    color: #060910;
+    transition: all 0.2s linear;
+}
+
+.loginTitle_JanuaryA {
+    color: #0e1522;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 30px;
+    margin: 24px 48px 12px 48px;
+}
+
+.loginErrorMessaging_JanuaryA {
+/*    background: #bad3e6;*/
+    color: #060910;
+    filter: hue-rotate(180deg);
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 24px 48px;
+    padding: 6px;
+    width: 78%;
+}
+
+.loginSubmitHide_JanuaryA {
+    visibility: hidden;
+}
+
+.loginSubmitShow_JanuaryA {
+    visibility: visible;
+}
