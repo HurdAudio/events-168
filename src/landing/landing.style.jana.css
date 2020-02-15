@@ -7,7 +7,13 @@ body {
     height: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
+    transition: all 0.4s linear;
     width: 100%;
+}
+
+.containerContained_JanuaryA {
+    filter: blur(5px);
+    transition: all 0.4s linear;
 }
 
 .imageDiv_JanuaryA {
@@ -1004,7 +1010,7 @@ body {
 
 .landingTitle_JanuaryA {
     color: #00081a;
-    cursor: none;
+    cursor: pointer;
     filter: saturate(0%);
     font-family: 'Audiowide', cursive;
     font-size: 90px;
@@ -1043,8 +1049,7 @@ body {
 }
 
 .userLogin_JanuaryA {
-    backdrop-filter: hue-rotate(270deg);
-    background: transparent;
+    background: #053075;
     border: none;
     color: #00081a;
     cursor: pointer;
@@ -1052,21 +1057,20 @@ body {
     font-size: 24px;
     grid-column: col7 / col8;
     grid-row: row1 / row2;
-    outline-color: #0094ee;
+    left: 10%;
+    outline-color: #80caf7;
     position: absolute;
     top: 10%;
     transition: all 0.3s linear;
 }
 
 .userLogin_JanuaryA:hover {
-    backdrop-filter: hue-rotate(180deg);
     color: #f3ffff;
     transition: all 0.3s linear;
 }
 
 .aboutButton_JanuaryA {
-    backdrop-filter: hue-rotate(270deg);
-    background: transparent;
+    background: #053075;
     border: none;
     color: #00081a;
     cursor: pointer;
@@ -1074,14 +1078,14 @@ body {
     font-size: 24px;
     grid-column: col8 / rightEdge;
     grid-row: row1 / row2;
-    outline-color: #0094ee;
+    left: 10%;
+    outline-color: #80caf7;
     position: absolute;
     top: 10%;
     transition: all 0.3s linear;
 }
 
 .aboutButton_JanuaryA:hover {
-    backdrop-filter: hue-rotate(180deg);
     color: #f3ffff;
     transition: all 0.3s linear;
 }
