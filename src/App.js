@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Landing from './landing/landing';
-import logo from './logo.svg';
+import logo from './img/midi5pin.svg';
 import './css/reset.css';
 
 class App extends Component {

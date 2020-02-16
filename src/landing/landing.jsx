@@ -7,14 +7,17 @@ import {
   Link
 } from "react-router-dom";
 import midi5pin from '../img/midi5pin.svg';
+import redMIDI from '../img/redMIDI.png';
 import './landing.style.jana.css';
+import './landing.style.janb.css';
 import Login from '../login/login';
 
 
 function Landing() {
     
-    const [landingMonth, setLandingMonth] = useState('_JanuaryA');
+    const [landingMonth, setLandingMonth] = useState('_JanuaryB');
     const [midiImageClass, setMidiImageClass] = useState('midiImage');
+    const [midiImage, setMidiImage] = useState(redMIDI);
     
     const now = new Date();
     
@@ -23,7 +26,7 @@ function Landing() {
     const adjustImage = (colString, rowString) => {
         setMidiImageClass('midiImage' + colString + rowString);
     }
-    
+            
         return(
             <Router>
                 <div className={'container' + landingMonth}>
@@ -103,7 +106,7 @@ function Landing() {
                             <button className={'aboutButton' + landingMonth}>about</button>
                         </Link>
                     </div>
-                    <img className={midiImageClass + landingMonth} src={midi5pin}></img>
+                    <img className={midiImageClass + landingMonth} src={midiImage}></img>
                     <div className={'landingFooterDiv' + landingMonth}>
                         <p className={'landingFooter' + landingMonth}>&copy;{footerText}</p>
                     </div>
