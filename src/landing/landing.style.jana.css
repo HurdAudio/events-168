@@ -955,7 +955,7 @@ body {
 }
 
 .col6row8_JanuaryA {
-    grid-column: col5 / col6;
+    grid-column: col6 / col7;
     grid-row: row8 / rowEnd;
 }
 
