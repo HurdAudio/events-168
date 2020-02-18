@@ -1,0 +1,384 @@
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.userHubContainer_JanuaryA {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: all 0.4s linear;
+    width: 100%;
+}
+
+.userHubContainerContained_JanuaryA {
+    filter: blur(5px);
+    transition: all 0.4s linear;
+}
+
+.userHubImageDiv_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/userhub/january/ice_cold__by_8moments_dajgv4b-pre.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 12.5% [col2] 12.5% [col3] 12.5% [col4] 12.5% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [rightEdge];
+    grid-template-rows: [row1] 12.5% [row2] 12.5% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [rowEnd];
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.userHubLogoImg_JanuaryA {
+    filter: brightness(150%);
+    grid-column: col1 / col3;
+    grid-row: row1 / row3;
+    margin: 10px;
+    width: 35%;
+    z-index: 15;
+}
+
+.userHubTitleBar_JanuaryA {
+    backdrop-filter: blur(8px) sepia(50%);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+    justify-content: center;
+}
+
+.userHubTitle_JanuaryA {
+    color: #131c3d;
+    font-family: 'Alata', sans-serif;
+    font-size: 48px;
+    margin: 2% 15% 0 0;
+}
+
+.userHubLoggedInAsDiv_JanuaryA {
+    cursor: pointer;
+    margin: 0 0 0 25%;
+    transition: all 0.6s linear;
+    width: 10%;
+}
+
+.userHubLoggedInAsDiv_JanuaryA:hover {
+    filter: hue-rotate(180deg);
+    transition: all 0.6s linear;
+}
+
+.userHubLoggedInLabel_JanuaryA {
+    color: #070b18;
+    font-family: 'Alata', sans-serif;
+    font-size: 18px;
+}
+
+.userHubLoggedInAvatar_JanuaryA {
+    margin: 6px 0 0 15%;
+    max-width: 45px;
+}
+
+.userHubLoggedInName_JanuaryA {
+    color: #070b18;
+    font-family: 'Alata', sans-serif;
+    font-size: 18px;
+    margin: 0 0 0 0;
+}
+
+.userHubLogoutButton_JanuaryA {
+    background: #347fa7;
+    border: none;
+    color: #070b18;
+    cursor: pointer;
+    font-family: 'Alata', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    margin: 2% 0 0 50px;
+    padding: 7px;
+    transition: all 0.3 linear;
+}
+
+.userHubLogoutButton_JanuaryA:hover {
+    background: #b3c1cc;
+    transition: all 0.3 linear;
+}
+
+.userHubTabsBar_JanuaryA {
+    backdrop-filter: hue-rotate(-45deg);
+    border-bottom: 3px solid;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/userhub/january/ice_cold__by_8moments_dajgv4b-pre.jpg) 3 round;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / row3;
+    height: 40%;
+    justify-content: flex-start;
+}
+
+.userHubTab_JanuaryA {
+    color: #070b18;
+    cursor: pointer;
+    font-family: 'Alata', sans-serif;
+    font-size: 30px;
+    height: 40%;
+}
+
+#userhubHomeTag_JanuaryA {
+    color: #070b18;
+    grid-column: col2 / col3;
+    grid-row: row2 / row3;
+    margin: 6px 0 0 0;
+    z-index: 60;
+}
+
+#userhubLibrarianTag_JanuaryA {
+    color: #070b18;
+    grid-column: col3 / col4;
+    grid-row: row2 / row3;
+    margin: 6px 0 0 0;
+    z-index: 60;
+}
+
+#userhubSequencerTag_JanuaryA {
+    color: #070b18;
+    grid-column: col4 / col5;
+    grid-row: row2 / row3;
+    margin: 6px 0 0 0;
+    z-index: 60;
+}
+
+#userhubMidiFXTag_JanuaryA {
+    color: #070b18;
+    grid-column: col5 / col6;
+    grid-row: row2 / row3;
+    margin: 6px 0 0 0;
+    z-index: 60;
+}
+
+#userhubSocialTag_JanuaryA {
+    color: #070b18;
+    grid-column: col7 / col8;
+    grid-row: row2 / row3;
+    margin: 6px 0 0 0;
+    z-index: 60;
+}
+
+#userhubPanicTag_JanuaryA {
+    color: #070b18;
+    grid-column: col8 / rightEdge;
+    grid-row: row2 / row3;
+    margin: 6px 0 0 0;
+    z-index: 60;
+}
+
+.sliderTabHome_JanuaryA {
+    background: #3198c1;
+/*
+    grid-column: col2 / col3;
+    grid-row: row2 / row3;
+*/
+    height: 5%;
+    left: 12.5%;
+    margin: 0 10px 0 -10px;
+    opacity: 0.8;
+    position: absolute;
+    top: 12.5%;
+    transition: all 0.4s;
+    transition-timing-function: cubic-bezier(0.2, -0.3, 0.4, 0.1);
+    width: 12.5%;
+    z-index: 40;
+}
+
+.sliderTabLibrarian_JanuaryA {
+    background: #3198c1;
+/*
+    grid-column: col3 / col4;
+    grid-row: row2 / row3;
+*/
+    height: 5%;
+    left: 25%;
+    margin: 0 10px 0 -10px;
+    opacity: 0.8;
+    position: absolute;
+    top: 12.5%;
+    transition: all 0.4s;
+    transition-timing-function: cubic-bezier(0.2, -0.3, 0.4, 0.1);
+    width: 12.5%;
+    z-index: 40;
+}
+
+.sliderTabSequencer_JanuaryA {
+    background: #3198c1;
+/*
+    grid-column: col4 / col5;
+    grid-row: row2 / row3;
+*/
+    height: 5%;
+    left: 37.5%;
+    margin: 0 10px 0 -10px;
+    opacity: 0.8;
+    position: absolute;
+    top: 12.5%;
+    transition: all 0.4s;
+    transition-timing-function: cubic-bezier(0.2, -0.3, 0.4, 0.1);
+    width: 12.5%;
+    z-index: 40;
+}
+
+.sliderTabMidiFX_JanuaryA {
+    background: #3198c1;
+/*
+    grid-column: col5 / col6;
+    grid-row: row2 / row3;
+*/
+    height: 5%;
+    left: 50%;
+    margin: 0 10px 0 -10px;
+    opacity: 0.8;
+    position: absolute;
+    top: 12.5%;
+    transition: all 0.4s;
+    transition-timing-function: cubic-bezier(0.2, -0.3, 0.4, 0.1);
+    width: 12.5%;
+    z-index: 40;
+}
+
+.sliderTabSocial_JanuaryA {
+    background: #3198c1;
+/*
+    grid-column: col7 / col8;
+    grid-row: row2 / row3;
+*/
+    height: 5%;
+    left: 75%;
+    margin: 0 10px 0 -10px;
+    opacity: 0.8;
+    position: absolute;
+    top: 12.5%;
+    transition: all 0.4s;
+    transition-timing-function: cubic-bezier(0.2, -0.3, 0.4, 0.1);
+    width: 12.5%;
+    z-index: 40;
+}
+
+.sliderTabPanic_JanuaryA {
+    background: #3198c1;
+/*
+    grid-column: col8 / rightEdge;
+    grid-row: row2 / row3;
+*/
+    height: 5%;
+    left: 87.5%;
+    margin: 0 10px 0 -10px;
+    opacity: 0.8;
+    position: absolute;
+    top: 12.5%;
+    transition: all 0.4s;
+    transition-timing-function: cubic-bezier(0.2, -0.3, 0.4, 0.1);
+    width: 12.5%;
+    z-index: 40;
+}
+
+.homeContentActive_JanuaryA {
+    backdrop-filter: brightness(50%) hue-rotate(25deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    margin: 3% 0.2% 1% 0.2%;
+    transition: all 0.8s ease-out;
+}
+
+.homeContentInactive_JanuaryA {
+    backdrop-filter: brightness(50%) hue-rotate(-25deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    margin: 3% 100% 1% 0.2%;
+    transition: all 0.8s ease-out;
+}
+
+.librarianContentActive_JanuaryA {
+    backdrop-filter: brightness(50%) hue-rotate(-25deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    margin: 3% 0.2% 1% 0.2%;
+    transition: all 0.8s ease-out;
+}
+
+.librarianContentInactive_JanuaryA {
+    backdrop-filter: brightness(50%) hue-rotate(25deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    margin: 103% 0.2% 1% 0.2%;
+    transition: all 0.8s ease-out;
+}
+
+.sequencerContentActive_JanuaryA {
+    backdrop-filter: brightness(50%) hue-rotate(35deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    margin: 3% 0.2% 1% 0.2%;
+    transition: all 0.8s ease-out;
+}
+
+.sequencerContentInactive_JanuaryA {
+    backdrop-filter: brightness(50%) hue-rotate(-35deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    margin: 3% 0.2% 1% 100.2%;
+    transition: all 0.8s ease-out;
+}
+
+.midiFXContentActive_JanuaryA {
+    backdrop-filter: brightness(50%) hue-rotate(-35deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    margin: 3% 0.2% 1% 0.2%;
+    transition: all 0.8s ease-out;
+}
+
+.midiFXContentInactive_JanuaryA {
+    backdrop-filter: brightness(50%) hue-rotate(35deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    margin: 3% 0.2% 101% 0.2%;
+    transition: all 0.8s ease-out;
+}
+
+.socialContentActive_JanuaryA {
+    backdrop-filter: brightness(60%) hue-rotate(-10deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    margin: 3% 0.2% 1% 0.2%;
+    transition: all 0.8s ease-out;
+}
+
+.socialContentInactive_JanuaryA {
+    backdrop-filter: brightness(60%) hue-rotate(10deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    margin: 3% 0.2% 1% 0.2%;
+    transform: scale(0.0001);
+    transition: all 0.8s ease-out;
+}
+
+.panicContentActive_JanuaryA {
+    backdrop-filter: brightness(80%) hue-rotate(360deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    margin: 3% 0.2% 1% 0.2%;
+    opacity: 1;
+    transition: all 0.8s ease-out;
+}
+
+.panicContentInactive_JanuaryA {
+    backdrop-filter: brightness(300%) hue-rotate(-360deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    margin: 3% 0.2% 1% 0.2%;
+    opacity: 0;
+    transform: scale(10);
+    transition: all 0.8s ease-out;
+}
+
