@@ -52,7 +52,7 @@ function Landing() {
                     <div className={'col2row2' + landingMonth} onMouseOver={() => adjustImage('col2', 'row2')}></div>
                     <div className={'col3row2' + landingMonth} onMouseOver={() => adjustImage('col3', 'row2')}></div>
                     <div className={'col4row2' + landingMonth} onMouseOver={() => adjustImage('col4', 'row2')}></div>
-                    <div className={'col5row2' + landingMonth} onMouseOver={() => adjustImage('col5', 'row2')}></div>
+                    7<div className={'col5row2' + landingMonth} onMouseOver={() => adjustImage('col5', 'row2')}></div>
                     <div className={'col6row2' + landingMonth} onMouseOver={() => adjustImage('col6', 'row2')}></div>
                     <div className={'col7row2' + landingMonth} onMouseOver={() => adjustImage('col7', 'row2')}></div>
                     <div className={'col8row2' + landingMonth} onMouseOver={() => adjustImage('col8', 'row2')}></div>

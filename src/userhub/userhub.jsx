@@ -6,6 +6,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Home from './Home';
+import Library from './Library';
+import Sequencer from './Sequencer';
+import MidiFX from './MidiFX';
+import Social from './Social';
+import panic from '../img/panic.svg';
 import './userhub.style.jana.css';
 import midi5pin from '../img/midi5pin.svg';
 
@@ -21,13 +27,21 @@ function UserHub() {
     const [userhubMonth, setUserhubMonth] = useState('_JanuaryA');
     const [userhubState, setUserhubState] = useState({
         home: 'homeContentActive',
+        homeDiv: 'homeContentOn',
         librarian: 'librarianContentInactive',
+        libraryDiv: 'libraryContentOff',
         midiFX: 'midiFXContentInactive',
+        midiFXDiv: 'midiFXOff',
         panic: 'panicContentInactive',
+        panicDiv: 'panicOff',
         sequencer: 'sequencerContentInactive',
+        sequencerDiv: 'sequencerContentOff',
         social: 'socialContentInactive',
+        socialDiv: 'soccialOff',
         tab: 'sliderTabHome'
     });
+    const [panicMonth, setPanicMonth] = useState('_JanuaryA');
+    const [panicOn, setPanicOn] = useState(false);
     
     const hubStateHome = () => {
         if (userhubState.tab === 'sliderTabHome') {
@@ -35,11 +49,17 @@ function UserHub() {
         }
         setUserhubState({
             home: 'homeContentActive',
+            homeDiv: 'homeContentOn',
             librarian: 'librarianContentInactive',
+            libraryDiv: 'libraryContentOff',
             midiFX: 'midiFXContentInactive',
+            midiFXDiv: 'midiFXOff',
             panic: 'panicContentInactive',
+            panicDiv: 'panicOff',
             sequencer: 'sequencerContentInactive',
+            sequencerDiv: 'sequencerContentOff',
             social: 'socialContentInactive',
+            socialDiv: 'soccialOff',
             tab: 'sliderTabHome'
         });
     }
@@ -50,11 +70,17 @@ function UserHub() {
         }
         setUserhubState({
             home: 'homeContentInactive',
+            homeDiv: 'homeContentOff',
             librarian: 'librarianContentActive',
+            libraryDiv: 'libraryContentOn',
             midiFX: 'midiFXContentInactive',
+            midiFXDiv: 'midiFXOff',
             panic: 'panicContentInactive',
+            panicDiv: 'panicOff',
             sequencer: 'sequencerContentInactive',
+            sequencerDiv: 'sequencerContentOff',
             social: 'socialContentInactive',
+            socialDiv: 'soccialOff',
             tab: 'sliderTabLibrarian'
         });
     }
@@ -65,11 +91,17 @@ function UserHub() {
         }
         setUserhubState({
             home: 'homeContentInactive',
+            homeDiv: 'homeContentOff',
             librarian: 'librarianContentInactive',
+            libraryDiv: 'libraryContentOff',
             midiFX: 'midiFXContentInactive',
+            midiFXDiv: 'midiFXOff',
             panic: 'panicContentInactive',
+            panicDiv: 'panicOff',
             sequencer: 'sequencerContentActive',
+            sequencerDiv: 'sequencerContentOn',
             social: 'socialContentInactive',
+            socialDiv: 'soccialOff',
             tab: 'sliderTabSequencer'
         });
     }
@@ -80,11 +112,17 @@ function UserHub() {
         }
         setUserhubState({
             home: 'homeContentInactive',
+            homeDiv: 'homeContentOff',
             librarian: 'librarianContentInactive',
+            libraryDiv: 'libraryContentOff',
             midiFX: 'midiFXContentActive',
+            midiFXDiv: 'midiFXOn',
             panic: 'panicContentInactive',
+            panicDiv: 'panicOff',
             sequencer: 'sequencerContentInactive',
+            sequencerDiv: 'sequencerContentOff',
             social: 'socialContentInactive',
+            socialDiv: 'soccialOff',
             tab: 'sliderTabMidiFX'
         });
     }
@@ -95,11 +133,17 @@ function UserHub() {
         }
         setUserhubState({
             home: 'homeContentInactive',
+            homeDiv: 'homeContentOff',
             librarian: 'librarianContentInactive',
+            libraryDiv: 'libraryContentOff',
             midiFX: 'midiFXContentInactive',
+            midiFXDiv: 'midiFXOff',
             panic: 'panicContentInactive',
+            panicDiv: 'panicOff',
             sequencer: 'sequencerContentInactive',
+            sequencerDiv: 'sequencerContentOff',
             social: 'socialContentActive',
+            socialDiv: 'soccialOn',
             tab: 'sliderTabSocial'
         });
     }
@@ -110,13 +154,23 @@ function UserHub() {
         }
         setUserhubState({
             home: 'homeContentInactive',
+            homeDiv: 'homeContentOff',
             librarian: 'librarianContentInactive',
+            libraryDiv: 'libraryContentOff',
             midiFX: 'midiFXContentInactive',
+            midiFXDiv: 'midiFXOff',
             panic: 'panicContentActive',
+            panicDiv: 'panicOn',
             sequencer: 'sequencerContentInactive',
+            sequencerDiv: 'sequencerContentOff',
             social: 'socialContentInactive',
+            socialDiv: 'soccialOff',
             tab: 'sliderTabPanic'
         });
+        setPanicOn(true);
+        setTimeout(() => {
+           setPanicOn(false); 
+        }, 7000);
     }
     
     
@@ -157,13 +211,45 @@ function UserHub() {
                     <p className={'userHubTab' + userhubMonth}
                         id={'userhubPanicTag' + userhubMonth}
                         onClick={() => hubStatePanic()}>panic!</p>
-                    <span class={userhubState.tab + userhubMonth}></span>
-                    <div class={userhubState.home + userhubMonth}></div>
-                    <div class={userhubState.librarian + userhubMonth}></div>
-                    <div class={userhubState.sequencer + userhubMonth}></div>
-                    <div class={userhubState.midiFX + userhubMonth}></div>
-                    <div class={userhubState.social + userhubMonth}></div>
-                    <div class={userhubState.panic + userhubMonth}></div>
+                    <span className={userhubState.tab + userhubMonth}></span>
+                    <div className={userhubState.home + userhubMonth}>
+                        <div className={userhubState.homeDiv + userhubMonth}>
+                            <Home />
+                        </div>
+                    </div>
+                    <div className={userhubState.librarian + userhubMonth}>
+                        <div className={userhubState.libraryDiv + userhubMonth}>
+                            <Library />
+                        </div>
+                    </div>
+                    <div className={userhubState.sequencer + userhubMonth}>
+                        <div className={userhubState.sequencerDiv + userhubMonth}>
+                            <Sequencer />
+                        </div>
+                    </div>
+                    <div className={userhubState.midiFX + userhubMonth}>
+                        <div className={userhubState.midiFXDiv + userhubMonth}>
+                            <MidiFX />
+                        </div>
+                    </div>
+                    <div className={userhubState.social + userhubMonth}>
+                        <div className={userhubState.socialDiv + userhubMonth}>
+                            <Social />
+                        </div>
+                    </div>
+                    <div className={userhubState.panic + userhubMonth}>
+                        <div className={userhubState.panicDiv + userhubMonth}>
+                            <div className={'homeContainer' + panicMonth}>
+                            <img className={'panicIcon' + panicMonth}
+                                src={panic}></img>
+                
+                            {panicOn && (<div className={'panicSpinner' + panicMonth}></div>)}
+                            {!panicOn && (<div className={'panicComplete' + panicMonth}>
+                                    <p className={'panicCompleteMessage' + panicMonth}>all notes off</p></div>)}
+                
+                            </div>
+                        </div>
+                    </div>
                     
                 </div>
             </div>
