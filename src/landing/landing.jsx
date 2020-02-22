@@ -21,7 +21,15 @@ function Landing() {
     
     const now = new Date();
     
-    const footerText = now.getFullYear() + ' HurdAudio';
+    let footerText = '';
+    
+    if (now.getFullYear() > 2020) {
+        footerText = '2020-' + now.getFullYear() + ' HurdAudio';
+    } else {
+        footerText = now.getFullYear() + ' HurdAudio';
+    }
+    
+    
     
     const adjustImage = (colString, rowString) => {
         setMidiImageClass('midiImage' + colString + rowString);
