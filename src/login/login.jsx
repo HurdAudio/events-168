@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { NavLink } from 'react-router-dom'
 import './login.style.jana.css';
 
 function Login() {
@@ -10,6 +11,8 @@ function Login() {
     const [emailValue, setEmailValue] = useState('');
     const [passwordValue, setPasswordValue] = useState('');
     const [submitButtonClass, setSubmitButtonClass] = useState('loginSubmitHide');
+    
+    let localStorage = window.localStorage;
     
     function showSubmit() {
         setSubmitButtonClass('loginSubmitShow');
@@ -59,13 +62,16 @@ function Login() {
                     onKeyUp={(e) => updatePasswordValue(e.target.value)}
                     placeholder="password"
                     type="password"></input>
-                <button className={submitButtonClass + loginMonth}
+                <NavLink to="/"><button className={submitButtonClass + loginMonth}
                     onClick={() => {
                         if ((emailValue.trim().toLowerCase() === 'devin@devinhurd.com') && (passwordValue === 'password')) {
-                            errorMessaging('login success')
+                            errorMessaging('login success');
+                            localStorage.setItem('userLoggedIn', true);
                         } else {
-                            errorMessaging('error: login fail')
+                            errorMessaging('error: login fail');
+                            localStorage.setItem('userLoggedIn', false);
                         }}}>submit</button>
+                    </NavLink>
             </div>
         </div>
         );
