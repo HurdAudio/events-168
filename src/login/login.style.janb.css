@@ -1,0 +1,105 @@
+.loginContainer_JanuaryB {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.loginImageDiv_JanuaryB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/january/erik-mclean-d8LfBmm_V6c-unsplash.jpg);
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.loginOuterBox_JanuaryB {
+    backdrop-filter: brightness(130%);
+    background: #88bed8;
+    height: 60vh;
+    left: 45%;
+    opacity: 0.7;
+    position: absolute;
+    top: 35%;
+    width: 50%;
+}
+
+.loginBoxContainer_JanuaryB {
+    background: transparent;
+    border: 2px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/january/erik-mclean-d8LfBmm_V6c-unsplash.jpg) 50 stretch;
+    height: 52.5vh;
+    justify-content: center;
+    left: 47.5%;
+    perspective: 200px;
+    position: absolute;
+    top: 38.5%;
+    width: 45%;
+}
+
+.loginBoxContainer_JanuaryB input {
+    background: #4b8ba6;
+    border: none;
+    color: #0b0a0b;
+    font-family: 'Literata', serif;
+    font-size: 24px;
+    margin: 24px 48px;
+    outline-color: #0b0a0b;
+    padding: 5px 5px 5px 15px;
+    width: 80%;
+}
+
+.loginBoxContainer_JanuaryB input::placeholder {
+    color: #194955;
+}
+
+.loginBoxContainer_JanuaryB button {
+    background: #2b6579;
+    border: none;
+    color: #b6d2df;
+    cursor: pointer;
+    font-family: 'Literata', serif;
+    font-size: 24px;
+    left: 41%;
+    margin-top: 18px;
+    outline-color: #b6d2df;
+    padding: 5px;
+    position: relative;
+    transition: all 0.2s linear;
+}
+.loginBoxContainer_JanuaryB button:hover {
+    background: #b6d2df;
+    color: #2b6579;
+    transition: all 0.2s linear;
+}
+
+.loginTitle_JanuaryB {
+    color: #0b0a0b;
+    font-family: 'Literata', serif;
+    font-size: 36px;
+    margin: 24px 48px 12px 48px;
+}
+
+.loginErrorMessaging_JanuaryB {
+    color: #112830;
+    filter: hue-rotate(180deg);
+    font-family: 'Literata', serif;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 24px 48px;
+    padding: 6px;
+    width: 78%;
+}
+
+.loginSubmitHide_JanuaryB {
+    visibility: hidden;
+}
+
+.loginSubmitShow_JanuaryB {
+    visibility: visible;
+}
