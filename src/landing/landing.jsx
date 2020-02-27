@@ -8,16 +8,18 @@ import {
 } from "react-router-dom";
 import midi5pin from '../img/midi5pin.svg';
 import redMIDI from '../img/redMIDI.png';
+import vectorMidiPng from '../img/vectorMidiPng.png';
 import './landing.style.jana.css';
 import './landing.style.janb.css';
+import './landing.style.janc.css';
 import Login from '../login/login';
 
 
 function Landing() {
     
-    const [landingMonth, setLandingMonth] = useState('_JanuaryB');
+    const [landingMonth, setLandingMonth] = useState('_JanuaryC');
     const [midiImageClass, setMidiImageClass] = useState('midiImage');
-    const [midiImage, setMidiImage] = useState(redMIDI);
+    const [midiImage, setMidiImage] = useState(vectorMidiPng);
     
     const now = new Date();
     
