@@ -15,6 +15,7 @@ import Social from './Social';
 import panic from '../img/panic.svg';
 import './userhub.style.jana.css';
 import midi5pin from '../img/midi5pin.svg';
+import VolcaFm from '../volcaFm/volcaFm';
 
 let localStorage = window.localStorage;
 
@@ -189,6 +190,11 @@ function UserHub() {
     
         return(
             <Router>
+                <Switch>
+                    <Route path="/volca-fm-editor">
+                        <VolcaFm />
+                    </Route>
+                </Switch>
                 <div className={'userHubContainer' + userhubMonth}>
                     <div className={'userHubImageDiv' + userhubMonth}>
                         <img className={'userHubLogoImg' + userhubMonth}
@@ -271,7 +277,6 @@ function UserHub() {
                         <p className={'userhubFooter' + userhubMonth}>&copy;{footerText}</p>
 
                     </div>
-                    
                 </div>
             </Router>
         );

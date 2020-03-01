@@ -57,7 +57,7 @@ function Home() {
                     <p className={'homeDropdownLabel' + homeMonth}>MIDI manager:</p>
                     <select className={'homeDropdown' + homeMonth}>
                         {midiConfigurations.map(item => 
-                            <option value={item.uuid}>{item.name}</option>
+                            <option key={item.uuid} value={item.uuid}>{item.name}</option>
                         )}
                     </select>
                     <button className={'homeButtons' + homeMonth}>load</button>
@@ -71,7 +71,6 @@ function Home() {
                         max={'510510'}
                         min={'1'}
                         onChange={(e) => clockResolutionChange(e.target.value)}
-                        stepValue={'1'}
                         type='number' 
                         value={userClockResolution}></input>
                 </div>

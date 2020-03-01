@@ -36,7 +36,7 @@ function Sequencer() {
                     <p className={'homeDropdownLabel' + sequenceMonth}>projects:</p>
                     <select className={'homeDropdown' + sequenceMonth}>
                         {sequenceProjects.map(item => 
-                            <option value={item.uuid}>{item.name}</option>
+                            <option key={item.uuid} value={item.uuid}>{item.name}</option>
                         )}
                     </select>
                     <button className={'homeButtons' + sequenceMonth}>step edit</button>

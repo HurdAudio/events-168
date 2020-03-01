@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  NavLink
 } from "react-router-dom";
 import './userhub.style.jana.css';
 import midi5pin from '../img/midi5pin.svg';
@@ -13,7 +14,9 @@ import book from '../img/book.svg';
 const midiDevices = [
     {
         uuid: '18903503-5368-4a42-b52b-bceca81c5262',
-        name: 'korg volca fm'
+        name: 'korg volca fm',
+        path: '/volca-fm-editor',
+        component: '<volcaFm />'
     },
     {
         uuid: '149c3b5d-74f7-4241-bcb9-b907dea6081f',
@@ -68,48 +71,61 @@ const midiDevices = [
 function Library() {
     
     const [libraryMonth, setLibraryMonth] = useState('_JanuaryA');
+    const [patchEditorState, setPatchEditorState] = useState({
+        path: midiDevices[0].path,
+        component: midiDevices[0].component
+    });
+    const [patchEditorActive, setPatchEditorActive] = useState(false);
+    
+    function navigateToEditor() {
+        
+    }
     
         return(
-            <div className={'homeContainer' + libraryMonth}>
-                <img className={'libraryIcon' + libraryMonth}
-                    src={book}></img>
-                
-                <div className={'homeBulletList' + libraryMonth}>
-                    <img className={'homeMidiBullet' + libraryMonth} 
-                        src={midi5pin}></img>
-                    <p className={'homeDropdownLabel' + libraryMonth}>patch editor:</p>
-                    <select className={'homeDropdown' + libraryMonth}>
-                        {midiDevices.map(item => 
-                            <option value={item.uuid}>{item.name}</option>
-                        )}
-                    </select>
-                    <button className={'homeButtons' + libraryMonth}>load editor</button>
+                <div className={'homeContainer' + libraryMonth}>
+                    <img className={'libraryIcon' + libraryMonth}
+                        src={book}></img>
+
+                    <div className={'homeBulletList' + libraryMonth}>
+                        <img className={'homeMidiBullet' + libraryMonth} 
+                            src={midi5pin}></img>
+                        <p className={'homeDropdownLabel' + libraryMonth}>patch editor:</p>
+                        <select className={'homeDropdown' + libraryMonth}>
+                            {midiDevices.map(item => 
+                                <option key={item.uuid} value={item.uuid}>{item.name}</option>
+                            )}
+                        </select>
+                        <Link to={patchEditorState.path}>
+                            <button className={'homeButtons' + libraryMonth}>
+                                load editor
+                            </button>
+                        </Link>
+                    </div>
+                    <div className={'homeBulletList' + libraryMonth}>
+                        <img className={'homeMidiBullet' + libraryMonth} 
+                            src={midi5pin}></img>
+                        <p className={'homeDropdownLabel' + libraryMonth}>patch manager:</p>
+                        <select className={'homeDropdown' + libraryMonth}>
+                            {midiDevices.map(item => 
+                                <option key={item.uuid} value={item.uuid}>{item.name}</option>
+                            )}
+                        </select>
+                        <button className={'homeButtons' + libraryMonth}>load manager</button>
+                    </div>
+                    <div className={'homeBulletList' + libraryMonth}>
+                        <img className={'homeMidiBullet' + libraryMonth} 
+                            src={midi5pin}></img>
+                        <p className={'homeDropdownLabel' + libraryMonth}>shared patches:</p>
+                        <select className={'homeDropdown' + libraryMonth}>
+                            {midiDevices.map(item => 
+                                <option key={item.uuid} value={item.uuid}>{item.name}</option>
+                            )}
+                        </select>
+                        <button className={'homeButtons' + libraryMonth}>patch market</button>
+                    </div>
+
+
                 </div>
-                <div className={'homeBulletList' + libraryMonth}>
-                    <img className={'homeMidiBullet' + libraryMonth} 
-                        src={midi5pin}></img>
-                    <p className={'homeDropdownLabel' + libraryMonth}>patch manager:</p>
-                    <select className={'homeDropdown' + libraryMonth}>
-                        {midiDevices.map(item => 
-                            <option value={item.uuid}>{item.name}</option>
-                        )}
-                    </select>
-                    <button className={'homeButtons' + libraryMonth}>load manager</button>
-                </div>
-                <div className={'homeBulletList' + libraryMonth}>
-                    <img className={'homeMidiBullet' + libraryMonth} 
-                        src={midi5pin}></img>
-                    <p className={'homeDropdownLabel' + libraryMonth}>shared patches:</p>
-                    <select className={'homeDropdown' + libraryMonth}>
-                        {midiDevices.map(item => 
-                            <option value={item.uuid}>{item.name}</option>
-                        )}
-                    </select>
-                    <button className={'homeButtons' + libraryMonth}>patch market</button>
-                </div>
-                
-                
-            </div>
         );
     
 }

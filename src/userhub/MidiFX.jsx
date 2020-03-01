@@ -88,7 +88,7 @@ function MidiFX() {
                     <p className={'homeDropdownLabel' + midiFXMonth}>midi delay:</p>
                     <select className={'homeDropdown' + midiFXMonth}>
                         {midiDelays.map(item => 
-                            <option value={item.uuid}>{item.name}</option>
+                            <option key={item.uuid} value={item.uuid}>{item.name}</option>
                         )}
                     </select>
                     <button className={'homeButtons' + midiFXMonth}>edit</button>
@@ -99,7 +99,7 @@ function MidiFX() {
                     <p className={'homeDropdownLabel' + midiFXMonth}>midi smear:</p>
                     <select className={'homeDropdown' + midiFXMonth}>
                         {midiSmears.map(item => 
-                            <option value={item.uuid}>{item.name}</option>
+                            <option key={item.uuid} value={item.uuid}>{item.name}</option>
                         )}
                     </select>
                     <button className={'homeButtons' + midiFXMonth}>edit</button>
@@ -110,7 +110,7 @@ function MidiFX() {
                     <p className={'homeDropdownLabel' + midiFXMonth}>midi glissando:</p>
                     <select className={'homeDropdown' + midiFXMonth}>
                         {midiGlissandos.map(item => 
-                            <option value={item.uuid}>{item.name}</option>
+                            <option key={item.uuid} value={item.uuid}>{item.name}</option>
                         )}
                     </select>
                     <button className={'homeButtons' + midiFXMonth}>edit</button>
@@ -121,7 +121,7 @@ function MidiFX() {
                     <p className={'homeDropdownLabel' + midiFXMonth}>midi glitch:</p>
                     <select className={'homeDropdown' + midiFXMonth}>
                         {midiGlitches.map(item => 
-                            <option value={item.uuid}>{item.name}</option>
+                            <option key={item.uuid} value={item.uuid}>{item.name}</option>
                         )}
                     </select>
                     <button className={'homeButtons' + midiFXMonth}>edit</button>

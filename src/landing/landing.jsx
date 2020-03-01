@@ -13,6 +13,7 @@ import './landing.style.jana.css';
 import './landing.style.janb.css';
 import './landing.style.janc.css';
 import Login from '../login/login';
+import volcaFm from '../volcaFm/volcaFm';
 
 
 function Landing() {
@@ -140,8 +141,10 @@ function Landing() {
                 <Route path="/">
                     <Home />
                 </Route>
+                <Route path="/volca-fm-editor">
+                    <volcaFm />
+                </Route>
             </Switch>
-
         </Router>
     );
                 
