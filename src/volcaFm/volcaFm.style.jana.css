@@ -106,3 +106,4124 @@
     grid-row: row1 / row2;
     z-index: 56;
 }
+
+.volcaFmAlgorithmContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [acol1] 1fr [acol2] 1fr [acol3] 1fr [acol4] 1fr [acol5] 1fr [acol6] 1fr [acol7] 1fr [acol8] 1fr [acol9] 1fr [acol10] 1fr [acol11] 1fr [acol12] 1fr [acol13] 1fr [acol14] 1fr [acol15] 1fr [acol16] 1fr [acol17] 1fr [acol18] 1fr [acol19] 1fr [acol20] 1fr [acol21] 1fr [acol22] 1fr [acol23] 1fr [acol24] 1fr [arightEdge];
+    grid-template-rows: [arow1] 1fr [arow2] 1fr [arow3] 1fr [arow4] 1fr [arow5] 1fr [arow6] 1fr [arow7] 1fr [arow8] 1fr [arow9] 1fr [arow10] 1fr [arow11] 1fr [arow12] 1fr [arow13] 1fr [arow14] 1fr [arow15] 1fr [arow16] 1fr [arow17] 1fr [arow18] 1fr [arow19] 1fr [arow20] 1fr [arow21] 1fr [arow22] 1fr [arow23] 1fr [arow24] 1fr [arowEnd];
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.volcaFmOperatorVisualLabel_JanuaryA {
+    font-family: 'Audiowide', cursive;
+    font-size: 200%;
+}
+
+.volcaFmAgorithmLabel_JanuaryA {
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: acol2 / acol4;
+    grid-row: arow2 / arow3;
+    margin-top: 3px;
+}
+
+.volcaFmAlgorithmNumberInput_JanuaryA {
+    color: #0f283d;
+    background: transparent;
+    border: none;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: acol7 / acol9;
+    grid-row: arow2 / arow3;
+    outline-color: #0f283d;
+}
+
+.volcaFmAlgorithmOperator1_algorithm1_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm1_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm1_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm1_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm1_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm1_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow6 / arow8;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm1_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm1_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol10;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm1_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm1_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm1_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm1_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm1_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm1_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm1_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm1_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm1_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow8 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm1_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow8 / arow9;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm1_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm1_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol14 / acol15;
+    grid-row: arow5 / arow9;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm1_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol15 / acol16;
+    grid-row: arow5 / arow9;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm1_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow5 / arow9;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm1_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow5 / arow9;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm1_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow4 / arow5;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm1_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmOperator1_algorithm2_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm2_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm2_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm2_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm2_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm2_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow6 / arow8;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm2_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol7 / acol9;
+    grid-row: arow16 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm2_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol7 / acol8;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm2_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol7 / acol9;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm2_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol6 / acol7;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm2_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol7 / acol9;
+    grid-row: arow12 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm2_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol7 / acol9;
+    grid-row: arow17 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm2_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol9 / acol10;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm2_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol10;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm2_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm2_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm2_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm2_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm2_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm2_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm2_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm2_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm2_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow8 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm2_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow8 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm2_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmOperator1_algorithm3_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm3_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+
+.volcaFmAlgorithmOperator3_algorithm3_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm3_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm3_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm3_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm3_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm3_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol10;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm3_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm3_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol10;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm3_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm3_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm3_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm3_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm3_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm3_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm3_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm3_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm3_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-left: 1px solid #F97609;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow12 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm3_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol15 / acol16;
+    grid-row: arow9 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm3_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol14 / acol15;
+    grid-row: arow9 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm3_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm3_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm3_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow8 / arow9;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm3_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmOperator1_algorithm4_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm4_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+
+.volcaFmAlgorithmOperator3_algorithm4_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm4_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm4_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm4_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm4_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm4_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol10;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm4_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm4_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol10;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm4_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm4_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm4_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm4_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm4_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm4_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm4_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm4_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm4_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow9 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm4_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol15 / acol16;
+    grid-row: arow9 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm4_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm4_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm4_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow8 / arow9;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm4_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm4_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmOperator1_algorithm5_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm5_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm5_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm5_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm5_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm5_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+
+.volcaFmAlgorithmConnector1_algorithm5_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm5_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm5_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm5_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm5_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm5_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow17 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm5_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol19 / acol20;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm5_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow12 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm5_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol16 / acol17;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm5_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm5_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm5_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm5_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm5_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm5_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol17;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm5_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmConnector17_algorithm5_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmConnector18_algorithm5_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmConnector19_algorithm5_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmOperator1_algorithm6_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm6_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm6_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm6_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm6_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm6_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+
+.volcaFmAlgorithmConnector1_algorithm6_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm6_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm6_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm6_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm6_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow13 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm6_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm6_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol19 / acol20;
+    grid-row: arow13 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm6_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow12 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm6_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol16 / acol17;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm6_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm6_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm6_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm6_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm6_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm6_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol17;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm6_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmConnector17_algorithm6_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmConnector18_algorithm6_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmConnector19_algorithm6_JanuaryA {
+    display: none;
+}
+
+
+.volcaFmAlgorithmOperator1_algorithm7_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm7_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm7_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm7_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm7_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm7_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm7_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm7_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm7_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm7_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm7_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow9 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm7_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm7_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol19 / acol20;
+    grid-row: arow9 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm7_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow8 / arow9;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm7_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol16 / acol17;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm7_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm7_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm7_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm7_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm7_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol14 / acol17;
+    grid-row: arow18 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm7_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm7_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol14 / acol17;
+    grid-row: arow19 / arow20;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm7_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol14 / acol17;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm7_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm7_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmOperator1_algorithm8_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm8_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm8_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm8_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm8_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm8_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm8_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm8_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm8_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm8_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm8_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-left: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol11 / acol13;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm8_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol11 / acol13;
+    grid-row: arow17 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm8_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol10 / acol11;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm8_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol11 / acol13;
+    grid-row: arow12 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm8_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm8_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm8_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm8_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm8_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm8_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol14 / acol17;
+    grid-row: arow18 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm8_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm8_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol14 / acol17;
+    grid-row: arow19 / arow20;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm8_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol14 / acol17;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm8_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm8_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmOperator1_algorithm9_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm9_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm9_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm9_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm9_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm9_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm9_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm9_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm9_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm9_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm9_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-left: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol7 / acol9;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm9_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol7 / acol9;
+    grid-row: arow17 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm9_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol6 / acol7;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm9_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol7 / acol9;
+    grid-row: arow12 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm9_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm9_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol9 / acol10;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm9_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm9_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm9_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm9_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol14 / acol17;
+    grid-row: arow18 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm9_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm9_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol14 / acol17;
+    grid-row: arow19 / arow20;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm9_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol14 / acol17;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm9_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm9_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmOperator1_algorithm10_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm10_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm10_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm10_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm10_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm10_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm10_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm10_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm10_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm10_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm10_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow9 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm10_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm10_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol19 / acol20;
+    grid-row: arow9 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm10_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow8 / arow9;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm10_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol16 / acol17;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm10_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm10_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm10_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm10_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm10_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol12;
+    grid-row: arow18 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm10_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol12;
+    grid-row: arow19 / arow20;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm10_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm10_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol16 / acol17;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm10_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm10_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmOperator1_algorithm11_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm11_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm11_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm11_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm11_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm11_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm11_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm11_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm11_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm11_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm11_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm11_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow17 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm11_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol15 / acol16;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm11_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow12 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm11_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm11_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm11_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm11_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm11_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm11_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol12;
+    grid-row: arow18 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm11_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol12;
+    grid-row: arow19 / arow20;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm11_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm11_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol16 / acol17;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm11_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm11_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmOperator1_algorithm12_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm12_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm12_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm12_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol4 / acol6;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm12_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm12_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm12_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol4 / acol5;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm12_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol5 / acol9;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm12_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm12_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm12_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm12_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow17 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm12_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol19 / acol20;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm12_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow12 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm12_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol16 / acol17;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm12_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm12_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm12_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol17;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm12_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm12_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol5 / acol8;
+    grid-row: arow18 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm12_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol5 / acol8;
+    grid-row: arow19 / arow20;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm12_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol17;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm12_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm12_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol10 / acol13;
+    grid-row: arow19 / arow20;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm12_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol10 / acol13;
+    grid-row: arow18 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator1_algorithm13_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm13_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm13_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm13_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol4 / acol6;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm13_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm13_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm13_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol4 / acol5;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm13_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol5 / acol9;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm13_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm13_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm13_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm13_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow17 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm13_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol15 / acol16;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm13_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow12 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm13_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm13_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm13_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm13_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol17;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm13_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm13_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol5 / acol8;
+    grid-row: arow18 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm13_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol5 / acol8;
+    grid-row: arow19 / arow20;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm13_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol17;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm13_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm13_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol10 / acol13;
+    grid-row: arow19 / arow20;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm13_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol10 / acol13;
+    grid-row: arow18 / arow19;
+    transition: all 0.7s linear;
+}
+
+
+.volcaFmAlgorithmOperator1_algorithm14_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm14_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm14_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm14_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm14_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm14_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm14_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm14_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm14_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm14_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow12 / arow15;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm14_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow9 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm14_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm14_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol15 / acol16;
+    grid-row: arow9 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm14_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol15;
+    grid-row: arow8 / arow9;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm14_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm14_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm14_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm14_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm14_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm14_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol14 / acol17;
+    grid-row: arow14 / arow15;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm14_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol14 / acol17;
+    grid-row: arow15 / arow16;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm14_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm14_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow12 / arow15;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm14_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm14_JanuaryA {
+    display: none;
+}
+
+
+.volcaFmAlgorithmOperator1_algorithm15_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm15_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm15_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm15_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm15_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm15_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+
+.volcaFmAlgorithmConnector1_algorithm15_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm15_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm15_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow16 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm15_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow12 / arow15;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm15_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-left: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol7 / acol9;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm15_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol7 / acol9;
+    grid-row: arow17 / arow18;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm15_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol6 / acol7;
+    grid-row: arow13 / arow17;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm15_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol7 / acol9;
+    grid-row: arow12 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm15_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm15_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol9 / acol10;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm15_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm15_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm15_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol14;
+    grid-row: arow20 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm15_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow12 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm15_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm15_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow21 / arow22;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector17_algorithm15_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow12 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector18_algorithm15_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector19_algorithm15_JanuaryA {
+    display: none;
+}
+
+
+.volcaFmAlgorithmOperator1_algorithm16_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(-75deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow18 / arow20;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator2_algorithm16_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol8 / acol10;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator3_algorithm16_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator4_algorithm16_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol12 / acol14;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator5_algorithm16_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow14 / arow16;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmOperator6_algorithm16_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(100%) hue-rotate(0deg);
+    grid-column: acol16 / acol18;
+    grid-row: arow10 / arow12;
+    justify-content: center;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector1_algorithm16_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol8 / acol9;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector2_algorithm16_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector3_algorithm16_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector4_algorithm16_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow12 / arow15;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector5_algorithm16_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    border-right: 1px solid #F97609;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow9 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector6_algorithm16_JanuaryA {
+    background: transparent;
+    border-top: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow13 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector7_algorithm16_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol19 / acol20;
+    grid-row: arow9 / arow13;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector8_algorithm16_JanuaryA {
+    background: transparent;
+    border-bottom: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol19;
+    grid-row: arow8 / arow9;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector9_algorithm16_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol16 / acol17;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector10_algorithm16_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow9 / arow10;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector11_algorithm16_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol9 / acol13;
+    grid-row: arow19 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector12_algorithm16_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    border-top: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol13 / acol17;
+    grid-row: arow19 / arow21;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector13_algorithm16_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow16 / arow19;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector14_algorithm16_JanuaryA {
+    background: transparent;
+    border-right: 1px solid #0f283d;
+    box-sizing: border-box;
+    grid-column: acol12 / acol13;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector15_algorithm16_JanuaryA {
+    background: transparent;
+    border-left: 1px solid #F97609;
+    box-sizing: border-box;
+    grid-column: acol17 / acol18;
+    grid-row: arow12 / arow14;
+    transition: all 0.7s linear;
+}
+
+.volcaFmAlgorithmConnector16_algorithm16_JanuaryA {
+    display: none
+}
+
+.volcaFmAlgorithmConnector17_algorithm16_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmConnector18_algorithm16_JanuaryA {
+    display: none;
+}
+
+.volcaFmAlgorithmConnector19_algorithm15_JanuaryA {
+    display: none;
+}
+

@@ -25,6 +25,13 @@ function VolcaFm () {
     
     const [volcaFmMonth, setVolcaFmMonth] = useState('_JanuaryA');
     const [midiImage, setMidiImage] = useState(midi5pin);
+    const [currentAlgorithm, setCurrentAlgorithm] = useState('_algorithm1');
+    const [currentAlgorithmNumerical, setCurrentAlgorithmNumerical] = useState(1);
+    
+    const changeAlgorithm = (val) => {
+        setCurrentAlgorithmNumerical(val);
+        setCurrentAlgorithm('_algorithm' + val.toString());
+    }
     
     const noteOnEvent = (key) => {
         switch (key.toLowerCase()) {
@@ -289,7 +296,53 @@ function VolcaFm () {
                     <p>sidebar manager</p>
                 </div>
                 <div className={'volcaFmAlgorithmDisplay' + volcaFmMonth}>
-                    <p>algorithm display</p>
+                    <div className={'volcaFmAlgorithmContainer' + volcaFmMonth}>
+                        <h2 className={'volcaFmAgorithmLabel' + volcaFmMonth}>Algorithm: </h2>
+                        <input className={'volcaFmAlgorithmNumberInput' + volcaFmMonth}
+                            max="32"
+                            min="1"
+                            onChange={(e) => changeAlgorithm(e.target.value)}
+                            type="number"
+                            value={currentAlgorithmNumerical}
+                            ></input>
+                        <div className={'volcaFmAlgorithmOperator1' + currentAlgorithm + volcaFmMonth}>
+                            <p className={'volcaFmOperatorVisualLabel' + volcaFmMonth}>1</p>
+                        </div>
+                        <div className={'volcaFmAlgorithmOperator2' + currentAlgorithm + volcaFmMonth}>
+                            <p className={'volcaFmOperatorVisualLabel' + volcaFmMonth}>2</p>
+                        </div>
+                        <div className={'volcaFmAlgorithmOperator3' + currentAlgorithm + volcaFmMonth}>
+                            <p className={'volcaFmOperatorVisualLabel' + volcaFmMonth}>3</p>
+                        </div>
+                        <div className={'volcaFmAlgorithmOperator4' + currentAlgorithm + volcaFmMonth}>
+                            <p className={'volcaFmOperatorVisualLabel' + volcaFmMonth}>4</p>
+                        </div>
+                        <div className={'volcaFmAlgorithmOperator5' + currentAlgorithm + volcaFmMonth}>
+                            <p className={'volcaFmOperatorVisualLabel' + volcaFmMonth}>5</p>
+                        </div>
+                        <div className={'volcaFmAlgorithmOperator6' + currentAlgorithm + volcaFmMonth}>
+                            <p className={'volcaFmOperatorVisualLabel' + volcaFmMonth}>6</p>
+                        </div>
+                        <div className={'volcaFmAlgorithmConnector1' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector2' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector3' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector4' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector5' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector6' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector7' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector8' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector9' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector10' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector11' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector12' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector13' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector14' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector15' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector16' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector17' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector18' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector19' + currentAlgorithm + volcaFmMonth}></div>
+                    </div>
                 </div>
                 <div className={'volcaFmOscillatorEditor' + volcaFmMonth}>
                     <p>operator editor</p>
