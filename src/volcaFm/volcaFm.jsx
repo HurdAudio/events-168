@@ -342,6 +342,7 @@ function VolcaFm () {
                         <div className={'volcaFmAlgorithmConnector17' + currentAlgorithm + volcaFmMonth}></div>
                         <div className={'volcaFmAlgorithmConnector18' + currentAlgorithm + volcaFmMonth}></div>
                         <div className={'volcaFmAlgorithmConnector19' + currentAlgorithm + volcaFmMonth}></div>
+                        <div className={'volcaFmAlgorithmConnector20' + currentAlgorithm + volcaFmMonth}></div>
                     </div>
                 </div>
                 <div className={'volcaFmOscillatorEditor' + volcaFmMonth}>
