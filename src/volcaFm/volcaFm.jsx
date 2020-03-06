@@ -46,9 +46,154 @@ function VolcaFm () {
             envelopeR3: 73,
             envelopeL3: 50,
             envelopeR4: 25,
-            envelopeL4: 0
+            envelopeL4: 0,
+            levelScaleBreakPoint: 60,
+            levelScaleLeftDepth: 50,
+            levelScaleLeftCurve: 0,
+            levelScaleRightDepth: 50,
+            levelScaleRightCurve: 3
         }
     });
+    
+    const changeCurveDepth = (op, side, val) => {
+        let opOn1 = operatorParams.operator1.operatorOn;
+        let outLvl1 = operatorParams.operator1.outputLevel;
+        let op1EnvR1 = operatorParams.operator1.envelopeR1;
+        let op1EnvL1 = operatorParams.operator1.envelopeL1;
+        let op1EnvR2 = operatorParams.operator1.envelopeR2;
+        let op1EnvL2 = operatorParams.operator1.envelopeL2;
+        let op1EnvR3 = operatorParams.operator1.envelopeR3;
+        let op1EnvL3 = operatorParams.operator1.envelopeL3;
+        let op1EnvR4 = operatorParams.operator1.envelopeR4;
+        let op1EnvL4 = operatorParams.operator1.envelopeL4;
+        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
+        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
+        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
+        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        switch(op) {
+            case(1):
+                if (side === 'left') {
+                    op1LvlScaleLeftDepth = val;
+                } else {
+                    op1LvlScaleRightDepth = val;
+                }
+                break;
+            default:
+                console.log('impossible curve value');
+        }
+        setOperatorParams({
+            operator1: {
+                operatorOn: opOn1,
+                outputLevel: outLvl1,
+                envelopeR1: op1EnvR1,
+                envelopeL1: op1EnvL1,
+                envelopeR2: op1EnvR2,
+                envelopeL2: op1EnvL2,
+                envelopeR3: op1EnvR3,
+                envelopeL3: op1EnvL3,
+                envelopeR4: op1EnvR4,
+                envelopeL4: op1EnvL4,
+                levelScaleBreakPoint: op1LvlScaleBreak,
+                levelScaleLeftDepth: op1LvlScaleLeftDepth,
+                levelScaleLeftCurve: op1LvlScaleLeftCurve,
+                levelScaleRightDepth: op1LvlScaleRightDepth,
+                levelScaleRightCurve: op1LvlScaleRightCurve
+            }
+        });
+    }
+    
+    const setCurveValue = (op, side, val) => {
+        let opOn1 = operatorParams.operator1.operatorOn;
+        let outLvl1 = operatorParams.operator1.outputLevel;
+        let op1EnvR1 = operatorParams.operator1.envelopeR1;
+        let op1EnvL1 = operatorParams.operator1.envelopeL1;
+        let op1EnvR2 = operatorParams.operator1.envelopeR2;
+        let op1EnvL2 = operatorParams.operator1.envelopeL2;
+        let op1EnvR3 = operatorParams.operator1.envelopeR3;
+        let op1EnvL3 = operatorParams.operator1.envelopeL3;
+        let op1EnvR4 = operatorParams.operator1.envelopeR4;
+        let op1EnvL4 = operatorParams.operator1.envelopeL4;
+        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
+        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
+        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
+        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        switch(op) {
+            case(1):
+                if (side === 'left') {
+                    op1LvlScaleLeftCurve = val;
+                } else {
+                    op1LvlScaleRightCurve = val;
+                }
+                break;
+            default:
+                console.log('impossible curve value');
+        }
+        setOperatorParams({
+            operator1: {
+                operatorOn: opOn1,
+                outputLevel: outLvl1,
+                envelopeR1: op1EnvR1,
+                envelopeL1: op1EnvL1,
+                envelopeR2: op1EnvR2,
+                envelopeL2: op1EnvL2,
+                envelopeR3: op1EnvR3,
+                envelopeL3: op1EnvL3,
+                envelopeR4: op1EnvR4,
+                envelopeL4: op1EnvL4,
+                levelScaleBreakPoint: op1LvlScaleBreak,
+                levelScaleLeftDepth: op1LvlScaleLeftDepth,
+                levelScaleLeftCurve: op1LvlScaleLeftCurve,
+                levelScaleRightDepth: op1LvlScaleRightDepth,
+                levelScaleRightCurve: op1LvlScaleRightCurve
+            }
+        });
+    }
+    
+    const changeBreakPoint = (op, val) => {
+        let opOn1 = operatorParams.operator1.operatorOn;
+        let outLvl1 = operatorParams.operator1.outputLevel;
+        let op1EnvR1 = operatorParams.operator1.envelopeR1;
+        let op1EnvL1 = operatorParams.operator1.envelopeL1;
+        let op1EnvR2 = operatorParams.operator1.envelopeR2;
+        let op1EnvL2 = operatorParams.operator1.envelopeL2;
+        let op1EnvR3 = operatorParams.operator1.envelopeR3;
+        let op1EnvL3 = operatorParams.operator1.envelopeL3;
+        let op1EnvR4 = operatorParams.operator1.envelopeR4;
+        let op1EnvL4 = operatorParams.operator1.envelopeL4;
+        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
+        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
+        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
+        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        switch(op) {
+            case(1):
+                op1LvlScaleBreak = val;
+                break;
+            default:
+                console.log('impossible operator');
+        }
+        setOperatorParams({
+            operator1: {
+                operatorOn: opOn1,
+                outputLevel: outLvl1,
+                envelopeR1: op1EnvR1,
+                envelopeL1: op1EnvL1,
+                envelopeR2: op1EnvR2,
+                envelopeL2: op1EnvL2,
+                envelopeR3: op1EnvR3,
+                envelopeL3: op1EnvL3,
+                envelopeR4: op1EnvR4,
+                envelopeL4: op1EnvL4,
+                levelScaleBreakPoint: op1LvlScaleBreak,
+                levelScaleLeftDepth: op1LvlScaleLeftDepth,
+                levelScaleLeftCurve: op1LvlScaleLeftCurve,
+                levelScaleRightDepth: op1LvlScaleRightDepth,
+                levelScaleRightCurve: op1LvlScaleRightCurve
+            }
+        });
+    }
     
     const handleOperatorLevel = (op, val) => {
         let opOn1 = operatorParams.operator1.operatorOn;
@@ -61,6 +206,11 @@ function VolcaFm () {
         let op1EnvL3 = operatorParams.operator1.envelopeL3;
         let op1EnvR4 = operatorParams.operator1.envelopeR4;
         let op1EnvL4 = operatorParams.operator1.envelopeL4;
+        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
+        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
+        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
+        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
         
         switch(op) {
             case(1):
@@ -80,7 +230,12 @@ function VolcaFm () {
                 envelopeR3: op1EnvR3,
                 envelopeL3: op1EnvL3,
                 envelopeR4: op1EnvR4,
-                envelopeL4: op1EnvL4
+                envelopeL4: op1EnvL4,
+                levelScaleBreakPoint: op1LvlScaleBreak,
+                levelScaleLeftDepth: op1LvlScaleLeftDepth,
+                levelScaleLeftCurve: op1LvlScaleLeftCurve,
+                levelScaleRightDepth: op1LvlScaleRightDepth,
+                levelScaleRightCurve: op1LvlScaleRightCurve
             }
         });
         
@@ -97,6 +252,11 @@ function VolcaFm () {
         let op1EnvL3 = operatorParams.operator1.envelopeL3;
         let op1EnvR4 = operatorParams.operator1.envelopeR4;
         let op1EnvL4 = operatorParams.operator1.envelopeL4;
+        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
+        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
+        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
+        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
         switch(op) {
             case(1):
                 switch(level) {
@@ -130,7 +290,12 @@ function VolcaFm () {
                 envelopeR3: op1EnvR3,
                 envelopeL3: op1EnvL3,
                 envelopeR4: op1EnvR4,
-                envelopeL4: op1EnvL4
+                envelopeL4: op1EnvL4,
+                levelScaleBreakPoint: op1LvlScaleBreak,
+                levelScaleLeftDepth: op1LvlScaleLeftDepth,
+                levelScaleLeftCurve: op1LvlScaleLeftCurve,
+                levelScaleRightDepth: op1LvlScaleRightDepth,
+                levelScaleRightCurve: op1LvlScaleRightCurve
             }
         });
     }
@@ -146,6 +311,11 @@ function VolcaFm () {
         let op1EnvL3 = operatorParams.operator1.envelopeL3;
         let op1EnvR4 = operatorParams.operator1.envelopeR4;
         let op1EnvL4 = operatorParams.operator1.envelopeL4;
+        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
+        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
+        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
+        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
         switch(op) {
             case(1):
                 switch(rate) {
@@ -179,7 +349,12 @@ function VolcaFm () {
                 envelopeR3: op1EnvR3,
                 envelopeL3: op1EnvL3,
                 envelopeR4: op1EnvR4,
-                envelopeL4: op1EnvL4
+                envelopeL4: op1EnvL4,
+                levelScaleBreakPoint: op1LvlScaleBreak,
+                levelScaleLeftDepth: op1LvlScaleLeftDepth,
+                levelScaleLeftCurve: op1LvlScaleLeftCurve,
+                levelScaleRightDepth: op1LvlScaleRightDepth,
+                levelScaleRightCurve: op1LvlScaleRightCurve
             }
         });
     }
@@ -187,6 +362,19 @@ function VolcaFm () {
     const handleOpOnOffClick = (op) => {
         let opOn1 = '';
         let outLvl1 = operatorParams.operator1.outputLevel;
+        let op1EnvR1 = operatorParams.operator1.envelopeR1;
+        let op1EnvL1 = operatorParams.operator1.envelopeL1;
+        let op1EnvR2 = operatorParams.operator1.envelopeR2;
+        let op1EnvL2 = operatorParams.operator1.envelopeL2;
+        let op1EnvR3 = operatorParams.operator1.envelopeR3;
+        let op1EnvL3 = operatorParams.operator1.envelopeL3;
+        let op1EnvR4 = operatorParams.operator1.envelopeR4;
+        let op1EnvL4 = operatorParams.operator1.envelopeL4;
+        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
+        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
+        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
+        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
         switch(op) {
             case(1):
                 if (operatorParams.operator1.operatorOn === 'On') {
@@ -202,7 +390,20 @@ function VolcaFm () {
         setOperatorParams({
             operator1: {
                 operatorOn: opOn1,
-                outputLevel: outLvl1
+                outputLevel: outLvl1,
+                envelopeR1: op1EnvR1,
+                envelopeL1: op1EnvL1,
+                envelopeR2: op1EnvR2,
+                envelopeL2: op1EnvL2,
+                envelopeR3: op1EnvR3,
+                envelopeL3: op1EnvL3,
+                envelopeR4: op1EnvR4,
+                envelopeL4: op1EnvL4,
+                levelScaleBreakPoint: op1LvlScaleBreak,
+                levelScaleLeftDepth: op1LvlScaleLeftDepth,
+                levelScaleLeftCurve: op1LvlScaleLeftCurve,
+                levelScaleRightDepth: op1LvlScaleRightDepth,
+                levelScaleRightCurve: op1LvlScaleRightCurve
             }
         });
     }
@@ -277,6 +478,71 @@ function VolcaFm () {
     const changeAlgorithm = (val) => {
         setCurrentAlgorithmNumerical(val);
         setCurrentAlgorithm('_algorithm' + val.toString());
+    }
+    
+    const calculateBreakpointPitch = (val) => {
+        let note = '';
+        switch(val % 12) {
+            case(0):
+                note += 'C ';
+                break;
+            case(1):
+                note += 'C# ';
+                break;
+            case(2):
+                note += 'D ';
+                break;
+            case(3):
+                note += 'Eb ';
+                break;
+            case(4):
+                note += 'E ';
+                break;
+            case(5):
+                note += 'F ';
+                break;
+            case(6):
+                note += 'F# ';
+                break;
+            case(7):
+                note += 'G ';
+                break;
+            case(8):
+                note += 'Ab ';
+                break;
+            case(9):
+                note += 'A ';
+                break;
+            case(10):
+                note += 'Bb ';
+                break;
+            case(11):
+                note += 'B ';
+                break;
+            default:
+                console.log('impossible note value');
+        }
+        if (val < 12) {
+            note += '-1';
+        } else if (val < 24) {
+            note += '0';
+        } else if (val < 36) {
+            note += '1';
+        } else if (val < 48) {
+            note += '2';
+        } else if (val < 60) {
+            note += '3';
+        } else if (val < 72) {
+            note += '4';
+        } else if (val < 84) {
+            note += '5';
+        } else if (val < 96) {
+            note += '6';
+        } else {
+            note += '7';
+        }
+        
+        return note;
     }
     
     const noteOnEvent = (key) => {
@@ -794,7 +1060,66 @@ function VolcaFm () {
                         )}
                         {(operatorEditorState.operator1.scalingTab === 'operatorEditorTabActive') && (
                             <div className={'operatorScalingContainer' + volcaFmMonth}>
-                                Scaling
+                                <div className={'operatorLevelScalingControllersDiv' + volcaFmMonth}>
+                                    <p className={'operatorLevelScaleBreakPointLabel' + volcaFmMonth}>level scale break point:</p>
+                                    <div className={'operatorLevelScaleBreakpointRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleBreakpointSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => changeBreakPoint(1, e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator1.levelScaleBreakPoint} />
+                                        </div>
+                                    <p className={'operatorLevelScaleCalculatedValue' + volcaFmMonth}>{calculateBreakpointPitch(operatorParams.operator1.levelScaleBreakPoint)}</p>
+                                    <p className={'operatorLevelScaleLeftCurveLabel' + volcaFmMonth}>level scale left curve:</p>
+                                    <select className={'operatorLevelScaleLeftCurve' + volcaFmMonth}
+                                        onChange={(e) => setCurveValue(1, 'left', e.target.value)}
+                                        value={operatorParams.operator1.levelScaleLeftCurve}>
+                                        <option key="0" value="0">-linear</option>
+                                        <option key="1" value="1">-exponential</option>
+                                        <option key="2" value="2">exponential</option>
+                                        <option key="3" value="3">linear</option>
+                                    </select>
+                                    <p className={'operatorLevelScaleLeftDepthLabel' + volcaFmMonth}>level scale left depth:</p>
+                                    <input className={'operatorLevelScaleLeftDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => changeCurveDepth(1, 'left', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator1.levelScaleLeftDepth} />
+                                    <div className={'operatorLevelScaleLeftDepthSliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => changeCurveDepth(1, 'left', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator1.levelScaleLeftDepth} />
+                                    </div>
+                                    <p className={'operatorLevelScaleRightCurveLabel' + volcaFmMonth}>level scale right curve:</p>
+                                    <select className={'operatorLevelScaleRightCurve' + volcaFmMonth}
+                                        onChange={(e) => setCurveValue(1, 'right', e.target.value)}
+                                        value={operatorParams.operator1.levelScaleRightCurve}>
+                                        <option key="0" value="0">-linear</option>
+                                        <option key="1" value="1">-exponential</option>
+                                        <option key="2" value="2">exponential</option>
+                                        <option key="3" value="3">linear</option>
+                                    </select>
+                                    <p className={'operatorLevelScaleRightDepthLabel' + volcaFmMonth}>level scale right depth:</p>
+                                    <input className={'operatorLevelScaleRightDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => changeCurveDepth(1, 'right', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator1.levelScaleRightDepth} />
+                                    <div className={'operatorLevelScaleRightDepthSliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => changeCurveDepth(1, 'right', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator1.levelScaleRightDepth} />
+                                    </div>
+                                </div>
                             </div>
                         )}
                         {(operatorEditorState.operator1.tuningTab === 'operatorEditorTabActive') && (
