@@ -9152,3 +9152,250 @@ input[type=number]::-webkit-outer-spin-button {
     transform: skew(45deg);
     width: 20px;
 }
+
+.operatorTuningContainer_JanuaryA {
+    grid-column: opcol1 / oprightEdge;
+    grid-row: oprow5 / oprowEnd;
+}
+
+.operatorTuningControllersDiv_JanuaryA {
+    display: grid;
+    grid-template-columns: [scalecol1] 1fr [scalecol2] 1fr [scalecol3] 1fr [scalecol4] 1fr [scalecol5] 1fr [scalecol6] 1fr [scalecol7] 1fr [scalecol8] 1fr [scalecol9] 1fr [scalecol10] 1fr [scalecol11] 1fr [scalecol12] 1fr [scalecol13] 1fr [scalerightEdge];
+    grid-template-rows: [scalerow1] 1fr [scalerow2] 1fr [scalerow3] 1fr [scalerow4] 1fr [scalerow5] 1fr [scalerow6] 1fr [scalerow7] 1fr [scalerow8] 1fr [scalerow9] 1fr [scalerow10] 1fr [scalerow11] 1fr [scalerow12] 1fr [scalerow13] 1fr [scalerow14] 1fr [scalerow15] 1fr [scalerow16] 1fr [scalerow17] 1fr [scalerow18] 1fr [scalerow19] 1fr [scalerow20] 1fr [scalerow21] 1fr [scalerow22] 1fr [scalerow23] 1fr [scalerow24] 1fr [scalerow25] 1fr [scalerowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.operatorOSCModeLabel_JanuaryA {
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: scalecol2 / scalecol4;
+    grid-row: scalerow2 / scalerow5;
+}
+
+.operatorOscillatorModeSwitchDiv_JanuaryA {
+    align-content: center;
+    background: #33aeea;
+    border: 2px solid #0f283d;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: scalecol4 / scalecol7;
+    grid-row: scalerow2 / scalerow6;
+    justify-content: center;
+}
+
+.operatorOscillatorModeSwitchDiv_JanuaryA p {
+    color: #0f283d;
+    cursor: pointer;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    margin: 4.5% 3% 0 3%;
+}
+
+.operatorOscModeSwitch0_JanuaryA {
+    background: #143555;
+    cursor: pointer;
+    grid-column: scalecol4 / scalecol7;
+    grid-row: scalerow2 / scalerow6;
+    left: 0;
+    margin: 6px 5px;
+    position: relative;
+    top: 0;
+    transition: all 0.4s linear;
+    width: 45%;
+}
+
+.operatorOscModeSwitch1_JanuaryA {
+    background: #143555;
+    cursor: pointer;
+    grid-column: scalecol4 / scalecol7;
+    grid-row: scalerow2 / scalerow6;
+    left: 50%;
+    margin: 6px 5px;
+    position: relative;
+    top: 0;
+    transition: all 0.4s linear;
+    width: 45%;
+}
+
+.operatorFreqCoarseLabel_JanuaryA {
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: scalecol2 / scalecol4;
+    grid-row: scalerow8 / scalerow9;
+}
+
+.operatorFrequencyCoarseInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 30px;
+    grid-column: scalecol5 / scalecol7;
+    grid-row: scalerow8 / scalerow9;
+    outline-color: #99d7f5;
+}
+
+.operatorFrequencyCoarseSliderDiv_JanuaryA {
+    background: #3485d6;
+    border: 2px solid #0f283d;
+    border-radius: 30px;
+    box-sizing: border-box;
+    filter: blur(0.03em) brightness(200%) saturate(200%);
+    grid-column: scalecol2 / scalecol7;
+    grid-row: scalerow9 / scalerow12;
+    height: 90%;
+}
+
+.operatorFreqFineLabel_JanuaryA {
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: scalecol2 / scalecol4;
+    grid-row: scalerow14 / scalerow15;
+}
+
+.operatorFrequencyFineInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 30px;
+    grid-column: scalecol5 / scalecol7;
+    grid-row: scalerow14 / scalerow15;
+    outline-color: #99d7f5;
+}
+
+.operatorFrequencyFineSliderDiv_JanuaryA {
+    background: #3485d6;
+    border: 2px solid #0f283d;
+    border-radius: 30px;
+    box-sizing: border-box;
+    filter: blur(0.03em) brightness(200%) saturate(200%);
+    grid-column: scalecol2 / scalecol7;
+    grid-row: scalerow15 / scalerow18;
+    height: 90%;
+}
+
+.operatorFreqDetuneLabel_JanuaryA {
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: scalecol2 / scalecol4;
+    grid-row: scalerow20 / scalerow21;
+}
+
+.operatorFrequencyDetuneInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 30px;
+    grid-column: scalecol5 / scalecol7;
+    grid-row: scalerow20 / scalerow21;
+    outline-color: #99d7f5;
+}
+
+.operatorFrequencyDetuneSliderDiv_JanuaryA {
+    background: #3485d6;
+    border: 2px solid #0f283d;
+    border-radius: 30px;
+    box-sizing: border-box;
+    filter: blur(0.03em) brightness(200%) saturate(200%);
+    grid-column: scalecol2 / scalecol7;
+    grid-row: scalerow21 / scalerow24;
+    height: 90%;
+}
+
+.operatorOscillatorRateLabel_JanuaryA {
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: scalecol8 / scalecol10;
+    grid-row: scalerow8 / scalerow9;
+}
+
+.operatorOscillatorRateScaleInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 30px;
+    grid-column: scalecol11 / scalecol13;
+    grid-row: scalerow8 / scalerow9;
+    outline-color: #99d7f5;
+}
+
+.operatorOscillatorRateScaleSliderDiv_JanuaryA {
+    background: #3485d6;
+    border: 2px solid #0f283d;
+    border-radius: 30px;
+    box-sizing: border-box;
+    filter: blur(0.03em) brightness(200%) saturate(200%);
+    grid-column: scalecol8 / scalecol13;
+    grid-row: scalerow9 / scalerow12;
+    height: 90%;
+}
+
+.operatorAmplitudeModulationSensitivityLabel_JanuaryA {
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: scalecol8 / scalecol10;
+    grid-row: scalerow14 / scalerow15;
+}
+
+.operatorAmplitudeModulationSensitivityInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 30px;
+    grid-column: scalecol11 / scalecol13;
+    grid-row: scalerow14 / scalerow15;
+    outline-color: #99d7f5;
+}
+
+.operatorAmplitudeModulationSensitivitySliderDiv_JanuaryA {
+    background: #3485d6;
+    border: 2px solid #0f283d;
+    border-radius: 30px;
+    box-sizing: border-box;
+    filter: blur(0.03em) brightness(200%) saturate(200%);
+    grid-column: scalecol8 / scalecol13;
+    grid-row: scalerow15 / scalerow18;
+    height: 90%;
+}
+
+.operatorKeyVelocitySensitivityLabel_JanuaryA {
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: scalecol8 / scalecol10;
+    grid-row: scalerow20 / scalerow21;
+}
+
+.operatorKeyVelocitySensitivityInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 30px;
+    grid-column: scalecol11 / scalecol13;
+    grid-row: scalerow20 / scalerow21;
+    outline-color: #99d7f5;
+}
+
+.operatorKeyVelocitySensitivitySliderDiv_JanuaryA {
+    background: #3485d6;
+    border: 2px solid #0f283d;
+    border-radius: 30px;
+    box-sizing: border-box;
+    filter: blur(0.03em) brightness(200%) saturate(200%);
+    grid-column: scalecol8 / scalecol13;
+    grid-row: scalerow21 / scalerow24;
+    height: 90%;
+}

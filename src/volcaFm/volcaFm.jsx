@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, {
+    useState
+} from 'react';
 
 import {
-  BrowserRouter as Router,
-  NavLink,
-  Switch,
-  Route,
-  Link
+    BrowserRouter as Router,
+    NavLink,
+    Switch,
+    Route,
+    Link
 } from "react-router-dom";
 import './volcaFm.style.jana.css';
 import midi5pin from '../img/midi5pin.svg';
 
-function VolcaFm () {
-    
+function VolcaFm() {
+
     let midiOutput = null;
     let inputs = null;
     let outputs = null;
@@ -22,7 +24,7 @@ function VolcaFm () {
         2: false,
         w: false
     }
-    
+
     const [volcaFmMonth, setVolcaFmMonth] = useState('_JanuaryA');
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [currentAlgorithm, setCurrentAlgorithm] = useState('_algorithm1');
@@ -51,10 +53,158 @@ function VolcaFm () {
             levelScaleLeftDepth: 50,
             levelScaleLeftCurve: 0,
             levelScaleRightDepth: 50,
-            levelScaleRightCurve: 3
+            levelScaleRightCurve: 3,
+            oscMode: 0,
+            freqCoarse: 1,
+            freqFine: 0,
+            detune: 7,
+            oscRateScale: 0,
+            amplitudeModSense: 0,
+            keyVelocitySense: 4
         }
     });
     
+    const toggleOscMode = (op) => {
+        let opOn1 = operatorParams.operator1.operatorOn;
+        let outLvl1 = operatorParams.operator1.outputLevel;
+        let op1EnvR1 = operatorParams.operator1.envelopeR1;
+        let op1EnvL1 = operatorParams.operator1.envelopeL1;
+        let op1EnvR2 = operatorParams.operator1.envelopeR2;
+        let op1EnvL2 = operatorParams.operator1.envelopeL2;
+        let op1EnvR3 = operatorParams.operator1.envelopeR3;
+        let op1EnvL3 = operatorParams.operator1.envelopeL3;
+        let op1EnvR4 = operatorParams.operator1.envelopeR4;
+        let op1EnvL4 = operatorParams.operator1.envelopeL4;
+        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
+        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
+        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
+        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        let op1OscMode = operatorParams.operator1.oscMode;
+        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
+        let op1FreqFine = operatorParams.operator1.freqFine;
+        let op1Detune = operatorParams.operator1.detune;
+        let op1OscRateScale = operatorParams.operator1.oscRateScale;
+        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
+        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
+        switch (op) {
+            case (1):
+                if (op1OscMode === 0) {
+                    op1OscMode = 1;
+                } else {
+                    op1OscMode = 0;
+                }
+                break;
+            default:
+                console.log('impossible Osc Mode value');
+        }
+        setOperatorParams({
+            operator1: {
+                operatorOn: opOn1,
+                outputLevel: outLvl1,
+                envelopeR1: op1EnvR1,
+                envelopeL1: op1EnvL1,
+                envelopeR2: op1EnvR2,
+                envelopeL2: op1EnvL2,
+                envelopeR3: op1EnvR3,
+                envelopeL3: op1EnvL3,
+                envelopeR4: op1EnvR4,
+                envelopeL4: op1EnvL4,
+                levelScaleBreakPoint: op1LvlScaleBreak,
+                levelScaleLeftDepth: op1LvlScaleLeftDepth,
+                levelScaleLeftCurve: op1LvlScaleLeftCurve,
+                levelScaleRightDepth: op1LvlScaleRightDepth,
+                levelScaleRightCurve: op1LvlScaleRightCurve,
+                oscMode: op1OscMode,
+                freqCoarse: op1FreqCoarse,
+                freqFine: op1FreqFine,
+                detune: op1Detune,
+                oscRateScale: op1OscRateScale,
+                amplitudeModSense: op1AmplitudeModSense,
+                keyVelocitySense: op1KeyVelocitySense
+            }
+        });
+    }
+    
+    const operatorTuning = (op, tune, val) => {
+        let opOn1 = operatorParams.operator1.operatorOn;
+        let outLvl1 = operatorParams.operator1.outputLevel;
+        let op1EnvR1 = operatorParams.operator1.envelopeR1;
+        let op1EnvL1 = operatorParams.operator1.envelopeL1;
+        let op1EnvR2 = operatorParams.operator1.envelopeR2;
+        let op1EnvL2 = operatorParams.operator1.envelopeL2;
+        let op1EnvR3 = operatorParams.operator1.envelopeR3;
+        let op1EnvL3 = operatorParams.operator1.envelopeL3;
+        let op1EnvR4 = operatorParams.operator1.envelopeR4;
+        let op1EnvL4 = operatorParams.operator1.envelopeL4;
+        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
+        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
+        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
+        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        let op1OscMode = operatorParams.operator1.oscMode;
+        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
+        let op1FreqFine = operatorParams.operator1.freqFine;
+        let op1Detune = operatorParams.operator1.detune;
+        let op1OscRateScale = operatorParams.operator1.oscRateScale;
+        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
+        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
+        switch (op) {
+            case (1):
+                switch(tune) {
+                    case('coarse'):
+                        op1FreqCoarse = val;
+                        break;
+                    case('fine'):
+                        op1FreqFine = val;
+                        break;
+                    case('detune'):
+                        op1Detune = val;
+                        break;
+                    case('oscRate'):
+                        op1OscRateScale = val;
+                        break;
+                    case('ams'):
+                        op1AmplitudeModSense = val;
+                        break;
+                    case('kvs'):
+                        op1KeyVelocitySense = val;
+                        break;
+                    default:
+                        console.log('impossible tune');
+                }
+                break;
+            default:
+                console.log('impossible curve value');
+        }
+        setOperatorParams({
+            operator1: {
+                operatorOn: opOn1,
+                outputLevel: outLvl1,
+                envelopeR1: op1EnvR1,
+                envelopeL1: op1EnvL1,
+                envelopeR2: op1EnvR2,
+                envelopeL2: op1EnvL2,
+                envelopeR3: op1EnvR3,
+                envelopeL3: op1EnvL3,
+                envelopeR4: op1EnvR4,
+                envelopeL4: op1EnvL4,
+                levelScaleBreakPoint: op1LvlScaleBreak,
+                levelScaleLeftDepth: op1LvlScaleLeftDepth,
+                levelScaleLeftCurve: op1LvlScaleLeftCurve,
+                levelScaleRightDepth: op1LvlScaleRightDepth,
+                levelScaleRightCurve: op1LvlScaleRightCurve,
+                oscMode: op1OscMode,
+                freqCoarse: op1FreqCoarse,
+                freqFine: op1FreqFine,
+                detune: op1Detune,
+                oscRateScale: op1OscRateScale,
+                amplitudeModSense: op1AmplitudeModSense,
+                keyVelocitySense: op1KeyVelocitySense
+            }
+        });
+    }
+
     const changeCurveDepth = (op, side, val) => {
         let opOn1 = operatorParams.operator1.operatorOn;
         let outLvl1 = operatorParams.operator1.outputLevel;
@@ -71,8 +221,15 @@ function VolcaFm () {
         let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
         let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
-        switch(op) {
-            case(1):
+        let op1OscMode = operatorParams.operator1.oscMode;
+        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
+        let op1FreqFine = operatorParams.operator1.freqFine;
+        let op1Detune = operatorParams.operator1.detune;
+        let op1OscRateScale = operatorParams.operator1.oscRateScale;
+        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
+        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
+        switch (op) {
+            case (1):
                 if (side === 'left') {
                     op1LvlScaleLeftDepth = val;
                 } else {
@@ -98,11 +255,18 @@ function VolcaFm () {
                 levelScaleLeftDepth: op1LvlScaleLeftDepth,
                 levelScaleLeftCurve: op1LvlScaleLeftCurve,
                 levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve
+                levelScaleRightCurve: op1LvlScaleRightCurve,
+                oscMode: op1OscMode,
+                freqCoarse: op1FreqCoarse,
+                freqFine: op1FreqFine,
+                detune: op1Detune,
+                oscRateScale: op1OscRateScale,
+                amplitudeModSense: op1AmplitudeModSense,
+                keyVelocitySense: op1KeyVelocitySense
             }
         });
     }
-    
+
     const setCurveValue = (op, side, val) => {
         let opOn1 = operatorParams.operator1.operatorOn;
         let outLvl1 = operatorParams.operator1.outputLevel;
@@ -119,8 +283,15 @@ function VolcaFm () {
         let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
         let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
-        switch(op) {
-            case(1):
+        let op1OscMode = operatorParams.operator1.oscMode;
+        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
+        let op1FreqFine = operatorParams.operator1.freqFine;
+        let op1Detune = operatorParams.operator1.detune;
+        let op1OscRateScale = operatorParams.operator1.oscRateScale;
+        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
+        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
+        switch (op) {
+            case (1):
                 if (side === 'left') {
                     op1LvlScaleLeftCurve = val;
                 } else {
@@ -146,11 +317,18 @@ function VolcaFm () {
                 levelScaleLeftDepth: op1LvlScaleLeftDepth,
                 levelScaleLeftCurve: op1LvlScaleLeftCurve,
                 levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve
+                levelScaleRightCurve: op1LvlScaleRightCurve,
+                oscMode: op1OscMode,
+                freqCoarse: op1FreqCoarse,
+                freqFine: op1FreqFine,
+                detune: op1Detune,
+                oscRateScale: op1OscRateScale,
+                amplitudeModSense: op1AmplitudeModSense,
+                keyVelocitySense: op1KeyVelocitySense
             }
         });
     }
-    
+
     const changeBreakPoint = (op, val) => {
         let opOn1 = operatorParams.operator1.operatorOn;
         let outLvl1 = operatorParams.operator1.outputLevel;
@@ -167,8 +345,15 @@ function VolcaFm () {
         let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
         let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
-        switch(op) {
-            case(1):
+        let op1OscMode = operatorParams.operator1.oscMode;
+        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
+        let op1FreqFine = operatorParams.operator1.freqFine;
+        let op1Detune = operatorParams.operator1.detune;
+        let op1OscRateScale = operatorParams.operator1.oscRateScale;
+        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
+        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
+        switch (op) {
+            case (1):
                 op1LvlScaleBreak = val;
                 break;
             default:
@@ -190,11 +375,18 @@ function VolcaFm () {
                 levelScaleLeftDepth: op1LvlScaleLeftDepth,
                 levelScaleLeftCurve: op1LvlScaleLeftCurve,
                 levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve
+                levelScaleRightCurve: op1LvlScaleRightCurve,
+                oscMode: op1OscMode,
+                freqCoarse: op1FreqCoarse,
+                freqFine: op1FreqFine,
+                detune: op1Detune,
+                oscRateScale: op1OscRateScale,
+                amplitudeModSense: op1AmplitudeModSense,
+                keyVelocitySense: op1KeyVelocitySense
             }
         });
     }
-    
+
     const handleOperatorLevel = (op, val) => {
         let opOn1 = operatorParams.operator1.operatorOn;
         let outLvl1 = operatorParams.operator1.outputLevel;
@@ -211,9 +403,16 @@ function VolcaFm () {
         let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
         let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
-        
-        switch(op) {
-            case(1):
+        let op1OscMode = operatorParams.operator1.oscMode;
+        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
+        let op1FreqFine = operatorParams.operator1.freqFine;
+        let op1Detune = operatorParams.operator1.detune;
+        let op1OscRateScale = operatorParams.operator1.oscRateScale;
+        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
+        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
+
+        switch (op) {
+            case (1):
                 outLvl1 = val;
                 break;
             default:
@@ -235,12 +434,19 @@ function VolcaFm () {
                 levelScaleLeftDepth: op1LvlScaleLeftDepth,
                 levelScaleLeftCurve: op1LvlScaleLeftCurve,
                 levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve
+                levelScaleRightCurve: op1LvlScaleRightCurve,
+                oscMode: op1OscMode,
+                freqCoarse: op1FreqCoarse,
+                freqFine: op1FreqFine,
+                detune: op1Detune,
+                oscRateScale: op1OscRateScale,
+                amplitudeModSense: op1AmplitudeModSense,
+                keyVelocitySense: op1KeyVelocitySense
             }
         });
-        
+
     }
-    
+
     const changeLevel = (op, level, val) => {
         let opOn1 = operatorParams.operator1.operatorOn;
         let opOut1 = operatorParams.operator1.outputLevel;
@@ -257,19 +463,26 @@ function VolcaFm () {
         let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
         let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
-        switch(op) {
-            case(1):
-                switch(level) {
-                    case(1):
+        let op1OscMode = operatorParams.operator1.oscMode;
+        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
+        let op1FreqFine = operatorParams.operator1.freqFine;
+        let op1Detune = operatorParams.operator1.detune;
+        let op1OscRateScale = operatorParams.operator1.oscRateScale;
+        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
+        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
+        switch (op) {
+            case (1):
+                switch (level) {
+                    case (1):
                         op1EnvL1 = val;
                         break;
-                    case(2):
+                    case (2):
                         op1EnvL2 = val;
                         break;
-                    case(3):
+                    case (3):
                         op1EnvL3 = val;
                         break;
-                    case(4):
+                    case (4):
                         op1EnvL4 = val;
                         break;
                     default:
@@ -295,11 +508,18 @@ function VolcaFm () {
                 levelScaleLeftDepth: op1LvlScaleLeftDepth,
                 levelScaleLeftCurve: op1LvlScaleLeftCurve,
                 levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve
+                levelScaleRightCurve: op1LvlScaleRightCurve,
+                oscMode: op1OscMode,
+                freqCoarse: op1FreqCoarse,
+                freqFine: op1FreqFine,
+                detune: op1Detune,
+                oscRateScale: op1OscRateScale,
+                amplitudeModSense: op1AmplitudeModSense,
+                keyVelocitySense: op1KeyVelocitySense
             }
         });
     }
-    
+
     const changeRate = (op, rate, val) => {
         let opOn1 = operatorParams.operator1.operatorOn;
         let opOut1 = operatorParams.operator1.outputLevel;
@@ -316,19 +536,26 @@ function VolcaFm () {
         let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
         let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
-        switch(op) {
-            case(1):
-                switch(rate) {
-                    case(1):
+        let op1OscMode = operatorParams.operator1.oscMode;
+        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
+        let op1FreqFine = operatorParams.operator1.freqFine;
+        let op1Detune = operatorParams.operator1.detune;
+        let op1OscRateScale = operatorParams.operator1.oscRateScale;
+        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
+        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
+        switch (op) {
+            case (1):
+                switch (rate) {
+                    case (1):
                         op1EnvR1 = val;
                         break;
-                    case(2):
+                    case (2):
                         op1EnvR2 = val;
                         break;
-                    case(3):
+                    case (3):
                         op1EnvR3 = val;
                         break;
-                    case(4):
+                    case (4):
                         op1EnvR4 = val;
                         break;
                     default:
@@ -354,11 +581,18 @@ function VolcaFm () {
                 levelScaleLeftDepth: op1LvlScaleLeftDepth,
                 levelScaleLeftCurve: op1LvlScaleLeftCurve,
                 levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve
+                levelScaleRightCurve: op1LvlScaleRightCurve,
+                oscMode: op1OscMode,
+                freqCoarse: op1FreqCoarse,
+                freqFine: op1FreqFine,
+                detune: op1Detune,
+                oscRateScale: op1OscRateScale,
+                amplitudeModSense: op1AmplitudeModSense,
+                keyVelocitySense: op1KeyVelocitySense
             }
         });
     }
-    
+
     const handleOpOnOffClick = (op) => {
         let opOn1 = '';
         let outLvl1 = operatorParams.operator1.outputLevel;
@@ -375,8 +609,15 @@ function VolcaFm () {
         let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
         let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
-        switch(op) {
-            case(1):
+        let op1OscMode = operatorParams.operator1.oscMode;
+        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
+        let op1FreqFine = operatorParams.operator1.freqFine;
+        let op1Detune = operatorParams.operator1.detune;
+        let op1OscRateScale = operatorParams.operator1.oscRateScale;
+        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
+        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
+        switch (op) {
+            case (1):
                 if (operatorParams.operator1.operatorOn === 'On') {
                     opOn1 = 'Off';
                 } else {
@@ -386,7 +627,7 @@ function VolcaFm () {
             default:
                 console.log('impossible onoff');
         }
-        
+
         setOperatorParams({
             operator1: {
                 operatorOn: opOn1,
@@ -403,20 +644,27 @@ function VolcaFm () {
                 levelScaleLeftDepth: op1LvlScaleLeftDepth,
                 levelScaleLeftCurve: op1LvlScaleLeftCurve,
                 levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve
+                levelScaleRightCurve: op1LvlScaleRightCurve,
+                oscMode: op1OscMode,
+                freqCoarse: op1FreqCoarse,
+                freqFine: op1FreqFine,
+                detune: op1Detune,
+                oscRateScale: op1OscRateScale,
+                amplitudeModSense: op1AmplitudeModSense,
+                keyVelocitySense: op1KeyVelocitySense
             }
         });
     }
-    
+
     const handleOperatorClick = (op) => {
         let state1 = operatorEditorState.operator1.state;
         let envelope1 = operatorEditorState.operator1.envelopeTab;
         let scaling1 = operatorEditorState.operator1.scalingTab;
         let tuning1 = operatorEditorState.operator1.tuningTab;
-        switch(op) {
-            case(1):
+        switch (op) {
+            case (1):
                 if (operatorEditorState.operator1.state === 'operator1EditStateActive') {
-                   state1 = 'operator1EditStateInactive'; 
+                    state1 = 'operator1EditStateInactive';
                 } else {
                     state1 = 'operator1EditStateActive';
                 }
@@ -424,36 +672,36 @@ function VolcaFm () {
             default:
                 console.log('impossible state');
         }
-        
+
         setOperatorEditorState({
-           operator1: {
-               state: state1,
-               envelopeTab: envelope1,
-               scalingTab: scaling1,
-               tuningTab: tuning1
-           } 
+            operator1: {
+                state: state1,
+                envelopeTab: envelope1,
+                scalingTab: scaling1,
+                tuningTab: tuning1
+            }
         });
     }
-    
+
     const handleOperatorTab = (op, tab) => {
         let state1 = operatorEditorState.operator1.state;
         let envelope1 = operatorEditorState.operator1.envelopeTab;
         let scaling1 = operatorEditorState.operator1.scalingTab;
         let tuning1 = operatorEditorState.operator1.tuningTab;
-        switch(op) {
-            case(1):
-                switch(tab) {
-                    case('envelope'):
+        switch (op) {
+            case (1):
+                switch (tab) {
+                    case ('envelope'):
                         envelope1 = 'operatorEditorTabActive';
                         scaling1 = 'operatorEditorTabInactive';
                         tuning1 = 'operatorEditorTabInactive';
                         break;
-                    case('scaling'):
+                    case ('scaling'):
                         envelope1 = 'operatorEditorTabInactive';
                         scaling1 = 'operatorEditorTabActive';
                         tuning1 = 'operatorEditorTabInactive';
                         break;
-                    case('tuning'):
+                    case ('tuning'):
                         envelope1 = 'operatorEditorTabInactive';
                         scaling1 = 'operatorEditorTabInactive';
                         tuning1 = 'operatorEditorTabActive';
@@ -466,57 +714,57 @@ function VolcaFm () {
                 console.log('impossible state');
         }
         setOperatorEditorState({
-           operator1: {
-               state: state1,
-               envelopeTab: envelope1,
-               scalingTab: scaling1,
-               tuningTab: tuning1
-           } 
+            operator1: {
+                state: state1,
+                envelopeTab: envelope1,
+                scalingTab: scaling1,
+                tuningTab: tuning1
+            }
         });
     }
-    
+
     const changeAlgorithm = (val) => {
         setCurrentAlgorithmNumerical(val);
         setCurrentAlgorithm('_algorithm' + val.toString());
     }
-    
+
     const calculateBreakpointPitch = (val) => {
         let note = '';
-        switch(val % 12) {
-            case(0):
+        switch (val % 12) {
+            case (0):
                 note += 'C ';
                 break;
-            case(1):
+            case (1):
                 note += 'C# ';
                 break;
-            case(2):
+            case (2):
                 note += 'D ';
                 break;
-            case(3):
+            case (3):
                 note += 'Eb ';
                 break;
-            case(4):
+            case (4):
                 note += 'E ';
                 break;
-            case(5):
+            case (5):
                 note += 'F ';
                 break;
-            case(6):
+            case (6):
                 note += 'F# ';
                 break;
-            case(7):
+            case (7):
                 note += 'G ';
                 break;
-            case(8):
+            case (8):
                 note += 'Ab ';
                 break;
-            case(9):
+            case (9):
                 note += 'A ';
                 break;
-            case(10):
+            case (10):
                 note += 'Bb ';
                 break;
-            case(11):
+            case (11):
                 note += 'B ';
                 break;
             default:
@@ -541,127 +789,127 @@ function VolcaFm () {
         } else {
             note += '7';
         }
-        
+
         return note;
     }
-    
+
     const noteOnEvent = (key) => {
         switch (key.toLowerCase()) {
-            case('q'):
+            case ('q'):
                 if (!keyEngaged.q) {
                     keyEngaged.q = true;
                     midiOutput.send([0x90 | midiChannel, rootNote, 0x7f]);
                 }
                 break;
-            case('2'):
+            case ('2'):
                 if (!keyEngaged['2']) {
                     keyEngaged['2'] = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 1, 0x7f]);
                 }
                 break;
-            case('w'):
+            case ('w'):
                 if (!keyEngaged.w) {
                     keyEngaged.w = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 2, 0x7f]);
                 }
                 break;
-            case('3'):
+            case ('3'):
                 if (!keyEngaged['3']) {
                     keyEngaged['3'] = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 3, 0x7f]);
                 }
                 break;
-            case('e'):
+            case ('e'):
                 if (!keyEngaged.e) {
                     keyEngaged.e = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 4, 0x7f]);
                 }
                 break;
-            case('r'):
+            case ('r'):
                 if (!keyEngaged.r) {
                     keyEngaged.r = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 5, 0x7f]);
                 }
                 break;
-            case('5'):
+            case ('5'):
                 if (!keyEngaged['5']) {
                     keyEngaged['5'] = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 6, 0x7f]);
                 }
                 break;
-            case('t'):
+            case ('t'):
                 if (!keyEngaged.t) {
                     keyEngaged.t = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 7, 0x7f]);
                 }
                 break;
-            case('6'):
+            case ('6'):
                 if (!keyEngaged['6']) {
                     keyEngaged['6'] = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 8, 0x7f]);
                 }
                 break;
-            case('y'):
+            case ('y'):
                 if (!keyEngaged.y) {
                     keyEngaged.y = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 9, 0x7f]);
                 }
                 break;
-            case('7'):
+            case ('7'):
                 if (!keyEngaged['7']) {
                     keyEngaged['7'] = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 10, 0x7f]);
                 }
                 break;
-            case('u'):
+            case ('u'):
                 if (!keyEngaged.u) {
                     keyEngaged.u = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 11, 0x7f]);
                 }
                 break;
-            case('i'):
+            case ('i'):
                 if (!keyEngaged.i) {
                     keyEngaged.i = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 12, 0x7f]);
                 }
                 break;
-            case('9'):
+            case ('9'):
                 if (!keyEngaged['9']) {
                     keyEngaged['9'] = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 13, 0x7f]);
                 }
                 break;
-            case('o'):
+            case ('o'):
                 if (!keyEngaged.o) {
                     keyEngaged.o = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 14, 0x7f]);
                 }
                 break;
-            case('0'):
+            case ('0'):
                 if (!keyEngaged['0']) {
                     keyEngaged['0'] = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 15, 0x7f]);
                 }
                 break;
-            case('p'):
+            case ('p'):
                 if (!keyEngaged.p) {
                     keyEngaged.p = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 16, 0x7f]);
                 }
                 break;
-            case('['):
+            case ('['):
                 if (!keyEngaged['[']) {
                     keyEngaged['['] = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 17, 0x7f]);
                 }
                 break;
-            case('='):
+            case ('='):
                 if (!keyEngaged['=']) {
                     keyEngaged['='] = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 18, 0x7f]);
                 }
                 break;
-            case(']'):
+            case (']'):
                 if (!keyEngaged[']']) {
                     keyEngaged[']'] = true;
                     midiOutput.send([0x90 | midiChannel, rootNote + 19, 0x7f]);
@@ -671,86 +919,86 @@ function VolcaFm () {
                 console.log('no note');
         }
     }
-    
+
     const noteOffEvent = (key) => {
         switch (key.toLowerCase()) {
-            case('q'):
+            case ('q'):
                 midiOutput.send([0x80 | midiChannel, rootNote, 0x7f]);
                 keyEngaged.q = false;
                 break;
-            case('2'):
+            case ('2'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 1, 0x7f]);
                 keyEngaged['2'] = false;
                 break;
-            case('w'):
+            case ('w'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 2, 0x7f]);
                 keyEngaged.w = false;
                 break;
-            case('3'):
+            case ('3'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 3, 0x7f]);
                 keyEngaged['3'] = false;
                 break;
-            case('e'):
+            case ('e'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 4, 0x7f]);
                 keyEngaged.e = false;
                 break;
-            case('r'):
+            case ('r'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 5, 0x7f]);
                 keyEngaged.r = false;
                 break;
-            case('5'):
+            case ('5'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 6, 0x7f]);
                 keyEngaged['5'] = false;
                 break;
-            case('t'):
+            case ('t'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 7, 0x7f]);
                 keyEngaged.t = false;
                 break;
-            case('6'):
+            case ('6'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 8, 0x7f]);
                 keyEngaged['6'] = false;
                 break;
-            case('y'):
+            case ('y'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 9, 0x7f]);
                 keyEngaged.y = false;
                 break;
-            case('7'):
+            case ('7'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 10, 0x7f]);
                 keyEngaged['7'] = false;
                 break;
-            case('u'):
+            case ('u'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 11, 0x7f]);
                 keyEngaged.u = false;
                 break;
-            case('i'):
+            case ('i'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 12, 0x7f]);
                 keyEngaged.i = false;
                 break;
-            case('9'):
+            case ('9'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 13, 0x7f]);
                 keyEngaged['9'] = false;
                 break;
-            case('o'):
+            case ('o'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 14, 0x7f]);
                 keyEngaged.o = false;
                 break;
-            case('0'):
+            case ('0'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 15, 0x7f]);
                 keyEngaged['0'] = false;
                 break;
-            case('p'):
+            case ('p'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 16, 0x7f]);
                 keyEngaged.p = false;
                 break;
-            case('['):
+            case ('['):
                 midiOutput.send([0x80 | midiChannel, rootNote + 17, 0x7f]);
                 keyEngaged['['] = false;
                 break;
-            case('='):
+            case ('='):
                 midiOutput.send([0x80 | midiChannel, rootNote + 18, 0x7f]);
                 keyEngaged['='] = false;
                 break;
-            case(']'):
+            case (']'):
                 midiOutput.send([0x80 | midiChannel, rootNote + 19, 0x7f]);
                 keyEngaged[']'] = false;
                 break;
@@ -758,41 +1006,41 @@ function VolcaFm () {
                 console.log('no note');
         }
     }
-    
+
     function onMIDIFailure() {
         alert('No MIDI ports accessible');
     }
-    
+
     function onMIDISuccess(midiAccess) {
         console.log(midiAccess);
 
         inputs = Array.from(midiAccess.inputs.values());
         outputs = Array.from(midiAccess.outputs.values());
-        
-//        midiOutput = outputs[0];
-        
+
+        //        midiOutput = outputs[0];
+
         console.log(outputs);
-        for(const output of outputs) {
+        for (const output of outputs) {
             console.log(output);
             midiOutput = output;
         }
         console.log(midiOutput);
-        
-//        midiOutput.send([0x90 | midiChannel, rootNote, 0x7f]);
-//        setTimeout(() => {
-//           midiOutput.send([0x80 | midiChannel, rootNote, 0x7f]); 
-//        }, 500);
-        
+
+        //        midiOutput.send([0x90 | midiChannel, rootNote, 0x7f]);
+        //        setTimeout(() => {
+        //           midiOutput.send([0x80 | midiChannel, rootNote, 0x7f]); 
+        //        }, 500);
+
     }
-    
+
     function initiateMidiAccess() {
         navigator.requestMIDIAccess()
-        .then(onMIDISuccess, onMIDIFailure);
+            .then(onMIDISuccess, onMIDIFailure);
     }
-    
+
     initiateMidiAccess();
-    
-    return(
+
+    return ( 
         <div className={'volcaFmEditorContainer' + volcaFmMonth}
             tabIndex="1"
             onKeyDown={(e) => noteOnEvent(e.key)}
@@ -1124,7 +1372,106 @@ function VolcaFm () {
                         )}
                         {(operatorEditorState.operator1.tuningTab === 'operatorEditorTabActive') && (
                             <div className={'operatorTuningContainer' + volcaFmMonth}>
-                                Tuning
+                                <div className={'operatorTuningControllersDiv' + volcaFmMonth}>
+                                    <p className={'operatorOSCModeLabel' + volcaFmMonth}>oscillator mode:</p>
+                                    <div className={'operatorOscillatorModeSwitchDiv' + volcaFmMonth}
+                                        onClick={() => toggleOscMode(1)}>
+                                        <p>fixed</p>
+                                        <p>ratio</p>
+                                    </div>
+                                    <div className={'operatorOscModeSwitch' + operatorParams.operator1.oscMode + volcaFmMonth}
+                                        onClick={() => toggleOscMode(1)}></div>
+                                    <p className={'operatorFreqCoarseLabel' + volcaFmMonth}>frequency coarse:</p>
+                                    <input className={'operatorFrequencyCoarseInput' + volcaFmMonth}
+                                        max="31"
+                                        min="0"
+                                        onChange={(e) => operatorTuning(1, 'coarse', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator1.freqCoarse}/>
+                                    <div className={'operatorFrequencyCoarseSliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="31"
+                                            min="0"
+                                            onChange={(e) => operatorTuning(1, 'coarse', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator1.freqCoarse}/>
+                                    </div>
+                                    <p className={'operatorFreqFineLabel' + volcaFmMonth}>frequency fine:</p>
+                                    <input className={'operatorFrequencyFineInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => operatorTuning(1, 'fine', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator1.freqFine}/>
+                                    <div className={'operatorFrequencyFineSliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => operatorTuning(1, 'fine', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator1.freqFine}/>
+                                    </div>
+                                    <p className={'operatorFreqDetuneLabel' + volcaFmMonth}>detune:</p>
+                                    <input className={'operatorFrequencyDetuneInput' + volcaFmMonth}
+                                        max="14"
+                                        min="0"
+                                        onChange={(e) => operatorTuning(1, 'detune', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator1.detune -7}/>
+                                    <div className={'operatorFrequencyDetuneSliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="14"
+                                            min="0"
+                                            onChange={(e) => operatorTuning(1, 'detune', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator1.detune}/>
+                                    </div>
+                                    <p className={'operatorOscillatorRateLabel' + volcaFmMonth}>oscillator rate scale:</p>
+                                    <input className={'operatorOscillatorRateScaleInput' + volcaFmMonth}
+                                        max="7"
+                                        min="0"
+                                        onChange={(e) => operatorTuning(1, 'oscRate', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator1.oscRateScale}/>
+                                    <div className={'operatorOscillatorRateScaleSliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="14"
+                                            min="0"
+                                            onChange={(e) => operatorTuning(1, 'oscRate', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator1.oscRateScale}/>
+                                    </div>
+                                    <p className={'operatorAmplitudeModulationSensitivityLabel' + volcaFmMonth}>amplitude modulation sensitivity:</p>
+                                    <input className={'operatorAmplitudeModulationSensitivityInput' + volcaFmMonth}
+                                        max="3"
+                                        min="0"
+                                        onChange={(e) => operatorTuning(1, 'ams', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator1.amplitudeModSense}/>
+                                    <div className={'operatorAmplitudeModulationSensitivitySliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="3"
+                                            min="0"
+                                            onChange={(e) => operatorTuning(1, 'ams', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator1.amplitudeModSense}/>
+                                    </div>
+                                    <p className={'operatorKeyVelocitySensitivityLabel' + volcaFmMonth}>key velocity sensitivity:</p>
+                                    <input className={'operatorKeyVelocitySensitivityInput' + volcaFmMonth}
+                                        max="7"
+                                        min="0"
+                                        onChange={(e) => operatorTuning(1, 'kvs', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator1.keyVelocitySense}/>
+                                    <div className={'operatorKeyVelocitySensitivitySliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="7"
+                                            min="0"
+                                            onChange={(e) => operatorTuning(1, 'kvs', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator1.keyVelocitySense}/>
+                                    </div>
+                                </div>
                             </div>
                         )}
                     </div>
@@ -1139,5 +1486,6 @@ function VolcaFm () {
         </div>
         );
 }
+
 
 export default VolcaFm;
