@@ -13,6 +13,14 @@ import './volcaFm.style.jana.css';
 import midi5pin from '../img/midi5pin.svg';
 
 function VolcaFm() {
+    
+    const keyOnOffset = 20;
+    const envelopeGraphTopVal = 220;
+    const rateScaler = 0.85;
+    const keyOffOnset = 320;
+    const envelopeEndGraph = 410;
+    const breakpointOffset = 4;
+    const scaleScaler = 1.12;
 
     let midiOutput = null;
     let inputs = null;
@@ -35,6 +43,12 @@ function VolcaFm() {
             envelopeTab: 'operatorEditorTabActive',
             scalingTab: 'operatorEditorTabInactive',
             tuningTab: 'operatorEditorTabInactive'
+        }
+    });
+    const [envelopeLevelState, setEnvelopeLevelState] = useState({
+        operator1: {
+            envelopeState: 'operator1EnvelopeStateInactive',
+            levelState: 'operator1EnvelopeLevelStateInactive'
         }
     });
     const [operatorParams, setOperatorParams] = useState({
@@ -64,6 +78,35 @@ function VolcaFm() {
         }
     });
     
+    const updateDisplayPort = (op, purpose) => {
+        let op1EnvState = envelopeLevelState.operator1.envelopeState;
+        let op1levelState = envelopeLevelState.operator1.levelState
+        switch(op) {
+            case(1):
+                switch(purpose) {
+                    case('envelope'):
+                        op1EnvState = 'operator1EnvelopeStateActive';
+                        op1levelState = 'operator1EnvelopeLevelStateInactive';
+                        break;
+                    case('scaling'):
+                        op1EnvState = 'operator1EnvelopeStateInactive';
+                        op1levelState = 'operator1EnvelopeLevelStateActive';
+                        break;
+                    default:
+                        console.log('impossible purpose');
+                }
+                break;
+            default:
+                console.log('impossible op');
+        }
+        setEnvelopeLevelState({
+            operator1: {
+                envelopeState: op1EnvState,
+                levelState: op1levelState
+            }
+        })
+    }
+    
     const toggleOscMode = (op) => {
         let opOn1 = operatorParams.operator1.operatorOn;
         let outLvl1 = operatorParams.operator1.outputLevel;
@@ -77,9 +120,9 @@ function VolcaFm() {
         let op1EnvL4 = operatorParams.operator1.envelopeL4;
         let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
         let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
         let op1OscMode = operatorParams.operator1.oscMode;
         let op1FreqCoarse = operatorParams.operator1.freqCoarse;
         let op1FreqFine = operatorParams.operator1.freqFine;
@@ -139,9 +182,9 @@ function VolcaFm() {
         let op1EnvL4 = operatorParams.operator1.envelopeL4;
         let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
         let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
         let op1OscMode = operatorParams.operator1.oscMode;
         let op1FreqCoarse = operatorParams.operator1.freqCoarse;
         let op1FreqFine = operatorParams.operator1.freqFine;
@@ -218,9 +261,9 @@ function VolcaFm() {
         let op1EnvL4 = operatorParams.operator1.envelopeL4;
         let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
         let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
         let op1OscMode = operatorParams.operator1.oscMode;
         let op1FreqCoarse = operatorParams.operator1.freqCoarse;
         let op1FreqFine = operatorParams.operator1.freqFine;
@@ -280,9 +323,9 @@ function VolcaFm() {
         let op1EnvL4 = operatorParams.operator1.envelopeL4;
         let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
         let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
         let op1OscMode = operatorParams.operator1.oscMode;
         let op1FreqCoarse = operatorParams.operator1.freqCoarse;
         let op1FreqFine = operatorParams.operator1.freqFine;
@@ -293,9 +336,9 @@ function VolcaFm() {
         switch (op) {
             case (1):
                 if (side === 'left') {
-                    op1LvlScaleLeftCurve = val;
+                    op1LvlScaleLeftCurve = parseInt(val);
                 } else {
-                    op1LvlScaleRightCurve = val;
+                    op1LvlScaleRightCurve = parseInt(val);
                 }
                 break;
             default:
@@ -327,6 +370,7 @@ function VolcaFm() {
                 keyVelocitySense: op1KeyVelocitySense
             }
         });
+        console.log(operatorParams);
     }
 
     const changeBreakPoint = (op, val) => {
@@ -342,9 +386,9 @@ function VolcaFm() {
         let op1EnvL4 = operatorParams.operator1.envelopeL4;
         let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
         let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
         let op1OscMode = operatorParams.operator1.oscMode;
         let op1FreqCoarse = operatorParams.operator1.freqCoarse;
         let op1FreqFine = operatorParams.operator1.freqFine;
@@ -400,9 +444,9 @@ function VolcaFm() {
         let op1EnvL4 = operatorParams.operator1.envelopeL4;
         let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
         let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
         let op1OscMode = operatorParams.operator1.oscMode;
         let op1FreqCoarse = operatorParams.operator1.freqCoarse;
         let op1FreqFine = operatorParams.operator1.freqFine;
@@ -460,9 +504,9 @@ function VolcaFm() {
         let op1EnvL4 = operatorParams.operator1.envelopeL4;
         let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
         let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
         let op1OscMode = operatorParams.operator1.oscMode;
         let op1FreqCoarse = operatorParams.operator1.freqCoarse;
         let op1FreqFine = operatorParams.operator1.freqFine;
@@ -533,9 +577,9 @@ function VolcaFm() {
         let op1EnvL4 = operatorParams.operator1.envelopeL4;
         let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
         let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
         let op1OscMode = operatorParams.operator1.oscMode;
         let op1FreqCoarse = operatorParams.operator1.freqCoarse;
         let op1FreqFine = operatorParams.operator1.freqFine;
@@ -606,9 +650,9 @@ function VolcaFm() {
         let op1EnvL4 = operatorParams.operator1.envelopeL4;
         let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
         let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = operatorParams.operator1.levelScaleLeftCurve;
+        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
         let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = operatorParams.operator1.levelScaleRightCurve;
+        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
         let op1OscMode = operatorParams.operator1.oscMode;
         let op1FreqCoarse = operatorParams.operator1.freqCoarse;
         let op1FreqFine = operatorParams.operator1.freqFine;
@@ -1039,7 +1083,21 @@ function VolcaFm() {
     }
 
     initiateMidiAccess();
-
+    
+    function curveY1Value(op) {
+        let val = 0;
+        switch(op) {
+            case(1):
+                val = (envelopeGraphTopVal / 2) + (operatorParams.operator1.levelScaleLeftDepth * scaleScaler);
+                break;
+            default:
+                console.log('impossible op');
+        }
+        
+        return val.toString();
+        
+    }
+    
     return ( 
         <div className={'volcaFmEditorContainer' + volcaFmMonth}
             tabIndex="1"
@@ -1071,10 +1129,21 @@ function VolcaFm() {
                             onChange={(e) => changeAlgorithm(e.target.value)}
                             type="range"
                             value={currentAlgorithmNumerical}></input></div>
-                        <div className={'volcaFmAlgorithmOperator1' + currentAlgorithm + volcaFmMonth}
-                            onClick={() => handleOperatorClick(1)}>
+                        {(operatorParams.operator1.operatorOn === 'Off') && (
+                            <div className={'volcaFmAlgorithmOperator1' + currentAlgorithm + volcaFmMonth}
+                            onClick={() => handleOperatorClick(1)}
+                            style={{opacity: '0.2'}}>
                             <p className={'volcaFmOperatorVisualLabel' + volcaFmMonth}>1</p>
                         </div>
+                        )}
+                        {(operatorParams.operator1.operatorOn === 'On') && (
+                            <div className={'volcaFmAlgorithmOperator1' + currentAlgorithm + volcaFmMonth}
+                            onClick={() => handleOperatorClick(1)}
+                            style={{ transform: 'scale(' + (0.6 + (operatorParams.operator1.outputLevel / 100)).toString() + ')'}}>
+                            <p className={'volcaFmOperatorVisualLabel' + volcaFmMonth}>1</p>
+                        </div>
+                        )}
+                        
                         <div className={'volcaFmAlgorithmOperator2' + currentAlgorithm + volcaFmMonth}>
                             <p className={'volcaFmOperatorVisualLabel' + volcaFmMonth}>2</p>
                         </div>
@@ -1161,7 +1230,8 @@ function VolcaFm() {
                             </div>
                         </div>
                         {(operatorEditorState.operator1.envelopeTab === 'operatorEditorTabActive') && (
-                            <div className={'operatorEnvelopeContainer' + volcaFmMonth}>
+                            <div className={'operatorEnvelopeContainer' + volcaFmMonth}
+                                onMouseDown={() => updateDisplayPort(1, 'envelope')}>
                                 <div className={'operatorEnvelopeControllersDiv' + volcaFmMonth}>
                                     <div className={'operatorEnvelopeLevelRate1Div' + volcaFmMonth}>
                                         <div className={'operatorEnvelopeParamsContainer' + volcaFmMonth}>
@@ -1307,7 +1377,8 @@ function VolcaFm() {
                             </div>
                         )}
                         {(operatorEditorState.operator1.scalingTab === 'operatorEditorTabActive') && (
-                            <div className={'operatorScalingContainer' + volcaFmMonth}>
+                            <div className={'operatorScalingContainer' + volcaFmMonth}
+                                onMouseDown={() => updateDisplayPort(1, 'scaling')}>
                                 <div className={'operatorLevelScalingControllersDiv' + volcaFmMonth}>
                                     <p className={'operatorLevelScaleBreakPointLabel' + volcaFmMonth}>level scale break point:</p>
                                     <div className={'operatorLevelScaleBreakpointRangeInputDiv' + volcaFmMonth}>
@@ -1480,7 +1551,114 @@ function VolcaFm() {
                     <p>non-operator editor</p>
                 </div>
                 <div className={'volcaEnvelopeLevelDisplay' + volcaFmMonth}>
-                    <p>envelope/level display</p>
+                    <div className={envelopeLevelState.operator1.envelopeState + volcaFmMonth}>
+                        <div className={'envelopeDisplayContainer' + volcaFmMonth}>
+                            <p className={'envelopeLevelLabel' + volcaFmMonth}>level</p>
+                            <p className={'envelopeTimeLabel' + volcaFmMonth}>time</p>
+                            <div className={'envelopeDisplayZone' + volcaFmMonth}>
+                                <svg height="100%"
+                                    width="100%">
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1="0" 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator1.envelopeL4 * 2)} 
+                                        x2={keyOnOffset} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator1.envelopeL4 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOnOffset} 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator1.envelopeL4 * 2)}
+                                        x2={keyOnOffset + (operatorParams.operator1.envelopeR1 * rateScaler)} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator1.envelopeL1 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOnOffset + (operatorParams.operator1.envelopeR1 * rateScaler)} 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator1.envelopeL1 * 2)} 
+                                        x2={keyOnOffset + (operatorParams.operator1.envelopeR1 * rateScaler) + (operatorParams.operator1.envelopeR2 * rateScaler)} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator1.envelopeL2 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOnOffset + (operatorParams.operator1.envelopeR1 * rateScaler) + (operatorParams.operator1.envelopeR2 * rateScaler)} 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator1.envelopeL2 * 2)} 
+                                        x2={keyOnOffset + (operatorParams.operator1.envelopeR1 * rateScaler) + (operatorParams.operator1.envelopeR2 * rateScaler) + (operatorParams.operator1.envelopeR3 * rateScaler)} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator1.envelopeL3 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOnOffset + (operatorParams.operator1.envelopeR1 * rateScaler) + (operatorParams.operator1.envelopeR2 * rateScaler) + (operatorParams.operator1.envelopeR3 * rateScaler)} 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator1.envelopeL3 * 2)} 
+                                        x2={keyOffOnset} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator1.envelopeL3 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOffOnset} 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator1.envelopeL3 * 2)} 
+                                        x2={keyOffOnset + (operatorParams.operator1.envelopeR4 * rateScaler)} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator1.envelopeL4 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOffOnset + (operatorParams.operator1.envelopeR4 * rateScaler)} 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator1.envelopeL4 * 2)} 
+                                        x2={envelopeEndGraph} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator1.envelopeL4 * 2)}></line>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={envelopeLevelState.operator1.levelState + volcaFmMonth}>
+                        <div className={'envelopeDisplayContainer' + volcaFmMonth}>
+                            <p className={'envelopeDepthLabel' + volcaFmMonth}>depth</p>
+                            <p className={'envelopeTimeLabel' + volcaFmMonth}>scale</p>
+                            <div className={'scalingDisplayZone' + volcaFmMonth}>
+                                <svg height="100%"
+                                    width="100%">
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={0} 
+                                        y1={envelopeGraphTopVal / 2} 
+                                        x2={envelopeEndGraph} 
+                                        y2={envelopeGraphTopVal / 2}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={(operatorParams.operator1.levelScaleBreakPoint * breakpointOffset)} 
+                                        y1={envelopeGraphTopVal} 
+                                        x2={(operatorParams.operator1.levelScaleBreakPoint * breakpointOffset)} 
+                                        y2={0}></line>
+                                    {(operatorParams.operator1.levelScaleLeftCurve === 0) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M 0 ' + ((envelopeGraphTopVal / 2) + (operatorParams.operator1.levelScaleLeftDepth * scaleScaler)).toString() + ' L ' + (operatorParams.operator1.levelScaleBreakPoint * breakpointOffset).toString() + ' ' + (envelopeGraphTopVal / 2).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator1.levelScaleLeftCurve === 1) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M 0 ' + ((envelopeGraphTopVal / 2) + (operatorParams.operator1.levelScaleLeftDepth * scaleScaler)).toString() + ' Q ' + ((operatorParams.operator1.levelScaleBreakPoint * breakpointOffset)/4).toString() + ' ' + ((envelopeGraphTopVal / 2) - 5).toString() + ' ' + (operatorParams.operator1.levelScaleBreakPoint * breakpointOffset).toString() + ' ' + (envelopeGraphTopVal / 2).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator1.levelScaleLeftCurve === 2) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M 0 ' + ((envelopeGraphTopVal / 2) - (operatorParams.operator1.levelScaleLeftDepth * scaleScaler)).toString() + ' Q ' + ((operatorParams.operator1.levelScaleBreakPoint * breakpointOffset)/4).toString() + ' ' + ((envelopeGraphTopVal / 2) - 5).toString() + ' ' + (operatorParams.operator1.levelScaleBreakPoint * breakpointOffset).toString() + ' ' + (envelopeGraphTopVal / 2).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator1.levelScaleLeftCurve === 3) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M 0 ' + ((envelopeGraphTopVal / 2) - (operatorParams.operator1.levelScaleLeftDepth * scaleScaler)).toString() + ' L ' + (operatorParams.operator1.levelScaleBreakPoint * breakpointOffset).toString() + ' ' + (envelopeGraphTopVal / 2).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator1.levelScaleRightCurve === 0) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M ' + (operatorParams.operator1.levelScaleBreakPoint * breakpointOffset).toString() + ' ' +  (envelopeGraphTopVal / 2).toString() + ' L ' + (envelopeEndGraph).toString() + ' ' + ((envelopeGraphTopVal / 2) + (operatorParams.operator1.levelScaleRightDepth * scaleScaler)).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator1.levelScaleRightCurve === 1) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M ' + ((operatorParams.operator1.levelScaleBreakPoint * breakpointOffset)).toString() + ' ' +  (envelopeGraphTopVal / 2).toString() + ' Q ' + ((operatorParams.operator1.levelScaleBreakPoint * breakpointOffset) + ((envelopeEndGraph - (operatorParams.operator1.levelScaleBreakPoint * breakpointOffset)) * 0.75)).toString() + ' ' + ((envelopeGraphTopVal / 2) - 5) + ' ' + (envelopeEndGraph).toString() + ' ' + ((envelopeGraphTopVal / 2) + (operatorParams.operator1.levelScaleRightDepth * scaleScaler)).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator1.levelScaleRightCurve === 2) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M ' + ((operatorParams.operator1.levelScaleBreakPoint * breakpointOffset)).toString() + ' ' +  (envelopeGraphTopVal / 2).toString() + ' Q ' + ((operatorParams.operator1.levelScaleBreakPoint * breakpointOffset) + ((envelopeEndGraph - (operatorParams.operator1.levelScaleBreakPoint * breakpointOffset)) * 0.75)).toString() + ' ' + ((envelopeGraphTopVal / 2) - 5) + ' ' + (envelopeEndGraph).toString() + ' ' + ((envelopeGraphTopVal / 2) - (operatorParams.operator1.levelScaleRightDepth * scaleScaler)).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator1.levelScaleRightCurve === 3) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M ' + (operatorParams.operator1.levelScaleBreakPoint * breakpointOffset).toString() + ' ' +  (envelopeGraphTopVal / 2).toString() + ' L ' + (envelopeEndGraph).toString() + ' ' + ((envelopeGraphTopVal / 2) - (operatorParams.operator1.levelScaleRightDepth * scaleScaler)).toString()}></path>
+                                    )}
+                                    
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
