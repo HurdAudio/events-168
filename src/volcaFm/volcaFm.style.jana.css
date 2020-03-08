@@ -8628,6 +8628,32 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
 }
 
+.operator3EditStateActive_JanuaryA {
+    backdrop-filter: hue-rotate(180deg) invert(0);
+    display: grid;
+    grid-template-columns: [opcol1] 1fr [opcol2] 1fr [opcol3] 1fr [opcol4] 1fr [opcol5] 1fr [opcol6] 1fr [opcol7] 1fr [opcol8] 1fr [opcol9] 1fr [opcol10] 1fr [opcol11] 1fr [opcol12] 1fr [opcol13] 1fr [opcol14] 1fr [opcol15] 1fr [opcol16] 1fr [opcol17] 1fr [opcol18] 1fr [opcol19] 1fr [opcol20] 1fr [opcol21] 1fr [opcol22] 1fr [opcol23] 1fr [opcol24] 1fr [opcol25] 1fr [oprightEdge];
+    grid-template-rows: [oprow1] 1fr [oprow2] 1fr [oprow3] 1fr [oprow4] 1fr [oprow5] 1fr [oprow6] 1fr [oprow7] 1fr [oprow8] 1fr [oprow9] 1fr [oprow10] 1fr [oprow11] 1fr [oprow12] 1fr [oprow13] 1fr [oprow14] 1fr [oprow15] 1fr [oprow16] 1fr [oprow17] 1fr [oprow18] 1fr [oprow19] 1fr [oprow20] 1fr [oprow21] 1fr [oprow22] 1fr [oprow23] 1fr [oprow24] 1fr [oprow25] 1fr [oprowEnd];
+    height: 100%;
+    position: relative;
+    top: -200%;
+    transform: translateX(0);
+    transition: all 0.6s linear;
+    width: 100%;
+}
+
+.operator3EditStateInactive_JanuaryA {
+    backdrop-filter: hue-rotate(180deg) invert(100%);
+    display: grid;
+    grid-template-columns: [opcol1] 1fr [opcol2] 1fr [opcol3] 1fr [opcol4] 1fr [opcol5] 1fr [opcol6] 1fr [opcol7] 1fr [opcol8] 1fr [opcol9] 1fr [opcol10] 1fr [opcol11] 1fr [opcol12] 1fr [opcol13] 1fr [opcol14] 1fr [opcol15] 1fr [opcol16] 1fr [opcol17] 1fr [opcol18] 1fr [opcol19] 1fr [opcol20] 1fr [opcol21] 1fr [opcol22] 1fr [opcol23] 1fr [opcol24] 1fr [opcol25] 1fr [oprightEdge];
+    grid-template-rows: [oprow1] 1fr [oprow2] 1fr [oprow3] 1fr [oprow4] 1fr [oprow5] 1fr [oprow6] 1fr [oprow7] 1fr [oprow8] 1fr [oprow9] 1fr [oprow10] 1fr [oprow11] 1fr [oprow12] 1fr [oprow13] 1fr [oprow14] 1fr [oprow15] 1fr [oprow16] 1fr [oprow17] 1fr [oprow18] 1fr [oprow19] 1fr [oprow20] 1fr [oprow21] 1fr [oprow22] 1fr [oprow23] 1fr [oprow24] 1fr [oprow25] 1fr [oprowEnd];
+    height: 100%;
+    position: relative;
+    top: -200%;
+    transform: translateX(100%);
+    transition: all 0.6s linear;
+    width: 100%;
+}
+
 .operatorEditorToolbar_JanuaryA {
     align-content: center;
     background: linear-gradient(-145deg, #b5daff, #33aeea);
@@ -9465,6 +9491,26 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
 }
 
+.operator3EnvelopeStateInactive_JanuaryA {
+    backdrop-filter: hue-rotate(10deg);
+    height: 100%;
+    left: 100%;
+    position: relative;
+    top: -400%;
+    transition: all 0.5s linear;
+    width: 100%;
+}
+
+.operator3EnvelopeStateActive_JanuaryA {
+    backdrop-filter: hue-rotate(30deg);
+    height: 100%;
+    left: 0;
+    position: relative;
+    top: -400%;
+    transition: all 0.5s linear;
+    width: 100%;
+}
+
 .envelopeDisplayContainer_JanuaryA {
     display: grid;
     grid-template-columns: [lopecol1] 1fr [lopecol2] 1fr [lopecol3] 1fr [lopecol4] 1fr [lopecol5] 1fr [lopecol6] 1fr [lopecol7] 1fr [lopecol8] 1fr [lopecol9] 1fr [lopecol10] 1fr [lopecol11] 1fr [lopecol12] 1fr [lopeEdge];
@@ -9542,6 +9588,26 @@ input[type=number]::-webkit-outer-spin-button {
     left: 0;
     position: relative;
     top: -300%;
+    transition: all 0.5s linear;
+    width: 100%;
+}
+
+.operator3EnvelopeLevelStateInactive_JanuaryA {
+    backdrop-filter: hue-rotate(-130deg);
+    height: 100%;
+    left: 100%;
+    position: relative;
+    top: -500%;
+    transition: all 0.5s linear;
+    width: 100%;
+}
+
+.operator3EnvelopeLevelStateActive_JanuaryA {
+    backdrop-filter: hue-rotate(-130deg);
+    height: 100%;
+    left: 0;
+    position: relative;
+    top: -500%;
     transition: all 0.5s linear;
     width: 100%;
 }
