@@ -67,6 +67,12 @@ function VolcaFm() {
             envelopeTab: 'operatorEditorTabActive',
             scalingTab: 'operatorEditorTabInactive',
             tuningTab: 'operatorEditorTabInactive'
+        },
+        operator6: {
+            state: 'operator6EditStateInactive',
+            envelopeTab: 'operatorEditorTabActive',
+            scalingTab: 'operatorEditorTabInactive',
+            tuningTab: 'operatorEditorTabInactive'
         }
     });
     const [envelopeLevelState, setEnvelopeLevelState] = useState({
@@ -89,6 +95,10 @@ function VolcaFm() {
         operator5: {
             envelopeState: 'operator5EnvelopeStateInactive',
             levelState: 'operator5EnvelopeLevelStateInactive'
+        },
+        operator6: {
+            envelopeState: 'operator6EnvelopeStateInactive',
+            levelState: 'operator6EnvelopeLevelStateInactive'
         }
     });
     const [operatorParams, setOperatorParams] = useState({
@@ -211,6 +221,30 @@ function VolcaFm() {
             oscRateScale: 0,
             amplitudeModSense: 0,
             keyVelocitySense: 4
+        },
+        operator6: {
+            operatorOn: 'On',
+            outputLevel: 75,
+            envelopeR1: 20,
+            envelopeL1: 90,
+            envelopeR2: 55,
+            envelopeL2: 67,
+            envelopeR3: 73,
+            envelopeL3: 50,
+            envelopeR4: 25,
+            envelopeL4: 0,
+            levelScaleBreakPoint: 60,
+            levelScaleLeftDepth: 50,
+            levelScaleLeftCurve: 0,
+            levelScaleRightDepth: 50,
+            levelScaleRightCurve: 3,
+            oscMode: 0,
+            freqCoarse: 1,
+            freqFine: 0,
+            detune: 7,
+            oscRateScale: 0,
+            amplitudeModSense: 0,
+            keyVelocitySense: 4
         }
     });
     
@@ -225,6 +259,8 @@ function VolcaFm() {
         let op4levelState = envelopeLevelState.operator4.levelState;
         let op5EnvState = envelopeLevelState.operator5.envelopeState;
         let op5levelState = envelopeLevelState.operator5.levelState;
+        let op6EnvState = envelopeLevelState.operator6.envelopeState;
+        let op6levelState = envelopeLevelState.operator6.levelState;
         switch(op) {
             case(1):
                 switch(purpose) {
@@ -239,6 +275,8 @@ function VolcaFm() {
                         op4levelState = 'operator4EnvelopeLevelStateInactive';
                         op5EnvState = 'operator5EnvelopeStateInactive';
                         op5levelState = 'operator5EnvelopeLevelStateInactive';
+                        op6EnvState = 'operator6EnvelopeStateInactive';
+                        op6levelState = 'operator6EnvelopeLevelStateInactive';
                         break;
                     case('scaling'):
                         op1EnvState = 'operator1EnvelopeStateInactive';
@@ -251,6 +289,8 @@ function VolcaFm() {
                         op4levelState = 'operator4EnvelopeLevelStateInactive';
                         op5EnvState = 'operator5EnvelopeStateInactive';
                         op5levelState = 'operator5EnvelopeLevelStateInactive';
+                        op6EnvState = 'operator6EnvelopeStateInactive';
+                        op6levelState = 'operator6EnvelopeLevelStateInactive';
                         break;
                     default:
                         console.log('impossible purpose');
@@ -269,6 +309,8 @@ function VolcaFm() {
                         op4levelState = 'operator4EnvelopeLevelStateInactive';
                         op5EnvState = 'operator5EnvelopeStateInactive';
                         op5levelState = 'operator5EnvelopeLevelStateInactive';
+                        op6EnvState = 'operator6EnvelopeStateInactive';
+                        op6levelState = 'operator6EnvelopeLevelStateInactive';
                         break;
                     case('scaling'):
                         op1EnvState = 'operator1EnvelopeStateInactive';
@@ -281,6 +323,8 @@ function VolcaFm() {
                         op4levelState = 'operator4EnvelopeLevelStateInactive';
                         op5EnvState = 'operator5EnvelopeStateInactive';
                         op5levelState = 'operator5EnvelopeLevelStateInactive';
+                        op6EnvState = 'operator6EnvelopeStateInactive';
+                        op6levelState = 'operator6EnvelopeLevelStateInactive';
                         break;
                     default:
                         console.log('impossible purpose');    
@@ -299,6 +343,8 @@ function VolcaFm() {
                         op4levelState = 'operator4EnvelopeLevelStateInactive';
                         op5EnvState = 'operator5EnvelopeStateInactive';
                         op5levelState = 'operator5EnvelopeLevelStateInactive';
+                        op6EnvState = 'operator6EnvelopeStateInactive';
+                        op6levelState = 'operator6EnvelopeLevelStateInactive';
                         break;
                     case('scaling'):
                         op1EnvState = 'operator1EnvelopeStateInactive';
@@ -311,6 +357,8 @@ function VolcaFm() {
                         op4levelState = 'operator4EnvelopeLevelStateInactive';
                         op5EnvState = 'operator5EnvelopeStateInactive';
                         op5levelState = 'operator5EnvelopeLevelStateInactive';
+                        op6EnvState = 'operator6EnvelopeStateInactive';
+                        op6levelState = 'operator6EnvelopeLevelStateInactive';
                         break;
                     default:
                         console.log('impossible purpose');    
@@ -329,6 +377,8 @@ function VolcaFm() {
                         op4levelState = 'operator4EnvelopeLevelStateInactive';
                         op5EnvState = 'operator5EnvelopeStateInactive';
                         op5levelState = 'operator5EnvelopeLevelStateInactive';
+                        op6EnvState = 'operator6EnvelopeStateInactive';
+                        op6levelState = 'operator6EnvelopeLevelStateInactive';
                         break;
                     case('scaling'):
                         op1EnvState = 'operator1EnvelopeStateInactive';
@@ -341,6 +391,8 @@ function VolcaFm() {
                         op4levelState = 'operator4EnvelopeLevelStateActive';
                         op5EnvState = 'operator5EnvelopeStateInactive';
                         op5levelState = 'operator5EnvelopeLevelStateInactive';
+                        op6EnvState = 'operator6EnvelopeStateInactive';
+                        op6levelState = 'operator6EnvelopeLevelStateInactive';
                         break;
                     default:
                         console.log('impossible purpose');    
@@ -359,6 +411,8 @@ function VolcaFm() {
                         op4levelState = 'operator4EnvelopeLevelStateInactive';
                         op5EnvState = 'operator5EnvelopeStateActive';
                         op5levelState = 'operator5EnvelopeLevelStateInactive';
+                        op6EnvState = 'operator6EnvelopeStateInactive';
+                        op6levelState = 'operator6EnvelopeLevelStateInactive';
                         break;
                     case('scaling'):
                         op1EnvState = 'operator1EnvelopeStateInactive';
@@ -371,6 +425,42 @@ function VolcaFm() {
                         op4levelState = 'operator4EnvelopeLevelStateInactive';
                         op5EnvState = 'operator5EnvelopeStateInactive';
                         op5levelState = 'operator5EnvelopeLevelStateActive';
+                        op6EnvState = 'operator6EnvelopeStateInactive';
+                        op6levelState = 'operator6EnvelopeLevelStateInactive';
+                        break;
+                    default:
+                        console.log('impossible purpose');    
+                }
+                break;
+            case(6):
+                switch(purpose) {
+                    case('envelope'):
+                        op1EnvState = 'operator1EnvelopeStateInactive';
+                        op1levelState = 'operator1EnvelopeLevelStateInactive';
+                        op2EnvState = 'operator2EnvelopeStateInactive';
+                        op2levelState = 'operator2EnvelopeLevelStateInactive';
+                        op3EnvState = 'operator3EnvelopeStateInactive';
+                        op3levelState = 'operator3EnvelopeLevelStateInactive';
+                        op4EnvState = 'operator4EnvelopeStateInactive';
+                        op4levelState = 'operator4EnvelopeLevelStateInactive';
+                        op5EnvState = 'operator5EnvelopeStateInactive';
+                        op5levelState = 'operator5EnvelopeLevelStateInactive';
+                        op6EnvState = 'operator6EnvelopeStateActive';
+                        op6levelState = 'operator6EnvelopeLevelStateInactive';
+                        break;
+                    case('scaling'):
+                        op1EnvState = 'operator1EnvelopeStateInactive';
+                        op1levelState = 'operator1EnvelopeLevelStateInactive';
+                        op2EnvState = 'operator2EnvelopeStateInactive';
+                        op2levelState = 'operator2EnvelopeLevelStateInactive';
+                        op3EnvState = 'operator3EnvelopeStateInactive';
+                        op3levelState = 'operator3EnvelopeLevelStateInactive';
+                        op4EnvState = 'operator4EnvelopeStateInactive';
+                        op4levelState = 'operator4EnvelopeLevelStateInactive';
+                        op5EnvState = 'operator5EnvelopeStateInactive';
+                        op5levelState = 'operator5EnvelopeLevelStateInactive';
+                        op6EnvState = 'operator6EnvelopeStateInactive';
+                        op6levelState = 'operator6EnvelopeLevelStateActive';
                         break;
                     default:
                         console.log('impossible purpose');    
@@ -399,6 +489,10 @@ function VolcaFm() {
             operator5: {
                 envelopeState: op5EnvState,
                 levelState: op5levelState
+            },
+            operator6: {
+                envelopeState: op6EnvState,
+                levelState: op6levelState
             }
         });
     }
@@ -514,6 +608,28 @@ function VolcaFm() {
         let op5OscRateScale = operatorParams.operator5.oscRateScale;
         let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
         let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
+        let opOn6 = operatorParams.operator6.operatorOn;
+        let outLvl6 = operatorParams.operator6.outputLevel;
+        let op6EnvR1 = operatorParams.operator6.envelopeR1;
+        let op6EnvL1 = operatorParams.operator6.envelopeL1;
+        let op6EnvR2 = operatorParams.operator6.envelopeR2;
+        let op6EnvL2 = operatorParams.operator6.envelopeL2;
+        let op6EnvR3 = operatorParams.operator6.envelopeR3;
+        let op6EnvL3 = operatorParams.operator6.envelopeL3;
+        let op6EnvR4 = operatorParams.operator6.envelopeR4;
+        let op6EnvL4 = operatorParams.operator6.envelopeL4;
+        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
+        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
+        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
+        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
+        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
+        let op6OscMode = operatorParams.operator6.oscMode;
+        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
+        let op6FreqFine = operatorParams.operator6.freqFine;
+        let op6Detune = operatorParams.operator6.detune;
+        let op6OscRateScale = operatorParams.operator6.oscRateScale;
+        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
+        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
         switch (op) {
             case (1):
                 if (op1OscMode === 0) {
@@ -548,6 +664,13 @@ function VolcaFm() {
                     op5OscMode = 1;
                 } else {
                     op5OscMode = 0;
+                }
+                break;
+            case(6):
+              if (op6OscMode === 0) {
+                    op6OscMode = 1;
+                } else {
+                    op6OscMode = 0;
                 }
                 break;
             default:
@@ -673,6 +796,30 @@ function VolcaFm() {
                 oscRateScale: op5OscRateScale,
                 amplitudeModSense: op5AmplitudeModSense,
                 keyVelocitySense: op5KeyVelocitySense
+            },
+            operator6: {
+                operatorOn: opOn6,
+                outputLevel: outLvl6,
+                envelopeR1: op6EnvR1,
+                envelopeL1: op6EnvL1,
+                envelopeR2: op6EnvR2,
+                envelopeL2: op6EnvL2,
+                envelopeR3: op6EnvR3,
+                envelopeL3: op6EnvL3,
+                envelopeR4: op6EnvR4,
+                envelopeL4: op6EnvL4,
+                levelScaleBreakPoint: op6LvlScaleBreak,
+                levelScaleLeftDepth: op6LvlScaleLeftDepth,
+                levelScaleLeftCurve: op6LvlScaleLeftCurve,
+                levelScaleRightDepth: op6LvlScaleRightDepth,
+                levelScaleRightCurve: op6LvlScaleRightCurve,
+                oscMode: op6OscMode,
+                freqCoarse: op6FreqCoarse,
+                freqFine: op6FreqFine,
+                detune: op6Detune,
+                oscRateScale: op6OscRateScale,
+                amplitudeModSense: op6AmplitudeModSense,
+                keyVelocitySense: op6KeyVelocitySense
             }
         });
     }
@@ -788,6 +935,28 @@ function VolcaFm() {
         let op5OscRateScale = operatorParams.operator5.oscRateScale;
         let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
         let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
+        let opOn6 = operatorParams.operator6.operatorOn;
+        let outLvl6 = operatorParams.operator6.outputLevel;
+        let op6EnvR1 = operatorParams.operator6.envelopeR1;
+        let op6EnvL1 = operatorParams.operator6.envelopeL1;
+        let op6EnvR2 = operatorParams.operator6.envelopeR2;
+        let op6EnvL2 = operatorParams.operator6.envelopeL2;
+        let op6EnvR3 = operatorParams.operator6.envelopeR3;
+        let op6EnvL3 = operatorParams.operator6.envelopeL3;
+        let op6EnvR4 = operatorParams.operator6.envelopeR4;
+        let op6EnvL4 = operatorParams.operator6.envelopeL4;
+        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
+        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
+        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
+        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
+        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
+        let op6OscMode = operatorParams.operator6.oscMode;
+        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
+        let op6FreqFine = operatorParams.operator6.freqFine;
+        let op6Detune = operatorParams.operator6.detune;
+        let op6OscRateScale = operatorParams.operator6.oscRateScale;
+        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
+        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
         switch (op) {
             case (1):
                 switch(tune) {
@@ -909,6 +1078,30 @@ function VolcaFm() {
                         console.log('impossible tune');
                 }
                 break;
+            case (6):
+                switch(tune) {
+                    case('coarse'):
+                        op6FreqCoarse = val;
+                        break;
+                    case('fine'):
+                        op6FreqFine = val;
+                        break;
+                    case('detune'):
+                        op6Detune = val;
+                        break;
+                    case('oscRate'):
+                        op6OscRateScale = val;
+                        break;
+                    case('ams'):
+                        op6AmplitudeModSense = val;
+                        break;
+                    case('kvs'):
+                        op6KeyVelocitySense = val;
+                        break;
+                    default:
+                        console.log('impossible tune');
+                }
+                break;
             default:
                 console.log('impossible curve value');
         }
@@ -1032,6 +1225,30 @@ function VolcaFm() {
                 oscRateScale: op5OscRateScale,
                 amplitudeModSense: op5AmplitudeModSense,
                 keyVelocitySense: op5KeyVelocitySense
+            },
+            operator6: {
+                operatorOn: opOn6,
+                outputLevel: outLvl6,
+                envelopeR1: op6EnvR1,
+                envelopeL1: op6EnvL1,
+                envelopeR2: op6EnvR2,
+                envelopeL2: op6EnvL2,
+                envelopeR3: op6EnvR3,
+                envelopeL3: op6EnvL3,
+                envelopeR4: op6EnvR4,
+                envelopeL4: op6EnvL4,
+                levelScaleBreakPoint: op6LvlScaleBreak,
+                levelScaleLeftDepth: op6LvlScaleLeftDepth,
+                levelScaleLeftCurve: op6LvlScaleLeftCurve,
+                levelScaleRightDepth: op6LvlScaleRightDepth,
+                levelScaleRightCurve: op6LvlScaleRightCurve,
+                oscMode: op6OscMode,
+                freqCoarse: op6FreqCoarse,
+                freqFine: op6FreqFine,
+                detune: op6Detune,
+                oscRateScale: op6OscRateScale,
+                amplitudeModSense: op6AmplitudeModSense,
+                keyVelocitySense: op6KeyVelocitySense
             }
         });
     }
@@ -1147,6 +1364,28 @@ function VolcaFm() {
         let op5OscRateScale = operatorParams.operator5.oscRateScale;
         let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
         let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
+        let opOn6 = operatorParams.operator6.operatorOn;
+        let outLvl6 = operatorParams.operator6.outputLevel;
+        let op6EnvR1 = operatorParams.operator6.envelopeR1;
+        let op6EnvL1 = operatorParams.operator6.envelopeL1;
+        let op6EnvR2 = operatorParams.operator6.envelopeR2;
+        let op6EnvL2 = operatorParams.operator6.envelopeL2;
+        let op6EnvR3 = operatorParams.operator6.envelopeR3;
+        let op6EnvL3 = operatorParams.operator6.envelopeL3;
+        let op6EnvR4 = operatorParams.operator6.envelopeR4;
+        let op6EnvL4 = operatorParams.operator6.envelopeL4;
+        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
+        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
+        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
+        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
+        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
+        let op6OscMode = operatorParams.operator6.oscMode;
+        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
+        let op6FreqFine = operatorParams.operator6.freqFine;
+        let op6Detune = operatorParams.operator6.detune;
+        let op6OscRateScale = operatorParams.operator6.oscRateScale;
+        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
+        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
         switch (op) {
             case (1):
                 if (side === 'left') {
@@ -1181,6 +1420,13 @@ function VolcaFm() {
                     op5LvlScaleLeftDepth = val;
                 } else {
                     op5LvlScaleRightDepth = val;
+                }
+                break;
+            case (6):
+                if (side === 'left') {
+                    op6LvlScaleLeftDepth = val;
+                } else {
+                    op6LvlScaleRightDepth = val;
                 }
                 break;
             default:
@@ -1306,6 +1552,30 @@ function VolcaFm() {
                 oscRateScale: op5OscRateScale,
                 amplitudeModSense: op5AmplitudeModSense,
                 keyVelocitySense: op5KeyVelocitySense
+            },
+            operator6: {
+                operatorOn: opOn6,
+                outputLevel: outLvl6,
+                envelopeR1: op6EnvR1,
+                envelopeL1: op6EnvL1,
+                envelopeR2: op6EnvR2,
+                envelopeL2: op6EnvL2,
+                envelopeR3: op6EnvR3,
+                envelopeL3: op6EnvL3,
+                envelopeR4: op6EnvR4,
+                envelopeL4: op6EnvL4,
+                levelScaleBreakPoint: op6LvlScaleBreak,
+                levelScaleLeftDepth: op6LvlScaleLeftDepth,
+                levelScaleLeftCurve: op6LvlScaleLeftCurve,
+                levelScaleRightDepth: op6LvlScaleRightDepth,
+                levelScaleRightCurve: op6LvlScaleRightCurve,
+                oscMode: op6OscMode,
+                freqCoarse: op6FreqCoarse,
+                freqFine: op6FreqFine,
+                detune: op6Detune,
+                oscRateScale: op6OscRateScale,
+                amplitudeModSense: op6AmplitudeModSense,
+                keyVelocitySense: op6KeyVelocitySense
             }
         });
     }
@@ -1421,6 +1691,28 @@ function VolcaFm() {
         let op5OscRateScale = operatorParams.operator5.oscRateScale;
         let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
         let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
+        let opOn6 = operatorParams.operator6.operatorOn;
+        let outLvl6 = operatorParams.operator6.outputLevel;
+        let op6EnvR1 = operatorParams.operator6.envelopeR1;
+        let op6EnvL1 = operatorParams.operator6.envelopeL1;
+        let op6EnvR2 = operatorParams.operator6.envelopeR2;
+        let op6EnvL2 = operatorParams.operator6.envelopeL2;
+        let op6EnvR3 = operatorParams.operator6.envelopeR3;
+        let op6EnvL3 = operatorParams.operator6.envelopeL3;
+        let op6EnvR4 = operatorParams.operator6.envelopeR4;
+        let op6EnvL4 = operatorParams.operator6.envelopeL4;
+        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
+        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
+        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
+        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
+        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
+        let op6OscMode = operatorParams.operator6.oscMode;
+        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
+        let op6FreqFine = operatorParams.operator6.freqFine;
+        let op6Detune = operatorParams.operator6.detune;
+        let op6OscRateScale = operatorParams.operator6.oscRateScale;
+        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
+        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
         switch (op) {
             case (1):
                 if (side === 'left') {
@@ -1455,6 +1747,13 @@ function VolcaFm() {
                     op5LvlScaleLeftCurve = parseInt(val);
                 } else {
                     op5LvlScaleRightCurve = parseInt(val);
+                }
+                break;
+            case (6):
+                if (side === 'left') {
+                    op6LvlScaleLeftCurve = parseInt(val);
+                } else {
+                    op6LvlScaleRightCurve = parseInt(val);
                 }
                 break;
             default:
@@ -1580,6 +1879,30 @@ function VolcaFm() {
                 oscRateScale: op5OscRateScale,
                 amplitudeModSense: op5AmplitudeModSense,
                 keyVelocitySense: op5KeyVelocitySense
+            },
+            operator6: {
+                operatorOn: opOn6,
+                outputLevel: outLvl6,
+                envelopeR1: op6EnvR1,
+                envelopeL1: op6EnvL1,
+                envelopeR2: op6EnvR2,
+                envelopeL2: op6EnvL2,
+                envelopeR3: op6EnvR3,
+                envelopeL3: op6EnvL3,
+                envelopeR4: op6EnvR4,
+                envelopeL4: op6EnvL4,
+                levelScaleBreakPoint: op6LvlScaleBreak,
+                levelScaleLeftDepth: op6LvlScaleLeftDepth,
+                levelScaleLeftCurve: op6LvlScaleLeftCurve,
+                levelScaleRightDepth: op6LvlScaleRightDepth,
+                levelScaleRightCurve: op6LvlScaleRightCurve,
+                oscMode: op6OscMode,
+                freqCoarse: op6FreqCoarse,
+                freqFine: op6FreqFine,
+                detune: op6Detune,
+                oscRateScale: op6OscRateScale,
+                amplitudeModSense: op6AmplitudeModSense,
+                keyVelocitySense: op6KeyVelocitySense
             }
         });
         console.log(operatorParams);
@@ -1696,6 +2019,28 @@ function VolcaFm() {
         let op5OscRateScale = operatorParams.operator5.oscRateScale;
         let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
         let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
+        let opOn6 = operatorParams.operator6.operatorOn;
+        let outLvl6 = operatorParams.operator6.outputLevel;
+        let op6EnvR1 = operatorParams.operator6.envelopeR1;
+        let op6EnvL1 = operatorParams.operator6.envelopeL1;
+        let op6EnvR2 = operatorParams.operator6.envelopeR2;
+        let op6EnvL2 = operatorParams.operator6.envelopeL2;
+        let op6EnvR3 = operatorParams.operator6.envelopeR3;
+        let op6EnvL3 = operatorParams.operator6.envelopeL3;
+        let op6EnvR4 = operatorParams.operator6.envelopeR4;
+        let op6EnvL4 = operatorParams.operator6.envelopeL4;
+        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
+        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
+        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
+        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
+        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
+        let op6OscMode = operatorParams.operator6.oscMode;
+        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
+        let op6FreqFine = operatorParams.operator6.freqFine;
+        let op6Detune = operatorParams.operator6.detune;
+        let op6OscRateScale = operatorParams.operator6.oscRateScale;
+        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
+        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
         switch (op) {
             case (1):
                 op1LvlScaleBreak = val;
@@ -1711,6 +2056,9 @@ function VolcaFm() {
                 break;
             case (5):
                 op5LvlScaleBreak = val;
+                break;
+            case (6):
+                op6LvlScaleBreak = val;
                 break;
             default:
                 console.log('impossible operator');
@@ -1835,6 +2183,30 @@ function VolcaFm() {
                 oscRateScale: op5OscRateScale,
                 amplitudeModSense: op5AmplitudeModSense,
                 keyVelocitySense: op5KeyVelocitySense
+            },
+            operator6: {
+                operatorOn: opOn6,
+                outputLevel: outLvl6,
+                envelopeR1: op6EnvR1,
+                envelopeL1: op6EnvL1,
+                envelopeR2: op6EnvR2,
+                envelopeL2: op6EnvL2,
+                envelopeR3: op6EnvR3,
+                envelopeL3: op6EnvL3,
+                envelopeR4: op6EnvR4,
+                envelopeL4: op6EnvL4,
+                levelScaleBreakPoint: op6LvlScaleBreak,
+                levelScaleLeftDepth: op6LvlScaleLeftDepth,
+                levelScaleLeftCurve: op6LvlScaleLeftCurve,
+                levelScaleRightDepth: op6LvlScaleRightDepth,
+                levelScaleRightCurve: op6LvlScaleRightCurve,
+                oscMode: op6OscMode,
+                freqCoarse: op6FreqCoarse,
+                freqFine: op6FreqFine,
+                detune: op6Detune,
+                oscRateScale: op6OscRateScale,
+                amplitudeModSense: op6AmplitudeModSense,
+                keyVelocitySense: op6KeyVelocitySense
             }
         });
     }
@@ -1950,6 +2322,28 @@ function VolcaFm() {
         let op5OscRateScale = operatorParams.operator5.oscRateScale;
         let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
         let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
+        let opOn6 = operatorParams.operator6.operatorOn;
+        let outLvl6 = operatorParams.operator6.outputLevel;
+        let op6EnvR1 = operatorParams.operator6.envelopeR1;
+        let op6EnvL1 = operatorParams.operator6.envelopeL1;
+        let op6EnvR2 = operatorParams.operator6.envelopeR2;
+        let op6EnvL2 = operatorParams.operator6.envelopeL2;
+        let op6EnvR3 = operatorParams.operator6.envelopeR3;
+        let op6EnvL3 = operatorParams.operator6.envelopeL3;
+        let op6EnvR4 = operatorParams.operator6.envelopeR4;
+        let op6EnvL4 = operatorParams.operator6.envelopeL4;
+        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
+        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
+        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
+        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
+        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
+        let op6OscMode = operatorParams.operator6.oscMode;
+        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
+        let op6FreqFine = operatorParams.operator6.freqFine;
+        let op6Detune = operatorParams.operator6.detune;
+        let op6OscRateScale = operatorParams.operator6.oscRateScale;
+        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
+        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
 
         switch (op) {
             case (1):
@@ -1966,6 +2360,9 @@ function VolcaFm() {
                 break;
             case (5):
                 outLvl5 = val;
+                break;
+            case (6):
+                outLvl6 = val;
                 break;
             default:
                 console.log('impossible condition');
@@ -2090,6 +2487,30 @@ function VolcaFm() {
                 oscRateScale: op5OscRateScale,
                 amplitudeModSense: op5AmplitudeModSense,
                 keyVelocitySense: op5KeyVelocitySense
+            },
+            operator6: {
+                operatorOn: opOn6,
+                outputLevel: outLvl6,
+                envelopeR1: op6EnvR1,
+                envelopeL1: op6EnvL1,
+                envelopeR2: op6EnvR2,
+                envelopeL2: op6EnvL2,
+                envelopeR3: op6EnvR3,
+                envelopeL3: op6EnvL3,
+                envelopeR4: op6EnvR4,
+                envelopeL4: op6EnvL4,
+                levelScaleBreakPoint: op6LvlScaleBreak,
+                levelScaleLeftDepth: op6LvlScaleLeftDepth,
+                levelScaleLeftCurve: op6LvlScaleLeftCurve,
+                levelScaleRightDepth: op6LvlScaleRightDepth,
+                levelScaleRightCurve: op6LvlScaleRightCurve,
+                oscMode: op6OscMode,
+                freqCoarse: op6FreqCoarse,
+                freqFine: op6FreqFine,
+                detune: op6Detune,
+                oscRateScale: op6OscRateScale,
+                amplitudeModSense: op6AmplitudeModSense,
+                keyVelocitySense: op6KeyVelocitySense
             }
         });
 
@@ -2206,6 +2627,28 @@ function VolcaFm() {
         let op5OscRateScale = operatorParams.operator5.oscRateScale;
         let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
         let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
+        let opOn6 = operatorParams.operator6.operatorOn;
+        let outLvl6 = operatorParams.operator6.outputLevel;
+        let op6EnvR1 = operatorParams.operator6.envelopeR1;
+        let op6EnvL1 = operatorParams.operator6.envelopeL1;
+        let op6EnvR2 = operatorParams.operator6.envelopeR2;
+        let op6EnvL2 = operatorParams.operator6.envelopeL2;
+        let op6EnvR3 = operatorParams.operator6.envelopeR3;
+        let op6EnvL3 = operatorParams.operator6.envelopeL3;
+        let op6EnvR4 = operatorParams.operator6.envelopeR4;
+        let op6EnvL4 = operatorParams.operator6.envelopeL4;
+        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
+        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
+        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
+        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
+        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
+        let op6OscMode = operatorParams.operator6.oscMode;
+        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
+        let op6FreqFine = operatorParams.operator6.freqFine;
+        let op6Detune = operatorParams.operator6.detune;
+        let op6OscRateScale = operatorParams.operator6.oscRateScale;
+        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
+        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
         switch (op) {
             case (1):
                 switch (level) {
@@ -2292,6 +2735,24 @@ function VolcaFm() {
                         break;
                     case (4):
                         op5EnvL4 = val;
+                        break;
+                    default:
+                        console.log('impossible rate');
+                }
+                break;
+            case (6):
+                switch (level) {
+                    case (1):
+                        op6EnvL1 = val;
+                        break;
+                    case (2):
+                        op6EnvL2 = val;
+                        break;
+                    case (3):
+                        op6EnvL3 = val;
+                        break;
+                    case (4):
+                        op6EnvL4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -2420,6 +2881,30 @@ function VolcaFm() {
                 oscRateScale: op5OscRateScale,
                 amplitudeModSense: op5AmplitudeModSense,
                 keyVelocitySense: op5KeyVelocitySense
+            },
+            operator6: {
+                operatorOn: opOn6,
+                outputLevel: outLvl6,
+                envelopeR1: op6EnvR1,
+                envelopeL1: op6EnvL1,
+                envelopeR2: op6EnvR2,
+                envelopeL2: op6EnvL2,
+                envelopeR3: op6EnvR3,
+                envelopeL3: op6EnvL3,
+                envelopeR4: op6EnvR4,
+                envelopeL4: op6EnvL4,
+                levelScaleBreakPoint: op6LvlScaleBreak,
+                levelScaleLeftDepth: op6LvlScaleLeftDepth,
+                levelScaleLeftCurve: op6LvlScaleLeftCurve,
+                levelScaleRightDepth: op6LvlScaleRightDepth,
+                levelScaleRightCurve: op6LvlScaleRightCurve,
+                oscMode: op6OscMode,
+                freqCoarse: op6FreqCoarse,
+                freqFine: op6FreqFine,
+                detune: op6Detune,
+                oscRateScale: op6OscRateScale,
+                amplitudeModSense: op6AmplitudeModSense,
+                keyVelocitySense: op6KeyVelocitySense
             }
         });
     }
@@ -2535,6 +3020,28 @@ function VolcaFm() {
         let op5OscRateScale = operatorParams.operator5.oscRateScale;
         let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
         let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
+        let opOn6 = operatorParams.operator6.operatorOn;
+        let outLvl6 = operatorParams.operator6.outputLevel;
+        let op6EnvR1 = operatorParams.operator6.envelopeR1;
+        let op6EnvL1 = operatorParams.operator6.envelopeL1;
+        let op6EnvR2 = operatorParams.operator6.envelopeR2;
+        let op6EnvL2 = operatorParams.operator6.envelopeL2;
+        let op6EnvR3 = operatorParams.operator6.envelopeR3;
+        let op6EnvL3 = operatorParams.operator6.envelopeL3;
+        let op6EnvR4 = operatorParams.operator6.envelopeR4;
+        let op6EnvL4 = operatorParams.operator6.envelopeL4;
+        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
+        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
+        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
+        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
+        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
+        let op6OscMode = operatorParams.operator6.oscMode;
+        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
+        let op6FreqFine = operatorParams.operator6.freqFine;
+        let op6Detune = operatorParams.operator6.detune;
+        let op6OscRateScale = operatorParams.operator6.oscRateScale;
+        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
+        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
         switch (op) {
             case (1):
                 switch (rate) {
@@ -2621,6 +3128,24 @@ function VolcaFm() {
                         break;
                     case (4):
                         op5EnvR4 = val;
+                        break;
+                    default:
+                        console.log('impossible rate');
+                }
+                break;
+            case (6):
+                switch (rate) {
+                    case (1):
+                        op6EnvR1 = val;
+                        break;
+                    case (2):
+                        op6EnvR2 = val;
+                        break;
+                    case (3):
+                        op6EnvR3 = val;
+                        break;
+                    case (4):
+                        op6EnvR4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -2749,6 +3274,30 @@ function VolcaFm() {
                 oscRateScale: op5OscRateScale,
                 amplitudeModSense: op5AmplitudeModSense,
                 keyVelocitySense: op5KeyVelocitySense
+            },
+            operator6: {
+                operatorOn: opOn6,
+                outputLevel: outLvl6,
+                envelopeR1: op6EnvR1,
+                envelopeL1: op6EnvL1,
+                envelopeR2: op6EnvR2,
+                envelopeL2: op6EnvL2,
+                envelopeR3: op6EnvR3,
+                envelopeL3: op6EnvL3,
+                envelopeR4: op6EnvR4,
+                envelopeL4: op6EnvL4,
+                levelScaleBreakPoint: op6LvlScaleBreak,
+                levelScaleLeftDepth: op6LvlScaleLeftDepth,
+                levelScaleLeftCurve: op6LvlScaleLeftCurve,
+                levelScaleRightDepth: op6LvlScaleRightDepth,
+                levelScaleRightCurve: op6LvlScaleRightCurve,
+                oscMode: op6OscMode,
+                freqCoarse: op6FreqCoarse,
+                freqFine: op6FreqFine,
+                detune: op6Detune,
+                oscRateScale: op6OscRateScale,
+                amplitudeModSense: op6AmplitudeModSense,
+                keyVelocitySense: op6KeyVelocitySense
             }
         });
     }
@@ -2864,6 +3413,28 @@ function VolcaFm() {
         let op5OscRateScale = operatorParams.operator5.oscRateScale;
         let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
         let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
+        let opOn6 = operatorParams.operator6.operatorOn;
+        let outLvl6 = operatorParams.operator6.outputLevel;
+        let op6EnvR1 = operatorParams.operator6.envelopeR1;
+        let op6EnvL1 = operatorParams.operator6.envelopeL1;
+        let op6EnvR2 = operatorParams.operator6.envelopeR2;
+        let op6EnvL2 = operatorParams.operator6.envelopeL2;
+        let op6EnvR3 = operatorParams.operator6.envelopeR3;
+        let op6EnvL3 = operatorParams.operator6.envelopeL3;
+        let op6EnvR4 = operatorParams.operator6.envelopeR4;
+        let op6EnvL4 = operatorParams.operator6.envelopeL4;
+        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
+        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
+        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
+        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
+        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
+        let op6OscMode = operatorParams.operator6.oscMode;
+        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
+        let op6FreqFine = operatorParams.operator6.freqFine;
+        let op6Detune = operatorParams.operator6.detune;
+        let op6OscRateScale = operatorParams.operator6.oscRateScale;
+        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
+        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
         switch (op) {
             case (1):
                 if (operatorParams.operator1.operatorOn === 'On') {
@@ -2898,6 +3469,13 @@ function VolcaFm() {
                     opOn5 = 'Off';
                 } else {
                     opOn5 = 'On';
+                }
+                break;
+            case (6):
+                if (operatorParams.operator6.operatorOn === 'On') {
+                    opOn6 = 'Off';
+                } else {
+                    opOn6 = 'On';
                 }
                 break;
             default:
@@ -3024,6 +3602,30 @@ function VolcaFm() {
                 oscRateScale: op5OscRateScale,
                 amplitudeModSense: op5AmplitudeModSense,
                 keyVelocitySense: op5KeyVelocitySense
+            },
+            operator6: {
+                operatorOn: opOn6,
+                outputLevel: outLvl6,
+                envelopeR1: op6EnvR1,
+                envelopeL1: op6EnvL1,
+                envelopeR2: op6EnvR2,
+                envelopeL2: op6EnvL2,
+                envelopeR3: op6EnvR3,
+                envelopeL3: op6EnvL3,
+                envelopeR4: op6EnvR4,
+                envelopeL4: op6EnvL4,
+                levelScaleBreakPoint: op6LvlScaleBreak,
+                levelScaleLeftDepth: op6LvlScaleLeftDepth,
+                levelScaleLeftCurve: op6LvlScaleLeftCurve,
+                levelScaleRightDepth: op6LvlScaleRightDepth,
+                levelScaleRightCurve: op6LvlScaleRightCurve,
+                oscMode: op6OscMode,
+                freqCoarse: op6FreqCoarse,
+                freqFine: op6FreqFine,
+                detune: op6Detune,
+                oscRateScale: op6OscRateScale,
+                amplitudeModSense: op6AmplitudeModSense,
+                keyVelocitySense: op6KeyVelocitySense
             }
         });
     }
@@ -3049,6 +3651,10 @@ function VolcaFm() {
         let envelope5 = operatorEditorState.operator5.envelopeTab;
         let scaling5 = operatorEditorState.operator5.scalingTab;
         let tuning5 = operatorEditorState.operator5.tuningTab;
+        let state6 = operatorEditorState.operator6.state;
+        let envelope6 = operatorEditorState.operator6.envelopeTab;
+        let scaling6 = operatorEditorState.operator6.scalingTab;
+        let tuning6 = operatorEditorState.operator6.tuningTab;
         switch (op) {
             case (1):
                 if (operatorEditorState.operator1.state === 'operator1EditStateActive') {
@@ -3057,12 +3663,14 @@ function VolcaFm() {
                     state3 = 'operator3EditStateInactive';
                     state4 = 'operator4EditStateInactive';
                     state5 = 'operator5EditStateInactive';
+                    state6 = 'operator6EditStateInactive';
                 } else {
                     state1 = 'operator1EditStateActive';
                     state2 = 'operator2EditStateInactive';
                     state3 = 'operator3EditStateInactive';
                     state4 = 'operator4EditStateInactive';
                     state5 = 'operator5EditStateInactive';
+                    state6 = 'operator6EditStateInactive';
                 }
                 break;
             case (2):
@@ -3072,12 +3680,14 @@ function VolcaFm() {
                     state3 = 'operator3EditStateInactive';
                     state4 = 'operator4EditStateInactive';
                     state5 = 'operator5EditStateInactive';
+                    state6 = 'operator6EditStateInactive';
                 } else {
                     state1 = 'operator1EditStateInactive';
                     state2 = 'operator2EditStateActive';
                     state3 = 'operator3EditStateInactive';
                     state4 = 'operator4EditStateInactive';
                     state5 = 'operator5EditStateInactive';
+                    state6 = 'operator6EditStateInactive';
                 }
                 break;
             case (3):
@@ -3087,12 +3697,14 @@ function VolcaFm() {
                     state3 = 'operator3EditStateInactive';
                     state4 = 'operator4EditStateInactive';
                     state5 = 'operator5EditStateInactive';
+                    state6 = 'operator6EditStateInactive';
                 } else {
                     state1 = 'operator1EditStateInactive';
                     state2 = 'operator2EditStateInactive';
                     state3 = 'operator3EditStateActive';
                     state4 = 'operator4EditStateInactive';
                     state5 = 'operator5EditStateInactive';
+                    state6 = 'operator6EditStateInactive';
                 }
                 break;
             case (4):
@@ -3102,27 +3714,48 @@ function VolcaFm() {
                     state3 = 'operator3EditStateInactive';
                     state4 = 'operator4EditStateInactive';
                     state5 = 'operator5EditStateInactive';
+                    state6 = 'operator6EditStateInactive';
                 } else {
                     state1 = 'operator1EditStateInactive';
                     state2 = 'operator2EditStateInactive';
                     state3 = 'operator3EditStateInactive';
                     state4 = 'operator4EditStateActive';
                     state5 = 'operator5EditStateInactive';
+                    state6 = 'operator6EditStateInactive';
                 }
                 break;
             case (5):
-                if (operatorEditorState.operator5.state === 'operator4EditStateActive') {
+                if (operatorEditorState.operator5.state === 'operator5EditStateActive') {
                     state1 = 'operator1EditStateInactive';
                     state2 = 'operator2EditStateInactive';
                     state3 = 'operator3EditStateInactive';
                     state4 = 'operator4EditStateInactive';
                     state5 = 'operator5EditStateInactive';
+                    state6 = 'operator6EditStateInactive';
                 } else {
                     state1 = 'operator1EditStateInactive';
                     state2 = 'operator2EditStateInactive';
                     state3 = 'operator3EditStateInactive';
                     state4 = 'operator4EditStateInactive';
                     state5 = 'operator5EditStateActive';
+                    state6 = 'operator6EditStateInactive';
+                }
+                break;
+            case (6):
+                if (operatorEditorState.operator6.state === 'operator6EditStateActive') {
+                    state1 = 'operator1EditStateInactive';
+                    state2 = 'operator2EditStateInactive';
+                    state3 = 'operator3EditStateInactive';
+                    state4 = 'operator4EditStateInactive';
+                    state5 = 'operator5EditStateInactive';
+                    state6 = 'operator6EditStateInactive';
+                } else {
+                    state1 = 'operator1EditStateInactive';
+                    state2 = 'operator2EditStateInactive';
+                    state3 = 'operator3EditStateInactive';
+                    state4 = 'operator4EditStateInactive';
+                    state5 = 'operator5EditStateInactive';
+                    state6 = 'operator6EditStateActive';
                 }
                 break;
             default:
@@ -3159,6 +3792,12 @@ function VolcaFm() {
                 envelopeTab: envelope5,
                 scalingTab: scaling5,
                 tuningTab: tuning5
+            },
+            operator6: {
+                state: state6,
+                envelopeTab: envelope6,
+                scalingTab: scaling6,
+                tuningTab: tuning6
             }
         });
     }
@@ -3184,6 +3823,10 @@ function VolcaFm() {
         let envelope5 = operatorEditorState.operator5.envelopeTab;
         let scaling5 = operatorEditorState.operator5.scalingTab;
         let tuning5 = operatorEditorState.operator5.tuningTab;
+        let state6 = operatorEditorState.operator6.state;
+        let envelope6 = operatorEditorState.operator6.envelopeTab;
+        let scaling6 = operatorEditorState.operator6.scalingTab;
+        let tuning6 = operatorEditorState.operator6.tuningTab;
         switch (op) {
             case (1):
                 switch (tab) {
@@ -3290,6 +3933,27 @@ function VolcaFm() {
                         console.log('impossible tab');
                 }
                 break;
+            case (6):
+                switch (tab) {
+                    case ('envelope'):
+                        envelope6 = 'operatorEditorTabActive';
+                        scaling6 = 'operatorEditorTabInactive';
+                        tuning6 = 'operatorEditorTabInactive';
+                        break;
+                    case ('scaling'):
+                        envelope6 = 'operatorEditorTabInactive';
+                        scaling6 = 'operatorEditorTabActive';
+                        tuning6 = 'operatorEditorTabInactive';
+                        break;
+                    case ('tuning'):
+                        envelope6 = 'operatorEditorTabInactive';
+                        scaling6 = 'operatorEditorTabInactive';
+                        tuning6 = 'operatorEditorTabActive';
+                        break;
+                    default:
+                        console.log('impossible tab');
+                }
+                break;
             default:
                 console.log('impossible state');
         }
@@ -3323,6 +3987,12 @@ function VolcaFm() {
                 envelopeTab: envelope5,
                 scalingTab: scaling5,
                 tuningTab: tuning5
+            },
+            operator6: {
+                state: state6,
+                envelopeTab: envelope6,
+                scalingTab: scaling6,
+                tuningTab: tuning6
             }
         });
     }
@@ -3759,10 +4429,20 @@ function VolcaFm() {
                             <p className={'volcaFmOperatorVisualLabel' + volcaFmMonth}>5</p>
                         </div>
                         )}
-                        
-                        <div className={'volcaFmAlgorithmOperator6' + currentAlgorithm + volcaFmMonth}>
+                        {(operatorParams.operator6.operatorOn === 'Off') && (
+                            <div className={'volcaFmAlgorithmOperator6' + currentAlgorithm + volcaFmMonth}
+                            onClick={() => handleOperatorClick(6)}
+                            style={{opacity: '0.2'}}>
                             <p className={'volcaFmOperatorVisualLabel' + volcaFmMonth}>6</p>
                         </div>
+                        )}
+                        {(operatorParams.operator6.operatorOn === 'On') && (
+                            <div className={'volcaFmAlgorithmOperator6' + currentAlgorithm + volcaFmMonth}
+                            onClick={() => handleOperatorClick(6)}
+                            style={{ transform: 'scale(' + (0.6 + (operatorParams.operator6.outputLevel / 100)).toString() + ')'}}>
+                            <p className={'volcaFmOperatorVisualLabel' + volcaFmMonth}>6</p>
+                        </div>
+                        )}
                         <div className={'volcaFmAlgorithmConnector1' + currentAlgorithm + volcaFmMonth}></div>
                         <div className={'volcaFmAlgorithmConnector2' + currentAlgorithm + volcaFmMonth}></div>
                         <div className={'volcaFmAlgorithmConnector3' + currentAlgorithm + volcaFmMonth}></div>
@@ -5606,7 +6286,370 @@ function VolcaFm() {
                             </div>
                         )}
                     </div>
-                    
+                    <div className={operatorEditorState.operator6.state + volcaFmMonth}>
+                        <div className={'operatorEditorToolbar' + volcaFmMonth}>
+                            <div className={'operatorOnOffBox' + operatorParams.operator6.operatorOn + volcaFmMonth}
+                                onClick={() => handleOpOnOffClick(6)}>
+                                <div className={'opSwitchToggle' + operatorParams.operator6.operatorOn + volcaFmMonth}></div>
+                                {(operatorParams.operator6.operatorOn === 'On') && (
+                                    <p className={'opEditorOnOffLabel' + volcaFmMonth}>on</p>
+                                )}
+                                {(operatorParams.operator6.operatorOn === 'Off') && (
+                                    <p className={'opEditorOnOffLabel' + volcaFmMonth}
+                                        style={{transform: 'translateX(-40px)'}}>off</p>
+                                )}
+                            </div>
+                            <p className={'operatorEditorOperatorLabel' + volcaFmMonth}>Operator 6</p>
+                            {(operatorParams.operator6.operatorOn === 'On') && (
+                                    <div className={'operatorMasterLevelDiv' + volcaFmMonth}>
+                                        <input className={'operatorMasterLevel' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => handleOperatorLevel(6, e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator6.outputLevel}
+                                            ></input>
+                                    </div>
+                            )}
+                            {(operatorParams.operator6.operatorOn === 'On') && (
+                                <input className={'operatorMasterLevelDisplay' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => handleOperatorLevel(6, e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator6.outputLevel}></input>)}
+                        </div>
+                        <div className={'operatorEditorTabsBar' + volcaFmMonth}>
+                            <div className={operatorEditorState.operator6.envelopeTab + volcaFmMonth}
+                                onClick={() => handleOperatorTab(6, 'envelope')}>
+                                <p>envelope</p>
+                            </div>
+                            <div className={operatorEditorState.operator6.scalingTab + volcaFmMonth}
+                                onClick={() => handleOperatorTab(6, 'scaling')}>
+                                <p>scaling</p>
+                            </div>
+                            <div className={operatorEditorState.operator6.tuningTab + volcaFmMonth}
+                                onClick={() => handleOperatorTab(6, 'tuning')}>
+                                <p>tuning</p>
+                            </div>
+                        </div>
+                        {(operatorEditorState.operator6.envelopeTab === 'operatorEditorTabActive') && (
+                            <div className={'operatorEnvelopeContainer' + volcaFmMonth}
+                                onMouseDown={() => updateDisplayPort(6, 'envelope')}>
+                                <div className={'operatorEnvelopeControllersDiv' + volcaFmMonth}>
+                                    <div className={'operatorEnvelopeLevelRate1Div' + volcaFmMonth}>
+                                        <div className={'operatorEnvelopeParamsContainer' + volcaFmMonth}>
+                                            <p className={'operatorRateLabel' + volcaFmMonth}>rate 1</p>
+                                            <p className={'operatorLevelLabel' + volcaFmMonth}>level 1</p>
+                                            <input className={'operatorRateNumberInput' + volcaFmMonth}
+                                                max="99"
+                                                min="0"
+                                                onChange={(e) => changeRate(6, 1, e.target.value)}
+                                                type="number"
+                                                value={operatorParams.operator6.envelopeR1}/>
+                                            <input className={'operatorLevelNumberInput' + volcaFmMonth}
+                                                max="99"
+                                                min="0"
+                                                onChange={(e) => changeLevel(6, 1, e.target.value)}
+                                                type="number"
+                                                value={operatorParams.operator6.envelopeL1}/>
+                                            <div className={'operatorRateRangeInputDiv' + volcaFmMonth}>
+                                                <input className={'operatorRangeSlider' + volcaFmMonth}
+                                                    max="99"
+                                                    min="0"
+                                                    onChange={(e) => changeRate(6, 1, e.target.value)}
+                                                    type="range"
+                                                    value={operatorParams.operator6.envelopeR1}/>
+                                            </div>
+                                            <div className={'operatorLevelRangeInputDiv' + volcaFmMonth}>
+                                                <input className={'operatorLevelSlider' + volcaFmMonth}
+                                                    max="99"
+                                                    min="0"
+                                                    onChange={(e) => changeLevel(6, 1, e.target.value)}
+                                                    type="range"
+                                                    value={operatorParams.operator6.envelopeL1} />
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div className={'operatorEnvelopeLevelRate2Div' + volcaFmMonth}>
+                                        <div className={'operatorEnvelopeParamsContainer' + volcaFmMonth}>
+                                            <p className={'operatorRateLabel' + volcaFmMonth}>rate 2</p>
+                                            <p className={'operatorLevelLabel' + volcaFmMonth}>level 2</p>
+                                            <input className={'operatorRateNumberInput' + volcaFmMonth}
+                                                max="99"
+                                                min="0"
+                                                onChange={(e) => changeRate(6, 2, e.target.value)}
+                                                type="number"
+                                                value={operatorParams.operator6.envelopeR2}/>
+                                            <input className={'operatorLevelNumberInput' + volcaFmMonth}
+                                                max="99"
+                                                min="0"
+                                                onChange={(e) => changeLevel(6, 2, e.target.value)}
+                                                type="number"
+                                                value={operatorParams.operator6.envelopeL2}/>
+                                            <div className={'operatorRateRangeInputDiv' + volcaFmMonth}>
+                                                <input className={'operatorRangeSlider' + volcaFmMonth}
+                                                    max="99"
+                                                    min="0"
+                                                    onChange={(e) => changeRate(6, 2, e.target.value)}
+                                                    type="range"
+                                                    value={operatorParams.operator6.envelopeR2}/>
+                                            </div>
+                                            <div className={'operatorLevelRangeInputDiv' + volcaFmMonth}>
+                                                <input className={'operatorLevelSlider' + volcaFmMonth}
+                                                    max="99"
+                                                    min="0"
+                                                    onChange={(e) => changeLevel(6, 2, e.target.value)}
+                                                    type="range"
+                                                    value={operatorParams.operator6.envelopeL2} />
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div className={'operatorEnvelopeLevelRate3Div' + volcaFmMonth}>
+                                        <div className={'operatorEnvelopeParamsContainer' + volcaFmMonth}>
+                                            <p className={'operatorRateLabel' + volcaFmMonth}>rate 3</p>
+                                            <p className={'operatorLevelLabel' + volcaFmMonth}>level 3</p>
+                                            <input className={'operatorRateNumberInput' + volcaFmMonth}
+                                                max="99"
+                                                min="0"
+                                                onChange={(e) => changeRate(6, 3, e.target.value)}
+                                                type="number"
+                                                value={operatorParams.operator6.envelopeR3}/>
+                                            <input className={'operatorLevelNumberInput' + volcaFmMonth}
+                                                max="99"
+                                                min="0"
+                                                onChange={(e) => changeLevel(6, 3, e.target.value)}
+                                                type="number"
+                                                value={operatorParams.operator6.envelopeL3}/>
+                                            <div className={'operatorRateRangeInputDiv' + volcaFmMonth}>
+                                                <input className={'operatorRangeSlider' + volcaFmMonth}
+                                                    max="99"
+                                                    min="0"
+                                                    onChange={(e) => changeRate(6, 3, e.target.value)}
+                                                    type="range"
+                                                    value={operatorParams.operator6.envelopeR3}/>
+                                            </div>
+                                            <div className={'operatorLevelRangeInputDiv' + volcaFmMonth}>
+                                                <input className={'operatorLevelSlider' + volcaFmMonth}
+                                                    max="99"
+                                                    min="0"
+                                                    onChange={(e) => changeLevel(6, 3, e.target.value)}
+                                                    type="range"
+                                                    value={operatorParams.operator6.envelopeL3} />
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div className={'operatorEnvelopeLevelRate4Div' + volcaFmMonth}>
+                                        <div className={'operatorEnvelopeParamsContainer' + volcaFmMonth}>
+                                            <p className={'operatorRateLabel' + volcaFmMonth}>rate 4</p>
+                                            <p className={'operatorLevelLabel' + volcaFmMonth}>level 4</p>
+                                            <input className={'operatorRateNumberInput' + volcaFmMonth}
+                                                max="99"
+                                                min="0"
+                                                onChange={(e) => changeRate(6, 4, e.target.value)}
+                                                type="number"
+                                                value={operatorParams.operator6.envelopeR4}/>
+                                            <input className={'operatorLevelNumberInput' + volcaFmMonth}
+                                                max="99"
+                                                min="0"
+                                                onChange={(e) => changeLevel(6, 4, e.target.value)}
+                                                type="number"
+                                                value={operatorParams.operator6.envelopeL4}/>
+                                            <div className={'operatorRateRangeInputDiv' + volcaFmMonth}>
+                                                <input className={'operatorRangeSlider' + volcaFmMonth}
+                                                    max="99"
+                                                    min="0"
+                                                    onChange={(e) => changeRate(6, 4, e.target.value)}
+                                                    type="range"
+                                                    value={operatorParams.operator6.envelopeR4}/>
+                                            </div>
+                                            <div className={'operatorLevelRangeInputDiv' + volcaFmMonth}>
+                                                <input className={'operatorLevelSlider' + volcaFmMonth}
+                                                    max="99"
+                                                    min="0"
+                                                    onChange={(e) => changeLevel(6, 4, e.target.value)}
+                                                    type="range"
+                                                    value={operatorParams.operator6.envelopeL4} />
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        {(operatorEditorState.operator6.scalingTab === 'operatorEditorTabActive') && (
+                            <div className={'operatorScalingContainer' + volcaFmMonth}
+                                onMouseDown={() => updateDisplayPort(6, 'scaling')}>
+                                <div className={'operatorLevelScalingControllersDiv' + volcaFmMonth}>
+                                    <p className={'operatorLevelScaleBreakPointLabel' + volcaFmMonth}>level scale break point:</p>
+                                    <div className={'operatorLevelScaleBreakpointRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleBreakpointSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => changeBreakPoint(6, e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator6.levelScaleBreakPoint} />
+                                        </div>
+                                    <p className={'operatorLevelScaleCalculatedValue' + volcaFmMonth}>{calculateBreakpointPitch(operatorParams.operator6.levelScaleBreakPoint)}</p>
+                                    <p className={'operatorLevelScaleLeftCurveLabel' + volcaFmMonth}>level scale left curve:</p>
+                                    <select className={'operatorLevelScaleLeftCurve' + volcaFmMonth}
+                                        onChange={(e) => setCurveValue(6, 'left', e.target.value)}
+                                        value={operatorParams.operator6.levelScaleLeftCurve}>
+                                        <option key="0" value="0">-linear</option>
+                                        <option key="1" value="1">-exponential</option>
+                                        <option key="2" value="2">exponential</option>
+                                        <option key="3" value="3">linear</option>
+                                    </select>
+                                    <p className={'operatorLevelScaleLeftDepthLabel' + volcaFmMonth}>level scale left depth:</p>
+                                    <input className={'operatorLevelScaleLeftDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => changeCurveDepth(6, 'left', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator6.levelScaleLeftDepth} />
+                                    <div className={'operatorLevelScaleLeftDepthSliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => changeCurveDepth(6, 'left', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator6.levelScaleLeftDepth} />
+                                    </div>
+                                    <p className={'operatorLevelScaleRightCurveLabel' + volcaFmMonth}>level scale right curve:</p>
+                                    <select className={'operatorLevelScaleRightCurve' + volcaFmMonth}
+                                        onChange={(e) => setCurveValue(6, 'right', e.target.value)}
+                                        value={operatorParams.operator6.levelScaleRightCurve}>
+                                        <option key="0" value="0">-linear</option>
+                                        <option key="1" value="1">-exponential</option>
+                                        <option key="2" value="2">exponential</option>
+                                        <option key="3" value="3">linear</option>
+                                    </select>
+                                    <p className={'operatorLevelScaleRightDepthLabel' + volcaFmMonth}>level scale right depth:</p>
+                                    <input className={'operatorLevelScaleRightDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => changeCurveDepth(6, 'right', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator6.levelScaleRightDepth} />
+                                    <div className={'operatorLevelScaleRightDepthSliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => changeCurveDepth(6, 'right', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator6.levelScaleRightDepth} />
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        {(operatorEditorState.operator6.tuningTab === 'operatorEditorTabActive') && (
+                            <div className={'operatorTuningContainer' + volcaFmMonth}>
+                                <div className={'operatorTuningControllersDiv' + volcaFmMonth}>
+                                    <p className={'operatorOSCModeLabel' + volcaFmMonth}>oscillator mode:</p>
+                                    <div className={'operatorOscillatorModeSwitchDiv' + volcaFmMonth}
+                                        onClick={() => toggleOscMode(6)}>
+                                        <p>fixed</p>
+                                        <p>ratio</p>
+                                    </div>
+                                    <div className={'operatorOscModeSwitch' + operatorParams.operator6.oscMode + volcaFmMonth}
+                                        onClick={() => toggleOscMode(6)}></div>
+                                    <p className={'operatorFreqCoarseLabel' + volcaFmMonth}>frequency coarse:</p>
+                                    <input className={'operatorFrequencyCoarseInput' + volcaFmMonth}
+                                        max="31"
+                                        min="0"
+                                        onChange={(e) => operatorTuning(6, 'coarse', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator6.freqCoarse}/>
+                                    <div className={'operatorFrequencyCoarseSliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="31"
+                                            min="0"
+                                            onChange={(e) => operatorTuning(6, 'coarse', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator6.freqCoarse}/>
+                                    </div>
+                                    <p className={'operatorFreqFineLabel' + volcaFmMonth}>frequency fine:</p>
+                                    <input className={'operatorFrequencyFineInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => operatorTuning(6, 'fine', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator6.freqFine}/>
+                                    <div className={'operatorFrequencyFineSliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => operatorTuning(6, 'fine', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator6.freqFine}/>
+                                    </div>
+                                    <p className={'operatorFreqDetuneLabel' + volcaFmMonth}>detune:</p>
+                                    <input className={'operatorFrequencyDetuneInput' + volcaFmMonth}
+                                        max="14"
+                                        min="0"
+                                        onChange={(e) => operatorTuning(6, 'detune', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator6.detune -7}/>
+                                    <div className={'operatorFrequencyDetuneSliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="14"
+                                            min="0"
+                                            onChange={(e) => operatorTuning(6, 'detune', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator6.detune}/>
+                                    </div>
+                                    <p className={'operatorOscillatorRateLabel' + volcaFmMonth}>oscillator rate scale:</p>
+                                    <input className={'operatorOscillatorRateScaleInput' + volcaFmMonth}
+                                        max="7"
+                                        min="0"
+                                        onChange={(e) => operatorTuning(6, 'oscRate', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator6.oscRateScale}/>
+                                    <div className={'operatorOscillatorRateScaleSliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="14"
+                                            min="0"
+                                            onChange={(e) => operatorTuning(6, 'oscRate', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator6.oscRateScale}/>
+                                    </div>
+                                    <p className={'operatorAmplitudeModulationSensitivityLabel' + volcaFmMonth}>amplitude modulation sensitivity:</p>
+                                    <input className={'operatorAmplitudeModulationSensitivityInput' + volcaFmMonth}
+                                        max="3"
+                                        min="0"
+                                        onChange={(e) => operatorTuning(6, 'ams', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator6.amplitudeModSense}/>
+                                    <div className={'operatorAmplitudeModulationSensitivitySliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="3"
+                                            min="0"
+                                            onChange={(e) => operatorTuning(6, 'ams', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator6.amplitudeModSense}/>
+                                    </div>
+                                    <p className={'operatorKeyVelocitySensitivityLabel' + volcaFmMonth}>key velocity sensitivity:</p>
+                                    <input className={'operatorKeyVelocitySensitivityInput' + volcaFmMonth}
+                                        max="7"
+                                        min="0"
+                                        onChange={(e) => operatorTuning(6, 'kvs', e.target.value)}
+                                        type="number"
+                                        value={operatorParams.operator6.keyVelocitySense}/>
+                                    <div className={'operatorKeyVelocitySensitivitySliderDiv' + volcaFmMonth}>
+                                        <input className={'operatorLevelScaleDepthSlider' + volcaFmMonth}
+                                            max="7"
+                                            min="0"
+                                            onChange={(e) => operatorTuning(6, 'kvs', e.target.value)}
+                                            type="range"
+                                            value={operatorParams.operator6.keyVelocitySense}/>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <div className={'volcaFmNonOpEditor' + volcaFmMonth}>
                     <p>non-operator editor</p>
@@ -6146,6 +7189,114 @@ function VolcaFm() {
                                         <path 
                                         className={'op1KeyOnLine' + volcaFmMonth}
                                         d={'M ' + (operatorParams.operator5.levelScaleBreakPoint * breakpointOffset).toString() + ' ' +  (envelopeGraphTopVal / 2).toString() + ' L ' + (envelopeEndGraph).toString() + ' ' + ((envelopeGraphTopVal / 2) - (operatorParams.operator5.levelScaleRightDepth * scaleScaler)).toString()}></path>
+                                    )}
+                                    
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={envelopeLevelState.operator6.envelopeState + volcaFmMonth}>
+                        <div className={'envelopeDisplayContainer' + volcaFmMonth}>
+                            <p className={'envelopeLevelLabel' + volcaFmMonth}>level</p>
+                            <p className={'envelopeTimeLabel' + volcaFmMonth}>time</p>
+                            <div className={'envelopeDisplayZone' + volcaFmMonth}>
+                                <svg height="100%"
+                                    width="100%">
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1="0" 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator6.envelopeL4 * 2)} 
+                                        x2={keyOnOffset} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator6.envelopeL4 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOnOffset} 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator6.envelopeL4 * 2)}
+                                        x2={keyOnOffset + (operatorParams.operator6.envelopeR1 * rateScaler)} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator6.envelopeL1 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOnOffset + (operatorParams.operator6.envelopeR1 * rateScaler)} 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator6.envelopeL1 * 2)} 
+                                        x2={keyOnOffset + (operatorParams.operator6.envelopeR1 * rateScaler) + (operatorParams.operator6.envelopeR2 * rateScaler)} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator6.envelopeL2 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOnOffset + (operatorParams.operator6.envelopeR1 * rateScaler) + (operatorParams.operator6.envelopeR2 * rateScaler)} 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator6.envelopeL2 * 2)} 
+                                        x2={keyOnOffset + (operatorParams.operator6.envelopeR1 * rateScaler) + (operatorParams.operator6.envelopeR2 * rateScaler) + (operatorParams.operator6.envelopeR3 * rateScaler)} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator6.envelopeL3 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOnOffset + (operatorParams.operator6.envelopeR1 * rateScaler) + (operatorParams.operator6.envelopeR2 * rateScaler) + (operatorParams.operator6.envelopeR3 * rateScaler)} 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator6.envelopeL3 * 2)} 
+                                        x2={keyOffOnset} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator6.envelopeL3 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOffOnset} 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator6.envelopeL3 * 2)} 
+                                        x2={keyOffOnset + (operatorParams.operator6.envelopeR4 * rateScaler)} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator6.envelopeL4 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOffOnset + (operatorParams.operator6.envelopeR4 * rateScaler)} 
+                                        y1={envelopeGraphTopVal - (operatorParams.operator6.envelopeL4 * 2)} 
+                                        x2={envelopeEndGraph} 
+                                        y2={envelopeGraphTopVal - (operatorParams.operator6.envelopeL4 * 2)}></line>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={envelopeLevelState.operator6.levelState + volcaFmMonth}>
+                        <div className={'envelopeDisplayContainer' + volcaFmMonth}>
+                            <p className={'envelopeDepthLabel' + volcaFmMonth}>depth</p>
+                            <p className={'envelopeTimeLabel' + volcaFmMonth}>scale</p>
+                            <div className={'scalingDisplayZone' + volcaFmMonth}>
+                                <svg height="100%"
+                                    width="100%">
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={0} 
+                                        y1={envelopeGraphTopVal / 2} 
+                                        x2={envelopeEndGraph} 
+                                        y2={envelopeGraphTopVal / 2}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={(operatorParams.operator6.levelScaleBreakPoint * breakpointOffset)} 
+                                        y1={envelopeGraphTopVal} 
+                                        x2={(operatorParams.operator6.levelScaleBreakPoint * breakpointOffset)} 
+                                        y2={0}></line>
+                                    {(operatorParams.operator6.levelScaleLeftCurve === 0) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M 0 ' + ((envelopeGraphTopVal / 2) + (operatorParams.operator6.levelScaleLeftDepth * scaleScaler)).toString() + ' L ' + (operatorParams.operator6.levelScaleBreakPoint * breakpointOffset).toString() + ' ' + (envelopeGraphTopVal / 2).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator6.levelScaleLeftCurve === 1) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M 0 ' + ((envelopeGraphTopVal / 2) + (operatorParams.operator6.levelScaleLeftDepth * scaleScaler)).toString() + ' Q ' + ((operatorParams.operator6.levelScaleBreakPoint * breakpointOffset)/4).toString() + ' ' + ((envelopeGraphTopVal / 2) - 5).toString() + ' ' + (operatorParams.operator6.levelScaleBreakPoint * breakpointOffset).toString() + ' ' + (envelopeGraphTopVal / 2).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator6.levelScaleLeftCurve === 2) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M 0 ' + ((envelopeGraphTopVal / 2) - (operatorParams.operator6.levelScaleLeftDepth * scaleScaler)).toString() + ' Q ' + ((operatorParams.operator6.levelScaleBreakPoint * breakpointOffset)/4).toString() + ' ' + ((envelopeGraphTopVal / 2) - 5).toString() + ' ' + (operatorParams.operator6.levelScaleBreakPoint * breakpointOffset).toString() + ' ' + (envelopeGraphTopVal / 2).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator6.levelScaleLeftCurve === 3) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M 0 ' + ((envelopeGraphTopVal / 2) - (operatorParams.operator6.levelScaleLeftDepth * scaleScaler)).toString() + ' L ' + (operatorParams.operator6.levelScaleBreakPoint * breakpointOffset).toString() + ' ' + (envelopeGraphTopVal / 2).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator6.levelScaleRightCurve === 0) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M ' + (operatorParams.operator6.levelScaleBreakPoint * breakpointOffset).toString() + ' ' +  (envelopeGraphTopVal / 2).toString() + ' L ' + (envelopeEndGraph).toString() + ' ' + ((envelopeGraphTopVal / 2) + (operatorParams.operator6.levelScaleRightDepth * scaleScaler)).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator6.levelScaleRightCurve === 1) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M ' + ((operatorParams.operator6.levelScaleBreakPoint * breakpointOffset)).toString() + ' ' +  (envelopeGraphTopVal / 2).toString() + ' Q ' + ((operatorParams.operator6.levelScaleBreakPoint * breakpointOffset) + ((envelopeEndGraph - (operatorParams.operator6.levelScaleBreakPoint * breakpointOffset)) * 0.75)).toString() + ' ' + ((envelopeGraphTopVal / 2) - 5) + ' ' + (envelopeEndGraph).toString() + ' ' + ((envelopeGraphTopVal / 2) + (operatorParams.operator6.levelScaleRightDepth * scaleScaler)).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator6.levelScaleRightCurve === 2) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M ' + ((operatorParams.operator6.levelScaleBreakPoint * breakpointOffset)).toString() + ' ' +  (envelopeGraphTopVal / 2).toString() + ' Q ' + ((operatorParams.operator6.levelScaleBreakPoint * breakpointOffset) + ((envelopeEndGraph - (operatorParams.operator6.levelScaleBreakPoint * breakpointOffset)) * 0.75)).toString() + ' ' + ((envelopeGraphTopVal / 2) - 5) + ' ' + (envelopeEndGraph).toString() + ' ' + ((envelopeGraphTopVal / 2) - (operatorParams.operator6.levelScaleRightDepth * scaleScaler)).toString()}></path>
+                                    )}
+                                    {(operatorParams.operator6.levelScaleRightCurve === 3) && (
+                                        <path 
+                                        className={'op1KeyOnLine' + volcaFmMonth}
+                                        d={'M ' + (operatorParams.operator6.levelScaleBreakPoint * breakpointOffset).toString() + ' ' +  (envelopeGraphTopVal / 2).toString() + ' L ' + (envelopeEndGraph).toString() + ' ' + ((envelopeGraphTopVal / 2) - (operatorParams.operator6.levelScaleRightDepth * scaleScaler)).toString()}></path>
                                     )}
                                     
                                 </svg>
