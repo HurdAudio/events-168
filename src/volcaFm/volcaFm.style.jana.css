@@ -84,7 +84,7 @@
 }
 
 .volcaFmNonOpEditor_JanuaryA {
-    backdrop-filter: brightness(60%);
+    backdrop-filter: brightness(40%);
     grid-column: col3 / col8;
     grid-row: row7 / rowEnd
 }
@@ -9826,4 +9826,207 @@ input[type=number]::-webkit-outer-spin-button {
     grid-row: loperow1 / lopeEnd;
     transform: rotateZ(-90deg) translateX(-220%) translateY(5%);
     transform-origin: 20% 0;
+}
+
+.volcaFmGlobalParametersContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [globcol1] 1fr [globcol2] 1fr [globcol3] 1fr [globcol4] 1fr [globcol5] 1fr [globcol6] 1fr [globcol7] 1fr [globcol8] 1fr [globcol9] 1fr [globcol10] 1fr [globcol11] 1fr [globcol12] 1fr [globcol13] 1fr [globcol14] 1fr [globcol15] 1fr [globcol16] 1fr [globcol17] 1fr [globcol18] 1fr [globcol19] 1fr [globcol20] 1fr [globcol21] 1fr [globcol22] 1fr [globcol23] 1fr [globcol24] 1fr [globEnd];
+    grid-template-rows: [globrow1] 1fr [globrow2] 1fr [globrow3] 1fr [globrow4] 1fr [globrow5] 1fr [globrow6] 1fr [globrow7] 1fr [globrow8] 1fr [globrow9] 1fr [globrow10] 1fr [globrow11] 1fr [globrow12] 1fr [globrow13] 1fr [globrow14] 1fr [globrow15] 1fr [globrow16] 1fr [globrowend];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaFmGlobalParametersTabsBar_JanuaryA {
+    align-content: center;
+    background: radial-gradient(closest-corner, #2378c9, #3485d6, #33aeea);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-column: globcol1 / globEnd;
+    grid-row: globrow1 / globrow3;
+    opacity: 0.85;
+}
+
+.feedbackLabel_JanuaryA {
+    color: #acc1d6;
+    filter: brightness(120%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    margin: 0 30px 15px -40px;
+}
+
+.globalSettingsTabActive_JanuaryA {
+    align-content: center;
+    cursor: none;
+    display: flex;
+    filter: brightness(125%) hue-rotate(-75deg);
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 0.5%;
+    padding: 0 3%;
+    transition: all 0.4s linear;
+}
+
+.globalSettingsTabActive_JanuaryA p {
+    color: #acc1d6;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+}
+
+.globalSettingsTabInactive_JanuaryA {
+    align-content: center;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(75%) hue-rotate(0deg);
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 0.5%;
+    padding: 0 3%;
+    transition: all 0.4s linear;
+}
+
+.globalSettingsTabInactive_JanuaryA p {
+    color: #99d7f5;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+}
+
+.patchNameInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #b6d0f1;
+    position: absolute;
+    top: 1%;
+}
+
+.settingsContainer_JanuaryA {
+    grid-column: globcol2 / globEnd;
+    grid-row: globrow4 / globrowend;
+}
+
+.globalSettingsFeedbackContainer_JanuaryA {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: auto;
+    justify-content: center;
+    width: 100%;
+}
+
+.feedbackMasterLevelDiv_JanuaryA {
+    background: #3485d6;
+    border: 2px solid #0f283d;
+    border-radius: 15px;
+    box-sizing: border-box;
+    filter: blur(0.03em) brightness(210%) saturate(200%);
+    grid-column: acol12 / acol25;
+    grid-row: arow2 / arow3;
+    height: 28px;
+    margin: 0 0 0 1%;
+    transform: translateY(3px);
+    width: 45%;
+}
+
+.feedbackMasterLevel_JanuaryA {
+    -webkit-appearance: none;
+    border: 2px solid #3485d6;
+    border-radius: 20px;
+    cursor: pointer;
+    grid-column: acol12 / acol25;
+    grid-row: arow2 / arow3;
+    height: 20px;
+    outline: 0;
+    overflow: hidden;
+    transform: translateX(-2px) translateY(-3px);
+    width: 99%;
+}
+
+.feedbackMasterLevel_JanuaryA::-webkit-slider-runnable-track {
+    background: #0f283d;
+}
+
+.feedbackMasterLevel_JanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #3485d6;
+    box-shadow: -100vw 0 0 100vw #3485d6;
+    height: 20px;
+    transform-origin: bottom right;
+    transform: skew(45deg);
+    width: 20px;
+}
+
+.feedbackInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #acc1d6;
+    filter: brightness(120%);
+    font-family: 'Audiowide', cursive;
+    font-size: 30px;
+    margin: 0 0 0 80px;
+}
+
+.globalSettingsOscillatorKeySyncContainer_JanuaryA {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: auto;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.oscKeySyncLabel_JanuaryA {
+    color: #acc1d6;
+    filter: brightness(120%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    margin: 0 30px 15px -40px;
+}
+
+.oscKeySyncSwitchDiv_JanuaryA {
+    border: 2px solid #acc1D6;
+    color: #acc1d6;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    filter: brightness(120%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    padding: 5px;
+    width: 120px;
+}
+
+.oscKeySyncSwitchDiv_JanuaryA p {
+    cursor: pointer;
+    margin-left: 5%;
+    width: 45%;
+}
+
+.oscKeySwitch0_JanuaryA {
+    background: #2378c9;
+    cursor: pointer;
+    height: 95%;
+    left: 1px;
+    position: fixed;
+    top: 1px;
+    transition: all 0.4s linear;
+    width: 58px;
+}
+
+.oscKeySwitch1_JanuaryA {
+    background: #2378c9;
+    cursor: pointer;
+    height: 95%;
+    left: 52%;
+    position: fixed;
+    top: 1px;
+    transition: all 0.4s linear;
+    width: 58px;
 }
