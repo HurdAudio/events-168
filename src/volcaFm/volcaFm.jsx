@@ -147,6 +147,9 @@ function VolcaFm() {
         operator6: {
             envelopeState: 'operator6EnvelopeStateInactive',
             levelState: 'operator6EnvelopeLevelStateInactive'
+        },
+        pitch: {
+            envelope: 'pitchEnvelopeStateInactive'
         }
     });
     const [operatorParams, setOperatorParams] = useState({
@@ -324,6 +327,140 @@ function VolcaFm() {
         setGlobalParams(deepCopy);
     }
     
+    const updateTransposeValue = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.settings.transpose = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updateAmplitudeModulationDepthValue = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.lfo.amplitudeModulationDepth = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updatePitchDepthValue = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.lfo.pitchModulationDepth = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updateModulationSpeedValue = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.lfo.speed = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updateModulationDelayValue = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.lfo.delay = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updatePitchModulationSensitivityValue = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.lfo.pitchModulationSensitivity = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const setLfoWaveform = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.lfo.lfoWaveform = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const toggleLfoKeySync = () => {
+        let deepCopy = {...globalParams};
+        
+        if (deepCopy.lfo.sync === 0) {
+            deepCopy.lfo.sync = 1;
+        } else {
+            deepCopy.lfo.sync = 0;
+        }
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updatepitchEnvelope = (param, val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.pitchEnvelope[param] = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const translateTransposeValue = (val) => {
+        let letter = '';
+        
+        switch(val % 12) {
+            case(0):
+                letter += 'C ';
+                break;
+            case(1):
+                letter += 'C# ';
+                break;
+            case(2):
+                letter += 'D ';
+                break;
+            case(3):
+                letter += 'Eb ';
+                break;
+            case(4):
+                letter += 'E ';
+                break;
+            case(5):
+                letter += 'F ';
+                break;
+            case(6):
+                letter += 'F# ';
+                break;
+            case(7):
+                letter += 'G ';
+                break;
+            case(8):
+                letter += 'Ab ';
+                break;
+            case(9):
+                letter += 'A ';
+                break;
+            case(10):
+                letter += 'Bb ';
+                break;
+            case(11):
+                letter += 'B ';
+                break;
+            default:
+                console.log('impossible transpose value');
+        }
+        if (val < 12) {
+            letter += '1';
+        } else if (val < 24) {
+            letter += '2';
+        } else if (val < 36) {
+            letter += '3';
+        } else if (val < 48) {
+            letter += '4';
+        } else {
+            letter += '5';
+        }
+        
+        return letter;
+    }
+    
     const assignGlobalPatchTabs = (tab) => {
         let settings, lfo, pitch, global, performance;
         switch(tab) {
@@ -379,6 +516,21 @@ function VolcaFm() {
         let deepCopy = {...envelopeLevelState}
     
         switch(op) {
+            case('pitch'):
+                deepCopy.operator1.envelopeState = 'operator1EnvelopeStateInactive';
+                deepCopy.operator1.levelState = 'operator1EnvelopeLevelStateInactive';
+                deepCopy.operator2.envelopeState = 'operator2EnvelopeStateInactive';
+                deepCopy.operator2.levelState = 'operator2EnvelopeLevelStateInactive';
+                deepCopy.operator3.envelopeState = 'operator3EnvelopeStateInactive';
+                deepCopy.operator3.levelState = 'operator3EnvelopeLevelStateInactive';
+                deepCopy.operator4.envelopeState = 'operator4EnvelopeStateInactive';
+                deepCopy.operator4.levelState = 'operator4EnvelopeLevelStateInactive';
+                deepCopy.operator5.envelopeState = 'operator5EnvelopeStateInactive';
+                deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
+                deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
+                deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                deepCopy.pitch.envelope = 'pitchEnvelopeStateActive';
+                break;
             case(0):
                 deepCopy.operator1.envelopeState = 'operator1EnvelopeStateInactive';
                 deepCopy.operator1.levelState = 'operator1EnvelopeLevelStateInactive';
@@ -392,6 +544,7 @@ function VolcaFm() {
                 deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
                 deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
                 deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                 break;
             case(1):
                 switch(purpose) {
@@ -408,6 +561,7 @@ function VolcaFm() {
                         deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
                         deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
                         deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                        deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                         break;
                     case('scaling'):
                         deepCopy.operator1.envelopeState = 'operator1EnvelopeStateInactive';
@@ -422,6 +576,7 @@ function VolcaFm() {
                         deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
                         deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
                         deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                        deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                         break;
                     default:
                         console.log('impossible purpose');
@@ -442,6 +597,7 @@ function VolcaFm() {
                         deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
                         deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
                         deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                        deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                         break;
                     case('scaling'):
                         deepCopy.operator1.envelopeState = 'operator1EnvelopeStateInactive';
@@ -456,6 +612,7 @@ function VolcaFm() {
                         deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
                         deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
                         deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                        deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                         break;
                     default:
                         console.log('impossible purpose');    
@@ -476,6 +633,7 @@ function VolcaFm() {
                         deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
                         deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
                         deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                        deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                         break;
                     case('scaling'):
                         deepCopy.operator1.envelopeState = 'operator1EnvelopeStateInactive';
@@ -490,6 +648,7 @@ function VolcaFm() {
                         deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
                         deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
                         deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                        deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                         break;
                     default:
                         console.log('impossible purpose');    
@@ -510,6 +669,7 @@ function VolcaFm() {
                         deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
                         deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
                         deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                        deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                         break;
                     case('scaling'):
                         deepCopy.operator1.envelopeState = 'operator1EnvelopeStateInactive';
@@ -524,6 +684,7 @@ function VolcaFm() {
                         deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
                         deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
                         deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                        deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                         break;
                     default:
                         console.log('impossible purpose');    
@@ -544,6 +705,7 @@ function VolcaFm() {
                         deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
                         deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
                         deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                        deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                         break;
                     case('scaling'):
                         deepCopy.operator1.envelopeState = 'operator1EnvelopeStateInactive';
@@ -558,6 +720,7 @@ function VolcaFm() {
                         deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateActive';
                         deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
                         deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                        deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                         break;
                     default:
                         console.log('impossible purpose');    
@@ -578,6 +741,7 @@ function VolcaFm() {
                         deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
                         deepCopy.operator6.envelopeState = 'operator6EnvelopeStateActive';
                         deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateInactive';
+                        deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                         break;
                     case('scaling'):
                         deepCopy.operator1.envelopeState = 'operator1EnvelopeStateInactive';
@@ -592,6 +756,7 @@ function VolcaFm() {
                         deepCopy.operator5.levelState = 'operator5EnvelopeLevelStateInactive';
                         deepCopy.operator6.envelopeState = 'operator6EnvelopeStateInactive';
                         deepCopy.operator6.levelState = 'operator6EnvelopeLevelStateActive';
+                        deepCopy.pitch.envelope = 'pitchEnvelopeStateInactive';
                         break;
                     default:
                         console.log('impossible purpose');    
@@ -6547,16 +6712,273 @@ function VolcaFm() {
                                         <p>on</p>
                                         <p>off</p>
                                     </div>
-                                    
+                                </div>
+                                <div className={'globalSettingsTransposeContainer' + volcaFmMonth}>
+                                    <p className={'globalTransposeLabel' + volcaFmMonth}>transpose:</p>
+                                    <div className={'transposeLevelDiv' + volcaFmMonth}>
+                                        <input className={'transposeMasterLevel' + volcaFmMonth}
+                                            max="48"
+                                            min="0"
+                                            onChange={(e) => updateTransposeValue(e.target.value)}
+                                            type="range"
+                                            value={globalParams.settings.transpose} />
+                                    </div>
+                                    <p className={'transposeInput' + volcaFmMonth}>{translateTransposeValue(globalParams.settings.transpose)}</p>
                                 </div>
                             </div>
                         )}
                         {(globalPatchState.lfo === 'globalSettingsTabActive') && (
-                            <div>lfo</div>
+                            <div className={'lfoContainer' + volcaFmMonth}
+                                onMouseDown={() => updateDisplayPort(0, '')}>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>amplitude modulation depth:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updateAmplitudeModulationDepthValue(e.target.value)}
+                                        type="number"
+                                        value={globalParams.lfo.amplitudeModulationDepth}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updateAmplitudeModulationDepthValue(e.target.value)}
+                                            type="range"
+                                            value={globalParams.lfo.amplitudeModulationDepth}/>
+                                    </div>
+                                </div>
+                                <div className={'pitchModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>pitch modulation depth:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updatePitchDepthValue(e.target.value)}
+                                        type="number"
+                                        value={globalParams.lfo.pitchModulationDepth}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updatePitchDepthValue(e.target.value)}
+                                            type="range"
+                                            value={globalParams.lfo.pitchModulationDepth}/>
+                                    </div>
+                                </div>
+                                <div className={'modulationSpeedDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>modulation speed:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updateModulationSpeedValue(e.target.value)}
+                                        type="number"
+                                        value={globalParams.lfo.speed}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updateModulationSpeedValue(e.target.value)}
+                                            type="range"
+                                            value={globalParams.lfo.speed}/>
+                                    </div>
+                                </div>
+                                <div className={'modulationDelayDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>modulation delay:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updateModulationDelayValue(e.target.value)}
+                                        type="number"
+                                        value={globalParams.lfo.delay}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updateModulationDelayValue(e.target.value)}
+                                            type="range"
+                                            value={globalParams.lfo.delay}/>
+                                    </div>
+                                </div>
+                                <div className={'pitchModulationSensitivityDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>pitch modulation sensitivity:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="7"
+                                        min="0"
+                                        onChange={(e) => updatePitchModulationSensitivityValue(e.target.value)}
+                                        type="number"
+                                        value={globalParams.lfo.pitchModulationSensitivity}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="7"
+                                            min="0"
+                                            onChange={(e) => updatePitchModulationSensitivityValue(e.target.value)}
+                                            type="range"
+                                            value={globalParams.lfo.pitchModulationSensitivity}/>
+                                    </div>
+                                </div>
+                                <div className={'modulationWaveformKeySyncDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>modulation waveform:</p>
+                                    <select className={'lfoWaveformSelect' + volcaFmMonth}
+                                        onChange={(e) => setLfoWaveform(e.target.value)}
+                                        value={globalParams.lfo.lfoWaveform}>
+                                        <option key="0" value="0">triangle</option>
+                                        <option key="1" value="1">saw down</option>
+                                        <option key="2" value="2">saw up</option>
+                                        <option key="3" value="3">square</option>
+                                        <option key="3" value="4">sine</option>
+                                        <option key="3" value="5">sample-hold</option>
+                                    </select>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>lfo key sync:</p>
+                                    <div className={'oscKeySyncSwitchDiv' + volcaFmMonth}
+                                        onClick={() => toggleLfoKeySync()}>
+                                        <div className={'oscKeySwitch' + globalParams.lfo.sync + volcaFmMonth}></div>
+                                        <p>on</p>
+                                        <p>off</p>
+                                    </div>
+                                </div>
+                            </div>
                         )}
                         {(globalPatchState.pitch === 'globalSettingsTabActive') && (
-                            <div>pitch</div>
+                            <div className={'pitchContainer' + volcaFmMonth}
+                                onClick={() => updateDisplayPort('pitch', '')}>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>rate 1:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updatepitchEnvelope('rate1', e.target.value)}
+                                        type="number"
+                                        value={globalParams.pitchEnvelope.rate1}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updatepitchEnvelope('rate1', e.target.value)}
+                                            type="range"
+                                            value={globalParams.pitchEnvelope.rate1}/>
+                                    </div>
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>level 1:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updatepitchEnvelope('level1', e.target.value)}
+                                        type="number"
+                                        value={globalParams.pitchEnvelope.level1}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updatepitchEnvelope('level1', e.target.value)}
+                                            type="range"
+                                            value={globalParams.pitchEnvelope.level1}/>
+                                    </div>
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>rate 2:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updatepitchEnvelope('rate2', e.target.value)}
+                                        type="number"
+                                        value={globalParams.pitchEnvelope.rate2}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updatepitchEnvelope('rate2', e.target.value)}
+                                            type="range"
+                                            value={globalParams.pitchEnvelope.rate2}/>
+                                    </div>
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>level 2:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updatepitchEnvelope('level2', e.target.value)}
+                                        type="number"
+                                        value={globalParams.pitchEnvelope.level2}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updatepitchEnvelope('level2', e.target.value)}
+                                            type="range"
+                                            value={globalParams.pitchEnvelope.level2}/>
+                                    </div>
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>rate 3:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updatepitchEnvelope('rate3', e.target.value)}
+                                        type="number"
+                                        value={globalParams.pitchEnvelope.rate3}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updatepitchEnvelope('rate3', e.target.value)}
+                                            type="range"
+                                            value={globalParams.pitchEnvelope.rate3}/>
+                                    </div>
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>level 3:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updatepitchEnvelope('level3', e.target.value)}
+                                        type="number"
+                                        value={globalParams.pitchEnvelope.level3}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updatepitchEnvelope('level3', e.target.value)}
+                                            type="range"
+                                            value={globalParams.pitchEnvelope.level3}/>
+                                    </div>
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>rate 4:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updatepitchEnvelope('rate4', e.target.value)}
+                                        type="number"
+                                        value={globalParams.pitchEnvelope.rate4}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updatepitchEnvelope('rate4', e.target.value)}
+                                            type="range"
+                                            value={globalParams.pitchEnvelope.rate4}/>
+                                    </div>
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>level 4:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updatepitchEnvelope('level4', e.target.value)}
+                                        type="number"
+                                        value={globalParams.pitchEnvelope.level4}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updatepitchEnvelope('level4', e.target.value)}
+                                            type="range"
+                                            value={globalParams.pitchEnvelope.level4}/>
+                                    </div>
+                                </div>
+                            </div>
                         )}
+                        
                         {(globalPatchState.global === 'globalSettingsTabActive') && (
                             <div>global</div>
                         )}
@@ -7210,6 +7632,52 @@ function VolcaFm() {
                                         d={'M ' + (operatorParams.operator6.levelScaleBreakPoint * breakpointOffset).toString() + ' ' +  (envelopeGraphTopVal / 2).toString() + ' L ' + (envelopeEndGraph).toString() + ' ' + ((envelopeGraphTopVal / 2) - (operatorParams.operator6.levelScaleRightDepth * scaleScaler)).toString()}></path>
                                     )}
                                     
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={envelopeLevelState.pitch.envelope + volcaFmMonth}>
+                        <div className={'envelopeDisplayContainer' + volcaFmMonth}>
+                            <p className={'envelopeLevelLabel' + volcaFmMonth}>pitch</p>
+                            <p className={'envelopeTimeLabel' + volcaFmMonth}>time</p>
+                            <div className={'envelopeDisplayZone' + volcaFmMonth}>
+                                <svg height="100%"
+                                    width="100%">
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1="0" 
+                                        y1={envelopeGraphTopVal - (globalParams.pitchEnvelope.level4 * 2)} 
+                                        x2={keyOnOffset} 
+                                        y2={envelopeGraphTopVal - (globalParams.pitchEnvelope.level4 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOnOffset} 
+                                        y1={envelopeGraphTopVal - (globalParams.pitchEnvelope.level4 * 2)}
+                                        x2={keyOnOffset + (globalParams.pitchEnvelope.rate1 * rateScaler)} 
+                                        y2={envelopeGraphTopVal - (globalParams.pitchEnvelope.level1 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOnOffset + (globalParams.pitchEnvelope.rate1 * rateScaler)} 
+                                        y1={envelopeGraphTopVal - (globalParams.pitchEnvelope.level1 * 2)} 
+                                        x2={keyOnOffset + (globalParams.pitchEnvelope.rate1 * rateScaler) + (globalParams.pitchEnvelope.rate2 * rateScaler)} 
+                                        y2={envelopeGraphTopVal - (globalParams.pitchEnvelope.level2 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOnOffset + (globalParams.pitchEnvelope.rate1 * rateScaler) + (globalParams.pitchEnvelope.rate2 * rateScaler)} 
+                                        y1={envelopeGraphTopVal - (globalParams.pitchEnvelope.level2 * 2)} 
+                                        x2={keyOnOffset + (globalParams.pitchEnvelope.rate1 * rateScaler) + (globalParams.pitchEnvelope.rate2 * rateScaler) + (globalParams.pitchEnvelope.rate3 * rateScaler)} 
+                                        y2={envelopeGraphTopVal - (globalParams.pitchEnvelope.level3 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOnOffset + (globalParams.pitchEnvelope.rate1 * rateScaler) + (globalParams.pitchEnvelope.rate2 * rateScaler) + (globalParams.pitchEnvelope.rate3 * rateScaler)} 
+                                        y1={envelopeGraphTopVal - (globalParams.pitchEnvelope.level3 * 2)} 
+                                        x2={keyOffOnset} 
+                                        y2={envelopeGraphTopVal - (globalParams.pitchEnvelope.level3 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOffOnset} 
+                                        y1={envelopeGraphTopVal - (globalParams.pitchEnvelope.level3 * 2)} 
+                                        x2={keyOffOnset + (globalParams.pitchEnvelope.rate4 * rateScaler)} 
+                                        y2={envelopeGraphTopVal - (globalParams.pitchEnvelope.level4 * 2)}></line>
+                                    <line className={'op1KeyOnLine' + volcaFmMonth} 
+                                        x1={keyOffOnset + (globalParams.pitchEnvelope.rate4 * rateScaler)} 
+                                        y1={envelopeGraphTopVal - (globalParams.pitchEnvelope.level4 * 2)} 
+                                        x2={envelopeEndGraph} 
+                                        y2={envelopeGraphTopVal - (globalParams.pitchEnvelope.level4 * 2)}></line>
                                 </svg>
                             </div>
                         </div>
