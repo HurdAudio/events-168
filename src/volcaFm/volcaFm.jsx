@@ -54,10 +54,10 @@ function VolcaFm() {
             rate2: 0,
             rate3: 0,
             rate4: 0,
-            level1: 0,
-            level2: 0,
-            level3: 0, 
-            level4: 0
+            level1: 50,
+            level2: 50,
+            level3: 50, 
+            level4: 50
         },
         global: {
             monoPoly: 0,
@@ -4468,7 +4468,40 @@ function VolcaFm() {
                     value={globalParams.name}/>
                 <button className={'volcaFmPanicButton' + volcaFmMonth}>panic!</button>
                 <div className={'volcaFmSidebarManager' + volcaFmMonth}>
-                    <p>sidebar manager</p>
+                    <div className={'sidebarContainer' + volcaFmMonth}>
+                        <button className={'saveButton' + volcaFmMonth}>save</button>
+                        <button className={'saveAsButton' + volcaFmMonth}>save as...</button>
+                        <button className={'revertButton' + volcaFmMonth}>revert</button>
+                        <p className={'midiOutputLabel' + volcaFmMonth}>midi output:</p>
+                        <select className={'midiOutputSelect' + volcaFmMonth}>
+                            <option key="0"
+                                value="0">midiman-1</option>
+                            <option key="1"
+                                value="1">midiman-2</option>
+                            <option key="2"
+                                value="2">midiman-3</option>
+                            <option key="3"
+                                value="3">midiman-4</option>
+                            <option key="4"
+                                value="4">midiman-5</option>
+                            <option key="5"
+                                value="5">midiman-6</option>
+                            <option key="6"
+                                value="6">midiman-7</option>
+                            <option key="7"
+                                value="7">midiman-8</option>
+                        </select>
+                        <p className={'midiChannelLabel' + volcaFmMonth}>channel:</p>
+                        <input className={'midiChannelInput' + volcaFmMonth}
+                            max="1"
+                            min="16"
+                            type="number"
+                            value="1"/>
+                        <button className={'copyOpButton' + volcaFmMonth}>copy op...</button>
+                        <button className={'initButton' + volcaFmMonth}>init</button>
+                        <button className={'randomButton' + volcaFmMonth}>random</button>
+                        <button className={'aboutFMButton' + volcaFmMonth}>about</button>
+                    </div>
                 </div>
                 <div className={'volcaFmAlgorithmDisplay' + volcaFmMonth}>
                     <div className={'volcaFmAlgorithmContainer' + volcaFmMonth}>
