@@ -1,11 +1,27 @@
-.volcaFmEditorContainer_JanuaryA {
+.volcaFmEditorContainerActive_JanuaryA {
+    filter: blur(0);
     height: 100%;
     left: 0;
     overflow-x: hidden;
     overflow-y: hidden;
     position: absolute;
+    pointer-events: all;
     top: 0;
-    transition: all 0.4s linear;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaFmEditorContainerInactive_JanuaryA {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
     width: 100%;
     z-index: 100;
 }
@@ -10408,7 +10424,11 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
 }
 
-.saveButton_JanuaryA {
+.saveButtonfalse_JanuaryA {
+    display: none;
+}
+
+.saveButtontrue_JanuaryA {
     backdrop-filter: hue-rotate(-25deg);
     background: transparent;
     border: 2px solid #233445;
@@ -10422,13 +10442,13 @@ input[type=number]::-webkit-outer-spin-button {
     outline-color: #b5daff;
 }
 
-.saveButton_JanuaryA:hover {
+.saveButtontrue_JanuaryA:hover {
     backdrop-filter: hue-rotate(25deg);
     color: #b5daff;
     filter: brightness(115%) drop-shadow(8px 8px 5px #0f283d);
 }
 
-.saveButton_JanuaryA:active {
+.saveButtontrue_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #0f283d);
 }
 
@@ -10456,7 +10476,11 @@ input[type=number]::-webkit-outer-spin-button {
     filter: brightness(85%) drop-shadow(0 0 0 #0f283d);
 }
 
-.revertButton_JanuaryA {
+.revertButtonfalse_JanuaryA {
+    display: none;   
+}
+
+.revertButtontrue_JanuaryA {
     backdrop-filter: hue-rotate(-25deg);
     background: transparent;
     border: 2px solid #233445;
@@ -10470,13 +10494,13 @@ input[type=number]::-webkit-outer-spin-button {
     outline-color: #b5daff;
 }
 
-.revertButton_JanuaryA:hover {
+.revertButtontrue_JanuaryA:hover {
     backdrop-filter: hue-rotate(25deg);
     color: #b5daff;
     filter: brightness(115%) drop-shadow(8px 8px 5px #0f283d);
 }
 
-.revertButton_JanuaryA:active {
+.revertButtontrue_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #0f283d);
 }
 
@@ -10615,5 +10639,98 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .aboutFMButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #0f283d);
+}
+
+.volcaImage1_JanuaryA {
+    filter: drop-shadow(8px 8px 5px #0f283d);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow1 / sideRow3;
+    margin: 10px 0 0 25px;
+    max-width: 60%;
+    opacity: 0.5;
+}
+
+.saveAsDialogDivInactive_JanuaryA {
+    background: #5883ad;
+    border-radius: 0 90px;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    height: auto;
+    left: 30%;
+    margin: -110% 0 0 0;
+    padding: 2%;
+    position: sticky;
+    top: 40%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.saveAsDialogDivActive_JanuaryA {
+    background: #5883ad;
+    border-radius: 0 90px;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    height: auto;
+    left: 30%;
+    margin: 10% 0 0 0;
+    padding: 2%;
+    position: sticky;
+    top: 40%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.saveAsInput_JanuaryA {
+    background: #93b2cd;
+    border: none;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    margin: 5% 10% 3% 10%;
+    outline-color: #b6d0f1;
+    padding: 2px 5px;
+    width: 80%;
+}
+
+.saveAsButtonsDiv_JanuaryA {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 7vh;
+    justify-content: center;
+    margin: 0 10% 1% 10%;
+    width: 82%;
+}
+
+.saveAsButtons_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #233445;
+    color: #0f283d;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #0f283d);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    margin: 0 45px;
+    outline-color: #b5daff;
+    padding: 0 15px;
+}
+
+.saveAsButtons_JanuaryA:hover {
+    backdrop-filter: hue-rotate(25deg);
+    color: #b5daff;
+    filter: brightness(115%) drop-shadow(8px 8px 5px #0f283d);
+}
+
+.saveAsButtons_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #0f283d);
 }
