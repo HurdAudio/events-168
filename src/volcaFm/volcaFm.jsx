@@ -403,6 +403,130 @@ function VolcaFm() {
         setGlobalParams(deepCopy);
     }
     
+    const updateModulationRange = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.global.modulationWheelRange = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const assignModulationWheel = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.global.modulationWheelAssign = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const toggleMonoPoly = () => {
+        let deepCopy = {...globalParams};
+        
+        if (deepCopy.global.monoPoly === 0) {
+            deepCopy.global.monoPoly = 1;
+        } else {
+            deepCopy.global.monoPoly = 0;
+        }
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updatePitchBendRange = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.global.pitchBendRange = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updatePitchBendStep = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.global.pitchBendStep = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const toggleGlissando = () => {
+        let deepCopy = {...globalParams};
+        
+        if (deepCopy.performance.portamentoGliss === 0) {
+            deepCopy.performance.portamentoGliss = 1;
+        } else {
+            deepCopy.performance.portamentoGliss = 0;
+        }
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const toggleGlissandoMode = () => {
+        let deepCopy = {...globalParams};
+        
+        if (deepCopy.performance.portamentoMode === 0) {
+            deepCopy.performance.portamentoMode = 1;
+        } else {
+            deepCopy.performance.portamentoMode = 0;
+        }
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updateGlissandoDepth = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.performance.portamentoTime = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updateFootControlRange = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.performance.footControlRange = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const setFootControlAssign = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.performance.footControlAssign = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const setAftertouchAssign = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.performance.aftertouchAssign = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const setBreathControlAssign = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.performance.breathControlAssign = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updateAftertouchRange = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.performance.aftertouchRange = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updateBreathControlRange = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.performance.breathControlRange = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
     const translateTransposeValue = (val) => {
         let letter = '';
         
@@ -6839,7 +6963,7 @@ function VolcaFm() {
                         )}
                         {(globalPatchState.pitch === 'globalSettingsTabActive') && (
                             <div className={'pitchContainer' + volcaFmMonth}
-                                onClick={() => updateDisplayPort('pitch', '')}>
+                                onMouseDown={() => updateDisplayPort('pitch', '')}>
                                 <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
                                     <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>rate 1:</p>
                                     <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
@@ -6980,10 +7104,207 @@ function VolcaFm() {
                         )}
                         
                         {(globalPatchState.global === 'globalSettingsTabActive') && (
-                            <div>global</div>
+                            <div className={'globalPatchContainer' + volcaFmMonth}
+                                onMouseDown={() => updateDisplayPort(0, '')}>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>modulation wheel range:</p>
+                                        <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updateModulationRange(e.target.value)}
+                                            type="number"
+                                            value={globalParams.global.modulationWheelRange}/>
+                                        <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                            <input className={'operatorRangeSlider' + volcaFmMonth}
+                                                max="99"
+                                                min="0"
+                                                onChange={(e) => updateModulationRange(e.target.value)}
+                                                type="range"
+                                                value={globalParams.global.modulationWheelRange}/>
+                                        </div>
+                                </div>
+                                <div className={'modulationWaveformKeySyncDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>modulation wheel assign:</p>
+                                    <select className={'lfoWaveformSelect' + volcaFmMonth}
+                                        onChange={(e) => assignModulationWheel(e.target.value)}
+                                        value={globalParams.global.modulationWheelAssign}>
+                                        <option key="0" value="0">pitch</option>
+                                        <option key="1" value="1">amplitude</option>
+                                        <option key="2" value="2">eg bias</option>
+                                    </select>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>mono/poly:</p>
+                                    <div className={'polyMonoKeySyncSwitchDiv' + volcaFmMonth}
+                                        onClick={() => toggleMonoPoly()}>
+                                        <div className={'polyMonoKeySwitch' + globalParams.global.monoPoly + volcaFmMonth}></div>
+                                        <p>mono</p>
+                                        <p>poly</p>
+                                    </div>
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>pitch bend range:</p>
+                                        <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                            max="12"
+                                            min="0"
+                                            onChange={(e) => updatePitchBendRange(e.target.value)}
+                                            type="number"
+                                            value={globalParams.global.pitchBendRange}/>
+                                        <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                            <input className={'operatorRangeSlider' + volcaFmMonth}
+                                                max="12"
+                                                min="0"
+                                                onChange={(e) => updatePitchBendRange(e.target.value)}
+                                                type="range"
+                                                value={globalParams.global.pitchBendRange}/>
+                                        </div>
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>pitch bend step:</p>
+                                        <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                            max="12"
+                                            min="0"
+                                            onChange={(e) => updatePitchBendStep(e.target.value)}
+                                            type="number"
+                                            value={globalParams.global.pitchBendStep}/>
+                                        <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                            <input className={'operatorRangeSlider' + volcaFmMonth}
+                                                max="12"
+                                                min="0"
+                                                onChange={(e) => updatePitchBendStep(e.target.value)}
+                                                type="range"
+                                                value={globalParams.global.pitchBendStep}/>
+                                        </div>
+                                </div>
+                            </div>
                         )}
                         {(globalPatchState.performance === 'globalSettingsTabActive') && (
-                            <div>performance</div>
+                            <div className={'globalPerformanceContainer' + volcaFmMonth}
+                                onMouseDown={() => updateDisplayPort(0, '')}>
+                                <div className={'glissandoDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>glissando:</p>
+                                    <div className={'glissandoSwitchDiv' + volcaFmMonth}
+                                        onClick={() => toggleGlissando()}>
+                                        <div className={'glissandoSwitch' + globalParams.performance.portamentoGliss + volcaFmMonth}></div>
+                                        <p>on</p>
+                                        <p>off</p>
+                                    </div>
+                                    {(globalParams.global.monoPoly === 0) && (
+                                        <div>
+                                            <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>mode:</p>
+                                            <div className={'glissandoModeSwitchDiv' + volcaFmMonth}
+                                                onClick={() => toggleGlissandoMode()}>
+                                                <div className={'glissandoModeSwitch' + globalParams.performance.portamentoMode + volcaFmMonth}></div>
+                                                <p>follow</p>
+                                                <p>retain</p>
+                                            </div>
+                                        </div>
+                                    )}
+                                    {(globalParams.global.monoPoly === 1) && (
+                                        <div>
+                                            <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>mono:</p>
+                                            <div className={'glissandoModeSwitchDiv' + volcaFmMonth}
+                                                onClick={() => toggleGlissandoMode()}>
+                                                <div className={'glissandoModeSwitch' + globalParams.performance.portamentoMode + volcaFmMonth}></div>
+                                                <p>finger</p>
+                                                <p>full</p>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>glissando depth:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updateGlissandoDepth(e.target.value)}
+                                        type="number"
+                                        value={globalParams.performance.portamentoTime}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updateGlissandoDepth(e.target.value)}
+                                            type="range"
+                                            value={globalParams.performance.portamentoTime}/>
+                                    </div>
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>foot control range:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updateFootControlRange(e.target.value)}
+                                        type="number"
+                                        value={globalParams.performance.footControlRange}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updateFootControlRange(e.target.value)}
+                                            type="range"
+                                            value={globalParams.performance.footControlRange}/>
+                                    </div>
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>aftertouch range:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updateAftertouchRange(e.target.value)}
+                                        type="number"
+                                        value={globalParams.performance.aftertouchRange}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updateAftertouchRange(e.target.value)}
+                                            type="range"
+                                            value={globalParams.performance.aftertouchRange}/>
+                                    </div>
+                                </div>
+                                <div className={'amplitudeModulationDepthDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>breath controller range:</p>
+                                    <input className={'amplitudeModulationDepthInput' + volcaFmMonth}
+                                        max="99"
+                                        min="0"
+                                        onChange={(e) => updateBreathControlRange(e.target.value)}
+                                        type="number"
+                                        value={globalParams.performance.breathControlRange}/>
+                                    <div className={'lfoRangeInputDiv' + volcaFmMonth}>
+                                        <input className={'operatorRangeSlider' + volcaFmMonth}
+                                            max="99"
+                                            min="0"
+                                            onChange={(e) => updateBreathControlRange(e.target.value)}
+                                            type="range"
+                                            value={globalParams.performance.breathControlRange}/>
+                                    </div>
+                                </div>
+                                <div className={'glissandoDiv' + volcaFmMonth}>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>foot control assign:</p>
+                                    <select className={'performanceSelect' + volcaFmMonth}
+                                        onChange={(e) => setFootControlAssign(e.target.value)}
+                                        value={globalParams.performance.footControlAssign}>
+                                        <option key="0" value="0">pitch</option>
+                                        <option key="1" value="1">amplitude</option>
+                                        <option key="2" value="2">eg bias</option>
+                                    </select>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>aftertouch assign:</p>
+                                    <select className={'performanceSelect' + volcaFmMonth}
+                                        onChange={(e) => setAftertouchAssign(e.target.value)}
+                                        value={globalParams.performance.aftertouchAssign}>
+                                        <option key="0" value="0">pitch</option>
+                                        <option key="1" value="1">amplitude</option>
+                                        <option key="2" value="2">eg bias</option>
+                                    </select>
+                                    <p className={'amplitudeModulationDepthLabel' + volcaFmMonth}>breath controller assign:</p>
+                                    <select className={'performanceSelect' + volcaFmMonth}
+                                        onChange={(e) => setBreathControlAssign(e.target.value)}
+                                        value={globalParams.performance.breathControlAssign}>
+                                        <option key="0" value="0">pitch</option>
+                                        <option key="1" value="1">amplitude</option>
+                                        <option key="2" value="2">eg bias</option>
+                                    </select>
+                                </div>
+                            </div>
                         )}
                     </div>
                 </div>
