@@ -4,8 +4,8 @@
     left: 0;
     overflow-x: hidden;
     overflow-y: hidden;
-    position: absolute;
     pointer-events: all;
+    position: absolute;
     top: 0;
     transition: all 0.3s linear;
     width: 100%;
@@ -32,13 +32,13 @@
     display: grid;
     grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
     grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [row9] 12.5%[rowEnd];
+    height: 100%;
     left: 0;
     overflow-x: hidden;
     overflow-y: hidden;
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100%;
     z-index: 30;
 }
 
@@ -82,9 +82,9 @@
     background: radial-gradient(closest-corner, #2378c9, #3485d6, #33aeea);
     border-right: 3px solid #2a4865;
     box-sizing: border-box;
-    opacity: 0.9;
     grid-column: col1 / col3;
     grid-row: row2 / rowEnd;
+    opacity: 0.9;
 }
 
 .volcaFmAlgorithmDisplay_JanuaryA {
@@ -10659,10 +10659,9 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 18px;
     height: auto;
     left: 30%;
-    margin: -110% 0 0 0;
     padding: 2%;
-    position: sticky;
-    top: 40%;
+    position: absolute;
+    top: -100%;
     transition: all 0.6s linear;
     width: 40%;
     z-index: 200;
@@ -10676,10 +10675,10 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 18px;
     height: auto;
     left: 30%;
-    margin: 10% 0 0 0;
+    margin: 0 0 0 0;
     padding: 2%;
-    position: sticky;
-    top: 40%;
+    position: absolute;
+    top: 15%;
     transition: all 0.6s linear;
     width: 40%;
     z-index: 200;
@@ -10733,4 +10732,145 @@ input[type=number]::-webkit-outer-spin-button {
 
 .saveAsButtons_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #0f283d);
+}
+
+.copyOpDialogDivInactive_JanuaryA {
+   background: #5883ad;
+    border-radius: 0 90px;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    height: auto;
+    left: 130%;
+    padding: 2%;
+    position: absolute;
+    top: 10%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200; 
+}
+
+.copyOpDialogDivActive_JanuaryA {
+    background: #5883ad;
+    border-radius: 0 90px;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    height: auto;
+    left: 30%;
+    padding: 2%;
+    position: absolute;
+    top: 10%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200; 
+}
+
+.copyOpInputsDiv_JanuaryA {
+    align-content: center;
+    display: flex;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 15px 15%;
+    width: 70%;
+}
+
+.copyInputs_JanuaryA {
+    height: auto;
+    margin: 20px 25px;
+    width: 40%;
+}
+
+.copyOpNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 36px;
+    margin: 5px 0 5px 70px;
+}
+
+.volcaFmOpCopierDiv_JanuaryA {
+    background: #3485d6;
+    border: 2px solid #0f283d;
+    border-radius: 15px;
+    box-sizing: border-box;
+    filter: blur(0.03em) brightness(200%) saturate(200%);
+    height: 26%;
+    width: 100%;
+}
+
+.aboutTheKorgVolcaFMDivInactive_JanuaryA {
+    background: #5883ad;
+    border-radius: 0 90px;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 115%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheKorgVolcaFMDivActive_JanuaryA {
+    background: #5883ad;
+    border-radius: 0 90px;
+    color: #0f283d;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 5%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheKorgVolcaFMContent_JanuaryA {
+    background: #acc1d6;
+    height: 79vh;
+    margin-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 97%;
+}
+
+.volcaAboutImg_JanuaryA {
+    filter: drop-shadow(8px 8px 5px #0f283d);
+    float: left;
+    margin: 12px;
+    max-width: 40%;
+}
+
+.aboutTheKorgVolcaFMContent_JanuaryA h2 {
+    color: #0f283d;
+    font-family: 'Alata', serif;
+    font-size: 36px;
+    margin: 5px 0 30px 30px;
+}
+
+.aboutTheKorgVolcaFMContent_JanuaryA p {
+    color: #0f283d;
+    font-family: 'Alata', serif;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 5px 25px 30px 25px;
+    max-width: 950px;
+}
+
+.aboutTheKorgVolcaFMContent_JanuaryA h3 {
+    color: #0f283d;
+    font-family: 'Alata', serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 10px 25px 10px 45px;
+    max-width: 950px;
 }

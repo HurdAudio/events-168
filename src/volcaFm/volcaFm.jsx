@@ -30,6 +30,14 @@ function VolcaFm() {
     let rootNote = 60;
     let keyEngaged = {};
 
+    const [availableInputs, setAvailableInputs] = useState([]);
+    const [availableOutputs, setAvailableOutputs] = useState([]);
+    const [currentOutput, setCurrentOutput] = useState(0);
+    const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
+    const [aboutVolcaFmDivState, setAboutVolcaFmDivState] = useState('Inactive');
+    const [copyOpDialogStatus, setCopyOpDialogStatus] = useState('Inactive');
+    const [copyFrom, setCopyFrom] = useState(1);
+    const [copyTo, setCopyTo] = useState(2);
     const [volcaFmContainerState, setVolcaFmContainerState] = useState('Active');
     const [saveAsName, setSaveAsName] = useState('');
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('Inactive');
@@ -303,6 +311,455 @@ function VolcaFm() {
             keyVelocitySense: 4
         }
     });
+    
+    const updateCurrentMidiChannel = (val) => {
+        setCurrentMidiChannel(val);
+    }
+    
+    const updateCurrentOutput = (val) => {
+        setCurrentOutput(val);
+    }
+    
+    const closeVolcaFmAboutDiv = () => {
+        setAboutVolcaFmDivState('Inactive');
+    }
+    
+    const openVolcaFmAboutDiv = () => {
+        setAboutVolcaFmDivState('Active');
+    }
+    
+    const makeRandomPatch = () => {
+        const algorithm = Math.floor(Math.random() * 31) + 1;
+        const onState = [Math.floor(Math.random() * 2), Math.floor(Math.random() * 2), Math.floor(Math.random() * 2), Math.floor(Math.random() * 2), Math.floor(Math.random() * 2), Math.floor(Math.random() * 2)];
+        const onOff = ['On', 'Off'];
+        const onOffState = [];
+        for (let i = 0; i < 6; i++) {
+            onOffState[i] = onOff[onState[i]];
+        }
+        
+        setPatchAltered(true);
+        setCurrentAlgorithm('_algorithm' + algorithm.toString());
+        setCurrentAlgorithmNumerical(algorithm);
+        setGlobalParams({
+            name: 'Random',
+            settings: {
+                feedback: Math.floor(Math.random() * 8),
+                oscKeySync: Math.floor(Math.random() * 2),
+                transpose: 12
+            },
+            lfo: {
+                speed: Math.floor(Math.random() * 100),
+                delay: Math.floor(Math.random() * 100),
+                pitchModulationDepth: Math.floor(Math.random() * 100),
+                amplitudeModulationDepth: Math.floor(Math.random() * 100),
+                sync: Math.floor(Math.random() * 2),
+                lfoWaveform: Math.floor(Math.random() * 6),
+                pitchModulationSensitivity: Math.floor(Math.random() * 8)
+            },
+            pitchEnvelope: {
+                rate1: Math.floor(Math.random() * 100),
+                rate2: Math.floor(Math.random() * 100),
+                rate3: Math.floor(Math.random() * 100),
+                rate4: Math.floor(Math.random() * 100),
+                level1: Math.floor(Math.random() * 100),
+                level2: Math.floor(Math.random() * 100),
+                level3: Math.floor(Math.random() * 100), 
+                level4: Math.floor(Math.random() * 100)
+            },
+            global: {
+                monoPoly: Math.floor(Math.random() * 2),
+                pitchBendRange: Math.floor(Math.random() * 13),
+                pitchBendStep: Math.floor(Math.random() * 13),
+                modulationWheelRange: Math.floor(Math.random() * 100),
+                modulationWheelAssign: Math.floor(Math.random() * 3)
+            },
+            performance: {
+                portamentoMode: Math.floor(Math.random() * 2),
+                portamentoGliss: Math.floor(Math.random() * 2),
+                portamentoTime: Math.floor(Math.random() * 100),
+                footControlRange: Math.floor(Math.random() * 100),
+                footControlAssign: Math.floor(Math.random() * 3),
+                breathControlRange: Math.floor(Math.random() * 100),
+                breathControlAssign: Math.floor(Math.random() * 3),
+                aftertouchRange: Math.floor(Math.random() * 100),
+                aftertouchAssign: Math.floor(Math.random() * 3)
+            }
+        });
+        setOperatorParams({
+            operator1: {
+                operatorOn: onOffState[0],
+                outputLevel: Math.floor(Math.random() * 100),
+                envelopeR1: Math.floor(Math.random() * 100),
+                envelopeL1: Math.floor(Math.random() * 100),
+                envelopeR2: Math.floor(Math.random() * 100),
+                envelopeL2: Math.floor(Math.random() * 100),
+                envelopeR3: Math.floor(Math.random() * 100),
+                envelopeL3: Math.floor(Math.random() * 100),
+                envelopeR4: Math.floor(Math.random() * 100),
+                envelopeL4: Math.floor(Math.random() * 100),
+                levelScaleBreakPoint: Math.floor(Math.random() * 100),
+                levelScaleLeftDepth: Math.floor(Math.random() * 100),
+                levelScaleLeftCurve: Math.floor(Math.random() * 4),
+                levelScaleRightDepth: Math.floor(Math.random() * 100),
+                levelScaleRightCurve: Math.floor(Math.random() * 4),
+                oscMode: Math.floor(Math.random() * 2),
+                freqCoarse: Math.floor(Math.random() * 32),
+                freqFine: Math.floor(Math.random() * 100),
+                detune: Math.floor(Math.random() * 14),
+                oscRateScale: Math.floor(Math.random() * 15),
+                amplitudeModSense: Math.floor(Math.random() * 4),
+                keyVelocitySense: Math.floor(Math.random() * 8)
+            },
+            operator2: {
+                operatorOn: onOffState[1],
+                outputLevel: Math.floor(Math.random() * 100),
+                envelopeR1: Math.floor(Math.random() * 100),
+                envelopeL1: Math.floor(Math.random() * 100),
+                envelopeR2: Math.floor(Math.random() * 100),
+                envelopeL2: Math.floor(Math.random() * 100),
+                envelopeR3: Math.floor(Math.random() * 100),
+                envelopeL3: Math.floor(Math.random() * 100),
+                envelopeR4: Math.floor(Math.random() * 100),
+                envelopeL4: Math.floor(Math.random() * 100),
+                levelScaleBreakPoint: Math.floor(Math.random() * 100),
+                levelScaleLeftDepth: Math.floor(Math.random() * 100),
+                levelScaleLeftCurve: Math.floor(Math.random() * 4),
+                levelScaleRightDepth: Math.floor(Math.random() * 100),
+                levelScaleRightCurve: Math.floor(Math.random() * 4),
+                oscMode: Math.floor(Math.random() * 2),
+                freqCoarse: Math.floor(Math.random() * 32),
+                freqFine: Math.floor(Math.random() * 100),
+                detune: Math.floor(Math.random() * 14),
+                oscRateScale: Math.floor(Math.random() * 15),
+                amplitudeModSense: Math.floor(Math.random() * 4),
+                keyVelocitySense: Math.floor(Math.random() * 8)
+            },
+            operator3: {
+                operatorOn: onOffState[2],
+                outputLevel: Math.floor(Math.random() * 100),
+                envelopeR1: Math.floor(Math.random() * 100),
+                envelopeL1: Math.floor(Math.random() * 100),
+                envelopeR2: Math.floor(Math.random() * 100),
+                envelopeL2: Math.floor(Math.random() * 100),
+                envelopeR3: Math.floor(Math.random() * 100),
+                envelopeL3: Math.floor(Math.random() * 100),
+                envelopeR4: Math.floor(Math.random() * 100),
+                envelopeL4: Math.floor(Math.random() * 100),
+                levelScaleBreakPoint: Math.floor(Math.random() * 100),
+                levelScaleLeftDepth: Math.floor(Math.random() * 100),
+                levelScaleLeftCurve: Math.floor(Math.random() * 4),
+                levelScaleRightDepth: Math.floor(Math.random() * 100),
+                levelScaleRightCurve: Math.floor(Math.random() * 4),
+                oscMode: Math.floor(Math.random() * 2),
+                freqCoarse: Math.floor(Math.random() * 32),
+                freqFine: Math.floor(Math.random() * 100),
+                detune: Math.floor(Math.random() * 14),
+                oscRateScale: Math.floor(Math.random() * 15),
+                amplitudeModSense: Math.floor(Math.random() * 4),
+                keyVelocitySense: Math.floor(Math.random() * 8)
+            },
+            operator4: {
+                operatorOn: onOffState[3],
+                outputLevel: Math.floor(Math.random() * 100),
+                envelopeR1: Math.floor(Math.random() * 100),
+                envelopeL1: Math.floor(Math.random() * 100),
+                envelopeR2: Math.floor(Math.random() * 100),
+                envelopeL2: Math.floor(Math.random() * 100),
+                envelopeR3: Math.floor(Math.random() * 100),
+                envelopeL3: Math.floor(Math.random() * 100),
+                envelopeR4: Math.floor(Math.random() * 100),
+                envelopeL4: Math.floor(Math.random() * 100),
+                levelScaleBreakPoint: Math.floor(Math.random() * 100),
+                levelScaleLeftDepth: Math.floor(Math.random() * 100),
+                levelScaleLeftCurve: Math.floor(Math.random() * 4),
+                levelScaleRightDepth: Math.floor(Math.random() * 100),
+                levelScaleRightCurve: Math.floor(Math.random() * 4),
+                oscMode: Math.floor(Math.random() * 2),
+                freqCoarse: Math.floor(Math.random() * 32),
+                freqFine: Math.floor(Math.random() * 100),
+                detune: Math.floor(Math.random() * 14),
+                oscRateScale: Math.floor(Math.random() * 15),
+                amplitudeModSense: Math.floor(Math.random() * 4),
+                keyVelocitySense: Math.floor(Math.random() * 8)
+            },
+            operator5: {
+                operatorOn: onOffState[4],
+                outputLevel: Math.floor(Math.random() * 100),
+                envelopeR1: Math.floor(Math.random() * 100),
+                envelopeL1: Math.floor(Math.random() * 100),
+                envelopeR2: Math.floor(Math.random() * 100),
+                envelopeL2: Math.floor(Math.random() * 100),
+                envelopeR3: Math.floor(Math.random() * 100),
+                envelopeL3: Math.floor(Math.random() * 100),
+                envelopeR4: Math.floor(Math.random() * 100),
+                envelopeL4: Math.floor(Math.random() * 100),
+                levelScaleBreakPoint: Math.floor(Math.random() * 100),
+                levelScaleLeftDepth: Math.floor(Math.random() * 100),
+                levelScaleLeftCurve: Math.floor(Math.random() * 4),
+                levelScaleRightDepth: Math.floor(Math.random() * 100),
+                levelScaleRightCurve: Math.floor(Math.random() * 4),
+                oscMode: Math.floor(Math.random() * 2),
+                freqCoarse: Math.floor(Math.random() * 32),
+                freqFine: Math.floor(Math.random() * 100),
+                detune: Math.floor(Math.random() * 14),
+                oscRateScale: Math.floor(Math.random() * 15),
+                amplitudeModSense: Math.floor(Math.random() * 4),
+                keyVelocitySense: Math.floor(Math.random() * 8)
+            },
+            operator6: {
+                operatorOn: onOffState[5],
+                outputLevel: Math.floor(Math.random() * 100),
+                envelopeR1: Math.floor(Math.random() * 100),
+                envelopeL1: Math.floor(Math.random() * 100),
+                envelopeR2: Math.floor(Math.random() * 100),
+                envelopeL2: Math.floor(Math.random() * 100),
+                envelopeR3: Math.floor(Math.random() * 100),
+                envelopeL3: Math.floor(Math.random() * 100),
+                envelopeR4: Math.floor(Math.random() * 100),
+                envelopeL4: Math.floor(Math.random() * 100),
+                levelScaleBreakPoint: Math.floor(Math.random() * 100),
+                levelScaleLeftDepth: Math.floor(Math.random() * 100),
+                levelScaleLeftCurve: Math.floor(Math.random() * 4),
+                levelScaleRightDepth: Math.floor(Math.random() * 100),
+                levelScaleRightCurve: Math.floor(Math.random() * 4),
+                oscMode: Math.floor(Math.random() * 2),
+                freqCoarse: Math.floor(Math.random() * 32),
+                freqFine: Math.floor(Math.random() * 100),
+                detune: Math.floor(Math.random() * 14),
+                oscRateScale: Math.floor(Math.random() * 15),
+                amplitudeModSense: Math.floor(Math.random() * 4),
+                keyVelocitySense: Math.floor(Math.random() * 8)
+            }
+        });
+    }
+    
+    const initPatch = () => {
+        setPatchAltered(true);
+        setCurrentAlgorithm('_algorithm1');
+        setCurrentAlgorithmNumerical(1);
+        setGlobalParams({
+            name: 'Init',
+            settings: {
+                feedback: 0,
+                oscKeySync: 0,
+                transpose: 12
+            },
+            lfo: {
+                speed: 0,
+                delay: 0,
+                pitchModulationDepth: 0,
+                amplitudeModulationDepth: 0,
+                sync: 0,
+                lfoWaveform: 0,
+                pitchModulationSensitivity: 0
+            },
+            pitchEnvelope: {
+                rate1: 0,
+                rate2: 0,
+                rate3: 0,
+                rate4: 0,
+                level1: 50,
+                level2: 50,
+                level3: 50, 
+                level4: 50
+            },
+            global: {
+                monoPoly: 0,
+                pitchBendRange: 12,
+                pitchBendStep: 0,
+                modulationWheelRange: 99,
+                modulationWheelAssign: 1
+            },
+            performance: {
+                portamentoMode: 0,
+                portamentoGliss: 0,
+                portamentoTime: 0,
+                footControlRange: 0,
+                footControlAssign: 0,
+                breathControlRange: 0,
+                breathControlAssign: 0,
+                aftertouchRange: 0,
+                aftertouchAssign: 0
+            }
+        });
+        setOperatorParams({
+            operator1: {
+                operatorOn: 'On',
+                outputLevel: 99,
+                envelopeR1: 0,
+                envelopeL1: 99,
+                envelopeR2: 0,
+                envelopeL2: 99,
+                envelopeR3: 0,
+                envelopeL3: 99,
+                envelopeR4: 0,
+                envelopeL4: 0,
+                levelScaleBreakPoint: 60,
+                levelScaleLeftDepth: 50,
+                levelScaleLeftCurve: 0,
+                levelScaleRightDepth: 50,
+                levelScaleRightCurve: 3,
+                oscMode: 0,
+                freqCoarse: 1,
+                freqFine: 0,
+                detune: 7,
+                oscRateScale: 0,
+                amplitudeModSense: 0,
+                keyVelocitySense: 0
+            },
+            operator2: {
+                operatorOn: 'Off',
+                outputLevel: 99,
+                envelopeR1: 0,
+                envelopeL1: 99,
+                envelopeR2: 0,
+                envelopeL2: 99,
+                envelopeR3: 0,
+                envelopeL3: 99,
+                envelopeR4: 0,
+                envelopeL4: 0,
+                levelScaleBreakPoint: 60,
+                levelScaleLeftDepth: 50,
+                levelScaleLeftCurve: 0,
+                levelScaleRightDepth: 50,
+                levelScaleRightCurve: 3,
+                oscMode: 0,
+                freqCoarse: 1,
+                freqFine: 0,
+                detune: 7,
+                oscRateScale: 0,
+                amplitudeModSense: 0,
+                keyVelocitySense: 0
+            },
+            operator3: {
+                operatorOn: 'Off',
+                outputLevel: 99,
+                envelopeR1: 0,
+                envelopeL1: 99,
+                envelopeR2: 0,
+                envelopeL2: 99,
+                envelopeR3: 0,
+                envelopeL3: 99,
+                envelopeR4: 0,
+                envelopeL4: 0,
+                levelScaleBreakPoint: 60,
+                levelScaleLeftDepth: 50,
+                levelScaleLeftCurve: 0,
+                levelScaleRightDepth: 50,
+                levelScaleRightCurve: 3,
+                oscMode: 0,
+                freqCoarse: 1,
+                freqFine: 0,
+                detune: 7,
+                oscRateScale: 0,
+                amplitudeModSense: 0,
+                keyVelocitySense: 0
+            },
+            operator4: {
+                operatorOn: 'Off',
+                outputLevel: 99,
+                envelopeR1: 0,
+                envelopeL1: 99,
+                envelopeR2: 0,
+                envelopeL2: 99,
+                envelopeR3: 0,
+                envelopeL3: 99,
+                envelopeR4: 0,
+                envelopeL4: 0,
+                levelScaleBreakPoint: 60,
+                levelScaleLeftDepth: 50,
+                levelScaleLeftCurve: 0,
+                levelScaleRightDepth: 50,
+                levelScaleRightCurve: 3,
+                oscMode: 0,
+                freqCoarse: 1,
+                freqFine: 0,
+                detune: 7,
+                oscRateScale: 0,
+                amplitudeModSense: 0,
+                keyVelocitySense: 0
+            },
+            operator5: {
+                operatorOn: 'Off',
+                outputLevel: 99,
+                envelopeR1: 0,
+                envelopeL1: 99,
+                envelopeR2: 0,
+                envelopeL2: 99,
+                envelopeR3: 0,
+                envelopeL3: 99,
+                envelopeR4: 0,
+                envelopeL4: 0,
+                levelScaleBreakPoint: 60,
+                levelScaleLeftDepth: 50,
+                levelScaleLeftCurve: 0,
+                levelScaleRightDepth: 50,
+                levelScaleRightCurve: 3,
+                oscMode: 0,
+                freqCoarse: 1,
+                freqFine: 0,
+                detune: 7,
+                oscRateScale: 0,
+                amplitudeModSense: 0,
+                keyVelocitySense: 0
+            },
+            operator6: {
+                operatorOn: 'Off',
+                outputLevel: 99,
+                envelopeR1: 0,
+                envelopeL1: 99,
+                envelopeR2: 0,
+                envelopeL2: 99,
+                envelopeR3: 0,
+                envelopeL3: 99,
+                envelopeR4: 0,
+                envelopeL4: 0,
+                levelScaleBreakPoint: 60,
+                levelScaleLeftDepth: 50,
+                levelScaleLeftCurve: 0,
+                levelScaleRightDepth: 50,
+                levelScaleRightCurve: 3,
+                oscMode: 0,
+                freqCoarse: 1,
+                freqFine: 0,
+                detune: 7,
+                oscRateScale: 0,
+                amplitudeModSense: 0,
+                keyVelocitySense: 0
+            }
+        });
+    }
+    
+    const copyOpSubmit = () => {
+        let deepCopy = {...operatorParams};
+        
+        for (const key in deepCopy['operator' + copyTo]) {
+            deepCopy['operator' + copyTo][key] = deepCopy['operator' + copyFrom][key];
+        }
+        
+        setOperatorParams(deepCopy);
+        setCopyOpDialogStatus('Inactive');
+        setVolcaFmContainerState('Active');
+        setPatchAltered(true);
+    }
+    
+    const cancelCopyOpDialog = () => {
+        setCopyOpDialogStatus('Inactive');
+        setVolcaFmContainerState('Active');
+    }
+    
+    const displayCopyOpDialog = () => {
+        setCopyOpDialogStatus('Active');
+        setVolcaFmContainerState('Inactive');
+    }
+    
+    const updateCopyFrom = (val) => {
+        setCopyFrom(val);
+    }
+    
+    const updateCopyTo = (val) => {
+        setCopyTo(val);
+    }
     
     const submitSaveAsDialog = (val) => {
         let deepCopy = {...globalParams};
@@ -4270,121 +4727,121 @@ function VolcaFm() {
             case ('q'):
                 if (!keyEngaged.q) {
                     keyEngaged.q = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote, 0x7f]);
                 }
                 break;
             case ('2'):
                 if (!keyEngaged['2']) {
                     keyEngaged['2'] = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 1, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 1, 0x7f]);
                 }
                 break;
             case ('w'):
                 if (!keyEngaged.w) {
                     keyEngaged.w = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 2, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 2, 0x7f]);
                 }
                 break;
             case ('3'):
                 if (!keyEngaged['3']) {
                     keyEngaged['3'] = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 3, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 3, 0x7f]);
                 }
                 break;
             case ('e'):
                 if (!keyEngaged.e) {
                     keyEngaged.e = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 4, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 4, 0x7f]);
                 }
                 break;
             case ('r'):
                 if (!keyEngaged.r) {
                     keyEngaged.r = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 5, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 5, 0x7f]);
                 }
                 break;
             case ('5'):
                 if (!keyEngaged['5']) {
                     keyEngaged['5'] = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 6, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 6, 0x7f]);
                 }
                 break;
             case ('t'):
                 if (!keyEngaged.t) {
                     keyEngaged.t = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 7, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 7, 0x7f]);
                 }
                 break;
             case ('6'):
                 if (!keyEngaged['6']) {
                     keyEngaged['6'] = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 8, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 8, 0x7f]);
                 }
                 break;
             case ('y'):
                 if (!keyEngaged.y) {
                     keyEngaged.y = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 9, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 9, 0x7f]);
                 }
                 break;
             case ('7'):
                 if (!keyEngaged['7']) {
                     keyEngaged['7'] = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 10, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 10, 0x7f]);
                 }
                 break;
             case ('u'):
                 if (!keyEngaged.u) {
                     keyEngaged.u = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 11, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 11, 0x7f]);
                 }
                 break;
             case ('i'):
                 if (!keyEngaged.i) {
                     keyEngaged.i = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 12, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 12, 0x7f]);
                 }
                 break;
             case ('9'):
                 if (!keyEngaged['9']) {
                     keyEngaged['9'] = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 13, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 13, 0x7f]);
                 }
                 break;
             case ('o'):
                 if (!keyEngaged.o) {
                     keyEngaged.o = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 14, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 14, 0x7f]);
                 }
                 break;
             case ('0'):
                 if (!keyEngaged['0']) {
                     keyEngaged['0'] = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 15, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 15, 0x7f]);
                 }
                 break;
             case ('p'):
                 if (!keyEngaged.p) {
                     keyEngaged.p = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 16, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 16, 0x7f]);
                 }
                 break;
             case ('['):
                 if (!keyEngaged['[']) {
                     keyEngaged['['] = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 17, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 17, 0x7f]);
                 }
                 break;
             case ('='):
                 if (!keyEngaged['=']) {
                     keyEngaged['='] = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 18, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 18, 0x7f]);
                 }
                 break;
             case (']'):
                 if (!keyEngaged[']']) {
                     keyEngaged[']'] = true;
-                    midiOutput.send([0x90 | midiChannel, rootNote + 19, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote + 19, 0x7f]);
                 }
                 break;
             default:
@@ -4395,88 +4852,103 @@ function VolcaFm() {
     const noteOffEvent = (key) => {
         switch (key.toLowerCase()) {
             case ('q'):
-                midiOutput.send([0x80 | midiChannel, rootNote, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote, 0x7f]);
                 keyEngaged.q = false;
                 break;
             case ('2'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 1, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 1, 0x7f]);
                 keyEngaged['2'] = false;
                 break;
             case ('w'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 2, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 2, 0x7f]);
                 keyEngaged.w = false;
                 break;
             case ('3'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 3, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 3, 0x7f]);
                 keyEngaged['3'] = false;
                 break;
             case ('e'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 4, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 4, 0x7f]);
                 keyEngaged.e = false;
                 break;
             case ('r'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 5, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 5, 0x7f]);
                 keyEngaged.r = false;
                 break;
             case ('5'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 6, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 6, 0x7f]);
                 keyEngaged['5'] = false;
                 break;
             case ('t'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 7, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 7, 0x7f]);
                 keyEngaged.t = false;
                 break;
             case ('6'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 8, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 8, 0x7f]);
                 keyEngaged['6'] = false;
                 break;
             case ('y'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 9, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 9, 0x7f]);
                 keyEngaged.y = false;
                 break;
             case ('7'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 10, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 10, 0x7f]);
                 keyEngaged['7'] = false;
                 break;
             case ('u'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 11, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 11, 0x7f]);
                 keyEngaged.u = false;
                 break;
             case ('i'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 12, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 12, 0x7f]);
                 keyEngaged.i = false;
                 break;
             case ('9'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 13, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 13, 0x7f]);
                 keyEngaged['9'] = false;
                 break;
             case ('o'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 14, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 14, 0x7f]);
                 keyEngaged.o = false;
                 break;
             case ('0'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 15, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 15, 0x7f]);
                 keyEngaged['0'] = false;
                 break;
             case ('p'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 16, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 16, 0x7f]);
                 keyEngaged.p = false;
                 break;
             case ('['):
-                midiOutput.send([0x80 | midiChannel, rootNote + 17, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 17, 0x7f]);
                 keyEngaged['['] = false;
                 break;
             case ('='):
-                midiOutput.send([0x80 | midiChannel, rootNote + 18, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 18, 0x7f]);
                 keyEngaged['='] = false;
                 break;
             case (']'):
-                midiOutput.send([0x80 | midiChannel, rootNote + 19, 0x7f]);
+                currentOutput.send([0x80 | currentMidiChannel, rootNote + 19, 0x7f]);
                 keyEngaged[']'] = false;
                 break;
             default:
                 console.log('no note');
         }
+    }
+    
+    function initInputs() {
+        setAvailableInputs(inputs);
+        setAvailableOutputs(outputs);
+        setCurrentOutput(availableOutputs[0].id);
+        setCurrentMidiChannel(midiOutput);
+
+        console.log(outputs);
+        for (const output of outputs) {
+            console.log(output);
+            midiOutput = output;
+        }
+        midiOutput = 0;
+        console.log(midiOutput);
     }
 
     function onMIDIFailure() {
@@ -4488,20 +4960,9 @@ function VolcaFm() {
 
         inputs = Array.from(midiAccess.inputs.values());
         outputs = Array.from(midiAccess.outputs.values());
-
-        //        midiOutput = outputs[0];
-
-        console.log(outputs);
-        for (const output of outputs) {
-            console.log(output);
-            midiOutput = output;
+        if (currentOutput === 0) {
+            initInputs();
         }
-        console.log(midiOutput);
-
-        //        midiOutput.send([0x90 | midiChannel, rootNote, 0x7f]);
-        //        setTimeout(() => {
-        //           midiOutput.send([0x80 | midiChannel, rootNote, 0x7f]); 
-        //        }, 500);
 
     }
 
@@ -4554,34 +5015,28 @@ function VolcaFm() {
                             <button className={'revertButton' + patchAltered + volcaFmMonth}
                                 onClick={() => revertPatch()}>revert</button>
                             <p className={'midiOutputLabel' + volcaFmMonth}>midi output:</p>
-                            <select className={'midiOutputSelect' + volcaFmMonth}>
-                                <option key="0"
-                                    value="0">midiman-1</option>
-                                <option key="1"
-                                    value="1">midiman-2</option>
-                                <option key="2"
-                                    value="2">midiman-3</option>
-                                <option key="3"
-                                    value="3">midiman-4</option>
-                                <option key="4"
-                                    value="4">midiman-5</option>
-                                <option key="5"
-                                    value="5">midiman-6</option>
-                                <option key="6"
-                                    value="6">midiman-7</option>
-                                <option key="7"
-                                    value="7">midiman-8</option>
+                            <select className={'midiOutputSelect' + volcaFmMonth}
+                                onChange={(e) => updateCurrentOutput(e.target.value)}
+                                value={currentOutput}>
+                                {availableOutputs.map(out => (
+                                <option key={out.id} value={out.id}>{out.name}</option>))}
                             </select>
                             <p className={'midiChannelLabel' + volcaFmMonth}>channel:</p>
                             <input className={'midiChannelInput' + volcaFmMonth}
-                                max="1"
-                                min="16"
+                                max="15"
+                                min="0"
+                                onChange={(e) => updateCurrentMidiChannel(parseInt(e.target.value))}
+                                step="1"
                                 type="number"
-                                value="1"/>
-                            <button className={'copyOpButton' + volcaFmMonth}>copy op...</button>
-                            <button className={'initButton' + volcaFmMonth}>init</button>
-                            <button className={'randomButton' + volcaFmMonth}>random</button>
-                            <button className={'aboutFMButton' + volcaFmMonth}>about</button>
+                                value={currentMidiChannel}/>
+                            <button className={'copyOpButton' + volcaFmMonth}
+                                onClick={() => displayCopyOpDialog()}>copy op...</button>
+                            <button className={'initButton' + volcaFmMonth}
+                                onClick={() => initPatch()}>init</button>
+                            <button className={'randomButton' + volcaFmMonth}
+                                onClick={() => makeRandomPatch()}>random</button>
+                            <button className={'aboutFMButton' + volcaFmMonth}
+                                onClick={() => openVolcaFmAboutDiv()}>about</button>
                         </div>
                     </div>
                     <div className={'volcaFmAlgorithmDisplay' + volcaFmMonth}>
@@ -8132,6 +8587,75 @@ function VolcaFm() {
                         onClick={() => submitSaveAsDialog(saveAsName)}>submit</button>
                     <button className={'saveAsButtons' + volcaFmMonth}
                         onClick={() => cancelSaveAsDialog()}>cancel</button>
+                </div>
+            </div>
+            <div className={'copyOpDialogDiv' + copyOpDialogStatus + volcaFmMonth}>
+                <p>copy operator</p>
+                <div className={'copyOpInputsDiv' + volcaFmMonth}>
+                    <div className={'copyInputs' + volcaFmMonth}>
+                        <p>copy from:</p>
+                        <input className={'copyOpNumberInput' + volcaFmMonth}
+                            max="6"
+                            min="1"
+                            onChange={(e) => updateCopyFrom(e.target.value)}
+                            type="number"
+                            value={copyFrom}/>
+                        <div className={'volcaFmOpCopierDiv' + volcaFmMonth}><input className={'volcaFmAlgorithmSlider' + volcaFmMonth}
+                                max="6"
+                                min="1"
+                                onChange={(e) => updateCopyFrom(e.target.value)}
+                                type="range"
+                                value={copyFrom}></input></div>
+                    </div>
+                    <div className={'copyInputs' + volcaFmMonth}>
+                        <p>copy to:</p>
+                        <input className={'copyOpNumberInput' + volcaFmMonth} 
+                            max="6"
+                            min="1"
+                            onChange={(e) => updateCopyTo(e.target.value)}
+                            type="number"
+                            value={copyTo}/>
+                        <div className={'volcaFmOpCopierDiv' + volcaFmMonth}><input className={'volcaFmAlgorithmSlider' + volcaFmMonth}
+                                max="6"
+                                min="1"
+                                onChange={(e) => updateCopyTo(e.target.value)}
+                                type="range"
+                                value={copyTo}></input></div>
+                    </div>
+                </div>
+                <div className={'saveAsButtonsDiv' + volcaFmMonth}>
+                    <button className={'saveAsButtons' + volcaFmMonth}
+                        onClick={() => copyOpSubmit()}>submit</button>
+                    <button className={'saveAsButtons' + volcaFmMonth}
+                        onClick={() => cancelCopyOpDialog()}>cancel</button>
+                </div>
+            </div>
+            <div className={'aboutTheKorgVolcaFMDiv' + aboutVolcaFmDivState + volcaFmMonth}>
+                <div className={'aboutTheKorgVolcaFMContent' + volcaFmMonth}>
+                    <img className={'volcaAboutImg' + volcaFmMonth}
+                        src={volcaFmImg1} />
+                    <h2>Korg Volca FM</h2>
+                    <p>The volca fm is a three-voice digital FM synthesizer that completely reproduces the sound engine of a classic FM synthesizer, and provides compatibility with it as well.</p>
+                    <h2>Frequency Modulation Synthesis</h2>
+                    <p>Frequency modulation synthesis (or FM synthesis) is a form of sound synthesis whereby the frequency of a waveform is changed by modulating its frequency with a modulator. The frequency of an oscillator is altered "in accordance with the amplitude of a modulating signal".</p>
+                    <p>FM synthesis can create both harmonic and inharmonic sounds. To synthesize harmonic sounds, the modulating signal must have a harmonic relationship to the original carrier signal. As the amount of frequency modulation increases, the sound grows progressively complex. Through the use of modulators with frequencies that are non-integer multiples of the carrier signal (i.e. inharmonic), inharmonic bell-like and percussive spectra can be created.</p>
+                    <p>FM synthesis using analog oscillators may result in pitch instability. However, FM synthesis can also be implemented digitally, which is more stable and became standard practice. Digital FM synthesis (implemented as phase modulation) was the basis of several musical instruments beginning as early as 1974. Yamaha built the first prototype digital synthesizer in 1974, based on FM synthesis, before commercially releasing the Yamaha GS-1 in 1980. The Synclavier I, manufactured by New England Digital Corporation beginning in 1978, included a digital FM synthesizer, using an FM synthesis algorithm licensed from Yamaha. Yamaha's groundbreaking DX7 synthesizer, released in 1983, brought FM to the forefront of synthesis in the mid-1980s.</p>
+                    <p>FM synthesis had also become the usual setting for games and software until the mid-nineties. Through sound cards like the AdLib and Sound Blaster, IBM PCs popularized Yamaha chips like OPL2 and OPL3. OPNB was used as main basic sound generator board in SNK Neo Geo operated arcades (MVS) and home console (AES). The related OPN2 was used in the Fujitsu FM Towns Marty and Sega Genesis as one of its sound generator chips. Similarly, Sharp X68000 and MSX (Yamaha computer unit) also use FM-based soundchip, OPM.</p>
+                    <h3>History</h3>
+                    <p>The technique of the digital implementation of frequency modulation was developed by John Chowning (Chowning 1973, cited in Dodge &amp; Jerse 1997, p. 115) at Stanford University in 1967–68 and patented in 1975. Prior to that, the FM synthesis algorithm was licensed to Japanese company Yamaha in 1973. It was initially designed for radios to transmit voice by modulating one waveform's frequency with another's. This is why FM radio is called FM (frequency modulation).</p>
+                    <p>The implementation commercialized by Yamaha (US Patent 4018121 Apr 1977 or U.S. Patent 4,018,121) is actually based on phase modulation, but the results end up being equivalent mathematically as both are essentially a special case of QAM.</p>
+                    <p>Yamaha's engineers began adapting Chowning's algorithm for use in a commercial digital synthesizer, adding improvements such as the "key scaling" method to avoid the introduction of distortion that normally occurred in analog systems during frequency modulation, though it would take several years before Yamaha released their FM digital synthesizers. In the 1970s, Yamaha were granted a number of patents, under the company's former name "Nippon Gakki Seizo Kabushiki Kaisha", evolving Chowning's work. Yamaha built the first prototype FM digital synthesizer in 1974. Yamaha eventually commercialized FM synthesis technology with the Yamaha GS-1, the first FM digital synthesizer, released in 1980.</p>
+                    <p>FM synthesis was the basis of some of the early generations of digital synthesizers, most notably those from Yamaha, as well as New England Digital Corporation under license from Yamaha. Yamaha's popular DX7 synthesizer, released in 1983, was ubiquitous throughout the 1980s. Several other models by Yamaha provided variations and evolutions of FM synthesis during that decade.</p>
+                    <p>Yamaha had patented its hardware implementation of FM in the 1970s, allowing it to nearly monopolize the market for FM technology until the mid-1990s. Casio developed a related form of synthesis called phase distortion synthesis, used in its CZ range of synthesizers. It had a similar (but slightly differently derived) sound quality to the DX series. Don Buchla implemented FM on his instruments in the mid-1960s, prior to Yamaha's patent. His 158, 258 and 259 dual oscillator modules had a specific FM control voltage input, and the model 208 (Music Easel) had a modulation oscillator hard-wired to allow FM as well as AM of the primary oscillator. These early applications used analog oscillators, and this capability was also followed by other modular synthesizers and portable synthesizers including Minimoog and ARP Odyssey.</p>
+                    <p>With the expiration of the Stanford University FM patent in 1995, digital FM synthesis can now be implemented freely by other manufacturers. The FM synthesis patent brought Stanford $20 million before it expired, making it (in 1994) "the second most lucrative licensing agreement in Stanford's history". FM today is mostly found in software-based synths such as FM8 by Native Instruments or Sytrus by Image-Line, but it has also been incorporated into the synthesis repertoire of some modern digital synthesizers, usually coexisting as an option alongside other methods of synthesis such as subtractive, sample-based synthesis, additive synthesis, and other techniques. The degree of complexity of the FM in such hardware synths may vary from simple 2-operator FM, to the highly flexible 6-operator engines of the Korg Kronos and Alesis Fusion, to creation of FM in extensively modular engines such as those in the latest synthesisers by Kurzweil Music Systems.</p>
+                    <p>New hardware synths specifically marketed for their FM capabilities disappeared from the market after the release of the Yamaha SY99 and FS1R, and even those marketed their highly powerful FM abilities as counterparts to sample-based synthesis and formant synthesis respectively. However, well-developed FM synthesis options are a feature of Nord Lead synths manufactured by Clavia, the Alesis Fusion range, the Korg Oasys and Kronos and the Modor NF-1. Various other synthesizers offer limited FM abilities to supplement their main engines.</p>
+                    <p>Most recently, in 2016, Korg released the Korg Volca FM, a, 3-voice, 6 operators FM iteration of the Korg Volca series of compact, affordable desktop modules, and Yamaha released the Montage, which combines a 128-voice sample-based engine with a 128-voice FM engine. This iteration of FM is called FM-X, and features 8 operators; each operator has a choice of several basic wave forms, but each wave form has several parameters to adjust its spectrum. The Yamaha Montage was followed by the more affordable Yamaha MODX in 2018, with 64-voice, 8 operators FM-X architecture in addition to a 128-voice sample-based engine. Elektron in 2018 launched the Digitone, an 8-voice, 4 operators FM synth featuring Elektron's renowned sequence engine.</p>
+                    <p>FM-X synthesis was introduced with the Yamaha Montage synthesizers in 2016. FM-X uses 8 operators. Each FM-X operator has a set of multi-spectral wave forms to choose from, which means each FM-X operator can be equivalent to a stack of 3 or 4 DX7 FM operators. The list of selectable wave forms includes sine waves, the All1 and All2 wave forms, the Odd1 and Odd2 wave forms, and the Res1 and Res2 wave forms. The sine wave selection works the same as the DX7 wave forms. The All1 and All2 wave forms are a saw-tooth wave form. The Odd1 and Odd2 wave forms are pulse or square waves. These two types of wave forms can be used to model the basic harmonic peaks in the bottom of the harmonic spectrum of most instruments. The Res1 and Res2 wave forms move the spectral peak to a specific harmonic and can be used to model either triangular or rounded groups of harmonics further up in the spectrum of an instrument. Combining an All1 or Odd1 wave form with multiple Res1 (or Res2) wave forms (and adjusting their amplitudes) can model the harmonic spectrum of an instrument or sound.</p>
+                    <p>Combining sets of 8 FM operators with multi-spectral wave forms began in 1999 by Yamaha in the FS1R. The FS1R had 16 operators, 8 standard FM operators and 8 additional operators that used a noise source rather than an oscillator as its sound source. By adding in tuneable noise sources the FS1R could model the sounds produced in the human voice and in a wind instrument, along with making percussion instrument sounds. The FS1R also contained an additional wave form called the Formant wave form. Formants can be used to model resonating body instrument sounds like the cello, violin, acoustic guitar, bassoon, English horn, or human voice. Formants can even be found in the harmonic spectrum of several brass instruments.</p>
+                </div>
+                <div className={'saveAsButtonsDiv' + volcaFmMonth}>
+                    <button className={'saveAsButtons' + volcaFmMonth}
+                        onClick={() => closeVolcaFmAboutDiv()}>close</button>
                 </div>
             </div>
         </div>
