@@ -30,6 +30,8 @@ function VolcaFm() {
     let rootNote = 60;
     let keyEngaged = {};
 
+    const [panicState, setPanicState] = useState('panicOff');
+    const [currentSpinner, setCurrentSpinner] = useState('https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/january/spinner/smile_loader_by_gleb.gif');
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState(0);
@@ -316,8 +318,18 @@ function VolcaFm() {
         setCurrentMidiChannel(val);
     }
     
+    const getVisualOutput = (val) => {
+        console.log(val);
+    }
+    
     const updateCurrentOutput = (val) => {
-        setCurrentOutput(val);
+        let index = 0;
+        for (let i = 0; i < availableOutputs.length; i++) {
+            if (availableOutputs[i].id === val) {
+                index = i;
+            }
+        }
+        setCurrentOutput(availableOutputs[index]);
     }
     
     const closeVolcaFmAboutDiv = () => {
@@ -531,6 +543,227 @@ function VolcaFm() {
                 keyVelocitySense: Math.floor(Math.random() * 8)
             }
         });
+        sendSysexDump();
+    }
+    
+    const sysexBuffer = () => {
+        let checksum = 0;
+        let nameArray = [];
+        let onOff = 64;
+        
+        for (let i = 0; i < 10; i++) {
+            if ((i > globalParams.name.length) || (i === globalParams.name.length)) {
+                nameArray[i] = 32;
+            } else {
+                nameArray[i] = globalParams.name.charCodeAt(i);
+            }
+        }
+        
+        if (operatorParams.operator1.operatorOn === 'On') {
+            onOff += 1;
+        }
+        if (operatorParams.operator2.operatorOn === 'On') {
+            onOff += 2;
+        }
+        if (operatorParams.operator3.operatorOn === 'On') {
+            onOff += 4;
+        }
+        if (operatorParams.operator4.operatorOn === 'On') {
+            onOff += 8;
+        }
+        if (operatorParams.operator5.operatorOn === 'On') {
+            onOff += 16;
+        }
+        if (operatorParams.operator6.operatorOn === 'On') {
+            onOff += 32;
+        }
+        
+        let buffer = [
+            0xF0,                                           // status - start Sysex
+            0x43,                                           // id - yamaha (67)
+            0x00 | currentMidiChannel,                      // current midi channel
+            0x00,                                           // format number (0 = 1 voice)
+            0x01,                                           // 0b0bbbbbbb data byte count msb
+            0x1b,                                           // 0b0bbbbbbb data byte count lsb
+            operatorParams.operator6.envelopeR1,            // voice data start - OP6 EG rate 1
+            operatorParams.operator6.envelopeR2,            // OP6 EG rate2
+            operatorParams.operator6.envelopeR3,            // OP6 EG rate3
+            operatorParams.operator6.envelopeR4,            // OP6 EG rate4
+            operatorParams.operator6.envelopeL1,            // OP6 EG level1
+            operatorParams.operator6.envelopeL2,            // OP6 EG level2
+            operatorParams.operator6.envelopeL3,            // OP6 EG level3
+            operatorParams.operator6.envelopeL4,            // OP6 EG level4
+            operatorParams.operator6.levelScaleBreakPoint,  // OP6 level scale break point
+            operatorParams.operator6.levelScaleLeftDepth,   // OP6 left scale depth
+            operatorParams.operator6.levelScaleRightDepth,  // OP6 right scale depth
+            operatorParams.operator6.levelScaleLeftCurve,   // OP6 left scale curve
+            operatorParams.operator6.levelScaleRightCurve,  // OP6 right scale curve
+            operatorParams.operator6.oscRateScale,          // OP6 oscillator rate scaling
+            operatorParams.operator6.amplitudeModSense,     // OP6 amplitude modulation sensitivity
+            operatorParams.operator6.keyVelocitySense,      // OP6 key velocity sensitivity
+            operatorParams.operator6.outputLevel,           // OP6 output level
+            operatorParams.operator6.oscMode,               // OP6 Oscillator Mode
+            operatorParams.operator6.freqCoarse,            // OP6 Frequency Coarse
+            operatorParams.operator6.freqFine,              // OP6 Frequency Fine
+            operatorParams.operator6.detune,                // OP6 Detune
+            operatorParams.operator5.envelopeR1,            // OP5 EG rate 1
+            operatorParams.operator5.envelopeR2,            // OP5 EG rate2
+            operatorParams.operator5.envelopeR3,            // OP5 EG rate3
+            operatorParams.operator5.envelopeR4,            // OP5 EG rate4
+            operatorParams.operator5.envelopeL1,            // OP5 EG level1
+            operatorParams.operator5.envelopeL2,            // OP5 EG level2
+            operatorParams.operator5.envelopeL3,            // OP5 EG level3
+            operatorParams.operator5.envelopeL4,            // OP5 EG level4
+            operatorParams.operator5.levelScaleBreakPoint,  // OP5 level scale break point
+            operatorParams.operator5.levelScaleLeftDepth,   // OP5 left scale depth
+            operatorParams.operator5.levelScaleRightDepth,  // OP5 right scale depth
+            operatorParams.operator5.levelScaleLeftCurve,   // OP5 left scale curve
+            operatorParams.operator5.levelScaleRightCurve,  // OP5 right scale curve
+            operatorParams.operator5.oscRateScale,          // OP5 oscillator rate scaling
+            operatorParams.operator5.amplitudeModSense,     // OP5 amplitude modulation sensitivity
+            operatorParams.operator5.keyVelocitySense,      // OP5 key velocity sensitivity
+            operatorParams.operator5.outputLevel,           // OP5 output level
+            operatorParams.operator5.oscMode,               // OP5 Oscillator Mode
+            operatorParams.operator5.freqCoarse,            // OP5 Frequency Coarse
+            operatorParams.operator5.freqFine,              // OP5 Frequency Fine
+            operatorParams.operator5.detune,                // OP5 Detune
+            operatorParams.operator4.envelopeR1,            // OP4 EG rate 1
+            operatorParams.operator4.envelopeR2,            // OP4 EG rate2
+            operatorParams.operator4.envelopeR3,            // OP4 EG rate3
+            operatorParams.operator4.envelopeR4,            // OP4 EG rate4
+            operatorParams.operator4.envelopeL1,            // OP4 EG level1
+            operatorParams.operator4.envelopeL2,            // OP4 EG level2
+            operatorParams.operator4.envelopeL3,            // OP4 EG level3
+            operatorParams.operator4.envelopeL4,            // OP4 EG level4
+            operatorParams.operator4.levelScaleBreakPoint,  // OP4 level scale break point
+            operatorParams.operator4.levelScaleLeftDepth,   // OP4 left scale depth
+            operatorParams.operator4.levelScaleRightDepth,  // OP4 right scale depth
+            operatorParams.operator4.levelScaleLeftCurve,   // OP4 left scale curve
+            operatorParams.operator4.levelScaleRightCurve,  // OP4 right scale curve
+            operatorParams.operator4.oscRateScale,          // OP4 oscillator rate scaling
+            operatorParams.operator4.amplitudeModSense,     // OP4 amplitude modulation sensitivity
+            operatorParams.operator4.keyVelocitySense,      // OP4 key velocity sensitivity
+            operatorParams.operator4.outputLevel,           // OP4 output level
+            operatorParams.operator4.oscMode,               // OP4 Oscillator Mode
+            operatorParams.operator4.freqCoarse,            // OP4 Frequency Coarse
+            operatorParams.operator4.freqFine,              // OP4 Frequency Fine
+            operatorParams.operator4.detune,                // OP4 Detune
+            operatorParams.operator3.envelopeR1,            // OP3 EG rate 1
+            operatorParams.operator3.envelopeR2,            // OP3 EG rate2
+            operatorParams.operator3.envelopeR3,            // OP3 EG rate3
+            operatorParams.operator3.envelopeR4,            // OP3 EG rate4
+            operatorParams.operator3.envelopeL1,            // OP3 EG level1
+            operatorParams.operator3.envelopeL2,            // OP3 EG level2
+            operatorParams.operator3.envelopeL3,            // OP3 EG level3
+            operatorParams.operator3.envelopeL4,            // OP3 EG level4
+            operatorParams.operator3.levelScaleBreakPoint,  // OP3 level scale break point
+            operatorParams.operator3.levelScaleLeftDepth,   // OP3 left scale depth
+            operatorParams.operator3.levelScaleRightDepth,  // OP3 right scale depth
+            operatorParams.operator3.levelScaleLeftCurve,   // OP3 left scale curve
+            operatorParams.operator3.levelScaleRightCurve,  // OP3 right scale curve
+            operatorParams.operator3.oscRateScale,          // OP3 oscillator rate scaling
+            operatorParams.operator3.amplitudeModSense,     // OP3 amplitude modulation sensitivity
+            operatorParams.operator3.keyVelocitySense,      // OP3 key velocity sensitivity
+            operatorParams.operator3.outputLevel,           // OP3 output level
+            operatorParams.operator3.oscMode,               // OP3 Oscillator Mode
+            operatorParams.operator3.freqCoarse,            // OP3 Frequency Coarse
+            operatorParams.operator3.freqFine,              // OP3 Frequency Fine
+            operatorParams.operator3.detune,                // OP3 Detune
+            operatorParams.operator2.envelopeR1,            // OP2 EG rate 1
+            operatorParams.operator2.envelopeR2,            // OP2 EG rate2
+            operatorParams.operator2.envelopeR3,            // OP2 EG rate3
+            operatorParams.operator2.envelopeR4,            // OP2 EG rate4
+            operatorParams.operator2.envelopeL1,            // OP2 EG level1
+            operatorParams.operator2.envelopeL2,            // OP2 EG level2
+            operatorParams.operator2.envelopeL3,            // OP2 EG level3
+            operatorParams.operator2.envelopeL4,            // OP2 EG level4
+            operatorParams.operator2.levelScaleBreakPoint,  // OP2 level scale break point
+            operatorParams.operator2.levelScaleLeftDepth,   // OP2 left scale depth
+            operatorParams.operator2.levelScaleRightDepth,  // OP2 right scale depth
+            operatorParams.operator2.levelScaleLeftCurve,   // OP2 left scale curve
+            operatorParams.operator2.levelScaleRightCurve,  // OP2 right scale curve
+            operatorParams.operator2.oscRateScale,          // OP2 oscillator rate scaling
+            operatorParams.operator2.amplitudeModSense,     // OP2 amplitude modulation sensitivity
+            operatorParams.operator2.keyVelocitySense,      // OP2 key velocity sensitivity
+            operatorParams.operator2.outputLevel,           // OP2 output level
+            operatorParams.operator2.oscMode,               // OP2 Oscillator Mode
+            operatorParams.operator2.freqCoarse,            // OP2 Frequency Coarse
+            operatorParams.operator2.freqFine,              // OP2 Frequency Fine
+            operatorParams.operator2.detune,                // OP2 Detune
+            operatorParams.operator1.envelopeR1,            // OP1 EG rate 1
+            operatorParams.operator1.envelopeR2,            // OP1 EG rate2
+            operatorParams.operator1.envelopeR3,            // OP1 EG rate3
+            operatorParams.operator1.envelopeR4,            // OP1 EG rate4
+            operatorParams.operator1.envelopeL1,            // OP1 EG level1
+            operatorParams.operator1.envelopeL2,            // OP1 EG level2
+            operatorParams.operator1.envelopeL3,            // OP1 EG level3
+            operatorParams.operator1.envelopeL4,            // OP1 EG level4
+            operatorParams.operator1.levelScaleBreakPoint,  // OP1 level scale break point
+            operatorParams.operator1.levelScaleLeftDepth,   // OP1 left scale depth
+            operatorParams.operator1.levelScaleRightDepth,  // OP1 right scale depth
+            operatorParams.operator1.levelScaleLeftCurve,   // OP1 left scale curve
+            operatorParams.operator1.levelScaleRightCurve,  // OP1 right scale curve
+            operatorParams.operator1.oscRateScale,          // OP1 oscillator rate scaling
+            operatorParams.operator1.amplitudeModSense,     // OP1 amplitude modulation sensitivity
+            operatorParams.operator1.keyVelocitySense,      // OP1 key velocity sensitivity
+            operatorParams.operator1.outputLevel,           // OP1 output level
+            operatorParams.operator1.oscMode,               // OP1 Oscillator Mode
+            operatorParams.operator1.freqCoarse,            // OP1 Frequency Coarse
+            operatorParams.operator1.freqFine,              // OP1 Frequency Fine
+            operatorParams.operator1.detune,                // OP1 Detune
+            globalParams.pitchEnvelope.rate1,               // pitch EG rate 1
+            globalParams.pitchEnvelope.rate2,               // pitch EG rate 2
+            globalParams.pitchEnvelope.rate3,               // pitch EG rate 3
+            globalParams.pitchEnvelope.rate4,               // pitch EG rate 4
+            globalParams.pitchEnvelope.level1,              // pitch EG level 1
+            globalParams.pitchEnvelope.level2,              // pitch EG level 2
+            globalParams.pitchEnvelope.level3,              // pitch EG level 3
+            globalParams.pitchEnvelope.level4,              // pitch EG level 4
+            currentAlgorithmNumerical - 1,                  // algorithm #
+            globalParams.settings.feedback,                 // feedback
+            globalParams.settings.oscKeySync,               // oscillator key sync
+            globalParams.lfo.speed,                         // lfo speed
+            globalParams.lfo.delay,                         // lfo delay
+            globalParams.lfo.pitchModulationDepth,          // lfo pitch modulation depth
+            globalParams.lfo.amplitudeModulationDepth,      // lfo amplitude modulation depth
+            globalParams.lfo.sync,                          // lfo sync
+            globalParams.lfo.lfoWaveform,                   // lfo waveform
+            globalParams.lfo.pitchModulationSensitivity,    // lfo pitch modulation sensitivity
+            globalParams.settings.transpose,                // transpose
+            nameArray[0],                                   // Name Character 1
+            nameArray[1],                                   // Name Character 2
+            nameArray[2],                                   // Name Character 3
+            nameArray[3],                                   // Name Character 4
+            nameArray[4],                                   // Name Character 5
+            nameArray[5],                                   // Name Character 6
+            nameArray[6],                                   // Name Character 7
+            nameArray[7],                                   // Name Character 8
+            nameArray[8],                                   // Name Character 9
+            nameArray[9],                                   // Name Character 10
+            onOff                                           // voice data end - OP on/off
+            //checksum,                                     // checksum
+            //0xf7                                          // 0b1111_0111 ; EOX
+        ];
+        
+        for (let i = 6; i < buffer.length; i++) {
+            checksum += buffer[i];
+        }
+        checksum &= 0xff;
+        checksum = (~checksum) + 1;
+        checksum &= 0x7f;
+        buffer.push(checksum);
+        buffer.push(0xf7);
+        
+        return buffer;
+    }
+    
+    const sendSysexDump = () => {
+        let buffer = sysexBuffer();
+        let throttleTimer = 300;
+        
+        setTimeout(() => {
+            currentOutput.send(buffer);
+        }, throttleTimer);
     }
     
     const initPatch = () => {
@@ -728,6 +961,7 @@ function VolcaFm() {
                 keyVelocitySense: 0
             }
         });
+        sendSysexDump();
     }
     
     const copyOpSubmit = () => {
@@ -741,6 +975,7 @@ function VolcaFm() {
         setCopyOpDialogStatus('Inactive');
         setVolcaFmContainerState('Active');
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const cancelCopyOpDialog = () => {
@@ -771,6 +1006,7 @@ function VolcaFm() {
             setGlobalParams(deepCopy);
             setSaveAsDialogStatus('Inactive'); 
             setVolcaFmContainerState('Active');
+            sendSysexDump();
         }
     }
     
@@ -787,6 +1023,7 @@ function VolcaFm() {
     
     const updateChangeAsName = (val) => {
         setSaveAsName(val);
+        sendSysexDump();
     }
     
     const savePatch = () => {
@@ -804,6 +1041,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updateFeedbackValue = (val) => {
@@ -813,6 +1051,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const toggleOscKeySync = () => {
@@ -826,6 +1065,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updateTransposeValue = (val) => {
@@ -835,6 +1075,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updateAmplitudeModulationDepthValue = (val) => {
@@ -844,6 +1085,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updatePitchDepthValue = (val) => {
@@ -853,6 +1095,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updateModulationSpeedValue = (val) => {
@@ -861,6 +1104,7 @@ function VolcaFm() {
         deepCopy.lfo.speed = val;
         
         setGlobalParams(deepCopy);
+        sendSysexDump();
     }
     
     const updateModulationDelayValue = (val) => {
@@ -870,6 +1114,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updatePitchModulationSensitivityValue = (val) => {
@@ -879,6 +1124,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const setLfoWaveform = (val) => {
@@ -888,6 +1134,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const toggleLfoKeySync = () => {
@@ -901,6 +1148,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updatepitchEnvelope = (param, val) => {
@@ -910,6 +1158,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updateModulationRange = (val) => {
@@ -919,6 +1168,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const assignModulationWheel = (val) => {
@@ -928,6 +1178,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const toggleMonoPoly = () => {
@@ -941,6 +1192,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updatePitchBendRange = (val) => {
@@ -950,6 +1202,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updatePitchBendStep = (val) => {
@@ -959,6 +1212,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const toggleGlissando = () => {
@@ -972,6 +1226,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const toggleGlissandoMode = () => {
@@ -985,6 +1240,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updateGlissandoDepth = (val) => {
@@ -994,6 +1250,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updateFootControlRange = (val) => {
@@ -1003,6 +1260,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const setFootControlAssign = (val) => {
@@ -1012,6 +1270,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const setAftertouchAssign = (val) => {
@@ -1021,6 +1280,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const setBreathControlAssign = (val) => {
@@ -1030,6 +1290,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updateAftertouchRange = (val) => {
@@ -1039,6 +1300,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const updateBreathControlRange = (val) => {
@@ -1048,6 +1310,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const translateTransposeValue = (val) => {
@@ -1467,161 +1730,32 @@ function VolcaFm() {
         
         setOperatorParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
     
     const operatorTuning = (op, tune, val) => {
-        let opOn1 = operatorParams.operator1.operatorOn;
-        let outLvl1 = operatorParams.operator1.outputLevel;
-        let op1EnvR1 = operatorParams.operator1.envelopeR1;
-        let op1EnvL1 = operatorParams.operator1.envelopeL1;
-        let op1EnvR2 = operatorParams.operator1.envelopeR2;
-        let op1EnvL2 = operatorParams.operator1.envelopeL2;
-        let op1EnvR3 = operatorParams.operator1.envelopeR3;
-        let op1EnvL3 = operatorParams.operator1.envelopeL3;
-        let op1EnvR4 = operatorParams.operator1.envelopeR4;
-        let op1EnvL4 = operatorParams.operator1.envelopeL4;
-        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
-        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
-        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
-        let op1OscMode = operatorParams.operator1.oscMode;
-        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
-        let op1FreqFine = operatorParams.operator1.freqFine;
-        let op1Detune = operatorParams.operator1.detune;
-        let op1OscRateScale = operatorParams.operator1.oscRateScale;
-        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
-        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
-        let opOn2 = operatorParams.operator2.operatorOn;
-        let outLvl2 = operatorParams.operator2.outputLevel;
-        let op2EnvR1 = operatorParams.operator2.envelopeR1;
-        let op2EnvL1 = operatorParams.operator2.envelopeL1;
-        let op2EnvR2 = operatorParams.operator2.envelopeR2;
-        let op2EnvL2 = operatorParams.operator2.envelopeL2;
-        let op2EnvR3 = operatorParams.operator2.envelopeR3;
-        let op2EnvL3 = operatorParams.operator2.envelopeL3;
-        let op2EnvR4 = operatorParams.operator2.envelopeR4;
-        let op2EnvL4 = operatorParams.operator2.envelopeL4;
-        let op2LvlScaleBreak = operatorParams.operator2.levelScaleBreakPoint;
-        let op2LvlScaleLeftDepth = operatorParams.operator2.levelScaleLeftDepth;
-        let op2LvlScaleLeftCurve = parseInt(operatorParams.operator2.levelScaleLeftCurve);
-        let op2LvlScaleRightDepth = operatorParams.operator2.levelScaleRightDepth;
-        let op2LvlScaleRightCurve = parseInt(operatorParams.operator2.levelScaleRightCurve);
-        let op2OscMode = operatorParams.operator2.oscMode;
-        let op2FreqCoarse = operatorParams.operator2.freqCoarse;
-        let op2FreqFine = operatorParams.operator2.freqFine;
-        let op2Detune = operatorParams.operator2.detune;
-        let op2OscRateScale = operatorParams.operator2.oscRateScale;
-        let op2AmplitudeModSense = operatorParams.operator2.amplitudeModSense;
-        let op2KeyVelocitySense = operatorParams.operator2.keyVelocitySense;
-        let opOn3 = operatorParams.operator3.operatorOn;
-        let outLvl3 = operatorParams.operator3.outputLevel;
-        let op3EnvR1 = operatorParams.operator3.envelopeR1;
-        let op3EnvL1 = operatorParams.operator3.envelopeL1;
-        let op3EnvR2 = operatorParams.operator3.envelopeR2;
-        let op3EnvL2 = operatorParams.operator3.envelopeL2;
-        let op3EnvR3 = operatorParams.operator3.envelopeR3;
-        let op3EnvL3 = operatorParams.operator3.envelopeL3;
-        let op3EnvR4 = operatorParams.operator3.envelopeR4;
-        let op3EnvL4 = operatorParams.operator3.envelopeL4;
-        let op3LvlScaleBreak = operatorParams.operator3.levelScaleBreakPoint;
-        let op3LvlScaleLeftDepth = operatorParams.operator3.levelScaleLeftDepth;
-        let op3LvlScaleLeftCurve = parseInt(operatorParams.operator3.levelScaleLeftCurve);
-        let op3LvlScaleRightDepth = operatorParams.operator3.levelScaleRightDepth;
-        let op3LvlScaleRightCurve = parseInt(operatorParams.operator3.levelScaleRightCurve);
-        let op3OscMode = operatorParams.operator3.oscMode;
-        let op3FreqCoarse = operatorParams.operator3.freqCoarse;
-        let op3FreqFine = operatorParams.operator3.freqFine;
-        let op3Detune = operatorParams.operator3.detune;
-        let op3OscRateScale = operatorParams.operator3.oscRateScale;
-        let op3AmplitudeModSense = operatorParams.operator3.amplitudeModSense;
-        let op3KeyVelocitySense = operatorParams.operator3.keyVelocitySense;
-        let opOn4 = operatorParams.operator4.operatorOn;
-        let outLvl4 = operatorParams.operator4.outputLevel;
-        let op4EnvR1 = operatorParams.operator4.envelopeR1;
-        let op4EnvL1 = operatorParams.operator4.envelopeL1;
-        let op4EnvR2 = operatorParams.operator4.envelopeR2;
-        let op4EnvL2 = operatorParams.operator4.envelopeL2;
-        let op4EnvR3 = operatorParams.operator4.envelopeR3;
-        let op4EnvL3 = operatorParams.operator4.envelopeL3;
-        let op4EnvR4 = operatorParams.operator4.envelopeR4;
-        let op4EnvL4 = operatorParams.operator4.envelopeL4;
-        let op4LvlScaleBreak = operatorParams.operator4.levelScaleBreakPoint;
-        let op4LvlScaleLeftDepth = operatorParams.operator4.levelScaleLeftDepth;
-        let op4LvlScaleLeftCurve = parseInt(operatorParams.operator4.levelScaleLeftCurve);
-        let op4LvlScaleRightDepth = operatorParams.operator4.levelScaleRightDepth;
-        let op4LvlScaleRightCurve = parseInt(operatorParams.operator4.levelScaleRightCurve);
-        let op4OscMode = operatorParams.operator4.oscMode;
-        let op4FreqCoarse = operatorParams.operator4.freqCoarse;
-        let op4FreqFine = operatorParams.operator4.freqFine;
-        let op4Detune = operatorParams.operator4.detune;
-        let op4OscRateScale = operatorParams.operator4.oscRateScale;
-        let op4AmplitudeModSense = operatorParams.operator4.amplitudeModSense;
-        let op4KeyVelocitySense = operatorParams.operator4.keyVelocitySense;
-        let opOn5 = operatorParams.operator5.operatorOn;
-        let outLvl5 = operatorParams.operator5.outputLevel;
-        let op5EnvR1 = operatorParams.operator5.envelopeR1;
-        let op5EnvL1 = operatorParams.operator5.envelopeL1;
-        let op5EnvR2 = operatorParams.operator5.envelopeR2;
-        let op5EnvL2 = operatorParams.operator5.envelopeL2;
-        let op5EnvR3 = operatorParams.operator5.envelopeR3;
-        let op5EnvL3 = operatorParams.operator5.envelopeL3;
-        let op5EnvR4 = operatorParams.operator5.envelopeR4;
-        let op5EnvL4 = operatorParams.operator5.envelopeL4;
-        let op5LvlScaleBreak = operatorParams.operator5.levelScaleBreakPoint;
-        let op5LvlScaleLeftDepth = operatorParams.operator5.levelScaleLeftDepth;
-        let op5LvlScaleLeftCurve = parseInt(operatorParams.operator5.levelScaleLeftCurve);
-        let op5LvlScaleRightDepth = operatorParams.operator5.levelScaleRightDepth;
-        let op5LvlScaleRightCurve = parseInt(operatorParams.operator5.levelScaleRightCurve);
-        let op5OscMode = operatorParams.operator5.oscMode;
-        let op5FreqCoarse = operatorParams.operator5.freqCoarse;
-        let op5FreqFine = operatorParams.operator5.freqFine;
-        let op5Detune = operatorParams.operator5.detune;
-        let op5OscRateScale = operatorParams.operator5.oscRateScale;
-        let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
-        let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
-        let opOn6 = operatorParams.operator6.operatorOn;
-        let outLvl6 = operatorParams.operator6.outputLevel;
-        let op6EnvR1 = operatorParams.operator6.envelopeR1;
-        let op6EnvL1 = operatorParams.operator6.envelopeL1;
-        let op6EnvR2 = operatorParams.operator6.envelopeR2;
-        let op6EnvL2 = operatorParams.operator6.envelopeL2;
-        let op6EnvR3 = operatorParams.operator6.envelopeR3;
-        let op6EnvL3 = operatorParams.operator6.envelopeL3;
-        let op6EnvR4 = operatorParams.operator6.envelopeR4;
-        let op6EnvL4 = operatorParams.operator6.envelopeL4;
-        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
-        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
-        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
-        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
-        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
-        let op6OscMode = operatorParams.operator6.oscMode;
-        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
-        let op6FreqFine = operatorParams.operator6.freqFine;
-        let op6Detune = operatorParams.operator6.detune;
-        let op6OscRateScale = operatorParams.operator6.oscRateScale;
-        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
-        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
+        let deepCopy = {...operatorParams};
+        
         switch (op) {
             case (1):
                 switch(tune) {
                     case('coarse'):
-                        op1FreqCoarse = val;
+                        deepCopy.operator1.freqCoarse = val;
                         break;
                     case('fine'):
-                        op1FreqFine = val;
+                        deepCopy.operator1.freqFine = val;
                         break;
                     case('detune'):
-                        op1Detune = val;
+                        deepCopy.operator1.detune = val;
                         break;
                     case('oscRate'):
-                        op1OscRateScale = val;
+                        deepCopy.operator1.oscRateScale = val;
                         break;
                     case('ams'):
-                        op1AmplitudeModSense = val;
+                        deepCopy.operator1.amplitudeModSense = val;
                         break;
                     case('kvs'):
-                        op1KeyVelocitySense = val;
+                        deepCopy.operator1.keyVelocitySense = val;
                         break;
                     default:
                         console.log('impossible tune');
@@ -1630,22 +1764,22 @@ function VolcaFm() {
             case (2):
                 switch(tune) {
                     case('coarse'):
-                        op2FreqCoarse = val;
+                        deepCopy.operator2.freqCoarse = val;
                         break;
                     case('fine'):
-                        op2FreqFine = val;
+                        deepCopy.operator2.freqFine = val;
                         break;
                     case('detune'):
-                        op2Detune = val;
+                        deepCopy.operator2.detune = val;
                         break;
                     case('oscRate'):
-                        op2OscRateScale = val;
+                        deepCopy.operator2.oscRateScale = val;
                         break;
                     case('ams'):
-                        op2AmplitudeModSense = val;
+                        deepCopy.operator2.amplitudeModSense = val;
                         break;
                     case('kvs'):
-                        op2KeyVelocitySense = val;
+                        deepCopy.operator2.keyVelocitySense = val;
                         break;
                     default:
                         console.log('impossible tune');
@@ -1654,22 +1788,22 @@ function VolcaFm() {
             case (3):
                 switch(tune) {
                     case('coarse'):
-                        op3FreqCoarse = val;
+                        deepCopy.operator3.freqCoarse = val;
                         break;
                     case('fine'):
-                        op3FreqFine = val;
+                        deepCopy.operator3.freqFine = val;
                         break;
                     case('detune'):
-                        op3Detune = val;
+                        deepCopy.operator3.detune = val;
                         break;
                     case('oscRate'):
-                        op3OscRateScale = val;
+                        deepCopy.operator3.oscRateScale = val;
                         break;
                     case('ams'):
-                        op3AmplitudeModSense = val;
+                        deepCopy.operator3.amplitudeModSense = val;
                         break;
                     case('kvs'):
-                        op3KeyVelocitySense = val;
+                        deepCopy.operator3.keyVelocitySense = val;
                         break;
                     default:
                         console.log('impossible tune');
@@ -1678,22 +1812,22 @@ function VolcaFm() {
             case (4):
                 switch(tune) {
                     case('coarse'):
-                        op4FreqCoarse = val;
+                        deepCopy.operator4.freqCoarse = val;
                         break;
                     case('fine'):
-                        op4FreqFine = val;
+                        deepCopy.operator4.freqFine = val;
                         break;
                     case('detune'):
-                        op4Detune = val;
+                        deepCopy.operator4.detune = val;
                         break;
                     case('oscRate'):
-                        op4OscRateScale = val;
+                        deepCopy.operator4.oscRateScale = val;
                         break;
                     case('ams'):
-                        op4AmplitudeModSense = val;
+                        deepCopy.operator4.amplitudeModSense = val;
                         break;
                     case('kvs'):
-                        op4KeyVelocitySense = val;
+                        deepCopy.operator4.keyVelocitySense = val;
                         break;
                     default:
                         console.log('impossible tune');
@@ -1702,22 +1836,22 @@ function VolcaFm() {
             case (5):
                 switch(tune) {
                     case('coarse'):
-                        op5FreqCoarse = val;
+                        deepCopy.operator5.freqCoarse = val;
                         break;
                     case('fine'):
-                        op5FreqFine = val;
+                        deepCopy.operator5.freqFine = val;
                         break;
                     case('detune'):
-                        op5Detune = val;
+                        deepCopy.operator5.detune = val;
                         break;
                     case('oscRate'):
-                        op5OscRateScale = val;
+                        deepCopy.operator5.oscRateScale = val;
                         break;
                     case('ams'):
-                        op5AmplitudeModSense = val;
+                        deepCopy.operator5.amplitudeModSense = val;
                         break;
                     case('kvs'):
-                        op5KeyVelocitySense = val;
+                        deepCopy.operator5.keyVelocitySense = val;
                         break;
                     default:
                         console.log('impossible tune');
@@ -1726,22 +1860,22 @@ function VolcaFm() {
             case (6):
                 switch(tune) {
                     case('coarse'):
-                        op6FreqCoarse = val;
+                        deepCopy.operator6.freqCoarse = val;
                         break;
                     case('fine'):
-                        op6FreqFine = val;
+                        deepCopy.operator6.freqFine = val;
                         break;
                     case('detune'):
-                        op6Detune = val;
+                        deepCopy.operator6.detune = val;
                         break;
                     case('oscRate'):
-                        op6OscRateScale = val;
+                        deepCopy.operator6.oscRateScale = val;
                         break;
                     case('ams'):
-                        op6AmplitudeModSense = val;
+                        deepCopy.operator6.amplitudeModSense = val;
                         break;
                     case('kvs'):
-                        op6KeyVelocitySense = val;
+                        deepCopy.operator6.keyVelocitySense = val;
                         break;
                     default:
                         console.log('impossible tune');
@@ -1750,1568 +1884,197 @@ function VolcaFm() {
             default:
                 console.log('impossible curve value');
         }
-        setOperatorParams({
-            operator1: {
-                operatorOn: opOn1,
-                outputLevel: outLvl1,
-                envelopeR1: op1EnvR1,
-                envelopeL1: op1EnvL1,
-                envelopeR2: op1EnvR2,
-                envelopeL2: op1EnvL2,
-                envelopeR3: op1EnvR3,
-                envelopeL3: op1EnvL3,
-                envelopeR4: op1EnvR4,
-                envelopeL4: op1EnvL4,
-                levelScaleBreakPoint: op1LvlScaleBreak,
-                levelScaleLeftDepth: op1LvlScaleLeftDepth,
-                levelScaleLeftCurve: op1LvlScaleLeftCurve,
-                levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve,
-                oscMode: op1OscMode,
-                freqCoarse: op1FreqCoarse,
-                freqFine: op1FreqFine,
-                detune: op1Detune,
-                oscRateScale: op1OscRateScale,
-                amplitudeModSense: op1AmplitudeModSense,
-                keyVelocitySense: op1KeyVelocitySense
-            },
-            operator2: {
-                operatorOn: opOn2,
-                outputLevel: outLvl2,
-                envelopeR1: op2EnvR1,
-                envelopeL1: op2EnvL1,
-                envelopeR2: op2EnvR2,
-                envelopeL2: op2EnvL2,
-                envelopeR3: op2EnvR3,
-                envelopeL3: op2EnvL3,
-                envelopeR4: op2EnvR4,
-                envelopeL4: op2EnvL4,
-                levelScaleBreakPoint: op2LvlScaleBreak,
-                levelScaleLeftDepth: op2LvlScaleLeftDepth,
-                levelScaleLeftCurve: op2LvlScaleLeftCurve,
-                levelScaleRightDepth: op2LvlScaleRightDepth,
-                levelScaleRightCurve: op2LvlScaleRightCurve,
-                oscMode: op2OscMode,
-                freqCoarse: op2FreqCoarse,
-                freqFine: op2FreqFine,
-                detune: op2Detune,
-                oscRateScale: op2OscRateScale,
-                amplitudeModSense: op2AmplitudeModSense,
-                keyVelocitySense: op2KeyVelocitySense
-            },
-            operator3: {
-                operatorOn: opOn3,
-                outputLevel: outLvl3,
-                envelopeR1: op3EnvR1,
-                envelopeL1: op3EnvL1,
-                envelopeR2: op3EnvR2,
-                envelopeL2: op3EnvL2,
-                envelopeR3: op3EnvR3,
-                envelopeL3: op3EnvL3,
-                envelopeR4: op3EnvR4,
-                envelopeL4: op3EnvL4,
-                levelScaleBreakPoint: op3LvlScaleBreak,
-                levelScaleLeftDepth: op3LvlScaleLeftDepth,
-                levelScaleLeftCurve: op3LvlScaleLeftCurve,
-                levelScaleRightDepth: op3LvlScaleRightDepth,
-                levelScaleRightCurve: op3LvlScaleRightCurve,
-                oscMode: op3OscMode,
-                freqCoarse: op3FreqCoarse,
-                freqFine: op3FreqFine,
-                detune: op3Detune,
-                oscRateScale: op3OscRateScale,
-                amplitudeModSense: op3AmplitudeModSense,
-                keyVelocitySense: op3KeyVelocitySense
-            },
-            operator4: {
-                operatorOn: opOn4,
-                outputLevel: outLvl4,
-                envelopeR1: op4EnvR1,
-                envelopeL1: op4EnvL1,
-                envelopeR2: op4EnvR2,
-                envelopeL2: op4EnvL2,
-                envelopeR3: op4EnvR3,
-                envelopeL3: op4EnvL3,
-                envelopeR4: op4EnvR4,
-                envelopeL4: op4EnvL4,
-                levelScaleBreakPoint: op4LvlScaleBreak,
-                levelScaleLeftDepth: op4LvlScaleLeftDepth,
-                levelScaleLeftCurve: op4LvlScaleLeftCurve,
-                levelScaleRightDepth: op4LvlScaleRightDepth,
-                levelScaleRightCurve: op4LvlScaleRightCurve,
-                oscMode: op4OscMode,
-                freqCoarse: op4FreqCoarse,
-                freqFine: op4FreqFine,
-                detune: op4Detune,
-                oscRateScale: op4OscRateScale,
-                amplitudeModSense: op4AmplitudeModSense,
-                keyVelocitySense: op4KeyVelocitySense
-            },
-            operator5: {
-                operatorOn: opOn5,
-                outputLevel: outLvl5,
-                envelopeR1: op5EnvR1,
-                envelopeL1: op5EnvL1,
-                envelopeR2: op5EnvR2,
-                envelopeL2: op5EnvL2,
-                envelopeR3: op5EnvR3,
-                envelopeL3: op5EnvL3,
-                envelopeR4: op5EnvR4,
-                envelopeL4: op5EnvL4,
-                levelScaleBreakPoint: op5LvlScaleBreak,
-                levelScaleLeftDepth: op5LvlScaleLeftDepth,
-                levelScaleLeftCurve: op5LvlScaleLeftCurve,
-                levelScaleRightDepth: op5LvlScaleRightDepth,
-                levelScaleRightCurve: op5LvlScaleRightCurve,
-                oscMode: op5OscMode,
-                freqCoarse: op5FreqCoarse,
-                freqFine: op5FreqFine,
-                detune: op5Detune,
-                oscRateScale: op5OscRateScale,
-                amplitudeModSense: op5AmplitudeModSense,
-                keyVelocitySense: op5KeyVelocitySense
-            },
-            operator6: {
-                operatorOn: opOn6,
-                outputLevel: outLvl6,
-                envelopeR1: op6EnvR1,
-                envelopeL1: op6EnvL1,
-                envelopeR2: op6EnvR2,
-                envelopeL2: op6EnvL2,
-                envelopeR3: op6EnvR3,
-                envelopeL3: op6EnvL3,
-                envelopeR4: op6EnvR4,
-                envelopeL4: op6EnvL4,
-                levelScaleBreakPoint: op6LvlScaleBreak,
-                levelScaleLeftDepth: op6LvlScaleLeftDepth,
-                levelScaleLeftCurve: op6LvlScaleLeftCurve,
-                levelScaleRightDepth: op6LvlScaleRightDepth,
-                levelScaleRightCurve: op6LvlScaleRightCurve,
-                oscMode: op6OscMode,
-                freqCoarse: op6FreqCoarse,
-                freqFine: op6FreqFine,
-                detune: op6Detune,
-                oscRateScale: op6OscRateScale,
-                amplitudeModSense: op6AmplitudeModSense,
-                keyVelocitySense: op6KeyVelocitySense
-            }
-        });
+        setOperatorParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
 
     const changeCurveDepth = (op, side, val) => {
-        let opOn1 = operatorParams.operator1.operatorOn;
-        let outLvl1 = operatorParams.operator1.outputLevel;
-        let op1EnvR1 = operatorParams.operator1.envelopeR1;
-        let op1EnvL1 = operatorParams.operator1.envelopeL1;
-        let op1EnvR2 = operatorParams.operator1.envelopeR2;
-        let op1EnvL2 = operatorParams.operator1.envelopeL2;
-        let op1EnvR3 = operatorParams.operator1.envelopeR3;
-        let op1EnvL3 = operatorParams.operator1.envelopeL3;
-        let op1EnvR4 = operatorParams.operator1.envelopeR4;
-        let op1EnvL4 = operatorParams.operator1.envelopeL4;
-        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
-        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
-        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
-        let op1OscMode = operatorParams.operator1.oscMode;
-        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
-        let op1FreqFine = operatorParams.operator1.freqFine;
-        let op1Detune = operatorParams.operator1.detune;
-        let op1OscRateScale = operatorParams.operator1.oscRateScale;
-        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
-        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
-        let opOn2 = operatorParams.operator2.operatorOn;
-        let outLvl2 = operatorParams.operator2.outputLevel;
-        let op2EnvR1 = operatorParams.operator2.envelopeR1;
-        let op2EnvL1 = operatorParams.operator2.envelopeL1;
-        let op2EnvR2 = operatorParams.operator2.envelopeR2;
-        let op2EnvL2 = operatorParams.operator2.envelopeL2;
-        let op2EnvR3 = operatorParams.operator2.envelopeR3;
-        let op2EnvL3 = operatorParams.operator2.envelopeL3;
-        let op2EnvR4 = operatorParams.operator2.envelopeR4;
-        let op2EnvL4 = operatorParams.operator2.envelopeL4;
-        let op2LvlScaleBreak = operatorParams.operator2.levelScaleBreakPoint;
-        let op2LvlScaleLeftDepth = operatorParams.operator2.levelScaleLeftDepth;
-        let op2LvlScaleLeftCurve = parseInt(operatorParams.operator2.levelScaleLeftCurve);
-        let op2LvlScaleRightDepth = operatorParams.operator2.levelScaleRightDepth;
-        let op2LvlScaleRightCurve = parseInt(operatorParams.operator2.levelScaleRightCurve);
-        let op2OscMode = operatorParams.operator2.oscMode;
-        let op2FreqCoarse = operatorParams.operator2.freqCoarse;
-        let op2FreqFine = operatorParams.operator2.freqFine;
-        let op2Detune = operatorParams.operator2.detune;
-        let op2OscRateScale = operatorParams.operator2.oscRateScale;
-        let op2AmplitudeModSense = operatorParams.operator2.amplitudeModSense;
-        let op2KeyVelocitySense = operatorParams.operator2.keyVelocitySense;
-        let opOn3 = operatorParams.operator3.operatorOn;
-        let outLvl3 = operatorParams.operator3.outputLevel;
-        let op3EnvR1 = operatorParams.operator3.envelopeR1;
-        let op3EnvL1 = operatorParams.operator3.envelopeL1;
-        let op3EnvR2 = operatorParams.operator3.envelopeR2;
-        let op3EnvL2 = operatorParams.operator3.envelopeL2;
-        let op3EnvR3 = operatorParams.operator3.envelopeR3;
-        let op3EnvL3 = operatorParams.operator3.envelopeL3;
-        let op3EnvR4 = operatorParams.operator3.envelopeR4;
-        let op3EnvL4 = operatorParams.operator3.envelopeL4;
-        let op3LvlScaleBreak = operatorParams.operator3.levelScaleBreakPoint;
-        let op3LvlScaleLeftDepth = operatorParams.operator3.levelScaleLeftDepth;
-        let op3LvlScaleLeftCurve = parseInt(operatorParams.operator3.levelScaleLeftCurve);
-        let op3LvlScaleRightDepth = operatorParams.operator3.levelScaleRightDepth;
-        let op3LvlScaleRightCurve = parseInt(operatorParams.operator3.levelScaleRightCurve);
-        let op3OscMode = operatorParams.operator3.oscMode;
-        let op3FreqCoarse = operatorParams.operator3.freqCoarse;
-        let op3FreqFine = operatorParams.operator3.freqFine;
-        let op3Detune = operatorParams.operator3.detune;
-        let op3OscRateScale = operatorParams.operator3.oscRateScale;
-        let op3AmplitudeModSense = operatorParams.operator3.amplitudeModSense;
-        let op3KeyVelocitySense = operatorParams.operator3.keyVelocitySense;
-        let opOn4 = operatorParams.operator4.operatorOn;
-        let outLvl4 = operatorParams.operator4.outputLevel;
-        let op4EnvR1 = operatorParams.operator4.envelopeR1;
-        let op4EnvL1 = operatorParams.operator4.envelopeL1;
-        let op4EnvR2 = operatorParams.operator4.envelopeR2;
-        let op4EnvL2 = operatorParams.operator4.envelopeL2;
-        let op4EnvR3 = operatorParams.operator4.envelopeR3;
-        let op4EnvL3 = operatorParams.operator4.envelopeL3;
-        let op4EnvR4 = operatorParams.operator4.envelopeR4;
-        let op4EnvL4 = operatorParams.operator4.envelopeL4;
-        let op4LvlScaleBreak = operatorParams.operator4.levelScaleBreakPoint;
-        let op4LvlScaleLeftDepth = operatorParams.operator4.levelScaleLeftDepth;
-        let op4LvlScaleLeftCurve = parseInt(operatorParams.operator4.levelScaleLeftCurve);
-        let op4LvlScaleRightDepth = operatorParams.operator4.levelScaleRightDepth;
-        let op4LvlScaleRightCurve = parseInt(operatorParams.operator4.levelScaleRightCurve);
-        let op4OscMode = operatorParams.operator4.oscMode;
-        let op4FreqCoarse = operatorParams.operator4.freqCoarse;
-        let op4FreqFine = operatorParams.operator4.freqFine;
-        let op4Detune = operatorParams.operator4.detune;
-        let op4OscRateScale = operatorParams.operator4.oscRateScale;
-        let op4AmplitudeModSense = operatorParams.operator4.amplitudeModSense;
-        let op4KeyVelocitySense = operatorParams.operator4.keyVelocitySense;
-        let opOn5 = operatorParams.operator5.operatorOn;
-        let outLvl5 = operatorParams.operator5.outputLevel;
-        let op5EnvR1 = operatorParams.operator5.envelopeR1;
-        let op5EnvL1 = operatorParams.operator5.envelopeL1;
-        let op5EnvR2 = operatorParams.operator5.envelopeR2;
-        let op5EnvL2 = operatorParams.operator5.envelopeL2;
-        let op5EnvR3 = operatorParams.operator5.envelopeR3;
-        let op5EnvL3 = operatorParams.operator5.envelopeL3;
-        let op5EnvR4 = operatorParams.operator5.envelopeR4;
-        let op5EnvL4 = operatorParams.operator5.envelopeL4;
-        let op5LvlScaleBreak = operatorParams.operator5.levelScaleBreakPoint;
-        let op5LvlScaleLeftDepth = operatorParams.operator5.levelScaleLeftDepth;
-        let op5LvlScaleLeftCurve = parseInt(operatorParams.operator5.levelScaleLeftCurve);
-        let op5LvlScaleRightDepth = operatorParams.operator5.levelScaleRightDepth;
-        let op5LvlScaleRightCurve = parseInt(operatorParams.operator5.levelScaleRightCurve);
-        let op5OscMode = operatorParams.operator5.oscMode;
-        let op5FreqCoarse = operatorParams.operator5.freqCoarse;
-        let op5FreqFine = operatorParams.operator5.freqFine;
-        let op5Detune = operatorParams.operator5.detune;
-        let op5OscRateScale = operatorParams.operator5.oscRateScale;
-        let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
-        let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
-        let opOn6 = operatorParams.operator6.operatorOn;
-        let outLvl6 = operatorParams.operator6.outputLevel;
-        let op6EnvR1 = operatorParams.operator6.envelopeR1;
-        let op6EnvL1 = operatorParams.operator6.envelopeL1;
-        let op6EnvR2 = operatorParams.operator6.envelopeR2;
-        let op6EnvL2 = operatorParams.operator6.envelopeL2;
-        let op6EnvR3 = operatorParams.operator6.envelopeR3;
-        let op6EnvL3 = operatorParams.operator6.envelopeL3;
-        let op6EnvR4 = operatorParams.operator6.envelopeR4;
-        let op6EnvL4 = operatorParams.operator6.envelopeL4;
-        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
-        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
-        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
-        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
-        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
-        let op6OscMode = operatorParams.operator6.oscMode;
-        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
-        let op6FreqFine = operatorParams.operator6.freqFine;
-        let op6Detune = operatorParams.operator6.detune;
-        let op6OscRateScale = operatorParams.operator6.oscRateScale;
-        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
-        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
+        let deepCopy = {...operatorParams};
+    
         switch (op) {
             case (1):
                 if (side === 'left') {
-                    op1LvlScaleLeftDepth = val;
+                    deepCopy.operator1.levelScaleLeftDepth = val;
                 } else {
-                    op1LvlScaleRightDepth = val;
+                    deepCopy.operator1.levelScaleRightDepth = val;
                 }
                 break;
             case (2):
                 if (side === 'left') {
-                    op2LvlScaleLeftDepth = val;
+                    deepCopy.operator2.levelScaleLeftDepth = val;
                 } else {
-                    op2LvlScaleRightDepth = val;
+                    deepCopy.operator2.levelScaleRightDepth = val;
                 }
                 break;
             case (3):
                 if (side === 'left') {
-                    op3LvlScaleLeftDepth = val;
+                    deepCopy.operator3.levelScaleLeftDepth = val;
                 } else {
-                    op3LvlScaleRightDepth = val;
+                    deepCopy.operator3.levelScaleRightDepth = val;
                 }
                 break;
             case (4):
                 if (side === 'left') {
-                    op4LvlScaleLeftDepth = val;
+                    deepCopy.operator4.levelScaleLeftDepth = val;
                 } else {
-                    op4LvlScaleRightDepth = val;
+                    deepCopy.operator4.levelScaleRightDepth = val;
                 }
                 break;
             case (5):
                 if (side === 'left') {
-                    op5LvlScaleLeftDepth = val;
+                    deepCopy.operator5.levelScaleLeftDepth = val;
                 } else {
-                    op5LvlScaleRightDepth = val;
+                    deepCopy.operator5.levelScaleRightDepth = val;
                 }
                 break;
             case (6):
                 if (side === 'left') {
-                    op6LvlScaleLeftDepth = val;
+                    deepCopy.operator6.levelScaleLeftDepth = val;
                 } else {
-                    op6LvlScaleRightDepth = val;
+                    deepCopy.operator6.levelScaleRightDepth = val;
                 }
                 break;
             default:
                 console.log('impossible curve value');
         }
-        setOperatorParams({
-            operator1: {
-                operatorOn: opOn1,
-                outputLevel: outLvl1,
-                envelopeR1: op1EnvR1,
-                envelopeL1: op1EnvL1,
-                envelopeR2: op1EnvR2,
-                envelopeL2: op1EnvL2,
-                envelopeR3: op1EnvR3,
-                envelopeL3: op1EnvL3,
-                envelopeR4: op1EnvR4,
-                envelopeL4: op1EnvL4,
-                levelScaleBreakPoint: op1LvlScaleBreak,
-                levelScaleLeftDepth: op1LvlScaleLeftDepth,
-                levelScaleLeftCurve: op1LvlScaleLeftCurve,
-                levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve,
-                oscMode: op1OscMode,
-                freqCoarse: op1FreqCoarse,
-                freqFine: op1FreqFine,
-                detune: op1Detune,
-                oscRateScale: op1OscRateScale,
-                amplitudeModSense: op1AmplitudeModSense,
-                keyVelocitySense: op1KeyVelocitySense
-            },
-            operator2: {
-                operatorOn: opOn2,
-                outputLevel: outLvl2,
-                envelopeR1: op2EnvR1,
-                envelopeL1: op2EnvL1,
-                envelopeR2: op2EnvR2,
-                envelopeL2: op2EnvL2,
-                envelopeR3: op2EnvR3,
-                envelopeL3: op2EnvL3,
-                envelopeR4: op2EnvR4,
-                envelopeL4: op2EnvL4,
-                levelScaleBreakPoint: op2LvlScaleBreak,
-                levelScaleLeftDepth: op2LvlScaleLeftDepth,
-                levelScaleLeftCurve: op2LvlScaleLeftCurve,
-                levelScaleRightDepth: op2LvlScaleRightDepth,
-                levelScaleRightCurve: op2LvlScaleRightCurve,
-                oscMode: op2OscMode,
-                freqCoarse: op2FreqCoarse,
-                freqFine: op2FreqFine,
-                detune: op2Detune,
-                oscRateScale: op2OscRateScale,
-                amplitudeModSense: op2AmplitudeModSense,
-                keyVelocitySense: op2KeyVelocitySense
-            },
-            operator3: {
-                operatorOn: opOn3,
-                outputLevel: outLvl3,
-                envelopeR1: op3EnvR1,
-                envelopeL1: op3EnvL1,
-                envelopeR2: op3EnvR2,
-                envelopeL2: op3EnvL2,
-                envelopeR3: op3EnvR3,
-                envelopeL3: op3EnvL3,
-                envelopeR4: op3EnvR4,
-                envelopeL4: op3EnvL4,
-                levelScaleBreakPoint: op3LvlScaleBreak,
-                levelScaleLeftDepth: op3LvlScaleLeftDepth,
-                levelScaleLeftCurve: op3LvlScaleLeftCurve,
-                levelScaleRightDepth: op3LvlScaleRightDepth,
-                levelScaleRightCurve: op3LvlScaleRightCurve,
-                oscMode: op3OscMode,
-                freqCoarse: op3FreqCoarse,
-                freqFine: op3FreqFine,
-                detune: op3Detune,
-                oscRateScale: op3OscRateScale,
-                amplitudeModSense: op3AmplitudeModSense,
-                keyVelocitySense: op3KeyVelocitySense
-            },
-            operator4: {
-                operatorOn: opOn4,
-                outputLevel: outLvl4,
-                envelopeR1: op4EnvR1,
-                envelopeL1: op4EnvL1,
-                envelopeR2: op4EnvR2,
-                envelopeL2: op4EnvL2,
-                envelopeR3: op4EnvR3,
-                envelopeL3: op4EnvL3,
-                envelopeR4: op4EnvR4,
-                envelopeL4: op4EnvL4,
-                levelScaleBreakPoint: op4LvlScaleBreak,
-                levelScaleLeftDepth: op4LvlScaleLeftDepth,
-                levelScaleLeftCurve: op4LvlScaleLeftCurve,
-                levelScaleRightDepth: op4LvlScaleRightDepth,
-                levelScaleRightCurve: op4LvlScaleRightCurve,
-                oscMode: op4OscMode,
-                freqCoarse: op4FreqCoarse,
-                freqFine: op4FreqFine,
-                detune: op4Detune,
-                oscRateScale: op4OscRateScale,
-                amplitudeModSense: op4AmplitudeModSense,
-                keyVelocitySense: op4KeyVelocitySense
-            },
-            operator5: {
-                operatorOn: opOn5,
-                outputLevel: outLvl5,
-                envelopeR1: op5EnvR1,
-                envelopeL1: op5EnvL1,
-                envelopeR2: op5EnvR2,
-                envelopeL2: op5EnvL2,
-                envelopeR3: op5EnvR3,
-                envelopeL3: op5EnvL3,
-                envelopeR4: op5EnvR4,
-                envelopeL4: op5EnvL4,
-                levelScaleBreakPoint: op5LvlScaleBreak,
-                levelScaleLeftDepth: op5LvlScaleLeftDepth,
-                levelScaleLeftCurve: op5LvlScaleLeftCurve,
-                levelScaleRightDepth: op5LvlScaleRightDepth,
-                levelScaleRightCurve: op5LvlScaleRightCurve,
-                oscMode: op5OscMode,
-                freqCoarse: op5FreqCoarse,
-                freqFine: op5FreqFine,
-                detune: op5Detune,
-                oscRateScale: op5OscRateScale,
-                amplitudeModSense: op5AmplitudeModSense,
-                keyVelocitySense: op5KeyVelocitySense
-            },
-            operator6: {
-                operatorOn: opOn6,
-                outputLevel: outLvl6,
-                envelopeR1: op6EnvR1,
-                envelopeL1: op6EnvL1,
-                envelopeR2: op6EnvR2,
-                envelopeL2: op6EnvL2,
-                envelopeR3: op6EnvR3,
-                envelopeL3: op6EnvL3,
-                envelopeR4: op6EnvR4,
-                envelopeL4: op6EnvL4,
-                levelScaleBreakPoint: op6LvlScaleBreak,
-                levelScaleLeftDepth: op6LvlScaleLeftDepth,
-                levelScaleLeftCurve: op6LvlScaleLeftCurve,
-                levelScaleRightDepth: op6LvlScaleRightDepth,
-                levelScaleRightCurve: op6LvlScaleRightCurve,
-                oscMode: op6OscMode,
-                freqCoarse: op6FreqCoarse,
-                freqFine: op6FreqFine,
-                detune: op6Detune,
-                oscRateScale: op6OscRateScale,
-                amplitudeModSense: op6AmplitudeModSense,
-                keyVelocitySense: op6KeyVelocitySense
-            }
-        });
+        setOperatorParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
 
     const setCurveValue = (op, side, val) => {
-        let opOn1 = operatorParams.operator1.operatorOn;
-        let outLvl1 = operatorParams.operator1.outputLevel;
-        let op1EnvR1 = operatorParams.operator1.envelopeR1;
-        let op1EnvL1 = operatorParams.operator1.envelopeL1;
-        let op1EnvR2 = operatorParams.operator1.envelopeR2;
-        let op1EnvL2 = operatorParams.operator1.envelopeL2;
-        let op1EnvR3 = operatorParams.operator1.envelopeR3;
-        let op1EnvL3 = operatorParams.operator1.envelopeL3;
-        let op1EnvR4 = operatorParams.operator1.envelopeR4;
-        let op1EnvL4 = operatorParams.operator1.envelopeL4;
-        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
-        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
-        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
-        let op1OscMode = operatorParams.operator1.oscMode;
-        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
-        let op1FreqFine = operatorParams.operator1.freqFine;
-        let op1Detune = operatorParams.operator1.detune;
-        let op1OscRateScale = operatorParams.operator1.oscRateScale;
-        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
-        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
-        let opOn2 = operatorParams.operator2.operatorOn;
-        let outLvl2 = operatorParams.operator2.outputLevel;
-        let op2EnvR1 = operatorParams.operator2.envelopeR1;
-        let op2EnvL1 = operatorParams.operator2.envelopeL1;
-        let op2EnvR2 = operatorParams.operator2.envelopeR2;
-        let op2EnvL2 = operatorParams.operator2.envelopeL2;
-        let op2EnvR3 = operatorParams.operator2.envelopeR3;
-        let op2EnvL3 = operatorParams.operator2.envelopeL3;
-        let op2EnvR4 = operatorParams.operator2.envelopeR4;
-        let op2EnvL4 = operatorParams.operator2.envelopeL4;
-        let op2LvlScaleBreak = operatorParams.operator2.levelScaleBreakPoint;
-        let op2LvlScaleLeftDepth = operatorParams.operator2.levelScaleLeftDepth;
-        let op2LvlScaleLeftCurve = parseInt(operatorParams.operator2.levelScaleLeftCurve);
-        let op2LvlScaleRightDepth = operatorParams.operator2.levelScaleRightDepth;
-        let op2LvlScaleRightCurve = parseInt(operatorParams.operator2.levelScaleRightCurve);
-        let op2OscMode = operatorParams.operator2.oscMode;
-        let op2FreqCoarse = operatorParams.operator2.freqCoarse;
-        let op2FreqFine = operatorParams.operator2.freqFine;
-        let op2Detune = operatorParams.operator2.detune;
-        let op2OscRateScale = operatorParams.operator2.oscRateScale;
-        let op2AmplitudeModSense = operatorParams.operator2.amplitudeModSense;
-        let op2KeyVelocitySense = operatorParams.operator2.keyVelocitySense;
-        let opOn3 = operatorParams.operator3.operatorOn;
-        let outLvl3 = operatorParams.operator3.outputLevel;
-        let op3EnvR1 = operatorParams.operator3.envelopeR1;
-        let op3EnvL1 = operatorParams.operator3.envelopeL1;
-        let op3EnvR2 = operatorParams.operator3.envelopeR2;
-        let op3EnvL2 = operatorParams.operator3.envelopeL2;
-        let op3EnvR3 = operatorParams.operator3.envelopeR3;
-        let op3EnvL3 = operatorParams.operator3.envelopeL3;
-        let op3EnvR4 = operatorParams.operator3.envelopeR4;
-        let op3EnvL4 = operatorParams.operator3.envelopeL4;
-        let op3LvlScaleBreak = operatorParams.operator3.levelScaleBreakPoint;
-        let op3LvlScaleLeftDepth = operatorParams.operator3.levelScaleLeftDepth;
-        let op3LvlScaleLeftCurve = parseInt(operatorParams.operator3.levelScaleLeftCurve);
-        let op3LvlScaleRightDepth = operatorParams.operator3.levelScaleRightDepth;
-        let op3LvlScaleRightCurve = parseInt(operatorParams.operator3.levelScaleRightCurve);
-        let op3OscMode = operatorParams.operator3.oscMode;
-        let op3FreqCoarse = operatorParams.operator3.freqCoarse;
-        let op3FreqFine = operatorParams.operator3.freqFine;
-        let op3Detune = operatorParams.operator3.detune;
-        let op3OscRateScale = operatorParams.operator3.oscRateScale;
-        let op3AmplitudeModSense = operatorParams.operator3.amplitudeModSense;
-        let op3KeyVelocitySense = operatorParams.operator3.keyVelocitySense;
-        let opOn4 = operatorParams.operator4.operatorOn;
-        let outLvl4 = operatorParams.operator4.outputLevel;
-        let op4EnvR1 = operatorParams.operator4.envelopeR1;
-        let op4EnvL1 = operatorParams.operator4.envelopeL1;
-        let op4EnvR2 = operatorParams.operator4.envelopeR2;
-        let op4EnvL2 = operatorParams.operator4.envelopeL2;
-        let op4EnvR3 = operatorParams.operator4.envelopeR3;
-        let op4EnvL3 = operatorParams.operator4.envelopeL3;
-        let op4EnvR4 = operatorParams.operator4.envelopeR4;
-        let op4EnvL4 = operatorParams.operator4.envelopeL4;
-        let op4LvlScaleBreak = operatorParams.operator4.levelScaleBreakPoint;
-        let op4LvlScaleLeftDepth = operatorParams.operator4.levelScaleLeftDepth;
-        let op4LvlScaleLeftCurve = parseInt(operatorParams.operator4.levelScaleLeftCurve);
-        let op4LvlScaleRightDepth = operatorParams.operator4.levelScaleRightDepth;
-        let op4LvlScaleRightCurve = parseInt(operatorParams.operator4.levelScaleRightCurve);
-        let op4OscMode = operatorParams.operator4.oscMode;
-        let op4FreqCoarse = operatorParams.operator4.freqCoarse;
-        let op4FreqFine = operatorParams.operator4.freqFine;
-        let op4Detune = operatorParams.operator4.detune;
-        let op4OscRateScale = operatorParams.operator4.oscRateScale;
-        let op4AmplitudeModSense = operatorParams.operator4.amplitudeModSense;
-        let op4KeyVelocitySense = operatorParams.operator4.keyVelocitySense;
-        let opOn5 = operatorParams.operator5.operatorOn;
-        let outLvl5 = operatorParams.operator5.outputLevel;
-        let op5EnvR1 = operatorParams.operator5.envelopeR1;
-        let op5EnvL1 = operatorParams.operator5.envelopeL1;
-        let op5EnvR2 = operatorParams.operator5.envelopeR2;
-        let op5EnvL2 = operatorParams.operator5.envelopeL2;
-        let op5EnvR3 = operatorParams.operator5.envelopeR3;
-        let op5EnvL3 = operatorParams.operator5.envelopeL3;
-        let op5EnvR4 = operatorParams.operator5.envelopeR4;
-        let op5EnvL4 = operatorParams.operator5.envelopeL4;
-        let op5LvlScaleBreak = operatorParams.operator5.levelScaleBreakPoint;
-        let op5LvlScaleLeftDepth = operatorParams.operator5.levelScaleLeftDepth;
-        let op5LvlScaleLeftCurve = parseInt(operatorParams.operator5.levelScaleLeftCurve);
-        let op5LvlScaleRightDepth = operatorParams.operator5.levelScaleRightDepth;
-        let op5LvlScaleRightCurve = parseInt(operatorParams.operator5.levelScaleRightCurve);
-        let op5OscMode = operatorParams.operator5.oscMode;
-        let op5FreqCoarse = operatorParams.operator5.freqCoarse;
-        let op5FreqFine = operatorParams.operator5.freqFine;
-        let op5Detune = operatorParams.operator5.detune;
-        let op5OscRateScale = operatorParams.operator5.oscRateScale;
-        let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
-        let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
-        let opOn6 = operatorParams.operator6.operatorOn;
-        let outLvl6 = operatorParams.operator6.outputLevel;
-        let op6EnvR1 = operatorParams.operator6.envelopeR1;
-        let op6EnvL1 = operatorParams.operator6.envelopeL1;
-        let op6EnvR2 = operatorParams.operator6.envelopeR2;
-        let op6EnvL2 = operatorParams.operator6.envelopeL2;
-        let op6EnvR3 = operatorParams.operator6.envelopeR3;
-        let op6EnvL3 = operatorParams.operator6.envelopeL3;
-        let op6EnvR4 = operatorParams.operator6.envelopeR4;
-        let op6EnvL4 = operatorParams.operator6.envelopeL4;
-        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
-        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
-        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
-        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
-        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
-        let op6OscMode = operatorParams.operator6.oscMode;
-        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
-        let op6FreqFine = operatorParams.operator6.freqFine;
-        let op6Detune = operatorParams.operator6.detune;
-        let op6OscRateScale = operatorParams.operator6.oscRateScale;
-        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
-        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
+        let deepCopy = {...operatorParams};
+        
         switch (op) {
             case (1):
                 if (side === 'left') {
-                    op1LvlScaleLeftCurve = parseInt(val);
+                    deepCopy.operator1.levelScaleLeftCurve = parseInt(val);
                 } else {
-                    op1LvlScaleRightCurve = parseInt(val);
+                    deepCopy.operator1.levelScaleRightCurve = parseInt(val);
                 }
                 break;
             case (2):
                 if (side === 'left') {
-                    op2LvlScaleLeftCurve = parseInt(val);
+                    deepCopy.operator2.levelScaleLeftCurve = parseInt(val);
                 } else {
-                    op2LvlScaleRightCurve = parseInt(val);
+                    deepCopy.operator2.levelScaleRightCurve = parseInt(val);
                 }
                 break;
             case (3):
                 if (side === 'left') {
-                    op3LvlScaleLeftCurve = parseInt(val);
+                    deepCopy.operator3.levelScaleLeftCurve = parseInt(val);
                 } else {
-                    op3LvlScaleRightCurve = parseInt(val);
+                    deepCopy.operator3.levelScaleRightCurve = parseInt(val);
                 }
                 break;
             case (4):
                 if (side === 'left') {
-                    op4LvlScaleLeftCurve = parseInt(val);
+                    deepCopy.operator4.levelScaleLeftCurve = parseInt(val);
                 } else {
-                    op4LvlScaleRightCurve = parseInt(val);
+                    deepCopy.operator4.levelScaleRightCurve = parseInt(val);
                 }
                 break;
             case (5):
                 if (side === 'left') {
-                    op5LvlScaleLeftCurve = parseInt(val);
+                    deepCopy.operator5.levelScaleLeftCurve = parseInt(val);
                 } else {
-                    op5LvlScaleRightCurve = parseInt(val);
+                    deepCopy.operator5.levelScaleRightCurve = parseInt(val);
                 }
                 break;
             case (6):
                 if (side === 'left') {
-                    op6LvlScaleLeftCurve = parseInt(val);
+                    deepCopy.operator6.levelScaleLeftCurve = parseInt(val);
                 } else {
-                    op6LvlScaleRightCurve = parseInt(val);
+                    deepCopy.operator6.levelScaleRightCurve = parseInt(val);
                 }
                 break;
             default:
                 console.log('impossible curve value');
         }
-        setOperatorParams({
-            operator1: {
-                operatorOn: opOn1,
-                outputLevel: outLvl1,
-                envelopeR1: op1EnvR1,
-                envelopeL1: op1EnvL1,
-                envelopeR2: op1EnvR2,
-                envelopeL2: op1EnvL2,
-                envelopeR3: op1EnvR3,
-                envelopeL3: op1EnvL3,
-                envelopeR4: op1EnvR4,
-                envelopeL4: op1EnvL4,
-                levelScaleBreakPoint: op1LvlScaleBreak,
-                levelScaleLeftDepth: op1LvlScaleLeftDepth,
-                levelScaleLeftCurve: op1LvlScaleLeftCurve,
-                levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve,
-                oscMode: op1OscMode,
-                freqCoarse: op1FreqCoarse,
-                freqFine: op1FreqFine,
-                detune: op1Detune,
-                oscRateScale: op1OscRateScale,
-                amplitudeModSense: op1AmplitudeModSense,
-                keyVelocitySense: op1KeyVelocitySense
-            },
-            operator2: {
-                operatorOn: opOn2,
-                outputLevel: outLvl2,
-                envelopeR1: op2EnvR1,
-                envelopeL1: op2EnvL1,
-                envelopeR2: op2EnvR2,
-                envelopeL2: op2EnvL2,
-                envelopeR3: op2EnvR3,
-                envelopeL3: op2EnvL3,
-                envelopeR4: op2EnvR4,
-                envelopeL4: op2EnvL4,
-                levelScaleBreakPoint: op2LvlScaleBreak,
-                levelScaleLeftDepth: op2LvlScaleLeftDepth,
-                levelScaleLeftCurve: op2LvlScaleLeftCurve,
-                levelScaleRightDepth: op2LvlScaleRightDepth,
-                levelScaleRightCurve: op2LvlScaleRightCurve,
-                oscMode: op2OscMode,
-                freqCoarse: op2FreqCoarse,
-                freqFine: op2FreqFine,
-                detune: op2Detune,
-                oscRateScale: op2OscRateScale,
-                amplitudeModSense: op2AmplitudeModSense,
-                keyVelocitySense: op2KeyVelocitySense
-            },
-            operator3: {
-                operatorOn: opOn3,
-                outputLevel: outLvl3,
-                envelopeR1: op3EnvR1,
-                envelopeL1: op3EnvL1,
-                envelopeR2: op3EnvR2,
-                envelopeL2: op3EnvL2,
-                envelopeR3: op3EnvR3,
-                envelopeL3: op3EnvL3,
-                envelopeR4: op3EnvR4,
-                envelopeL4: op3EnvL4,
-                levelScaleBreakPoint: op3LvlScaleBreak,
-                levelScaleLeftDepth: op3LvlScaleLeftDepth,
-                levelScaleLeftCurve: op3LvlScaleLeftCurve,
-                levelScaleRightDepth: op3LvlScaleRightDepth,
-                levelScaleRightCurve: op3LvlScaleRightCurve,
-                oscMode: op3OscMode,
-                freqCoarse: op3FreqCoarse,
-                freqFine: op3FreqFine,
-                detune: op3Detune,
-                oscRateScale: op3OscRateScale,
-                amplitudeModSense: op3AmplitudeModSense,
-                keyVelocitySense: op3KeyVelocitySense
-            },
-            operator4: {
-                operatorOn: opOn4,
-                outputLevel: outLvl4,
-                envelopeR1: op4EnvR1,
-                envelopeL1: op4EnvL1,
-                envelopeR2: op4EnvR2,
-                envelopeL2: op4EnvL2,
-                envelopeR3: op4EnvR3,
-                envelopeL3: op4EnvL3,
-                envelopeR4: op4EnvR4,
-                envelopeL4: op4EnvL4,
-                levelScaleBreakPoint: op4LvlScaleBreak,
-                levelScaleLeftDepth: op4LvlScaleLeftDepth,
-                levelScaleLeftCurve: op4LvlScaleLeftCurve,
-                levelScaleRightDepth: op4LvlScaleRightDepth,
-                levelScaleRightCurve: op4LvlScaleRightCurve,
-                oscMode: op4OscMode,
-                freqCoarse: op4FreqCoarse,
-                freqFine: op4FreqFine,
-                detune: op4Detune,
-                oscRateScale: op4OscRateScale,
-                amplitudeModSense: op4AmplitudeModSense,
-                keyVelocitySense: op4KeyVelocitySense
-            },
-            operator5: {
-                operatorOn: opOn5,
-                outputLevel: outLvl5,
-                envelopeR1: op5EnvR1,
-                envelopeL1: op5EnvL1,
-                envelopeR2: op5EnvR2,
-                envelopeL2: op5EnvL2,
-                envelopeR3: op5EnvR3,
-                envelopeL3: op5EnvL3,
-                envelopeR4: op5EnvR4,
-                envelopeL4: op5EnvL4,
-                levelScaleBreakPoint: op5LvlScaleBreak,
-                levelScaleLeftDepth: op5LvlScaleLeftDepth,
-                levelScaleLeftCurve: op5LvlScaleLeftCurve,
-                levelScaleRightDepth: op5LvlScaleRightDepth,
-                levelScaleRightCurve: op5LvlScaleRightCurve,
-                oscMode: op5OscMode,
-                freqCoarse: op5FreqCoarse,
-                freqFine: op5FreqFine,
-                detune: op5Detune,
-                oscRateScale: op5OscRateScale,
-                amplitudeModSense: op5AmplitudeModSense,
-                keyVelocitySense: op5KeyVelocitySense
-            },
-            operator6: {
-                operatorOn: opOn6,
-                outputLevel: outLvl6,
-                envelopeR1: op6EnvR1,
-                envelopeL1: op6EnvL1,
-                envelopeR2: op6EnvR2,
-                envelopeL2: op6EnvL2,
-                envelopeR3: op6EnvR3,
-                envelopeL3: op6EnvL3,
-                envelopeR4: op6EnvR4,
-                envelopeL4: op6EnvL4,
-                levelScaleBreakPoint: op6LvlScaleBreak,
-                levelScaleLeftDepth: op6LvlScaleLeftDepth,
-                levelScaleLeftCurve: op6LvlScaleLeftCurve,
-                levelScaleRightDepth: op6LvlScaleRightDepth,
-                levelScaleRightCurve: op6LvlScaleRightCurve,
-                oscMode: op6OscMode,
-                freqCoarse: op6FreqCoarse,
-                freqFine: op6FreqFine,
-                detune: op6Detune,
-                oscRateScale: op6OscRateScale,
-                amplitudeModSense: op6AmplitudeModSense,
-                keyVelocitySense: op6KeyVelocitySense
-            }
-        });
+        setOperatorParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
 
     const changeBreakPoint = (op, val) => {
-        let opOn1 = operatorParams.operator1.operatorOn;
-        let outLvl1 = operatorParams.operator1.outputLevel;
-        let op1EnvR1 = operatorParams.operator1.envelopeR1;
-        let op1EnvL1 = operatorParams.operator1.envelopeL1;
-        let op1EnvR2 = operatorParams.operator1.envelopeR2;
-        let op1EnvL2 = operatorParams.operator1.envelopeL2;
-        let op1EnvR3 = operatorParams.operator1.envelopeR3;
-        let op1EnvL3 = operatorParams.operator1.envelopeL3;
-        let op1EnvR4 = operatorParams.operator1.envelopeR4;
-        let op1EnvL4 = operatorParams.operator1.envelopeL4;
-        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
-        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
-        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
-        let op1OscMode = operatorParams.operator1.oscMode;
-        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
-        let op1FreqFine = operatorParams.operator1.freqFine;
-        let op1Detune = operatorParams.operator1.detune;
-        let op1OscRateScale = operatorParams.operator1.oscRateScale;
-        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
-        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
-        let opOn2 = operatorParams.operator2.operatorOn;
-        let outLvl2 = operatorParams.operator2.outputLevel;
-        let op2EnvR1 = operatorParams.operator2.envelopeR1;
-        let op2EnvL1 = operatorParams.operator2.envelopeL1;
-        let op2EnvR2 = operatorParams.operator2.envelopeR2;
-        let op2EnvL2 = operatorParams.operator2.envelopeL2;
-        let op2EnvR3 = operatorParams.operator2.envelopeR3;
-        let op2EnvL3 = operatorParams.operator2.envelopeL3;
-        let op2EnvR4 = operatorParams.operator2.envelopeR4;
-        let op2EnvL4 = operatorParams.operator2.envelopeL4;
-        let op2LvlScaleBreak = operatorParams.operator2.levelScaleBreakPoint;
-        let op2LvlScaleLeftDepth = operatorParams.operator2.levelScaleLeftDepth;
-        let op2LvlScaleLeftCurve = parseInt(operatorParams.operator2.levelScaleLeftCurve);
-        let op2LvlScaleRightDepth = operatorParams.operator2.levelScaleRightDepth;
-        let op2LvlScaleRightCurve = parseInt(operatorParams.operator2.levelScaleRightCurve);
-        let op2OscMode = operatorParams.operator2.oscMode;
-        let op2FreqCoarse = operatorParams.operator2.freqCoarse;
-        let op2FreqFine = operatorParams.operator2.freqFine;
-        let op2Detune = operatorParams.operator2.detune;
-        let op2OscRateScale = operatorParams.operator2.oscRateScale;
-        let op2AmplitudeModSense = operatorParams.operator2.amplitudeModSense;
-        let op2KeyVelocitySense = operatorParams.operator2.keyVelocitySense;
-        let opOn3 = operatorParams.operator3.operatorOn;
-        let outLvl3 = operatorParams.operator3.outputLevel;
-        let op3EnvR1 = operatorParams.operator3.envelopeR1;
-        let op3EnvL1 = operatorParams.operator3.envelopeL1;
-        let op3EnvR2 = operatorParams.operator3.envelopeR2;
-        let op3EnvL2 = operatorParams.operator3.envelopeL2;
-        let op3EnvR3 = operatorParams.operator3.envelopeR3;
-        let op3EnvL3 = operatorParams.operator3.envelopeL3;
-        let op3EnvR4 = operatorParams.operator3.envelopeR4;
-        let op3EnvL4 = operatorParams.operator3.envelopeL4;
-        let op3LvlScaleBreak = operatorParams.operator3.levelScaleBreakPoint;
-        let op3LvlScaleLeftDepth = operatorParams.operator3.levelScaleLeftDepth;
-        let op3LvlScaleLeftCurve = parseInt(operatorParams.operator3.levelScaleLeftCurve);
-        let op3LvlScaleRightDepth = operatorParams.operator3.levelScaleRightDepth;
-        let op3LvlScaleRightCurve = parseInt(operatorParams.operator3.levelScaleRightCurve);
-        let op3OscMode = operatorParams.operator3.oscMode;
-        let op3FreqCoarse = operatorParams.operator3.freqCoarse;
-        let op3FreqFine = operatorParams.operator3.freqFine;
-        let op3Detune = operatorParams.operator3.detune;
-        let op3OscRateScale = operatorParams.operator3.oscRateScale;
-        let op3AmplitudeModSense = operatorParams.operator3.amplitudeModSense;
-        let op3KeyVelocitySense = operatorParams.operator3.keyVelocitySense;
-        let opOn4 = operatorParams.operator4.operatorOn;
-        let outLvl4 = operatorParams.operator4.outputLevel;
-        let op4EnvR1 = operatorParams.operator4.envelopeR1;
-        let op4EnvL1 = operatorParams.operator4.envelopeL1;
-        let op4EnvR2 = operatorParams.operator4.envelopeR2;
-        let op4EnvL2 = operatorParams.operator4.envelopeL2;
-        let op4EnvR3 = operatorParams.operator4.envelopeR3;
-        let op4EnvL3 = operatorParams.operator4.envelopeL3;
-        let op4EnvR4 = operatorParams.operator4.envelopeR4;
-        let op4EnvL4 = operatorParams.operator4.envelopeL4;
-        let op4LvlScaleBreak = operatorParams.operator4.levelScaleBreakPoint;
-        let op4LvlScaleLeftDepth = operatorParams.operator4.levelScaleLeftDepth;
-        let op4LvlScaleLeftCurve = parseInt(operatorParams.operator4.levelScaleLeftCurve);
-        let op4LvlScaleRightDepth = operatorParams.operator4.levelScaleRightDepth;
-        let op4LvlScaleRightCurve = parseInt(operatorParams.operator4.levelScaleRightCurve);
-        let op4OscMode = operatorParams.operator4.oscMode;
-        let op4FreqCoarse = operatorParams.operator4.freqCoarse;
-        let op4FreqFine = operatorParams.operator4.freqFine;
-        let op4Detune = operatorParams.operator4.detune;
-        let op4OscRateScale = operatorParams.operator4.oscRateScale;
-        let op4AmplitudeModSense = operatorParams.operator4.amplitudeModSense;
-        let op4KeyVelocitySense = operatorParams.operator4.keyVelocitySense;
-        let opOn5 = operatorParams.operator5.operatorOn;
-        let outLvl5 = operatorParams.operator5.outputLevel;
-        let op5EnvR1 = operatorParams.operator5.envelopeR1;
-        let op5EnvL1 = operatorParams.operator5.envelopeL1;
-        let op5EnvR2 = operatorParams.operator5.envelopeR2;
-        let op5EnvL2 = operatorParams.operator5.envelopeL2;
-        let op5EnvR3 = operatorParams.operator5.envelopeR3;
-        let op5EnvL3 = operatorParams.operator5.envelopeL3;
-        let op5EnvR4 = operatorParams.operator5.envelopeR4;
-        let op5EnvL4 = operatorParams.operator5.envelopeL4;
-        let op5LvlScaleBreak = operatorParams.operator5.levelScaleBreakPoint;
-        let op5LvlScaleLeftDepth = operatorParams.operator5.levelScaleLeftDepth;
-        let op5LvlScaleLeftCurve = parseInt(operatorParams.operator5.levelScaleLeftCurve);
-        let op5LvlScaleRightDepth = operatorParams.operator5.levelScaleRightDepth;
-        let op5LvlScaleRightCurve = parseInt(operatorParams.operator5.levelScaleRightCurve);
-        let op5OscMode = operatorParams.operator5.oscMode;
-        let op5FreqCoarse = operatorParams.operator5.freqCoarse;
-        let op5FreqFine = operatorParams.operator5.freqFine;
-        let op5Detune = operatorParams.operator5.detune;
-        let op5OscRateScale = operatorParams.operator5.oscRateScale;
-        let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
-        let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
-        let opOn6 = operatorParams.operator6.operatorOn;
-        let outLvl6 = operatorParams.operator6.outputLevel;
-        let op6EnvR1 = operatorParams.operator6.envelopeR1;
-        let op6EnvL1 = operatorParams.operator6.envelopeL1;
-        let op6EnvR2 = operatorParams.operator6.envelopeR2;
-        let op6EnvL2 = operatorParams.operator6.envelopeL2;
-        let op6EnvR3 = operatorParams.operator6.envelopeR3;
-        let op6EnvL3 = operatorParams.operator6.envelopeL3;
-        let op6EnvR4 = operatorParams.operator6.envelopeR4;
-        let op6EnvL4 = operatorParams.operator6.envelopeL4;
-        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
-        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
-        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
-        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
-        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
-        let op6OscMode = operatorParams.operator6.oscMode;
-        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
-        let op6FreqFine = operatorParams.operator6.freqFine;
-        let op6Detune = operatorParams.operator6.detune;
-        let op6OscRateScale = operatorParams.operator6.oscRateScale;
-        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
-        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
+        let deepCopy = {...operatorParams};
+        
         switch (op) {
             case (1):
-                op1LvlScaleBreak = val;
+                deepCopy.operator1.levelScaleBreakPoint = val;
                 break;
             case (2):
-                op2LvlScaleBreak = val;
+                deepCopy.operator2.levelScaleBreakPoint = val;
                 break;
             case (3):
-                op3LvlScaleBreak = val;
+                deepCopy.operator3.levelScaleBreakPoint = val;
                 break;
             case (4):
-                op4LvlScaleBreak = val;
+                deepCopy.operator4.levelScaleBreakPoint = val;
                 break;
             case (5):
-                op5LvlScaleBreak = val;
+                deepCopy.operator5.levelScaleBreakPoint = val;
                 break;
             case (6):
-                op6LvlScaleBreak = val;
+                deepCopy.operator6.levelScaleBreakPoint = val;
                 break;
             default:
                 console.log('impossible operator');
         }
-        setOperatorParams({
-            operator1: {
-                operatorOn: opOn1,
-                outputLevel: outLvl1,
-                envelopeR1: op1EnvR1,
-                envelopeL1: op1EnvL1,
-                envelopeR2: op1EnvR2,
-                envelopeL2: op1EnvL2,
-                envelopeR3: op1EnvR3,
-                envelopeL3: op1EnvL3,
-                envelopeR4: op1EnvR4,
-                envelopeL4: op1EnvL4,
-                levelScaleBreakPoint: op1LvlScaleBreak,
-                levelScaleLeftDepth: op1LvlScaleLeftDepth,
-                levelScaleLeftCurve: op1LvlScaleLeftCurve,
-                levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve,
-                oscMode: op1OscMode,
-                freqCoarse: op1FreqCoarse,
-                freqFine: op1FreqFine,
-                detune: op1Detune,
-                oscRateScale: op1OscRateScale,
-                amplitudeModSense: op1AmplitudeModSense,
-                keyVelocitySense: op1KeyVelocitySense
-            },
-            operator2: {
-                operatorOn: opOn2,
-                outputLevel: outLvl2,
-                envelopeR1: op2EnvR1,
-                envelopeL1: op2EnvL1,
-                envelopeR2: op2EnvR2,
-                envelopeL2: op2EnvL2,
-                envelopeR3: op2EnvR3,
-                envelopeL3: op2EnvL3,
-                envelopeR4: op2EnvR4,
-                envelopeL4: op2EnvL4,
-                levelScaleBreakPoint: op2LvlScaleBreak,
-                levelScaleLeftDepth: op2LvlScaleLeftDepth,
-                levelScaleLeftCurve: op2LvlScaleLeftCurve,
-                levelScaleRightDepth: op2LvlScaleRightDepth,
-                levelScaleRightCurve: op2LvlScaleRightCurve,
-                oscMode: op2OscMode,
-                freqCoarse: op2FreqCoarse,
-                freqFine: op2FreqFine,
-                detune: op2Detune,
-                oscRateScale: op2OscRateScale,
-                amplitudeModSense: op2AmplitudeModSense,
-                keyVelocitySense: op2KeyVelocitySense
-            },
-            operator3: {
-                operatorOn: opOn3,
-                outputLevel: outLvl3,
-                envelopeR1: op3EnvR1,
-                envelopeL1: op3EnvL1,
-                envelopeR2: op3EnvR2,
-                envelopeL2: op3EnvL2,
-                envelopeR3: op3EnvR3,
-                envelopeL3: op3EnvL3,
-                envelopeR4: op3EnvR4,
-                envelopeL4: op3EnvL4,
-                levelScaleBreakPoint: op3LvlScaleBreak,
-                levelScaleLeftDepth: op3LvlScaleLeftDepth,
-                levelScaleLeftCurve: op3LvlScaleLeftCurve,
-                levelScaleRightDepth: op3LvlScaleRightDepth,
-                levelScaleRightCurve: op3LvlScaleRightCurve,
-                oscMode: op3OscMode,
-                freqCoarse: op3FreqCoarse,
-                freqFine: op3FreqFine,
-                detune: op3Detune,
-                oscRateScale: op3OscRateScale,
-                amplitudeModSense: op3AmplitudeModSense,
-                keyVelocitySense: op3KeyVelocitySense
-            },
-            operator4: {
-                operatorOn: opOn4,
-                outputLevel: outLvl4,
-                envelopeR1: op4EnvR1,
-                envelopeL1: op4EnvL1,
-                envelopeR2: op4EnvR2,
-                envelopeL2: op4EnvL2,
-                envelopeR3: op4EnvR3,
-                envelopeL3: op4EnvL3,
-                envelopeR4: op4EnvR4,
-                envelopeL4: op4EnvL4,
-                levelScaleBreakPoint: op4LvlScaleBreak,
-                levelScaleLeftDepth: op4LvlScaleLeftDepth,
-                levelScaleLeftCurve: op4LvlScaleLeftCurve,
-                levelScaleRightDepth: op4LvlScaleRightDepth,
-                levelScaleRightCurve: op4LvlScaleRightCurve,
-                oscMode: op4OscMode,
-                freqCoarse: op4FreqCoarse,
-                freqFine: op4FreqFine,
-                detune: op4Detune,
-                oscRateScale: op4OscRateScale,
-                amplitudeModSense: op4AmplitudeModSense,
-                keyVelocitySense: op4KeyVelocitySense
-            },
-            operator5: {
-                operatorOn: opOn5,
-                outputLevel: outLvl5,
-                envelopeR1: op5EnvR1,
-                envelopeL1: op5EnvL1,
-                envelopeR2: op5EnvR2,
-                envelopeL2: op5EnvL2,
-                envelopeR3: op5EnvR3,
-                envelopeL3: op5EnvL3,
-                envelopeR4: op5EnvR4,
-                envelopeL4: op5EnvL4,
-                levelScaleBreakPoint: op5LvlScaleBreak,
-                levelScaleLeftDepth: op5LvlScaleLeftDepth,
-                levelScaleLeftCurve: op5LvlScaleLeftCurve,
-                levelScaleRightDepth: op5LvlScaleRightDepth,
-                levelScaleRightCurve: op5LvlScaleRightCurve,
-                oscMode: op5OscMode,
-                freqCoarse: op5FreqCoarse,
-                freqFine: op5FreqFine,
-                detune: op5Detune,
-                oscRateScale: op5OscRateScale,
-                amplitudeModSense: op5AmplitudeModSense,
-                keyVelocitySense: op5KeyVelocitySense
-            },
-            operator6: {
-                operatorOn: opOn6,
-                outputLevel: outLvl6,
-                envelopeR1: op6EnvR1,
-                envelopeL1: op6EnvL1,
-                envelopeR2: op6EnvR2,
-                envelopeL2: op6EnvL2,
-                envelopeR3: op6EnvR3,
-                envelopeL3: op6EnvL3,
-                envelopeR4: op6EnvR4,
-                envelopeL4: op6EnvL4,
-                levelScaleBreakPoint: op6LvlScaleBreak,
-                levelScaleLeftDepth: op6LvlScaleLeftDepth,
-                levelScaleLeftCurve: op6LvlScaleLeftCurve,
-                levelScaleRightDepth: op6LvlScaleRightDepth,
-                levelScaleRightCurve: op6LvlScaleRightCurve,
-                oscMode: op6OscMode,
-                freqCoarse: op6FreqCoarse,
-                freqFine: op6FreqFine,
-                detune: op6Detune,
-                oscRateScale: op6OscRateScale,
-                amplitudeModSense: op6AmplitudeModSense,
-                keyVelocitySense: op6KeyVelocitySense
-            }
-        });
+        setOperatorParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
 
     const handleOperatorLevel = (op, val) => {
-        let opOn1 = operatorParams.operator1.operatorOn;
-        let outLvl1 = operatorParams.operator1.outputLevel;
-        let op1EnvR1 = operatorParams.operator1.envelopeR1;
-        let op1EnvL1 = operatorParams.operator1.envelopeL1;
-        let op1EnvR2 = operatorParams.operator1.envelopeR2;
-        let op1EnvL2 = operatorParams.operator1.envelopeL2;
-        let op1EnvR3 = operatorParams.operator1.envelopeR3;
-        let op1EnvL3 = operatorParams.operator1.envelopeL3;
-        let op1EnvR4 = operatorParams.operator1.envelopeR4;
-        let op1EnvL4 = operatorParams.operator1.envelopeL4;
-        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
-        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
-        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
-        let op1OscMode = operatorParams.operator1.oscMode;
-        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
-        let op1FreqFine = operatorParams.operator1.freqFine;
-        let op1Detune = operatorParams.operator1.detune;
-        let op1OscRateScale = operatorParams.operator1.oscRateScale;
-        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
-        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
-        let opOn2 = operatorParams.operator2.operatorOn;
-        let outLvl2 = operatorParams.operator2.outputLevel;
-        let op2EnvR1 = operatorParams.operator2.envelopeR1;
-        let op2EnvL1 = operatorParams.operator2.envelopeL1;
-        let op2EnvR2 = operatorParams.operator2.envelopeR2;
-        let op2EnvL2 = operatorParams.operator2.envelopeL2;
-        let op2EnvR3 = operatorParams.operator2.envelopeR3;
-        let op2EnvL3 = operatorParams.operator2.envelopeL3;
-        let op2EnvR4 = operatorParams.operator2.envelopeR4;
-        let op2EnvL4 = operatorParams.operator2.envelopeL4;
-        let op2LvlScaleBreak = operatorParams.operator2.levelScaleBreakPoint;
-        let op2LvlScaleLeftDepth = operatorParams.operator2.levelScaleLeftDepth;
-        let op2LvlScaleLeftCurve = parseInt(operatorParams.operator2.levelScaleLeftCurve);
-        let op2LvlScaleRightDepth = operatorParams.operator2.levelScaleRightDepth;
-        let op2LvlScaleRightCurve = parseInt(operatorParams.operator2.levelScaleRightCurve);
-        let op2OscMode = operatorParams.operator2.oscMode;
-        let op2FreqCoarse = operatorParams.operator2.freqCoarse;
-        let op2FreqFine = operatorParams.operator2.freqFine;
-        let op2Detune = operatorParams.operator2.detune;
-        let op2OscRateScale = operatorParams.operator2.oscRateScale;
-        let op2AmplitudeModSense = operatorParams.operator2.amplitudeModSense;
-        let op2KeyVelocitySense = operatorParams.operator2.keyVelocitySense;
-        let opOn3 = operatorParams.operator3.operatorOn;
-        let outLvl3 = operatorParams.operator3.outputLevel;
-        let op3EnvR1 = operatorParams.operator3.envelopeR1;
-        let op3EnvL1 = operatorParams.operator3.envelopeL1;
-        let op3EnvR2 = operatorParams.operator3.envelopeR2;
-        let op3EnvL2 = operatorParams.operator3.envelopeL2;
-        let op3EnvR3 = operatorParams.operator3.envelopeR3;
-        let op3EnvL3 = operatorParams.operator3.envelopeL3;
-        let op3EnvR4 = operatorParams.operator3.envelopeR4;
-        let op3EnvL4 = operatorParams.operator3.envelopeL4;
-        let op3LvlScaleBreak = operatorParams.operator3.levelScaleBreakPoint;
-        let op3LvlScaleLeftDepth = operatorParams.operator3.levelScaleLeftDepth;
-        let op3LvlScaleLeftCurve = parseInt(operatorParams.operator3.levelScaleLeftCurve);
-        let op3LvlScaleRightDepth = operatorParams.operator3.levelScaleRightDepth;
-        let op3LvlScaleRightCurve = parseInt(operatorParams.operator3.levelScaleRightCurve);
-        let op3OscMode = operatorParams.operator3.oscMode;
-        let op3FreqCoarse = operatorParams.operator3.freqCoarse;
-        let op3FreqFine = operatorParams.operator3.freqFine;
-        let op3Detune = operatorParams.operator3.detune;
-        let op3OscRateScale = operatorParams.operator3.oscRateScale;
-        let op3AmplitudeModSense = operatorParams.operator3.amplitudeModSense;
-        let op3KeyVelocitySense = operatorParams.operator3.keyVelocitySense;
-        let opOn4 = operatorParams.operator4.operatorOn;
-        let outLvl4 = operatorParams.operator4.outputLevel;
-        let op4EnvR1 = operatorParams.operator4.envelopeR1;
-        let op4EnvL1 = operatorParams.operator4.envelopeL1;
-        let op4EnvR2 = operatorParams.operator4.envelopeR2;
-        let op4EnvL2 = operatorParams.operator4.envelopeL2;
-        let op4EnvR3 = operatorParams.operator4.envelopeR3;
-        let op4EnvL3 = operatorParams.operator4.envelopeL3;
-        let op4EnvR4 = operatorParams.operator4.envelopeR4;
-        let op4EnvL4 = operatorParams.operator4.envelopeL4;
-        let op4LvlScaleBreak = operatorParams.operator4.levelScaleBreakPoint;
-        let op4LvlScaleLeftDepth = operatorParams.operator4.levelScaleLeftDepth;
-        let op4LvlScaleLeftCurve = parseInt(operatorParams.operator4.levelScaleLeftCurve);
-        let op4LvlScaleRightDepth = operatorParams.operator4.levelScaleRightDepth;
-        let op4LvlScaleRightCurve = parseInt(operatorParams.operator4.levelScaleRightCurve);
-        let op4OscMode = operatorParams.operator4.oscMode;
-        let op4FreqCoarse = operatorParams.operator4.freqCoarse;
-        let op4FreqFine = operatorParams.operator4.freqFine;
-        let op4Detune = operatorParams.operator4.detune;
-        let op4OscRateScale = operatorParams.operator4.oscRateScale;
-        let op4AmplitudeModSense = operatorParams.operator4.amplitudeModSense;
-        let op4KeyVelocitySense = operatorParams.operator4.keyVelocitySense;
-        let opOn5 = operatorParams.operator5.operatorOn;
-        let outLvl5 = operatorParams.operator5.outputLevel;
-        let op5EnvR1 = operatorParams.operator5.envelopeR1;
-        let op5EnvL1 = operatorParams.operator5.envelopeL1;
-        let op5EnvR2 = operatorParams.operator5.envelopeR2;
-        let op5EnvL2 = operatorParams.operator5.envelopeL2;
-        let op5EnvR3 = operatorParams.operator5.envelopeR3;
-        let op5EnvL3 = operatorParams.operator5.envelopeL3;
-        let op5EnvR4 = operatorParams.operator5.envelopeR4;
-        let op5EnvL4 = operatorParams.operator5.envelopeL4;
-        let op5LvlScaleBreak = operatorParams.operator5.levelScaleBreakPoint;
-        let op5LvlScaleLeftDepth = operatorParams.operator5.levelScaleLeftDepth;
-        let op5LvlScaleLeftCurve = parseInt(operatorParams.operator5.levelScaleLeftCurve);
-        let op5LvlScaleRightDepth = operatorParams.operator5.levelScaleRightDepth;
-        let op5LvlScaleRightCurve = parseInt(operatorParams.operator5.levelScaleRightCurve);
-        let op5OscMode = operatorParams.operator5.oscMode;
-        let op5FreqCoarse = operatorParams.operator5.freqCoarse;
-        let op5FreqFine = operatorParams.operator5.freqFine;
-        let op5Detune = operatorParams.operator5.detune;
-        let op5OscRateScale = operatorParams.operator5.oscRateScale;
-        let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
-        let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
-        let opOn6 = operatorParams.operator6.operatorOn;
-        let outLvl6 = operatorParams.operator6.outputLevel;
-        let op6EnvR1 = operatorParams.operator6.envelopeR1;
-        let op6EnvL1 = operatorParams.operator6.envelopeL1;
-        let op6EnvR2 = operatorParams.operator6.envelopeR2;
-        let op6EnvL2 = operatorParams.operator6.envelopeL2;
-        let op6EnvR3 = operatorParams.operator6.envelopeR3;
-        let op6EnvL3 = operatorParams.operator6.envelopeL3;
-        let op6EnvR4 = operatorParams.operator6.envelopeR4;
-        let op6EnvL4 = operatorParams.operator6.envelopeL4;
-        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
-        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
-        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
-        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
-        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
-        let op6OscMode = operatorParams.operator6.oscMode;
-        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
-        let op6FreqFine = operatorParams.operator6.freqFine;
-        let op6Detune = operatorParams.operator6.detune;
-        let op6OscRateScale = operatorParams.operator6.oscRateScale;
-        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
-        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
+        let deepCopy = {...operatorParams};
 
         switch (op) {
             case (1):
-                outLvl1 = val;
+                deepCopy.operator1.outputLevel = val;
                 break;
             case (2):
-                outLvl2 = val;
+                deepCopy.operator2.outputLevel = val;
                 break;
             case (3):
-                outLvl3 = val;
+                deepCopy.operator3.outputLevel = val;
                 break;
             case (4):
-                outLvl4 = val;
+                deepCopy.operator4.outputLevel = val;
                 break;
             case (5):
-                outLvl5 = val;
+                deepCopy.operator5.outputLevel = val;
                 break;
             case (6):
-                outLvl6 = val;
+                deepCopy.operator6.outputLevel = val;
                 break;
             default:
                 console.log('impossible condition');
         }
-        setOperatorParams({
-            operator1: {
-                operatorOn: opOn1,
-                outputLevel: outLvl1,
-                envelopeR1: op1EnvR1,
-                envelopeL1: op1EnvL1,
-                envelopeR2: op1EnvR2,
-                envelopeL2: op1EnvL2,
-                envelopeR3: op1EnvR3,
-                envelopeL3: op1EnvL3,
-                envelopeR4: op1EnvR4,
-                envelopeL4: op1EnvL4,
-                levelScaleBreakPoint: op1LvlScaleBreak,
-                levelScaleLeftDepth: op1LvlScaleLeftDepth,
-                levelScaleLeftCurve: op1LvlScaleLeftCurve,
-                levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve,
-                oscMode: op1OscMode,
-                freqCoarse: op1FreqCoarse,
-                freqFine: op1FreqFine,
-                detune: op1Detune,
-                oscRateScale: op1OscRateScale,
-                amplitudeModSense: op1AmplitudeModSense,
-                keyVelocitySense: op1KeyVelocitySense
-            },
-            operator2: {
-                operatorOn: opOn2,
-                outputLevel: outLvl2,
-                envelopeR1: op2EnvR1,
-                envelopeL1: op2EnvL1,
-                envelopeR2: op2EnvR2,
-                envelopeL2: op2EnvL2,
-                envelopeR3: op2EnvR3,
-                envelopeL3: op2EnvL3,
-                envelopeR4: op2EnvR4,
-                envelopeL4: op2EnvL4,
-                levelScaleBreakPoint: op2LvlScaleBreak,
-                levelScaleLeftDepth: op2LvlScaleLeftDepth,
-                levelScaleLeftCurve: op2LvlScaleLeftCurve,
-                levelScaleRightDepth: op2LvlScaleRightDepth,
-                levelScaleRightCurve: op2LvlScaleRightCurve,
-                oscMode: op2OscMode,
-                freqCoarse: op2FreqCoarse,
-                freqFine: op2FreqFine,
-                detune: op2Detune,
-                oscRateScale: op2OscRateScale,
-                amplitudeModSense: op2AmplitudeModSense,
-                keyVelocitySense: op2KeyVelocitySense
-            },
-            operator3: {
-                operatorOn: opOn3,
-                outputLevel: outLvl3,
-                envelopeR1: op3EnvR1,
-                envelopeL1: op3EnvL1,
-                envelopeR2: op3EnvR2,
-                envelopeL2: op3EnvL2,
-                envelopeR3: op3EnvR3,
-                envelopeL3: op3EnvL3,
-                envelopeR4: op3EnvR4,
-                envelopeL4: op3EnvL4,
-                levelScaleBreakPoint: op3LvlScaleBreak,
-                levelScaleLeftDepth: op3LvlScaleLeftDepth,
-                levelScaleLeftCurve: op3LvlScaleLeftCurve,
-                levelScaleRightDepth: op3LvlScaleRightDepth,
-                levelScaleRightCurve: op3LvlScaleRightCurve,
-                oscMode: op3OscMode,
-                freqCoarse: op3FreqCoarse,
-                freqFine: op3FreqFine,
-                detune: op3Detune,
-                oscRateScale: op3OscRateScale,
-                amplitudeModSense: op3AmplitudeModSense,
-                keyVelocitySense: op3KeyVelocitySense
-            },
-            operator4: {
-                operatorOn: opOn4,
-                outputLevel: outLvl4,
-                envelopeR1: op4EnvR1,
-                envelopeL1: op4EnvL1,
-                envelopeR2: op4EnvR2,
-                envelopeL2: op4EnvL2,
-                envelopeR3: op4EnvR3,
-                envelopeL3: op4EnvL3,
-                envelopeR4: op4EnvR4,
-                envelopeL4: op4EnvL4,
-                levelScaleBreakPoint: op4LvlScaleBreak,
-                levelScaleLeftDepth: op4LvlScaleLeftDepth,
-                levelScaleLeftCurve: op4LvlScaleLeftCurve,
-                levelScaleRightDepth: op4LvlScaleRightDepth,
-                levelScaleRightCurve: op4LvlScaleRightCurve,
-                oscMode: op4OscMode,
-                freqCoarse: op4FreqCoarse,
-                freqFine: op4FreqFine,
-                detune: op4Detune,
-                oscRateScale: op4OscRateScale,
-                amplitudeModSense: op4AmplitudeModSense,
-                keyVelocitySense: op4KeyVelocitySense
-            },
-            operator5: {
-                operatorOn: opOn5,
-                outputLevel: outLvl5,
-                envelopeR1: op5EnvR1,
-                envelopeL1: op5EnvL1,
-                envelopeR2: op5EnvR2,
-                envelopeL2: op5EnvL2,
-                envelopeR3: op5EnvR3,
-                envelopeL3: op5EnvL3,
-                envelopeR4: op5EnvR4,
-                envelopeL4: op5EnvL4,
-                levelScaleBreakPoint: op5LvlScaleBreak,
-                levelScaleLeftDepth: op5LvlScaleLeftDepth,
-                levelScaleLeftCurve: op5LvlScaleLeftCurve,
-                levelScaleRightDepth: op5LvlScaleRightDepth,
-                levelScaleRightCurve: op5LvlScaleRightCurve,
-                oscMode: op5OscMode,
-                freqCoarse: op5FreqCoarse,
-                freqFine: op5FreqFine,
-                detune: op5Detune,
-                oscRateScale: op5OscRateScale,
-                amplitudeModSense: op5AmplitudeModSense,
-                keyVelocitySense: op5KeyVelocitySense
-            },
-            operator6: {
-                operatorOn: opOn6,
-                outputLevel: outLvl6,
-                envelopeR1: op6EnvR1,
-                envelopeL1: op6EnvL1,
-                envelopeR2: op6EnvR2,
-                envelopeL2: op6EnvL2,
-                envelopeR3: op6EnvR3,
-                envelopeL3: op6EnvL3,
-                envelopeR4: op6EnvR4,
-                envelopeL4: op6EnvL4,
-                levelScaleBreakPoint: op6LvlScaleBreak,
-                levelScaleLeftDepth: op6LvlScaleLeftDepth,
-                levelScaleLeftCurve: op6LvlScaleLeftCurve,
-                levelScaleRightDepth: op6LvlScaleRightDepth,
-                levelScaleRightCurve: op6LvlScaleRightCurve,
-                oscMode: op6OscMode,
-                freqCoarse: op6FreqCoarse,
-                freqFine: op6FreqFine,
-                detune: op6Detune,
-                oscRateScale: op6OscRateScale,
-                amplitudeModSense: op6AmplitudeModSense,
-                keyVelocitySense: op6KeyVelocitySense
-            }
-        });
+        setOperatorParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
 
     }
 
     const changeLevel = (op, level, val) => {
-        let opOn1 = operatorParams.operator1.operatorOn;
-        let opOut1 = operatorParams.operator1.outputLevel;
-        let op1EnvR1 = operatorParams.operator1.envelopeR1;
-        let op1EnvL1 = operatorParams.operator1.envelopeL1;
-        let op1EnvR2 = operatorParams.operator1.envelopeR2;
-        let op1EnvL2 = operatorParams.operator1.envelopeL2;
-        let op1EnvR3 = operatorParams.operator1.envelopeR3;
-        let op1EnvL3 = operatorParams.operator1.envelopeL3;
-        let op1EnvR4 = operatorParams.operator1.envelopeR4;
-        let op1EnvL4 = operatorParams.operator1.envelopeL4;
-        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
-        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
-        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
-        let op1OscMode = operatorParams.operator1.oscMode;
-        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
-        let op1FreqFine = operatorParams.operator1.freqFine;
-        let op1Detune = operatorParams.operator1.detune;
-        let op1OscRateScale = operatorParams.operator1.oscRateScale;
-        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
-        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
-        let opOn2 = operatorParams.operator2.operatorOn;
-        let outLvl2 = operatorParams.operator2.outputLevel;
-        let op2EnvR1 = operatorParams.operator2.envelopeR1;
-        let op2EnvL1 = operatorParams.operator2.envelopeL1;
-        let op2EnvR2 = operatorParams.operator2.envelopeR2;
-        let op2EnvL2 = operatorParams.operator2.envelopeL2;
-        let op2EnvR3 = operatorParams.operator2.envelopeR3;
-        let op2EnvL3 = operatorParams.operator2.envelopeL3;
-        let op2EnvR4 = operatorParams.operator2.envelopeR4;
-        let op2EnvL4 = operatorParams.operator2.envelopeL4;
-        let op2LvlScaleBreak = operatorParams.operator2.levelScaleBreakPoint;
-        let op2LvlScaleLeftDepth = operatorParams.operator2.levelScaleLeftDepth;
-        let op2LvlScaleLeftCurve = parseInt(operatorParams.operator2.levelScaleLeftCurve);
-        let op2LvlScaleRightDepth = operatorParams.operator2.levelScaleRightDepth;
-        let op2LvlScaleRightCurve = parseInt(operatorParams.operator2.levelScaleRightCurve);
-        let op2OscMode = operatorParams.operator2.oscMode;
-        let op2FreqCoarse = operatorParams.operator2.freqCoarse;
-        let op2FreqFine = operatorParams.operator2.freqFine;
-        let op2Detune = operatorParams.operator2.detune;
-        let op2OscRateScale = operatorParams.operator2.oscRateScale;
-        let op2AmplitudeModSense = operatorParams.operator2.amplitudeModSense;
-        let op2KeyVelocitySense = operatorParams.operator2.keyVelocitySense;
-        let opOn3 = operatorParams.operator3.operatorOn;
-        let outLvl3 = operatorParams.operator3.outputLevel;
-        let op3EnvR1 = operatorParams.operator3.envelopeR1;
-        let op3EnvL1 = operatorParams.operator3.envelopeL1;
-        let op3EnvR2 = operatorParams.operator3.envelopeR2;
-        let op3EnvL2 = operatorParams.operator3.envelopeL2;
-        let op3EnvR3 = operatorParams.operator3.envelopeR3;
-        let op3EnvL3 = operatorParams.operator3.envelopeL3;
-        let op3EnvR4 = operatorParams.operator3.envelopeR4;
-        let op3EnvL4 = operatorParams.operator3.envelopeL4;
-        let op3LvlScaleBreak = operatorParams.operator3.levelScaleBreakPoint;
-        let op3LvlScaleLeftDepth = operatorParams.operator3.levelScaleLeftDepth;
-        let op3LvlScaleLeftCurve = parseInt(operatorParams.operator3.levelScaleLeftCurve);
-        let op3LvlScaleRightDepth = operatorParams.operator3.levelScaleRightDepth;
-        let op3LvlScaleRightCurve = parseInt(operatorParams.operator3.levelScaleRightCurve);
-        let op3OscMode = operatorParams.operator3.oscMode;
-        let op3FreqCoarse = operatorParams.operator3.freqCoarse;
-        let op3FreqFine = operatorParams.operator3.freqFine;
-        let op3Detune = operatorParams.operator3.detune;
-        let op3OscRateScale = operatorParams.operator3.oscRateScale;
-        let op3AmplitudeModSense = operatorParams.operator3.amplitudeModSense;
-        let op3KeyVelocitySense = operatorParams.operator3.keyVelocitySense;
-        let opOn4 = operatorParams.operator4.operatorOn;
-        let outLvl4 = operatorParams.operator4.outputLevel;
-        let op4EnvR1 = operatorParams.operator4.envelopeR1;
-        let op4EnvL1 = operatorParams.operator4.envelopeL1;
-        let op4EnvR2 = operatorParams.operator4.envelopeR2;
-        let op4EnvL2 = operatorParams.operator4.envelopeL2;
-        let op4EnvR3 = operatorParams.operator4.envelopeR3;
-        let op4EnvL3 = operatorParams.operator4.envelopeL3;
-        let op4EnvR4 = operatorParams.operator4.envelopeR4;
-        let op4EnvL4 = operatorParams.operator4.envelopeL4;
-        let op4LvlScaleBreak = operatorParams.operator4.levelScaleBreakPoint;
-        let op4LvlScaleLeftDepth = operatorParams.operator4.levelScaleLeftDepth;
-        let op4LvlScaleLeftCurve = parseInt(operatorParams.operator4.levelScaleLeftCurve);
-        let op4LvlScaleRightDepth = operatorParams.operator4.levelScaleRightDepth;
-        let op4LvlScaleRightCurve = parseInt(operatorParams.operator4.levelScaleRightCurve);
-        let op4OscMode = operatorParams.operator4.oscMode;
-        let op4FreqCoarse = operatorParams.operator4.freqCoarse;
-        let op4FreqFine = operatorParams.operator4.freqFine;
-        let op4Detune = operatorParams.operator4.detune;
-        let op4OscRateScale = operatorParams.operator4.oscRateScale;
-        let op4AmplitudeModSense = operatorParams.operator4.amplitudeModSense;
-        let op4KeyVelocitySense = operatorParams.operator4.keyVelocitySense;
-        let opOn5 = operatorParams.operator5.operatorOn;
-        let outLvl5 = operatorParams.operator5.outputLevel;
-        let op5EnvR1 = operatorParams.operator5.envelopeR1;
-        let op5EnvL1 = operatorParams.operator5.envelopeL1;
-        let op5EnvR2 = operatorParams.operator5.envelopeR2;
-        let op5EnvL2 = operatorParams.operator5.envelopeL2;
-        let op5EnvR3 = operatorParams.operator5.envelopeR3;
-        let op5EnvL3 = operatorParams.operator5.envelopeL3;
-        let op5EnvR4 = operatorParams.operator5.envelopeR4;
-        let op5EnvL4 = operatorParams.operator5.envelopeL4;
-        let op5LvlScaleBreak = operatorParams.operator5.levelScaleBreakPoint;
-        let op5LvlScaleLeftDepth = operatorParams.operator5.levelScaleLeftDepth;
-        let op5LvlScaleLeftCurve = parseInt(operatorParams.operator5.levelScaleLeftCurve);
-        let op5LvlScaleRightDepth = operatorParams.operator5.levelScaleRightDepth;
-        let op5LvlScaleRightCurve = parseInt(operatorParams.operator5.levelScaleRightCurve);
-        let op5OscMode = operatorParams.operator5.oscMode;
-        let op5FreqCoarse = operatorParams.operator5.freqCoarse;
-        let op5FreqFine = operatorParams.operator5.freqFine;
-        let op5Detune = operatorParams.operator5.detune;
-        let op5OscRateScale = operatorParams.operator5.oscRateScale;
-        let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
-        let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
-        let opOn6 = operatorParams.operator6.operatorOn;
-        let outLvl6 = operatorParams.operator6.outputLevel;
-        let op6EnvR1 = operatorParams.operator6.envelopeR1;
-        let op6EnvL1 = operatorParams.operator6.envelopeL1;
-        let op6EnvR2 = operatorParams.operator6.envelopeR2;
-        let op6EnvL2 = operatorParams.operator6.envelopeL2;
-        let op6EnvR3 = operatorParams.operator6.envelopeR3;
-        let op6EnvL3 = operatorParams.operator6.envelopeL3;
-        let op6EnvR4 = operatorParams.operator6.envelopeR4;
-        let op6EnvL4 = operatorParams.operator6.envelopeL4;
-        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
-        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
-        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
-        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
-        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
-        let op6OscMode = operatorParams.operator6.oscMode;
-        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
-        let op6FreqFine = operatorParams.operator6.freqFine;
-        let op6Detune = operatorParams.operator6.detune;
-        let op6OscRateScale = operatorParams.operator6.oscRateScale;
-        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
-        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
+        let deepCopy = {...operatorParams};
+        
         switch (op) {
             case (1):
                 switch (level) {
                     case (1):
-                        op1EnvL1 = val;
+                        deepCopy.operator1.envelopeL1 = val;
                         break;
                     case (2):
-                        op1EnvL2 = val;
+                        deepCopy.operator1.envelopeL2 = val;
                         break;
                     case (3):
-                        op1EnvL3 = val;
+                        deepCopy.operator1.envelopeL3 = val;
                         break;
                     case (4):
-                        op1EnvL4 = val;
+                        deepCopy.operator1.envelopeL4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -3320,16 +2083,16 @@ function VolcaFm() {
             case (2):
                 switch (level) {
                     case (1):
-                        op2EnvL1 = val;
+                        deepCopy.operator2.envelopeL1 = val;
                         break;
                     case (2):
-                        op2EnvL2 = val;
+                        deepCopy.operator2.envelopeL2 = val;
                         break;
                     case (3):
-                        op2EnvL3 = val;
+                        deepCopy.operator2.envelopeL3 = val;
                         break;
                     case (4):
-                        op2EnvL4 = val;
+                        deepCopy.operator2.envelopeL4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -3338,16 +2101,16 @@ function VolcaFm() {
             case (3):
                 switch (level) {
                     case (1):
-                        op3EnvL1 = val;
+                        deepCopy.operator3.envelopeL1 = val;
                         break;
                     case (2):
-                        op3EnvL2 = val;
+                        deepCopy.operator3.envelopeL2 = val;
                         break;
                     case (3):
-                        op3EnvL3 = val;
+                        deepCopy.operator3.envelopeL3 = val;
                         break;
                     case (4):
-                        op3EnvL4 = val;
+                        deepCopy.operator3.envelopeL4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -3356,16 +2119,16 @@ function VolcaFm() {
             case (4):
                 switch (level) {
                     case (1):
-                        op4EnvL1 = val;
+                        deepCopy.operator4.envelopeL1 = val;
                         break;
                     case (2):
-                        op4EnvL2 = val;
+                        deepCopy.operator4.envelopeL2 = val;
                         break;
                     case (3):
-                        op4EnvL3 = val;
+                        deepCopy.operator4.envelopeL3 = val;
                         break;
                     case (4):
-                        op4EnvL4 = val;
+                        deepCopy.operator4.envelopeL4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -3374,16 +2137,16 @@ function VolcaFm() {
             case (5):
                 switch (level) {
                     case (1):
-                        op5EnvL1 = val;
+                        deepCopy.operator5.envelopeL1 = val;
                         break;
                     case (2):
-                        op5EnvL2 = val;
+                        deepCopy.operator5.envelopeL2 = val;
                         break;
                     case (3):
-                        op5EnvL3 = val;
+                        deepCopy.operator5.envelopeL3 = val;
                         break;
                     case (4):
-                        op5EnvL4 = val;
+                        deepCopy.operator5.envelopeL4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -3392,16 +2155,16 @@ function VolcaFm() {
             case (6):
                 switch (level) {
                     case (1):
-                        op6EnvL1 = val;
+                        deepCopy.operator6.envelopeL1 = val;
                         break;
                     case (2):
-                        op6EnvL2 = val;
+                        deepCopy.operator6.envelopeL2 = val;
                         break;
                     case (3):
-                        op6EnvL3 = val;
+                        deepCopy.operator6.envelopeL3 = val;
                         break;
                     case (4):
-                        op6EnvL4 = val;
+                        deepCopy.operator6.envelopeL4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -3410,302 +2173,28 @@ function VolcaFm() {
             default:
                 console.log('impossible operator');
         }
-        setOperatorParams({
-            operator1: {
-                operatorOn: opOn1,
-                outputLevel: opOut1,
-                envelopeR1: op1EnvR1,
-                envelopeL1: op1EnvL1,
-                envelopeR2: op1EnvR2,
-                envelopeL2: op1EnvL2,
-                envelopeR3: op1EnvR3,
-                envelopeL3: op1EnvL3,
-                envelopeR4: op1EnvR4,
-                envelopeL4: op1EnvL4,
-                levelScaleBreakPoint: op1LvlScaleBreak,
-                levelScaleLeftDepth: op1LvlScaleLeftDepth,
-                levelScaleLeftCurve: op1LvlScaleLeftCurve,
-                levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve,
-                oscMode: op1OscMode,
-                freqCoarse: op1FreqCoarse,
-                freqFine: op1FreqFine,
-                detune: op1Detune,
-                oscRateScale: op1OscRateScale,
-                amplitudeModSense: op1AmplitudeModSense,
-                keyVelocitySense: op1KeyVelocitySense
-            },
-            operator2: {
-                operatorOn: opOn2,
-                outputLevel: outLvl2,
-                envelopeR1: op2EnvR1,
-                envelopeL1: op2EnvL1,
-                envelopeR2: op2EnvR2,
-                envelopeL2: op2EnvL2,
-                envelopeR3: op2EnvR3,
-                envelopeL3: op2EnvL3,
-                envelopeR4: op2EnvR4,
-                envelopeL4: op2EnvL4,
-                levelScaleBreakPoint: op2LvlScaleBreak,
-                levelScaleLeftDepth: op2LvlScaleLeftDepth,
-                levelScaleLeftCurve: op2LvlScaleLeftCurve,
-                levelScaleRightDepth: op2LvlScaleRightDepth,
-                levelScaleRightCurve: op2LvlScaleRightCurve,
-                oscMode: op2OscMode,
-                freqCoarse: op2FreqCoarse,
-                freqFine: op2FreqFine,
-                detune: op2Detune,
-                oscRateScale: op2OscRateScale,
-                amplitudeModSense: op2AmplitudeModSense,
-                keyVelocitySense: op2KeyVelocitySense
-            },
-            operator3: {
-                operatorOn: opOn3,
-                outputLevel: outLvl3,
-                envelopeR1: op3EnvR1,
-                envelopeL1: op3EnvL1,
-                envelopeR2: op3EnvR2,
-                envelopeL2: op3EnvL2,
-                envelopeR3: op3EnvR3,
-                envelopeL3: op3EnvL3,
-                envelopeR4: op3EnvR4,
-                envelopeL4: op3EnvL4,
-                levelScaleBreakPoint: op3LvlScaleBreak,
-                levelScaleLeftDepth: op3LvlScaleLeftDepth,
-                levelScaleLeftCurve: op3LvlScaleLeftCurve,
-                levelScaleRightDepth: op3LvlScaleRightDepth,
-                levelScaleRightCurve: op3LvlScaleRightCurve,
-                oscMode: op3OscMode,
-                freqCoarse: op3FreqCoarse,
-                freqFine: op3FreqFine,
-                detune: op3Detune,
-                oscRateScale: op3OscRateScale,
-                amplitudeModSense: op3AmplitudeModSense,
-                keyVelocitySense: op3KeyVelocitySense
-            },
-            operator4: {
-                operatorOn: opOn4,
-                outputLevel: outLvl4,
-                envelopeR1: op4EnvR1,
-                envelopeL1: op4EnvL1,
-                envelopeR2: op4EnvR2,
-                envelopeL2: op4EnvL2,
-                envelopeR3: op4EnvR3,
-                envelopeL3: op4EnvL3,
-                envelopeR4: op4EnvR4,
-                envelopeL4: op4EnvL4,
-                levelScaleBreakPoint: op4LvlScaleBreak,
-                levelScaleLeftDepth: op4LvlScaleLeftDepth,
-                levelScaleLeftCurve: op4LvlScaleLeftCurve,
-                levelScaleRightDepth: op4LvlScaleRightDepth,
-                levelScaleRightCurve: op4LvlScaleRightCurve,
-                oscMode: op4OscMode,
-                freqCoarse: op4FreqCoarse,
-                freqFine: op4FreqFine,
-                detune: op4Detune,
-                oscRateScale: op4OscRateScale,
-                amplitudeModSense: op4AmplitudeModSense,
-                keyVelocitySense: op4KeyVelocitySense
-            },
-            operator5: {
-                operatorOn: opOn5,
-                outputLevel: outLvl5,
-                envelopeR1: op5EnvR1,
-                envelopeL1: op5EnvL1,
-                envelopeR2: op5EnvR2,
-                envelopeL2: op5EnvL2,
-                envelopeR3: op5EnvR3,
-                envelopeL3: op5EnvL3,
-                envelopeR4: op5EnvR4,
-                envelopeL4: op5EnvL4,
-                levelScaleBreakPoint: op5LvlScaleBreak,
-                levelScaleLeftDepth: op5LvlScaleLeftDepth,
-                levelScaleLeftCurve: op5LvlScaleLeftCurve,
-                levelScaleRightDepth: op5LvlScaleRightDepth,
-                levelScaleRightCurve: op5LvlScaleRightCurve,
-                oscMode: op5OscMode,
-                freqCoarse: op5FreqCoarse,
-                freqFine: op5FreqFine,
-                detune: op5Detune,
-                oscRateScale: op5OscRateScale,
-                amplitudeModSense: op5AmplitudeModSense,
-                keyVelocitySense: op5KeyVelocitySense
-            },
-            operator6: {
-                operatorOn: opOn6,
-                outputLevel: outLvl6,
-                envelopeR1: op6EnvR1,
-                envelopeL1: op6EnvL1,
-                envelopeR2: op6EnvR2,
-                envelopeL2: op6EnvL2,
-                envelopeR3: op6EnvR3,
-                envelopeL3: op6EnvL3,
-                envelopeR4: op6EnvR4,
-                envelopeL4: op6EnvL4,
-                levelScaleBreakPoint: op6LvlScaleBreak,
-                levelScaleLeftDepth: op6LvlScaleLeftDepth,
-                levelScaleLeftCurve: op6LvlScaleLeftCurve,
-                levelScaleRightDepth: op6LvlScaleRightDepth,
-                levelScaleRightCurve: op6LvlScaleRightCurve,
-                oscMode: op6OscMode,
-                freqCoarse: op6FreqCoarse,
-                freqFine: op6FreqFine,
-                detune: op6Detune,
-                oscRateScale: op6OscRateScale,
-                amplitudeModSense: op6AmplitudeModSense,
-                keyVelocitySense: op6KeyVelocitySense
-            }
-        });
+        setOperatorParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
 
     const changeRate = (op, rate, val) => {
-        let opOn1 = operatorParams.operator1.operatorOn;
-        let opOut1 = operatorParams.operator1.outputLevel;
-        let op1EnvR1 = operatorParams.operator1.envelopeR1;
-        let op1EnvL1 = operatorParams.operator1.envelopeL1;
-        let op1EnvR2 = operatorParams.operator1.envelopeR2;
-        let op1EnvL2 = operatorParams.operator1.envelopeL2;
-        let op1EnvR3 = operatorParams.operator1.envelopeR3;
-        let op1EnvL3 = operatorParams.operator1.envelopeL3;
-        let op1EnvR4 = operatorParams.operator1.envelopeR4;
-        let op1EnvL4 = operatorParams.operator1.envelopeL4;
-        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
-        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
-        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
-        let op1OscMode = operatorParams.operator1.oscMode;
-        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
-        let op1FreqFine = operatorParams.operator1.freqFine;
-        let op1Detune = operatorParams.operator1.detune;
-        let op1OscRateScale = operatorParams.operator1.oscRateScale;
-        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
-        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
-        let opOn2 = operatorParams.operator2.operatorOn;
-        let outLvl2 = operatorParams.operator2.outputLevel;
-        let op2EnvR1 = operatorParams.operator2.envelopeR1;
-        let op2EnvL1 = operatorParams.operator2.envelopeL1;
-        let op2EnvR2 = operatorParams.operator2.envelopeR2;
-        let op2EnvL2 = operatorParams.operator2.envelopeL2;
-        let op2EnvR3 = operatorParams.operator2.envelopeR3;
-        let op2EnvL3 = operatorParams.operator2.envelopeL3;
-        let op2EnvR4 = operatorParams.operator2.envelopeR4;
-        let op2EnvL4 = operatorParams.operator2.envelopeL4;
-        let op2LvlScaleBreak = operatorParams.operator2.levelScaleBreakPoint;
-        let op2LvlScaleLeftDepth = operatorParams.operator2.levelScaleLeftDepth;
-        let op2LvlScaleLeftCurve = parseInt(operatorParams.operator2.levelScaleLeftCurve);
-        let op2LvlScaleRightDepth = operatorParams.operator2.levelScaleRightDepth;
-        let op2LvlScaleRightCurve = parseInt(operatorParams.operator2.levelScaleRightCurve);
-        let op2OscMode = operatorParams.operator2.oscMode;
-        let op2FreqCoarse = operatorParams.operator2.freqCoarse;
-        let op2FreqFine = operatorParams.operator2.freqFine;
-        let op2Detune = operatorParams.operator2.detune;
-        let op2OscRateScale = operatorParams.operator2.oscRateScale;
-        let op2AmplitudeModSense = operatorParams.operator2.amplitudeModSense;
-        let op2KeyVelocitySense = operatorParams.operator2.keyVelocitySense;
-        let opOn3 = operatorParams.operator3.operatorOn;
-        let outLvl3 = operatorParams.operator3.outputLevel;
-        let op3EnvR1 = operatorParams.operator3.envelopeR1;
-        let op3EnvL1 = operatorParams.operator3.envelopeL1;
-        let op3EnvR2 = operatorParams.operator3.envelopeR2;
-        let op3EnvL2 = operatorParams.operator3.envelopeL2;
-        let op3EnvR3 = operatorParams.operator3.envelopeR3;
-        let op3EnvL3 = operatorParams.operator3.envelopeL3;
-        let op3EnvR4 = operatorParams.operator3.envelopeR4;
-        let op3EnvL4 = operatorParams.operator3.envelopeL4;
-        let op3LvlScaleBreak = operatorParams.operator3.levelScaleBreakPoint;
-        let op3LvlScaleLeftDepth = operatorParams.operator3.levelScaleLeftDepth;
-        let op3LvlScaleLeftCurve = parseInt(operatorParams.operator3.levelScaleLeftCurve);
-        let op3LvlScaleRightDepth = operatorParams.operator3.levelScaleRightDepth;
-        let op3LvlScaleRightCurve = parseInt(operatorParams.operator3.levelScaleRightCurve);
-        let op3OscMode = operatorParams.operator3.oscMode;
-        let op3FreqCoarse = operatorParams.operator3.freqCoarse;
-        let op3FreqFine = operatorParams.operator3.freqFine;
-        let op3Detune = operatorParams.operator3.detune;
-        let op3OscRateScale = operatorParams.operator3.oscRateScale;
-        let op3AmplitudeModSense = operatorParams.operator3.amplitudeModSense;
-        let op3KeyVelocitySense = operatorParams.operator3.keyVelocitySense;
-        let opOn4 = operatorParams.operator4.operatorOn;
-        let outLvl4 = operatorParams.operator4.outputLevel;
-        let op4EnvR1 = operatorParams.operator4.envelopeR1;
-        let op4EnvL1 = operatorParams.operator4.envelopeL1;
-        let op4EnvR2 = operatorParams.operator4.envelopeR2;
-        let op4EnvL2 = operatorParams.operator4.envelopeL2;
-        let op4EnvR3 = operatorParams.operator4.envelopeR3;
-        let op4EnvL3 = operatorParams.operator4.envelopeL3;
-        let op4EnvR4 = operatorParams.operator4.envelopeR4;
-        let op4EnvL4 = operatorParams.operator4.envelopeL4;
-        let op4LvlScaleBreak = operatorParams.operator4.levelScaleBreakPoint;
-        let op4LvlScaleLeftDepth = operatorParams.operator4.levelScaleLeftDepth;
-        let op4LvlScaleLeftCurve = parseInt(operatorParams.operator4.levelScaleLeftCurve);
-        let op4LvlScaleRightDepth = operatorParams.operator4.levelScaleRightDepth;
-        let op4LvlScaleRightCurve = parseInt(operatorParams.operator4.levelScaleRightCurve);
-        let op4OscMode = operatorParams.operator4.oscMode;
-        let op4FreqCoarse = operatorParams.operator4.freqCoarse;
-        let op4FreqFine = operatorParams.operator4.freqFine;
-        let op4Detune = operatorParams.operator4.detune;
-        let op4OscRateScale = operatorParams.operator4.oscRateScale;
-        let op4AmplitudeModSense = operatorParams.operator4.amplitudeModSense;
-        let op4KeyVelocitySense = operatorParams.operator4.keyVelocitySense;
-        let opOn5 = operatorParams.operator5.operatorOn;
-        let outLvl5 = operatorParams.operator5.outputLevel;
-        let op5EnvR1 = operatorParams.operator5.envelopeR1;
-        let op5EnvL1 = operatorParams.operator5.envelopeL1;
-        let op5EnvR2 = operatorParams.operator5.envelopeR2;
-        let op5EnvL2 = operatorParams.operator5.envelopeL2;
-        let op5EnvR3 = operatorParams.operator5.envelopeR3;
-        let op5EnvL3 = operatorParams.operator5.envelopeL3;
-        let op5EnvR4 = operatorParams.operator5.envelopeR4;
-        let op5EnvL4 = operatorParams.operator5.envelopeL4;
-        let op5LvlScaleBreak = operatorParams.operator5.levelScaleBreakPoint;
-        let op5LvlScaleLeftDepth = operatorParams.operator5.levelScaleLeftDepth;
-        let op5LvlScaleLeftCurve = parseInt(operatorParams.operator5.levelScaleLeftCurve);
-        let op5LvlScaleRightDepth = operatorParams.operator5.levelScaleRightDepth;
-        let op5LvlScaleRightCurve = parseInt(operatorParams.operator5.levelScaleRightCurve);
-        let op5OscMode = operatorParams.operator5.oscMode;
-        let op5FreqCoarse = operatorParams.operator5.freqCoarse;
-        let op5FreqFine = operatorParams.operator5.freqFine;
-        let op5Detune = operatorParams.operator5.detune;
-        let op5OscRateScale = operatorParams.operator5.oscRateScale;
-        let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
-        let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
-        let opOn6 = operatorParams.operator6.operatorOn;
-        let outLvl6 = operatorParams.operator6.outputLevel;
-        let op6EnvR1 = operatorParams.operator6.envelopeR1;
-        let op6EnvL1 = operatorParams.operator6.envelopeL1;
-        let op6EnvR2 = operatorParams.operator6.envelopeR2;
-        let op6EnvL2 = operatorParams.operator6.envelopeL2;
-        let op6EnvR3 = operatorParams.operator6.envelopeR3;
-        let op6EnvL3 = operatorParams.operator6.envelopeL3;
-        let op6EnvR4 = operatorParams.operator6.envelopeR4;
-        let op6EnvL4 = operatorParams.operator6.envelopeL4;
-        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
-        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
-        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
-        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
-        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
-        let op6OscMode = operatorParams.operator6.oscMode;
-        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
-        let op6FreqFine = operatorParams.operator6.freqFine;
-        let op6Detune = operatorParams.operator6.detune;
-        let op6OscRateScale = operatorParams.operator6.oscRateScale;
-        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
-        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
+        let deepCopy = {...operatorParams};
+        
         switch (op) {
             case (1):
                 switch (rate) {
                     case (1):
-                        op1EnvR1 = val;
+                        deepCopy.operator1.envelopeR1 = val;
                         break;
                     case (2):
-                        op1EnvR2 = val;
+                        deepCopy.operator1.envelopeR2 = val;
                         break;
                     case (3):
-                        op1EnvR3 = val;
+                        deepCopy.operator1.envelopeR3 = val;
                         break;
                     case (4):
-                        op1EnvR4 = val;
+                        deepCopy.operator1.envelopeR4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -3714,16 +2203,16 @@ function VolcaFm() {
             case (2):
                 switch (rate) {
                     case (1):
-                        op2EnvR1 = val;
+                        deepCopy.operator2.envelopeR1 = val;
                         break;
                     case (2):
-                        op2EnvR2 = val;
+                        deepCopy.operator2.envelopeR2 = val;
                         break;
                     case (3):
-                        op2EnvR3 = val;
+                        deepCopy.operator2.envelopeR3 = val;
                         break;
                     case (4):
-                        op2EnvR4 = val;
+                        deepCopy.operator2.envelopeR4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -3732,16 +2221,16 @@ function VolcaFm() {
             case (3):
                 switch (rate) {
                     case (1):
-                        op3EnvR1 = val;
+                        deepCopy.operator3.envelopeR1 = val;
                         break;
                     case (2):
-                        op3EnvR2 = val;
+                        deepCopy.operator3.envelopeR2 = val;
                         break;
                     case (3):
-                        op3EnvR3 = val;
+                        deepCopy.operator3.envelopeR3 = val;
                         break;
                     case (4):
-                        op3EnvR4 = val;
+                        deepCopy.operator3.envelopeR4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -3750,16 +2239,16 @@ function VolcaFm() {
             case (4):
                 switch (rate) {
                     case (1):
-                        op4EnvR1 = val;
+                        deepCopy.operator4.envelopeR1 = val;
                         break;
                     case (2):
-                        op4EnvR2 = val;
+                        deepCopy.operator4.envelopeR2 = val;
                         break;
                     case (3):
-                        op4EnvR3 = val;
+                        deepCopy.operator4.envelopeR3 = val;
                         break;
                     case (4):
-                        op4EnvR4 = val;
+                        deepCopy.operator4.envelopeR4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -3768,16 +2257,16 @@ function VolcaFm() {
             case (5):
                 switch (rate) {
                     case (1):
-                        op5EnvR1 = val;
+                        deepCopy.operator5.envelopeR1 = val;
                         break;
                     case (2):
-                        op5EnvR2 = val;
+                        deepCopy.operator5.envelopeR2 = val;
                         break;
                     case (3):
-                        op5EnvR3 = val;
+                        deepCopy.operator5.envelopeR3 = val;
                         break;
                     case (4):
-                        op5EnvR4 = val;
+                        deepCopy.operator5.envelopeR4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -3786,16 +2275,16 @@ function VolcaFm() {
             case (6):
                 switch (rate) {
                     case (1):
-                        op6EnvR1 = val;
+                        deepCopy.operator6.envelopeR1 = val;
                         break;
                     case (2):
-                        op6EnvR2 = val;
+                        deepCopy.operator6.envelopeR2 = val;
                         break;
                     case (3):
-                        op6EnvR3 = val;
+                        deepCopy.operator6.envelopeR3 = val;
                         break;
                     case (4):
-                        op6EnvR4 = val;
+                        deepCopy.operator6.envelopeR4 = val;
                         break;
                     default:
                         console.log('impossible rate');
@@ -3804,482 +2293,64 @@ function VolcaFm() {
             default:
                 console.log('impossible operator');
         }
-        setOperatorParams({
-            operator1: {
-                operatorOn: opOn1,
-                outputLevel: opOut1,
-                envelopeR1: op1EnvR1,
-                envelopeL1: op1EnvL1,
-                envelopeR2: op1EnvR2,
-                envelopeL2: op1EnvL2,
-                envelopeR3: op1EnvR3,
-                envelopeL3: op1EnvL3,
-                envelopeR4: op1EnvR4,
-                envelopeL4: op1EnvL4,
-                levelScaleBreakPoint: op1LvlScaleBreak,
-                levelScaleLeftDepth: op1LvlScaleLeftDepth,
-                levelScaleLeftCurve: op1LvlScaleLeftCurve,
-                levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve,
-                oscMode: op1OscMode,
-                freqCoarse: op1FreqCoarse,
-                freqFine: op1FreqFine,
-                detune: op1Detune,
-                oscRateScale: op1OscRateScale,
-                amplitudeModSense: op1AmplitudeModSense,
-                keyVelocitySense: op1KeyVelocitySense
-            },
-            operator2: {
-                operatorOn: opOn2,
-                outputLevel: outLvl2,
-                envelopeR1: op2EnvR1,
-                envelopeL1: op2EnvL1,
-                envelopeR2: op2EnvR2,
-                envelopeL2: op2EnvL2,
-                envelopeR3: op2EnvR3,
-                envelopeL3: op2EnvL3,
-                envelopeR4: op2EnvR4,
-                envelopeL4: op2EnvL4,
-                levelScaleBreakPoint: op2LvlScaleBreak,
-                levelScaleLeftDepth: op2LvlScaleLeftDepth,
-                levelScaleLeftCurve: op2LvlScaleLeftCurve,
-                levelScaleRightDepth: op2LvlScaleRightDepth,
-                levelScaleRightCurve: op2LvlScaleRightCurve,
-                oscMode: op2OscMode,
-                freqCoarse: op2FreqCoarse,
-                freqFine: op2FreqFine,
-                detune: op2Detune,
-                oscRateScale: op2OscRateScale,
-                amplitudeModSense: op2AmplitudeModSense,
-                keyVelocitySense: op2KeyVelocitySense
-            },
-            operator3: {
-                operatorOn: opOn3,
-                outputLevel: outLvl3,
-                envelopeR1: op3EnvR1,
-                envelopeL1: op3EnvL1,
-                envelopeR2: op3EnvR2,
-                envelopeL2: op3EnvL2,
-                envelopeR3: op3EnvR3,
-                envelopeL3: op3EnvL3,
-                envelopeR4: op3EnvR4,
-                envelopeL4: op3EnvL4,
-                levelScaleBreakPoint: op3LvlScaleBreak,
-                levelScaleLeftDepth: op3LvlScaleLeftDepth,
-                levelScaleLeftCurve: op3LvlScaleLeftCurve,
-                levelScaleRightDepth: op3LvlScaleRightDepth,
-                levelScaleRightCurve: op3LvlScaleRightCurve,
-                oscMode: op3OscMode,
-                freqCoarse: op3FreqCoarse,
-                freqFine: op3FreqFine,
-                detune: op3Detune,
-                oscRateScale: op3OscRateScale,
-                amplitudeModSense: op3AmplitudeModSense,
-                keyVelocitySense: op3KeyVelocitySense
-            },
-            operator4: {
-                operatorOn: opOn4,
-                outputLevel: outLvl4,
-                envelopeR1: op4EnvR1,
-                envelopeL1: op4EnvL1,
-                envelopeR2: op4EnvR2,
-                envelopeL2: op4EnvL2,
-                envelopeR3: op4EnvR3,
-                envelopeL3: op4EnvL3,
-                envelopeR4: op4EnvR4,
-                envelopeL4: op4EnvL4,
-                levelScaleBreakPoint: op4LvlScaleBreak,
-                levelScaleLeftDepth: op4LvlScaleLeftDepth,
-                levelScaleLeftCurve: op4LvlScaleLeftCurve,
-                levelScaleRightDepth: op4LvlScaleRightDepth,
-                levelScaleRightCurve: op4LvlScaleRightCurve,
-                oscMode: op4OscMode,
-                freqCoarse: op4FreqCoarse,
-                freqFine: op4FreqFine,
-                detune: op4Detune,
-                oscRateScale: op4OscRateScale,
-                amplitudeModSense: op4AmplitudeModSense,
-                keyVelocitySense: op4KeyVelocitySense
-            },
-            operator5: {
-                operatorOn: opOn5,
-                outputLevel: outLvl5,
-                envelopeR1: op5EnvR1,
-                envelopeL1: op5EnvL1,
-                envelopeR2: op5EnvR2,
-                envelopeL2: op5EnvL2,
-                envelopeR3: op5EnvR3,
-                envelopeL3: op5EnvL3,
-                envelopeR4: op5EnvR4,
-                envelopeL4: op5EnvL4,
-                levelScaleBreakPoint: op5LvlScaleBreak,
-                levelScaleLeftDepth: op5LvlScaleLeftDepth,
-                levelScaleLeftCurve: op5LvlScaleLeftCurve,
-                levelScaleRightDepth: op5LvlScaleRightDepth,
-                levelScaleRightCurve: op5LvlScaleRightCurve,
-                oscMode: op5OscMode,
-                freqCoarse: op5FreqCoarse,
-                freqFine: op5FreqFine,
-                detune: op5Detune,
-                oscRateScale: op5OscRateScale,
-                amplitudeModSense: op5AmplitudeModSense,
-                keyVelocitySense: op5KeyVelocitySense
-            },
-            operator6: {
-                operatorOn: opOn6,
-                outputLevel: outLvl6,
-                envelopeR1: op6EnvR1,
-                envelopeL1: op6EnvL1,
-                envelopeR2: op6EnvR2,
-                envelopeL2: op6EnvL2,
-                envelopeR3: op6EnvR3,
-                envelopeL3: op6EnvL3,
-                envelopeR4: op6EnvR4,
-                envelopeL4: op6EnvL4,
-                levelScaleBreakPoint: op6LvlScaleBreak,
-                levelScaleLeftDepth: op6LvlScaleLeftDepth,
-                levelScaleLeftCurve: op6LvlScaleLeftCurve,
-                levelScaleRightDepth: op6LvlScaleRightDepth,
-                levelScaleRightCurve: op6LvlScaleRightCurve,
-                oscMode: op6OscMode,
-                freqCoarse: op6FreqCoarse,
-                freqFine: op6FreqFine,
-                detune: op6Detune,
-                oscRateScale: op6OscRateScale,
-                amplitudeModSense: op6AmplitudeModSense,
-                keyVelocitySense: op6KeyVelocitySense
-            }
-        });
+        setOperatorParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
 
     const handleOpOnOffClick = (op) => {
-        let opOn1 = operatorParams.operator1.operatorOn;
-        let outLvl1 = operatorParams.operator1.outputLevel;
-        let op1EnvR1 = operatorParams.operator1.envelopeR1;
-        let op1EnvL1 = operatorParams.operator1.envelopeL1;
-        let op1EnvR2 = operatorParams.operator1.envelopeR2;
-        let op1EnvL2 = operatorParams.operator1.envelopeL2;
-        let op1EnvR3 = operatorParams.operator1.envelopeR3;
-        let op1EnvL3 = operatorParams.operator1.envelopeL3;
-        let op1EnvR4 = operatorParams.operator1.envelopeR4;
-        let op1EnvL4 = operatorParams.operator1.envelopeL4;
-        let op1LvlScaleBreak = operatorParams.operator1.levelScaleBreakPoint;
-        let op1LvlScaleLeftDepth = operatorParams.operator1.levelScaleLeftDepth;
-        let op1LvlScaleLeftCurve = parseInt(operatorParams.operator1.levelScaleLeftCurve);
-        let op1LvlScaleRightDepth = operatorParams.operator1.levelScaleRightDepth;
-        let op1LvlScaleRightCurve = parseInt(operatorParams.operator1.levelScaleRightCurve);
-        let op1OscMode = operatorParams.operator1.oscMode;
-        let op1FreqCoarse = operatorParams.operator1.freqCoarse;
-        let op1FreqFine = operatorParams.operator1.freqFine;
-        let op1Detune = operatorParams.operator1.detune;
-        let op1OscRateScale = operatorParams.operator1.oscRateScale;
-        let op1AmplitudeModSense = operatorParams.operator1.amplitudeModSense;
-        let op1KeyVelocitySense = operatorParams.operator1.keyVelocitySense;
-        let opOn2 = operatorParams.operator2.operatorOn;
-        let outLvl2 = operatorParams.operator2.outputLevel;
-        let op2EnvR1 = operatorParams.operator2.envelopeR1;
-        let op2EnvL1 = operatorParams.operator2.envelopeL1;
-        let op2EnvR2 = operatorParams.operator2.envelopeR2;
-        let op2EnvL2 = operatorParams.operator2.envelopeL2;
-        let op2EnvR3 = operatorParams.operator2.envelopeR3;
-        let op2EnvL3 = operatorParams.operator2.envelopeL3;
-        let op2EnvR4 = operatorParams.operator2.envelopeR4;
-        let op2EnvL4 = operatorParams.operator2.envelopeL4;
-        let op2LvlScaleBreak = operatorParams.operator2.levelScaleBreakPoint;
-        let op2LvlScaleLeftDepth = operatorParams.operator2.levelScaleLeftDepth;
-        let op2LvlScaleLeftCurve = parseInt(operatorParams.operator2.levelScaleLeftCurve);
-        let op2LvlScaleRightDepth = operatorParams.operator2.levelScaleRightDepth;
-        let op2LvlScaleRightCurve = parseInt(operatorParams.operator2.levelScaleRightCurve);
-        let op2OscMode = operatorParams.operator2.oscMode;
-        let op2FreqCoarse = operatorParams.operator2.freqCoarse;
-        let op2FreqFine = operatorParams.operator2.freqFine;
-        let op2Detune = operatorParams.operator2.detune;
-        let op2OscRateScale = operatorParams.operator2.oscRateScale;
-        let op2AmplitudeModSense = operatorParams.operator2.amplitudeModSense;
-        let op2KeyVelocitySense = operatorParams.operator2.keyVelocitySense;
-        let opOn3 = operatorParams.operator3.operatorOn;
-        let outLvl3 = operatorParams.operator3.outputLevel;
-        let op3EnvR1 = operatorParams.operator3.envelopeR1;
-        let op3EnvL1 = operatorParams.operator3.envelopeL1;
-        let op3EnvR2 = operatorParams.operator3.envelopeR2;
-        let op3EnvL2 = operatorParams.operator3.envelopeL2;
-        let op3EnvR3 = operatorParams.operator3.envelopeR3;
-        let op3EnvL3 = operatorParams.operator3.envelopeL3;
-        let op3EnvR4 = operatorParams.operator3.envelopeR4;
-        let op3EnvL4 = operatorParams.operator3.envelopeL4;
-        let op3LvlScaleBreak = operatorParams.operator3.levelScaleBreakPoint;
-        let op3LvlScaleLeftDepth = operatorParams.operator3.levelScaleLeftDepth;
-        let op3LvlScaleLeftCurve = parseInt(operatorParams.operator3.levelScaleLeftCurve);
-        let op3LvlScaleRightDepth = operatorParams.operator3.levelScaleRightDepth;
-        let op3LvlScaleRightCurve = parseInt(operatorParams.operator3.levelScaleRightCurve);
-        let op3OscMode = operatorParams.operator3.oscMode;
-        let op3FreqCoarse = operatorParams.operator3.freqCoarse;
-        let op3FreqFine = operatorParams.operator3.freqFine;
-        let op3Detune = operatorParams.operator3.detune;
-        let op3OscRateScale = operatorParams.operator3.oscRateScale;
-        let op3AmplitudeModSense = operatorParams.operator3.amplitudeModSense;
-        let op3KeyVelocitySense = operatorParams.operator3.keyVelocitySense;
-        let opOn4 = operatorParams.operator4.operatorOn;
-        let outLvl4 = operatorParams.operator4.outputLevel;
-        let op4EnvR1 = operatorParams.operator4.envelopeR1;
-        let op4EnvL1 = operatorParams.operator4.envelopeL1;
-        let op4EnvR2 = operatorParams.operator4.envelopeR2;
-        let op4EnvL2 = operatorParams.operator4.envelopeL2;
-        let op4EnvR3 = operatorParams.operator4.envelopeR3;
-        let op4EnvL3 = operatorParams.operator4.envelopeL3;
-        let op4EnvR4 = operatorParams.operator4.envelopeR4;
-        let op4EnvL4 = operatorParams.operator4.envelopeL4;
-        let op4LvlScaleBreak = operatorParams.operator4.levelScaleBreakPoint;
-        let op4LvlScaleLeftDepth = operatorParams.operator4.levelScaleLeftDepth;
-        let op4LvlScaleLeftCurve = parseInt(operatorParams.operator4.levelScaleLeftCurve);
-        let op4LvlScaleRightDepth = operatorParams.operator4.levelScaleRightDepth;
-        let op4LvlScaleRightCurve = parseInt(operatorParams.operator4.levelScaleRightCurve);
-        let op4OscMode = operatorParams.operator4.oscMode;
-        let op4FreqCoarse = operatorParams.operator4.freqCoarse;
-        let op4FreqFine = operatorParams.operator4.freqFine;
-        let op4Detune = operatorParams.operator4.detune;
-        let op4OscRateScale = operatorParams.operator4.oscRateScale;
-        let op4AmplitudeModSense = operatorParams.operator4.amplitudeModSense;
-        let op4KeyVelocitySense = operatorParams.operator4.keyVelocitySense;
-        let opOn5 = operatorParams.operator5.operatorOn;
-        let outLvl5 = operatorParams.operator5.outputLevel;
-        let op5EnvR1 = operatorParams.operator5.envelopeR1;
-        let op5EnvL1 = operatorParams.operator5.envelopeL1;
-        let op5EnvR2 = operatorParams.operator5.envelopeR2;
-        let op5EnvL2 = operatorParams.operator5.envelopeL2;
-        let op5EnvR3 = operatorParams.operator5.envelopeR3;
-        let op5EnvL3 = operatorParams.operator5.envelopeL3;
-        let op5EnvR4 = operatorParams.operator5.envelopeR4;
-        let op5EnvL4 = operatorParams.operator5.envelopeL4;
-        let op5LvlScaleBreak = operatorParams.operator5.levelScaleBreakPoint;
-        let op5LvlScaleLeftDepth = operatorParams.operator5.levelScaleLeftDepth;
-        let op5LvlScaleLeftCurve = parseInt(operatorParams.operator5.levelScaleLeftCurve);
-        let op5LvlScaleRightDepth = operatorParams.operator5.levelScaleRightDepth;
-        let op5LvlScaleRightCurve = parseInt(operatorParams.operator5.levelScaleRightCurve);
-        let op5OscMode = operatorParams.operator5.oscMode;
-        let op5FreqCoarse = operatorParams.operator5.freqCoarse;
-        let op5FreqFine = operatorParams.operator5.freqFine;
-        let op5Detune = operatorParams.operator5.detune;
-        let op5OscRateScale = operatorParams.operator5.oscRateScale;
-        let op5AmplitudeModSense = operatorParams.operator5.amplitudeModSense;
-        let op5KeyVelocitySense = operatorParams.operator5.keyVelocitySense;
-        let opOn6 = operatorParams.operator6.operatorOn;
-        let outLvl6 = operatorParams.operator6.outputLevel;
-        let op6EnvR1 = operatorParams.operator6.envelopeR1;
-        let op6EnvL1 = operatorParams.operator6.envelopeL1;
-        let op6EnvR2 = operatorParams.operator6.envelopeR2;
-        let op6EnvL2 = operatorParams.operator6.envelopeL2;
-        let op6EnvR3 = operatorParams.operator6.envelopeR3;
-        let op6EnvL3 = operatorParams.operator6.envelopeL3;
-        let op6EnvR4 = operatorParams.operator6.envelopeR4;
-        let op6EnvL4 = operatorParams.operator6.envelopeL4;
-        let op6LvlScaleBreak = operatorParams.operator6.levelScaleBreakPoint;
-        let op6LvlScaleLeftDepth = operatorParams.operator6.levelScaleLeftDepth;
-        let op6LvlScaleLeftCurve = parseInt(operatorParams.operator6.levelScaleLeftCurve);
-        let op6LvlScaleRightDepth = operatorParams.operator6.levelScaleRightDepth;
-        let op6LvlScaleRightCurve = parseInt(operatorParams.operator6.levelScaleRightCurve);
-        let op6OscMode = operatorParams.operator6.oscMode;
-        let op6FreqCoarse = operatorParams.operator6.freqCoarse;
-        let op6FreqFine = operatorParams.operator6.freqFine;
-        let op6Detune = operatorParams.operator6.detune;
-        let op6OscRateScale = operatorParams.operator6.oscRateScale;
-        let op6AmplitudeModSense = operatorParams.operator6.amplitudeModSense;
-        let op6KeyVelocitySense = operatorParams.operator6.keyVelocitySense;
+        let deepCopy = {...operatorParams};
+        
         switch (op) {
             case (1):
-                if (operatorParams.operator1.operatorOn === 'On') {
-                    opOn1 = 'Off';
+                if (deepCopy.operator1.operatorOn === 'On') {
+                    deepCopy.operator1.operatorOn = 'Off';
                 } else {
-                    opOn1 = 'On';
+                    deepCopy.operator1.operatorOn = 'On';
                 }
                 break;
             case (2):
-                if (operatorParams.operator2.operatorOn === 'On') {
-                    opOn2 = 'Off';
+                if (deepCopy.operator2.operatorOn === 'On') {
+                    deepCopy.operator2.operatorOn = 'Off';
                 } else {
-                    opOn2 = 'On';
+                    deepCopy.operator2.operatorOn = 'On';
                 }
                 break;
             case (3):
-                if (operatorParams.operator3.operatorOn === 'On') {
-                    opOn3 = 'Off';
+                if (deepCopy.operator3.operatorOn === 'On') {
+                    deepCopy.operator3.operatorOn = 'Off';
                 } else {
-                    opOn3 = 'On';
+                    deepCopy.operator3.operatorOn = 'On';
                 }
                 break;
             case (4):
-                if (operatorParams.operator4.operatorOn === 'On') {
-                    opOn4 = 'Off';
+                if (deepCopy.operator4.operatorOn === 'On') {
+                    deepCopy.operator4.operatorOn = 'Off';
                 } else {
-                    opOn4 = 'On';
+                    deepCopy.operator4.operatorOn = 'On';
                 }
                 break;
             case (5):
-                if (operatorParams.operator5.operatorOn === 'On') {
-                    opOn5 = 'Off';
+                if (deepCopy.operator5.operatorOn === 'On') {
+                    deepCopy.operator5.operatorOn = 'Off';
                 } else {
-                    opOn5 = 'On';
+                    deepCopy.operator5.operatorOn = 'On';
                 }
                 break;
             case (6):
-                if (operatorParams.operator6.operatorOn === 'On') {
-                    opOn6 = 'Off';
+                if (deepCopy.operator6.operatorOn === 'On') {
+                    deepCopy.operator6.operatorOn = 'Off';
                 } else {
-                    opOn6 = 'On';
+                    deepCopy.operator6.operatorOn = 'On';
                 }
                 break;
             default:
                 console.log('impossible onoff');
         }
 
-        setOperatorParams({
-            operator1: {
-                operatorOn: opOn1,
-                outputLevel: outLvl1,
-                envelopeR1: op1EnvR1,
-                envelopeL1: op1EnvL1,
-                envelopeR2: op1EnvR2,
-                envelopeL2: op1EnvL2,
-                envelopeR3: op1EnvR3,
-                envelopeL3: op1EnvL3,
-                envelopeR4: op1EnvR4,
-                envelopeL4: op1EnvL4,
-                levelScaleBreakPoint: op1LvlScaleBreak,
-                levelScaleLeftDepth: op1LvlScaleLeftDepth,
-                levelScaleLeftCurve: op1LvlScaleLeftCurve,
-                levelScaleRightDepth: op1LvlScaleRightDepth,
-                levelScaleRightCurve: op1LvlScaleRightCurve,
-                oscMode: op1OscMode,
-                freqCoarse: op1FreqCoarse,
-                freqFine: op1FreqFine,
-                detune: op1Detune,
-                oscRateScale: op1OscRateScale,
-                amplitudeModSense: op1AmplitudeModSense,
-                keyVelocitySense: op1KeyVelocitySense
-            },
-            operator2: {
-                operatorOn: opOn2,
-                outputLevel: outLvl2,
-                envelopeR1: op2EnvR1,
-                envelopeL1: op2EnvL1,
-                envelopeR2: op2EnvR2,
-                envelopeL2: op2EnvL2,
-                envelopeR3: op2EnvR3,
-                envelopeL3: op2EnvL3,
-                envelopeR4: op2EnvR4,
-                envelopeL4: op2EnvL4,
-                levelScaleBreakPoint: op2LvlScaleBreak,
-                levelScaleLeftDepth: op2LvlScaleLeftDepth,
-                levelScaleLeftCurve: op2LvlScaleLeftCurve,
-                levelScaleRightDepth: op2LvlScaleRightDepth,
-                levelScaleRightCurve: op2LvlScaleRightCurve,
-                oscMode: op2OscMode,
-                freqCoarse: op2FreqCoarse,
-                freqFine: op2FreqFine,
-                detune: op2Detune,
-                oscRateScale: op2OscRateScale,
-                amplitudeModSense: op2AmplitudeModSense,
-                keyVelocitySense: op2KeyVelocitySense
-            },
-            operator3: {
-                operatorOn: opOn3,
-                outputLevel: outLvl3,
-                envelopeR1: op3EnvR1,
-                envelopeL1: op3EnvL1,
-                envelopeR2: op3EnvR2,
-                envelopeL2: op3EnvL2,
-                envelopeR3: op3EnvR3,
-                envelopeL3: op3EnvL3,
-                envelopeR4: op3EnvR4,
-                envelopeL4: op3EnvL4,
-                levelScaleBreakPoint: op3LvlScaleBreak,
-                levelScaleLeftDepth: op3LvlScaleLeftDepth,
-                levelScaleLeftCurve: op3LvlScaleLeftCurve,
-                levelScaleRightDepth: op3LvlScaleRightDepth,
-                levelScaleRightCurve: op3LvlScaleRightCurve,
-                oscMode: op3OscMode,
-                freqCoarse: op3FreqCoarse,
-                freqFine: op3FreqFine,
-                detune: op3Detune,
-                oscRateScale: op3OscRateScale,
-                amplitudeModSense: op3AmplitudeModSense,
-                keyVelocitySense: op3KeyVelocitySense
-            },
-            operator4: {
-                operatorOn: opOn4,
-                outputLevel: outLvl4,
-                envelopeR1: op4EnvR1,
-                envelopeL1: op4EnvL1,
-                envelopeR2: op4EnvR2,
-                envelopeL2: op4EnvL2,
-                envelopeR3: op4EnvR3,
-                envelopeL3: op4EnvL3,
-                envelopeR4: op4EnvR4,
-                envelopeL4: op4EnvL4,
-                levelScaleBreakPoint: op4LvlScaleBreak,
-                levelScaleLeftDepth: op4LvlScaleLeftDepth,
-                levelScaleLeftCurve: op4LvlScaleLeftCurve,
-                levelScaleRightDepth: op4LvlScaleRightDepth,
-                levelScaleRightCurve: op4LvlScaleRightCurve,
-                oscMode: op4OscMode,
-                freqCoarse: op4FreqCoarse,
-                freqFine: op4FreqFine,
-                detune: op4Detune,
-                oscRateScale: op4OscRateScale,
-                amplitudeModSense: op4AmplitudeModSense,
-                keyVelocitySense: op4KeyVelocitySense
-            },
-            operator5: {
-                operatorOn: opOn5,
-                outputLevel: outLvl5,
-                envelopeR1: op5EnvR1,
-                envelopeL1: op5EnvL1,
-                envelopeR2: op5EnvR2,
-                envelopeL2: op5EnvL2,
-                envelopeR3: op5EnvR3,
-                envelopeL3: op5EnvL3,
-                envelopeR4: op5EnvR4,
-                envelopeL4: op5EnvL4,
-                levelScaleBreakPoint: op5LvlScaleBreak,
-                levelScaleLeftDepth: op5LvlScaleLeftDepth,
-                levelScaleLeftCurve: op5LvlScaleLeftCurve,
-                levelScaleRightDepth: op5LvlScaleRightDepth,
-                levelScaleRightCurve: op5LvlScaleRightCurve,
-                oscMode: op5OscMode,
-                freqCoarse: op5FreqCoarse,
-                freqFine: op5FreqFine,
-                detune: op5Detune,
-                oscRateScale: op5OscRateScale,
-                amplitudeModSense: op5AmplitudeModSense,
-                keyVelocitySense: op5KeyVelocitySense
-            },
-            operator6: {
-                operatorOn: opOn6,
-                outputLevel: outLvl6,
-                envelopeR1: op6EnvR1,
-                envelopeL1: op6EnvL1,
-                envelopeR2: op6EnvR2,
-                envelopeL2: op6EnvL2,
-                envelopeR3: op6EnvR3,
-                envelopeL3: op6EnvL3,
-                envelopeR4: op6EnvR4,
-                envelopeL4: op6EnvL4,
-                levelScaleBreakPoint: op6LvlScaleBreak,
-                levelScaleLeftDepth: op6LvlScaleLeftDepth,
-                levelScaleLeftCurve: op6LvlScaleLeftCurve,
-                levelScaleRightDepth: op6LvlScaleRightDepth,
-                levelScaleRightCurve: op6LvlScaleRightCurve,
-                oscMode: op6OscMode,
-                freqCoarse: op6FreqCoarse,
-                freqFine: op6FreqFine,
-                detune: op6Detune,
-                oscRateScale: op6OscRateScale,
-                amplitudeModSense: op6AmplitudeModSense,
-                keyVelocitySense: op6KeyVelocitySense
-            }
-        });
+        setOperatorParams(deepCopy);
         setPatchAltered(true);
+        sendSysexDump();
     }
 
     const handleOperatorClick = (op) => {
@@ -4653,6 +2724,7 @@ function VolcaFm() {
         setCurrentAlgorithmNumerical(val);
         setCurrentAlgorithm('_algorithm' + val.toString());
         setPatchAltered(true);
+        sendSysexDump();
     }
 
     const calculateBreakpointPitch = (val) => {
@@ -4723,11 +2795,17 @@ function VolcaFm() {
     }
 
     const noteOnEvent = (key) => {
+        let index = 0;
+        for (let i = 0; i < outputs.length; i++) {
+            if (outputs[i].id === currentOutput.id) {
+                index = i;
+            }
+        }
         switch (key.toLowerCase()) {
             case ('q'):
                 if (!keyEngaged.q) {
                     keyEngaged.q = true;
-                    currentOutput.send([0x90 | currentMidiChannel, rootNote, 0x7f]);
+                    outputs[index].send([0x90 | currentMidiChannel, rootNote, 0x7f]);
                 }
                 break;
             case ('2'):
@@ -4936,19 +3014,38 @@ function VolcaFm() {
         }
     }
     
-    function initInputs() {
-        setAvailableInputs(inputs);
-        setAvailableOutputs(outputs);
-        setCurrentOutput(availableOutputs[0].id);
-        setCurrentMidiChannel(midiOutput);
-
-        console.log(outputs);
-        for (const output of outputs) {
-            console.log(output);
-            midiOutput = output;
+    const panic = () => {
+        setPanicState('panicOn');
+        setVolcaFmContainerState('Inactive');
+        for (let i = 0; i < availableOutputs.length; i++) {
+            for (let channel = 0; channel < 16; channel++) {
+                for (let note = 0; note < 128; note++) {
+                    availableOutputs[i].send([0x80 | channel, note, 0x7f]);
+                }
+            }
         }
-        midiOutput = 0;
-        console.log(midiOutput);
+        setTimeout(() => {
+            setPanicState('panicOff');
+            setVolcaFmContainerState('Active');
+        }, availableOutputs.length * 2000);
+    }
+    
+    function initInputs() {
+        if (inputs.length > 0) {
+            setAvailableInputs(inputs);
+            setAvailableOutputs(outputs);
+            setCurrentOutput(availableOutputs[0]);
+            setCurrentMidiChannel(midiOutput);
+
+            console.log(outputs);
+            for (const output of outputs) {
+                console.log(output);
+                midiOutput = output;
+            }
+            midiOutput = 0;
+            console.log(midiOutput);
+        }
+        
     }
 
     function onMIDIFailure() {
@@ -4967,7 +3064,7 @@ function VolcaFm() {
     }
 
     function initiateMidiAccess() {
-        navigator.requestMIDIAccess()
+        navigator.requestMIDIAccess({ sysex: true })
             .then(onMIDISuccess, onMIDIFailure);
     }
 
@@ -5003,7 +3100,8 @@ function VolcaFm() {
                         onChange={(e) => patchNameUpdate(e.target.value)}
                         type="text"
                         value={globalParams.name}/>
-                    <button className={'volcaFmPanicButton' + volcaFmMonth}>panic!</button>
+                    <button className={'volcaFmPanicButton' + volcaFmMonth}
+                        onClick={() => panic()}>panic!</button>
                     <div className={'volcaFmSidebarManager' + volcaFmMonth}>
                         <div className={'sidebarContainer' + volcaFmMonth}>
                             <img className={'volcaImage1' + volcaFmMonth}
@@ -5017,7 +3115,7 @@ function VolcaFm() {
                             <p className={'midiOutputLabel' + volcaFmMonth}>midi output:</p>
                             <select className={'midiOutputSelect' + volcaFmMonth}
                                 onChange={(e) => updateCurrentOutput(e.target.value)}
-                                value={currentOutput}>
+                                value={getVisualOutput(currentOutput)}>
                                 {availableOutputs.map(out => (
                                 <option key={out.id} value={out.id}>{out.name}</option>))}
                             </select>
@@ -8657,6 +6755,9 @@ function VolcaFm() {
                     <button className={'saveAsButtons' + volcaFmMonth}
                         onClick={() => closeVolcaFmAboutDiv()}>close</button>
                 </div>
+            </div>
+            <div className={panicState + volcaFmMonth}>
+                <img src={currentSpinner} />
             </div>
         </div>
         );

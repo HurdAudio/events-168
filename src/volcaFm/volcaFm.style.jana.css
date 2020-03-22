@@ -10874,3 +10874,21 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 10px 25px 10px 45px;
     max-width: 950px;
 }
+
+.panicOn_JanuaryA {
+    height: 80%;
+    left: 10%;
+    opacity: 0.5;
+    position: absolute;
+    width: 80%;
+    z-index: 200;
+}
+
+.panicOff_JanuaryA {
+    display: none;
+}
+
+.panicOn_JanuaryA img {
+    opacity: 0.5;
+    width: 100%;
+}
