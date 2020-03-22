@@ -546,6 +546,32 @@ function VolcaFm() {
         sendSysexDump();
     }
     
+    const sysexMessage = () => {
+        let message = [
+            0xF0,                                           // status - start Sysex
+            0x43,                                           // id - yamaha (67)
+            0x01,                                           // sub-status
+            0x02,                                           // parameter group
+            globalParams.global.monoPoly,                   // begin message - mono/poly
+            globalParams.global.pitchBendRange,             // pitch bend range
+            globalParams.global.pitchBendStep,              // pitch bend step
+            globalParams.performance.portamentoMode,        // portamento mode
+            globalParams.performance.portamentoGliss,       // portamento gliss
+            globalParams.performance.portamentoTime,        // portamento time
+            globalParams.global.modulationWheelRange,       // modulation wheel range
+            globalParams.global.modulationWheelAssign,      // modulation wheel assign
+            globalParams.performance.footControlRange,      // foot control range
+            globalParams.performance.footControlAssign,     // foot control assign
+            globalParams.performance.breathControlRange,    // breath control range
+            globalParams.performance.breathControlAssign,   // breath control assign
+            globalParams.performance.aftertouchRange,       // aftertouch range
+            globalParams.performance.aftertouchAssign,      // aftertouch assign
+            0xf7                                            // 0b1111_0111 ; EOX
+        ];
+        
+        return message;
+    }
+    
     const sysexBuffer = () => {
         let checksum = 0;
         let nameArray = [];
@@ -755,6 +781,15 @@ function VolcaFm() {
         buffer.push(0xf7);
         
         return buffer;
+    }
+    
+    const sendSysexMessage = () => {
+        let message = sysexMessage();
+        let throttleTimer = 300;
+        
+        setTimeout(() => {
+            currentOutput.send(message);
+        }, throttleTimer);
     }
     
     const sendSysexDump = () => {
@@ -1168,7 +1203,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const assignModulationWheel = (val) => {
@@ -1178,7 +1213,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const toggleMonoPoly = () => {
@@ -1192,7 +1227,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const updatePitchBendRange = (val) => {
@@ -1202,7 +1237,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const updatePitchBendStep = (val) => {
@@ -1212,7 +1247,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const toggleGlissando = () => {
@@ -1226,7 +1261,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const toggleGlissandoMode = () => {
@@ -1240,7 +1275,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const updateGlissandoDepth = (val) => {
@@ -1250,7 +1285,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const updateFootControlRange = (val) => {
@@ -1260,7 +1295,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const setFootControlAssign = (val) => {
@@ -1270,7 +1305,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const setAftertouchAssign = (val) => {
@@ -1280,7 +1315,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const setBreathControlAssign = (val) => {
@@ -1290,7 +1325,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const updateAftertouchRange = (val) => {
@@ -1300,7 +1335,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const updateBreathControlRange = (val) => {
@@ -1310,7 +1345,7 @@ function VolcaFm() {
         
         setGlobalParams(deepCopy);
         setPatchAltered(true);
-        sendSysexDump();
+        sendSysexMessage();
     }
     
     const translateTransposeValue = (val) => {
