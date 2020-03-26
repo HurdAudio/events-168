@@ -18,7 +18,7 @@ import bandcamp from '../img/bandcamp.svg';
 
 function Social() {
     
-    const [socialMonth, setSocialMonth] = useState('_JanuaryA');
+    const [socialMonth, setSocialMonth] = useState('_JanuaryB');
     const [socialIcons, setSocialIcons] = useState({
         gitHub: 'socialGitHub',
         facebook: 'socialFacebook',
