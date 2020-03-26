@@ -23,7 +23,7 @@ const sequenceProjects = [
 
 function Sequencer() {
     
-    const [sequenceMonth, setSequenceMonth] = useState('_JanuaryA');
+    const [sequenceMonth, setSequenceMonth] = useState('_JanuaryB');
     
         return(
             <div className={'homeContainer' + sequenceMonth}>

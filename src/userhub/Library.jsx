@@ -70,7 +70,7 @@ const midiDevices = [
 
 function Library() {
     
-    const [libraryMonth, setLibraryMonth] = useState('_JanuaryA');
+    const [libraryMonth, setLibraryMonth] = useState('_JanuaryB');
     const [patchEditorState, setPatchEditorState] = useState({
         path: midiDevices[0].path,
         component: midiDevices[0].component
