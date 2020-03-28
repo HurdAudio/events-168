@@ -1,0 +1,104 @@
+.loginContainer_JanuaryC {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.loginImageDiv_JanuaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/january/fall_into_pieces_by_arbebuk_d8f5yg0-fullview.jpg);
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.loginOuterBox_JanuaryC {
+    backdrop-filter: brightness(130%);
+    background: #89bdd8;
+    height: 60vh;
+    left: 30%;
+    opacity: 0.7;
+    position: absolute;
+    top: 24%;
+    width: 50%;
+}
+
+.loginBoxContainer_JanuaryC {
+    background: transparent;
+    border: 2px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/january/fall_into_pieces_by_arbebuk_d8f5yg0-fullview.jpg) 50 stretch;
+    height: 52.5vh;
+    justify-content: center;
+    left: 32%;
+    perspective: 200px;
+    position: absolute;
+    top: 28%;
+    width: 45%;
+}
+
+.loginBoxContainer_JanuaryC input {
+    background: #aeb5c6;
+    border: none;
+    color: #06141d;
+    font-family: 'Spartan', sans-serif;
+    font-size: 24px;
+    margin: 24px 48px;
+    outline-color: #06141d;
+    padding: 5px 5px 5px 15px;
+    width: 80%;
+}
+
+.loginBoxContainer_JanuaryC input::placeholder {
+    color: #5c6b8c;
+}
+
+.loginBoxContainer_JanuaryC button {
+    background: #4c3e4f;
+    border: none;
+    color: #98abc1;
+    cursor: pointer;
+    font-family: 'Spartan', sans-serif;
+    font-size: 24px;
+    left: 41%;
+    margin-top: 18px;
+    outline-color: #98abc1;
+    padding: 5px;
+    position: relative;
+    transition: all 0.2s linear;
+}
+.loginBoxContainer_JanuaryC button:hover {
+    background: #98abc1;
+    color: #261f21;
+    transition: all 0.2s linear;
+}
+
+.loginTitle_JanuaryC {
+    color: #06141d;
+    font-family: 'Spartan', sans-serif;
+    font-size: 36px;
+    margin: 24px 48px 12px 48px;
+}
+
+.loginErrorMessaging_JanuaryC {
+    color: #ff0000;
+    font-family: 'Spartan', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 24px 48px;
+    padding: 6px;
+    width: 78%;
+}
+
+.loginSubmitHide_JanuaryC {
+    visibility: hidden;
+}
+
+.loginSubmitShow_JanuaryC {
+    visibility: visible;
+}
