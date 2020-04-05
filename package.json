@@ -2,20 +2,28 @@
   "name": "events-168",
   "version": "0.1.0",
   "private": true,
+  "main": "./server.js",
   "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "knex": "^0.20.9",
+    "knex": "^0.20.13",
+    "nodemon": "^2.0.2",
+    "path": "^0.12.7",
     "pg": "^7.18.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "request": "^2.88.2"
   },
   "devDependencies": {},
   "engines": {
-    "node": "8.10.0"
+    "node": "10.0.0"
   },
   "scripts": {
+    "knex": "knex",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
