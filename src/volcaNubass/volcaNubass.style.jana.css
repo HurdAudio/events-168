@@ -1,0 +1,672 @@
+.volcaNubassEditorContainerActive_JanuaryA {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaNubassEditorContainerInactive_JanuaryA {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaNubassEditorImageDiv_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassEditor/january/ice_residence_by_kpekep_d6tc48r-fullview.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [row9] 12.5% [rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.volcaNubassEditorTopBar_JanuaryA {
+    backdrop-filter: blur(15px) brightness(150%) hue-rotate(-135deg);
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.volcaNubassNavImage_JanuaryA {
+    cursor: pointer;
+    filter: contrast(80%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.volcaNubassNavImage_JanuaryA:hover {
+    filter: contrast(110%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassEditorTitle_JanuaryA {
+    color: #000e65;
+    filter: brightness(50%) saturate(100%);
+    font-family: 'Iceberg', cursive;
+    font-size: 42px;
+    grid-column: col2 / col7;
+    grid-row: row1 / row2;
+    margin: 5px;
+    z-index: 55;
+}
+
+.volcaNubassSidebarManager_JanuaryA {
+    backdrop-filter: blur(4px) hue-rotate(-45deg);
+    background: radial-gradient(closest-corner, #acdaf2, #80b2c7, #8087b2);
+    border-right: 3px solid #1c43aa;
+    box-sizing: border-box;
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 0.9;
+}
+
+.volcaNubassVacuumTubeOscillator_JanuaryA {
+    backdrop-filter: blur(10px) sepia(25%);
+    grid-column: col3 / col8;
+    grid-row: row2 / row6;
+    padding: 1vh 2vw;
+}
+
+.volcaNubassVoltageControlledFilterContainer_JanuaryA {
+    backdrop-filter: blur(4px) brightness(80%) hue-rotate(-90deg) saturate(60%);
+    grid-column: col5 / rightEdge;
+    grid-row: row6 / rowEnd;
+    padding: 1vh 2vw;
+}
+
+.volcaNubassFaceplateParamsContainer_JanuaryA {
+    backdrop-filter: saturate(150%) sepia(40%);
+    grid-column: col3 / col5;
+    grid-row: row6 / rowEnd;
+}
+
+.volcaNubassVacuumTubeOscLabel_JanuaryA {
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 24px;
+    margin: 2vh 0 0 0;
+}
+
+.voclaNubassVacuum_JanuaryA {
+    background: #59b5e4;
+    border-radius: 40%;
+    float: right;
+    height: 60px;
+    position: relative;
+    top: 0;
+    width: 60%;
+}
+
+.volcaNubassFilament_JanuaryA {
+    background: #1c43aa;
+    border-radius: 45%;
+    height: 20%;
+    left: 10%;
+    position: relative;
+    top: 40%;
+    width: 80%;
+    
+}
+
+.volcaNubassVacuumTubeOscContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [vcol1] 1fr [vcol2] 1fr [vcol3] 1fr [vcol4] 1fr [vcol5] 1fr [vcol6] 1fr [vcol7] 1fr [vcol8] 1fr [vcol9] 1fr [vcol10] 1fr [vcol11] 1fr [vcol12] 1fr [vcol13] 1fr [vcol14] 1fr [vcol15] 1fr [vcol16] 1fr [vcol17] 1fr [vcol18] 1fr [vcol19] 1fr [vcol20] 1fr [vcol21] 1fr [vcol22] 1fr [vcol23] 1fr [vcol24] 1fr [rightEdge];
+    grid-template-rows: [vrow1] 1fr [vrow2] 1fr [vrow3] 1fr [vrow4] 1fr [vrow5] 1fr [rowEnd];
+    height: 71%;
+    position: relative;
+    top: 10%;
+    width: 100%;
+}
+
+.volcaNubassTubeOscPitchLabel_JanuaryA {
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 18px;
+    grid-column: vcol1 / vcol2;
+    grid-row: vrow1 / vrow2;
+}
+
+
+.volcaNubassTubeOscLeverContainerPitch_JanuaryA {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    grid-column: vcol3 / vcol4;
+    grid-row: vrow1 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassOscLever_JanuaryA {
+    -webkit-appearance: none;
+    border: 2px solid #1c43aa;
+    cursor: pointer;
+    height: 15px;
+    outline: 0;
+    position: relative;
+    overflow: hidden;
+    transform: rotateZ(-90deg) translateX(-103px) translateY(-106px);
+    width: 225px;
+}
+
+.volcaNubassOscLever_JanuaryA::-webkit-slider-runnable-track {
+    background: #8087b2;
+}
+
+.volcaNubassOscLever_JanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #59b5e4;
+    box-shadow: -100vw 0 0 100vw #59b5e4;
+    filter: brightness(300%) saturate(500%);
+    height: 20px;
+    transform-origin: bottom right;
+    width: 10px;
+}
+
+.volcaNubassTubeOscSubOscLabel_JanuaryA {
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 24px;
+    grid-column: vcol6 / vcol11;
+    grid-row: vrow3 / vrow4;
+}
+
+.volcaNubassTubeOscSaturationLabel_JanuaryA {
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 18px;
+    grid-column: vcol11 / vcol12;
+    grid-row: vrow1 / vrow2;
+}
+
+.volcaNubassTubeOscLeverContainerSaturation_JanuaryA {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    grid-column: vcol13 / vcol14;
+    grid-row: vrow1 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassTubeOscLevelLabel_JanuaryA {
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 18px;
+    grid-column: vcol17 / vcol18;
+    grid-row: vrow1 / vrow2;
+}
+
+.volcaNubassTubeOscLeverContainerLevel_JanuaryA {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    grid-column: vcol20 / vcol22;
+    grid-row: vrow1 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVCALabel_JanuaryA {
+    color: #dee9eb;
+    font-family: 'Iceberg', cursive;
+    font-size: 24px;
+    margin: 2vh 0 0 0;
+}
+
+.volcaNubassVCFParamsContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [fcol1] 1fr [fcol2] 1fr [fcol3] 1fr [fcol4] 1fr [fcol5] 1fr [fcol6] 1fr [fcol7] 1fr [fcol8] 1fr [fcol9] 1fr [fcol10] 1fr [fcol11] 1fr [fcol12] 1fr [fcol13] 1fr [fcol14] 1fr [fcol15] 1fr [fcol16] 1fr [fcol17] 1fr [fcol18] 1fr [fcol19] 1fr [fcol20] 1fr [fcol21] 1fr [fcol22] 1fr [fcol23] 1fr [fcol24] 1fr [fcol25] 1fr [fcol26] 1fr [fcol27] 1fr [fcol28] 1fr [fcoll29] 1fr [fcol30] 1fr [fcol31] 1fr [fcol32] 1fr [fcol33] 1fr [fcol34] 1fr [fcol35] 1fr [fcol36] 1fr [fcol37] 1fr [fcol38] 1fr [fcol39] 1fr [fcol40] 1fr [rightEdge];
+    grid-template-rows: [frow1] 1fr [frow2] 1fr [frow3] 1fr [frow4] 1fr [frow5] 1fr [rowEnd];
+    height: 80%;
+    position: relative;
+    top: 10%;
+    width: 100%;
+}
+
+.volcaNubassVFCCutoffLabel_JanuaryA {
+    color: #dee9eb;
+    font-family: 'Iceberg', cursive;
+    font-size: 30px;
+    grid-column: fcol1 / fcol2;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerCutoff_JanuaryA {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    grid-column: fcol2 / fcol3;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCPeakLabel_JanuaryA {
+    color: #dee9eb;
+    font-family: 'Iceberg', cursive;
+    font-size: 30px;
+    grid-column: fcol5 / fcol6;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerPeak_JanuaryA {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    grid-column: fcol6 / fcol7;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCAttackLabel_JanuaryA {
+    color: #dee9eb;
+    font-family: 'Iceberg', cursive;
+    font-size: 30px;
+    grid-column: fcol9 / fcol10;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerAttack_JanuaryA {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    grid-column: fcol10 / fcol11;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCDecayLabel_JanuaryA {
+    color: #dee9eb;
+    font-family: 'Iceberg', cursive;
+    font-size: 30px;
+    grid-column: fcol13 / fcol14;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerDecay_JanuaryA {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    grid-column: fcol14 / fcol15;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCEgIntLabel_JanuaryA {
+    color: #dee9eb;
+    font-family: 'Iceberg', cursive;
+    font-size: 30px;
+    grid-column: fcol17 / fcol21;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerEgInt_JanuaryA {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    grid-column: fcol21 / fcol22;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCAccentLabel_JanuaryA {
+    color: #dee9eb;
+    font-family: 'Iceberg', cursive;
+    font-size: 30px;
+    grid-column: fcol24 / fcol25;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerAccent_JanuaryA {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    grid-column: fcol25 / fcol26;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCLFORateLabel_JanuaryA {
+    color: #dee9eb;
+    font-family: 'Iceberg', cursive;
+    font-size: 30px;
+    grid-column: fcol28 / fcol33;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerLFORate_JanuaryA {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    grid-column: fcol32 / fcol33;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCLFOIntLabel_JanuaryA {
+    color: #dee9eb;
+    font-family: 'Iceberg', cursive;
+    font-size: 30px;
+    grid-column: fcol35 / fcol39;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerLFOInt_JanuaryA {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    grid-column: fcol39 / fcol40;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassFaceplateParamsGrid_JanuaryA {
+    display: grid;
+    grid-template-columns: [fpcol1] 1fr [fpcol2] 1fr [fpcol3] 1fr [fpcol4] 1fr [rightEdge];
+    grid-template-rows: [fprow1] 14.25% [fprow2] 14.25% [fprow3] 14.25% [fprow4] 14.25% [fprow5] 14.25% [fprow6] 14.25% [fprow7] 14.25% [rowEnd];
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.volcaNubassVTOWaveEdit_JanuaryA {
+    background: radial-gradient(closest-corner, #839ac2, #acdaf2, transparent);
+    grid-column: fpcol1 / rightEdge;
+    grid-row: fprow1 / fprow2;
+}
+
+.volcaNubassVTOWaveLabelDiv_JanuaryA {
+    border-bottom: 1px solid #1c43aa;
+    box-sizing: border-box;
+    height: 35%;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.volcaNubassVTOWaveLabel_JanuaryA {
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 120%;
+    margin: 0 12%;
+}
+
+.volcaNubassVTOInteractDiv_JanuaryA {
+    align-content: center;
+    border-bottom: 1px solid #1c43aa;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 65%;
+    justify-content: center;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.volcaNubassVTOInteractDiv_JanuaryA p {
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 24px;
+    margin: 5% 10%;
+}
+
+.vtoWaveformSwitchtrue_JanuaryA {
+    background: #1c43aa;
+    height: 9.25%;
+    left: 0;
+    position: fixed;
+    top: 5%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.vtoWaveformSwitchfalse_JanuaryA {
+    background: #1c43aa;
+    height: 9.25%;
+    left: 50%;
+    position: fixed;
+    top: 5%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.volcaNubassLFOWaveEdit_JanuaryA {
+    background: radial-gradient(closest-corner, #839ac2, #acdaf2, transparent);
+    grid-column: fpcol1 / rightEdge;
+    grid-row: fprow2 / fprow3;
+}
+
+.lfoWaveformSwitchtrue_JanuaryA {
+    background: #1c43aa;
+    height: 9.25%;
+    left: 0;
+    position: fixed;
+    top: 19.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoWaveformSwitchfalse_JanuaryA {
+    background: #1c43aa;
+    height: 9.25%;
+    left: 50%;
+    position: fixed;
+    top: 19.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.volcaNubassLFOTarget_JanuaryA {
+    background: radial-gradient(closest-corner, #839ac2, #acdaf2, transparent);
+    grid-column: fpcol1 / rightEdge;
+    grid-row: fprow3 / fprow6;
+}
+
+.volcaNubassLFOTargetLabelDiv_JanuaryA {
+    height: 10%;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.volcaNubassLFOTargetLabelDiv_JanuaryA p {
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 120%;
+    margin: 0 25%;
+}
+
+.lfoTargetDiv_JanuaryA {
+    height: 30%;
+    width: 100%;
+}
+
+.lfoTargetLabelDiv_JanuaryA {
+    border-bottom: 1px solid #1c43aa;
+    box-sizing: border-box;
+    height: 35%;
+    width: 100%;
+}
+
+.lfoTargetLabelDiv_JanuaryA p {
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 120%;
+    margin: 0 5%; 
+}
+
+.lfoTargetInteractiveDiv_JanuaryA {
+    align-content: center;
+    border-bottom: 1px solid #1c43aa;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 65%;
+    justify-content: center;
+    width: 100%;
+}
+
+.lfoTargetInteractiveDiv_JanuaryA p {
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 24px;
+    margin: 5% 12%;
+}
+
+.lfoTargetAmpSwitchtrue_JanuaryA {
+    background: #1c43aa;
+    height: 8.5%;
+    left: 0;
+    position: fixed;
+    top: 37.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoTargetAmpSwitchfalse_JanuaryA {
+    background: #1c43aa;
+    height: 8.5%;
+    left: 50%;
+    position: fixed;
+    top: 37.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoTargetPitchSwitchtrue_JanuaryA {
+    background: #1c43aa;
+    height: 8.25%;
+    left: 0;
+    position: fixed;
+    top: 50%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoTargetPitchSwitchfalse_JanuaryA {
+    background: #1c43aa;
+    height: 8.25%;
+    left: 50%;
+    position: fixed;
+    top: 50%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoTargetCutoffSwitchtrue_JanuaryA {
+    background: #1c43aa;
+    height: 8.25%;
+    left: 0;
+    position: fixed;
+    top: 63%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoTargetCutoffSwitchfalse_JanuaryA {
+    background: #1c43aa;
+    height: 8.25%;
+    left: 50%;
+    position: fixed;
+    top: 63%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.volcaNubassLFOSyncEdit_JanuaryA {
+    background: radial-gradient(closest-corner, #839ac2, #acdaf2, transparent);
+    grid-column: fpcol1 / rightEdge;
+    grid-row: fprow6 / fprow7;
+}
+
+.lfoSyncformSwitchtrue_JanuaryA {
+    background: #1c43aa;
+    height: 9.25%;
+    left: 0;
+    position: fixed;
+    top: 76.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoSyncformSwitchfalse_JanuaryA {
+    background: #1c43aa;
+    height: 9.25%;
+    left: 50%;
+    position: fixed;
+    top: 76.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.volcaNubassSustainEdit_JanuaryA {
+    background: radial-gradient(closest-corner, #839ac2, #acdaf2, transparent);
+    grid-column: fpcol1 / rightEdge;
+    grid-row: fprow7 / rowEnd;
+}
+
+.sustainformSwitchtrue_JanuaryA {
+    background: #1c43aa;
+    height: 9.25%;
+    left: 0;
+    position: fixed;
+    top: 90.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.sustainformSwitchfalse_JanuaryA {
+    background: #1c43aa;
+    height: 9.25%;
+    left: 50%;
+    position: fixed;
+    top: 90.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}

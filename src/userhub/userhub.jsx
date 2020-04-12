@@ -18,6 +18,7 @@ import './userhub.style.janb.css';
 import midi5pin from '../img/midi5pin.svg';
 import redMIDI from '../img/redMIDI.png';
 import VolcaFm from '../volcaFm/volcaFm';
+import VolcaNubass from '../volcaNubass/volcaNubass';
 
 let localStorage = window.localStorage;
 
@@ -195,6 +196,9 @@ function UserHub() {
                 <Switch>
                     <Route path="/volca-fm-editor">
                         <VolcaFm />
+                    </Route>
+                    <Route path="/volca-nubass-editor">
+                        <VolcaNubass />
                     </Route>
                 </Switch>
                 <div className={'userHubContainer' + userhubMonth}>

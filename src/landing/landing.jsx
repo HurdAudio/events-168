@@ -14,6 +14,7 @@ import './landing.style.janb.css';
 import './landing.style.janc.css';
 import Login from '../login/login';
 import volcaFm from '../volcaFm/volcaFm';
+import volcaNubass from '../volcaNubass/volcaNubass';
 
 
 function Landing() {
@@ -143,6 +144,9 @@ function Landing() {
                 </Route>
                 <Route path="/volca-fm-editor">
                     <volcaFm />
+                </Route>
+                <Route path="/volca-nubass-editor">
+                    <volcaNubass />
                 </Route>
             </Switch>
         </Router>

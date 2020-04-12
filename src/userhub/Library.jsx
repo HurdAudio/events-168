@@ -20,7 +20,9 @@ const midiDevices = [
     },
     {
         uuid: '149c3b5d-74f7-4241-bcb9-b907dea6081f',
-        name: 'korg nubass'
+        name: 'korg nubass',
+        path: '/volca-nubass-editor',
+        component: '<volcaNubass />'
     },
     {
         uuid: '9addd793-6101-408f-899c-4ade38a4e730',
@@ -77,6 +79,21 @@ function Library() {
     });
     const [patchEditorActive, setPatchEditorActive] = useState(false);
     
+    const updateEditorPath = (val) => {
+        let path, component;
+        
+        for (let i = 0; i < midiDevices.length; i++) {
+            if (midiDevices[i].uuid === val) {
+                path = midiDevices[i].path;
+                component = midiDevices[i].component;
+            }
+        }
+        setPatchEditorState({
+            path: path,
+            component: component
+        });
+    }
+    
     function navigateToEditor() {
         
     }
@@ -90,7 +107,8 @@ function Library() {
                         <img className={'homeMidiBullet' + libraryMonth} 
                             src={midi5pin}></img>
                         <p className={'homeDropdownLabel' + libraryMonth}>patch editor:</p>
-                        <select className={'homeDropdown' + libraryMonth}>
+                        <select className={'homeDropdown' + libraryMonth}
+                            onChange={(e) => updateEditorPath(e.target.value)}>
                             {midiDevices.map(item => 
                                 <option key={item.uuid} value={item.uuid}>{item.name}</option>
                             )}
