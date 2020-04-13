@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import './volcaNubass.style.jana.css';
 import midi5pin from '../img/midi5pin.svg';
+import volcaNubassImg1 from '../img/volcaNubassImg1.png';
 
 function VolcaNubass() {
     
@@ -30,13 +31,13 @@ function VolcaNubass() {
     let keyEngaged = {};
 
     const [panicState, setPanicState] = useState('panicOff');
-    const [currentSpinner, setCurrentSpinner] = useState('https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/january/spinner/smile_loader_by_gleb.gif');
+    const [nubassContainerState, setNubassContainerState] = useState('Active');
+    const [currentSpinner, setCurrentSpinner] = useState('https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif');
     const [volcaNubassEditMonth, setVolcaNubassEditMonth] = useState('_JanuaryA');
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState(0);
     const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
-    const [volcaNubassContainerState, setVolcaNubassContainerState] = useState('Active');
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [nubassParameters, setNubassParameters] = useState({
         pitch: 64,
@@ -61,6 +62,117 @@ function VolcaNubass() {
         lfoSync: false,
         sustain: false
     });
+    
+    const [nubassGlobalParams, setNubassGlobalParams] = useState({
+        name: 'default',
+        pan: 64,
+        portamento: false,
+        portamentoTime: 0
+    });
+    const [patchAltered, setPatchAltered] = useState(true);
+    const [saveAsDialog, setSaveAsDialog] = useState('Inactive');
+    const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('Inactive');
+    
+    const openVolcaNubassAboutDiv = () => {
+        return;
+    }
+    
+    const initPatch = () => {
+        setPatchAltered(true);
+        setNubassParameters({
+            pitch: 64,
+            saturation: 0,
+            level: 0,
+            cutoff: 32,
+            peak: 0,
+            attack: 13,
+            decay: 16,
+            egInt: 32,
+            accent: 12,
+            lfoRate: 8,
+            lfoInt: 8 
+        });
+    }
+    
+    const makeRandomPatch = () => {
+        setNubassParameters({
+            pitch: Math.floor(Math.random() * 128),
+            saturation: Math.floor(Math.random() * 128),
+            level: Math.floor(Math.random() * 128),
+            cutoff: Math.floor(Math.random() * 128),
+            peak: Math.floor(Math.random() * 128),
+            attack: Math.floor(Math.random() * 128),
+            decay: Math.floor(Math.random() * 128),
+            egInt: Math.floor(Math.random() * 128),
+            accent: Math.floor(Math.random() * 128),
+            lfoRate: Math.floor(Math.random() * 128),
+            lfoInt: Math.floor(Math.random() * 128) 
+        });
+    }
+    
+    const updateCurrentMidiChannel = (val) => {
+        setCurrentMidiChannel(val);
+    }
+    
+    const getVisualOutput = (val) => {
+        console.log(val);
+    }
+    
+    const updateCurrentOutput = (val) => {
+        let index = 0;
+        for (let i = 0; i < availableOutputs.length; i++) {
+            if (availableOutputs[i].id === val) {
+                index = i;
+            }
+        }
+        setCurrentOutput(availableOutputs[index]);
+    }
+    
+    const revertPatch = () => {
+        setPatchAltered(false);
+    }
+    
+    const executeSaveAsDialog = () => {
+        setSaveAsDialogStatus('Active');
+        setNubassContainerState('Inactive');
+        document.getElementById('saveAsInput').focus();
+    }
+    
+    const savePatch = () => {
+        setPatchAltered(false);
+    }
+    
+    const patchNameUpdate = (val) => {
+        let deepCopy = {...nubassGlobalParams};
+        
+        deepCopy.name = val;
+        
+        setNubassGlobalParams(deepCopy);
+    }
+    
+    const updatePortamentoTime = (val) => {
+        let deepCopy = {...nubassGlobalParams};
+        
+        deepCopy.portamentoTime = val;
+        
+        setNubassGlobalParams(deepCopy);
+    }
+    
+    const togglePortamento = () => {
+        let deepCopy = {...nubassGlobalParams};
+        
+        deepCopy.portamento = !deepCopy.portamento;
+        
+        setNubassGlobalParams(deepCopy);
+    }
+    
+    const updatePan = (val) => {
+        let deepCopy = {...nubassGlobalParams};
+        
+        deepCopy.pan = val;
+        
+        setNubassGlobalParams(deepCopy);
+    }
     
     const toggleVtoWave = () => {
         let deepCopy = {...nubassFaceplateParams};
@@ -428,7 +540,7 @@ function VolcaNubass() {
     
     const panic = () => {
         setPanicState('panicOn');
-//        setVolcaFmContainerState('Inactive');
+        setNubassContainerState('Inactive');
         for (let i = 0; i < availableOutputs.length; i++) {
             for (let channel = 0; channel < 16; channel++) {
                 for (let note = 0; note < 128; note++) {
@@ -438,7 +550,7 @@ function VolcaNubass() {
         }
         setTimeout(() => {
             setPanicState('panicOff');
-//            setVolcaFmContainerState('Active');
+            setNubassContainerState('Active');
         }, availableOutputs.length * 2000);
     }
     
@@ -484,7 +596,7 @@ function VolcaNubass() {
     
     return (
         <div>
-            <div className={'volcaNubassEditorContainer' + volcaNubassContainerState + volcaNubassEditMonth}
+            <div className={'volcaNubassEditorContainer' + nubassContainerState + volcaNubassEditMonth}
                 tabIndex="1"
                 onKeyDown={(e) => noteOnEvent(e.key)}
                 onKeyUp={(e) => noteOffEvent(e.key)}>
@@ -494,7 +606,46 @@ function VolcaNubass() {
                             src={midiImage}></img></NavLink>
                     </div>
                     <h3 className={'volcaNubassEditorTitle' + volcaNubassEditMonth}>Volca Nubass Editor</h3>
-                    <div className={'volcaNubassSidebarManager' + volcaNubassEditMonth}></div>
+                    <input className={'patchNameInput' + volcaNubassEditMonth}
+                        onChange={(e) => patchNameUpdate(e.target.value)}
+                        type="text"
+                        value={nubassGlobalParams.name}/>
+                    <button className={'volcaNubassPanicButton' + volcaNubassEditMonth}
+                        onClick={() => panic()}>panic!</button>
+                    <div className={'volcaNubassSidebarManager' + volcaNubassEditMonth}>
+                        <div className={'sidebarContainer' + volcaNubassEditMonth}>
+                            <img className={'nubassImage1' + volcaNubassEditMonth}
+                                src={volcaNubassImg1} />
+                            <button className={'saveButton' + patchAltered + volcaNubassEditMonth}
+                                onClick={() => savePatch()}>save</button>
+                            <button className={'saveAsButton' + volcaNubassEditMonth}
+                                onClick={() => executeSaveAsDialog()}>save as...</button>
+                            <button className={'revertButton' + patchAltered + volcaNubassEditMonth}
+                                onClick={() => revertPatch()}>revert</button>
+                            <p className={'midiOutputLabel' + volcaNubassEditMonth}>midi output:</p>
+                            <select className={'midiOutputSelect' + volcaNubassEditMonth}
+                                onChange={(e) => updateCurrentOutput(e.target.value)}
+                                value={getVisualOutput(currentOutput)}>
+                                {availableOutputs.map(out => (
+                                <option key={out.id} value={out.id}>{out.name}</option>))}
+                            </select>
+                            <p className={'midiChannelLabel' + volcaNubassEditMonth}>channel:</p>
+                            <input className={'midiChannelInput' + volcaNubassEditMonth}
+                                max="15"
+                                min="0"
+                                onChange={(e) => updateCurrentMidiChannel(parseInt(e.target.value))}
+                                step="1"
+                                type="number"
+                                value={currentMidiChannel}/>
+                            
+                            <button className={'initButton' + volcaNubassEditMonth}
+                                onClick={() => initPatch()}>init</button>
+                            <button className={'randomButton' + volcaNubassEditMonth}
+                                onClick={() => makeRandomPatch()}>random</button>
+                            <button className={'aboutNubassButton' + volcaNubassEditMonth}
+                                onClick={() => openVolcaNubassAboutDiv()}>about</button>
+                        </div>
+                    </div>
                     <div className={'volcaNubassVacuumTubeOscillator' + volcaNubassEditMonth}>
                         <div className={'voclaNubassVacuum' + volcaNubassEditMonth}
                             style={{filter: 'saturate(' + 50 + (nubassParameters.saturation/127) + '%)', opacity: nubassParameters.level/127}}>
@@ -533,6 +684,37 @@ function VolcaNubass() {
                                     onChange={(e) => updateLevelValue(e.target.value)}
                                     type="range"
                                     value={nubassParameters.level} />
+                            </div>
+                        </div>
+                    </div>
+                    <div className={'volcaNubassGlobalsEditFace' + volcaNubassEditMonth}>
+                        <div className={'volcaNubassGlobalsContainer' + volcaNubassEditMonth}>
+                            <p className={'volcaNubassPanLabel' + volcaNubassEditMonth}>pan</p>
+                            <div className={'volcaNubassGlobalsLeverContainer' + volcaNubassEditMonth}>
+                                <input 
+                                    className={'volcaNubassOscLever2' + volcaNubassEditMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updatePan(e.target.value)}
+                                    type="range"
+                                    value={nubassGlobalParams.pan} />
+                            </div>
+                            <p className={'volcaNubassPortamentoOnOffLabel' + volcaNubassEditMonth}>portamento</p>
+                            <div className={'volcaNubassPortamentoOnOffSwitchDiv' + volcaNubassEditMonth}
+                                onClick={() => togglePortamento()}>
+                                <p>off</p>
+                                <p>on</p>
+                                <div class={'portamentoSwitch' + nubassGlobalParams.portamento + volcaNubassEditMonth}></div>
+                            </div>
+                            <p className={'volcaNubassPortomentoTimeLabel' + volcaNubassEditMonth}>portamento time</p>
+                            <div className={'volcaNubassGlobalsLeverContainerPort' + volcaNubassEditMonth}>
+                                <input 
+                                    className={'volcaNubassOscLever2' + volcaNubassEditMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updatePortamentoTime(e.target.value)}
+                                    type="range"
+                                    value={nubassGlobalParams.portamentoTime} />
                             </div>
                         </div>
                     </div>
@@ -704,6 +886,9 @@ function VolcaNubass() {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={panicState + volcaNubassEditMonth}>
+                <img src={currentSpinner} />
             </div>
         </div>
         );
