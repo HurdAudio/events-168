@@ -27,7 +27,7 @@ function VolcaNubass() {
     let inputs = null;
     let outputs = null;
     let midiChannel = 0;
-    let rootNote = 60;
+    let rootNote = 36;
     let keyEngaged = {};
 
     const [panicState, setPanicState] = useState('panicOff');
@@ -69,12 +69,42 @@ function VolcaNubass() {
         portamento: false,
         portamentoTime: 0
     });
-    const [patchAltered, setPatchAltered] = useState(true);
+    const [patchAltered, setPatchAltered] = useState(false);
     const [saveAsDialog, setSaveAsDialog] = useState('Inactive');
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('Inactive');
+    const [saveAsName, setSaveAsName] = useState('');
+    const [aboutVolcaNubassDivState, setAboutVolcaNubassDivState] = useState('Inactive');
+    
+    const submitSaveAsDialog = (val) => {
+        let deepCopy = {...nubassGlobalParams};
+        
+        if (val === '') {
+            return;
+        } else {
+            deepCopy.name = val;
+            setNubassGlobalParams(deepCopy);
+            setSaveAsDialogStatus('Inactive'); 
+            setNubassContainerState('Active');
+        }
+    }
+    
+    const cancelSaveAsDialog = () => {
+        setSaveAsDialogStatus('Inactive'); 
+        setNubassContainerState('Active');
+    }
+    
+    const updateChangeAsName = (val) => {
+        setSaveAsName(val);
+    }
     
     const openVolcaNubassAboutDiv = () => {
-        return;
+        setNubassContainerState('Inactive');
+        setAboutVolcaNubassDivState('Active');
+    }
+    
+    const closeVolcaNubassAboutDiv = () => {
+        setNubassContainerState('Active');
+        setAboutVolcaNubassDivState('Inactive');
     }
     
     const initPatch = () => {
@@ -92,6 +122,7 @@ function VolcaNubass() {
             lfoRate: 8,
             lfoInt: 8 
         });
+        setPatchAltered(true);
     }
     
     const makeRandomPatch = () => {
@@ -108,6 +139,7 @@ function VolcaNubass() {
             lfoRate: Math.floor(Math.random() * 128),
             lfoInt: Math.floor(Math.random() * 128) 
         });
+        setPatchAltered(true);
     }
     
     const updateCurrentMidiChannel = (val) => {
@@ -148,6 +180,7 @@ function VolcaNubass() {
         deepCopy.name = val;
         
         setNubassGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updatePortamentoTime = (val) => {
@@ -156,6 +189,7 @@ function VolcaNubass() {
         deepCopy.portamentoTime = val;
         
         setNubassGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const togglePortamento = () => {
@@ -164,6 +198,7 @@ function VolcaNubass() {
         deepCopy.portamento = !deepCopy.portamento;
         
         setNubassGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updatePan = (val) => {
@@ -172,6 +207,7 @@ function VolcaNubass() {
         deepCopy.pan = val;
         
         setNubassGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const toggleVtoWave = () => {
@@ -180,6 +216,7 @@ function VolcaNubass() {
         deepCopy.vtoWave = !deepCopy.vtoWave;
         
         setNubassFaceplateParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const toggleLfoWave = () => {
@@ -188,6 +225,7 @@ function VolcaNubass() {
         deepCopy.lfoWave = !deepCopy.lfoWave;
         
         setNubassFaceplateParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const toggleAmplitude = () => {
@@ -196,6 +234,7 @@ function VolcaNubass() {
         deepCopy.amplitude = !deepCopy.amplitude;
         
         setNubassFaceplateParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const togglePitch = () => {
@@ -204,6 +243,7 @@ function VolcaNubass() {
         deepCopy.pitch = !deepCopy.pitch;
         
         setNubassFaceplateParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const toggleCutoff = () => {
@@ -212,6 +252,7 @@ function VolcaNubass() {
         deepCopy.cutoff = !deepCopy.cutoff;
         
         setNubassFaceplateParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const toggleLfoSync = () => {
@@ -220,6 +261,7 @@ function VolcaNubass() {
         deepCopy.lfoSync = !deepCopy.lfoSync;
         
         setNubassFaceplateParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const toggleSustain = () => {
@@ -228,6 +270,7 @@ function VolcaNubass() {
         deepCopy.sustain = !deepCopy.sustain;
         
         setNubassFaceplateParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updatePitchValue = (val) => {
@@ -236,6 +279,8 @@ function VolcaNubass() {
         deepCopy.pitch = val;
         
         setNubassParameters(deepCopy);
+        setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x28, val]);
     }
     
     const updateSaturation = (val) => {
@@ -244,6 +289,8 @@ function VolcaNubass() {
         deepCopy.saturation = val;
         
         setNubassParameters(deepCopy);
+        setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x29, val]);
     }
     
     const updateLevelValue = (val) => {
@@ -252,6 +299,8 @@ function VolcaNubass() {
         deepCopy.level = val;
         
         setNubassParameters(deepCopy);
+        setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x2A, val]);
     }
     
     const updateCutoff = (val) => {
@@ -260,6 +309,8 @@ function VolcaNubass() {
         deepCopy.cutoff = val;
         
         setNubassParameters(deepCopy);
+        setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x2B, val]);
     }
     
     const updatePeak = (val) => {
@@ -268,6 +319,8 @@ function VolcaNubass() {
         deepCopy.peak = val;
         
         setNubassParameters(deepCopy);
+        setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x2C, val]);
     }
     
     const updateAttack = (val) => {
@@ -276,6 +329,8 @@ function VolcaNubass() {
         deepCopy.attack = val;
         
         setNubassParameters(deepCopy);
+        setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x2D, val]);
     }
     
     const updateDecay = (val) => {
@@ -284,6 +339,8 @@ function VolcaNubass() {
         deepCopy.decay = val;
         
         setNubassParameters(deepCopy);
+        setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x2E, val]);
     }
     
     const updateEgInt = (val) => {
@@ -292,6 +349,8 @@ function VolcaNubass() {
         deepCopy.egInt = val;
         
         setNubassParameters(deepCopy);
+        setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x2F, val]);
     }
     
     const updateAccent = (val) => {
@@ -300,6 +359,8 @@ function VolcaNubass() {
         deepCopy.accent = val;
         
         setNubassParameters(deepCopy);
+        setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x30, val]);
     }
     
     const updateLfoRate = (val) => {
@@ -308,6 +369,8 @@ function VolcaNubass() {
         deepCopy.lfoRate = val;
         
         setNubassParameters(deepCopy);
+        setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x31, val]);
     }
     
     const updateLfoInt = (val) => {
@@ -316,6 +379,8 @@ function VolcaNubass() {
         deepCopy.lfoInt = val;
         
         setNubassParameters(deepCopy);
+        setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x32, val]);
     }
 
     const noteOnEvent = (key) => {
@@ -577,7 +642,6 @@ function VolcaNubass() {
     }
 
     function onMIDISuccess(midiAccess) {
-        console.log(midiAccess);
 
         inputs = Array.from(midiAccess.inputs.values());
         outputs = Array.from(midiAccess.outputs.values());
@@ -704,7 +768,7 @@ function VolcaNubass() {
                                 onClick={() => togglePortamento()}>
                                 <p>off</p>
                                 <p>on</p>
-                                <div class={'portamentoSwitch' + nubassGlobalParams.portamento + volcaNubassEditMonth}></div>
+                                <div className={'portamentoSwitch' + nubassGlobalParams.portamento + volcaNubassEditMonth}></div>
                             </div>
                             <p className={'volcaNubassPortomentoTimeLabel' + volcaNubassEditMonth}>portamento time</p>
                             <div className={'volcaNubassGlobalsLeverContainerPort' + volcaNubassEditMonth}>
@@ -885,6 +949,38 @@ function VolcaNubass() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className={'saveAsDialogDiv' + saveAsDialogStatus + volcaNubassEditMonth}>
+                <p>save as</p>
+                <input className={'saveAsInput' + volcaNubassEditMonth}
+                    id="saveAsInput"
+                    onChange={(e) => updateChangeAsName(e.target.value)}
+                    placeholder={'copy of ' + nubassGlobalParams.name}
+                    value={saveAsName} />
+                <div className={'saveAsButtonsDiv' + volcaNubassEditMonth}>
+                    <button className={'saveAsButtons' + volcaNubassEditMonth}
+                        onClick={() => submitSaveAsDialog(saveAsName)}>submit</button>
+                    <button className={'saveAsButtons' + volcaNubassEditMonth}
+                        onClick={() => cancelSaveAsDialog()}>cancel</button>
+                </div>
+            </div>
+            <div className={'aboutTheKorgVolcaNubassDiv' + aboutVolcaNubassDivState + volcaNubassEditMonth}>
+                <div className={'aboutTheKorgVolcaNubassContent' + volcaNubassEditMonth}>
+                    <img className={'volcaAboutImg' + volcaNubassEditMonth}
+                        src={volcaNubassImg1} />
+                    <h2>Korg Volca Nubass</h2>
+                    <p>The volca nubass is the first analog synth to be equipped with a Nutube new-generation vacuum tube in its oscillator circuit. By incorporating a vacuum tube, nubass produces a warm, thick, and rich sound, unlike any digital or transistor-based synthesizer. The familiar transistor ladder filter along with overdrive, and huge-sounding distortion, gives it the unmistakable character of a classic bass machine. Coupled with an LFO with flexible routing and sync, nubass also provides numerous possibilities for a new generation of music.</p>
+                    <h2>A vacuum tube oscillator circuit forms the heart of volca nubass, utilizing groundbreaking Nutube technology</h2>
+                    <p>The Nutube is equipped with two vacuum tubes; one is used in the oscillator to generate a sawtooth wave or square wave. The other vacuum tube is used in the drive circuit of the sub oscillator, adding depth and warmth one octave below the oscillator. This oscillator and sub oscillator provide a circuit structure that brings out the harmonic character that only a real vacuum tube could provide.</p>
+                    <h2>A transistor ladder low-pass filter that produces a distinctive sound</h2>
+                    <p>The low-pass filter defines the sound of this bass machine; it uses a transistor ladder design found on classic analog bass synths. This filter is uniquely dynamic in the way it affects a sound more than just ranging from bright-to-dark. Its wide range of timbral possibilities makes it ideal for a broad variety of dance music; you can use it to create the distinctive modulation that can be heard in acid house, or increase the resonance to bring out a sharp character that's appropriate for techno.</p>
+                    <h2>Analog driver circuit</h2>
+                    <p>nubass is equipped with overdrive that uses an analog circuit reminiscent of a classic stompbox. Turning the knob toward the right compresses the volume while causing mild distortion, adding thickness to your bass sounds. The tone knob also lets you adjust the crispness of the high-frequency range.</p>
+                </div>
+                <div className={'saveAsButtonsDiv' + volcaNubassEditMonth}>
+                    <button className={'saveAsButtons' + volcaNubassEditMonth}
+                        onClick={() => closeVolcaNubassAboutDiv()}>close</button>
                 </div>
             </div>
             <div className={panicState + volcaNubassEditMonth}>

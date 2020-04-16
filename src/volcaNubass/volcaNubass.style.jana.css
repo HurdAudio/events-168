@@ -1036,3 +1036,158 @@
 .aboutNubassButton_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #0b1a44);
 }
+
+.saveAsDialogDivInactive_JanuaryA {
+    background: #1c43aa;
+    border-radius: 0;
+    color: #acdaf2;
+    font-family: 'Iceberg', cursive;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    padding: 2%;
+    position: absolute;
+    top: -100%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.saveAsDialogDivActive_JanuaryA {
+    background: #1c43aa;
+    border-radius: 0;
+    color: #acdaf2;
+    font-family: 'Iceberg', cursive;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    margin: 0 0 0 0;
+    padding: 2%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.saveAsInput_JanuaryA {
+    background: #a2cae5;
+    border: none;
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 24px;
+    margin: 5% 10% 3% 10%;
+    outline-color: #80b2c7;
+    padding: 2px 5px;
+    width: 80%;
+}
+
+.saveAsButtonsDiv_JanuaryA {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 7vh;
+    justify-content: center;
+    margin: 0 10% 1% 10%;
+    width: 82%;
+}
+
+.saveAsButtons_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #002839;
+    color: #000528;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #0b1a44);
+    font-family: 'Iceberg', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    margin: 0 45px;
+    outline-color: #80b2c7;
+    padding: 0 15px;
+}
+
+.saveAsButtons_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-25deg);
+    color: #acdaf2;
+    filter: brightness(115%) drop-shadow(8px 8px 5px #0b1a44);
+}
+
+.saveAsButtons_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #0b1a44);
+}
+
+.aboutTheKorgVolcaNubassDivInactive_JanuaryA {
+    background: #1c43aa;
+    border-radius: 0;
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 24px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 115%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheKorgVolcaNubassDivActive_JanuaryA {
+    background: #1c43aa;
+    border-radius: 0;
+    color: #000528;
+    font-family: 'Iceberg', cursive;
+    font-size: 24px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 5%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheKorgVolcaNubassContent_JanuaryA {
+    background: #a2cae5;
+    height: 79vh;
+    margin-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 97%;
+}
+
+.volcaAboutImg_JanuaryA {
+    filter: drop-shadow(8px 8px 5px #0b1a44);
+    float: left;
+    margin: 12px;
+    max-width: 40%;
+}
+
+.aaboutTheKorgVolcaNubassContent_JanuaryA h2 {
+    color: #000528;
+    font-family: 'Alata', serif;
+    font-size: 36px;
+    margin: 5px 0 30px 30px;
+}
+
+.aboutTheKorgVolcaNubassContent_JanuaryA p {
+    color: #000528;
+    font-family: 'Alata', serif;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 5px 25px 30px 25px;
+    max-width: 950px;
+}
+
+.aboutTheKorgVolcaNubassContent_JanuaryA h3 {
+    color: #000528;
+    font-family: 'Alata', serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 10px 25px 10px 45px;
+    max-width: 950px;
+}
