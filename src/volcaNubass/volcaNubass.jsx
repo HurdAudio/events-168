@@ -190,6 +190,7 @@ function VolcaNubass() {
         
         setNubassGlobalParams(deepCopy);
         setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x05, val]);
     }
     
     const togglePortamento = () => {
@@ -199,6 +200,11 @@ function VolcaNubass() {
         
         setNubassGlobalParams(deepCopy);
         setPatchAltered(true);
+        if (deepCopy.portamento) {
+            currentOutput.send([0xB0 | currentMidiChannel, 0x41, 127]);
+        } else {
+            currentOutput.send([0xB0 | currentMidiChannel, 0x41, 0]);
+        }
     }
     
     const updatePan = (val) => {
@@ -208,6 +214,7 @@ function VolcaNubass() {
         
         setNubassGlobalParams(deepCopy);
         setPatchAltered(true);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0A, val]);
     }
     
     const toggleVtoWave = () => {
