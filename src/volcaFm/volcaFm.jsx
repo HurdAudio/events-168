@@ -10,6 +10,7 @@ import {
     Link
 } from "react-router-dom";
 import './volcaFm.style.jana.css';
+import './volcaFm.style.janb.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaFmImg1 from '../img/volcaFmImg1.png';
 
@@ -22,6 +23,8 @@ function VolcaFm() {
     const envelopeEndGraph = 410;
     const breakpointOffset = 4;
     const scaleScaler = 1.12;
+    const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/january/spinner/smile_loader_by_gleb.gif';
+    const janbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/january/spinner/material-preloader.gif';
 
     let midiOutput = null;
     let inputs = null;
@@ -31,7 +34,7 @@ function VolcaFm() {
     let keyEngaged = {};
 
     const [panicState, setPanicState] = useState('panicOff');
-    const [currentSpinner, setCurrentSpinner] = useState('https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/january/spinner/smile_loader_by_gleb.gif');
+    const [currentSpinner, setCurrentSpinner] = useState(janbSpinner);
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState(0);
@@ -43,7 +46,7 @@ function VolcaFm() {
     const [volcaFmContainerState, setVolcaFmContainerState] = useState('Active');
     const [saveAsName, setSaveAsName] = useState('');
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('Inactive');
-    const [volcaFmMonth, setVolcaFmMonth] = useState('_JanuaryA');
+    const [volcaFmMonth, setVolcaFmMonth] = useState('_JanuaryB');
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [patchAltered, setPatchAltered] = useState(false);
     const [currentAlgorithm, setCurrentAlgorithm] = useState('_algorithm1');
