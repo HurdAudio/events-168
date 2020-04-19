@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import './userhub.style.jana.css';
 import './userhub.style.janb.css';
+import './userhub.style.janc.css';
 import midi5pin from '../img/midi5pin.svg';
 import home from '../img/home.svg';
 
@@ -40,7 +41,7 @@ const midiConfigurations = [
 
 function Home() {
     
-    const [homeMonth, setHomeMonth] = useState('_JanuaryB');
+    const [homeMonth, setHomeMonth] = useState('_JanuaryC');
     const [userClockResolution, setUserClockResolution] = useState(480);
     
     const clockResolutionChange = (val) => {

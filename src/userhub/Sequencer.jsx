@@ -7,6 +7,8 @@ import {
   Link
 } from "react-router-dom";
 import './userhub.style.jana.css';
+import './userhub.style.janb.css';
+import './userhub.style.janc.css';
 import midi5pin from '../img/midi5pin.svg';
 import dna from '../img/dna.svg';
 
@@ -23,7 +25,7 @@ const sequenceProjects = [
 
 function Sequencer() {
     
-    const [sequenceMonth, setSequenceMonth] = useState('_JanuaryB');
+    const [sequenceMonth, setSequenceMonth] = useState('_JanuaryC');
     
         return(
             <div className={'homeContainer' + sequenceMonth}>
