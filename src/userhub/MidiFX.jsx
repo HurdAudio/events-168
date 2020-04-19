@@ -7,6 +7,8 @@ import {
   Link
 } from "react-router-dom";
 import './userhub.style.jana.css';
+import './userhub.style.janb.css';
+import './userhub.style.janc.css';
 import midi5pin from '../img/midi5pin.svg';
 import axis from '../img/axis.svg';
 
@@ -76,7 +78,7 @@ const midiGlitches = [
 
 function MidiFX() {
     
-    const [midiFXMonth, setMidiFXMonth] = useState('_JanuaryB');
+    const [midiFXMonth, setMidiFXMonth] = useState('_JanuaryC');
     
         return(
             <div className={'homeContainer' + midiFXMonth}>

@@ -15,8 +15,10 @@ import Social from './Social';
 import panic from '../img/panic.svg';
 import './userhub.style.jana.css';
 import './userhub.style.janb.css';
+import './userhub.style.janc.css';
 import midi5pin from '../img/midi5pin.svg';
 import redMIDI from '../img/redMIDI.png';
+import vectorMidiPng from '../img/vectorMidiPng.png';
 import VolcaFm from '../volcaFm/volcaFm';
 import VolcaNubass from '../volcaNubass/volcaNubass';
 
@@ -41,7 +43,7 @@ if (now.getFullYear() > 2020) {
 
 function UserHub() {
     
-    const [userhubMonth, setUserhubMonth] = useState('_JanuaryB');
+    const [userhubMonth, setUserhubMonth] = useState('_JanuaryC');
     const [userhubState, setUserhubState] = useState({
         home: 'homeContentActive',
         homeDiv: 'homeContentOn',
@@ -57,7 +59,7 @@ function UserHub() {
         socialDiv: 'soccialOff',
         tab: 'sliderTabHome'
     });
-    const [panicMonth, setPanicMonth] = useState('_JanuaryB');
+    const [panicMonth, setPanicMonth] = useState('_JanuaryC');
     const [panicOn, setPanicOn] = useState(false);
     
     const hubStateHome = () => {
@@ -204,7 +206,7 @@ function UserHub() {
                 <div className={'userHubContainer' + userhubMonth}>
                     <div className={'userHubImageDiv' + userhubMonth}>
                         <img className={'userHubLogoImg' + userhubMonth}
-                            src={redMIDI}></img>
+                            src={vectorMidiPng}></img>
                         <div className={'userHubTitleBar' + userhubMonth}>
                             <h2 className={'userHubTitle' + userhubMonth}>168 Events</h2>
                             <div className={'userHubLoggedInAsDiv' + userhubMonth}>

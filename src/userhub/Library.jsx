@@ -8,6 +8,8 @@ import {
   NavLink
 } from "react-router-dom";
 import './userhub.style.jana.css';
+import './userhub.style.janb.css';
+import './userhub.style.janc.css';
 import midi5pin from '../img/midi5pin.svg';
 import book from '../img/book.svg';
 
@@ -72,7 +74,7 @@ const midiDevices = [
 
 function Library() {
     
-    const [libraryMonth, setLibraryMonth] = useState('_JanuaryB');
+    const [libraryMonth, setLibraryMonth] = useState('_JanuaryC');
     const [patchEditorState, setPatchEditorState] = useState({
         path: midiDevices[0].path,
         component: midiDevices[0].component
