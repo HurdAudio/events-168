@@ -11,6 +11,8 @@ require('dotenv').config();
 
 const app = express();
 
+const users = require('./routes/users.js');
+
 // const financial_modules = require('./routes/financial_modules.js');
 
 const port = process.env.PORT || 3041;
@@ -22,7 +24,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 
-//app.use('/users', users);
+app.use('/users', users);
 
 app.get('/test', (req, res, next) => {
     res.send({user: 'forbidden'});

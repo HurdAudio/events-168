@@ -4,6 +4,10 @@ import { NavLink } from 'react-router-dom'
 import './login.style.jana.css';
 import './login.style.janb.css';
 import './login.style.janc.css';
+import CheckStatus from './checkLoginStatus';
+import EncryptPassword from './encryptPassword';
+import SetStatus from './setLoginStatus';
+import axios from 'axios';
 
 
 function Login() {
@@ -47,6 +51,29 @@ function Login() {
         }
     }
     
+    const executeLogin = () => {
+        axios(`/users/prelogin/${emailValue}`)
+        .then(securirtyInfoData => {
+            const security = securirtyInfoData.data;
+            if (security.key === null) {
+                errorMessaging('error: login fail');
+                localStorage.setItem('userLoggedIn', false);
+            } else {
+                const submitPasswordArray = EncryptPassword(passwordValue, security);
+                axios.post('/users/login', { email: emailValue, password: submitPasswordArray })
+                .then(userResponseData => {
+                    const response = userResponseData.data;
+                    SetStatus(response);
+                    if (response.login === 'forbidden') {
+                        errorMessaging('error: login fail');
+                    } else {
+                        errorMessaging('login success');
+                    }
+                });
+            }
+        });
+    }
+    
     return(
         <div className={'loginContainer' + loginMonth}>
             <div className={'loginImageDiv' + loginMonth}></div>
@@ -54,27 +81,22 @@ function Login() {
             <div className={'loginBoxContainer' + loginMonth}>
                 <p className={'loginTitle' + loginMonth}>login</p>
                 <p className={'loginErrorMessaging' + loginMonth}>{errorMessage}</p>
-                <input
-                    autoFocus
-                    onKeyUp={(e) => updateEmailValue(e.target.value)}
-                    placeholder="email"
-                    type="email"
-                    >
-                </input>
-                <input 
-                    onKeyUp={(e) => updatePasswordValue(e.target.value)}
-                    placeholder="password"
-                    type="password"></input>
-                <NavLink to="/"><button className={submitButtonClass + loginMonth}
-                    onClick={() => {
-                        if ((emailValue.trim().toLowerCase() === 'devin@devinhurd.com') && (passwordValue === 'password')) {
-                            errorMessaging('login success');
-                            localStorage.setItem('userLoggedIn', true);
-                        } else {
-                            errorMessaging('error: login fail');
-                            localStorage.setItem('userLoggedIn', false);
-                        }}}>submit</button>
-                    </NavLink>
+                <form>
+                    <input
+                        autoFocus
+                        onKeyUp={(e) => updateEmailValue(e.target.value)}
+                        placeholder="email"
+                        type="email"
+                        >
+                    </input>
+                    <input 
+                        onKeyUp={(e) => updatePasswordValue(e.target.value)}
+                        placeholder="password"
+                        type="password"></input>
+                    <NavLink to="/"><button className={submitButtonClass + loginMonth}
+                        onClick={() => executeLogin()}>submit</button>
+                        </NavLink>
+                </form>
             </div>
         </div>
         );

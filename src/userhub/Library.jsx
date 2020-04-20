@@ -74,6 +74,7 @@ const midiDevices = [
 
 function Library() {
     
+    const [user, setUser] = useState({});
     const [libraryMonth, setLibraryMonth] = useState('_JanuaryC');
     const [patchEditorState, setPatchEditorState] = useState({
         path: midiDevices[0].path,
