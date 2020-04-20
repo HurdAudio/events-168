@@ -21,14 +21,11 @@ import redMIDI from '../img/redMIDI.png';
 import vectorMidiPng from '../img/vectorMidiPng.png';
 import VolcaFm from '../volcaFm/volcaFm';
 import VolcaNubass from '../volcaNubass/volcaNubass';
+import CheckStatus from '../login/checkLoginStatus';
+import SetStatus from '../login/setLoginStatus';
+import axios from 'axios';
 
 let localStorage = window.localStorage;
-
-const user = {
-    avatar: 'https://events-168-hurdaudio.s3.amazonaws.com/avatars/lovecraftAvatar.jpg',
-    first_name: 'Devin',
-    last_name: 'Hurd'
-}
 
 const now = new Date();
 
@@ -40,9 +37,13 @@ if (now.getFullYear() > 2020) {
     footerText = now.getFullYear() + ' HurdAudio';
 }
 
+let userPop = null;
+let switcher = false;
+
 
 function UserHub() {
     
+    const [user, setUser] = useState({});
     const [userhubMonth, setUserhubMonth] = useState('_JanuaryC');
     const [userhubState, setUserhubState] = useState({
         home: 'homeContentActive',
@@ -192,7 +193,28 @@ function UserHub() {
         }, 7000);
     }
     
+    const securityClearance = () => {
+        if (!CheckStatus(user.security)) {
+            SetStatus({ login: 'forbidden' });
+        }
+    }
     
+    if (localStorage.getItem('eventualUser')) {
+        if (user.uuid !== localStorage.getItem('eventualUser')) {
+            axios.get(`/users/${localStorage.getItem('eventualUser')}`)
+            .then(userData => {
+                setUser(userData.data);
+                if (!CheckStatus(user.security)) {
+                    SetStatus({ login: 'forbidden' });
+                } else {
+                    SetStatus(user);
+                }
+            });
+        }
+        
+    } 
+
+ 
         return(
             <Router>
                 <Switch>
@@ -203,7 +225,8 @@ function UserHub() {
                         <VolcaNubass />
                     </Route>
                 </Switch>
-                <div className={'userHubContainer' + userhubMonth}>
+                <div className={'userHubContainer' + userhubMonth}
+                    onClick={() => securityClearance()}>
                     <div className={'userHubImageDiv' + userhubMonth}>
                         <img className={'userHubLogoImg' + userhubMonth}
                             src={vectorMidiPng}></img>
@@ -212,11 +235,12 @@ function UserHub() {
                             <div className={'userHubLoggedInAsDiv' + userhubMonth}>
                                 <p className={'userHubLoggedInLabel' + userhubMonth}>logged in user: </p>
                                 <img className={'userHubLoggedInAvatar' + userhubMonth}
-                                    src={user.avatar}></img>
+                                    src={user.avatar_path}></img>
                                 <p className={'userHubLoggedInName' + userhubMonth}>{user.first_name} {user.last_name}</p>
                             </div>
                             <NavLink to="/"><button className={'userHubLogoutButton' + userhubMonth}
                                 onClick={() => {
+                                    SetStatus({ login: 'forbidden' });
                                     localStorage.setItem('userLoggedIn', 'false');
                                     location.reload();
                                     }}>log out</button></NavLink>

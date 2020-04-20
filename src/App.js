@@ -1,6 +1,7 @@
 import React, {
     Component
 } from 'react';
+import axios from 'axios';
 
 import Landing from './landing/landing';
 import UserHub from './userhub/userhub';
