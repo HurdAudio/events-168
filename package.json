@@ -26,7 +26,7 @@
   "engines": {
     "node": "10.0.0"
   },
-  "proxy": "http://localhost:3041",
+  "proxy": "postgres://pxfpunnrweyprb:b68430f3da160be0a9706d7e038af189b776e963626c37289f1f2acb12aed6e2@ec2-54-197-48-79.compute-1.amazonaws.com:5432/d4qe9jfesmt8s3",
   "scripts": {
     "knex": "knex",
     "start": "react-scripts start nodemon server.js",
