@@ -1,0 +1,611 @@
+.volcaDrumEditorContainerActive_JanuaryA {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaDrumEditorContainerInactive_JanuaryA {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaDrumEditorImageDiv_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/ice_fishing_by_helixdesigner_dnd5xc-pre.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [row9] 12.5%[rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.volcaDrumEditorTopBar_JanuaryA {
+    background: #000050;
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.volcaDrumNavImage_JanuaryA {
+    cursor: pointer;
+    filter: contrast(110%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.volcaDrumNavImage_JanuaryA:hover {
+    filter: contrast(160%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.volcaDrumEditorTitle_JanuaryA {
+    color: #88a3b4;
+    filter: brightness(100%) saturate(400%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 36px;
+    grid-column: col2 / col7;
+    grid-row: row1 / row2;
+    margin: 5px;
+    z-index: 55;
+}
+
+.volcaDrumSidebarManager_JanuaryA {
+    backdrop-filter: hue-rotate(180deg);
+    background: radial-gradient(closest-corner, #0d3f64, #000050, #1537b5);
+    border-right: 3px solid #051928;
+    box-sizing: border-box;
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 0.9;
+}
+
+.volcaDrumLayerSelectorDiv_JanuaryA {
+    align-content: flex-end;
+    background: linear-gradient(-45deg, #808080, #8196d8);
+    display: flex;
+    filter: contrast(200%);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: col3 / col7;
+    grid-row: row2 / row3;
+    justify-content: flex-end;
+}
+
+.volcaDrumLayerSelectorLabel_JanuaryA {
+    color: #000000;
+    font-family: 'Nova Flat', cursive;
+    font-size: 42px;
+    margin: 0 45px 0 0;
+}
+
+.volcaDrumLayerButtontrue_JanuaryA {
+    background: #041041;
+    border: 1px solid #022db0;
+    box-sizing: border-box;
+    color: #d0e8ec;
+    filter: contrast(110%) saturate(150%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 33px;
+    height: 90%;
+    margin: 0 4px 0 1px;
+    outline-color: transparent;
+    transition: all 0.8s linear;
+    width: 11%;
+}
+
+.volcaDrumLayerButtonfalse_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #114769;
+    cursor: pointer;
+    filter: contrast(30%) saturate(50%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 33px;
+    height: 90%;
+    margin: 0 4px 0 1px;
+    outline-color: transparent;
+    transition: all 0.8s linear;
+    width: 11%;
+}
+
+.volcaDrumPatchSelectorDiv_JanuaryA {
+    align-content: flex-end;
+    background: linear-gradient(135deg, #808080, #8196d8);
+    display: flex;
+    filter: contrast(200%);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: col7 / rightEdge;
+    grid-row: row2 / row3;
+    justify-content: flex-end;
+}
+
+.volcaDrumPartParamsDiv_JanuaryA {
+    backdrop-filter: blur(4px) grayscale(30%) hue-rotate(90deg) saturate(150%);
+    grid-column: col3 / col8;
+    grid-row: row3 / row7;
+}
+
+.volcaDrumPartParamsContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [lpcol1] 1fr [lpcol2] 1fr [lpcol3] 1fr [lpcol4] 1fr [lpcol5] 1fr [lpcol6] 1fr [lpcol7] 1fr [lpcol8] 1fr [lpcol9] 1fr [lpcol10] 1fr [lpcol11] 1fr [lpcol12] 1fr [lpcol13] 1fr [lpcol14] 1fr [lpcol15] 1fr [lpcol16] 1fr [lprightEdge];
+    grid-template-rows: [lprow1] 1fr [lprow2] 1fr [lprow3] 1fr [lprow4] 1fr [lprow5] 1fr [lprow6] 1fr [lprow7] 1fr [lprow8] 1fr [lprow9] 1fr [lprow10] 1fr [lprow11] 1fr [lprow12] 1fr [lprowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaDrumPartLayerTabStrip_JanuaryA {
+    align-content: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/ice_fishing_by_helixdesigner_dnd5xc-pre.jpg) stretch 10%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: lpcol2 / lpcol16;
+    grid-row: lprow1 / lprow2;
+    justify-content: flex-start;
+    margin-top: 4px;
+}
+
+.volcaDrumpartLayerTabtrue_JanuaryA {
+    background: #7bd2fd;
+    cursor: none;
+    filter: brightness(150%);
+    height: 100%;
+    opacity: 1;
+    transition: all 0.4s linear;
+    width: 33.3%;
+}
+
+.volcaDrumpartLayerTabtrue_JanuaryA p {
+    color: #000000;
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    margin: 1px 0 0 25%;
+}
+
+.volcaDrumpartLayerTabfalse_JanuaryA {
+    background: #808080;
+    cursor: pointer;
+    filter: grayscale(100%);
+    height: 100%;
+    opacity: 0.4;
+    transition: all 0.4s linear;
+    width: 33.3%;
+}
+
+.volcaDrumLayerLevelSlot_JanuaryA {
+    grid-column: lpcol2 / lpcol3;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerLevelLabel_JanuaryA {
+    color: #041041;
+    filter: contrast(300%) saturate(200%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px; 
+}
+
+.volcaDrumLayerLevelInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #041041;
+    filter: contrast(300%) saturate(200%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 30px;
+    outline-color: #8080a8;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.volcaDrumLayerParamSliderContainer_JanuaryA {
+    background: #8196d8;
+    border: 2px solid #000020;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    grid-column: wgcol1 / wgcol6;
+    grid-row: wgrow4 / wgrow5;
+    height: 30px;
+    transform: rotateZ(-90deg) translateX(-100px) translateY(-100px);
+    width: 480%;
+}
+
+.volcaDrumpartLayerTabfalse_JanuaryA p {
+   color: #8a9bda;
+    filter: brightness(100%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    margin: 1px 0 0 20%; 
+}
+
+.volcaDrumWaveguideModel_JanuaryA {
+    backdrop-filter: brightness(60%) sepia(65%);
+    grid-column: col8 / rightEdge;
+    grid-row: row3 / row6;
+}
+
+.volcaDrumWaveGuideParams_JanuaryA {
+    backdrop-filter: brightness(65%) hue-rotate(-90deg) saturate(150%);
+    grid-column: col8 / rightEdge;
+    grid-row: row6 / rowEnd;
+}
+
+.volcaDrumWaveguideContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [wgucol1] 1fr [wgucol2] 1fr [wgucol3] 1fr [wgucol4] 1fr [wgucol5] 1fr [wgucol6] 1fr [wgucol7] 1fr [wgucol8] 1fr [wgucolend];
+    grid-template-rows: [wgurow1] 1fr [wgurow2] 1fr [wgurow3] 1fr [wgurow4] 1fr [wgurow5] 1fr [wgurow6] 1fr [wgurow7] 1fr [wgurow8] 1fr [wgurow9] 1fr [wgurow10] 1fr [wgurow11] 1fr [wgurow12] 1fr [wgurow13] 1fr [wgurow14] 1fr [wgurow15] 1fr [wgurowend];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaDrumWaveguideModelLabel_JanuaryA {
+    color: #c9e5f3;
+    filter: brightness(250%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 36px;
+    grid-column: wgucol3 / wgucol8;
+    grid-row: wgurow1 / wgurow2;
+}
+
+.volcaDrumSoundSourceLabel_JanuaryA {
+    color: #c9e5f3;
+    filter: brightness(250%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 18px;
+    grid-column: wgucol2 / wgucol8;
+    grid-row: wgurow3 / wgurow4;
+}
+
+.volcaDrumSoundSourceTabStrip_JanuaryA {
+    align-content: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/ice_fishing_by_helixdesigner_dnd5xc-pre.jpg) stretch 10%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: wgucol2 / wgucol8;
+    grid-row: wgurow4 / wgurow6;
+    justify-content: flex-start;
+}
+
+.volcaDrumSoundSorceTabtrue_JanuaryA {
+    background: #7bd2fd;
+    cursor: none;
+    filter: brightness(150%);
+    height: 100%;
+    opacity: 1;
+    transition: all 0.4s linear;
+    width: 20%;
+}
+
+.volcaDrumSoundSorceTabtrue_JanuaryA p {
+    color: #000000;
+    font-family: 'Nova Flat', cursive;
+    font-size: 16px;
+    margin: 10px 0 0 2px;
+}
+
+.volcaDrumSoundSorceTabfalse_JanuaryA {
+    background: #808080;
+    cursor: pointer;
+    filter: grayscale(100%);
+    height: 100%;
+    opacity: 0.4;
+    transition: all 0.4s linear;
+    width: 20%;
+}
+
+.volcaDrumSoundSorceTabfalse_JanuaryA p {
+    color: #8a9bda;
+    filter: brightness(100%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 16px;
+    margin: 10px 0 0 2px;
+}
+
+.volcaDrumPitchModulatorsLabel_JanuaryA {
+    color: #c9e5f3;
+    filter: brightness(250%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 18px;
+    grid-column: wgucol2 / wgucol8;
+    grid-row: wgurow7 / wgurow8;
+}
+
+.volcaDrumPitchModulatorTabStrip_JanuaryA {
+    align-content: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/ice_fishing_by_helixdesigner_dnd5xc-pre.jpg) stretch 10%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: wgucol2 / wgucol8;
+    grid-row: wgurow8 / wgurow10;
+    justify-content: flex-start;
+}
+
+.volcaDrumPitchModulatorTabtrue_JanuaryA {
+    background: #7bd2fd;
+    cursor: none;
+    filter: brightness(150%);
+    height: 100%;
+    opacity: 1;
+    transition: all 0.4s linear;
+    width: 33.3%;
+}
+
+.volcaDrumPitchModulatorTabtrue_JanuaryA p {
+    color: #000000;
+    font-family: 'Nova Flat', cursive;
+    font-size: 16px;
+    margin: 10px 0 0 20%;
+}
+
+
+.volcaDrumPitchModulatorTabfalse_JanuaryA {
+    background: #808080;
+    cursor: pointer;
+    filter: grayscale(100%);
+    height: 100%;
+    opacity: 0.4;
+    transition: all 0.4s linear;
+    width: 33.3%;
+}
+
+.volcaDrumPitchModulatorTabfalse_JanuaryA p {
+    color: #8a9bda;
+    filter: brightness(100%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 16px;
+    margin: 10px 0 0 20%;
+}
+
+.volcaDrumEnvelopeGeneratorsLabel_JanuaryA {
+    color: #c9e5f3;
+    filter: brightness(250%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 18px;
+    grid-column: wgucol2 / wgucol8;
+    grid-row: wgurow11 / wgurow12;
+}
+
+.volcaDrumEnevelopeGeneratorTabStrip_JanuaryA {
+    align-content: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/ice_fishing_by_helixdesigner_dnd5xc-pre.jpg) stretch 10%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: wgucol2 / wgucol8;
+    grid-row: wgurow12 / wgurow14;
+    justify-content: flex-start;
+}
+
+.volcaDrumWaveguideParamsContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [wgcol1] 1fr [wgcol2] 1fr [wgcol3] 1fr [wgcol4] 1fr [wgcol5] 1fr [wgcol6] 1fr [wgcol7] 1fr [wgcol8] 1fr [wgcolend];
+    grid-template-rows: [wgrow1] 1fr [wgrow2] 1fr [wgrow3] 1fr [wgrow4] 1fr [wgrow5] 1fr [wgrow6] 1fr [wgrow7] 1fr [wgrow8] 1fr [wgrowend];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaDrumWaveGuideLabel_JanuaryA {
+    color: #c9e5f3;
+    filter: brightness(250%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 48px;
+    grid-column: wgcol4 / wgcol6;
+    grid-row: wgrow4 / grow6;
+    margin: 0 0 0 10px;
+}
+
+.volcaDrumDecayLabel_JanuaryA {
+    color: #c9e5f3;
+    filter: brightness(250%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 36px;
+    grid-column: wgcol1 / wgcol4;
+    grid-row: wgrow4 / grow5;
+    margin: 5px 0 0 45px;
+}
+
+.volcaDrumDecayInputContainer_JanuaryA {
+    background: #8196d8;
+    border: 2px solid #000020;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    grid-column: wgcol1 / wgcol6;
+    grid-row: wgrow4 / wgrow5;
+    height: 30px;
+    transform: rotateZ(-58deg) translateX(-20px) translateY(10px);
+/*    transform-origin: 50% 0;*/
+}
+
+.volcaDrumWaveGuideDecaySlider_JanuaryA {
+    -webkit-appearance: none;
+    border: 2px solid #8196d8;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 20px;
+    outline: 0;
+    overflow: hidden;
+    transform: translateX(-1px) translateY(-1px);
+    width: 98%;
+}
+
+.volcaDrumWaveGuideDecaySlider_JanuaryA::-webkit-slider-runnable-track {
+    background: #041041;
+}
+
+.volcaDrumWaveGuideDecaySlider_JanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #8196d8;
+    box-shadow: -100vw 0 0 100vw #8196d8;
+    height: 20px;
+    transform-origin: bottom right;
+    transform: skew(45deg);
+    width: 20px;
+}
+
+.volcaDrumBodyLabel_JanuaryA {
+    color: #c9e5f3;
+    filter: brightness(250%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 36px;
+    grid-column: wgcol6 / wgcol8;
+    grid-row: wgrow4 / grow5;
+    margin: 5px 0 0 55px;
+}
+
+.volcaDrumBodyInputContainer_JanuaryA {
+    background: #8196d8;
+    border: 2px solid #000020;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    grid-column: wgcol4 / wgcolend;
+    grid-row: wgrow4 / wgrow5;
+    height: 30px;
+    transform: rotateZ(-122deg) translateX(-20px) translateY(-10px);
+/*    transform-origin: 50% 0;*/
+}
+
+.volcaDrumTuneLabel_JanuaryA {
+    color: #c9e5f3;
+    filter: brightness(250%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 36px;
+    grid-column: wgcol4 / wgcol7;
+    grid-row: wgrow7 / grow8;
+    margin: 10px 0 0 30px;
+}
+
+.volcaDrumTuneInputContainer_JanuaryA {
+    background: #8196d8;
+    border: 2px solid #000020;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    grid-column: wgcol2 / wgcol8;
+    grid-row: wgrow8 / wgrowend;
+    height: 30px;
+}
+
+.volcaDrumWaveGuideTuningSlider_JanuaryA {
+    -webkit-appearance: none;
+    border: 2px solid #8196d8;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 20px;
+    outline: 0;
+    overflow: hidden;
+    transform: translateX(-1px) translateY(-1px);
+    width: 98%;
+}
+
+.volcaDrumWaveGuideTuningSlider_JanuaryA::-webkit-slider-runnable-track {
+    background: #041041;
+}
+
+.volcaDrumWaveGuideTuningSlider_JanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #8196d8;
+    box-shadow: -100vw 0 0 100vw #8196d8;
+    height: 20px;
+    transform-origin: bottom right;
+    transform: skew(45deg);
+    width: 20px;
+}
+
+.volcaDrumPatchInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #041041;
+    font-family: 'Nova Flat', cursive;
+    font-size: 36px;
+    outline-color: #869fb2;
+    width: 7%;
+}
+
+.volcaDrumPatchSliderContainer_JanuaryA {
+    background: #8196d8;
+    border: 2px solid #000020;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    height: 30px;
+    margin: 10px 50px 0 5px;
+    width: 420px;
+}
+
+.volcaDrumPatchSlider_JanuaryA {
+    -webkit-appearance: none;
+    border: 2px solid #8196d8;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 20px;
+    outline: 0;
+    overflow: hidden;
+    transform: translateX(-1px) translateY(-1px);
+    width: 98%;
+}
+
+.volcaDrumPatchSlider_JanuaryA::-webkit-slider-runnable-track {
+    background: #041041;
+}
+
+.volcaDrumPatchSlider_JanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #8196d8;
+    box-shadow: -100vw 0 0 100vw #8196d8;
+    height: 20px;
+    transform-origin: bottom right;
+    transform: skew(45deg);
+    width: 20px;
+}
+
+
+.sidebarContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [sideCol1] 1fr [sideCol2] 1fr [sideCol3] 1fr [sideCol4] 1fr [sideCol5] 1fr [sideColEnd];
+    grid-template-rows: [sideRow1] 1fr [sideRow2] 1fr [sideRow3] 1fr [sideRow4] 1fr [sideRow5] 1fr [sideRow6] 1fr [sideRow7] 1fr [sideRow8] 1fr [sideRow9] 1fr [sideRow10] 1fr [sideRow11] 1fr [sideRow12] 1fr [sideRow13] 1fr [sideRow14] 1fr [sideRow15] 1fr [sideRow16] 1fr [sideRow17] 1fr [sideRow18] 1fr [sideRow19] 1fr [sideRow20] 1fr [sideRow21] 1fr [sideRow22] 1fr [sideRow23] 1fr [sideRow24] 1fr [sideRowEnd];
+    height: 100%;
+    width: 100%;
+}

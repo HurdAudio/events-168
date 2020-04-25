@@ -28,7 +28,9 @@ const midiDevices = [
     },
     {
         uuid: '9addd793-6101-408f-899c-4ade38a4e730',
-        name: 'korg volca drums'
+        name: 'korg volca drum',
+        path: '/volca-drum-editor',
+        component: '<volcaDrum />'
     },
     {
         uuid: 'da3379be-e520-4023-bf62-61739a53cd4f',

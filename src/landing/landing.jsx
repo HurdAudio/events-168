@@ -17,6 +17,7 @@ import './landing.style.feba.css';
 import Login from '../login/login';
 import volcaFm from '../volcaFm/volcaFm';
 import volcaNubass from '../volcaNubass/volcaNubass';
+import volcaDrum from '../volcaDrum/volcaDrum';
 
 
 function Landing() {
@@ -149,6 +150,9 @@ function Landing() {
                 </Route>
                 <Route path="/volca-nubass-editor">
                     <volcaNubass />
+                </Route>
+                <Route path="/volca-drum-editor">
+                    <volcaDrum />
                 </Route>
             </Switch>
         </Router>
