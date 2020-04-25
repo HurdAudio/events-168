@@ -47,7 +47,12 @@ function VolcaDrum() {
        true, false, false, false, false, false 
     ]);
     const [globalParams, setGlobalParams] = useState({
+        bitReduction: 0,
         name: 'default',
+        overdriveGain: 0,
+        pan: 64,
+        premixGain: 64,
+        waveFolder: 0,
         waveGuide: {
             body: 0,
             decay: 0,
@@ -62,83 +67,423 @@ function VolcaDrum() {
     const [currentPatch, setCurrentPatch] = useState([
         {
             layer1: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layer2: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layer12: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layerSelection: [true, false, false],
             patch: 0
         },
         {
             layer1: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layer2: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layer12: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layerSelection: [true, false, false],
             patch: 0
         },
         {
             layer1: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layer2: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layer12: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layerSelection: [true, false, false],
             patch: 1
         },
         {
             layer1: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layer2: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layer12: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layerSelection: [true, false, false],
             patch: 1
         },
         {
             layer1: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layer2: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layer12: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layerSelection: [true, false, false],
             patch: 2
         },
         {
             layer1: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layer2: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layer12: {
-                level: 100
+                envelopeGenerator: {
+                    attack: 12,
+                    release: 27
+                },
+                level: 100,
+                modulation: {
+                    amount: 55,
+                    rate: 12
+                },
+                pitch: 55,
+                send: 55
             },
             layerSelection: [true, false, false],
             patch: 3
         }
     ]);
+    
+    const updatePremixGain = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.premixGain = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updateOverdriveGain = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.overdriveGain = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updateWaveFolder = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.waveFolder = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updateBitReduction = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.bitReduction = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updatePan = (val) => {
+        let deepCopy = {...globalParams};
+        
+        deepCopy.pan = val;
+        
+        setGlobalParams(deepCopy);
+    }
+    
+    const updateDrumLayerSend = (layer, val) => {
+        let deepCopy = [...currentPatch];
+        
+        switch(layer) {
+            case(0):
+                deepCopy[currentMidiChannel].layer1.send = val;
+                break;
+            case(1):
+                deepCopy[currentMidiChannel].layer2.send = val;
+                break;
+            case(2):
+                deepCopy[currentMidiChannel].layer12.send = val;
+                break;
+            default:
+                console.log('impossible envelope generator release attribute');
+        }
+        
+        setCurrentPatch(deepCopy);
+    }
+    
+    const updateDrumLayerEGRelease = (layer, val) => {
+        let deepCopy = [...currentPatch];
+        
+        switch(layer) {
+            case(0):
+                deepCopy[currentMidiChannel].layer1.envelopeGenerator.release = val;
+                break;
+            case(1):
+                deepCopy[currentMidiChannel].layer2.envelopeGenerator.release = val;
+                break;
+            case(2):
+                deepCopy[currentMidiChannel].layer12.envelopeGenerator.release = val;
+                break;
+            default:
+                console.log('impossible envelope generator release attribute');
+        }
+        
+        setCurrentPatch(deepCopy);
+    }
+    
+    const updateDrumLayerEGAttack = (layer, val) => {
+        let deepCopy = [...currentPatch];
+        
+        switch(layer) {
+            case(0):
+                deepCopy[currentMidiChannel].layer1.envelopeGenerator.attack = val;
+                break;
+            case(1):
+                deepCopy[currentMidiChannel].layer2.envelopeGenerator.attack = val;
+                break;
+            case(2):
+                deepCopy[currentMidiChannel].layer12.envelopeGenerator.attack = val;
+                break;
+            default:
+                console.log('impossible envelope generator attack attribute');
+        }
+        
+        setCurrentPatch(deepCopy);
+    }
+    
+    const updateDrumLayerModulationRate = (layer, val) => {
+        let deepCopy = [...currentPatch];
+        
+        switch(layer) {
+            case(0):
+                deepCopy[currentMidiChannel].layer1.modulation.rate = val;
+                break;
+            case(1):
+                deepCopy[currentMidiChannel].layer2.modulation.rate = val;
+                break;
+            case(2):
+                deepCopy[currentMidiChannel].layer12.modulation.rate = val;
+                break;
+            default:
+                console.log('impossible modulation rate attribute');
+        }
+        
+        setCurrentPatch(deepCopy);
+    }
+    
+    const updateDrumLayerModulationAmount = (layer, val) => {
+        let deepCopy = [...currentPatch];
+        
+        switch(layer) {
+            case(0):
+                deepCopy[currentMidiChannel].layer1.modulation.amount = val;
+                break;
+            case(1):
+                deepCopy[currentMidiChannel].layer2.modulation.amount = val;
+                break;
+            case(2):
+                deepCopy[currentMidiChannel].layer12.modulation.amount = val;
+                break;
+            default:
+                console.log('impossible modulation amount attribute');
+        }
+        
+        setCurrentPatch(deepCopy);
+    }
+    
+    const updateDrumLayerPitch = (layer, val) => {
+        let deepCopy = [...currentPatch];
+        
+        switch(layer) {
+            case(0):
+                deepCopy[currentMidiChannel].layer1.pitch = val;
+                break;
+            case(1):
+                deepCopy[currentMidiChannel].layer2.pitch = val;
+                break;
+            case(2):
+                deepCopy[currentMidiChannel].layer12.pitch = val;
+                break;
+            default:
+                console.log('impossible pitch attribute');
+        }
+        
+        setCurrentPatch(deepCopy);
+    }
     
     const updateDrumLayerLevel = (layer, val) => {
         let deepCopy = [...currentPatch];
@@ -655,6 +1000,8 @@ function VolcaDrum() {
                                     <p>layer 1 &amp; 2</p>
                                 </div>
                             </div>
+                            <p className={'volcaDrumModulationLabel' + volcaDrumMonth}>modulation</p>
+                            <p className={'volcaDrumEGLabel' + volcaDrumMonth}>envelope generator</p>
                             {currentPatch[currentMidiChannel].layerSelection[0] && (
                                 <div className={'volcaDrumLayerLevelSlot' + volcaDrumMonth}>
                                     <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>level</p>
@@ -718,7 +1065,473 @@ function VolcaDrum() {
                                     </div>
                                 </div>
                             )}
+                            {currentPatch[currentMidiChannel].layerSelection[0] && (
+                                <div className={'volcaDrumLayerPitchSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>pitch</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerPitch(0, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer1.pitch}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerPitch(0, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer1.pitch}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[1] && (
+                                <div className={'volcaDrumLayerPitchSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>pitch</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerPitch(1, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer2.pitch}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerPitch(1, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer2.pitch}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[2] && (
+                                <div className={'volcaDrumLayerPitchSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>pitch</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerPitch(2, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer12.pitch}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerPitch(2, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer12.pitch}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[0] && (
+                                <div className={'volcaDrumLayerModulationAmountSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>amount</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerModulationAmount(0, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer1.modulation.amount}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerModulationAmount(0, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer1.modulation.amount}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[1] && (
+                                <div className={'volcaDrumLayerModulationAmountSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>amount</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerModulationAmount(1, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer2.modulation.amount}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerModulationAmount(1, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer2.modulation.amount}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[2] && (
+                                <div className={'volcaDrumLayerModulationAmountSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>amount</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerModulationAmount(2, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer12.modulation.amount}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerModulationAmount(2, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer12.modulation.amount}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[0] && (
+                                <div className={'volcaDrumLayerModulationRateSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>rate</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerModulationRate(0, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer1.modulation.rate}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerModulationRate(0, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer1.modulation.rate}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[1] && (
+                                <div className={'volcaDrumLayerModulationRateSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>rate</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerModulationRate(1, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer2.modulation.rate}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerModulationRate(1, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer2.modulation.rate}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[2] && (
+                                <div className={'volcaDrumLayerModulationRateSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>rate</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerModulationRate(2, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer12.modulation.rate}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerModulationRate(2, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer12.modulation.rate}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[0] && (
+                                <div className={'volcaDrumLayerEGAttackSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>attack</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerEGAttack(0, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer1.envelopeGenerator.attack}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerEGAttack(0, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer1.envelopeGenerator.attack}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[1] && (
+                                <div className={'volcaDrumLayerEGAttackSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>attack</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerEGAttack(1, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer2.envelopeGenerator.attack}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerEGAttack(1, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer2.envelopeGenerator.attack}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[2] && (
+                                <div className={'volcaDrumLayerEGAttackSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>attack</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerEGAttack(2, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer12.envelopeGenerator.attack}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerEGAttack(2, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer12.envelopeGenerator.attack}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[0] && (
+                                <div className={'volcaDrumLayerEGReleaseSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>release</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerEGRelease(0, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer1.envelopeGenerator.release}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerEGRelease(0, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer1.envelopeGenerator.release}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[1] && (
+                                <div className={'volcaDrumLayerEGReleaseSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>release</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerEGRelease(1, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer2.envelopeGenerator.release}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerEGRelease(1, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer2.envelopeGenerator.release}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[2] && (
+                                <div className={'volcaDrumLayerEGReleaseSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>release</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerEGRelease(2, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer12.envelopeGenerator.release}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerEGRelease(2, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer12.envelopeGenerator.release}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[0] && (
+                                <div className={'volcaDrumLayerSendSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>send</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerSend(0, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer1.send}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerSend(0, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer1.send}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[1] && (
+                                <div className={'volcaDrumLayerSendSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>send</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerSend(1, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer2.send}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerSend(1, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer2.send}/>
+                                    </div>
+                                </div>
+                            )}
+                            {currentPatch[currentMidiChannel].layerSelection[2] && (
+                                <div className={'volcaDrumLayerSendSlot' + volcaDrumMonth}>
+                                    <p className={'volcaDrumLayerLevelLabel' + volcaDrumMonth}>send</p>
+                                    <input 
+                                    className={'volcaDrumLayerLevelInput' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateDrumLayerSend(2, e.target.value)}
+                                    type="number"
+                                    value={currentPatch[currentMidiChannel].layer12.send}/>
+                                    <div className={'volcaDrumLayerParamSliderContainer' + volcaDrumMonth}>
+                                        <input 
+                                            className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                            max="127"
+                                            min="0"
+                                            onChange={(e) => updateDrumLayerSend(2, e.target.value)}
+                                            type="range"
+                                            value={currentPatch[currentMidiChannel].layer12.send}/>
+                                    </div>
+                                </div>
+                            )}
+                            <div className={'volcaDrumVisualSendConnector' + volcaDrumMonth}></div>
                         </div>
+                    </div>
+                    <div className={'volcaDrumGeneralGlobalParamsDiv' + volcaDrumMonth}>
+                        <div className={'volcaDrumGeneralGlobalParamsContainer' + volcaDrumMonth}>
+                            <p className={'volcaDrumPanLabel' + volcaDrumMonth}>pan:</p>
+                            <div className={'volcaDrumPanSliderContainer' + volcaDrumMonth}>
+                                <input 
+                                    className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updatePan(e.target.value)}
+                                    type="range"
+                                    value={globalParams.pan}/>
+                            </div>
+                            <div className={'globalParamsBitReductionContainer' + volcaDrumMonth}>
+                                <div className={'globalParamsBitReductionSliderContainer' + volcaDrumMonth}>
+                                    <input 
+                                    className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateBitReduction(e.target.value)}
+                                    type="range"
+                                    value={globalParams.bitReduction}/>
+                                </div>
+                                <p className={'volcaDrumBitReductionLabel' + volcaDrumMonth}>bit reduction</p>
+                                <input className={'volcaDrumBitReductionInput' + volcaDrumMonth} 
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateBitReduction(e.target.value)}
+                                    type="number"
+                                    value={globalParams.bitReduction}/>
+                            </div>
+                            <div className={'globalParamsWaveFolderContainer' + volcaDrumMonth}>
+                                <div className={'globalParamsBitReductionSliderContainer' + volcaDrumMonth}>
+                                    <input 
+                                    className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateWaveFolder(e.target.value)}
+                                    type="range"
+                                    value={globalParams.waveFolder}/>
+                                </div>
+                                <p className={'volcaDrumBitReductionLabel' + volcaDrumMonth}>wave folder</p>
+                                <input className={'volcaDrumBitReductionInput' + volcaDrumMonth} 
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateWaveFolder(e.target.value)}
+                                    type="number"
+                                    value={globalParams.waveFolder}/>
+                            </div>
+                            <div className={'globalParamsOverdriveGainContainer' + volcaDrumMonth}>
+                                <div className={'globalParamsBitReductionSliderContainer' + volcaDrumMonth}>
+                                    <input 
+                                    className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateOverdriveGain(e.target.value)}
+                                    type="range"
+                                    value={globalParams.overdriveGain}/>
+                                </div>
+                                <p className={'volcaDrumBitReductionLabel' + volcaDrumMonth}>overdrive gain</p>
+                                <input className={'volcaDrumBitReductionInput' + volcaDrumMonth} 
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updateOverdriveGain(e.target.value)}
+                                    type="number"
+                                    value={globalParams.overdriveGain}/>
+                            </div>
+                            <div className={'globalParamsPremixGainContainer' + volcaDrumMonth}>
+                                <div className={'globalParamsBitReductionSliderContainer' + volcaDrumMonth}>
+                                    <input 
+                                    className={'volcaDrumWaveGuideDecaySlider' + volcaDrumMonth}
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updatePremixGain(e.target.value)}
+                                    type="range"
+                                    value={globalParams.premixGain}/>
+                                </div>
+                                <p className={'volcaDrumBitReductionLabel' + volcaDrumMonth}>premix gain</p>
+                                <input className={'volcaDrumBitReductionInput' + volcaDrumMonth} 
+                                    max="127"
+                                    min="0"
+                                    onChange={(e) => updatePremixGain(e.target.value)}
+                                    type="number"
+                                    value={globalParams.premixGain}/>
+                            </div>
+                        </div>
+                        
                     </div>
                     
                     <div className={'volcaDrumWaveguideModel' + volcaDrumMonth}>

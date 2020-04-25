@@ -147,8 +147,98 @@
     justify-content: flex-end;
 }
 
+.volcaDrumGeneralGlobalParamsDiv_JanuaryA {
+    backdrop-filter: brightness(66%);
+    grid-column: col3 / col8;
+    grid-row: row7 / rowEnd;
+}
+
+.volcaDrumGeneralGlobalParamsContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [ggcol1] 1fr [ggcol2] 1fr [ggcol3] 1fr [ggcol4] 1fr [ggcol5] 1fr [ggcol6] 1fr [ggcol7] 1fr [ggcol8] 1fr [ggcol9] 1fr [ggcol10] 1fr [ggcol11] 1fr [ggcol12] 1fr [ggcol13] 1fr [ggcol14] 1fr [ggcol15] 1fr [ggcol16] 1fr [ggcol17] 1fr [lprightEdge];
+    grid-template-rows: [ggrow1] 1fr [ggrow2] 1fr [ggrow3] 1fr [ggrow4] 1fr [ggrow5] 1fr [ggrow6] 1fr [ggrow7] 1fr [ggrow8] 1fr [ggrow9] 1fr [ggrow10] 1fr [ggrow11] 1fr [ggrow12] 1fr [ggrowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaDrumPanLabel_JanuaryA {
+    color: #d0e8ec;
+    filter: brightness(130%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    grid-column: ggcol2 / ggcol4;
+    grid-row: ggrow2 / ggrow3;
+}
+
+.volcaDrumPanSliderContainer_JanuaryA {
+    background: #8196d8;
+    border: 2px solid #000020;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    grid-column: ggcol4 / ggcol17;
+    grid-row: ggrow2 / ggrow3;
+    height: 30px;
+}
+
+.globalParamsBitReductionContainer_JanuaryA {
+    grid-column: ggcol2 / ggcol5;
+    grid-row: ggrow4 / ggrowend;
+}
+
+.globalParamsBitReductionSliderContainer_JanuaryA {
+    background: #8196d8;
+    border: 2px solid #000020;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    height: 30px;
+    transform: rotateZ(-90deg) translateX(-95px) translateY(-90px);
+    width: 165%;
+}
+
+.volcaDrumBitReductionLabel_JanuaryA {
+    color: #d0e8ec;
+    filter: brightness(130%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    left: 28%;
+    position: relative;
+    top: -10%;
+    width: 74%;
+}
+
+.volcaDrumBitReductionInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #d0e8ec;
+    filter: brightness(130%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 36px;
+    left: 45%;
+    outline-color: #869fb2;
+    position: relative;
+    top: 70%;
+    width: 70%;
+}
+
+.globalParamsWaveFolderContainer_JanuaryA {
+    grid-column: ggcol6 / ggcol9;
+    grid-row: ggrow4 / ggrowend;
+}
+
+.globalParamsOverdriveGainContainer_JanuaryA {
+    grid-column: ggcol10 / ggcol13;
+    grid-row: ggrow4 / ggrowend;
+}
+
+.globalParamsPremixGainContainer_JanuaryA {
+    grid-column: ggcol14 / ggcol17;
+    grid-row: ggrow4 / ggrowend;
+}
+
 .volcaDrumPartParamsDiv_JanuaryA {
-    backdrop-filter: blur(4px) grayscale(30%) hue-rotate(90deg) saturate(150%);
+    backdrop-filter: blur(4px) brightness(120%) grayscale(30%) hue-rotate(90deg) saturate(150%);
     grid-column: col3 / col8;
     grid-row: row3 / row7;
 }
@@ -203,9 +293,72 @@
     width: 33.3%;
 }
 
+.volcaDrumModulationLabel_JanuaryA {
+    color: #041041;
+    filter: contrast(300%) saturate(200%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    left: 32.5%;
+    position: fixed;
+    top: 65%;
+    transform: rotateZ(-90deg);
+}
+
+.volcaDrumEGLabel_JanuaryA {
+    color: #041041;
+    filter: contrast(300%) saturate(200%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    left: 51%;
+    position: fixed;
+    top: 63%;
+    transform: rotateZ(-90deg);
+}
+
 .volcaDrumLayerLevelSlot_JanuaryA {
-    grid-column: lpcol2 / lpcol3;
+    grid-column: lpcol2 / lpcol4;
     grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerPitchSlot_JanuaryA {
+    grid-column: lpcol4 / lpcol6;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerModulationAmountSlot_JanuaryA {
+    grid-column: lpcol6 / lpcol8;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerModulationRateSlot_JanuaryA {
+    grid-column: lpcol8 / lpcol10;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerEGAttackSlot_JanuaryA {
+    grid-column: lpcol10 / lpcol12;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerEGReleaseSlot_JanuaryA {
+    grid-column: lpcol12 / lpcol14;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerSendSlot_JanuaryA {
+    grid-column: lpcol14 / lpcol16;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumVisualSendConnector_JanuaryA {
+    background: #000020;
+    border-radius: 4px;
+    height: 5px;
+    left: 83.2%;
+    margin: 15px 0 0 25px;
+    position: fixed;
+    top: 85%;
+    width: 210px;
 }
 
 .volcaDrumLayerLevelLabel_JanuaryA {
@@ -237,7 +390,7 @@
     grid-row: wgrow4 / wgrow5;
     height: 30px;
     transform: rotateZ(-90deg) translateX(-100px) translateY(-100px);
-    width: 480%;
+    width: 280%;
 }
 
 .volcaDrumpartLayerTabfalse_JanuaryA p {
