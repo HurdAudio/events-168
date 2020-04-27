@@ -23,7 +23,13 @@ function CheckStatus(security) {
     let localStorage = window.localStorage;
     let now = new Date();
     let exp;
-    let exp2 = new Date(security.expire);
+    let exp2;
+    
+    if (security) {
+        exp2 = new Date(security.expire);
+    } else {
+        exp2 = new Date();
+    }
     
     if ((!getCookie('eventualUser')) || (!localStorage.getItem('eventualUser'))) {
         clearCookiesAndStorage();
@@ -31,16 +37,20 @@ function CheckStatus(security) {
         return false;
     }
     
-    if ((getCookie(security.key) === null) || (localStorage.getItem(security.key) === null)) {
-        clearCookiesAndStorage();
-        localStorage.setItem('userLoggedIn', false);
-        return false;
+    if(security) {
+        if ((getCookie(security.key) === null) || (localStorage.getItem(security.key) === null)) {
+            clearCookiesAndStorage();
+            localStorage.setItem('userLoggedIn', false);
+            return false;
+        }
+        if ((getCookie(security.key) !== security.value) || (localStorage.getItem(security.key) !== security.value)) {
+            clearCookiesAndStorage();
+            localStorage.setItem('userLoggedIn', false);
+            return false;
+        }
     }
-    if ((getCookie(security.key) !== security.value) || (localStorage.getItem(security.key) !== security.value)) {
-        clearCookiesAndStorage();
-        localStorage.setItem('userLoggedIn', false);
-        return false;
-    }
+    
+    
     if ((getCookie('eventualRelease') === null) || (localStorage.getItem('eventualRelease') === null)) {
         clearCookiesAndStorage();
         localStorage.setItem('userLoggedIn', false);

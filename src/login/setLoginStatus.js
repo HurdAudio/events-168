@@ -1,5 +1,5 @@
 function SetStatus(user) {
-    
+        
     function clearCookiesAndStorage() {
             let storage = window.localStorage;
             storage.removeItem('eventualUser');

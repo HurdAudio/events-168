@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 import './volcaDrum.style.jana.css';
 import midi5pin from '../img/midi5pin.svg';
-import volcaFmImg1 from '../img/volcaFmImg1.png';
+import volcaDrumImg1 from '../img/volcaDrumImg1.png';
 
 function VolcaDrum() {
     
@@ -33,13 +33,14 @@ function VolcaDrum() {
 
     const [panicState, setPanicState] = useState('panicOff');
     const [currentSpinner, setCurrentSpinner] = useState(janaSpinner);
-    const [availableInputs, setAvailableInputs] = useState(inputs);
-    const [availableOutputs, setAvailableOutputs] = useState(outputs);
-    const [currentOutput, setCurrentOutput] = useState(256);
+    const [availableInputs, setAvailableInputs] = useState([]);
+    const [availableOutputs, setAvailableOutputs] = useState([]);
+    const [currentOutput, setCurrentOutput] = useState(1);
     const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
     const [volcaDrumContainerState, setVolcaDrumContainerState] = useState('Active');
     const [saveAsName, setSaveAsName] = useState('');
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('Inactive');
+    const [aboutVolcaDrumDivState, setAboutVolcaDrumDivState] = useState('Inactive');
     const [volcaDrumMonth, setVolcaDrumMonth] = useState('_JanuaryA');
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [patchAltered, setPatchAltered] = useState(false);
@@ -325,12 +326,620 @@ function VolcaDrum() {
         }
     ]);
     
+    const openVolcaDrumAboutDiv = () => {
+        setVolcaDrumContainerState('Inactive');
+        setAboutVolcaDrumDivState('Active');
+    }
+    
+    const closeVolcaDrumAboutDiv = () => {
+        setVolcaDrumContainerState('Active');
+        setAboutVolcaDrumDivState('Inactive');
+    }
+    
+    const makeRandomPatch = () => {
+        let soundSource = Math.floor(Math.random() * 5);
+        let pitchModulator = Math.floor(Math.random() * 3);
+        let eg = Math.floor(Math.random() * 3);
+        let newGlobal = {
+            bitReduction: Math.floor(Math.random() * 128),
+            name: 'random',
+            overdriveGain: Math.floor(Math.random() * 128),
+            pan: Math.floor(Math.random() * 128),
+            premixGain: Math.floor(Math.random() * 128),
+            waveFolder: Math.floor(Math.random() * 128),
+            waveGuide: {
+                body: Math.floor(Math.random() * 128),
+                decay: Math.floor(Math.random() * 128),
+                tune: Math.floor(Math.random() * 128)
+            },
+            waveGuideModel: {
+                envelopeGenerators: [true, false, false],
+                pitchModulators: [true, false, false],
+                soundSource: [true, false, false, false, false]
+            }
+        }
+        for (let i = 0; i < 5; i++) {
+            if (i === soundSource) {
+                newGlobal.waveGuideModel.soundSource[i] = true;
+            } else {
+                newGlobal.waveGuideModel.soundSource[i] = false;
+            }
+        }
+        for (let j = 0; j < 3; j++) {
+            if (j === pitchModulator) {
+                newGlobal.waveGuideModel.pitchModulators[j] = true;
+            } else {
+                newGlobal.waveGuideModel.pitchModulators[j] = false;
+            }
+            if (j === eg) {
+                newGlobal.waveGuideModel.envelopeGenerators[j] = true;
+            } else {
+                newGlobal.waveGuideModel.envelopeGenerators[j] = false;
+            }
+        }
+        setGlobalParams(newGlobal);
+        let newCurrent = [
+            {
+                layer1: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layer2: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layer12: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layerSelection: [true, false, false],
+                patch: 0
+            },
+            {
+                layer1: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layer2: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layer12: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layerSelection: [true, false, false],
+                patch: 0
+            },
+            {
+                layer1: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layer2: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layer12: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layerSelection: [true, false, false],
+                patch: 0
+            },
+            {
+                layer1: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layer2: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layer12: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layerSelection: [true, false, false],
+                patch: 0
+            },
+            {
+                layer1: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layer2: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layer12: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layerSelection: [true, false, false],
+                patch: 0
+            },
+            {
+                layer1: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layer2: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layer12: {
+                    envelopeGenerator: {
+                        attack: Math.floor(Math.random() * 128),
+                        release: Math.floor(Math.random() * 128)
+                    },
+                    level: Math.floor(Math.random() * 128),
+                    modulation: {
+                        amount: Math.floor(Math.random() * 128),
+                        rate: Math.floor(Math.random() * 128)
+                    },
+                    pitch: Math.floor(Math.random() * 128),
+                    send: Math.floor(Math.random() * 128)
+                },
+                layerSelection: [true, false, false],
+                patch: 0
+            }
+        ];
+        let layerS;
+        for (let k = 0; k < newCurrent.length; k++) {
+            layerS = Math.floor(Math.random() * 3);
+            for (let l = 0; l < 3; l++) {
+                if (l === layerS) {
+                    newCurrent[k].layerSelection[l] = true;
+                } else {
+                    newCurrent[k].layerSelection[l] = false;
+                }
+            }
+        }
+        setCurrentPatch(newCurrent);
+    }
+    
+    const initPatch = () => {
+        setGlobalParams({
+            bitReduction: 0,
+            name: 'init',
+            overdriveGain: 0,
+            pan: 64,
+            premixGain: 64,
+            waveFolder: 0,
+            waveGuide: {
+                body: 0,
+                decay: 0,
+                tune:0
+            },
+            waveGuideModel: {
+                envelopeGenerators: [true, false, false],
+                pitchModulators: [true, false, false],
+                soundSource: [true, false, false, false, false]
+            }
+        });
+        setCurrentPatch([
+            {
+                layer1: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layer2: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layer12: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layerSelection: [true, false, false],
+                patch: 0
+            },
+            {
+                layer1: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layer2: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layer12: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layerSelection: [true, false, false],
+                patch: 0
+            },
+            {
+                layer1: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layer2: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layer12: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layerSelection: [true, false, false],
+                patch: 1
+            },
+            {
+                layer1: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layer2: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layer12: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layerSelection: [true, false, false],
+                patch: 1
+            },
+            {
+                layer1: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layer2: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layer12: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layerSelection: [true, false, false],
+                patch: 2
+            },
+            {
+                layer1: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layer2: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layer12: {
+                    envelopeGenerator: {
+                        attack: 12,
+                        release: 27
+                    },
+                    level: 100,
+                    modulation: {
+                        amount: 55,
+                        rate: 12
+                    },
+                    pitch: 55,
+                    send: 55
+                },
+                layerSelection: [true, false, false],
+                patch: 3
+            }
+        ]);
+    }
+    
     const updatePremixGain = (val) => {
         let deepCopy = {...globalParams};
         
         deepCopy.premixGain = val;
         
         setGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateOverdriveGain = (val) => {
@@ -339,6 +948,7 @@ function VolcaDrum() {
         deepCopy.overdriveGain = val;
         
         setGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateWaveFolder = (val) => {
@@ -347,6 +957,7 @@ function VolcaDrum() {
         deepCopy.waveFolder = val;
         
         setGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateBitReduction = (val) => {
@@ -355,6 +966,7 @@ function VolcaDrum() {
         deepCopy.bitReduction = val;
         
         setGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updatePan = (val) => {
@@ -363,6 +975,7 @@ function VolcaDrum() {
         deepCopy.pan = val;
         
         setGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateDrumLayerSend = (layer, val) => {
@@ -383,6 +996,7 @@ function VolcaDrum() {
         }
         
         setCurrentPatch(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateDrumLayerEGRelease = (layer, val) => {
@@ -403,6 +1017,7 @@ function VolcaDrum() {
         }
         
         setCurrentPatch(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateDrumLayerEGAttack = (layer, val) => {
@@ -423,6 +1038,7 @@ function VolcaDrum() {
         }
         
         setCurrentPatch(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateDrumLayerModulationRate = (layer, val) => {
@@ -443,6 +1059,7 @@ function VolcaDrum() {
         }
         
         setCurrentPatch(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateDrumLayerModulationAmount = (layer, val) => {
@@ -463,6 +1080,7 @@ function VolcaDrum() {
         }
         
         setCurrentPatch(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateDrumLayerPitch = (layer, val) => {
@@ -483,6 +1101,7 @@ function VolcaDrum() {
         }
         
         setCurrentPatch(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateDrumLayerLevel = (layer, val) => {
@@ -503,6 +1122,7 @@ function VolcaDrum() {
         }
         
         setCurrentPatch(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateLayerSelection = (index) => {
@@ -517,6 +1137,7 @@ function VolcaDrum() {
         }
         
         setCurrentPatch(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateWaveguideModelEnvelopeGenerator = (index) => {
@@ -530,6 +1151,7 @@ function VolcaDrum() {
             }
         }
         setGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateWaveguideModelPitchModulator = (index) => {
@@ -543,6 +1165,7 @@ function VolcaDrum() {
             }
         }
         setGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateWaveguideModelSoundSource = (index) => {
@@ -556,6 +1179,7 @@ function VolcaDrum() {
             }
         }
         setGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateDecay = (val) => {
@@ -564,6 +1188,7 @@ function VolcaDrum() {
         deepCopy.waveGuide.decay = val;
         
         setGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateBody = (val) => {
@@ -572,6 +1197,7 @@ function VolcaDrum() {
         deepCopy.waveGuide.body = val;
         
         setGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updateTune = (val) => {
@@ -580,6 +1206,7 @@ function VolcaDrum() {
         deepCopy.waveGuide.tune = val;
         
         setGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const updatePatchSetting = (val) => {
@@ -588,6 +1215,7 @@ function VolcaDrum() {
         deepCopy[currentMidiChannel].patch = (val - 1);
         
         setCurrentPatch(deepCopy);
+        setPatchAltered(true);
     }
     
     const updatePart = (val) => {
@@ -624,7 +1252,8 @@ function VolcaDrum() {
     }
         
     const submitSaveAsDialog = (val) => {
-       
+       setSaveAsDialogStatus('Inactive'); 
+    setVolcaDrumContainerState('Active');
     }
     
     const cancelSaveAsDialog = () => {
@@ -635,7 +1264,7 @@ function VolcaDrum() {
     const executeSaveAsDialog = () => {
         setSaveAsDialogStatus('Active');
         setVolcaDrumContainerState('Inactive');
-//        document.getElementById('saveAsInput').focus();
+        document.getElementById('saveAsInput').focus();
     }
     
     const updateChangeAsName = (val) => {
@@ -651,7 +1280,11 @@ function VolcaDrum() {
     }
     
     const patchNameUpdate = (val) => {
+        let deepCopy = {...globalParams};
         
+        deepCopy.name = val;
+        
+        setGlobalParams(deepCopy);
     }
 
     const noteOnEvent = (key) => {
@@ -891,11 +1524,14 @@ function VolcaDrum() {
     }
     
     function initInputs() {
+        console.log('initing iniputs');
         if (inputs.length > 0) {
             setAvailableInputs(inputs);
             setAvailableOutputs(outputs);
-            setCurrentOutput(availableOutputs[0]);
+            setCurrentOutput(outputs[0]);
             setCurrentMidiChannel(midiOutput);
+            console.log(currentOutput);
+            console.log(availableOutputs);
 
             console.log(outputs);
             for (const output of outputs) {
@@ -917,7 +1553,7 @@ function VolcaDrum() {
 
         inputs = Array.from(midiAccess.inputs.values());
         outputs = Array.from(midiAccess.outputs.values());
-        if (currentOutput === 0) {
+        if (currentOutput === 1) {
             initInputs();
         }
 
@@ -928,7 +1564,7 @@ function VolcaDrum() {
             .then(onMIDISuccess, onMIDIFailure);
     }
 
-    initiateMidiAccess();
+//    initiateMidiAccess();
     
     return ( 
         <div>
@@ -943,10 +1579,36 @@ function VolcaDrum() {
                         
                     </div>
                     <h3 className={'volcaDrumEditorTitle' + volcaDrumMonth}>Volca Drum Editor</h3>
+                    <input className={'volcaPatchNameInput' + volcaDrumMonth}
+                        onChange={(e) => patchNameUpdate(e.target.value)}
+                        type="text"
+                        value={globalParams.name}/>
+                    <button className={'volcaDrumPanicButton' + volcaDrumMonth}
+                        onClick={() => panic()}>panic!</button>
                     
                     <div className={'volcaDrumSidebarManager' + volcaDrumMonth}>
                         <div className={'sidebarContainer' + volcaDrumMonth}>
-                            
+                            <img className={'volcaDrumImage1' + volcaDrumMonth}
+                                src={volcaDrumImg1} />
+                            <button className={'saveButton' + patchAltered + volcaDrumMonth}
+                                onClick={() => savePatch()}>save</button>
+                            <button className={'saveAsButton' + volcaDrumMonth}
+                                onClick={() => executeSaveAsDialog()}>save as...</button>
+                            <button className={'revertButton' + patchAltered + volcaDrumMonth}
+                                onClick={() => revertPatch()}>revert</button>
+                            <p className={'midiOutputLabel' + volcaDrumMonth}>midi output:</p>
+                            <select className={'midiOutputSelect' + volcaDrumMonth}
+                                onChange={(e) => updateCurrentOutput(e.target.value)}
+                                value={getVisualOutput(currentOutput)}>
+                                {availableOutputs.map(out => (
+                                <option key={out.id} value={out.id}>{out.name}</option>))}
+                            </select>
+                            <button className={'initButton' + volcaDrumMonth}
+                                onClick={() => initPatch()}>init</button>
+                            <button className={'randomButton' + volcaDrumMonth}
+                                onClick={() => makeRandomPatch()}>random</button>
+                            <button className={'aboutVolcaDrumButton' + volcaDrumMonth}
+                                onClick={() => openVolcaDrumAboutDiv()}>about</button>
                         </div>
                     </div>
                     
@@ -973,7 +1635,7 @@ function VolcaDrum() {
                             min="1"
                             onChange={(e) => updatePatchSetting(e.target.value)}
                             type="number"
-                            value={((currentPatch[currentMidiChannel].patch) + 1) | 1}/>
+                            value={((currentPatch[currentMidiChannel].patch) + 1)}/>
                         <div className={'volcaDrumPatchSliderContainer' + volcaDrumMonth}>
                         <input 
                             className={'volcaDrumPatchSlider' + volcaDrumMonth}
@@ -981,7 +1643,7 @@ function VolcaDrum() {
                             min="1"
                             onChange={(e) => updatePatchSetting(e.target.value)}
                             type="range"
-                            value={((currentPatch[currentMidiChannel].patch) + 1) | 1}/></div>
+                            value={((currentPatch[currentMidiChannel].patch) + 1)}/></div>
                     </div>
                     
                     <div className={'volcaDrumPartParamsDiv' + volcaDrumMonth}>
@@ -1629,6 +2291,42 @@ function VolcaDrum() {
                         </div>
                     </div>
                     
+                </div>
+            </div>
+            <div className={'saveAsDialogDiv' + saveAsDialogStatus + volcaDrumMonth}>
+                <p>save as</p>
+                <input className={'saveAsInput' + volcaDrumMonth}
+                    id="saveAsInput"
+                    onChange={(e) => updateChangeAsName(e.target.value)}
+                    placeholder={'copy of ' + globalParams.name}
+                    value={saveAsName} />
+                <div className={'saveAsButtonsDiv' + volcaDrumMonth}>
+                    <button className={'saveAsButtons' + volcaDrumMonth}
+                        onClick={() => submitSaveAsDialog(saveAsName)}>submit</button>
+                    <button className={'saveAsButtons' + volcaDrumMonth}
+                        onClick={() => cancelSaveAsDialog()}>cancel</button>
+                </div>
+            </div>
+            <div className={'aboutTheKorgVolcaDrumDiv' + aboutVolcaDrumDivState + volcaDrumMonth}>
+                <div className={'aboutTheKorgVolcaDrumContent' + volcaDrumMonth}>
+                    <img className={'volcaAboutImg' + volcaDrumMonth}
+                        src={volcaDrumImg1} />
+                    <h2>Korg Volca Drum</h2>
+                    <p>The volca series is all about unique sound. Whether it's analog, PCM, or FM, the volca series puts unique sounds into an accessible platform. And now, the series is joined by a new rhythm machine that brings yet another sonic character. It's the volca drum digital percussion synthesizer.</p>
+                    <p>Based on a simple trigger waveform, wave folder and overdrive are used to add overtones and distortion, and then a waveguide resonator effect brings the sound to life. The six-part DSP synth engine was designed with a completely different philosophy than conventional drum machines, and generates a wide range of unexpectedly different sounds. And of course, you can play those sounds from the volca-style sequencer.</p>
+                    <h2>Digital percussion synth with a 6-part x 2-layer structure</h2>
+                    <p>The term "digital" typically brings to mind sounds that are based on PCM-sampled bass drum, snare drum, or cymbal, but the volca drum creates its drum sounds by DSP-powered analog modeling. Oscillator waveforms such as sine wave, sawtooth wave, and noise are provided. By applying various changes to these waveforms, you can create a wide variety of percussion sounds that range from realistic to idiosyncratic, and are not limited only to drums.</p>
+                    <p>The six parts each have two layers, and do not impose any rules or restrictions such as specifying which parts must be used for the bass drum or for the cymbal; all parts have the same specifications. You can freely assign your new sounds to these six parts without being limited by the conventions of a drum set. A kit consists of the six parts that you've assigned plus the waveguide resonator effect settings, and 16 such kits can be stored in memory (the factory settings contain 10 preload kits).</p>
+                    <h2>Distinctive sound from a newly developed DSP engine</h2>
+                    <p>Each part consists of two layers. For each layer, users choose one of five types of oscillator waveform including sine wave, sawtooth wave, and HPF noise, and also choose from three types of pitch modulator and amp EG, each optimized for drum sounds. Layer parameters can be edited either individually or simultaneously, and users can also use the two layers to produce the same sound for additional thickness.</p>
+                    <p>You can customize the resulting trigger waveform by applying bit reduction to produce roughness, adjusting the wave folder depth to add complex overtones, and using overdrive to adjust the distortion. In this way, you can generate distinctive sounds from this sound engine that's structured rather differently from a typical drum machine.</p>
+                    <p>Once you've specified the sound, you can adjust the balance of the parts by modifying the timing at which steps are heard, the pan, the gain before mixing, and the effect sends.</p>
+                    <h2>Waveguide resonator adds rich resonances</h2>
+                    <p>The effect section features a waveguide resonator that's based on physical modeling, and which adds sympathetic resonances to the sound. You can choose from two types of waveguide: "tube" which adds the resonance of a cylindrical object such as a drum body or a long pipe, or "strings" which adds the metallic resonance of a string. The three knobs located in the center of the panel let you specify the DECAY (amount of attenuation), BODY (sonic character), and TUNE (pitch). Setting TUNE to a lower value will produce a delay-like behavior. You can take advantage of these knobs not only for sound design but also in your live performances.</p>
+                </div>
+                <div className={'saveAsButtonsDiv' + volcaDrumMonth}>
+                    <button className={'saveAsButtons' + volcaDrumMonth}
+                        onClick={() => closeVolcaDrumAboutDiv()}>close</button>
                 </div>
             </div>
         </div>

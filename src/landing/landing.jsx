@@ -152,7 +152,7 @@ function Landing() {
                     <volcaNubass />
                 </Route>
                 <Route path="/volca-drum-editor">
-                    <volcaDrum />
+                    {volcaDrum()}
                 </Route>
             </Switch>
         </Router>

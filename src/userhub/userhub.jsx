@@ -204,11 +204,12 @@ function UserHub() {
         if (user.uuid !== localStorage.getItem('eventualUser')) {
             axios.get(`/users/${localStorage.getItem('eventualUser')}`)
             .then(userData => {
+                console.log(userData.data);
                 setUser(userData.data);
                 if (!CheckStatus(user.security)) {
                     SetStatus({ login: 'forbidden' });
                 } else {
-                    SetStatus(user);
+                    SetStatus(userData.data);
                 }
             });
         }
@@ -226,11 +227,10 @@ function UserHub() {
                         <VolcaNubass />
                     </Route>
                     <Route path="/volca-drum-editor">
-                        <VolcaDrum />
+                        {VolcaDrum()}
                     </Route>
                 </Switch>
-                <div className={'userHubContainer' + userhubMonth}
-                    onClick={() => securityClearance()}>
+                <div className={'userHubContainer' + userhubMonth}>
                     <div className={'userHubImageDiv' + userhubMonth}>
                         <img className={'userHubLogoImg' + userhubMonth}
                             src={vectorMidiPng}></img>

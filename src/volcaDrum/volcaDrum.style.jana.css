@@ -762,3 +762,372 @@
     height: 100%;
     width: 100%;
 }
+
+.volcaPatchNameInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #88a3b4;
+    filter: brightness(100%) saturate(400%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #869fb2;
+    position: absolute;
+    top: 1%;
+}
+
+.volcaDrumPanicButton_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #88a3b4;
+    cursor: pointer;
+    filter: brightness(100%) saturate(400%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    grid-column: col10 / rightEdge;
+    grid-row: row1 / row2;
+    z-index: 56;
+}
+
+.volcaDrumImage1_JanuaryA {
+    filter: brightness(130%) drop-shadow(8px 8px 5px #001246);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow1 / sideRow3;
+    margin: 10px 0 0 25px;
+    max-width: 60%;
+    opacity: 0.5;
+}
+
+.saveButtonfalse_JanuaryA {
+    display: none;
+}
+
+.saveButtontrue_JanuaryA {
+    backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
+    background: transparent;
+    border: 2px solid #022db0;
+    color: #c9e5f3;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #8196d8);
+    font-family: 'Nova Flat', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow3 / sideRow4;
+    outline-color: #8694d1;
+}
+
+.saveButtontrue_JanuaryA:hover {
+    backdrop-filter: hue-rotate(45deg);
+    border: 2px solid #88a3b4;
+    color: #88a3b4;
+    filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
+}
+
+.saveButtontrue_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
+}
+
+.saveAsButton_JanuaryA {
+    backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
+    background: transparent;
+    border: 2px solid #022db0;
+    color: #c9e5f3;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #8196d8);
+    font-family: 'Nova Flat', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow5 / sideRow6;
+    outline-color: #8694d1;
+}
+
+.saveAsButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(45deg);
+    border: 2px solid #88a3b4;
+    color: #88a3b4;
+    filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
+}
+
+.saveAsButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
+}
+
+.saveAsDialogDivInactive_JanuaryA {
+    background: #869fb2;
+    border-radius: 0;
+    color: #000000;
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    padding: 2%;
+    position: absolute;
+    top: -100%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.saveAsDialogDivActive_JanuaryA {
+    background: #869fb2;
+    border-radius: 0;
+    color: #000000;
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    margin: 0 0 0 0;
+    padding: 2%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.saveAsInput_JanuaryA {
+    background: #8a9bda;
+    border: none;
+    color: #000000;
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    margin: 5% 10% 3% 10%;
+    outline-color: #8694d1;
+    padding: 2px 5px;
+    width: 80%;
+}
+
+.saveAsButtonsDiv_JanuaryA {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 7vh;
+    justify-content: center;
+    margin: 0 10% 1% 10%;
+    width: 82%;
+}
+
+.saveAsButtons_JanuaryA {
+    backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
+    background: transparent;
+    border: 2px solid #022db0;
+    color: #000000;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #8196d8);
+    font-family: 'Nova Flat', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    outline-color: #8694d1;
+    padding: 0 15px;
+}
+
+.saveAsButtons_JanuaryA:hover {
+    backdrop-filter: hue-rotate(45deg);
+    border: 2px solid #88a3b4;
+    filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
+}
+
+.saveAsButtons_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
+}
+
+.revertButtonfalse_JanuaryA {
+    display: none;   
+}
+
+.revertButtontrue_JanuaryA {
+    backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
+    background: transparent;
+    border: 2px solid #022db0;
+    color: #c9e5f3;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #8196d8);
+    font-family: 'Nova Flat', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow7 / sideRow8;
+    outline-color: #8694d1;
+}
+
+.revertButtontrue_JanuaryA:hover {
+    backdrop-filter: hue-rotate(45deg);
+    border: 2px solid #88a3b4;
+    color: #88a3b4;
+    filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
+}
+
+.revertButtontrue_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
+}
+
+.midiOutputLabel_JanuaryA {
+    color: #000000;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8196d8);
+    font-family: 'Nova Flat', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow10 / sideRow11;
+}
+
+..midiOutputSelect_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #c9e5f3;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8196d8);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow11 / sideRow12;
+    font-family: 'Nova Flat', cursive;
+    font-size: 15px;
+    outline-color: #8196d8;
+}
+
+.initButton_JanuaryA {
+    backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
+    background: transparent;
+    border: 2px solid #022db0;
+    color: #c9e5f3;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #8196d8);
+    font-family: 'Nova Flat', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow19 / sideRow20;
+    outline-color: #8694d1;
+}
+
+.initButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(45deg);
+    border: 2px solid #88a3b4;
+    color: #88a3b4;
+    filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
+}
+
+.initButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
+}
+
+.randomButton_JanuaryA {
+    backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
+    background: transparent;
+    border: 2px solid #022db0;
+    color: #c9e5f3;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #8196d8);
+    font-family: 'Nova Flat', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow21 / sideRow22;
+    outline-color: #8694d1;
+}
+
+.randomButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(45deg);
+    border: 2px solid #88a3b4;
+    color: #88a3b4;
+    filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
+}
+
+.randomButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
+}
+
+.aboutVolcaDrumButton_JanuaryA {
+    backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
+    background: transparent;
+    border: 2px solid #022db0;
+    color: #c9e5f3;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #8196d8);
+    font-family: 'Nova Flat', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    outline-color: #8694d1;
+}
+
+.aboutVolcaDrumButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(45deg);
+    border: 2px solid #88a3b4;
+    color: #88a3b4;
+    filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
+}
+
+.aboutVolcaDrumButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
+}
+
+.aboutTheKorgVolcaDrumDivInactive_JanuaryA {
+    background: #0c28a3;
+    border-radius: 0;
+    color: #000000;
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 115%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheKorgVolcaDrumDivActive_JanuaryA {
+    background: #0c28a3;
+    border-radius: 0;
+    color: #000000;
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 5%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheKorgVolcaDrumContent_JanuaryA {
+    background: #808080;
+    height: 79vh;
+    margin-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 97%;
+}
+
+.volcaAboutImg_JanuaryA {
+    filter: drop-shadow(8px 8px 5px #001246);
+    float: left;
+    margin: 12px;
+    max-width: 40%;
+}
+
+.aboutTheKorgVolcaDrumContent_JanuaryA h2 {
+    color: #000000;
+    font-family: 'Alata', serif;
+    font-size: 36px;
+    margin: 5px 0 30px 30px;
+}
+
+.aboutTheKorgVolcaDrumContent_JanuaryA p {
+    color: #000000;
+    font-family: 'Alata', serif;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 5px 25px 30px 25px;
+    max-width: 950px;
+}
+
+.aboutTheKorgVolcaDrumContent_JanuaryA h3 {
+    color: #000000;
+    font-family: 'Alata', serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 10px 25px 10px 45px;
+    max-width: 950px;
+}
+
