@@ -627,6 +627,7 @@ function VolcaNubass() {
     }
     
     function initInputs() {
+        
         if (inputs.length > 0) {
             setAvailableInputs(inputs);
             setAvailableOutputs(outputs);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
   BrowserRouter as Router,
@@ -25,6 +25,7 @@ import VolcaDrum from '../volcaDrum/volcaDrum';
 import CheckStatus from '../login/checkLoginStatus';
 import SetStatus from '../login/setLoginStatus';
 import axios from 'axios';
+import midiConnection from '../midiManager/midiConnection';
 
 let localStorage = window.localStorage;
 
@@ -40,10 +41,15 @@ if (now.getFullYear() > 2020) {
 
 let userPop = null;
 let switcher = false;
-
+let connections = undefined;
 
 function UserHub() {
     
+    const [midiConnections, setMidiConnections] = useState(connections);
+    const [availableInputs, setAvailableInputs] = useState([]);
+    const [availableOutputs, setAvailableOutputs] = useState([]);
+    const [currentOutput, setCurrentOutput] = useState([]);
+    const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
     const [user, setUser] = useState({});
     const [userhubMonth, setUserhubMonth] = useState('_JanuaryC');
     const [userhubState, setUserhubState] = useState({
@@ -86,9 +92,18 @@ function UserHub() {
     }
     
     const hubStateLibrarian = () => {
-        if (userhubState.tab === 'sliderTabLibrarian') {
-            return;
+        securityClearance();
+        if (midiConnections === undefined) {
+            navigator.requestMIDIAccess({ sysex: true })
+            .then((midiAccess) => {               
+                connections = midiConnection(midiAccess);
+                setMidiConnections(connections);
+            }, () => {
+                alert('No MIDI ports accessible');
+            });
         }
+        
+        console.log(midiConnections);
         setUserhubState({
             home: 'homeContentInactive',
             homeDiv: 'homeContentOff',
@@ -104,6 +119,7 @@ function UserHub() {
             socialDiv: 'soccialOff',
             tab: 'sliderTabLibrarian'
         });
+
     }
     
     const hubStateSequencer = () => {
@@ -213,10 +229,9 @@ function UserHub() {
                 }
             });
         }
-        
-    } 
+    }
 
- 
+    
         return(
             <Router>
                 <Switch>
@@ -227,7 +242,7 @@ function UserHub() {
                         <VolcaNubass />
                     </Route>
                     <Route path="/volca-drum-editor">
-                        {VolcaDrum()}
+                        <VolcaDrum />
                     </Route>
                 </Switch>
                 <div className={'userHubContainer' + userhubMonth}>

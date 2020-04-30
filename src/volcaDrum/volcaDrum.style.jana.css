@@ -963,7 +963,7 @@
 }
 
 .midiOutputLabel_JanuaryA {
-    color: #000000;
+    color: #c9e5f3;
     filter: brightness(100%) drop-shadow(8px 8px 5px #8196d8);
     font-family: 'Nova Flat', cursive;
     font-size: 18px;
@@ -971,7 +971,7 @@
     grid-row: sideRow10 / sideRow11;
 }
 
-..midiOutputSelect_JanuaryA {
+.midiOutputSelect_JanuaryA {
     background: transparent;
     border: none;
     color: #c9e5f3;
