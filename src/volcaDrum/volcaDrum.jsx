@@ -944,6 +944,7 @@ function VolcaDrum() {
         deepCopy.premixGain = val;
         
         setGlobalParams(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x34, val]);
         setPatchAltered(true);
     }
     
@@ -953,6 +954,7 @@ function VolcaDrum() {
         deepCopy.overdriveGain = val;
         
         setGlobalParams(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x33, val]);
         setPatchAltered(true);
     }
     
@@ -962,6 +964,7 @@ function VolcaDrum() {
         deepCopy.waveFolder = val;
         
         setGlobalParams(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x32, val]);
         setPatchAltered(true);
     }
     
@@ -971,6 +974,7 @@ function VolcaDrum() {
         deepCopy.bitReduction = val;
         
         setGlobalParams(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x31, val]);
         setPatchAltered(true);
     }
     
@@ -980,26 +984,17 @@ function VolcaDrum() {
         deepCopy.pan = val;
         
         setGlobalParams(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0A, val]);
         setPatchAltered(true);
     }
     
     const updateDrumLayerSend = (layer, val) => {
         let deepCopy = [...currentPatch];
         
-        switch(layer) {
-            case(0):
-                deepCopy[currentMidiChannel].layer1.send = val;
-                break;
-            case(1):
-                deepCopy[currentMidiChannel].layer2.send = val;
-                break;
-            case(2):
-                deepCopy[currentMidiChannel].layer12.send = val;
-                break;
-            default:
-                console.log('impossible envelope generator release attribute');
-        }
-        
+        deepCopy[currentMidiChannel].layer1.send = val;
+        deepCopy[currentMidiChannel].layer2.send = val;
+        deepCopy[currentMidiChannel].layer12.send = val;
+        currentOutput.send([0xB0 | currentMidiChannel, 0x67, val]);
         setCurrentPatch(deepCopy);
         setPatchAltered(true);
     }
@@ -1010,12 +1005,15 @@ function VolcaDrum() {
         switch(layer) {
             case(0):
                 deepCopy[currentMidiChannel].layer1.envelopeGenerator.release = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x17, val]);
                 break;
             case(1):
                 deepCopy[currentMidiChannel].layer2.envelopeGenerator.release = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x18, val]);
                 break;
             case(2):
                 deepCopy[currentMidiChannel].layer12.envelopeGenerator.release = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x19, val]);
                 break;
             default:
                 console.log('impossible envelope generator release attribute');
@@ -1031,12 +1029,15 @@ function VolcaDrum() {
         switch(layer) {
             case(0):
                 deepCopy[currentMidiChannel].layer1.envelopeGenerator.attack = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x15, val]);
                 break;
             case(1):
                 deepCopy[currentMidiChannel].layer2.envelopeGenerator.attack = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x16, val]);
                 break;
             case(2):
                 deepCopy[currentMidiChannel].layer12.envelopeGenerator.attack = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x17, val]);
                 break;
             default:
                 console.log('impossible envelope generator attack attribute');
@@ -1052,12 +1053,15 @@ function VolcaDrum() {
         switch(layer) {
             case(0):
                 deepCopy[currentMidiChannel].layer1.modulation.rate = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x2E, val]);
                 break;
             case(1):
                 deepCopy[currentMidiChannel].layer2.modulation.rate = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x2F, val]);
                 break;
             case(2):
                 deepCopy[currentMidiChannel].layer12.modulation.rate = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x30, val]);
                 break;
             default:
                 console.log('impossible modulation rate attribute');
@@ -1073,12 +1077,15 @@ function VolcaDrum() {
         switch(layer) {
             case(0):
                 deepCopy[currentMidiChannel].layer1.modulation.amount = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x1D, val]);
                 break;
             case(1):
                 deepCopy[currentMidiChannel].layer2.modulation.amount = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x1E, val]);
                 break;
             case(2):
                 deepCopy[currentMidiChannel].layer12.modulation.amount = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x1F, val]);
                 break;
             default:
                 console.log('impossible modulation amount attribute');
@@ -1094,12 +1101,15 @@ function VolcaDrum() {
         switch(layer) {
             case(0):
                 deepCopy[currentMidiChannel].layer1.pitch = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x1A, val]);
                 break;
             case(1):
                 deepCopy[currentMidiChannel].layer2.pitch = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x1B, val]);
                 break;
             case(2):
                 deepCopy[currentMidiChannel].layer12.pitch = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x1C, val]);
                 break;
             default:
                 console.log('impossible pitch attribute');
@@ -1115,12 +1125,15 @@ function VolcaDrum() {
         switch(layer) {
             case(0):
                 deepCopy[currentMidiChannel].layer1.level = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x11, val]);
                 break;
             case(1):
                 deepCopy[currentMidiChannel].layer2.level = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x12, val]);
                 break;
             case(2):
                 deepCopy[currentMidiChannel].layer12.level = val;
+                currentOutput.send([0xB0 | currentMidiChannel, 0x13, val]);
                 break;
             default:
                 console.log('impossible layer attribute');
@@ -1136,13 +1149,63 @@ function VolcaDrum() {
         for (let i = 0; i < deepCopy[currentMidiChannel].layerSelection.length; i++) {
             if (i === index) {
                 deepCopy[currentMidiChannel].layerSelection[i] = true;
+                switch(i) {
+                    case(0):
+                        currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 127]);
+                        break;
+                    case(1):
+                        currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 127]);
+                        break;
+                    case(2):
+                        currentOutput.send([0xB0 | currentMidiChannel, 0x10, 127]);
+                        break;
+                    default:
+                        console.log('impossible layer configuration');
+                } 
             } else {
                 deepCopy[currentMidiChannel].layerSelection[i] = false;
+                switch(i) {
+                    case(0):
+                        currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 0]);
+                        break;
+                    case(1):
+                        currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 0]);
+                        break;
+                    case(2):
+                        currentOutput.send([0xB0 | currentMidiChannel, 0x10, 0]);
+                        break;
+                    default:
+                        console.log('impossible layer configuration');
+                }
             }
         }
         
         setCurrentPatch(deepCopy);
         setPatchAltered(true);
+    }
+    
+    const updateWaveguideCCValue = (dc) => {
+        let value = 0;
+        if (dc.waveGuideModel.soundSource[1]) {
+            value += 9;
+        } else if (dc.waveGuideModel.soundSource[2]) {
+            value += 18;
+        } else if (dc.waveGuideModel.soundSource[3]) {
+            value += 27;
+        } else if (dc.waveGuideModel.soundSource[4]) {
+            value += 36;
+        }
+        if (dc.waveGuideModel.pitchModulators[1]) {
+            value += 3;
+        } else if (dc.waveGuideModel.pitchModulatore[2]) {
+            value += 6;
+        }
+        if (dc.waveGuideModel.envelopeGenerators[1]) {
+            value += 1;
+        } else if (dc.waveGuideModel.envelopeGenerators[2]) {
+            value += 2;
+        }
+        currentOutput.send([0xB0 | currentMidiChannel, 0x74, value]);
     }
     
     const updateWaveguideModelEnvelopeGenerator = (index) => {
@@ -1156,6 +1219,7 @@ function VolcaDrum() {
             }
         }
         setGlobalParams(deepCopy);
+        updateWaveguideCCValue(deepCopy);
         setPatchAltered(true);
     }
     
@@ -1170,6 +1234,7 @@ function VolcaDrum() {
             }
         }
         setGlobalParams(deepCopy);
+        updateWaveguideCCValue(deepCopy);
         setPatchAltered(true);
     }
     
@@ -1184,6 +1249,7 @@ function VolcaDrum() {
             }
         }
         setGlobalParams(deepCopy);
+        updateWaveguideCCValue(deepCopy);
         setPatchAltered(true);
     }
     
@@ -1193,6 +1259,7 @@ function VolcaDrum() {
         deepCopy.waveGuide.decay = val;
         
         setGlobalParams(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x75, val]);
         setPatchAltered(true);
     }
     
@@ -1202,6 +1269,7 @@ function VolcaDrum() {
         deepCopy.waveGuide.body = val;
         
         setGlobalParams(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x76, val]);
         setPatchAltered(true);
     }
     
@@ -1211,6 +1279,7 @@ function VolcaDrum() {
         deepCopy.waveGuide.tune = val;
         
         setGlobalParams(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x77, val]);
         setPatchAltered(true);
     }
     
@@ -1220,6 +1289,7 @@ function VolcaDrum() {
         deepCopy[currentMidiChannel].patch = (val - 1);
         
         setCurrentPatch(deepCopy);
+        currentOutput.send([0xC0 | currentMidiChannel, val]);
         setPatchAltered(true);
     }
     
@@ -1243,7 +1313,7 @@ function VolcaDrum() {
     }
     
     const getVisualOutput = (val) => {
-        console.log(val);
+//        console.log(val);
     }
     
     const updateCurrentOutput = (val) => {
@@ -1303,11 +1373,11 @@ function VolcaDrum() {
                 setCurrentMidiChannel(connections.currentMidiChannel);
                 setAvailableOutputs(connections.outputs);
                 setAvailableInputs(connections.inputs);
+                return;
             }, () => {
                 alert('No MIDI ports accessible');
             });
         }
-        console.log(currentOutput);
         let index = 0;
         switch (key.toLowerCase()) {
             case ('q'):
