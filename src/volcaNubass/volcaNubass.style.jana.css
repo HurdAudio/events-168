@@ -816,14 +816,22 @@
     z-index: 56;
 }
 
-.panicOff_JanuaryA {
+.volcaNubassPanicOff_JanuaryA {
     display: none;
 }
 
-.panicOn_JanuaryA img {
+.volcaNubassPanicOn_JanuaryA {
+    display: initial;
+    left: 30%;
+    position: absolute;
+    top: 15%;
+    z-index: 101;
+}
+
+.volcaNubassPanicOn_JanuaryA img {
     margin-left: 10%;
     opacity: 0.75;
-    width: 80%;
+    width: 100%;
 }
 
 .sidebarContainer_JanuaryA {

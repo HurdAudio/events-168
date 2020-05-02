@@ -30,7 +30,7 @@ function VolcaNubass() {
     let rootNote = 36;
     let keyEngaged = {};
 
-    const [panicState, setPanicState] = useState('panicOff');
+    const [panicState, setPanicState] = useState('volcaNubassPanicOff');
     const [nubassContainerState, setNubassContainerState] = useState('Active');
     const [currentSpinner, setCurrentSpinner] = useState('https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif');
     const [volcaNubassEditMonth, setVolcaNubassEditMonth] = useState('_JanuaryA');
@@ -611,7 +611,7 @@ function VolcaNubass() {
     }
     
     const panic = () => {
-        setPanicState('panicOn');
+        setPanicState('volcaNubassPanicOn');
         setNubassContainerState('Inactive');
         for (let i = 0; i < availableOutputs.length; i++) {
             for (let channel = 0; channel < 16; channel++) {
@@ -621,7 +621,7 @@ function VolcaNubass() {
             }
         }
         setTimeout(() => {
-            setPanicState('panicOff');
+            setPanicState('volcaNubassPanicOff');
             setNubassContainerState('Active');
         }, availableOutputs.length * 2000);
     }

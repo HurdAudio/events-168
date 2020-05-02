@@ -1130,3 +1130,22 @@
     max-width: 950px;
 }
 
+.volcaDrumPanicOff_JanuaryA {
+    display: none;
+}
+
+.volcaDrumPanicOn_JanuaryA {
+    display: initial;
+    height: auto%;
+    left: 10%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 101;
+}
+
+.volcaDrumPanicOn_JanuaryA img {
+    margin-left: 10%;
+    opacity: 0.75;
+    width: 60%;
+}
