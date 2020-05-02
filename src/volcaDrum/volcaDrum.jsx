@@ -426,6 +426,185 @@ function VolcaDrum() {
         setAboutVolcaDrumDivState('Inactive');
     }
     
+    const waveGuideValue = (waveGuideSet) => {
+        let value = 0;
+        
+        if (waveGuideSet.soundSource[0]) {
+            if (waveGuideSet.pitchModulators[0]) {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 0;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 3;
+                } else {
+                    value = 6;
+                }
+            } else if (waveGuideSet.pitchModulators[1]) {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 9;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 12;
+                } else {
+                    value = 15;
+                }
+            } else {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 18;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 20;
+                } else {
+                    value = 23;
+                }
+            }
+        } else if (waveGuideSet.soundSource[1]) {
+            if (waveGuideSet.pitchModulators[0]) {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 26;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 29
+                } else {
+                    value = 32;
+                }
+            } else if (waveGuideSet.pitchModulators[1]) {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 35;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 37;
+                } else {
+                    value = 40;
+                }
+            } else {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 43;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 46;
+                } else {
+                    value = 49;
+                }
+            }
+        } else if (waveGuideSet.soundSource[2]) {
+            if (waveGuideSet.pitchModulators[0]) {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 52;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 55;
+                } else {
+                    value = 57;
+                }
+            } else if (waveGuideSet.pitchModulators[1]) {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 60;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 63;
+                } else {
+                    value = 66;
+                }
+            } else {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 69;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 72;
+                } else {
+                    value = 74;
+                }
+            }
+        } else if (waveGuideSet.soundSource[3]) {
+            if (waveGuideSet.pitchModulators[0]) {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 77;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 80;
+                } else {
+                    value = 83;
+                }
+            } else if (waveGuideSet.pitchModulators[1]) {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 86;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 89;
+                } else {
+                    value = 92;
+                }
+            } else {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 94;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 97;
+                } else {
+                    value = 100;
+                }
+            }
+        } else {
+            if (waveGuideSet.pitchModulators[0]) {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 103;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 106;
+                } else {
+                    value = 109;
+                }
+            } else if (waveGuideSet.pitchModulators[1]) {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 111;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 114;
+                } else {
+                    value = 117;
+                }
+            } else {
+                if (waveGuideSet.envelopeGenerators[0]) {
+                    value = 120;
+                } else if (waveGuideSet.envelopeGenerators[1]) {
+                    value = 123;
+                } else {
+                    value = 126;
+                }
+            }
+        }
+        
+        return value;
+    }
+    
+    const sendVolcaDrumPatch = () => {
+        
+        currentOutput.send([0xB0 | currentMidiChannel, 0x31, globalParams.bitReduction]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x33, globalParams.overdriveGain]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0A, globalParams.pan]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x34, globalParams.premixGain]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x32, globalParams.waveFolder]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x76, globalParams.waveGuide.body]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x75, globalParams.waveGuide.decay]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x77, globalParams.waveGuide.tune]);
+        for (let channel = 0; channel < 6; channel++) {
+            currentOutput.send([0xB0 | channel, 0x14, currentPatch[channel].layer1.envelopeGenerator.attack]);
+            currentOutput.send([0xB0 | channel, 0x17, currentPatch[channel].layer1.envelopeGenerator.release]);
+            currentOutput.send([0xB0 | channel, 0x11, currentPatch[channel].layer1.level]);
+            currentOutput.send([0xB0 | channel, 0x1D, currentPatch[channel].layer1.modulation.amount]);
+            currentOutput.send([0xB0 | channel, 0x2E, currentPatch[channel].layer1.modulation.rate]);
+            currentOutput.send([0xB0 | channel, 0x1A, currentPatch[channel].layer1.pitch]);
+            currentOutput.send([0xB0 | channel, 0x67, currentPatch[channel].layer1.send]);
+            currentOutput.send([0xB0 | channel, 0x0E, waveGuideValue(currentPatch[channel].layer1.waveGuideModel)]);
+            
+            currentOutput.send([0xB0 | channel, 0x15, currentPatch[channel].layer2.envelopeGenerator.attack]);
+            currentOutput.send([0xB0 | channel, 0x18, currentPatch[channel].layer2.envelopeGenerator.release]);
+            currentOutput.send([0xB0 | channel, 0x12, currentPatch[channel].layer2.level]);
+            currentOutput.send([0xB0 | channel, 0x1E, currentPatch[channel].layer2.modulation.amount]);
+            currentOutput.send([0xB0 | channel, 0x2F, currentPatch[channel].layer2.modulation.rate]);
+            currentOutput.send([0xB0 | channel, 0x1B, currentPatch[channel].layer2.pitch]);
+            currentOutput.send([0xB0 | channel, 0x67, currentPatch[channel].layer2.send]);
+            currentOutput.send([0xB0 | channel, 0x0F, waveGuideValue(currentPatch[channel].layer2.waveGuideModel)]);
+            
+            currentOutput.send([0xB0 | channel, 0x16, currentPatch[channel].layer12.envelopeGenerator.attack]);
+            currentOutput.send([0xB0 | channel, 0x19, currentPatch[channel].layer12.envelopeGenerator.release]);
+            currentOutput.send([0xB0 | channel, 0x13, currentPatch[channel].layer12.level]);
+            currentOutput.send([0xB0 | channel, 0x1F, currentPatch[channel].layer12.modulation.amount]);
+            currentOutput.send([0xB0 | channel, 0x30, currentPatch[channel].layer12.modulation.rate]);
+            currentOutput.send([0xB0 | channel, 0x1C, currentPatch[channel].layer12.pitch]);
+            currentOutput.send([0xB0 | channel, 0x67, currentPatch[channel].layer12.send]);
+            currentOutput.send([0xB0 | channel, 0x10, waveGuideValue(currentPatch[channel].layer12.waveGuideModel)]);
+        }
+        
+    }
+    
     const makeRandomPatch = () => {
         let soundSource = Math.floor(Math.random() * 5);
         let pitchModulator = Math.floor(Math.random() * 3);
@@ -905,6 +1084,8 @@ function VolcaDrum() {
             }
         }
         setCurrentPatch(newCurrent);
+        sendVolcaDrumPatch();
+        setPatchAltered(true);
     }
     
     const initPatch = () => {
@@ -1271,6 +1452,8 @@ function VolcaDrum() {
                 patch: 3
             }
         ]);
+        sendVolcaDrumPatch();
+        setPatchAltered(true);
     }
     
     const updatePremixGain = (val) => {
