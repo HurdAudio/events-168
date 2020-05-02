@@ -798,11 +798,11 @@
     opacity: 0.5;
 }
 
-.saveButtonfalse_JanuaryA {
+.saveButtonVolcaDrumfalse_JanuaryA {
     display: none;
 }
 
-.saveButtontrue_JanuaryA {
+.saveButtonVolcaDrumtrue_JanuaryA {
     backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
     background: transparent;
     border: 2px solid #022db0;
@@ -816,18 +816,18 @@
     outline-color: #8694d1;
 }
 
-.saveButtontrue_JanuaryA:hover {
+.saveButtonVolcaDrumtrue_JanuaryA:hover {
     backdrop-filter: hue-rotate(45deg);
     border: 2px solid #88a3b4;
     color: #88a3b4;
     filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
 }
 
-.saveButtontrue_JanuaryA:active {
+.saveButtonVolcaDrumtrue_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
 }
 
-.saveAsButton_JanuaryA {
+.saveAsButtonVolcaDrum_JanuaryA {
     backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
     background: transparent;
     border: 2px solid #022db0;
@@ -841,18 +841,18 @@
     outline-color: #8694d1;
 }
 
-.saveAsButton_JanuaryA:hover {
+.saveAsButtonVolcaDrum_JanuaryA:hover {
     backdrop-filter: hue-rotate(45deg);
     border: 2px solid #88a3b4;
     color: #88a3b4;
     filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
 }
 
-.saveAsButton_JanuaryA:active {
+.saveAsButtonVolcaDrum_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
 }
 
-.saveAsDialogDivInactive_JanuaryA {
+.saveAsDialogVolcaDrumDivInactive_JanuaryA {
     background: #869fb2;
     border-radius: 0;
     color: #000000;
@@ -868,7 +868,7 @@
     z-index: 200;
 }
 
-.saveAsDialogDivActive_JanuaryA {
+.saveAsDialogVolcaDrumDivActive_JanuaryA {
     background: #869fb2;
     border-radius: 0;
     color: #000000;
@@ -885,7 +885,7 @@
     z-index: 200;
 }
 
-.saveAsInput_JanuaryA {
+.saveAsInputVolcaDrum_JanuaryA {
     background: #8a9bda;
     border: none;
     color: #000000;
@@ -897,7 +897,7 @@
     width: 80%;
 }
 
-.saveAsButtonsDiv_JanuaryA {
+.saveAsButtonsVolcaDrumDiv_JanuaryA {
     align-content: center;
     display: flex;
     flex-direction: row;
@@ -908,7 +908,7 @@
     width: 82%;
 }
 
-.saveAsButtons_JanuaryA {
+.saveAsButtonsVolcaDrum_JanuaryA {
     backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
     background: transparent;
     border: 2px solid #022db0;
@@ -917,27 +917,26 @@
     filter: brightness(200%) drop-shadow(6px 6px 5px #8196d8);
     font-family: 'Nova Flat', cursive;
     font-size: 18px;
-    grid-column: sideCol2 / sideCol5;
-    grid-row: sideRow23 / sideRow24;
+    margin: 0 30px;
     outline-color: #8694d1;
     padding: 0 15px;
 }
 
-.saveAsButtons_JanuaryA:hover {
+.saveAsButtonsVolcaDrum_JanuaryA:hover {
     backdrop-filter: hue-rotate(45deg);
     border: 2px solid #88a3b4;
     filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
 }
 
-.saveAsButtons_JanuaryA:active {
+.saveAsButtonsVolcaDrum_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
 }
 
-.revertButtonfalse_JanuaryA {
+.revertButtonVolcaDrumfalse_JanuaryA {
     display: none;   
 }
 
-.revertButtontrue_JanuaryA {
+.revertButtonVolcaDrumtrue_JanuaryA {
     backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
     background: transparent;
     border: 2px solid #022db0;
@@ -951,18 +950,18 @@
     outline-color: #8694d1;
 }
 
-.revertButtontrue_JanuaryA:hover {
+.revertButtonVolcaDrumtrue_JanuaryA:hover {
     backdrop-filter: hue-rotate(45deg);
     border: 2px solid #88a3b4;
     color: #88a3b4;
     filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
 }
 
-.revertButtontrue_JanuaryA:active {
+.revertButtonVolcaDrumtrue_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
 }
 
-.midiOutputLabel_JanuaryA {
+.midiOutputVolcaDrumLabel_JanuaryA {
     color: #c9e5f3;
     filter: brightness(100%) drop-shadow(8px 8px 5px #8196d8);
     font-family: 'Nova Flat', cursive;
@@ -971,7 +970,7 @@
     grid-row: sideRow10 / sideRow11;
 }
 
-.midiOutputSelect_JanuaryA {
+.midiOutputVolcaDrumSelect_JanuaryA {
     background: transparent;
     border: none;
     color: #c9e5f3;
@@ -983,7 +982,7 @@
     outline-color: #8196d8;
 }
 
-.initButton_JanuaryA {
+.initVolcaDrumButton_JanuaryA {
     backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
     background: transparent;
     border: 2px solid #022db0;
@@ -997,18 +996,18 @@
     outline-color: #8694d1;
 }
 
-.initButton_JanuaryA:hover {
+.initVolcaDrumButton_JanuaryA:hover {
     backdrop-filter: hue-rotate(45deg);
     border: 2px solid #88a3b4;
     color: #88a3b4;
     filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
 }
 
-.initButton_JanuaryA:active {
+.initVolcaDrumButton_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
 }
 
-.randomButton_JanuaryA {
+.randomVolcaDrumButton_JanuaryA {
     backdrop-filter: brightness(300%) hue-rotate(-45deg) saturate(200%);
     background: transparent;
     border: 2px solid #022db0;
@@ -1022,14 +1021,14 @@
     outline-color: #8694d1;
 }
 
-.randomButton_JanuaryA:hover {
+.randomVolcaDrumButton_JanuaryA:hover {
     backdrop-filter: hue-rotate(45deg);
     border: 2px solid #88a3b4;
     color: #88a3b4;
     filter: brightness(115%) drop-shadow(2px 2px 5px #8196d8);
 }
 
-.randomButton_JanuaryA:active {
+.randomVolcaDrumButton_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #8196d8);
 }
 
@@ -1099,7 +1098,7 @@
     width: 97%;
 }
 
-.volcaAboutImg_JanuaryA {
+.volcaDrumAboutImg_JanuaryA {
     filter: drop-shadow(8px 8px 5px #001246);
     float: left;
     margin: 12px;

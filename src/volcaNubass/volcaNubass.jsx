@@ -688,21 +688,21 @@ function VolcaNubass() {
                         <div className={'sidebarContainer' + volcaNubassEditMonth}>
                             <img className={'nubassImage1' + volcaNubassEditMonth}
                                 src={volcaNubassImg1} />
-                            <button className={'saveButton' + patchAltered + volcaNubassEditMonth}
+                            <button className={'saveVolcaNubassButton' + patchAltered + volcaNubassEditMonth}
                                 onClick={() => savePatch()}>save</button>
-                            <button className={'saveAsButton' + volcaNubassEditMonth}
+                            <button className={'saveAsVolcaNubassButton' + volcaNubassEditMonth}
                                 onClick={() => executeSaveAsDialog()}>save as...</button>
-                            <button className={'revertButton' + patchAltered + volcaNubassEditMonth}
+                            <button className={'revertButtonVolcaNubass' + patchAltered + volcaNubassEditMonth}
                                 onClick={() => revertPatch()}>revert</button>
-                            <p className={'midiOutputLabel' + volcaNubassEditMonth}>midi output:</p>
-                            <select className={'midiOutputSelect' + volcaNubassEditMonth}
+                            <p className={'midiOutputVolcaNubassLabel' + volcaNubassEditMonth}>midi output:</p>
+                            <select className={'midiOutputVolcaNubassSelect' + volcaNubassEditMonth}
                                 onChange={(e) => updateCurrentOutput(e.target.value)}
                                 value={getVisualOutput(currentOutput)}>
                                 {availableOutputs.map(out => (
                                 <option key={out.id} value={out.id}>{out.name}</option>))}
                             </select>
-                            <p className={'midiChannelLabel' + volcaNubassEditMonth}>channel:</p>
-                            <input className={'midiChannelInput' + volcaNubassEditMonth}
+                            <p className={'midiChannelVolcaNubassLabel' + volcaNubassEditMonth}>channel:</p>
+                            <input className={'midiChannelVolcaNubassInput' + volcaNubassEditMonth}
                                 max="15"
                                 min="0"
                                 onChange={(e) => updateCurrentMidiChannel(parseInt(e.target.value))}
@@ -710,9 +710,9 @@ function VolcaNubass() {
                                 type="number"
                                 value={currentMidiChannel}/>
                             
-                            <button className={'initButton' + volcaNubassEditMonth}
+                            <button className={'initVolcaNubassButton' + volcaNubassEditMonth}
                                 onClick={() => initPatch()}>init</button>
-                            <button className={'randomButton' + volcaNubassEditMonth}
+                            <button className={'randomVolcaNubassButton' + volcaNubassEditMonth}
                                 onClick={() => makeRandomPatch()}>random</button>
                             <button className={'aboutNubassButton' + volcaNubassEditMonth}
                                 onClick={() => openVolcaNubassAboutDiv()}>about</button>
@@ -959,9 +959,9 @@ function VolcaNubass() {
                     </div>
                 </div>
             </div>
-            <div className={'saveAsDialogDiv' + saveAsDialogStatus + volcaNubassEditMonth}>
+            <div className={'saveAsDialogVolcaNubassDiv' + saveAsDialogStatus + volcaNubassEditMonth}>
                 <p>save as</p>
-                <input className={'saveAsInput' + volcaNubassEditMonth}
+                <input className={'saveAsInputVolcaNubass' + volcaNubassEditMonth}
                     id="saveAsInput"
                     onChange={(e) => updateChangeAsName(e.target.value)}
                     placeholder={'copy of ' + nubassGlobalParams.name}
@@ -975,7 +975,7 @@ function VolcaNubass() {
             </div>
             <div className={'aboutTheKorgVolcaNubassDiv' + aboutVolcaNubassDivState + volcaNubassEditMonth}>
                 <div className={'aboutTheKorgVolcaNubassContent' + volcaNubassEditMonth}>
-                    <img className={'volcaAboutImg' + volcaNubassEditMonth}
+                    <img className={'volcaAboutVolcaNubassImg' + volcaNubassEditMonth}
                         src={volcaNubassImg1} />
                     <h2>Korg Volca Nubass</h2>
                     <p>The volca nubass is the first analog synth to be equipped with a Nutube new-generation vacuum tube in its oscillator circuit. By incorporating a vacuum tube, nubass produces a warm, thick, and rich sound, unlike any digital or transistor-based synthesizer. The familiar transistor ladder filter along with overdrive, and huge-sounding distortion, gives it the unmistakable character of a classic bass machine. Coupled with an LFO with flexible routing and sync, nubass also provides numerous possibilities for a new generation of music.</p>
@@ -986,8 +986,8 @@ function VolcaNubass() {
                     <h2>Analog driver circuit</h2>
                     <p>nubass is equipped with overdrive that uses an analog circuit reminiscent of a classic stompbox. Turning the knob toward the right compresses the volume while causing mild distortion, adding thickness to your bass sounds. The tone knob also lets you adjust the crispness of the high-frequency range.</p>
                 </div>
-                <div className={'saveAsButtonsDiv' + volcaNubassEditMonth}>
-                    <button className={'saveAsButtons' + volcaNubassEditMonth}
+                <div className={'saveAsButtonsVolcaNubassDiv' + volcaNubassEditMonth}>
+                    <button className={'saveAsButtonsVolcaNubass' + volcaNubassEditMonth}
                         onClick={() => closeVolcaNubassAboutDiv()}>close</button>
                 </div>
             </div>

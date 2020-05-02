@@ -843,11 +843,11 @@
     opacity: 0.5;
 }
 
-.saveButtonfalse_JanuaryA {
+.saveVolcaNubassButtonfalse_JanuaryA {
     display: none;
 }
 
-.saveButtontrue_JanuaryA {
+.saveVolcaNubassButtontrue_JanuaryA {
     backdrop-filter: hue-rotate(-25deg);
     background: transparent;
     border: 2px solid #002839;
@@ -861,17 +861,17 @@
     outline-color: #80b2c7;
 }
 
-.saveButtontrue_JanuaryA:hover {
+.saveVolcaNubassButtontrue_JanuaryA:hover {
     backdrop-filter: hue-rotate(-25deg);
     color: #acdaf2;
     filter: brightness(115%) drop-shadow(8px 8px 5px #0b1a44);
 }
 
-.saveButtontrue_JanuaryA:active {
+.saveVolcaNubassButtontrue_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #0b1a44);
 }
 
-.saveAsButton_JanuaryA {
+.saveAsVolcaNubassButton_JanuaryA {
     backdrop-filter: hue-rotate(-25deg);
     background: transparent;
     border: 2px solid #002839;
@@ -885,21 +885,21 @@
     outline-color: #80b2c7;
 }
 
-.saveAsButton_JanuaryA:hover {
+.saveAsVolcaNubassButton_JanuaryA:hover {
     backdrop-filter: hue-rotate(-25deg);
     color: #acdaf2;
     filter: brightness(115%) drop-shadow(8px 8px 5px #0b1a44);
 }
 
-.saveAsButton_JanuaryA:active {
+.saveAsVolcaNubassButton_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #0b1a44);
 }
 
-.revertButtonfalse_JanuaryA {
+.revertButtonVolcaNubassfalse_JanuaryA {
     display: none;   
 }
 
-.revertButtontrue_JanuaryA {
+.revertButtonVolcaNubasstrue_JanuaryA {
     backdrop-filter: hue-rotate(-25deg);
     background: transparent;
     border: 2px solid #002839;
@@ -913,17 +913,17 @@
     outline-color: #80b2c7;
 }
 
-.revertButtontrue_JanuaryA:hover {
+.revertButtonVolcaNubasstrue_JanuaryA:hover {
     backdrop-filter: hue-rotate(-25deg);
     color: #acdaf2;
     filter: brightness(115%) drop-shadow(8px 8px 5px #0b1a44);
 }
 
-.revertButtontrue_JanuaryA:active {
+.revertButtonVolcaNubasstrue_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #0b1a44);
 }
 
-.midiOutputLabel_JanuaryA {
+.midiOutputVolcaNubassLabel_JanuaryA {
     color: #000528;
     filter: brightness(100%) drop-shadow(8px 8px 5px #0b1a44);
     grid-column: sideCol2 / sideCol5;
@@ -932,7 +932,7 @@
     font-size: 15px;
 }
 
-.midiOutputSelect_JanuaryA {
+.midiOutputVolcaNubassSelect_JanuaryA {
     background: transparent;
     border: none;
     color: #000528;
@@ -944,7 +944,7 @@
     outline-color: #80b2c7;
 }
 
-.midiChannelLabel_JanuaryA {
+.midiChannelVolcaNubassLabel_JanuaryA {
     color: #000528;
     filter: brightness(100%) drop-shadow(8px 8px 5px #0b1a44);
     grid-column: sideCol2 / sideCol5;
@@ -953,7 +953,7 @@
     font-size: 15px;
 }
 
-.midiChannelInput_JanuaryA {
+.midiChannelVolcaNubassInput_JanuaryA {
     background: transparent;
     border: none;
     color: #000528;
@@ -965,7 +965,7 @@
     outline-color: #80b2c7;
 }
 
-.initButton_JanuaryA {
+.initVolcaNubassButton_JanuaryA {
     backdrop-filter: hue-rotate(-25deg);
     background: transparent;
     border: 2px solid #002839;
@@ -979,17 +979,17 @@
     outline-color: #80b2c7;
 }
 
-.initButton_JanuaryA:hover {
+.initVolcaNubassButton_JanuaryA:hover {
     backdrop-filter: hue-rotate(-25deg);
     color: #acdaf2;
     filter: brightness(115%) drop-shadow(8px 8px 5px #0b1a44);
 }
 
-.initButton_JanuaryA:active {
+.initVolcaNubassButton_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #0b1a44);
 }
 
-.randomButton_JanuaryA {
+.randomVolcaNubassButton_JanuaryA {
     backdrop-filter: hue-rotate(-25deg);
     background: transparent;
     border: 2px solid #002839;
@@ -1003,13 +1003,13 @@
     outline-color: #80b2c7;
 }
 
-.randomButton_JanuaryA:hover {
+.randomVolcaNubassButton_JanuaryA:hover {
     backdrop-filter: hue-rotate(-25deg);
     color: #acdaf2;
     filter: brightness(115%) drop-shadow(8px 8px 5px #0b1a44);
 }
 
-.randomButton_JanuaryA:active {
+.randomVolcaNubassButton_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #0b1a44);
 }
 
@@ -1037,7 +1037,7 @@
     filter: brightness(85%) drop-shadow(0 0 0 #0b1a44);
 }
 
-.saveAsDialogDivInactive_JanuaryA {
+.saveAsDialogVolcaNubassDivInactive_JanuaryA {
     background: #1c43aa;
     border-radius: 0;
     color: #acdaf2;
@@ -1053,7 +1053,7 @@
     z-index: 200;
 }
 
-.saveAsDialogDivActive_JanuaryA {
+.saveAsDialogVolcaNubassDivActive_JanuaryA {
     background: #1c43aa;
     border-radius: 0;
     color: #acdaf2;
@@ -1070,7 +1070,7 @@
     z-index: 200;
 }
 
-.saveAsInput_JanuaryA {
+.saveAsInputVolcaNubass_JanuaryA {
     background: #a2cae5;
     border: none;
     color: #000528;
@@ -1082,7 +1082,7 @@
     width: 80%;
 }
 
-.saveAsButtonsDiv_JanuaryA {
+.saveAsButtonsVolcaNubassDiv_JanuaryA {
     align-content: center;
     display: flex;
     flex-direction: row;
@@ -1093,7 +1093,7 @@
     width: 82%;
 }
 
-.saveAsButtons_JanuaryA {
+.saveAsButtonsVolcaNubass_JanuaryA {
     backdrop-filter: hue-rotate(-25deg);
     background: transparent;
     border: 2px solid #002839;
@@ -1109,13 +1109,13 @@
     padding: 0 15px;
 }
 
-.saveAsButtons_JanuaryA:hover {
+.saveAsButtonsVolcaNubass_JanuaryA:hover {
     backdrop-filter: hue-rotate(-25deg);
     color: #acdaf2;
     filter: brightness(115%) drop-shadow(8px 8px 5px #0b1a44);
 }
 
-.saveAsButtons_JanuaryA:active {
+.saveAsButtonsVolcaNubass_JanuaryA:active {
     filter: brightness(85%) drop-shadow(0 0 0 #0b1a44);
 }
 
@@ -1160,7 +1160,7 @@
     width: 97%;
 }
 
-.volcaAboutImg_JanuaryA {
+.volcaAboutVolcaNubassImg_JanuaryA {
     filter: drop-shadow(8px 8px 5px #0b1a44);
     float: left;
     margin: 12px;

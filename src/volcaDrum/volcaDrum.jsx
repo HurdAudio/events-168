@@ -2600,22 +2600,22 @@ function VolcaDrum() {
                         <div className={'sidebarContainer' + volcaDrumMonth}>
                             <img className={'volcaDrumImage1' + volcaDrumMonth}
                                 src={volcaDrumImg1} />
-                            <button className={'saveButton' + patchAltered + volcaDrumMonth}
+                            <button className={'saveButtonVolcaDrum' + patchAltered + volcaDrumMonth}
                                 onClick={() => savePatch()}>save</button>
-                            <button className={'saveAsButton' + volcaDrumMonth}
+                            <button className={'saveAsButtonVolcaDrum' + volcaDrumMonth}
                                 onClick={() => executeSaveAsDialog()}>save as...</button>
-                            <button className={'revertButton' + patchAltered + volcaDrumMonth}
+                            <button className={'revertButtonVolcaDrum' + patchAltered + volcaDrumMonth}
                                 onClick={() => revertPatch()}>revert</button>
-                            <p className={'midiOutputLabel' + volcaDrumMonth}>midi output:</p>
-                            <select className={'midiOutputSelect' + volcaDrumMonth}
+                            <p className={'midiOutputVolcaDrumLabel' + volcaDrumMonth}>midi output:</p>
+                            <select className={'midiOutputVolcaDrumSelect' + volcaDrumMonth}
                                 onChange={(e) => updateCurrentOutput(e.target.value)}
                                 value={getVisualOutput(currentOutput)}>
                                 {availableOutputs.map(out => (
                                 <option key={out.id} value={out.id}>{out.name}</option>))}
                             </select>
-                            <button className={'initButton' + volcaDrumMonth}
+                            <button className={'initVolcaDrumButton' + volcaDrumMonth}
                                 onClick={() => initPatch()}>init</button>
-                            <button className={'randomButton' + volcaDrumMonth}
+                            <button className={'randomVolcaDrumButton' + volcaDrumMonth}
                                 onClick={() => makeRandomPatch()}>random</button>
                             <button className={'aboutVolcaDrumButton' + volcaDrumMonth}
                                 onClick={() => openVolcaDrumAboutDiv()}>about</button>
@@ -3422,23 +3422,23 @@ function VolcaDrum() {
                     
                 </div>
             </div>
-            <div className={'saveAsDialogDiv' + saveAsDialogStatus + volcaDrumMonth}>
+            <div className={'saveAsDialogVolcaDrumDiv' + saveAsDialogStatus + volcaDrumMonth}>
                 <p>save as</p>
-                <input className={'saveAsInput' + volcaDrumMonth}
+                <input className={'saveAsInputVolcaDrum' + volcaDrumMonth}
                     id="saveAsInput"
                     onChange={(e) => updateChangeAsName(e.target.value)}
                     placeholder={'copy of ' + globalParams.name}
                     value={saveAsName} />
-                <div className={'saveAsButtonsDiv' + volcaDrumMonth}>
-                    <button className={'saveAsButtons' + volcaDrumMonth}
+                <div className={'saveAsButtonsVolcaDrumDiv' + volcaDrumMonth}>
+                    <button className={'saveAsButtonsVolcaDrum' + volcaDrumMonth}
                         onClick={() => submitSaveAsDialog(saveAsName)}>submit</button>
-                    <button className={'saveAsButtons' + volcaDrumMonth}
+                    <button className={'saveAsButtonsVolcaDrum' + volcaDrumMonth}
                         onClick={() => cancelSaveAsDialog()}>cancel</button>
                 </div>
             </div>
             <div className={'aboutTheKorgVolcaDrumDiv' + aboutVolcaDrumDivState + volcaDrumMonth}>
                 <div className={'aboutTheKorgVolcaDrumContent' + volcaDrumMonth}>
-                    <img className={'volcaAboutImg' + volcaDrumMonth}
+                    <img className={'volcaDrumAboutImg' + volcaDrumMonth}
                         src={volcaDrumImg1} />
                     <h2>Korg Volca Drum</h2>
                     <p>The volca series is all about unique sound. Whether it's analog, PCM, or FM, the volca series puts unique sounds into an accessible platform. And now, the series is joined by a new rhythm machine that brings yet another sonic character. It's the volca drum digital percussion synthesizer.</p>
