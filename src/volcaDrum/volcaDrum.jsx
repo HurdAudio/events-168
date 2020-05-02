@@ -62,11 +62,6 @@ function VolcaDrum() {
             body: 0,
             decay: 0,
             tune:0
-        },
-        waveGuideModel: {
-            envelopeGenerators: [true, false, false],
-            pitchModulators: [true, false, false],
-            soundSource: [true, false, false, false, false]
         }
     })
     const [currentPatch, setCurrentPatch] = useState([
@@ -82,7 +77,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layer2: {
                 envelopeGenerator: {
@@ -95,7 +95,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layer12: {
                 envelopeGenerator: {
@@ -108,7 +113,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layerSelection: [true, false, false],
             patch: 0
@@ -125,7 +135,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layer2: {
                 envelopeGenerator: {
@@ -138,7 +153,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layer12: {
                 envelopeGenerator: {
@@ -151,7 +171,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layerSelection: [true, false, false],
             patch: 0
@@ -168,7 +193,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layer2: {
                 envelopeGenerator: {
@@ -181,7 +211,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layer12: {
                 envelopeGenerator: {
@@ -194,10 +229,15 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layerSelection: [true, false, false],
-            patch: 1
+            patch: 0
         },
         {
             layer1: {
@@ -211,7 +251,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layer2: {
                 envelopeGenerator: {
@@ -224,7 +269,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layer12: {
                 envelopeGenerator: {
@@ -237,10 +287,15 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layerSelection: [true, false, false],
-            patch: 1
+            patch: 0
         },
         {
             layer1: {
@@ -254,7 +309,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layer2: {
                 envelopeGenerator: {
@@ -267,7 +327,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layer12: {
                 envelopeGenerator: {
@@ -280,10 +345,15 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layerSelection: [true, false, false],
-            patch: 2
+            patch: 0
         },
         {
             layer1: {
@@ -297,7 +367,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layer2: {
                 envelopeGenerator: {
@@ -310,7 +385,12 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layer12: {
                 envelopeGenerator: {
@@ -323,10 +403,15 @@ function VolcaDrum() {
                     rate: 12
                 },
                 pitch: 55,
-                send: 55
+                send: 55,
+                waveGuideModel: {
+                    envelopeGenerators: [true, false, false],
+                    pitchModulators: [true, false, false],
+                    soundSource: [true, false, false, false, false]
+                }
             },
             layerSelection: [true, false, false],
-            patch: 3
+            patch: 0
         }
     ]);
     
@@ -396,7 +481,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer2: {
                     envelopeGenerator: {
@@ -409,7 +499,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer12: {
                     envelopeGenerator: {
@@ -422,7 +517,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layerSelection: [true, false, false],
                 patch: 0
@@ -439,7 +539,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer2: {
                     envelopeGenerator: {
@@ -452,7 +557,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer12: {
                     envelopeGenerator: {
@@ -465,7 +575,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layerSelection: [true, false, false],
                 patch: 0
@@ -482,7 +597,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer2: {
                     envelopeGenerator: {
@@ -495,7 +615,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer12: {
                     envelopeGenerator: {
@@ -508,7 +633,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layerSelection: [true, false, false],
                 patch: 0
@@ -525,7 +655,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer2: {
                     envelopeGenerator: {
@@ -538,7 +673,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer12: {
                     envelopeGenerator: {
@@ -551,7 +691,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layerSelection: [true, false, false],
                 patch: 0
@@ -568,7 +713,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer2: {
                     envelopeGenerator: {
@@ -581,7 +731,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer12: {
                     envelopeGenerator: {
@@ -594,7 +749,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layerSelection: [true, false, false],
                 patch: 0
@@ -611,7 +771,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer2: {
                     envelopeGenerator: {
@@ -624,7 +789,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer12: {
                     envelopeGenerator: {
@@ -637,7 +807,12 @@ function VolcaDrum() {
                         rate: Math.floor(Math.random() * 128)
                     },
                     pitch: Math.floor(Math.random() * 128),
-                    send: Math.floor(Math.random() * 128)
+                    send: Math.floor(Math.random() * 128),
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layerSelection: [true, false, false],
                 patch: 0
@@ -651,6 +826,81 @@ function VolcaDrum() {
                     newCurrent[k].layerSelection[l] = true;
                 } else {
                     newCurrent[k].layerSelection[l] = false;
+                }
+            }
+        }
+        let egs, pms, ss;
+        for (let part = 0; part < 6; part++) {
+            egs = Math.floor(Math.random() * 3);
+            pms = Math.floor(Math.random() * 3);
+            ss = Math.floor(Math.random() * 5);
+            for (let index = 0; index < 5; index++) {
+                if (index === egs) {
+                    newCurrent[part].layer1.waveGuideModel.envelopeGenerators[index] = true;
+                } else {
+                    if (index < 4) {
+                        newCurrent[part].layer1.waveGuideModel.envelopeGenerators[index] = false;
+                    }
+                }
+                if (index === pms) {
+                    newCurrent[part].layer1.waveGuideModel.pitchModulators[index] = true;
+                } else {
+                    if (index < 4) {
+                        newCurrent[part].layer1.waveGuideModel.pitchModulators[index] = false;
+                    }
+                }
+                if (index === ss) {
+                    newCurrent[part].layer1.waveGuideModel.soundSource[index] = true;
+                } else {
+                    newCurrent[part].layer1.waveGuideModel.soundSource[index] = false;
+                }
+            }
+            egs = Math.floor(Math.random() * 3);
+            pms = Math.floor(Math.random() * 3);
+            ss = Math.floor(Math.random() * 5);
+            for (let index2 = 0; index2 < 5; index2++) {
+                if (index2 === egs) {
+                    newCurrent[part].layer2.waveGuideModel.envelopeGenerators[index2] = true;
+                } else {
+                    if (index2 < 4) {
+                        newCurrent[part].layer2.waveGuideModel.envelopeGenerators[index2] = false;
+                    }
+                }
+                if (index2 === pms) {
+                    newCurrent[part].layer2.waveGuideModel.pitchModulators[index2] = true;
+                } else {
+                    if (index2 < 4) {
+                        newCurrent[part].layer2.waveGuideModel.pitchModulators[index2] = false;
+                    }
+                }
+                if (index2 === ss) {
+                    newCurrent[part].layer2.waveGuideModel.soundSource[index2] = true;
+                } else {
+                    newCurrent[part].layer2.waveGuideModel.soundSource[index2] = false;
+                }
+            }
+            egs = Math.floor(Math.random() * 3);
+            pms = Math.floor(Math.random() * 3);
+            ss = Math.floor(Math.random() * 5);
+            for (let index3 = 0; index3 < 5; index3++) {
+                if (index3 === egs) {
+                    newCurrent[part].layer12.waveGuideModel.envelopeGenerators[index3] = true;
+                } else {
+                    if (index3 < 4) {
+                        newCurrent[part].layer12.waveGuideModel.envelopeGenerators[index3] = false;
+                    }
+                }
+                if (index3 === pms) {
+                    newCurrent[part].layer12.waveGuideModel.pitchModulators[index3] = true;
+                } else {
+                    if (index3 < 4) {
+                        newCurrent[part].layer12.waveGuideModel.pitchModulators[index3] = false;
+                    }
+                }
+                if (index3 === ss) {
+                    newCurrent[part].layer12.waveGuideModel.soundSource[index3] = true;
+                } else {
+                    newCurrent[part].layer12.waveGuideModel.soundSource[index3] = false;
                 }
             }
         }
@@ -669,11 +919,6 @@ function VolcaDrum() {
                 body: 0,
                 decay: 0,
                 tune:0
-            },
-            waveGuideModel: {
-                envelopeGenerators: [true, false, false],
-                pitchModulators: [true, false, false],
-                soundSource: [true, false, false, false, false]
             }
         });
         setCurrentPatch([
@@ -689,7 +934,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer2: {
                     envelopeGenerator: {
@@ -702,7 +952,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer12: {
                     envelopeGenerator: {
@@ -715,7 +970,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layerSelection: [true, false, false],
                 patch: 0
@@ -732,7 +992,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer2: {
                     envelopeGenerator: {
@@ -745,7 +1010,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer12: {
                     envelopeGenerator: {
@@ -758,7 +1028,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layerSelection: [true, false, false],
                 patch: 0
@@ -775,7 +1050,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer2: {
                     envelopeGenerator: {
@@ -788,7 +1068,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer12: {
                     envelopeGenerator: {
@@ -801,7 +1086,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layerSelection: [true, false, false],
                 patch: 1
@@ -818,7 +1108,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer2: {
                     envelopeGenerator: {
@@ -831,7 +1126,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer12: {
                     envelopeGenerator: {
@@ -844,7 +1144,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layerSelection: [true, false, false],
                 patch: 1
@@ -861,7 +1166,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer2: {
                     envelopeGenerator: {
@@ -874,7 +1184,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer12: {
                     envelopeGenerator: {
@@ -887,7 +1202,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layerSelection: [true, false, false],
                 patch: 2
@@ -904,7 +1224,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer2: {
                     envelopeGenerator: {
@@ -917,7 +1242,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layer12: {
                     envelopeGenerator: {
@@ -930,7 +1260,12 @@ function VolcaDrum() {
                         rate: 12
                     },
                     pitch: 55,
-                    send: 55
+                    send: 55,
+                    waveGuideModel: {
+                        envelopeGenerators: [true, false, false],
+                        pitchModulators: [true, false, false],
+                        soundSource: [true, false, false, false, false]
+                    }
                 },
                 layerSelection: [true, false, false],
                 patch: 3
@@ -1149,34 +1484,8 @@ function VolcaDrum() {
         for (let i = 0; i < deepCopy[currentMidiChannel].layerSelection.length; i++) {
             if (i === index) {
                 deepCopy[currentMidiChannel].layerSelection[i] = true;
-                switch(i) {
-                    case(0):
-                        currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 127]);
-                        break;
-                    case(1):
-                        currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 127]);
-                        break;
-                    case(2):
-                        currentOutput.send([0xB0 | currentMidiChannel, 0x10, 127]);
-                        break;
-                    default:
-                        console.log('impossible layer configuration');
-                } 
             } else {
                 deepCopy[currentMidiChannel].layerSelection[i] = false;
-                switch(i) {
-                    case(0):
-                        currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 0]);
-                        break;
-                    case(1):
-                        currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 0]);
-                        break;
-                    case(2):
-                        currentOutput.send([0xB0 | currentMidiChannel, 0x10, 0]);
-                        break;
-                    default:
-                        console.log('impossible layer configuration');
-                }
             }
         }
         
@@ -1184,72 +1493,505 @@ function VolcaDrum() {
         setPatchAltered(true);
     }
     
-    const updateWaveguideCCValue = (dc) => {
-        let value = 0;
-        if (dc.waveGuideModel.soundSource[1]) {
-            value += 9;
-        } else if (dc.waveGuideModel.soundSource[2]) {
-            value += 18;
-        } else if (dc.waveGuideModel.soundSource[3]) {
-            value += 27;
-        } else if (dc.waveGuideModel.soundSource[4]) {
-            value += 36;
-        }
-        if (dc.waveGuideModel.pitchModulators[1]) {
-            value += 3;
-        } else if (dc.waveGuideModel.pitchModulatore[2]) {
-            value += 6;
-        }
-        if (dc.waveGuideModel.envelopeGenerators[1]) {
-            value += 1;
-        } else if (dc.waveGuideModel.envelopeGenerators[2]) {
-            value += 2;
-        }
-        currentOutput.send([0xB0 | currentMidiChannel, 0x74, value]);
+    const updateWaveguideCCValue = (layer) => {
+        if (layer === 0) {
+            if (currentPatch[currentMidiChannel].layer1.waveGuideModel.soundSource[0]) {
+                if (currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 0]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 3]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 6]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 9]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 12]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 15]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 18]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 20]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 23]);
+                   }
+                }
+            } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.soundSource[1]) {
+                if (currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 26]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 29]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 32]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 35]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 37]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 40]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 43]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 46]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 49]);
+                   }
+                }
+            } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.soundSource[2]) {
+                if (currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 52]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 55]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 57]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 60]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 63]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 66]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 69]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 72]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 74]);
+                   }
+                }
+            } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.soundSource[3]) {
+                if (currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 77]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 80]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 83]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 86]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 89]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 92]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 94]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 97]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 100]);
+                   }
+                }
+            } else {
+                if (currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 103]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 106]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 109]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 111]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 114]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 117]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 120]);
+                   } else if (currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 123]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0E, 126]);
+                   }
+                }
+            }
+        } else if (layer === 1) {
+            if (currentPatch[currentMidiChannel].layer2.waveGuideModel.soundSource[0]) {
+                if (currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 0]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 3]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 6]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 9]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 12]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 15]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 18]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 20]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 23]);
+                   }
+                }
+            } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.soundSource[1]) {
+                if (currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 26]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 29]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 32]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 35]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 37]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 40]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 43]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 46]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 49]);
+                   }
+                }
+            } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.soundSource[2]) {
+                if (currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 52]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 55]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 57]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 60]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 63]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 66]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 69]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 72]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 74]);
+                   }
+                }
+            } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.soundSource[3]) {
+                if (currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 77]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 80]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 83]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 86]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 89]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 92]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 94]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 97]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 100]);
+                   }
+                }
+            } else {
+                if (currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 103]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 106]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 109]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 111]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 114]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 117]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 120]);
+                   } else if (currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 123]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x0F, 126]);
+                   }
+                }
+            } 
+        } else {
+           if (currentPatch[currentMidiChannel].layer12.waveGuideModel.soundSource[0]) {
+                if (currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 0]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 3]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 6]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 9]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 12]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 15]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 18]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 20]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 23]);
+                   }
+                }
+            } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.soundSource[1]) {
+                if (currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 26]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 29]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 32]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 35]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 37]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 40]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 43]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 46]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 49]);
+                   }
+                }
+            } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.soundSource[2]) {
+                if (currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 52]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 55]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 57]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 60]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 63]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 66]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 69]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 72]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 74]);
+                   }
+                }
+            } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.soundSource[3]) {
+                if (currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 77]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 80]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 83]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 86]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 89]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 92]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 94]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 97]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 100]);
+                   }
+                }
+            } else {
+                if (currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[0]) {
+                   if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 103]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 106]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 109]);
+                   }
+                } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[1]) {
+                    if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 111]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 114]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 117]);
+                   }
+                } else {
+                    if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 120]);
+                   } else if (currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1]) {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 123]);
+                   } else {
+                       currentOutput.send([0xB0 | currentMidiChannel, 0x10, 126]);
+                   }
+                }
+            } 
+        }        
     }
     
-    const updateWaveguideModelEnvelopeGenerator = (index) => {
-        let deepCopy = {...globalParams};
+    const updateWaveguideModelEnvelopeGenerator = (layer, index) => {
+        let deepCopy = [...currentPatch];
         
-        for (let i = 0; i < deepCopy.waveGuideModel.envelopeGenerators.length; i++) {
-            if (i === index) {
-                deepCopy.waveGuideModel.envelopeGenerators[i] = true;
-            } else {
-                deepCopy.waveGuideModel.envelopeGenerators[i] = false;
+        if (layer === 0) {
+            for (let i = 0; i < deepCopy[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators.length; i++) {
+                if (i === index) {
+                    deepCopy[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[i] = true;
+                } else {
+                    deepCopy[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[i] = false;
+                }
+            }
+        } else if (layer === 1) {
+            for (let i = 0; i < deepCopy[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators.length; i++) {
+                if (i === index) {
+                    deepCopy[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[i] = true;
+                } else {
+                    deepCopy[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[i] = false;
+                }
+            }
+        } else {
+            for (let i = 0; i < deepCopy[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators.length; i++) {
+                if (i === index) {
+                    deepCopy[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[i] = true;
+                } else {
+                    deepCopy[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[i] = false;
+                }
             }
         }
-        setGlobalParams(deepCopy);
-        updateWaveguideCCValue(deepCopy);
+
+        setCurrentPatch(deepCopy);
+        updateWaveguideCCValue(layer);
         setPatchAltered(true);
     }
     
-    const updateWaveguideModelPitchModulator = (index) => {
-        let deepCopy = {...globalParams};
+    const updateWaveguideModelPitchModulator = (layer, index) => {
+        let deepCopy = [...currentPatch];
         
-        for (let i = 0; i < deepCopy.waveGuideModel.pitchModulators.length; i++) {
-            if (i === index) {
-                deepCopy.waveGuideModel.pitchModulators[i] = true;
-            } else {
-                deepCopy.waveGuideModel.pitchModulators[i] = false;
+        if (layer === 0) {
+            for (let i = 0; i < deepCopy[currentMidiChannel].layer1.waveGuideModel.pitchModulators.length; i++) {
+                if (i === index) {
+                    deepCopy[currentMidiChannel].layer1.waveGuideModel.pitchModulators[i] = true;
+                } else {
+                    deepCopy[currentMidiChannel].layer1.waveGuideModel.pitchModulators[i] = false;
+                }
+            }
+        } else if (layer === 1) {
+            for (let i = 0; i < deepCopy[currentMidiChannel].layer2.waveGuideModel.pitchModulators.length; i++) {
+                if (i === index) {
+                    deepCopy[currentMidiChannel].layer2.waveGuideModel.pitchModulators[i] = true;
+                } else {
+                    deepCopy[currentMidiChannel].layer2.waveGuideModel.pitchModulators[i] = false;
+                }
+            }
+        } else {
+            for (let i = 0; i < deepCopy[currentMidiChannel].layer12.waveGuideModel.pitchModulators.length; i++) {
+                if (i === index) {
+                    deepCopy[currentMidiChannel].layer12.waveGuideModel.pitchModulators[i] = true;
+                } else {
+                    deepCopy[currentMidiChannel].layer12.waveGuideModel.pitchModulators[i] = false;
+                }
             }
         }
-        setGlobalParams(deepCopy);
-        updateWaveguideCCValue(deepCopy);
+
+        setCurrentPatch(deepCopy);
+        updateWaveguideCCValue(layer);
         setPatchAltered(true);
     }
     
-    const updateWaveguideModelSoundSource = (index) => {
-        let deepCopy = {...globalParams};
+    const updateWaveguideModelSoundSource = (layer, index) => {
+        let deepCopy = [...currentPatch];
         
-        for (let i = 0; i < deepCopy.waveGuideModel.soundSource.length; i++) {
-            if (i === index) {
-                deepCopy.waveGuideModel.soundSource[i] = true;
-            } else {
-                deepCopy.waveGuideModel.soundSource[i] = false;
+        if (layer === 0) {
+            for (let i = 0; i < deepCopy[currentMidiChannel].layer1.waveGuideModel.soundSource.length; i++) {
+                if (i === index) {
+                    deepCopy[currentMidiChannel].layer1.waveGuideModel.soundSource[i] = true;
+                } else {
+                    deepCopy[currentMidiChannel].layer1.waveGuideModel.soundSource[i] = false;
+                }
+            }
+        } else if (layer === 1) {
+            for (let i = 0; i < deepCopy[currentMidiChannel].layer2.waveGuideModel.soundSource.length; i++) {
+                if (i === index) {
+                    deepCopy[currentMidiChannel].layer2.waveGuideModel.soundSource[i] = true;
+                } else {
+                    deepCopy[currentMidiChannel].layer2.waveGuideModel.soundSource[i] = false;
+                }
+            }
+        } else {
+            for (let i = 0; i < deepCopy[currentMidiChannel].layer12.waveGuideModel.soundSource.length; i++) {
+                if (i === index) {
+                    deepCopy[currentMidiChannel].layer12.waveGuideModel.soundSource[i] = true;
+                } else {
+                    deepCopy[currentMidiChannel].layer12.waveGuideModel.soundSource[i] = false;
+                }
             }
         }
-        setGlobalParams(deepCopy);
-        updateWaveguideCCValue(deepCopy);
+
+        setCurrentPatch(deepCopy);
+        updateWaveguideCCValue(layer);
         setPatchAltered(true);
     }
     
@@ -2282,62 +3024,181 @@ function VolcaDrum() {
                     </div>
                     
                     <div className={'volcaDrumWaveguideModel' + volcaDrumMonth}>
-                        <div className={'volcaDrumWaveguideContainer' + volcaDrumMonth}>
-                            <p className={'volcaDrumWaveguideModelLabel' + volcaDrumMonth}>waveguide model</p>
-                            <p className={'volcaDrumSoundSourceLabel' + volcaDrumMonth}>sound source</p>
-                            <div className={'volcaDrumSoundSourceTabStrip' + volcaDrumMonth}>
-                                <div className={'volcaDrumSoundSorceTab' + globalParams.waveGuideModel.soundSource[0] + volcaDrumMonth}
-                                    onClick={() => updateWaveguideModelSoundSource(0)}>
-                                    <p>sine wave</p>
+                        {currentPatch[currentMidiChannel].layerSelection[0] && (
+                           <div className={'volcaDrumWaveguideContainer' + volcaDrumMonth}>
+                                <p className={'volcaDrumWaveguideModelLabel' + volcaDrumMonth}>waveguide model</p>
+                                <p className={'volcaDrumSoundSourceLabel' + volcaDrumMonth}>sound source</p>
+                                <div className={'volcaDrumSoundSourceTabStrip' + volcaDrumMonth}>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer1.waveGuideModel.soundSource[0] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(0, 0)}>
+                                        <p>sine wave</p>
+                                    </div>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer1.waveGuideModel.soundSource[1] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(0, 1)}>
+                                        <p>sawtooth</p>
+                                    </div>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer1.waveGuideModel.soundSource[2] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(0, 2)}>
+                                        <p>hpf noise</p>
+                                    </div>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer1.waveGuideModel.soundSource[3] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(0, 3)}>
+                                        <p>lpf noise</p>
+                                    </div>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer1.waveGuideModel.soundSource[4] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(0, 4)}>
+                                        <p>bpf noise</p>
+                                    </div>
                                 </div>
-                                <div className={'volcaDrumSoundSorceTab' + globalParams.waveGuideModel.soundSource[1] + volcaDrumMonth}
-                                    onClick={() => updateWaveguideModelSoundSource(1)}>
-                                    <p>sawtooth</p>
+                                <p className={'volcaDrumPitchModulatorsLabel' + volcaDrumMonth}>pitch modulators</p>
+                                <div className={'volcaDrumPitchModulatorTabStrip' + volcaDrumMonth}>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[0] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelPitchModulator(0, 0)}>
+                                        <p>rise-fall</p>
+                                    </div>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[1] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelPitchModulator(0, 1)}>
+                                        <p>oscillate</p>
+                                    </div>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer1.waveGuideModel.pitchModulators[2] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelPitchModulator(0, 2)}>
+                                        <p>random</p>
+                                    </div>
                                 </div>
-                                <div className={'volcaDrumSoundSorceTab' + globalParams.waveGuideModel.soundSource[2] + volcaDrumMonth}
-                                    onClick={() => updateWaveguideModelSoundSource(2)}>
-                                    <p>hpf noise</p>
+                                <p className={'volcaDrumEnvelopeGeneratorsLabel' + volcaDrumMonth}>envelope generators</p>
+                                <div className={'volcaDrumEnevelopeGeneratorTabStrip' + volcaDrumMonth}>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[0] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelEnvelopeGenerator(0, 0)}>
+                                        <p>linear</p>
+                                    </div>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[1] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelEnvelopeGenerator(0, 1)}>
+                                        <p>exponential</p>
+                                    </div>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer1.waveGuideModel.envelopeGenerators[2] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelEnvelopeGenerator(0, 2)}>
+                                        <p>multi-peak</p>
+                                    </div>
                                 </div>
-                                <div className={'volcaDrumSoundSorceTab' + globalParams.waveGuideModel.soundSource[3] + volcaDrumMonth}
-                                    onClick={() => updateWaveguideModelSoundSource(3)}>
-                                    <p>lpf noise</p>
+                            </div>     
+                        )}
+                        {currentPatch[currentMidiChannel].layerSelection[1] && (
+                           <div className={'volcaDrumWaveguideContainer' + volcaDrumMonth}>
+                                <p className={'volcaDrumWaveguideModelLabel' + volcaDrumMonth}>waveguide model</p>
+                                <p className={'volcaDrumSoundSourceLabel' + volcaDrumMonth}>sound source</p>
+                                <div className={'volcaDrumSoundSourceTabStrip' + volcaDrumMonth}>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer2.waveGuideModel.soundSource[0] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(1, 0)}>
+                                        <p>sine wave</p>
+                                    </div>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer2.waveGuideModel.soundSource[1] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(1, 1)}>
+                                        <p>sawtooth</p>
+                                    </div>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer2.waveGuideModel.soundSource[2] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(1, 2)}>
+                                        <p>hpf noise</p>
+                                    </div>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer2.waveGuideModel.soundSource[3] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(1, 3)}>
+                                        <p>lpf noise</p>
+                                    </div>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer2.waveGuideModel.soundSource[4] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(1, 4)}>
+                                        <p>bpf noise</p>
+                                    </div>
                                 </div>
-                                <div className={'volcaDrumSoundSorceTab' + globalParams.waveGuideModel.soundSource[4] + volcaDrumMonth}
-                                    onClick={() => updateWaveguideModelSoundSource(4)}>
-                                    <p>bpf noise</p>
+                                <p className={'volcaDrumPitchModulatorsLabel' + volcaDrumMonth}>pitch modulators</p>
+                                <div className={'volcaDrumPitchModulatorTabStrip' + volcaDrumMonth}>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[0] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelPitchModulator(1, 0)}>
+                                        <p>rise-fall</p>
+                                    </div>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[1] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelPitchModulator(1, 1)}>
+                                        <p>oscillate</p>
+                                    </div>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer2.waveGuideModel.pitchModulators[2] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelPitchModulator(1, 2)}>
+                                        <p>random</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <p className={'volcaDrumPitchModulatorsLabel' + volcaDrumMonth}>pitch modulators</p>
-                            <div className={'volcaDrumPitchModulatorTabStrip' + volcaDrumMonth}>
-                                <div className={'volcaDrumPitchModulatorTab' + globalParams.waveGuideModel.pitchModulators[0] + volcaDrumMonth}
-                                    onClick={() => updateWaveguideModelPitchModulator(0)}>
-                                    <p>rise-fall</p>
+                                <p className={'volcaDrumEnvelopeGeneratorsLabel' + volcaDrumMonth}>envelope generators</p>
+                                <div className={'volcaDrumEnevelopeGeneratorTabStrip' + volcaDrumMonth}>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[0] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelEnvelopeGenerator(1, 0)}>
+                                        <p>linear</p>
+                                    </div>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[1] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelEnvelopeGenerator(1, 1)}>
+                                        <p>exponential</p>
+                                    </div>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer2.waveGuideModel.envelopeGenerators[2] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelEnvelopeGenerator(1, 2)}>
+                                        <p>multi-peak</p>
+                                    </div>
                                 </div>
-                                <div className={'volcaDrumPitchModulatorTab' + globalParams.waveGuideModel.pitchModulators[1] + volcaDrumMonth}
-                                    onClick={() => updateWaveguideModelPitchModulator(1)}>
-                                    <p>oscillate</p>
+                            </div>     
+                        )}
+                        {currentPatch[currentMidiChannel].layerSelection[2] && (
+                           <div className={'volcaDrumWaveguideContainer' + volcaDrumMonth}>
+                                <p className={'volcaDrumWaveguideModelLabel' + volcaDrumMonth}>waveguide model</p>
+                                <p className={'volcaDrumSoundSourceLabel' + volcaDrumMonth}>sound source</p>
+                                <div className={'volcaDrumSoundSourceTabStrip' + volcaDrumMonth}>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer12.waveGuideModel.soundSource[0] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(2, 0)}>
+                                        <p>sine wave</p>
+                                    </div>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer12.waveGuideModel.soundSource[1] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(2, 1)}>
+                                        <p>sawtooth</p>
+                                    </div>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer12.waveGuideModel.soundSource[2] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(2, 2)}>
+                                        <p>hpf noise</p>
+                                    </div>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer12.waveGuideModel.soundSource[3] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(2, 3)}>
+                                        <p>lpf noise</p>
+                                    </div>
+                                    <div className={'volcaDrumSoundSorceTab' + currentPatch[currentMidiChannel].layer12.waveGuideModel.soundSource[4] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelSoundSource(2, 4)}>
+                                        <p>bpf noise</p>
+                                    </div>
                                 </div>
-                                <div className={'volcaDrumPitchModulatorTab' + globalParams.waveGuideModel.pitchModulators[2] + volcaDrumMonth}
-                                    onClick={() => updateWaveguideModelPitchModulator(2)}>
-                                    <p>random</p>
+                                <p className={'volcaDrumPitchModulatorsLabel' + volcaDrumMonth}>pitch modulators</p>
+                                <div className={'volcaDrumPitchModulatorTabStrip' + volcaDrumMonth}>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[0] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelPitchModulator(2, 0)}>
+                                        <p>rise-fall</p>
+                                    </div>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[1] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelPitchModulator(2, 1)}>
+                                        <p>oscillate</p>
+                                    </div>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer12.waveGuideModel.pitchModulators[2] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelPitchModulator(2, 2)}>
+                                        <p>random</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <p className={'volcaDrumEnvelopeGeneratorsLabel' + volcaDrumMonth}>envelope generators</p>
-                            <div className={'volcaDrumEnevelopeGeneratorTabStrip' + volcaDrumMonth}>
-                                <div className={'volcaDrumPitchModulatorTab' + globalParams.waveGuideModel.envelopeGenerators[0] + volcaDrumMonth}
-                                    onClick={() => updateWaveguideModelEnvelopeGenerator(0)}>
-                                    <p>linear</p>
+                                <p className={'volcaDrumEnvelopeGeneratorsLabel' + volcaDrumMonth}>envelope generators</p>
+                                <div className={'volcaDrumEnevelopeGeneratorTabStrip' + volcaDrumMonth}>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[0] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelEnvelopeGenerator(2, 0)}>
+                                        <p>linear</p>
+                                    </div>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[1] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelEnvelopeGenerator(2, 1)}>
+                                        <p>exponential</p>
+                                    </div>
+                                    <div className={'volcaDrumPitchModulatorTab' + currentPatch[currentMidiChannel].layer12.waveGuideModel.envelopeGenerators[2] + volcaDrumMonth}
+                                        onClick={() => updateWaveguideModelEnvelopeGenerator(2, 2)}>
+                                        <p>multi-peak</p>
+                                    </div>
                                 </div>
-                                <div className={'volcaDrumPitchModulatorTab' + globalParams.waveGuideModel.envelopeGenerators[1] + volcaDrumMonth}
-                                    onClick={() => updateWaveguideModelEnvelopeGenerator(1)}>
-                                    <p>exponential</p>
-                                </div>
-                                <div className={'volcaDrumPitchModulatorTab' + globalParams.waveGuideModel.envelopeGenerators[2] + volcaDrumMonth}
-                                    onClick={() => updateWaveguideModelEnvelopeGenerator(2)}>
-                                    <p>multi-peak</p>
-                                </div>
-                            </div>
-                        </div>
+                            </div>     
+                        )}
+                        
                     </div>
                     
                     <div className={'volcaDrumWaveGuideParams' + volcaDrumMonth}>
