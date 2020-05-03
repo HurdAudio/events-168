@@ -10,6 +10,7 @@ import {
     Link
 } from "react-router-dom";
 import './volcaNubass.style.jana.css';
+import './volcaNubass.style.janb.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaNubassImg1 from '../img/volcaNubassImg1.png';
 
@@ -22,6 +23,8 @@ function VolcaNubass() {
     const envelopeEndGraph = 410;
     const breakpointOffset = 4;
     const scaleScaler = 1.12;
+    const januaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif';
+    const januaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif';
 
     let midiOutput = null;
     let inputs = null;
@@ -32,8 +35,8 @@ function VolcaNubass() {
 
     const [panicState, setPanicState] = useState('volcaNubassPanicOff');
     const [nubassContainerState, setNubassContainerState] = useState('Active');
-    const [currentSpinner, setCurrentSpinner] = useState('https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif');
-    const [volcaNubassEditMonth, setVolcaNubassEditMonth] = useState('_JanuaryA');
+    const [currentSpinner, setCurrentSpinner] = useState(januaryBSpinner);
+    const [volcaNubassEditMonth, setVolcaNubassEditMonth] = useState('_JanuaryB');
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState(0);
