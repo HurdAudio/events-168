@@ -289,7 +289,7 @@ function UserHub() {
                         <span className={userhubState.tab + userhubMonth}></span>
                         <div className={userhubState.home + userhubMonth}>
                             <div className={userhubState.homeDiv + userhubMonth}>
-                                <Home />
+                                {Home(user)}
                             </div>
                         </div>
                         <div className={userhubState.librarian + userhubMonth}>
