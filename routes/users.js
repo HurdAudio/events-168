@@ -598,6 +598,7 @@ router.patch('/:uuid', (req, res, next) => {
         is_admin: req.body.is_admin,
         email_confirmed: req.body.email_confirmed,
         avatar_path: req.body.avatar_path,
+        clock_resolution: req.body.clock_resolution,
         associates: req.body.associates,
         security: req.body.security,
         email_reset: req.body.email_reset,
@@ -619,6 +620,7 @@ router.patch('/:uuid', (req, res, next) => {
         is_admin: req.body.is_admin,
         email_confirmed: req.body.email_confirmed,
         avatar_path: req.body.avatar_path,
+        clock_resolution: req.body.clock_resolution,
         associates: req.body.associates,
         security: req.body.security,
         email_reset: req.body.email_reset,
@@ -636,11 +638,11 @@ router.patch('/:uuid', (req, res, next) => {
     }
 });
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:uuid', (req, res, next) => {
     let record;
     if ((req.session !== null) && (!req.session.isChanged)) {
       knex('users')
-        .where('id', req.params.id)
+        .where('uuid', req.params.uuid)
         .first()
         .then((row) => {
           if (!row) {
@@ -652,7 +654,7 @@ router.delete('/:id', (req, res, next) => {
 
           return knex('users')
             .del()
-            .where('id', req.params.id);
+            .where('uuid', req.params.uuid);
         })
         .then(() => {
           var holder = record.id;

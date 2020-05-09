@@ -11,6 +11,9 @@ import './userhub.style.janb.css';
 import './userhub.style.janc.css';
 import midi5pin from '../img/midi5pin.svg';
 import home from '../img/home.svg';
+import axios from 'axios';
+
+let localStorage = window.localStorage;
 
 const midiConfigurations = [
     {
@@ -39,13 +42,22 @@ const midiConfigurations = [
     }
 ];
 
-function Home() {
+function Home(user) {
     
     const [homeMonth, setHomeMonth] = useState('_JanuaryC');
-    const [userClockResolution, setUserClockResolution] = useState(480);
+    const [userClockResolution, setUserClockResolution] = useState(user.clock_resolution);
     
     const clockResolutionChange = (val) => {
+        user.clock_resolution = val;
         setUserClockResolution(val);
+        axios.patch(`/users/${user.uuid}`, { clock_resolution: val });
+    }
+    
+    if (isNaN(userClockResolution)) {
+        axios.get(`/users/${localStorage.getItem('eventualUser')}`)
+        .then(userData => {
+            setUserClockResolution(userData.data.clock_resolution);
+        });
     }
     
         return(

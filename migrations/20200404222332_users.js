@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
     table.boolean('is_admin').notNullable().defaultTo(false);
     table.boolean('email_confirmed').notNullable().defaultTo(false);
     table.string('avatar_path').notNullable().defaultTo('');
+    table.integer('clock_resolution').notNullable().defaultTo(480);
     table.json('associates').defaultTo(null);
     table.json('security').defaultTo(null);
     table.json('email_reset').defaultTo(null);
