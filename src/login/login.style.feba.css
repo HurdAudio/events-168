@@ -1,0 +1,114 @@
+.loginContainer_FebruaryA {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.loginImageDiv_FebruaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/february/trang-nguyen-drke6MEs8Gg-unsplash.jpg);
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.loginOuterBox_FebruaryA {
+    backdrop-filter: blur(2px) hue-rotate(-45deg);
+    background: #625f4e;
+    height: 60vh;
+    left: 30%;
+    opacity: 0.7;
+    position: absolute;
+    transform: skew(-6deg);
+    top: 4%;
+    width: 50%;
+}
+
+.loginBoxContainer_FebruaryA {
+    backdrop-filter: hue-rotate(45deg) saturate(120%);
+    background: transparent;
+    border: 2px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/february/trang-nguyen-drke6MEs8Gg-unsplash.jpg) 70 stretch;
+    height: 52.5vh;
+    justify-content: center;
+    left: 32.5%;
+    perspective: 200px;
+    position: absolute;
+    top: 7.5%;
+    transform: skew(-6deg);
+    transition: all 0.4s linear;
+    width: 45%;
+}
+
+.loginBoxContainer_FebruaryA:hover {
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/february/trang-nguyen-drke6MEs8Gg-unsplash.jpg) 1 stretch;
+    transition: all 0.4s linear;
+}
+
+.loginBoxContainer_FebruaryA input {
+    background: #bca88d;
+    border: none;
+    color: #060205;
+    font-family: 'Fondamento', cursive;
+    font-size: 24px;
+    margin: 24px 48px;
+    outline-color: #9c9396;
+    padding: 5px 5px 5px 15px;
+    width: 80%;
+}
+
+.loginBoxContainer_FebruaryA input::placeholder {
+    color: #625f4e;
+}
+
+.loginBoxContainer_FebruaryA button {
+    background: #39262c;
+    border: none;
+    color: #a5a7a0;
+    cursor: pointer;
+    font-family: 'Fondamento', cursive;
+    font-size: 24px;
+    left: 41%;
+    margin-top: 18px;
+    outline-color: #9c9396;
+    padding: 5px 15px;
+    position: relative;
+    transition: all 0.2s linear;
+}
+.loginBoxContainer_FebruaryA button:hover {
+    background: #bca88d;
+    box-shadow: -8px -8px 10px #d39b68, 8px -8px 10px #d39b68, -8px 8px 10px #d39b68, 8px 8px 10px #d39b68;
+    color: #1e1d1b;
+    transition: all 0.2s linear;
+}
+
+.loginTitle_FebruaryA {
+    color: #060205;
+    font-family: 'Fondamento', cursive;
+    font-size: 36px;
+    margin: 24px 48px 12px 48px;
+}
+
+.loginErrorMessaging_FebruaryA {
+    color: #ff0000;
+    font-family: 'Fondamento', cursive;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 24px 48px;
+    padding: 6px;
+    width: 78%;
+}
+
+.loginSubmitHide_FebruaryA {
+    visibility: hidden;
+}
+
+.loginSubmitShow_FebruaryA {
+    visibility: visible;
+}
