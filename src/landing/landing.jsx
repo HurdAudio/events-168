@@ -10,10 +10,12 @@ import midi5pin from '../img/midi5pin.svg';
 import redMIDI from '../img/redMIDI.png';
 import vectorMidiPng from '../img/vectorMidiPng.png';
 import febaMidi_0 from '../img/febaMidi_0.png';
+import midiKeys from '../img/midiKeys.png';
 import './landing.style.jana.css';
 import './landing.style.janb.css';
 import './landing.style.janc.css';
 import './landing.style.feba.css';
+import './landing.style.febb.css';
 import Login from '../login/login';
 import volcaFm from '../volcaFm/volcaFm';
 import volcaNubass from '../volcaNubass/volcaNubass';
@@ -22,9 +24,9 @@ import volcaDrum from '../volcaDrum/volcaDrum';
 
 function Landing() {
     
-    const [landingMonth, setLandingMonth] = useState('_FebruaryA');
+    const [landingMonth, setLandingMonth] = useState('_FebruaryB');
     const [midiImageClass, setMidiImageClass] = useState('midiImage');
-    const [midiImage, setMidiImage] = useState(febaMidi_0);
+    const [midiImage, setMidiImage] = useState(midiKeys);
     
     const now = new Date();
     
@@ -67,7 +69,7 @@ function Landing() {
                     <div className={'col2row2' + landingMonth} onMouseOver={() => adjustImage('col2', 'row2')}></div>
                     <div className={'col3row2' + landingMonth} onMouseOver={() => adjustImage('col3', 'row2')}></div>
                     <div className={'col4row2' + landingMonth} onMouseOver={() => adjustImage('col4', 'row2')}></div>
-                    7<div className={'col5row2' + landingMonth} onMouseOver={() => adjustImage('col5', 'row2')}></div>
+                    <div className={'col5row2' + landingMonth} onMouseOver={() => adjustImage('col5', 'row2')}></div>
                     <div className={'col6row2' + landingMonth} onMouseOver={() => adjustImage('col6', 'row2')}></div>
                     <div className={'col7row2' + landingMonth} onMouseOver={() => adjustImage('col7', 'row2')}></div>
                     <div className={'col8row2' + landingMonth} onMouseOver={() => adjustImage('col8', 'row2')}></div>
