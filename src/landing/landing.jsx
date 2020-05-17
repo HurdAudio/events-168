@@ -20,6 +20,7 @@ import Login from '../login/login';
 import volcaFm from '../volcaFm/volcaFm';
 import volcaNubass from '../volcaNubass/volcaNubass';
 import volcaDrum from '../volcaDrum/volcaDrum';
+import MidiManager from '../midiManager/midiManager';
 
 
 function Landing() {
@@ -155,6 +156,9 @@ function Landing() {
                 </Route>
                 <Route path="/volca-drum-editor">
                     {volcaDrum()}
+                </Route>
+                <Route path="/midi-manager">
+                    {MidiManager(null, null)}
                 </Route>
             </Switch>
         </Router>

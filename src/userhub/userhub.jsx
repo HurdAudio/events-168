@@ -22,6 +22,7 @@ import vectorMidiPng from '../img/vectorMidiPng.png';
 import VolcaFm from '../volcaFm/volcaFm';
 import VolcaNubass from '../volcaNubass/volcaNubass';
 import VolcaDrum from '../volcaDrum/volcaDrum';
+import MidiManager from '../midiManager/midiManager';
 import CheckStatus from '../login/checkLoginStatus';
 import SetStatus from '../login/setLoginStatus';
 import axios from 'axios';
@@ -243,6 +244,9 @@ function UserHub() {
                     </Route>
                     <Route path="/volca-drum-editor">
                         <VolcaDrum />
+                    </Route>
+                    <Route path="/midi-manager">
+                        {MidiManager(user, null)}
                     </Route>
                 </Switch>
                 <div className={'userHubContainer' + userhubMonth}>
