@@ -20,7 +20,7 @@ function midiConnection(midiAccess) {
         inputArray.push(input);
     }
 
-    console.log(outputArray);
+    console.log(inputArray);
 
     currentMidiChannel = 0;
     currentOutput = outputArray[0];

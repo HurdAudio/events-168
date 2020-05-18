@@ -237,14 +237,14 @@
     box-sizing: border-box;
     filter: brightness(100%) drop-shadow(8px 8px 5px #161b38);
     grid-column: sideCol1 / sideColEnd;
-    grid-row: sideRow11 / sideRow21;
+    grid-row: sideRow11 / sideRow19;
     margin: 0 5%;
     overflow-x: hidden;
     overflow-y: scroll;
 }
 
 .midiManagerLoadConfiguration_JanuaryA {
-   backdrop-filter: hue-rotate(-45deg);
+    backdrop-filter: hue-rotate(-45deg);
     background: transparent;
     border: 2px solid #043582;
     color: #043582;
@@ -253,7 +253,7 @@
     font-family: 'Audiowide', cursive;
     font-size: 18px;
     grid-column: sideCol2 / sideCol5;
-    grid-row: sideRow22 / sideRow23;
+    grid-row: sideRow20 / sideRow21;
     outline-color: #829ac1;
     transition: all 0.4s linear; 
 }
@@ -270,9 +270,35 @@
     transition: all 0.1s linear;
 }
 
+.midiManagerDeleteConfiguration_JanuaryA {
+    backdrop-filter: hue-rotate(-45deg);
+    background: transparent;
+    border: 2px solid #043582;
+    color: #043582;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #161b38);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow22 / sideRow23;
+    outline-color: #829ac1;
+    transition: all 0.4s linear; 
+}
+
+.midiManagerDeleteConfiguration_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-90deg);
+    filter: brightness(100%) drop-shadow(2px 6px 5px #161b38);
+    transition: all 0.4s linear;
+}
+
+.midiManagerDeleteConfiguration_JanuaryA:active {
+    backdrop-filter: hue-rotate(90deg);
+    filter: brightness(120%) drop-shadow(0 0 0 #161b38);
+    transition: all 0.1s linear;
+}
+
 .midiManagerPresetNameContainertrue_JanuaryA {
     background: #868fac;
-    cursor: none;
     padding: 5px 10px;
     transform: rotateX(0deg);
 }
@@ -310,13 +336,13 @@
 }
 
 .midiManagerInputsPane_JanuaryA {
-    backdrop-filter: blur(10px) brightness(125%) grayscale(70%);
+    backdrop-filter: blur(4px) brightness(135%) contrast(40%) grayscale(20%) saturate(50%);
     grid-column: col3 / col6;
     grid-row: row2 / rowEnd;
 }
 
 .midiManagerOutputsPane_JanuaryA {
-    backdrop-filter: blur(10px) brightness(110%) grayscale(30%) hue-rotate(-90deg) saturate(90%);
+    backdrop-filter: blur(5px) brightness(130%) contrast(60%) hue-rotate(-180deg) saturate(10%);
     grid-column: col6 / col8;
     grid-row: row2 / rowEnd;
 }
@@ -374,7 +400,7 @@
     cursor: pointer;
     display: flex;
     height: auto;
-    padding: 7px 0;
+    padding: 27px 15px;
     width: 100%;
 }
 
@@ -581,4 +607,113 @@
     margin-left: 10%;
     max-height: 31vh;
     max-width: 80%;
+}
+
+.midiManagerNameNewPatchModal_Active_JanuaryA {
+    background: radial-gradient(closest-corner, #76549e, #043582, #002033);
+    border: 4px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/january/ice_temple_by_ellysiumn_ddnw1e6-fullview.jpg) 40 stretch;
+    filter: drop-shadow(8px 8px 5px #161b38);
+    height: auto;
+    left: 20%;
+    padding: 45px;
+    position: absolute;
+    top: 20%;
+    transition: all 0.55s linear;
+    width: auto;
+    z-index: 200;
+}
+
+.midiManagerNameNewPatchModal_Inactive_JanuaryA {
+    background: radial-gradient(closest-corner, #76549e, #043582, #002033);
+    border: 4px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/january/ice_temple_by_ellysiumn_ddnw1e6-fullview.jpg) 40 stretch;
+    filter: drop-shadow(8px 8px 5px #161b38);
+    height: auto;
+    left: -160%;
+    padding: 45px;
+    position: absolute;
+    top: 20%;
+    transition: all 0.55s linear;
+    width: auto;
+    z-index: 200;
+}
+
+.midiManagerNewPresetNameLabel_JanuaryA {
+    color: #bbaacf;
+    filter: brightness(150%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    margin: 0 0 15px 0;
+}
+
+.midiManagerNewPresetNameInput_JanuaryA {
+    background: #bbaacf;
+    border: none;
+    color: #040c23;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    outline-color: #829ac1;
+    margin: 0 0 20px 0;
+    width: 30vw;
+}
+
+.midiManagerNewPresetNameModalButtons_JanuaryA {
+    display: flex;
+    height: auto;
+    margin: 0 0 5px 0;
+    padding: 0 25%;
+    width: 30vw;
+}
+
+.midiManagerModalButton_JanuaryA {
+    backdrop-filter: hue-rotate(-45deg);
+    background: transparent;
+    border: 2px solid #043582;
+    color: #043582;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #161b38);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    outline-color: #829ac1;
+    margin: 15px;
+    transition: all 0.4s linear;
+}
+
+.midiManagerModalButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-90deg);
+    filter: brightness(250%) drop-shadow(2px 6px 5px #161b38);
+    transition: all 0.4s linear;
+}
+
+.midiManagerModalButton_JanuaryA:active {
+    backdrop-filter: hue-rotate(90deg);
+    filter: brightness(300%) drop-shadow(0 0 0 #161b38);
+    transition: all 0.1s linear;
+}
+
+.midiManagerGuardrailModalButtons_JanuaryA {
+    display: flex;
+    height: auto;
+    margin: 0 0 5px 0;
+    padding: 0 35%;
+    width: 90%;
+}
+
+.midiManagerPanicOff_JanuaryA {
+    display: none;
+}
+
+.midiManagerPanicOn_JanuaryA {
+    height: 80%;
+    left: 10%;
+    opacity: 0.5;
+    position: absolute;
+    width: 80%;
+    z-index: 200;
+}
+
+.midiManagerPanicOn_JanuaryA img {
+    opacity: 1;
+    width: 100%;
 }
