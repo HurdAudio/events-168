@@ -64,7 +64,7 @@ function Home(user) {
             <div className={'homeContainer' + homeMonth}>
                 <img className={'homeIcon' + homeMonth}
                     src={home}></img>
-                
+
                 <div className={'homeBulletList' + homeMonth}>
                     <img className={'homeMidiBullet' + homeMonth} 
                         src={midi5pin}></img>
@@ -75,7 +75,9 @@ function Home(user) {
                         )}
                     </select>
                     <button className={'homeButtons' + homeMonth}>load</button>
-                    <button className={'homeButtons' + homeMonth}>edit</button>
+                    <Link to="/midi-manager">
+                        <button className={'homeButtons' + homeMonth}>edit</button>
+                    </Link>
                 </div>
                 <div className={'homeBulletList' + homeMonth}>
                     <img className={'homeMidiBullet' + homeMonth} 
