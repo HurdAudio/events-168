@@ -14,8 +14,9 @@ import './volcaFm.style.janb.css';
 import './volcaFm.style.janc.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaFmImg1 from '../img/volcaFmImg1.png';
+import axios from 'axios';
 
-function VolcaFm() {
+function VolcaFm(user, patch) {
     
     const keyOnOffset = 20;
     const envelopeGraphTopVal = 220;
@@ -36,7 +37,11 @@ function VolcaFm() {
     let keyEngaged = {};
 
     const [panicState, setPanicState] = useState('panicOff');
-    const [currentSpinner, setCurrentSpinner] = useState(jancSpinner);
+    const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
+    const [loadPatchUuid, setLoadPatchUuid] = useState(null);
+    const [userPatches, setUserPatches] = useState([]);
+    const [volcaFmLoadModalState, setVolcaFmLoadModalState] = useState('_Inactive');
+    const [currentSpinner, setCurrentSpinner] = useState(janaSpinner);
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState(0);
@@ -549,6 +554,7 @@ function VolcaFm() {
             }
         });
         sendSysexDump();
+        setCurrentPatchUuid(null);
     }
     
     const sysexMessage = () => {
@@ -1002,6 +1008,7 @@ function VolcaFm() {
             }
         });
         sendSysexDump();
+        setCurrentPatchUuid(null);
     }
     
     const copyOpSubmit = () => {
@@ -1037,16 +1044,26 @@ function VolcaFm() {
     }
     
     const submitSaveAsDialog = (val) => {
-        let deepCopy = {...globalParams};
         
         if (val === '') {
             return;
         } else {
-            deepCopy.name = val;
-            setGlobalParams(deepCopy);
-            setSaveAsDialogStatus('Inactive'); 
-            setVolcaFmContainerState('Active');
-            sendSysexDump();
+            const patch = {
+                user_uuid: user.uuid,
+                patch_name: val,
+                algorithm: currentAlgorithmNumerical,
+                settings: globalParams.settings,
+                lfo: globalParams.lfo,
+                pitch_envelope: globalParams.pitchEnvelope,
+                global: globalParams.global,
+                performance: globalParams.performance,
+                operatorParams: operatorParams
+            }
+            axios.post(`/volca_fm_patches/patch`, patch)
+            .then(() => {
+                setSaveAsDialogStatus('Inactive'); 
+                setVolcaFmContainerState('Active');
+            });
         }
     }
     
@@ -1067,11 +1084,54 @@ function VolcaFm() {
     }
     
     const savePatch = () => {
-        setPatchAltered(false);
+        const patch = {
+            user_uuid: user.uuid,
+            patch_name: globalParams.name,
+            algorithm: currentAlgorithmNumerical,
+            settings: globalParams.settings,
+            lfo: globalParams.lfo,
+            pitch_envelope: globalParams.pitchEnvelope,
+            global: globalParams.global,
+            performance: globalParams.performance,
+            operatorParams: operatorParams
+        }
+        
+        if (currentPatchUuid === null) {
+            axios.post(`/volca_fm_patches/patch`, patch)
+            .then(responseData => {
+                setCurrentPatchUuid(responseData.data.uuid);
+                setPatchAltered(false);
+            });
+        } else {
+            axios.patch(`/volca_fm_patches/patch/${currentPatchUuid}`, patch)
+            .then(() => {
+                setPatchAltered(false);
+            });
+        }
+        
     }
     
     const revertPatch = () => {
-        setPatchAltered(false);
+        if (currentPatchUuid !== null) {
+            axios.get(`/volca_fm_patches/patch/${currentPatchUuid}`)
+            .then(patchData => {
+                const patch = patchData.data;
+                setCurrentAlgorithmNumerical(patch.algorithm);
+                setCurrentAlgorithm('_algorithm' + patch.algorithm.toString());
+                setGlobalParams({
+                    name: patch.patch_name,
+                    settings: patch.settings,
+                    lfo: patch.lfo,
+                    pitchEnvelope: patch.pitch_envelope,
+                    global: patch.global,
+                    performance: patch.performance
+                });
+                setOperatorParams(patch.operatorParams);
+                sendSysexDump();
+                sendSysexMessage();
+                setPatchAltered(false);
+            });
+        }
     }
     
     const patchNameUpdate = (val) => {
@@ -3124,6 +3184,61 @@ function VolcaFm() {
         
     }
     
+    const loadModalOn = () => {
+        setVolcaFmLoadModalState('_Active');
+        setVolcaFmContainerState('Inactive');
+        axios.get(`/volca_fm_patches/byuser/${user.uuid}`)
+        .then(patchesData => {
+            const patches = patchesData.data.sort((a, b) => {
+                if (a.patch_name.toLowerCase() > b.patch_name.toLowerCase()) {
+                    return 1;
+                } else if (a.patch_name.toLowerCase() < b.patch_name.toLowerCase()) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+            setUserPatches(patches);
+            let loadUuid = null;
+            if (patchesData.data.length > 0) {
+                loadUuid = patchesData.data[0].uuid;
+            }
+            setLoadPatchUuid(loadUuid);
+        });
+    }
+    
+    const cancelPatchLoad = () => {
+        setVolcaFmLoadModalState('_Inactive');
+        setVolcaFmContainerState('Active');
+    }
+    
+    const resetLoadPatchUuid = (val) => {
+        setLoadPatchUuid(val);
+    }
+    
+    const loadSelectedPatch = () => {
+        axios.get(`/volca_fm_patches/patch/${loadPatchUuid}`)
+        .then(patchData => {
+            const patch = patchData.data;
+            setCurrentAlgorithmNumerical(patch.algorithm);
+            setCurrentAlgorithm('_algorithm' + patch.algorithm.toString());
+            setGlobalParams({
+                name: patch.patch_name,
+                settings: patch.settings,
+                lfo: patch.lfo,
+                pitchEnvelope: patch.pitch_envelope,
+                global: patch.global,
+                performance: patch.performance
+            });
+            setOperatorParams(patch.operatorParams);
+            setCurrentPatchUuid(loadPatchUuid);
+            sendSysexDump();
+            sendSysexMessage();
+            setPatchAltered(false);
+            cancelPatchLoad();
+        });
+    }
+    
     return ( 
         <div>
             <div className={'volcaFmEditorContainer' + volcaFmContainerState + volcaFmMonth}
@@ -3136,7 +3251,9 @@ function VolcaFm() {
                             src={midiImage}></img></NavLink>
                     </div>
                     <h3 className={'volcaFmEditorTitle' + volcaFmMonth}>Volca FM Editor</h3>
-                    <input className={'patchNameInput' + volcaFmMonth}
+                    <button className={'volcaFmLoadButton' + volcaFmMonth}
+                        onClick={() => loadModalOn()}>load</button>
+                    <input className={'volcaFmPatchNameInput' + volcaFmMonth}
                         onChange={(e) => patchNameUpdate(e.target.value)}
                         type="text"
                         value={globalParams.name}/>
@@ -6798,6 +6915,21 @@ function VolcaFm() {
             </div>
             <div className={panicState + volcaFmMonth}>
                 <img src={currentSpinner} />
+            </div>
+            <div className={'volcaFmLoadModal' + volcaFmLoadModalState + volcaFmMonth}>
+                <div className={'volcaFmLoadContainer' + volcaFmMonth}>
+                    <p className={'volcaFmLoadTitle' + volcaFmMonth}>Load Volca FM Patch</p>
+                    <select className={'volcaFmLoadSelector' + volcaFmMonth}
+                        onChange={(e) => {resetLoadPatchUuid(e.target.value)}}
+                        value={loadPatchUuid}>
+                        {userPatches.map(patch => (
+                                <option key={patch.uuid} value={patch.uuid}>{patch.patch_name}</option>))}
+                    </select>
+                    <button className={'volcaFmLoadLoadButton' + volcaFmMonth}
+                        onClick={() => loadSelectedPatch()}>load</button>
+                    <button className={'volcaFmLoadCancelButton' + volcaFmMonth}
+                        onClick={() => cancelPatchLoad()}>cancel</button>
+                </div>
             </div>
         </div>
         );

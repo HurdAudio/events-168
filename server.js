@@ -12,6 +12,7 @@ require('dotenv').config();
 const app = express();
 
 const users = require('./routes/users.js');
+const volca_fm_patches = require('./routes/volca_fm_patches.js');
 
 // const financial_modules = require('./routes/financial_modules.js');
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 
 app.use('/users', users);
+app.use('/volca_fm_patches', volca_fm_patches);
 
 app.get('/test', (req, res, next) => {
     res.send({user: 'forbidden'});

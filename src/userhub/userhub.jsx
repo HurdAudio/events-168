@@ -237,7 +237,7 @@ function UserHub() {
             <Router>
                 <Switch>
                     <Route path="/volca-fm-editor">
-                        <VolcaFm />
+                        {VolcaFm(user, null)}
                     </Route>
                     <Route path="/volca-nubass-editor">
                         <VolcaNubass />
