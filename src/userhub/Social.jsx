@@ -9,6 +9,7 @@ import {
 import './userhub.style.jana.css';
 import './userhub.style.janb.css';
 import './userhub.style.janc.css';
+import './userhub.style.feba.css';
 import midi5pin from '../img/midi5pin.svg';
 import usersgroup from '../img/usersgroup.svg';
 import gitHub from '../img/gitHub.svg';
@@ -20,7 +21,7 @@ import bandcamp from '../img/bandcamp.svg';
 
 function Social() {
     
-    const [socialMonth, setSocialMonth] = useState('_JanuaryC');
+    const [socialMonth, setSocialMonth] = useState('_FebruaryA');
     const [socialIcons, setSocialIcons] = useState({
         gitHub: 'socialGitHub',
         facebook: 'socialFacebook',
