@@ -16,9 +16,11 @@ import panic from '../img/panic.svg';
 import './userhub.style.jana.css';
 import './userhub.style.janb.css';
 import './userhub.style.janc.css';
+import './userhub.style.feba.css';
 import midi5pin from '../img/midi5pin.svg';
 import redMIDI from '../img/redMIDI.png';
 import vectorMidiPng from '../img/vectorMidiPng.png';
+import febaMidi_0 from '../img/febaMidi_0.png';
 import VolcaFm from '../volcaFm/volcaFm';
 import VolcaNubass from '../volcaNubass/volcaNubass';
 import VolcaDrum from '../volcaDrum/volcaDrum';
@@ -52,7 +54,7 @@ function UserHub() {
     const [currentOutput, setCurrentOutput] = useState([]);
     const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
     const [user, setUser] = useState({});
-    const [userhubMonth, setUserhubMonth] = useState('_JanuaryC');
+    const [userhubMonth, setUserhubMonth] = useState('_FebruaryA');
     const [userhubState, setUserhubState] = useState({
         home: 'homeContentActive',
         homeDiv: 'homeContentOn',
@@ -68,7 +70,7 @@ function UserHub() {
         socialDiv: 'soccialOff',
         tab: 'sliderTabHome'
     });
-    const [panicMonth, setPanicMonth] = useState('_JanuaryC');
+    const [panicMonth, setPanicMonth] = useState('_FebruaryA');
     const [panicOn, setPanicOn] = useState(false);
     
     const hubStateHome = () => {
@@ -252,7 +254,7 @@ function UserHub() {
                 <div className={'userHubContainer' + userhubMonth}>
                     <div className={'userHubImageDiv' + userhubMonth}>
                         <img className={'userHubLogoImg' + userhubMonth}
-                            src={vectorMidiPng}></img>
+                            src={febaMidi_0}></img>
                         <div className={'userHubTitleBar' + userhubMonth}>
                             <h2 className={'userHubTitle' + userhubMonth}>168 Events</h2>
                             <div className={'userHubLoggedInAsDiv' + userhubMonth}>

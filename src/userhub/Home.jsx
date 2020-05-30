@@ -9,6 +9,7 @@ import {
 import './userhub.style.jana.css';
 import './userhub.style.janb.css';
 import './userhub.style.janc.css';
+import './userhub.style.feba.css';
 import midi5pin from '../img/midi5pin.svg';
 import home from '../img/home.svg';
 import axios from 'axios';
@@ -44,7 +45,7 @@ const midiConfigurations = [
 
 function Home(user) {
     
-    const [homeMonth, setHomeMonth] = useState('_JanuaryC');
+    const [homeMonth, setHomeMonth] = useState('_FebruaryA');
     const [userClockResolution, setUserClockResolution] = useState(user.clock_resolution);
     
     const clockResolutionChange = (val) => {
