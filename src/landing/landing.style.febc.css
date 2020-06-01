@@ -1,0 +1,1237 @@
+.container_FebruaryC {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: all 0.4s linear;
+    width: 100%;
+}
+
+.containerContained_FebruaryC {
+    filter: blur(5px);
+    transition: all 0.4s linear;
+}
+
+.imageDiv_FebruaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/landing/february/wave-5234701_1920.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 12.5% [col2] 12.5% [col3] 12.5% [col4] 12.5% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [rightEdge];
+    grid-template-rows: [row1] 12.5% [row2] 12.5% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [rowEnd];
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.midiImage_FebruaryC {
+    filter: brightness(80%);
+    height: 100px;
+    left: 46%;
+    opacity: 1;
+    position: absolute;
+    top: 40%;
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(0deg) scale(1.4);
+    transition: all 4s linear;
+    width: 100px;
+}
+
+.col1row1_FebruaryC {
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol1row1_FebruaryC {
+    filter: blur(4px) brightness(130%);
+    height: 100px;
+    left: 90%;
+    opacity: 1;
+    position: absolute;
+    top: 80%;
+    transform: skewY(-25deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col2row1_FebruaryC {
+    grid-column: col2 / col3;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol2row1_FebruaryC {
+    filter: blur(3px) brightness(130%);
+    height: 100px;
+    left: 77%;
+    opacity: 1;
+    position: absolute;
+    top: 80%;
+    transform: skewY(-15deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col3row1_FebruaryC {
+    grid-column: col3 / col4;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol3row1_FebruaryC {
+    filter: blur(0) brightness(130%);
+    height: 100px;
+    left: 64%;
+    opacity: 1;
+    position: absolute;
+    top: 80%;
+    transform: skewY(-5deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col4row1_FebruaryC {
+    grid-column: col4 / col5;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol4row1_FebruaryC {
+    filter: blur(0) brightness(130%);
+    height: 100px;
+    left: 51%;
+    opacity: 1;
+    position: absolute;
+    top: 80%;
+    transform: rotateY(180deg) skewY(0deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col5row1_FebruaryC {
+    grid-column: col5 / col6;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol5row1_FebruaryC {
+    filter: blur(1px) brightness(130%);
+    height: 100px;
+    left: 38%;
+    opacity: 1;
+    position: absolute;
+    top: 80%;
+    transform: rotateY(180deg) skewY(15deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col6row1_FebruaryC {
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol6row1_FebruaryC {
+    filter: blur(2px) brightness(130%);
+    height: 100px;
+    left: 25%;
+    opacity: 1;
+    position: absolute;
+    top: 80%;
+    transform: rotateY(360deg) skewY(5deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col7row1_FebruaryC {
+    grid-column: col7 / col8;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol7row1_FebruaryC {
+    filter: blur(4px) brightness(130%);
+    height: 100px;
+    left: 12%;
+    opacity: 1;
+    position: absolute;
+    top: 80%;
+    transform: rotateY(360deg) skewY(10deg) scale(1.5);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col8row1_FebruaryC {
+    grid-column: col8 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol8row1_FebruaryC {
+    filter: blur(8px) brightness(130%);
+    height: 100px;
+    left: -1%;
+    opacity: 1;
+    position: absolute;
+    top: 80%;
+    transform: rotateY(360deg) skewY(20deg) scale(1.5);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col1row2_FebruaryC {
+    grid-column: col1 / col2;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol1row2_FebruaryC {
+    filter: blur(4px) brightness(130%);
+    height: 100px;
+    left: 90%;
+    opacity: 1;
+    position: absolute;
+    top: 68%;
+    transform: skewY(-15deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col2row2_FebruaryC {
+    grid-column: col2 / col3;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol2row2_FebruaryC {
+    filter: blur(2px) brightness(130%);
+    height: 100px;
+    left: 77%;
+    opacity: 1;
+    position: absolute;
+    top: 68%;
+    transform: skewY(-7deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col3row2_FebruaryC {
+    grid-column: col3 / col4;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol3row2_FebruaryC {
+    filter: blur(0) brightness(130%);
+    height: 100px;
+    left: 64%;
+    opacity: 1;
+    position: absolute;
+    top: 68%;
+    transform: skewY(-2deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col4row2_FebruaryC {
+    grid-column: col4 / col5;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol4row2_FebruaryC {
+    filter: blur(0) brightness(110%);
+    height: 100px;
+    left: 51%;
+    opacity: 1;
+    position: absolute;
+    top: 68%;
+    transform: rotateY(180deg) skewY(1deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col5row2_FebruaryC {
+    grid-column: col5 / col6;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol5row2_FebruaryC {
+    filter: blur(3px) brightness(90%);
+    height: 100px;
+    left: 38%;
+    opacity: 1;
+    position: absolute;
+    top: 68%;
+    transform: rotateY(360deg) skewY(3deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col6row2_FebruaryC {
+    grid-column: col6 / col7;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol6row2_FebruaryC {
+    filter: blur(1px) brightness(90%);
+    height: 100px;
+    left: 25%;
+    opacity: 1;
+    position: absolute;
+    top: 68%;
+    transform: rotateY(360deg) skewY(8deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col7row2_FebruaryC {
+    grid-column: col7 / col8;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol7row2_FebruaryC {
+    filter: blur(7px) brightness(90%);
+    height: 100px;
+    left: 12%;
+    opacity: 1;
+    position: absolute;
+    top: 68%;
+    transform: rotateY(360deg) skewY(3deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col8row2_FebruaryC {
+    grid-column: col8 / rightEdge;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol8row2_FebruaryC {
+    filter: blur(13px) brightness(90%);
+    height: 100px;
+    left: -1%;
+    opacity: 1;
+    position: absolute;
+    top: 68%;
+    transform: rotateY(360deg) skewY(-2deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col1row3_FebruaryC {
+    grid-column: col1 / col2;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol1row3_FebruaryC {
+    filter: blur(4px) brightness(130%);
+    height: 100px;
+    left: 90%;
+    opacity: 1;
+    position: absolute;
+    top: 56%;
+    transform: skewY(-19deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col2row3_FebruaryC {
+    grid-column: col2 / col3;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol2row3_FebruaryC {
+    filter: blur(1px) brightness(130%);
+    height: 100px;
+    left: 77%;
+    opacity: 1;
+    position: absolute;
+    top: 56%;
+    transform: skewY(-8deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col3row3_FebruaryC {
+    grid-column: col3 / col4;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol3row3_FebruaryC {
+    filter: blur(0px) brightness(130%);
+    height: 100px;
+    left: 64%;
+    opacity: 1;
+    position: absolute;
+    top: 56%;
+    transform: skewY(-10deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col4row3_FebruaryC {
+    grid-column: col4 / col5;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol4row3_FebruaryC {
+    filter: blur(1px) brightness(130%);
+    height: 100px;
+    left: 51%;
+    opacity: 1;
+    position: absolute;
+    top: 56%;
+    transform: rotateY(180deg) skewY(-4deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col5row3_FebruaryC {
+    grid-column: col5 / col6;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol5row3_FebruaryC {
+    filter: blur(6px) brightness(110%);
+    height: 100px;
+    left: 38%;
+    opacity: 1;
+    position: absolute;
+    top: 56%;
+    transform: rotateY(360deg) skewY(4deg) scale(1.2);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col6row3_FebruaryC {
+    grid-column: col6 / col7;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol6row3_FebruaryC {
+    filter: blur(3px) brightness(110%);
+    height: 100px;
+    left: 25%;
+    opacity: 1;
+    position: absolute;
+    top: 56%;
+    transform: rotateY(360deg) skewY(8deg) scale(1.2);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col7row3_FebruaryC {
+    grid-column: col7 / col8;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol7row3_FebruaryC {
+    filter: blur(7px) brightness(90%);
+    height: 100px;
+    left: 12%;
+    opacity: 1;
+    position: absolute;
+    top: 56%;
+    transform: rotateY(360deg) skewY(2deg) scale(1.5);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col8row3_FebruaryC {
+    grid-column: col8 / rightEdge;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol8row3_FebruaryC {
+    filter: blur(14px) brightness(90%);
+    height: 100px;
+    left: -1%;
+    opacity: 1;
+    position: absolute;
+    top: 56%;
+    transform: rotateY(360deg) skewY(2deg) scale(1.7);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col1row4_FebruaryC {
+    grid-column: col1 / col2;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol1row4_FebruaryC {
+    filter: blur(4px) brightness(130%);
+    height: 100px;
+    left: 90%;
+    opacity: 1;
+    position: absolute;
+    top: 44%;
+    transform: skewY(-23deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col2row4_FebruaryC {
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol2row4_FebruaryC {
+    filter: blur(2px) brightness(130%);
+    height: 100px;
+    left: 77%;
+    opacity: 1;
+    position: absolute;
+    top: 44%;
+    transform: skewY(-16deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col3row4_FebruaryC {
+    grid-column: col3 / col4;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol3row4_FebruaryC {
+    filter: blur(0px) brightness(130%);
+    height: 100px;
+    left: 64%;
+    opacity: 1;
+    position: absolute;
+    top: 44%;
+    transform: skewY(-21deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col4row4_FebruaryC {
+    grid-column: col4 / col5;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol4row4_FebruaryC {
+    filter: blur(9px) brightness(90%);
+    height: 100px;
+    left: 51%;
+    opacity: 1;
+    position: absolute;
+    top: 44%;
+    transform: rotateY(360deg) skewY(-1deg) scale(1);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col5row4_FebruaryC {
+    grid-column: col5 / col6;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol5row4_FebruaryC {
+    filter: blur(7px) brightness(100%);
+    height: 100px;
+    left: 38%;
+    opacity: 1;
+    position: absolute;
+    top: 44%;
+    transform: rotateY(360deg) skewY(7deg) scale(1.2);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col6row4_FebruaryC {
+    grid-column: col6 / col7;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol6row4_FebruaryC {
+    filter: blur(5px) brightness(100%);
+    height: 100px;
+    left: 25%;
+    opacity: 1;
+    position: absolute;
+    top: 44%;
+    transform: rotateY(360deg) skewY(10deg) scale(1.3);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col7row4_FebruaryC {
+    grid-column: col7 / col8;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol7row4_FebruaryC {
+    filter: blur(4px) brightness(100%);
+    height: 100px;
+    left: 12%;
+    opacity: 1;
+    position: absolute;
+    top: 44%;
+    transform: rotateY(360deg) skewY(6deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col8row4_FebruaryC {
+    grid-column: col8 / rightEdge;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol8row4_FebruaryC {
+    filter: blur(18px) brightness(100%);
+    height: 100px;
+    left: -1%;
+    opacity: 1;
+    position: absolute;
+    top: 44%;
+    transform: rotateY(360deg) skewY(0deg) scale(1.7);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col1row5_FebruaryC {
+    grid-column: col1 / col2;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol1row5_FebruaryC {
+    filter: blur(2px) brightness(130%);
+    height: 100px;
+    left: 90%;
+    opacity: 1;
+    position: absolute;
+    top: 32%;
+    transform: skewY(-25deg) scale(1.5);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col2row5_FebruaryC {
+    grid-column: col2 / col3;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol2row5_FebruaryC {
+    filter: blur(1px) brightness(130%);
+    height: 100px;
+    left: 77%;
+    opacity: 1;
+    position: absolute;
+    top: 32%;
+    transform: skewY(-13deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col3row5_FebruaryC {
+    grid-column: col3 / col4;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol3row5_FebruaryC {
+    filter: blur(0px) brightness(130%);
+    height: 100px;
+    left: 64%;
+    opacity: 1;
+    position: absolute;
+    top: 32%;
+    transform: rotateY(180deg) skewY(-2deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col4row5_FebruaryC {
+    grid-column: col4 / col5;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol4row5_FebruaryC {
+    filter: blur(7px) brightness(130%);
+    height: 100px;
+    left: 51%;
+    opacity: 1;
+    position: absolute;
+    top: 32%;
+    transform: rotateY(360deg) skewY(0deg) scale(1);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col5row5_FebruaryC {
+    grid-column: col5 / col6;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol5row5_FebruaryC {
+    filter: blur(5px) brightness(130%);
+    height: 100px;
+    left: 38%;
+    opacity: 1;
+    position: absolute;
+    top: 32%;
+    transform: rotateY(360deg) skewY(2deg) scale(1.1);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col6row5_FebruaryC {
+    grid-column: col6 / col7;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol6row5_FebruaryC {
+    filter: blur(2px) brightness(130%);
+    height: 100px;
+    left: 25%;
+    opacity: 1;
+    position: absolute;
+    top: 32%;
+    transform: rotateY(360deg) skewY(1deg) scale(1.2);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col7row5_FebruaryC {
+    grid-column: col7 / col8;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol7row5_FebruaryC {
+    filter: blur(4px) brightness(130%);
+    height: 100px;
+    left: 12%;
+    opacity: 1;
+    position: absolute;
+    top: 32%;
+    transform: rotateY(360deg) skewY(-2deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col8row5_FebruaryC {
+    grid-column: col8 / rightEdge;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol8row5_FebruaryC {
+    filter: blur(11px) brightness(130%);
+    height: 100px;
+    left: -1%;
+    opacity: 1;
+    position: absolute;
+    top: 32%;
+    transform: rotateY(360deg) skewY(-2deg) scale(1.8);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col1row6_FebruaryC {
+    grid-column: col1 / col2;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol1row6_FebruaryC {
+    filter: blur(2px) brightness(130%);
+    height: 100px;
+    left: 90%;
+    opacity: 1;
+    position: absolute;
+    top: 20%;
+    transform: skewY(-22deg) scale(1.6);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col2row6_FebruaryC {
+    grid-column: col2 / col3;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol2row6_FebruaryC {
+    filter: blur(0px) brightness(130%);
+    height: 100px;
+    left: 77%;
+    opacity: 1;
+    position: absolute;
+    top: 20%;
+    transform: skewY(-26deg) scale(1.5);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col3row6_FebruaryC {
+    grid-column: col3 / col4;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol3row6_FebruaryC {
+    filter: blur(4px) brightness(130%);
+    height: 100px;
+    left: 64%;
+    opacity: 1;
+    position: absolute;
+    top: 20%;
+    transform: rotateY(180deg) skewY(-6deg) scale(1.1);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col4row6_FebruaryC {
+    grid-column: col4 / col5;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol4row6_FebruaryC {
+    filter: blur(9px) brightness(130%);
+    height: 100px;
+    left: 51%;
+    opacity: 1;
+    position: absolute;
+    top: 20%;
+    transform: rotateY(360deg) skewY(0deg) scale(1);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col5row6_FebruaryC {
+    grid-column: col5 / col6;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol5row6_FebruaryC {
+    filter: blur(5px) brightness(130%);
+    height: 100px;
+    left: 38%;
+    opacity: 1;
+    position: absolute;
+    top: 20%;
+    transform: rotateY(360deg) skewY(2deg) scale(1);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col6row6_FebruaryC {
+    grid-column: col6 / col7;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol6row6_FebruaryC {
+    filter: blur(2px) brightness(130%);
+    height: 100px;
+    left: 25%;
+    opacity: 1;
+    position: absolute;
+    top: 20%;
+    transform: rotateY(360deg) skewY(-2deg) scale(1.2);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col7row6_FebruaryC {
+    grid-column: col7 / col8;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol7row6_FebruaryC {
+    filter: blur(3px) brightness(130%);
+    height: 100px;
+    left: 12%;
+    opacity: 1;
+    position: absolute;
+    top: 20%;
+    transform: rotateY(360deg) skewY(-4deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col8row6_FebruaryC {
+    grid-column: col8 / rightEdge;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol8row6_FebruaryC {
+    filter: blur(16px) brightness(130%);
+    height: 100px;
+    left: -1%;
+    opacity: 1;
+    position: absolute;
+    top: 20%;
+    transform: rotateY(360deg) skewY(-19deg) scale(1.8);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col1row7_FebruaryC {
+    grid-column: col1 / col2;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol1row7_FebruaryC {
+    filter: blur(1px) brightness(130%);
+    height: 100px;
+    left: 90%;
+    opacity: 1;
+    position: absolute;
+    top: 8%;
+    transform: skewY(-33deg) scale(1.7);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col2row7_FebruaryC {
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol2row7_FebruaryC {
+    filter: blur(0px) brightness(130%);
+    height: 100px;
+    left: 77%;
+    opacity: 1;
+    position: absolute;
+    top: 8%;
+    transform: rotateY(180deg) skewY(28deg) scale(1.9);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col3row7_FebruaryC {
+    grid-column: col3 / col4;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol3row7_FebruaryC {
+    filter: blur(7px) brightness(80%);
+    height: 100px;
+    left: 64%;
+    opacity: 1;
+    position: absolute;
+    top: 8%;
+    transform: rotateY(360deg) skewY(-12deg) scale(0.9);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col4row7_FebruaryC {
+    grid-column: col4 / col5;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol4row7_FebruaryC {
+    filter: blur(9px) brightness(90%);
+    height: 100px;
+    left: 51%;
+    opacity: 1;
+    position: absolute;
+    top: 8%;
+    transform: rotateY(360deg) skewY(-4deg) scale(1.0);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col5row7_FebruaryC {
+    grid-column: col5 / col6;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol5row7_FebruaryC {
+    filter: blur(5px) brightness(100%);
+    height: 100px;
+    left: 38%;
+    opacity: 1;
+    position: absolute;
+    top: 8%;
+    transform: rotateY(360deg) skewY(0deg) scale(1.2);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col6row7_FebruaryC {
+    grid-column: col6 / col7;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol6row7_FebruaryC {
+    filter: blur(2px) brightness(100%);
+    height: 100px;
+    left: 25%;
+    opacity: 1;
+    position: absolute;
+    top: 8%;
+    transform: rotateY(360deg) skewY(0deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col7row7_FebruaryC {
+    grid-column: col7 / col8;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol7row7_FebruaryC {
+    filter: blur(1px) brightness(100%);
+    height: 100px;
+    left: 12%;
+    opacity: 1;
+    position: absolute;
+    top: 8%;
+    transform: rotateY(360deg) skewY(0deg) scale(1.5);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col8row7_FebruaryC {
+    grid-column: col8 / rightEdge;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol8row7_FebruaryC {
+    filter: blur(19px) brightness(100%);
+    height: 100px;
+    left: -1%;
+    opacity: 1;
+    position: absolute;
+    top: 8%;
+    transform: rotateY(360deg) skewY(-29deg) scale(2.2);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col1row8_FebruaryC {
+    grid-column: col1 / col2;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol1row8_FebruaryC {
+    filter: blur(3px) brightness(130%);
+    height: 100px;
+    left: 90%;
+    opacity: 1;
+    position: absolute;
+    top: -4%;
+    transform: skewY(-40deg) scale(1.9);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col2row8_FebruaryC {
+    grid-column: col2 / col3;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol2row8_FebruaryC {
+    filter: blur(1px) brightness(130%);
+    height: 100px;
+    left: 77%;
+    opacity: 1;
+    position: absolute;
+    top: -4%;
+    transform: rotateY(180deg) skewY(24deg) scale(1.6);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col3row8_FebruaryC {
+    grid-column: col3 / col4;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol3row8_FebruaryC {
+    filter: blur(10px) brightness(70%);
+    height: 100px;
+    left: 64%;
+    opacity: 1;
+    position: absolute;
+    top: -4%;
+    transform: rotateY(360deg) skewY(-12deg) scale(0.8);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col4row8_FebruaryC {
+    grid-column: col4 / col5;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol4row8_FebruaryC {
+    filter: blur(7px) brightness(90%);
+    height: 100px;
+    left: 51%;
+    opacity: 1;
+    position: absolute;
+    top: -4%;
+    transform: rotateY(360deg) skewY(-1deg) scale(1);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col5row8_FebruaryC {
+    grid-column: col5 / col6;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol5row8_FebruaryC {
+    filter: blur(4px) brightness(110%);
+    height: 100px;
+    left: 38%;
+    opacity: 1;
+    position: absolute;
+    top: -4%;
+    transform: rotateY(360deg) skewY(-8deg) scale(1.1);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col6row8_FebruaryC {
+    grid-column: col6 / col7;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol6row8_FebruaryC {
+    filter: blur(2px) brightness(120%);
+    height: 100px;
+    left: 25%;
+    opacity: 1;
+    position: absolute;
+    top: -4%;
+    transform: rotateY(360deg) skewY(-10deg) scale(1.2);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col7row8_FebruaryC {
+    grid-column: col7 / col8;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol7row8_FebruaryC {
+    filter: blur(0px) brightness(130%);
+    height: 100px;
+    left: 12%;
+    opacity: 1;
+    position: absolute;
+    top: -4%;
+    transform: rotateY(360deg) skewY(-11deg) scale(1.4);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.col8row8_FebruaryC {
+    grid-column: col8 / rightEdge;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol8row8_FebruaryC {
+    filter: blur(20px) brightness(160%);
+    height: 100px;
+    left: -1%;
+    opacity: 1;
+    position: absolute;
+    top: -4%;
+    transform: rotateY(360deg) skewY(-11deg) scale(2.1);
+    transition: all 4s linear;
+    width: 120px;
+}
+
+.landingTitleDiv_FebruaryC {
+    grid-column: col1 / col2;
+    grid-row: row1 / rowEnd;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 1;
+}
+
+.landingTitle_FebruaryC {
+    color: #030308;
+    cursor: pointer;
+    filter: brightness(100%) saturate(200%);
+    font-family: 'Fondamento', cursive;
+    font-size: 114px;
+    left: -130px;
+    position: absolute;
+    top: 38%;
+    transform: rotateX(-38deg) rotateZ(-72deg);
+    transition: all 4s linear;
+    z-index: 55;
+}
+
+.landingTitle_FebruaryC:hover {
+    color: #aed5ee;
+    filter: brightness(350%) saturate(300%);
+    transition: all 4s linear;
+}
+
+.landingByline_FebruaryC {
+    color: #030308;
+    cursor: none;
+    filter: brightness(100%) saturate(200%);
+    font-family: 'Fondamento', cursive;
+    font-size: 30px;
+    left: -30px;
+    position: absolute;
+    top: 45%;
+    transform: rotateX(-38deg) rotateZ(-73deg);
+    transition: all 4s linear;
+    z-index: 55;
+}
+
+.landingByline_FebruaryC:hover {
+    color: #aed5ee;
+    filter: brightness(350%) saturate(200%);
+    transition: all 4s linear;
+}
+
+.userLogin_FebruaryC {
+    background: #093179;
+    border: none;
+    color: #9bcde2;
+    cursor: pointer;
+    font-family: 'Fondamento', cursive;
+    font-size: 30px;
+    grid-column: col7 / col8;
+    grid-row: row1 / row2;
+    left: 10%;
+    outline-color: #8d98a1;
+    position: absolute;
+    top: 10%;
+    transition: all 0.3s linear;
+}
+
+.userLogin_FebruaryC:hover {
+    background: #031330;
+    box-shadow: -8px -8px 10px #aed5ee, 8px -8px 10px #aed5ee, -8px 8px 10px #aed5ee, 8px 8px 10px #aed5ee;
+    color: #aed5ee;
+    transition: all 0.3s linear;
+}
+
+.aboutButton_FebruaryC {
+    background: #093179;
+    border: none;
+    color: #9bcde2;
+    cursor: pointer;
+    font-family: 'Fondamento', cursive;
+    font-size: 30px;
+    grid-column: col8 / rightEdge;
+    grid-row: row1 / row2;
+    left: 10%;
+    outline-color: #8d98a1;
+    position: absolute;
+    top: 10%;
+    transition: all 0.3s linear;
+}
+
+.aboutButton_FebruaryC:hover {
+    background: #031330;
+    box-shadow: -8px -8px 10px #aed5ee, 8px -8px 10px #aed5ee, -8px 8px 10px #aed5ee, 8px 8px 10px #aed5ee;
+    color: #aed5ee;
+    transition: all 0.3s linear;
+}
+
+.landingFooterDiv_FebruaryC {
+    bottom: 0;
+    height: auto;
+    left: 1%;
+    position: absolute;
+    width: 30%;
+}
+
+.landingFooter_FebruaryC {
+    color: #030308;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Fondamento', cursive;
+    font-size: 24px;
+}
