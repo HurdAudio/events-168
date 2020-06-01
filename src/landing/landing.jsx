@@ -11,11 +11,13 @@ import redMIDI from '../img/redMIDI.png';
 import vectorMidiPng from '../img/vectorMidiPng.png';
 import febaMidi_0 from '../img/febaMidi_0.png';
 import midiKeys from '../img/midiKeys.png';
+import bleu_midi_icon from '../img/bleu_midi_icon.png';
 import './landing.style.jana.css';
 import './landing.style.janb.css';
 import './landing.style.janc.css';
 import './landing.style.feba.css';
 import './landing.style.febb.css';
+import './landing.style.febc.css';
 import Login from '../login/login';
 import volcaFm from '../volcaFm/volcaFm';
 import volcaNubass from '../volcaNubass/volcaNubass';
@@ -25,9 +27,9 @@ import MidiManager from '../midiManager/midiManager';
 
 function Landing() {
     
-    const [landingMonth, setLandingMonth] = useState('_FebruaryB');
+    const [landingMonth, setLandingMonth] = useState('_FebruaryC');
     const [midiImageClass, setMidiImageClass] = useState('midiImage');
-    const [midiImage, setMidiImage] = useState(midiKeys);
+    const [midiImage, setMidiImage] = useState(bleu_midi_icon);
     
     const now = new Date();
     
