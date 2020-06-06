@@ -23,6 +23,7 @@ import volcaFm from '../volcaFm/volcaFm';
 import volcaNubass from '../volcaNubass/volcaNubass';
 import volcaDrum from '../volcaDrum/volcaDrum';
 import MidiManager from '../midiManager/midiManager';
+import Gr1Editor from '../gr1Editor/gr1Editor';
 
 
 function Landing() {
@@ -161,6 +162,9 @@ function Landing() {
                 </Route>
                 <Route path="/midi-manager">
                     {MidiManager(null, null)}
+                </Route>
+                <Route path="/gr1-editor">
+                    {Gr1Editor(null, null)}
                 </Route>
             </Switch>
         </Router>

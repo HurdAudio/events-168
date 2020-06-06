@@ -34,12 +34,14 @@ const midiDevices = [
         component: '<volcaDrum />'
     },
     {
-        uuid: 'da3379be-e520-4023-bf62-61739a53cd4f',
-        name: 'korg sv-1'
+        uuid: '3d89af9b-a1a9-424d-bc82-0c7dd99a0340',
+        name: 'tasty chips gr-1',
+        path: '/gr1-editor',
+        component: '<gr1Editor />'
     },
     {
-        uuid: '3d89af9b-a1a9-424d-bc82-0c7dd99a0340',
-        name: 'tasty chips gr-1'
+        uuid: 'da3379be-e520-4023-bf62-61739a53cd4f',
+        name: 'korg sv-1'
     },
     {
         uuid: 'cf6ece7f-cd5a-4c52-90ca-7d029da11960',

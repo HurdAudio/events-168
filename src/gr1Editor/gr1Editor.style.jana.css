@@ -1,0 +1,2118 @@
+.gr1EditorContainer_Active_JanuaryA {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.gr1EditorContainer_Inactive_JanuaryA {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.gr1EditorImageDiv_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/january/ice_planet_by_azot2019_d5n5cth-fullview.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.gr1EditorTopBar_JanuaryA {
+    background: #2b77c2;
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.gr1NavImage_JanuaryA {
+    cursor: pointer;
+    filter: contrast(80%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.gr1NavImage_JanuaryA:hover {
+    filter: contrast(110%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.gr1EditorTitle_JanuaryA {
+    color: #8089a4;
+    filter: brightness(200%) saturate(400%);
+    font-family: 'Audiowide', cursive;
+    font-size: 36px;
+    grid-column: col2 / col6;
+    grid-row: row1 / row2;
+    margin: 5px;
+    z-index: 55;
+}
+
+.gr1PatchNameInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #8089a4;
+    filter: brightness(200%) saturate(400%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #8187a5;
+    position: absolute;
+    top: 1%;
+}
+
+.gr1PanicButton_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #8089a4;
+    cursor: pointer;
+    filter: brightness(200%) saturate(400%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: col12 / rightEdge;
+    grid-row: row1 / row2;
+    z-index: 56;
+}
+
+.gr1SidebarManager_JanuaryA {
+    backdrop-filter: hue-rotate(180deg) invert(100%);
+    background: radial-gradient(closest-corner, transparent, #898c8c, #89a3ca);
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectorDiv_JanuaryA {
+    backdrop-filter: blur(5px) contrast(250%);
+    grid-column: col3 / rightEdge;
+    grid-row: row2 / row3;
+}
+
+.gr1PatchSelectorContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [ptch1] 1fr [ptch2] 1fr [ptch3] 1fr [ptch4] 1fr [ptch5] 1fr [ptch6] 1fr [ptch7] 1fr [ptch8] 1fr [ptch9] 1fr [ptch10] 1fr [ptch11] 1fr [ptch12] 1fr [ptch13] 1fr [ptch14] 1fr [ptch15] 1fr [ptch16] 1fr [ptch17] 1fr [ptch18] 1fr [ptch19] 1fr [ptch20] 1fr [ptch21] 1fr [ptch22] 1fr [ptch23] 1fr [ptch24] 1fr [ptch25] 1fr [ptch26] 1fr [ptch27] 1fr [ptch28] 1fr [ptch29] 1fr [ptch30] 1fr [ptch31] 1fr [ptch32] 1fr [ptch33] 1fr [ptch34] 1fr [ptchEdge];
+    grid-template-rows: [ptchRow1] 1fr [ptchRowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1PatchSelectorLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(300%) saturate(400%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: ptch1 / ptch3;
+    grid-row: ptchRow1 / ptchRowEnd;
+    left: 9%;
+    position: relative;
+    top: 35%;
+}
+
+.gr1PatchSelectPatch1true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch3 / ptch4;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch1false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch3 / ptch4;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchPatch_JanuaryA {
+    align-content: center;
+    color: #000000;
+    filter: brightness(200%) saturate(400%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    justify-content: center;
+    margin: 50% 0 0 15%;
+}
+
+.gr1PatchSelectPatch2true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch4 / ptch5;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch2false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch4 / ptch5;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch3true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch5 / ptch6;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch3false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch5 / ptch6;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch4true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch6 / ptch7;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch4false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch6 / ptch7;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch5true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch7 / ptch8;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch5false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch7 / ptch8;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch6true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch8 / ptch9;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch6false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch8 / ptch9;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch7true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch9 / ptch10;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch7false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch9 / ptch10;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch8true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch10 / ptch11;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch8false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch10 / ptch11;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch9true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch11 / ptch12;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch9false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch11 / ptch12;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch10true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch12 / ptch13;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch10false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch12 / ptch13;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch11true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch13 / ptch14;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch11false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch13 / ptch14;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch12true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch14 / ptch15;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch12false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch14 / ptch15;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch13true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch15 / ptch16;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch13false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch15 / ptch16;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch14true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch16 / ptch17;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch14false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch16 / ptch17;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch15true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch17 / ptch18;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch15false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch17 / ptch18;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch16true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch18 / ptch19;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch16false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch18 / ptch19;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch17true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch19 / ptch20;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch17false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch19 / ptch20;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch18true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch20 / ptch21;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch18false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch20 / ptch21;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch19true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch21 / ptch22;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch19false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch21 / ptch22;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch20true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch22 / ptch23;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch20false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch22 / ptch23;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch21true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch23 / ptch24;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch21false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch23 / ptch24;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch22true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch24 / ptch25;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch22false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch24 / ptch25;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch23true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch25 / ptch26;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch23false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch25 / ptch26;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch24true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch26 / ptch27;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch24false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch26 / ptch27;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch25true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch27 / ptch28;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch25false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch27 / ptch28;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch26true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch28 / ptch29;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch26false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch28 / ptch29;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch27true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch29 / ptch30;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch27false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch29 / ptch30;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch28true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch30 / ptch31;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch28false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch30 / ptch31;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch29true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch31 / ptch32;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch29false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch31 / ptch32;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch30true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch32 / ptch33;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch30false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch32 / ptch33;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch31true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch33 / ptch34;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch31false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch33 / ptch34;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1PatchSelectPatch32true_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: none;
+    filter: brightness(150%) invert(0%) saturate(200%);
+    grid-column: ptch34 / ptchEdge;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.gr1PatchSelectPatch32false_JanuaryA {
+    align-content: center;
+    background: radial-gradient(circle at 100%, #95bbe1, #2b77c2);
+    cursor: pointer;
+    filter: brightness(150%) invert(100%) saturate(200%);
+    grid-column: ptch34 / ptchEdge;
+    grid-row: ptchRow1 / ptchRowEnd;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.gr1DisplayPane_JanuaryA {
+    backdrop-filter: blur(4px) brightness(60%) hue-rotate(-45deg);
+    grid-column: col3 / col8;
+    grid-row: row3 / row8;
+}
+
+.gr1GranularEditorPane_JanuaryA {
+    backdrop-filter: blur(6px) contrast(70%) hue-rotate(135deg) saturate(100%);
+    grid-column: col8 / rightEdge;
+    grid-row: row3 / row8;
+}
+
+.gr1GranularEditorPaneContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [c1] 1fr [c2] 1fr [c3] 1fr [c4] 1fr [c5] 1fr [c6] 1fr [c7] 1fr [c8] 1fr [c9] 1fr [c10] 1fr [c11] 1fr [c12] 1fr [cEdge];
+    grid-template-rows: [r1] 1fr [r2] 1fr [r3] 1fr [r4] 1fr [r5] 1fr [r6] 1fr [r7] 1fr [r8] 1fr [r9] 1fr [r10] 1fr [rEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1GranularEditorTabsBar_JanuaryA {
+    background: linear-gradient(-45deg, #020e4a, #8697b4);
+    display: flex;
+    grid-column: c1 / cEdge;
+    grid-row: r1 / r2;
+}
+
+.gr1GranularEditorTabtrue_JanuaryA {
+    backdrop-filter: invert(100%);
+    color: #000000;
+    cursor: none;
+    filter: brightness(100%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    padding-left: 5%;
+    padding-top: 2px;
+    transition: all 0.4s linear;
+    width: 30%;
+}
+
+.gr1GranularEditorTabfalse_JanuaryA {
+    color: #95bbe1;
+    cursor: pointer;
+    filter: brightness(100%) saturate(50%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    padding-left: 5%;
+    padding-top: 2px;
+    transition: all 0.4s linear;
+    width: 30%;
+}
+
+.gr1GrainEditorPanetrue_JanuaryA {
+    grid-column: c1 / cEdge;
+    grid-row: r2 / rEnd;
+    left: 0;
+    position: relative;
+    transition: all 0.6s linear;
+}
+
+.gr1GrainEditorPanefalse_JanuaryA {
+    grid-column: c1 / cEdge;
+    grid-row: r2 / rEnd;
+    left: 100%;
+    position: relative;
+    transition: all 0.6s linear;
+}
+
+.gr1GrainEditorContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [c1] 1fr [c2] 1fr [c3] 1fr [c4] 1fr [c5] 1fr [c6] 1fr [c7] 1fr [c8] 1fr [c9] 1fr [c10] 1fr [c11] 1fr [c12] 1fr [cEdge];
+    grid-template-rows: [r1] 1fr [r2] 1fr [r3] 1fr [r4] 1fr [r5] 1fr [r6] 1fr [r7] 1fr [r8] 1fr [r9] 1fr [rEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1GrainSidesLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: c2 / c4;
+    grid-row: r2 / r3;
+}
+
+.gr1GrainSidesNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: c2 / c3;
+    grid-row: r3 / r4;
+    outline-color: #8187a5;
+}
+
+.gr1SidesSliderContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c3 / c4;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1SlidesSlidersSlider_JanuaryA {
+    -webkit-appearance: none;
+    border: 2px solid #011248;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 20px;
+    outline: 0;
+    position: relative;
+    overflow: hidden;
+    transform: rotateZ(-90deg) translateX(-110px) translateY(-110px);
+    width: 237px;
+}
+
+.gr1SlidesSlidersSlider_JanuaryA::-webkit-slider-runnable-track {
+    background: #011248;
+}
+
+.gr1SlidesSlidersSlider_JanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #47c0d1;
+    box-shadow: -100vw 0 0 100vw #47c0d1;
+    height: 20px;
+    transform-origin: bottom right;
+    transform: skew(45deg);
+    width: 20px;
+}
+
+.gr1GrainTiltLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: c6 / c8;
+    grid-row: r2 / r3;
+}
+
+.gr1GrainTiltNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: c6 / c7;
+    grid-row: r3 / r4;
+    outline-color: #8187a5;
+}
+
+.gr1SidesTiltContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c7 / c8;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1GrainCurveLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: c10 / c12;
+    grid-row: r2 / r3;
+}
+
+.gr1GrainCurveNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: c10 / c11;
+    grid-row: r3 / r4;
+    outline-color: #8187a5;
+}
+
+.gr1SidesCurveContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c11 / c12;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1EnvelopeEditorContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [c1] 1fr [c2] 1fr [c3] 1fr [c4] 1fr [c5] 1fr [c6] 1fr [c7] 1fr [c8] 1fr [c9] 1fr [c10] 1fr [c11] 1fr [c12] 1fr [c13] 1fr [c14] 1fr [c15] 1fr [c16] 1fr [cEdge];
+    grid-template-rows: [r1] 1fr [r2] 1fr [r3] 1fr [r4] 1fr [r5] 1fr [r6] 1fr [r7] 1fr [r8] 1fr [r9] 1fr [rEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1EnvelopeAttackLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 42px;
+    grid-column: c2 / c4;
+    grid-row: r2 / r3;
+}
+
+.gr1EnvelopeAttackNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: c2 / c3;
+    grid-row: r3 / r4;
+    outline-color: #8187a5;
+}
+
+.gr1EnvelopeAttackContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c3 / c4;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1EnvelopeDecayLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 42px;
+    grid-column: c6 / c8;
+    grid-row: r2 / r3;
+}
+
+.gr1EnvelopeDecayNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: c6 / c7;
+    grid-row: r3 / r4;
+    outline-color: #8187a5;
+}
+
+.gr1EnvelopeDecayContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c7 / c8;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1EnvelopeSustainLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 42px;
+    grid-column: c10 / c12;
+    grid-row: r2 / r3;
+}
+
+.gr1EnvelopeSustainNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: c10 / c11;
+    grid-row: r3 / r4;
+    outline-color: #8187a5;
+}
+
+.gr1EnvelopeSustainContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c11 / c12;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1EnvelopeReleaseLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 42px;
+    grid-column: c14 / c16;
+    grid-row: r2 / r3;
+}
+
+.gr1EnvelopeReleaseNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: c14 / c15;
+    grid-row: r3 / r4;
+    outline-color: #8187a5;
+}
+
+.gr1EnvelopeReleaseContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c15 / c16;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1ParametersEditorContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [c1] 1fr [c2] 1fr [c3] 1fr [c4] 1fr [c5] 1fr [c6] 1fr [c7] 1fr [c8] 1fr [c9] 1fr [c10] 1fr [c11] 1fr [c12] 1fr [c13] 1fr [c14] 1fr [c15] 1fr [c16] 1fr [c17] 1fr [c18] 1fr [c19] 1fr [c20] 1fr [c21] 1fr [c22] 1fr [c23] 1fr [c24] 1fr [c25] 1fr [c26] 1fr [c27] 1fr [c28] 1fr [c29] 1fr [c30] 1fr [c31] 1fr [c32] 1fr [cEdge];
+    grid-template-rows: [r1] 1fr [r2] 1fr [r3] 1fr [r4] 1fr [r5] 1fr [r6] 1fr [r7] 1fr [r8] 1fr [r9] 1fr [rEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1ParameterDensityLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 12px;
+    grid-column: c2 / c4;
+    grid-row: r1 / r2;
+    margin-top: 10px;
+}
+
+.gr1ParametersDensityNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: c3 / c4;
+    grid-row: r3 / r4;
+    margin-left: -15px;
+    margin-right: 15px;
+    outline-color: #8187a5;
+}
+
+.gr1ParametersDensityContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c3 / c4;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1ParameterGrainsizeLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 12px;
+    grid-column: c6 / c8;
+    grid-row: r1 / r2;
+    margin-top: 10px;
+}
+
+.gr1ParametersGrainsizeNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: c6 / c7;
+    grid-row: r3 / r4;
+    margin-left: -15px;
+    margin-right: 15px;
+    outline-color: #8187a5;
+}
+
+.gr1ParametersGrainsizeContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c6 / c7;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1ParameterSprayLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 12px;
+    grid-column: c10 / c12;
+    grid-row: r1 / r2;
+    margin-top: 10px;
+}
+
+.gr1ParametersSprayNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: c10 / c11;
+    grid-row: r3 / r4;
+    margin-left: -15px;
+    margin-right: 15px;
+    outline-color: #8187a5;
+}
+
+.gr1ParametersSprayContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c10 / c11;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1ParameterTuneLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 12px;
+    grid-column: c14 / c16;
+    grid-row: r1 / r2;
+    margin-top: 10px;
+}
+
+.gr1ParametersTuneNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: c14 / c15;
+    grid-row: r3 / r4;
+    margin-left: -15px;
+    margin-right: 15px;
+    outline-color: #8187a5;
+}
+
+.gr1ParametersTuneContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c14 / c15;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1ParameterCutoffLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 12px;
+    grid-column: c18 / c20;
+    grid-row: r1 / r2;
+    margin-top: 10px;
+}
+
+.gr1ParametersCutoffNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: c18 / c19;
+    grid-row: r3 / r4;
+    margin-left: -15px;
+    margin-right: 15px;
+    outline-color: #8187a5;
+}
+
+.gr1ParametersCutoffContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c18 / c19;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1ParameterResonanceLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 12px;
+    grid-column: c22 / c24;
+    grid-row: r1 / r2;
+    margin-top: 10px;
+}
+
+.gr1ParametersResonanceNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: c22 / c23;
+    grid-row: r3 / r4;
+    margin-left: -15px;
+    margin-right: 15px;
+    outline-color: #8187a5;
+}
+
+.gr1ParametersResonanceContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c22 / c23;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1ParameterPanSprayLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 12px;
+    grid-column: c26 / c29;
+    grid-row: r1 / r2;
+    margin-top: 10px;
+}
+
+.gr1ParametersPanSprayNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: c26 / c27;
+    grid-row: r3 / r4;
+    margin-left: -15px;
+    margin-right: 15px;
+    outline-color: #8187a5;
+}
+
+.gr1ParametersPanSprayContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c26 / c27;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1ParameterScanLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 12px;
+    grid-column: c30 / c32;
+    grid-row: r1 / r2;
+    margin-top: 10px;
+}
+
+.gr1ParametersScanNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: c30 / c31;
+    grid-row: r3 / r4;
+    margin-left: -15px;
+    margin-right: 15px;
+    outline-color: #8187a5;
+}
+
+.gr1ParametersScanContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: c30 / c31;
+    grid-row: r2 / r9;
+    left: 50%;
+    position: relative;
+    width: 25px;
+}
+
+.gr1SamplePositionPane_JanuaryA {
+    backdrop-filter: blur(6px) brightness(60%) contrast(400%) saturate(50%);
+    grid-column: col3 / col8;
+    grid-row: row8 / row9;
+}
+
+.gr1SamplePositionContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [sc1] 1fr [sc2] 1fr [sc3] 1fr [sc4] 1fr [sc5] 1fr [sc6] 1fr [sc7] 1fr [sc8] 1fr [sc9] 1fr [sc10] 1fr [sc11] 1fr [sc12] 1fr [scEdge];
+    grid-template-rows: [sr1] 1fr [sr2] 1fr [sr3] 1fr [sr4] 1fr [srEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1SamplePositionLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 15px;
+    grid-column: sc1 / sc3;
+    grid-row: sr2 / sr4;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.gr1SamplePositionSliderContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: sc3 / srEnd;
+    grid-row: sr2 / sr4;
+    transform: translateX(-15px);
+}
+
+.gr1PositionSlider_JanuaryA {
+    -webkit-appearance: none;
+    border: 2px solid #011248;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 79%;
+    outline: 0;
+    position: relative;
+    overflow: hidden;
+    width: 98%;
+}
+
+.gr1PositionSlider_JanuaryA::-webkit-slider-runnable-track {
+    background: #011248;
+    height: 100%;
+}
+
+.gr1PositionSlider_JanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #47c0d1;
+    box-shadow: -100vw 0 0 100vw #47c0d1;
+    height: 20px;
+    transform-origin: bottom right;
+    transform: skew(45deg);
+    width: 20px;
+}
+
+.gr1LfoCvPane_JanuaryA {
+    backdrop-filter: blur(6px) contrast(100%) hue-rotate(45deg);
+    grid-column: col3 / col8;
+    grid-row: row9 / rowEnd;
+}
+
+.gr1LfoCvContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [sc1] 1fr [sc2] 1fr [sc3] 1fr [sc4] 1fr [sc5] 1fr [sc6] 1fr [sc7] 1fr [sc8] 1fr [sc9] 1fr [sc10] 1fr [sc11] 1fr [sc12] 1fr [scEdge];
+    grid-template-rows: [sr1] 1fr [sr2] 1fr [sr3] 1fr [sr4] 1fr [sr5] 1fr [sr6] 1fr [sr7] 1fr [sr8] 1fr [sr9] 1fr [srEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1LfoCvTabsBar_JanuaryA {
+    background: linear-gradient(-45deg, #020e4a, #8697b4);
+    display: flex;
+    grid-column: sc1 / scEdge;
+    grid-row: sr1 / sr2;
+}
+
+.gr1LfoVcEditSpacetrue_JanuaryA {
+    grid-column: sc1 / scEdge;
+    grid-row: sr2 / srEnd;
+    transform: translateY(0%);
+    transition: all 0.5s linear;
+}
+
+.gr1LfoVcEditSpacefalse_JanuaryA {
+    grid-column: sc1 / scEdge;
+    grid-row: sr2 / srEnd;
+    transform: translateY(100%);
+    transition: all 0.5s linear;
+}
+
+.gr1LfoVcEditSpaceContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [lfc1] 1fr [lfc2] 1fr [lfc3] 1fr [lfc4] 1fr [lfc5] 1fr [lfc6] 1fr [lfc7] 1fr [lfc8] 1fr [lfc9] 1fr [lfc10] 1fr [lfc11] 1fr [lfc12] 1fr [lfcEnd];
+    grid-template-rows: [lfr1] 1fr [lfr2] 1fr [lfr3] 1fr [lfr4] 1fr [lfr5] 1fr [lfr6] 1fr [lfr7] 1fr [lfr8] 1fr [lfr9] 1fr [lfr10] 1fr [lfr11] 1fr [lfr12] 1fr [lfr13] 1fr  [lfr14] 1fr  [lfr15] 1fr [lfrEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1LFOFrequencyLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc2 / lfc4;
+    grid-row: lfr2 / lfr3;
+}
+
+.gr1LFOAmountLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc6 / lfc8;
+    grid-row: lfr2 / lfr3;
+}
+
+.gr1LFOWaveformLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc9 / lfc11;
+    grid-row: lfr2 / lfr3;
+}
+
+.gr1LFODestinationLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc9 / lfc11;
+    grid-row: lfr8 / lfr9;
+}
+
+.gr1LfoFrequencyNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc2 / lfc3;
+    grid-row: lfr5 / lfr6;
+    outline-color: #8187a5;
+}
+
+.gr1LFOSliderContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: lfc3 / lfc4;
+    grid-row: lfr4 / lfr15;
+    height: 100%;
+    margin-left: 25%;
+    width: 25px;
+}
+
+
+.gr1LfoSlidersSlider_JanuaryA {
+   -webkit-appearance: none;
+    border: 2px solid #011248;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 20px;
+    outline: 0;
+    position: relative;
+    overflow: hidden;
+    transform: rotateZ(-90deg) translateX(-78px) translateY(-79px);
+    width: 175px;
+}
+
+.gr1LfoSlidersSlider_JanuaryA::-webkit-slider-runnable-track {
+    background: #011248;
+    height: 100%;
+}
+
+.gr1LfoSlidersSlider_JanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #47c0d1;
+    box-shadow: -100vw 0 0 100vw #47c0d1;
+    height: 20px;
+    transform-origin: bottom right;
+    transform: skew(45deg);
+    width: 20px;
+}
+
+.gr1LfoAmountNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc6 / lfc7;
+    grid-row: lfr5 / lfr6;
+    outline-color: #8187a5;
+}
+
+.gr1LFOSliderAmountContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: lfc7 / lfc8;
+    grid-row: lfr4 / lfr15;
+    height: 100%;
+    margin-left: 25%;
+    width: 25px;
+}
+
+.gr1LFOWaveFormSelect_JanuaryA {
+    background: transparent;
+    border: none;
+    border-radius: none;
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: lfc9 / lfc12;
+    grid-row: lfr4 / lfr6;
+    height: 36px;
+    outline-color: #8187a5;
+    padding: 2px;
+}
+
+.gr1LFODestinationSelect_JanuaryA {
+    background: transparent;
+    border: none;
+    border-radius: none;
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: lfc9 / lfc12;
+    grid-row: lfr10 / lfr12;
+    height: 36px;
+    outline-color: #8187a5;
+    padding: 2px;
+}
+
+.gr1CVAmountLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc4 / lfc6;
+    grid-row: lfr2 / lfr3;
+}
+
+.gr1CVAmountNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc4 / lfc6;
+    grid-row: lfr5 / lfr6;
+    outline-color: #8187a5;
+}
+
+.gr1VCSliderAmountContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: lfc5 / lfc6;
+    grid-row: lfr4 / lfr15;
+    height: 100%;
+    margin-left: 25%;
+    width: 25px;
+}
+
+.gr1CVDestinationLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc8 / lfc10;
+    grid-row: lfr6 / lfr7;
+}
+
+.gr1CVDestinationSelect_JanuaryA {
+    background: transparent;
+    border: none;
+    border-radius: none;
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    grid-column: lfc8 / lfc11;
+    grid-row: lfr8 / lfr10;
+    height: 36px;
+    outline-color: #8187a5;
+    padding: 2px;
+}
+
+.gr1GeneralSettings_JanuaryA {
+    backdrop-filter: blur(3px) brightness(50%) grayscale(70%) contrast(130%);
+    grid-column: col8 / rightEdge;
+    grid-row: row8 / rowEnd;
+}
+
+.gr1GeneralSettingsContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [lfc1] 1fr [lfc2] 1fr [lfc3] 1fr [lfc4] 1fr [lfc5] 1fr [lfc6] 1fr [lfc7] 1fr [lfc8] 1fr [lfc9] 1fr [lfc10] 1fr [lfc11] 1fr [lfc12] 1fr [lfc13] 1fr [lfc14] 1fr [lfc15] 1fr [lfc16] 1fr [lfc17] 1fr [lfcEnd];
+    grid-template-rows: [lfr1] 1fr [lfr2] 1fr [lfr3] 1fr [lfr4] 1fr [lfr5] 1fr [lfr6] 1fr [lfr7] 1fr [lfr8] 1fr [lfr9] 1fr [lfr10] 1fr [lfr11] 1fr [lfr12] 1fr [lfr13] 1fr  [lfr14] 1fr  [lfr15] 1fr [lfr16] 1fr [lfr17] 1fr [lfrEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1LFO1KeySyncLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc2 / lfc6;
+    grid-row: lfr2 / lfr3;
+}
+
+.gr1LFOKeySyncSwitchContainer_JanuaryA {
+    background: #2b77c2;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(130%);
+    grid-column: lfc2 / lfc5;
+    grid-row: lfr3 / lfr5;
+}
+
+.gr1LFOKeySyncSwitchContainer_JanuaryA p {
+    color: #000000;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    margin-left: 5%;
+    margin-top: 8px;
+    width: 45%;
+}
+
+.gr1LFO1KeySyncSwitch0_JanuaryA {
+    background: #134695;
+    cursor: pointer;
+    grid-column: lfc2 / lfc5;
+    grid-row: lfr3 / lfr5;
+    left: 50%;
+    position: relative;
+    transition: all 0.4s linear;
+    width: 50%;
+}
+
+.gr1LFO1KeySyncSwitch1_JanuaryA {
+    background: #134695;
+    cursor: pointer;
+    grid-column: lfc2 / lfc5;
+    grid-row: lfr3 / lfr5;
+    left: 0;
+    position: relative;
+    transition: all 0.4s linear;
+    width: 50%;
+}
+
+.gr1LFO2KeySyncLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc2 / lfc6;
+    grid-row: lfr6 / lfr7;
+}
+
+.gr1LFO2KeySyncSwitchContainer_JanuaryA {
+    background: #2b77c2;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(130%);
+    grid-column: lfc2 / lfc5;
+    grid-row: lfr7 / lfr9;
+}
+
+.gr1LFO2KeySyncSwitchContainer_JanuaryA p {
+    color: #000000;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    margin-left: 5%;
+    margin-top: 8px;
+    width: 45%;
+}
+
+.gr1LFO2KeySyncSwitch0_JanuaryA {
+    background: #134695;
+    cursor: pointer;
+    grid-column: lfc2 / lfc5;
+    grid-row: lfr7 / lfr9;
+    left: 50%;
+    position: relative;
+    transition: all 0.4s linear;
+    width: 50%;
+}
+
+.gr1LFO2KeySyncSwitch1_JanuaryA {
+    background: #134695;
+    cursor: pointer;
+    grid-column: lfc2 / lfc5;
+    grid-row: lfr7 / lfr9;
+    left: 0;
+    position: relative;
+    transition: all 0.4s linear;
+    width: 50%;
+}
+
+.gr1ScanKeySyncLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc2 / lfc6;
+    grid-row: lfr10 / lfr11;
+}
+
+.gr1ScanKeySyncSwitchContainer_JanuaryA {
+    background: #2b77c2;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(130%);
+    grid-column: lfc2 / lfc5;
+    grid-row: lfr11 / lfr13;
+}
+
+.gr1ScanKeySyncSwitchContainer_JanuaryA p {
+    color: #000000;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    margin-left: 5%;
+    margin-top: 8px;
+    width: 45%;
+}
+
+.gr1ScanKeySyncSwitch0_JanuaryA {
+    background: #134695;
+    cursor: pointer;
+    grid-column: lfc2 / lfc5;
+    grid-row: lfr11 / lfr13;
+    left: 50%;
+    position: relative;
+    transition: all 0.4s linear;
+    width: 50%;
+}
+
+.gr1ScanKeySyncSwitch1_JanuaryA {
+    background: #134695;
+    cursor: pointer;
+    grid-column: lfc2 / lfc5;
+    grid-row: lfr11 / lfr13;
+    left: 0;
+    position: relative;
+    transition: all 0.4s linear;
+    width: 50%;
+}
+
+.gr1ResampleLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc2 / lfc6;
+    grid-row: lfr14 / lfr15;
+}
+
+.gr1ResampleSwitchContainer_JanuaryA {
+    background: #2b77c2;
+    cursor: pointer;
+    display: flex;
+    filter: brightness(130%);
+    grid-column: lfc2 / lfc5;
+    grid-row: lfr15 / lfr17;
+}
+
+.gr1ResampleSwitchContainer_JanuaryA p {
+    color: #000000;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    margin-left: 5%;
+    margin-top: 8px;
+    width: 45%;
+}
+
+.gr1ResampleSwitch0_JanuaryA {
+    background: #134695;
+    cursor: pointer;
+    grid-column: lfc2 / lfc5;
+    grid-row: lfr15 / lfr17;
+    left: 50%;
+    position: relative;
+    transition: all 0.4s linear;
+    width: 50%;
+}
+
+.gr1ResampleSwitch1_JanuaryA {
+    background: #134695;
+    cursor: pointer;
+    grid-column: lfc2 / lfc5;
+    grid-row: lfr15 / lfr17;
+    left: 0;
+    position: relative;
+    transition: all 0.4s linear;
+    width: 50%;
+}
+
+.gr1PitchbendRangeLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc6 / lfc8;
+    grid-row: lfr2 / lfr3;
+}
+
+.gr1PitchbendRangeNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc6 / lfc7;
+    grid-row: lfr5 / lfr6;
+    outline-color: #8187a5;
+}
+
+.gr1PitchbendSliderContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: lfc7 / lfc8;
+    grid-row: lfr3 / lfr17;
+    height: 100%;
+    margin-left: 25%;
+    width: 25px;
+}
+
+.gr1GlobalsSlidersSlider_JanuaryA {
+    -webkit-appearance: none;
+    border: 2px solid #011248;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 20px;
+    outline: 0;
+    position: relative;
+    overflow: hidden;
+    transform: rotateZ(-90deg) translateX(-122px) translateY(-125px);
+    width: 268px;
+}
+
+.gr1GlobalsSlidersSlider_JanuaryA::-webkit-slider-runnable-track {
+    background: #011248;
+    height: 100%;
+}
+
+.gr1GlobalsSlidersSlider_JanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #47c0d1;
+    box-shadow: -100vw 0 0 100vw #47c0d1;
+    height: 20px;
+    transform-origin: bottom right;
+    transform: skew(45deg);
+    width: 20px;
+}
+
+.gr1ModulationLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc9 / lfc11;
+    grid-row: lfr2 / lfr3;
+}
+
+.gr1ModulationNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc9 / lfc10;
+    grid-row: lfr5 / lfr6;
+    outline-color: #8187a5;
+}
+
+.gr1ModulationWheelSliderContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: lfc10 / lfc11;
+    grid-row: lfr3 / lfr17;
+    height: 100%;
+    margin-left: 25%;
+    width: 25px;
+}
+
+.gr1PatchVolumeLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc12 / lfc14;
+    grid-row: lfr2 / lfr3;
+}
+
+.gr1PatchVolumeNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc12 / lfc13;
+    grid-row: lfr5 / lfr6;
+    outline-color: #8187a5;
+}
+
+.gr1PatchVolumeSliderContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: lfc13 / lfc14;
+    grid-row: lfr3 / lfr17;
+    height: 100%;
+    margin-left: 25%;
+    width: 25px;
+}
+
+.gr1MasterVolumeLabel_JanuaryA {
+    color: #95bbe1;
+    filter: brightness(400%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc15 / lfc17;
+    grid-row: lfr2 / lfr3;
+}
+
+.gr1MasterVolumeNumberInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #95bbe1;
+    filter: brightness(200%) saturate(100%);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: lfc15 / lfc16;
+    grid-row: lfr5 / lfr6;
+    outline-color: #8187a5;
+}
+
+.gr1MasterVolumeSliderContainer_JanuaryA {
+    background: #011248;
+    border-radius: 25px;
+    grid-column: lfc16 / lfc17;
+    grid-row: lfr3 / lfr17;
+    height: 100%;
+    margin-left: 25%;
+    width: 25px;
+}
