@@ -9,6 +9,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import sampleImage from '../img/sampleImage.png';
 import './gr1Editor.style.jana.css';
 import midi5pin from '../img/midi5pin.svg';
 import midiConnection from '../midiManager/midiConnection';
@@ -23,6 +24,7 @@ function Gr1Editor(user, patch) {
     let midiChannel = 0;
     let rootNote = 36;
     let keyEngaged = {};
+    let defaultSpeed = 500;
     
     const keyOnOffset = 20;
     const envelopeGraphTopVal = 220;
@@ -49,6 +51,13 @@ function Gr1Editor(user, patch) {
         name: 'default',
         pitchBendRange: 127
     });
+    const [displayState, setDisplayState] = useState({
+        envelope: false,
+        grain: false,
+        lfo1: false,
+        lfo2: false,
+        parameters: false
+    });
     const [granularEditorPaneState, setGranularEditorPaneState] = useState({
         grainEditor: true,
         envelopeEditor: false,
@@ -59,6 +68,18 @@ function Gr1Editor(user, patch) {
         lfo2: false,
         vc1: false,
         vc2: false
+    });
+    const [envelopeDisplayDimensions, setEnvelopeDisplayDimensions] = useState({
+        height: 0,
+        width: 0
+    });
+    const [grainDisplayDimensions, setGrainDisplayDimensions] = useState({
+        height: 0,
+        width: 0
+    });
+    const [parametersDisplayDimensions, setParametersDisplayDimensions] = useState({
+        height: 0,
+        width: 0
     });
     const [gr1Parameters, setGr1Parameters] = useState([
         {
@@ -1566,6 +1587,112 @@ function Gr1Editor(user, patch) {
             volume: 101
         }
     ]);
+    const [currentGrains, setCurrentGrains] = useState([
+        {
+            key: 1,
+            size: Math.ceil(gr1Parameters[globalParams.currentPatch].params.grainsize/20),
+            x: -5,
+            y: -5
+        },
+        {
+            key: 2,
+            size: Math.ceil(gr1Parameters[globalParams.currentPatch].params.grainsize/20),
+            x: -5,
+            y: -5
+        },
+        {
+            key: 3,
+            size: Math.ceil(gr1Parameters[globalParams.currentPatch].params.grainsize/20),
+            x: -5,
+            y: -5
+        },
+        {
+            key: 4,
+            size: Math.ceil(gr1Parameters[globalParams.currentPatch].params.grainsize/20),
+            x: -5,
+            y: -5
+        }
+    ]);
+    
+    function generateGrains() {
+        let grains = [];
+        let yDelta;
+        const density = Math.floor((gr1Parameters[globalParams.currentPatch].params.density/127) * 1000);
+        
+        for (let i = 0; i < density; i++) {
+            yDelta = Math.floor(Math.random() * Math.floor((gr1Parameters[globalParams.currentPatch].params.panSpray/127) * (parametersDisplayDimensions.height/2)));
+            if (Math.floor(Math.random() * 2) === 1) {
+               yDelta = yDelta * (-1); 
+            }
+            grains.push({
+                key: i,
+                size: Math.ceil(gr1Parameters[globalParams.currentPatch].params.grainsize/20),
+                x: Math.floor(Math.random() * (((gr1Parameters[globalParams.currentPatch].params.spray/127) * (parametersDisplayDimensions.width/4)))) + ((((gr1Parameters[globalParams.currentPatch].position/127) * parametersDisplayDimensions.width) - (((gr1Parameters[globalParams.currentPatch].params.spray/127) * (parametersDisplayDimensions.width/4))/2))),
+                y: Math.floor(parametersDisplayDimensions.height/2) + yDelta
+            });
+        }
+        
+        setCurrentGrains(grains);
+    }
+
+    const setEnvelopeDisplay = () => {
+        setDisplayState({
+            envelope: true,
+            grain: false,
+            lfo1: false,
+            lfo2: false,
+            parameters: false
+        });
+        setTimeout(() => {
+            setEnvelopeDisplayDimensions({
+                height: document.getElementById('gr1EnvelopeDisplayDiv').offsetHeight,
+                width: document.getElementById('gr1EnvelopeDisplayDiv').offsetWidth
+            });
+        }, 100);
+    }
+    
+    const setGrainDisplay = () => {
+        setDisplayState({
+            envelope: false,
+            grain: true,
+            lfo1: false,
+            lfo2: false,
+            parameters: false
+        });
+        setTimeout(() => {
+            setGrainDisplayDimensions({
+                height: document.getElementById('gr1GrainDisplayDiv').offsetHeight,
+                width: document.getElementById('gr1GrainDisplayDiv').offsetWidth
+            })
+        }, 100);
+        
+    }
+    
+    const setParameterDisplay = () => {
+        setDisplayState({
+            envelope: false,
+            grain: false,
+            lfo1: false,
+            lfo2: false,
+            parameters: true
+        });
+        setTimeout(() => {
+            setParametersDisplayDimensions({
+                height: document.getElementById('gr1ParameterDisplayDiv').offsetHeight,
+                width: document.getElementById('gr1ParameterDisplayDiv').offsetWidth
+            });
+        }, 100);
+    }
+    
+    const clearDisplay = () => {
+        setDisplayState({
+            envelope: false,
+            grain: false,
+            lfo1: false,
+            lfo2: false,
+            parameters: false
+        });
+    }
     
     const updatePitchbendRange = (val) => {
         let deepCopy = {...globalParams};
@@ -1689,6 +1816,7 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].position = val;
         
         setGr1Parameters(deepCopy);
+        generateGrains();
     }
     
     const updateLFO1Frequency = (val) => {
@@ -1793,6 +1921,7 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].params.density = val;
         
         setGr1Parameters(deepCopy);
+        generateGrains();
     }
     
     const updateGrainsizeValue = (val) => {
@@ -1801,14 +1930,17 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].params.grainsize = val;
         
         setGr1Parameters(deepCopy);
+        generateGrains();
     }
     
     const updateSprayValue = (val) => {
+        console.log(currentGrains);
         let deepCopy = [...gr1Parameters];
         
         deepCopy[globalParams.currentPatch].params.spray = val;
         
         setGr1Parameters(deepCopy);
+        generateGrains();
     }
     
     const updateTuneValue = (val) => {
@@ -1841,6 +1973,7 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].params.panSpray = val;
         
         setGr1Parameters(deepCopy);
+        generateGrains();
     }
     
     const updatePanScanValue = (val) => {
@@ -2234,6 +2367,90 @@ function Gr1Editor(user, patch) {
         navigator.requestMIDIAccess({ sysex: true })
             .then(onMIDISuccess, onMIDIFailure);
     }
+    
+    function leftSideValue() {
+
+        let leftSide = 0;
+        const tilt = (gr1Parameters[globalParams.currentPatch].tilt/127) * grainDisplayDimensions.width;
+        const sides = (gr1Parameters[globalParams.currentPatch].sides/127) * (grainDisplayDimensions.width/2);
+        if (sides < tilt) {
+            leftSide = tilt - sides;
+        }
+        
+        return leftSide;
+    }
+    
+    function curveValue() {
+        const curve = grainDisplayDimensions.height - ((gr1Parameters[globalParams.currentPatch].curve/127) * (grainDisplayDimensions.height));
+        
+        return curve;
+    }
+    
+    function leftSideCurveValue() {
+        const left = parseFloat(leftSideValue());
+        const curve = parseFloat(curveValue);
+        
+        if (gr1Parameters[globalParams.currentPatch].curve < 32) {
+            return((left*3)/4);
+        } else if (gr1Parameters[globalParams.currentPatch].curve < 96) {
+            return(left/2);
+        } else {
+            return(left/4);
+        }
+    }
+    
+    function rightSideValue() {
+        let rightSide = grainDisplayDimensions.width;
+        const tilt = (gr1Parameters[globalParams.currentPatch].tilt/127) * grainDisplayDimensions.width;
+        const sides = (gr1Parameters[globalParams.currentPatch].sides/127) * (grainDisplayDimensions.width/2);
+        if ((grainDisplayDimensions.width - tilt) > sides) {
+            rightSide = tilt + sides;
+        }
+        
+        return rightSide;
+    }
+    
+    function rightSideCurveValue() {
+        const right = parseFloat(rightSideValue());
+        const curve = parseFloat(curveValue);
+        
+        if (gr1Parameters[globalParams.currentPatch].curve < 32) {
+            return(right + ((grainDisplayDimensions.width - right)/4));
+        } else if (gr1Parameters[globalParams.currentPatch].curve < 96) {
+            return(right + ((grainDisplayDimensions.width - right)/2));
+        } else {
+            return(right + (((grainDisplayDimensions.width - right)*3)/4));
+        }
+    }
+    
+    function tiltValue() {
+        return((gr1Parameters[globalParams.currentPatch].tilt/127) * grainDisplayDimensions.width);
+    }
+    
+    function attackValue() {
+        let max = envelopeDisplayDimensions.width / 4;
+        
+        return((gr1Parameters[globalParams.currentPatch].envelope.attack/127) * max);
+    }
+    
+    function decayValue() {
+        let max = envelopeDisplayDimensions.width / 4;
+        
+        return(((gr1Parameters[globalParams.currentPatch].envelope.decay/127) * max) + attackValue());
+    }
+    
+    function sustainValue() {
+        let max = envelopeDisplayDimensions.height - 20;
+        
+        return((max - (gr1Parameters[globalParams.currentPatch].envelope.sustain/127) * max));
+    }
+    
+    function releaseValue() {
+        let max = envelopeDisplayDimensions.width / 3;
+        
+        return(envelopeDisplayDimensions.width - ((gr1Parameters[globalParams.currentPatch].envelope.release/127) * max));
+    }
+
 
 //    initiateMidiAccess();
     
@@ -2389,7 +2606,91 @@ function Gr1Editor(user, patch) {
                             </div>
                         </div>
                     </div>
-                    <div className={'gr1DisplayPane' + gr1Month}></div>
+                    <div className={'gr1DisplayPane' + gr1Month}>
+                        {(displayState.grain) && (
+                            <div className={'gr1GrainDisplayDiv' + gr1Month}
+                                id="gr1GrainDisplayDiv">
+                                <svg height="100%"
+                                    width="100%">
+                                    <line className={'gr1GrainEditDisplayBaseLine' + gr1Month}
+                                        x1={0}
+                                        y1={grainDisplayDimensions.height}
+                                        x2={grainDisplayDimensions.width}
+                                        y2={grainDisplayDimensions.height}>
+                                    </line> 
+                                    
+                                    <path className={'gr1GrainEditDisplayPath' + gr1Month}
+                                        d={"M 0 " + grainDisplayDimensions.height.toString() + " C 0 " + grainDisplayDimensions.height.toString() + " " + leftSideCurveValue() + " " + curveValue() + " " + leftSideValue() + " 20"}>
+                                    </path>
+                                    
+                                    <line className={'gr1GrainEditDisplayPath' + gr1Month}
+                                        x1={leftSideValue()}
+                                        y1={20}
+                                        x2={rightSideValue()}
+                                        y2={20}>
+                                    </line>
+                                   
+                                    <path className={'gr1GrainEditDisplayPath' + gr1Month}
+                                        d={"M " + rightSideValue().toString() + " 20 C " + rightSideValue().toString()  + " 20 " + rightSideCurveValue().toString() + " " + curveValue().toString() + " " + grainDisplayDimensions.width.toString() + " " + grainDisplayDimensions.height.toString()}>
+                                    </path>
+                                </svg>
+                            </div>
+                        )}
+                        {(displayState.envelope) && (
+                            <div className={'gr1EnvelopeDisplayDiv' + gr1Month}
+                                id="gr1EnvelopeDisplayDiv">
+                                <svg height="100%"
+                                    width="100%">
+                                    <line className={'gr1EnvelopeEditDisplayPath' + gr1Month}
+                                        x1={0}
+                                        y1={envelopeDisplayDimensions.height}
+                                        x2={attackValue()}
+                                        y2={20}>
+                                    </line>
+                                    <path className={'gr1EnvelopeEditDisplayPath' + gr1Month}
+                                        d={"M " + attackValue() + " 20 C " + attackValue() + " 20 " + (decayValue() - ((decayValue() - attackValue())/4)*3) + " " + sustainValue() + " " + decayValue() + " " + sustainValue()}>
+                                    </path>
+                                    <line className={'gr1EnvelopeEditDisplayPath' + gr1Month}
+                                        x1={decayValue()}
+                                        y1={sustainValue()}
+                                        x2={releaseValue()}
+                                        y2={sustainValue()}>
+                                    </line>
+                                    <path className={'gr1EnvelopeEditDisplayPath' + gr1Month}
+                                        d={"M " + releaseValue() + " " + sustainValue() + " C " + releaseValue() + " " + sustainValue() + " " + (envelopeDisplayDimensions.width - ((envelopeDisplayDimensions.width - releaseValue())/2)) + " " + envelopeDisplayDimensions.height + " " + envelopeDisplayDimensions.width + " " + envelopeDisplayDimensions.height}>
+                                    </path>
+                                </svg>
+                            </div>
+                        )}
+                        {(displayState.parameters) && (
+                            <div className={'gr1ParameterDisplayDiv' + gr1Month}
+                                id="gr1ParameterDisplayDiv">
+                                <svg height="100%"
+                                    width="100%">
+                                    <rect className={'gr1SprayRange' + gr1Month}
+                                        height={parametersDisplayDimensions.height + 10}
+                                        width={((gr1Parameters[globalParams.currentPatch].params.spray/127) * (parametersDisplayDimensions.width/4))}
+                                        x={(((gr1Parameters[globalParams.currentPatch].position/127) * parametersDisplayDimensions.width) - (((gr1Parameters[globalParams.currentPatch].params.spray/127) * (parametersDisplayDimensions.width/4))/2))}
+                                        y={-5}>
+                                    </rect>
+                                    <line className={'gr1PositionLine' + gr1Month}
+                                        x1={((gr1Parameters[globalParams.currentPatch].position/127) * parametersDisplayDimensions.width)}
+                                        y1={0}
+                                        x2={((gr1Parameters[globalParams.currentPatch].position/127) * parametersDisplayDimensions.width)}
+                                        y2={parametersDisplayDimensions.height}>
+                                    </line>
+                                    {currentGrains.map(grain => (
+                                        <rect key={grain.key}
+                                            height={2}
+                                            width={grain.size}
+                                            x={grain.x}
+                                            y={grain.y}>
+                                        </rect>
+                                    ))}
+                                </svg>
+                            </div>
+                        )}
+                    </div>
                     <div className={'gr1GranularEditorPane' + gr1Month}>
                         <div className={'gr1GranularEditorPaneContainer' + gr1Month}>
                             <div className={'gr1GranularEditorTabsBar' + gr1Month}>
@@ -2406,7 +2707,8 @@ function Gr1Editor(user, patch) {
                                     <p>parameters</p>
                                 </div>
                             </div>
-                            <div className={'gr1GrainEditorPane' + granularEditorPaneState.grainEditor + gr1Month}>
+                            <div className={'gr1GrainEditorPane' + granularEditorPaneState.grainEditor + gr1Month}
+                                onMouseDown={() => setGrainDisplay()}>
                                 <div className={'gr1GrainEditorContainer' + gr1Month}>
                                     <p className={'gr1GrainSidesLabel' + gr1Month}>sides:</p>
                                     <input className={'gr1GrainSidesNumberInput' + gr1Month}
@@ -2455,7 +2757,8 @@ function Gr1Editor(user, patch) {
                                     </div>
                                 </div>
                             </div>
-                            <div className={'gr1GrainEditorPane' + granularEditorPaneState.envelopeEditor + gr1Month}>
+                            <div className={'gr1GrainEditorPane' + granularEditorPaneState.envelopeEditor + gr1Month}
+                                onMouseDown={() => setEnvelopeDisplay()}>
                                 <div className={'gr1EnvelopeEditorContainer' + gr1Month}>
                                     <p className={'gr1EnvelopeAttackLabel' + gr1Month}>A</p>
                                     <input className={'gr1EnvelopeAttackNumberInput' + gr1Month}
@@ -2519,7 +2822,8 @@ function Gr1Editor(user, patch) {
                                     </div>
                                 </div>
                             </div>
-                            <div className={'gr1GrainEditorPane' + granularEditorPaneState.parametersEditor + gr1Month}>
+                            <div className={'gr1GrainEditorPane' + granularEditorPaneState.parametersEditor + gr1Month}
+                                onMouseDown={() => setParameterDisplay()}>
                                 <div className={'gr1ParametersEditorContainer' + gr1Month}>
                                     <p className={'gr1ParameterDensityLabel' + gr1Month}>density</p>
                                     <input className={'gr1ParametersDensityNumberInput' + gr1Month}
@@ -2645,7 +2949,8 @@ function Gr1Editor(user, patch) {
                             </div>
                         </div>
                     </div>
-                    <div className={'gr1SamplePositionPane' + gr1Month}>
+                    <div className={'gr1SamplePositionPane' + gr1Month}
+                        onMouseDown={() => setParameterDisplay()}>
                         <div className={'gr1SamplePositionContainer' + gr1Month}>
                             <p className={'gr1SamplePositionLabel' + gr1Month}>position</p>
                             <div className={'gr1SamplePositionSliderContainer' + gr1Month}>
