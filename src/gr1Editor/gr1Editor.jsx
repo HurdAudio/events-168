@@ -16,6 +16,8 @@ import midiConnection from '../midiManager/midiConnection';
 
 let connections;
 
+const januaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/spinners/unnamed_GR1_spinner.gif';
+
 function Gr1Editor(user, patch) {
         
     let midiOutput = null;
@@ -35,11 +37,15 @@ function Gr1Editor(user, patch) {
     const scaleScaler = 1.12;
 
     const [gr1ContainerState, setGr1ContainerState] = useState('_Active');
+    const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('_Inactive');
+    const [aboutGR1DivState, setAboutGR1DivState] = useState('_Inactive');
+    const [currentSpinner, setCurrentSpinner] = useState(januaryASpinner);
+    const [saveAsName, setSaveAsName] = useState('');
+    const [currentOutput, setCurrentOutput] = useState([]);
     const [midiConnections, setMidiConnections] = useState(undefined);
-    const [panicState, setPanicState] = useState('volcaDrumPanicOff');
+    const [panicState, setPanicState] = useState('gr1PanicOff');
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
-    const [currentOutput, setCurrentOutput] = useState([]);
     const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
     const [gr1Month, setGr1Month] = useState('_JanuaryA');
     const [midiImage, setMidiImage] = useState(midi5pin);
@@ -1587,6 +1593,185 @@ function Gr1Editor(user, patch) {
             volume: 101
         }
     ]);
+    
+    const openGR1AboutDiv = () => {
+        setAboutGR1DivState('_Active');
+        setGr1ContainerState('_Inactive');
+    }
+    
+    const closeGR1AboutDiv = () => {
+        setAboutGR1DivState('_Inactive');
+        setGr1ContainerState('_Active');
+    }
+    
+    const initPatch = () => {
+        let patchArr = [];
+        
+        setGlobalParams({
+            currentPatch: 0,
+            masterVolume: 101,
+            modulationWheel: 0,
+            name: 'init',
+            pitchBendRange: 127
+        });
+        for (let i = 0; i < 32; i++) {
+            patchArr.push({
+                curve: 63,
+                cv1: {
+                    amount: 0,
+                    destination: 0
+                },
+                cv2: {
+                    amount: 0,
+                    destination: 0
+                },
+                envelope: {
+                    attack: 32,
+                    decay: 16,
+                    release: 87,
+                    sustain: 70
+                },
+                lfo1: {
+                    amount: 0,
+                    destination: 0,
+                    frequency: 0,
+                    sync: 0,
+                    waveform: 0
+                },
+                lfo2: {
+                    amount: 0,
+                    destination: 0,
+                    frequency: 0,
+                    sync: 0,
+                    waveform: 0 
+                },
+                params: {
+                    cutoff: 16,
+                    density: 32,
+                    grainsize: 32,
+                    panSpray: 98,
+                    resonance: 24,
+                    scan: 63,
+                    scanSync: 0,
+                    spray: 16,
+                    tune: 64
+                },
+                position: 55,
+                resample: 0,
+                sides: 16,
+                tilt: 63,
+                volume: 101
+            });
+        }
+        
+        setGr1Parameters(patchArr);
+        setPatchAltered(true);
+        currentOutput.send([0xC0 | currentMidiChannel, globalParams.currentPatch]);
+        bulkPatchSend();
+    }
+    
+    const makeRandomPatch = () => {
+        let patchArr = [];
+        
+        setGlobalParams({
+            currentPatch: 0,
+            masterVolume: Math.floor(Math.random() * 128),
+            modulationWheel: Math.floor(Math.random() * 128),
+            name: 'random',
+            pitchBendRange: Math.floor(Math.random() * 128)
+        });
+        for (let i = 0; i < 32; i++) {
+            patchArr.push({
+                curve: Math.floor(Math.random() * 128),
+                cv1: {
+                    amount: Math.floor(Math.random() * 128),
+                    destination: Math.floor(Math.random() * 6)
+                },
+                cv2: {
+                    amount: Math.floor(Math.random() * 128),
+                    destination: Math.floor(Math.random() * 6)
+                },
+                envelope: {
+                    attack: Math.floor(Math.random() * 128),
+                    decay: Math.floor(Math.random() * 128),
+                    release: Math.floor(Math.random() * 128),
+                    sustain: Math.floor(Math.random() * 128)
+                },
+                lfo1: {
+                    amount: Math.floor(Math.random() * 128),
+                    destination: Math.floor(Math.random() * 6),
+                    frequency: Math.floor(Math.random() * 128),
+                    sync: Math.floor(Math.random() * 2),
+                    waveform: Math.floor(Math.random() * 4)
+                },
+                lfo2: {
+                    amount: Math.floor(Math.random() * 128),
+                    destination: Math.floor(Math.random() * 6),
+                    frequency: Math.floor(Math.random() * 128),
+                    sync: Math.floor(Math.random() * 2),
+                    waveform: Math.floor(Math.random() * 4)
+                },
+                params: {
+                    cutoff: Math.floor(Math.random() * 128),
+                    density: Math.floor(Math.random() * 128),
+                    grainsize: Math.floor(Math.random() * 128),
+                    panSpray: Math.floor(Math.random() * 128),
+                    resonance: Math.floor(Math.random() * 128),
+                    scan: Math.floor(Math.random() * 128),
+                    scanSync: Math.floor(Math.random() * 2),
+                    spray: Math.floor(Math.random() * 128),
+                    tune: Math.floor(Math.random() * 128)
+                },
+                position: Math.floor(Math.random() * 128),
+                resample: Math.floor(Math.random() * 2),
+                sides: Math.floor(Math.random() * 128),
+                tilt: Math.floor(Math.random() * 128),
+                volume: Math.floor(Math.random() * 128)
+            });
+        }
+        
+        setGr1Parameters(patchArr);
+        setPatchAltered(true);
+        currentOutput.send([0xC0 | currentMidiChannel, globalParams.currentPatch]);
+        bulkPatchSend();
+    }
+    
+    const getVisualOutput = (val) => {
+        console.log(val);
+    }
+    
+    const openSaveAsDialog = () => {
+        setGr1ContainerState('_Inactive');
+        setSaveAsDialogStatus('_Active');
+        document.getElementById('saveAsInput').focus(); 
+    }
+    
+    const updateChangeAsName = (val) => {
+       setSaveAsName(val); 
+    }
+    
+    const submitSaveAsDialog = () => {
+        setSaveAsName('');
+        setSaveAsDialogStatus('_Inactive');
+        setGr1ContainerState('_Active');
+    }
+    
+    const cancelSaveAsDialog = () => {
+        setSaveAsName('');
+        setSaveAsDialogStatus('_Inactive');
+        setGr1ContainerState('_Active');   
+    }
+    
+    const updateCurrentOutput = (val) => {
+        let index = 0;
+        for (let i = 0; i < availableOutputs.length; i++) {
+            if (availableOutputs[i].id === val) {
+                index = i;
+            }
+        }
+        setCurrentOutput(availableOutputs[index]);
+    }
+    
     const [currentGrains, setCurrentGrains] = useState([
         {
             key: 1,
@@ -1613,6 +1798,57 @@ function Gr1Editor(user, patch) {
             y: -5
         }
     ]);
+    
+    const updateCurrentMidiChannel = (val) => {
+        setCurrentMidiChannel(val);
+    }
+    
+    const savePatch = () => {
+        setPatchAltered(false);
+    }
+    
+    const revertPatch = () => {
+        setPatchAltered(false);
+    }
+    
+    function bulkPatchSend() {
+        currentOutput.send([0xB0 | currentMidiChannel, 0x01, globalParams.modulationWheel]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x02, gr1Parameters[globalParams.currentPatch].position]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x03, gr1Parameters[globalParams.currentPatch].params.density]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x04, gr1Parameters[globalParams.currentPatch].params.grainSize]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x05, gr1Parameters[globalParams.currentPatch].params.spray]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x07, gr1Parameters[globalParams.currentPatch].params.tune]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x08, gr1Parameters[globalParams.currentPatch].params.cutoff]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x09, gr1Parameters[globalParams.currentPatch].params.resonance]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0A, gr1Parameters[globalParams.currentPatch].params.panSpray]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0B, gr1Parameters[globalParams.currentPatch].params.scan]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0C, gr1Parameters[globalParams.currentPatch].sides]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0D, gr1Parameters[globalParams.currentPatch].tilt]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0E, gr1Parameters[globalParams.currentPatch].curve]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0F, gr1Parameters[globalParams.currentPatch].lfo1.waveform]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x10, gr1Parameters[globalParams.currentPatch].lfo2.waveform]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x11, gr1Parameters[globalParams.currentPatch].lfo1.frequency]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x12, gr1Parameters[globalParams.currentPatch].lfo1.amount]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x13, gr1Parameters[globalParams.currentPatch].lfo2.frequency]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x14, gr1Parameters[globalParams.currentPatch].lfo2.amount]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x15, gr1Parameters[globalParams.currentPatch].cv1.amount]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x16, gr1Parameters[globalParams.currentPatch].cv2.amount]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x17, gr1Parameters[globalParams.currentPatch].envelope.attack]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x18, gr1Parameters[globalParams.currentPatch].envelope.decay]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x19, gr1Parameters[globalParams.currentPatch].envelope.sustain]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x1A, gr1Parameters[globalParams.currentPatch].envelope.release]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x1B, gr1Parameters[globalParams.currentPatch].lfo1.destination]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x1C, gr1Parameters[globalParams.currentPatch].lfo2.destination]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x1D, gr1Parameters[globalParams.currentPatch].cv1.destination]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x1E, gr1Parameters[globalParams.currentPatch].cv2.destination]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x1F, gr1Parameters[globalParams.currentPatch].lfo1.sync]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x20, gr1Parameters[globalParams.currentPatch].lfo2.sync]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x21, gr1Parameters[globalParams.currentPatch].params.scanSync]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x24, gr1Parameters[globalParams.currentPatch].volume]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x25, gr1Parameters[globalParams.currentPatch].resample]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x27, globalParams.masterVolume]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x3C, globalParams.pitchBendRange]);
+    }
     
     function generateGrains() {
         let grains = [];
@@ -1648,6 +1884,7 @@ function Gr1Editor(user, patch) {
                 height: document.getElementById('gr1EnvelopeDisplayDiv').offsetHeight,
                 width: document.getElementById('gr1EnvelopeDisplayDiv').offsetWidth
             });
+            generateGrains();
         }, 100);
     }
     
@@ -1684,6 +1921,26 @@ function Gr1Editor(user, patch) {
         }, 100);
     }
     
+    const setLFO1Display = () => {
+        setDisplayState({
+            envelope: false,
+            grain: false,
+            lfo1: true,
+            lfo2: false,
+            parameters: false
+        });
+    }
+    
+    const setLFO2Display = () => {
+        setDisplayState({
+            envelope: false,
+            grain: false,
+            lfo1: false,
+            lfo2: true,
+            parameters: false
+        });
+    }
+    
     const clearDisplay = () => {
         setDisplayState({
             envelope: false,
@@ -1700,6 +1957,8 @@ function Gr1Editor(user, patch) {
         deepCopy.pitchBendRange = val;
         
         setGlobalParams(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x3C, val]);
+        setPatchAltered(true);
     }
     
     const updateModulation = (val) => {
@@ -1708,6 +1967,8 @@ function Gr1Editor(user, patch) {
         deepCopy.modulationWheel = val;
         
         setGlobalParams(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x01, val]);
+        setPatchAltered(true);
     }
     
     const updatePatchVolume = (val) => {
@@ -1716,6 +1977,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].volume = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x24, val]);
+        setPatchAltered(true);
     }
     
     const updateMasterVolume = (val) => {
@@ -1724,6 +1987,8 @@ function Gr1Editor(user, patch) {
         deepCopy.masterVolume = val;
         
         setGlobalParams(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x27, val]);
+        setPatchAltered(true);
     }
     
     const lfoVcState = (val) => {
@@ -1772,6 +2037,8 @@ function Gr1Editor(user, patch) {
         }
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x25, gr1Parameters[globalParams.currentPatch].resample]);
+        setPatchAltered(true);
     }
     
     const toggleLFO1KeySync = () => {
@@ -1784,6 +2051,8 @@ function Gr1Editor(user, patch) {
         }
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x1F, gr1Parameters[globalParams.currentPatch].lfo1.sync]);
+        setPatchAltered(true);
     }
     
     const toggleLFO2KeySync = () => {
@@ -1796,6 +2065,8 @@ function Gr1Editor(user, patch) {
         }
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x20, gr1Parameters[globalParams.currentPatch].lfo2.sync]);
+        setPatchAltered(true);
     }
     
     const toggleScanKeySync = () => {
@@ -1808,6 +2079,8 @@ function Gr1Editor(user, patch) {
         }
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x21, gr1Parameters[globalParams.currentPatch].params.scanSync]);
+        setPatchAltered(true);
     }
     
     const updateSamplePosition = (val) => {
@@ -1816,7 +2089,9 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].position = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x02, val]);
         generateGrains();
+        setPatchAltered(true);
     }
     
     const updateLFO1Frequency = (val) => {
@@ -1825,6 +2100,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].lfo1.frequency = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x11, val]);
+        setPatchAltered(true);
     }
     
     const updateLFO2Frequency = (val) => {
@@ -1833,6 +2110,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].lfo2.frequency = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x13, val]);
+        setPatchAltered(true);
     }
     
     const updateLFO1Amount = (val) => {
@@ -1841,6 +2120,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].lfo1.amount = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x12, val]);
+        setPatchAltered(true);
     }
     
     const updateLFO2Amount = (val) => {
@@ -1849,38 +2130,48 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].lfo2.amount = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x14, gr1Parameters[globalParams.currentPatch].lfo2.amount]);
+        setPatchAltered(true);
     }
     
     const updateLFO1Waveform = (val) => {
         let deepCopy = [...gr1Parameters];
         
-        deepCopy[globalParams.currentPatch].lfo1.waveform = val;
+        deepCopy[globalParams.currentPatch].lfo1.waveform = parseInt(val);
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0F, val]);
+        setPatchAltered(true);
     }
     
     const updateLFO2Waveform = (val) => {
         let deepCopy = [...gr1Parameters];
         
-        deepCopy[globalParams.currentPatch].lfo2.waveform = val;
+        deepCopy[globalParams.currentPatch].lfo2.waveform = parseInt(val);
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x10, val]);
+        setPatchAltered(true);
     }
     
     const updateLFO1Destination = (val) => {
         let deepCopy = [...gr1Parameters];
         
-        deepCopy[globalParams.currentPatch].lfo1.destination = val;
+        deepCopy[globalParams.currentPatch].lfo1.destination = parseInt(val);
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x1B, val]);
+        setPatchAltered(true);
     }
     
     const updateLFO2Destination = (val) => {
         let deepCopy = [...gr1Parameters];
         
-        deepCopy[globalParams.currentPatch].lfo2.destination = val;
+        deepCopy[globalParams.currentPatch].lfo2.destination = parseInt(val);
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x1C, val]);
+        setPatchAltered(true);
     }
     
     const updateCV1Amount = (val) => {
@@ -1889,6 +2180,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].cv1.amount = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x15, val]);
+        setPatchAltered(true);
     }
     
     const updateCV2Amount = (val) => {
@@ -1897,6 +2190,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].cv2.amount = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x16, val]);
+        setPatchAltered(true);
     }
     
     const updateCV1Destination = (val) => {
@@ -1905,6 +2200,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].cv1.destination = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x1D, val]);
+        setPatchAltered(true);
     }
     
     const updateCV2Destination = (val) => {
@@ -1913,6 +2210,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].cv2.destination = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x1E, val]);
+        setPatchAltered(true);
     }
     
     const updateDensityValue = (val) => {
@@ -1922,6 +2221,7 @@ function Gr1Editor(user, patch) {
         
         setGr1Parameters(deepCopy);
         generateGrains();
+        setPatchAltered(true);
     }
     
     const updateGrainsizeValue = (val) => {
@@ -1930,7 +2230,9 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].params.grainsize = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x03, val]);
         generateGrains();
+        setPatchAltered(true);
     }
     
     const updateSprayValue = (val) => {
@@ -1940,7 +2242,9 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].params.spray = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x05, val]);
         generateGrains();
+        setPatchAltered(true);
     }
     
     const updateTuneValue = (val) => {
@@ -1949,6 +2253,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].params.tune = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x07, val]);
+        setPatchAltered(true);
     }
     
     const updateCutoffValue = (val) => {
@@ -1957,6 +2263,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].params.cutoff = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x08, val]);
+        setPatchAltered(true);
     }
     
     const updateResonanceValue = (val) => {
@@ -1965,6 +2273,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].params.resonance = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x09, val]);
+        setPatchAltered(true);
     }
     
     const updatePanSprayValue = (val) => {
@@ -1973,7 +2283,9 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].params.panSpray = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x05, val]);
         generateGrains();
+        setPatchAltered(true);
     }
     
     const updatePanScanValue = (val) => {
@@ -1982,6 +2294,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].params.scan = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0B, val]);
+        setPatchAltered(true);
     }
     
     const updateAttackValue = (val) => {
@@ -1990,6 +2304,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].envelope.attack = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x17, val]);
+        setPatchAltered(true);
     }
     
     const updateDecayValue = (val) => {
@@ -1998,6 +2314,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].envelope.decay = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x18, val]);
+        setPatchAltered(true);
     }
     
     const updateSustainValue = (val) => {
@@ -2006,6 +2324,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].envelope.sustain = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x19, val]);
+        setPatchAltered(true);
     }
     
     const updateReleaseValue = (val) => {
@@ -2014,6 +2334,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].envelope.release = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x1A, val]);
+        setPatchAltered(true);
     }
     
     const updateSidesValue = (val) => {
@@ -2022,6 +2344,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].sides = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0C, val]);
+        setPatchAltered(true);
     }
     
     const updateTiltValue = (val) => {
@@ -2030,6 +2354,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].tilt = val;
         
         setGr1Parameters(deepCopy); 
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0D, val]);
+        setPatchAltered(true);
     }
     
     const updateCurveValue = (val) => {
@@ -2038,6 +2364,8 @@ function Gr1Editor(user, patch) {
         deepCopy[globalParams.currentPatch].curve = val;
         
         setGr1Parameters(deepCopy);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0E, val]);
+        setPatchAltered(true);
     }
     
     const setGranularEditorTab = (val) => {
@@ -2073,6 +2401,7 @@ function Gr1Editor(user, patch) {
         deepCopy.name = val;
         
         setGlobalParams(deepCopy);
+        setPatchAltered(true);
     }
     
     const changePatch = (val) => {
@@ -2081,6 +2410,11 @@ function Gr1Editor(user, patch) {
         deepCopy.currentPatch = val;
         
         setGlobalParams(deepCopy);
+        currentOutput.send([0xC0 | currentMidiChannel, val]);
+        setTimeout(() => {
+           generateGrains(); 
+        }, 450)
+        
     }
 
     const noteOnEvent = (key) => {
@@ -2315,6 +2649,7 @@ function Gr1Editor(user, patch) {
     
     const panic = () => {
         setPanicState('gr1PanicOn');
+        setGr1ContainerState('_Inactive');
         for (let i = 0; i < availableOutputs.length; i++) {
             for (let channel = 0; channel < 16; channel++) {
                 for (let note = 0; note < 128; note++) {
@@ -2324,6 +2659,7 @@ function Gr1Editor(user, patch) {
         }
         setTimeout(() => {
             setPanicState('gr1PanicOff');
+            setGr1ContainerState('_Active');
         }, availableOutputs.length * 2000);
     }
     
@@ -2450,6 +2786,29 @@ function Gr1Editor(user, patch) {
         
         return(envelopeDisplayDimensions.width - ((gr1Parameters[globalParams.currentPatch].envelope.release/127) * max));
     }
+    
+    function getAnimationString() {
+        const baseTime = 2;
+        let multiplier = 0;
+        let anim = '';
+        let timer = 0;
+//        let anim = 'scanRight 5s infinite';
+        if (gr1Parameters[globalParams.currentPatch].params.scan > 63) {
+            anim += 'scanRight ';
+            multiplier = 1/((gr1Parameters[globalParams.currentPatch].params.scan - 63)/63);
+            timer = baseTime * multiplier;
+            anim += timer.toString() + 's linear infinite';
+        } else if (gr1Parameters[globalParams.currentPatch].params.scan < 63) {
+            anim += 'scanLeft ';
+            multiplier = ((gr1Parameters[globalParams.currentPatch].params.scan)/63);
+            timer = baseTime * multiplier * 10;
+            anim += timer.toString() + 's linear infinite';
+        } else {
+            anim = 'none';
+        }
+        
+        return anim;
+    }
 
 
 //    initiateMidiAccess();
@@ -2472,7 +2831,39 @@ function Gr1Editor(user, patch) {
                         value={globalParams.name}/>
                     <button className={'gr1PanicButton' + gr1Month}
                         onClick={() => panic()}>panic!</button>
-                    <div className={'gr1SidebarManager' + gr1Month}></div>
+                    <div className={'gr1SidebarManager' + gr1Month}>
+                        <div className={'gr1SidebarContainer' + gr1Month}>
+                            <img className={'gr1Image1' + gr1Month}
+                                src={"https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/tastychipselectronics_gr-1_01.jpg"} />
+                            <button className={'gr1SaveButton' + patchAltered + gr1Month}
+                                onClick={() => savePatch()}>save</button>
+                            <button className={'gr1SaveAsButton' + gr1Month}
+                                onClick={() => openSaveAsDialog()}>save as...</button>
+                            <button className={'gr1RevertButton' + patchAltered + gr1Month}
+                                onClick={() => revertPatch()}>revert</button>
+                            <p className={'gr1MidiOutputLabel' + gr1Month}>midi output:</p>
+                            <select className={'gr1MidiOutputSelect' + gr1Month}
+                                onChange={(e) => updateCurrentOutput(e.target.value)}
+                                value={getVisualOutput(currentOutput)}>
+                                {availableOutputs.map(out => (
+                                <option key={out.id} value={out.id}>{out.name}</option>))}
+                            </select>
+                            <p className={'gr1MidiChannelLabel' + gr1Month}>channel:</p>
+                            <input className={'gr1MidiChannelInput' + gr1Month}
+                                max="15"
+                                min="0"
+                                onChange={(e) => updateCurrentMidiChannel(parseInt(e.target.value))}
+                                step="1"
+                                type="number"
+                                value={currentMidiChannel}/>
+                            <button className={'gr1InitButton' + gr1Month}
+                                onClick={() => initPatch()}>init</button>
+                            <button className={'gr1RandomButton' + gr1Month}
+                                onClick={() => makeRandomPatch()}>random</button>
+                            <button className={'aboutGR1Button' + gr1Month}
+                                onClick={() => openGR1AboutDiv()}>about</button>
+                        </div>
+                    </div>
                     <div className={'gr1PatchSelectorDiv' + gr1Month}>
                         <div className={'gr1PatchSelectorContainer' + gr1Month}>
                             <p className={'gr1PatchSelectorLabel' + gr1Month}>patch:</p>
@@ -2666,6 +3057,7 @@ function Gr1Editor(user, patch) {
                             <div className={'gr1ParameterDisplayDiv' + gr1Month}
                                 id="gr1ParameterDisplayDiv">
                                 <svg height="100%"
+                                    style={{position: "relative" }}
                                     width="100%">
                                     <rect className={'gr1SprayRange' + gr1Month}
                                         height={parametersDisplayDimensions.height + 10}
@@ -2688,6 +3080,49 @@ function Gr1Editor(user, patch) {
                                         </rect>
                                     ))}
                                 </svg>
+                                <div className={'gr1Scanline' + gr1Month}
+                                    style={{ animation: getAnimationString(), animationTimingFunction: 'linear' }}></div>
+                                
+                            </div>
+                        )}
+                        {(displayState.lfo1) && (
+                            <div className={'gr1DisplayLFO1' + gr1Month}>
+                                {(gr1Parameters[globalParams.currentPatch].lfo1.waveform === 0) && (
+                                    <img className={'gr1LfoWaveformDisplayImage' + gr1Month}
+                                        src={"https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/sine.png"}/>
+                                )}
+                                {(gr1Parameters[globalParams.currentPatch].lfo1.waveform === 1) && (
+                                    <img className={'gr1LfoWaveformDisplayImage' + gr1Month}
+                                        src={"https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/random.png"}/>
+                                )}
+                                {(gr1Parameters[globalParams.currentPatch].lfo1.waveform === 2) && (
+                                    <img className={'gr1LfoWaveformDisplayImage' + gr1Month}
+                                        src={"https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/saw.png"}/>
+                                )}
+                                {(gr1Parameters[globalParams.currentPatch].lfo1.waveform === 3) && (
+                                    <img className={'gr1LfoWaveformDisplayImage' + gr1Month}
+                                        src={"https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/square.png"}/>
+                                )}
+                            </div>
+                        )}
+                        {(displayState.lfo2) && (
+                            <div className={'gr1DisplayLFO1' + gr1Month}>
+                                {(gr1Parameters[globalParams.currentPatch].lfo2.waveform === 0) && (
+                                    <img className={'gr1LfoWaveformDisplayImage' + gr1Month}
+                                        src={"https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/sine.png"}/>
+                                )}
+                                {(gr1Parameters[globalParams.currentPatch].lfo2.waveform === 1) && (
+                                    <img className={'gr1LfoWaveformDisplayImage' + gr1Month}
+                                        src={"https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/random.png"}/>
+                                )}
+                                {(gr1Parameters[globalParams.currentPatch].lfo2.waveform === 2) && (
+                                    <img className={'gr1LfoWaveformDisplayImage' + gr1Month}
+                                        src={"https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/saw.png"}/>
+                                )}
+                                {(gr1Parameters[globalParams.currentPatch].lfo2.waveform === 3) && (
+                                    <img className={'gr1LfoWaveformDisplayImage' + gr1Month}
+                                        src={"https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/square.png"}/>
+                                )}
                             </div>
                         )}
                     </div>
@@ -2983,7 +3418,8 @@ function Gr1Editor(user, patch) {
                                     <p>cv 2</p>
                                 </div>
                             </div>
-                            <div className={'gr1LfoVcEditSpace' + lfoVCEditorPaneState.lfo1 + gr1Month}>
+                            <div className={'gr1LfoVcEditSpace' + lfoVCEditorPaneState.lfo1 + gr1Month}
+                                onMouseDown={() => setLFO1Display()}>
                                 <div className={'gr1LfoVcEditSpaceContainer' + gr1Month}>
                                     <p className={'gr1LFOFrequencyLabel' + gr1Month}>frequency</p>
                                     <input className={'gr1LfoFrequencyNumberInput' + gr1Month}
@@ -3037,7 +3473,8 @@ function Gr1Editor(user, patch) {
                                     </select>
                                 </div>
                             </div>
-                            <div className={'gr1LfoVcEditSpace' + lfoVCEditorPaneState.lfo2 + gr1Month}>
+                            <div className={'gr1LfoVcEditSpace' + lfoVCEditorPaneState.lfo2 + gr1Month}
+                                onMouseDown={() => setLFO2Display()}>
                                 <div className={'gr1LfoVcEditSpaceContainer' + gr1Month}>
                                     <p className={'gr1LFOFrequencyLabel' + gr1Month}>frequency</p>
                                     <input className={'gr1LfoFrequencyNumberInput' + gr1Month}
@@ -3091,7 +3528,8 @@ function Gr1Editor(user, patch) {
                                     </select>
                                 </div>
                             </div>
-                            <div className={'gr1LfoVcEditSpace' + lfoVCEditorPaneState.vc1 + gr1Month}>
+                            <div className={'gr1LfoVcEditSpace' + lfoVCEditorPaneState.vc1 + gr1Month}
+                                onMouseDown={() => clearDisplay()}>
                                 <div className={'gr1LfoVcEditSpaceContainer' + gr1Month}>
                                     <p className={'gr1CVAmountLabel' + gr1Month}>amount</p>
                                     <input className={'gr1CVAmountNumberInput' + gr1Month}
@@ -3121,7 +3559,8 @@ function Gr1Editor(user, patch) {
                                     </select>
                                 </div>
                             </div>
-                            <div className={'gr1LfoVcEditSpace' + lfoVCEditorPaneState.vc2 + gr1Month}>
+                            <div className={'gr1LfoVcEditSpace' + lfoVCEditorPaneState.vc2 + gr1Month}
+                                onMouseDown={() => clearDisplay()}>
                                 <div className={'gr1LfoVcEditSpaceContainer' + gr1Month}>
                                     <p className={'gr1CVAmountLabel' + gr1Month}>amount</p>
                                     <input className={'gr1CVAmountNumberInput' + gr1Month}
@@ -3250,6 +3689,61 @@ function Gr1Editor(user, patch) {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={'gr1SaveAsDialogDiv' + saveAsDialogStatus + gr1Month}>
+                <p>save as</p>
+                <input className={'gr1SaveAsInput' + gr1Month}
+                    id="saveAsInput"
+                    onChange={(e) => updateChangeAsName(e.target.value)}
+                    placeholder={'copy of ' + globalParams.name}
+                    value={saveAsName} />
+                <div className={'gr1SaveAsButtonsDiv' + gr1Month}>
+                    <button className={'gr1SaveAsButtons' + gr1Month}
+                        onClick={() => submitSaveAsDialog(saveAsName)}>submit</button>
+                    <button className={'gr1SaveAsButtons' + gr1Month}
+                        onClick={() => cancelSaveAsDialog()}>cancel</button>
+                </div>
+            </div>
+            <div className={'aboutTheTastyChipsGR1Div' + aboutGR1DivState + gr1Month}>
+                <div className={'aboutTheGR1Content' + gr1Month}>
+                    <img className={'gr1AboutImg' + gr1Month}
+                        src={"https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/tastychipselectronics_gr-1_01.jpg"} />
+                    <h2>Tasty Chips GR-1</h2>
+                    <p>The Tasty Chips GR-1 offers perhaps the first truly intuitive, approachable interface for granular synthesis in hardware format. With dedicated controls for all common granular synthesis parameters and a crisp display with clever and clear visual feedback, the GR-1 makes in-depth granular synthesis easy.</p>
+                    <p>Offering 16 voices of polyphony with a maximum of 128 grains per voice, the GR-1 is equally at home in context as a source of sonorous ambience, glitched-out gestural textures, cinematic sound design, and far more. Latching "play" buttons for four independent voices as well as MIDI input offer multiple modes of interaction, while built-in LFOs and control voltage inputs allow extensive automation of internal parameters. Dedicated controls for grain position, density, size, pitch, scan rate, window shape, position randomization, and panning randomization make deep granular manipulation easily accessible. A 7" display makes the implications of all controls visible, making the otherwise obtuse methods of granular synthesis far more obvious than any previous hardware.</p>
+                    <p>It seems strange to say that granular synthesis can be intuitive—but Tasty Chips Electronics has made it possible. The GR-1 might be the best hardware granular synthesizer to date.</p>
+                    <h3>GR-1 Features</h3>
+                    <p>16 voice granular synthesizer with max. 128 grains per voice<br />
+                        Awesome giant slider for grain position selection<br />
+                        Dedicated scan function for timestretching &amp; time compression effects<br />
+                        Dedicated controls for all typical granular parameters, including grain playback pitch (speed), window size, density, position<br />
+                        Per-grain position randomization (spray) and panning randomization (pan spray)<br />
+                        All primary parameters can be modulated via internal variable-shape LFOs or external control voltages<br />
+                        Grain envelope shape with tilt, curve, and "sides" control<br />
+                        ADSR envelope per voice <br />
+                        Standalone and MIDI-capable<br />
+                        4 banks of 8 presets (patches) are part of each Performance<br />
+                        4GB internal memory for presets and performances<br />
+                        4 USB ports for sample transfer, audio interfaces, and more<br />
+                        Configuration menus offer extended control beyond front-panel access</p>
+                    <h3>Granular Synthesis</h3>
+                    <p>Granular synthesis is a basic sound synthesis method that operates on the microsound time scale.</p>
+                    <p>It is based on the same principle as sampling. However, the samples are not played back conventionally, but are instead split into small pieces of around 1 to 50 ms. These small pieces are called grains. Multiple grains may be layered on top of each other, and may play at different speeds, phases, volume, and frequency, among other parameters.</p>
+                    <p>At low speeds of playback, the result is a kind of soundscape, often described as a cloud, that is manipulatable in a manner unlike that for natural sound sampling or other synthesis techniques. At high speeds, the result is heard as a note or notes of a novel timbre. By varying the waveform, envelope, duration, spatial position, and density of the grains, many different sounds can be produced.</p>
+                    <p>Both have been used for musical purposes: as sound effects, raw material for further processing by other synthesis or digital signal processing effects, or as complete musical works in their own right. Conventional effects that can be achieved include amplitude modulation and time stretching. More experimentally, stereo or multichannel scattering, random reordering, disintegration and morphing are possible.</p>
+                    <h3>History</h3>
+                    <p>Greek composer Iannis Xenakis is known as the inventor of the granular synthesis technique.</p>
+                    <p style={{margin: "10px 35px"}}>The composer Iannis Xenakis (1960) was the first to explicate a compositional theory for grains of sound. He began by adopting the following lemma: "All sound, even continuous musical variation, is conceived as an assemblage of a large number of elementary sounds adequately disposed in time. In the attack, body, and decline of a complex sound, thousands of pure sounds appear in a more or less short interval of time Delta t." Xenakis created granular sounds using analog tone generators and tape splicing. These appear in the composition Analogique A-B for string orchestra and tape (1959).</p>
+                    <p>Canadian composer Barry Truax was one of the first to implement real-time versions of this synthesis technique. "Granular synthesis has been implemented in different ways, notably by the Canadian composer Barry Truax."</p>
+                    
+                </div>
+                <div className={'gr1SaveAsButtonsDiv' + gr1Month}>
+                    <button className={'gr1SaveAsButtons' + gr1Month}
+                        onClick={() => closeGR1AboutDiv()}>close</button>
+                </div>
+            </div>
+            <div className={panicState + gr1Month}>
+                <img src={currentSpinner} />
             </div>
         </div>
         );

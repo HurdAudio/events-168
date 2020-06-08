@@ -2182,3 +2182,450 @@
     stroke: #000000;
     stroke-width: 1;
 }
+
+.gr1Scanline_JanuaryA {
+    animation-timing-function: linear;
+    background: #2b77c2;
+    filter: brightness(90%) drop-shadow(-5px -1px 4px #000000) hue-rotate(180deg);
+    height: 100%;
+    opacity: 0.8;
+    position: relative;
+    top: -101%;
+    left: 0;
+    width: 2px;
+    z-index: 200;
+}
+
+@keyframes scanRight {
+    from { left: 0; }
+    to { left: 100%; }
+}
+
+@keyframes scanLeft {
+    from { left: 100%; }
+    to { left: 0; }
+}
+
+.gr1DisplayLFO1_JanuaryA {
+    background: #95bbe1;
+    height: 100%;
+    opacity: 0.9;
+    width: 100%;
+}
+
+.gr1LfoWaveformDisplayImage_JanuaryA {
+    margin-left: 25%;
+    width: 50%;
+}
+
+.gr1SidebarContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [sideCol1] 1fr [sideCol2] 1fr [sideCol3] 1fr [sideCol4] 1fr [sideCol5] 1fr [sideColEnd];
+    grid-template-rows: [sideRow1] 1fr [sideRow2] 1fr [sideRow3] 1fr [sideRow4] 1fr [sideRow5] 1fr [sideRow6] 1fr [sideRow7] 1fr [sideRow8] 1fr [sideRow9] 1fr [sideRow10] 1fr [sideRow11] 1fr [sideRow12] 1fr [sideRow13] 1fr [sideRow14] 1fr [sideRow15] 1fr [sideRow16] 1fr [sideRow17] 1fr [sideRow18] 1fr [sideRow19] 1fr [sideRow20] 1fr [sideRow21] 1fr [sideRow22] 1fr [sideRow23] 1fr [sideRow24] 1fr [sideRowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1Image1_JanuaryA {
+    filter: drop-shadow(8px 8px 5px #00071c);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow1 / sideRow3;
+    margin: 10px 0 0 25px;
+    max-width: 60%;
+    opacity: 0.5;
+}
+
+.gr1SaveButtonfalse_JanuaryA {
+    display: none;
+}
+
+.gr1SaveButtontrue_JanuaryA {
+    backdrop-filter: hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #04122a;
+    color: #04122a;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #00071c);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow3 / sideRow4;
+    outline-color: #8187a5;
+    transition: all 0.4s linear;
+}
+
+.gr1SaveButtontrue_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #000000;
+    color: #000000;
+    filter: brightness(115%) drop-shadow(4px 4px 5px #00071c);
+    transition: all 0.4s linear;
+}
+
+.gr1SaveButtontrue_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #00071c);
+    transition: all 0.1s linear;
+}
+
+.gr1SaveAsButton_JanuaryA {
+    backdrop-filter: hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #04122a;
+    color: #04122a;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(4px 4px 5px #00071c);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow5 / sideRow6;
+    outline-color: #8187a5;
+    transition: all 0.4s linear; 
+}
+
+.gr1SaveAsButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #000000;
+    color: #000000;
+    filter: brightness(115%) drop-shadow(8px 8px 5px #00071c);
+    transition: all 0.4s linear;
+}
+
+.gr1SaveAsButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #00071c);
+    transition: all 0.1s linear;
+}
+
+.gr1SaveAsDialogDiv_Active_JanuaryA {
+    background: #8187a5;
+    color: #000000;
+    filter: drop-shadow(8px 8px 5px #00071c);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    height: auto;
+    left: 30%;
+    margin: 0 0 0 0;
+    padding: 2%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.gr1SaveAsDialogDiv_Inactive_JanuaryA {
+    background: #8187a5;
+    color: #000000;
+    filter: drop-shadow(8px 8px 5px #00071c);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    height: auto;
+    left: 30%;
+    padding: 2%;
+    position: absolute;
+    top: -100%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.gr1SaveAsInput_JanuaryA {
+    background: #95bbe1;
+    border: none;
+    color: #000000;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    margin: 5% 10% 3% 10%;
+    outline-color: #8187a5;
+    padding: 2px 5px;
+    width: 80%;
+}
+
+.gr1SaveAsButtonsDiv_JanuaryA {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 7vh;
+    justify-content: center;
+    margin: 0 10% 1% 10%;
+    width: 82%;
+}
+
+.gr1SaveAsButtons_JanuaryA {
+    backdrop-filter: hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #04122a;
+    color: #04122a;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #00071c);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    height: 35px;
+    margin: 0 45px;
+    outline-color: #8187a5;
+    padding: 0 15px;
+    transition: all 0.4s linear;
+}
+
+.gr1SaveAsButtons_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #000000;
+    color: #000000;
+    filter: brightness(115%) drop-shadow(4px 4px 5px #00071c);
+    transition: all 0.4s linear;
+}
+
+.gr1SaveAsButtons_JanuaryA:active{
+    filter: brightness(85%) drop-shadow(0 0 0 #00071c);
+    transition: all 0.1s linear;
+}
+
+.gr1RevertButtonfalse_JanuaryA {
+    display: none;
+}
+
+.gr1RevertButtontrue_JanuaryA {
+    backdrop-filter: hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #04122a;
+    color: #04122a;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(4px 4px 5px #00071c);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow7 / sideRow8;
+    outline-color: #8187a5;
+    transition: all 0.4s linear;
+}
+
+.gr1RevertButtontrue_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #000000;
+    color: #000000;
+    filter: brightness(115%) drop-shadow(4px 4px 5px #00071c);
+    transition: all 0.4s linear;
+}
+
+.gr1RevertButtontrue_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #00071c);
+    transition: all 0.1s linear;
+}
+
+.gr1MidiOutputLabel_JanuaryA {
+    color: #000000;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #00071c);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow10 / sideRow11;
+    font-family: 'Audiowide', cursive;
+    font-size: 15px;
+}
+
+.gr1MidiOutputSelect_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #000000;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #00071c);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow11 / sideRow12;
+    font-family: 'Audiowide', cursive;
+    font-size: 15px;
+    outline-color: #8187a5;
+}
+
+.gr1MidiChannelLabel_JanuaryA {
+    color: #000000;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #00071c);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow13 / sideRow14;
+    font-family: 'Audiowide', cursive;
+    font-size: 15px;
+}
+
+.gr1MidiChannelInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #000000;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #00071c);
+    grid-column: sideCol3 / sideCol4;
+    grid-row: sideRow14 / sideRow15;
+    font-family: 'Audiowide', cursive;
+    font-size: 24px;
+    outline-color: #8187a5;
+}
+
+.gr1InitButton_JanuaryA {
+    backdrop-filter: hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #04122a;
+    color: #04122a;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(4px 4px 5px #00071c);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow19 / sideRow20;
+    outline-color: #8187a5;
+    transition: all 0.4s linear;
+
+}
+
+.gr1InitButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #000000;
+    color: #000000;
+    filter: brightness(115%) drop-shadow(4px 4px 5px #00071c);
+    transition: all 0.4s linear;
+}
+
+.gr1InitButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #00071c);
+    transition: all 0.1s linear;
+}
+
+.gr1RandomButton_JanuaryA {
+    backdrop-filter: hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #04122a;
+    color: #04122a;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(4px 4px 5px #00071c);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow21 / sideRow22;
+    outline-color: #8187a5;
+    transition: all 0.4s linear;
+}
+
+.gr1RandomButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #000000;
+    color: #000000;
+    filter: brightness(115%) drop-shadow(4px 4px 5px #00071c);
+    transition: all 0.4s linear;
+}
+
+.gr1RandomButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #00071c);
+    transition: all 0.1s linear;
+}
+
+.aboutGR1Button_JanuaryA {
+    backdrop-filter: hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #04122a;
+    color: #04122a;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(4px 4px 5px #00071c);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    outline-color: #8187a5;
+    transition: all 0.4s linear;
+}
+
+.aboutGR1Button_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #000000;
+    color: #000000;
+    filter: brightness(115%) drop-shadow(4px 4px 5px #00071c);
+    transition: all 0.4s linear;
+}
+
+.aboutGR1Button_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #00071c);
+    transition: all 0.1s linear;
+}
+
+.aboutTheTastyChipsGR1Div_Active_JanuaryA {
+    background: #134695;
+    color: #0f283d;
+    filter: drop-shadow(8px 8px 5px #00071c);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 5%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheTastyChipsGR1Div_Inactive_JanuaryA {
+    background: #134695;
+    color: #0f283d;
+    filter: drop-shadow(8px 8px 5px #00071c);
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 115%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheGR1Content_JanuaryA {
+    background: #8697b4;
+    height: 79vh;
+    margin-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 97%;
+}
+
+.gr1AboutImg_JanuaryA {
+    filter: drop-shadow(8px 8px 5px #00071c);
+    float: left;
+    margin: 12px;
+    max-width: 40%;
+}
+
+.aboutTheGR1Content_JanuaryA h2 {
+    color: #000000;
+    font-family: 'Alata', serif;
+    font-size: 36px;
+    margin: 5px 0 30px 30px;
+}
+
+.aboutTheGR1Content_JanuaryA p {
+    color: #000000;
+    font-family: 'Alata', serif;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 5px 25px 30px 25px;
+    max-width: 950px;
+}
+
+.aboutTheGR1Content_JanuaryA h3 {
+    color: #000000;
+    font-family: 'Alata', serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 10px 25px 10px 45px;
+    max-width: 950px;
+}
+
+.gr1PanicOff_JanuaryA {
+    display: none;
+}
+
+.gr1PanicOn_JanuaryA {
+    height: 80%;
+    left: 20%;
+    opacity: 0.9;
+    position: absolute;
+    width: 80%;
+    z-index: 200;
+}
+
+.gr1PanicOn_JanuaryA img {
+    opacity: 1;
+    width: 70%;
+}
