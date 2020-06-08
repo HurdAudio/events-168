@@ -24,6 +24,7 @@ import febaMidi_0 from '../img/febaMidi_0.png';
 import VolcaFm from '../volcaFm/volcaFm';
 import VolcaNubass from '../volcaNubass/volcaNubass';
 import VolcaDrum from '../volcaDrum/volcaDrum';
+import Gr1Editor from '../gr1Editor/gr1Editor';
 import MidiManager from '../midiManager/midiManager';
 import CheckStatus from '../login/checkLoginStatus';
 import SetStatus from '../login/setLoginStatus';
@@ -249,6 +250,9 @@ function UserHub() {
                     </Route>
                     <Route path="/midi-manager">
                         {MidiManager(user, null)}
+                    </Route>
+                    <Route path="/gr1-editor">
+                        {Gr1Editor(user, null)}
                     </Route>
                 </Switch>
                 <div className={'userHubContainer' + userhubMonth}>
