@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import midi5pin from '../img/midi5pin.svg';
 import './midiManager.style.jana.css';
+import './midiManager.style.janb.css';
 import midiConnection from '../midiManager/midiConnection';
 import UUID from 'uuidjs';
 
@@ -92,12 +93,13 @@ const availableDevices = [
 ];
 
 const januaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/dynamic-scifi-hud-element.gif';
+const januaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/2316bf07d0598a9892debf49f09b4f03.gif';
 
 function MidiManager(user, config) {
     
     const [midiConnections, setMidiConnections] = useState(connections);
     const [midiManagerContainerState, setMidiManagerContainerState] = useState('_Active');
-    const [midiManagerMonth, setMidiManagerMonth] = useState('_JanuaryA');
+    const [midiManagerMonth, setMidiManagerMonth] = useState('_JanuaryB');
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [configAltered, setConfigAltered] = useState(false);
     const [userPresets, setUserPresets] = useState([
@@ -655,7 +657,7 @@ function MidiManager(user, config) {
     const [newPatchModalState, setNewPatchModalState] = useState('_Inactive');
     const [deleteGuardrailState, setDeleteGuardrailState] = useState('_Inactive');
     const [saveAsModalState, setSaveAsModalState] = useState('_Inactive');
-    const [currentSpinner, setCurrentSpinner] = useState(januaryASpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(januaryBSpinner);
     const [panicState, setPanicState] = useState('midiManagerPanicOff');
     
     const changePreset = (uuid) => {
