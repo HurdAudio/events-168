@@ -14,8 +14,9 @@ import './volcaNubass.style.janb.css';
 import './volcaNubass.style.janc.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaNubassImg1 from '../img/volcaNubassImg1.png';
+import axios from 'axios';
 
-function VolcaNubass() {
+function VolcaNubass(user, patch) {
     
     const keyOnOffset = 20;
     const envelopeGraphTopVal = 220;
@@ -36,7 +37,11 @@ function VolcaNubass() {
     let keyEngaged = {};
 
     const [panicState, setPanicState] = useState('volcaNubassPanicOff');
+    const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
     const [nubassContainerState, setNubassContainerState] = useState('Active');
+    const [volcaNubassLoadModalState, setVolcaNubassLoadModalState] = useState('_Inactive');
+    const [userPatches, setUserPatches] = useState([]);
+    const [loadPatchUuid, setLoadPatchUuid] = useState(null);
     const [currentSpinner, setCurrentSpinner] = useState(januaryCSpinner);
     const [volcaNubassEditMonth, setVolcaNubassEditMonth] = useState('_JanuaryC');
     const [availableInputs, setAvailableInputs] = useState([]);
@@ -80,16 +85,122 @@ function VolcaNubass() {
     const [saveAsName, setSaveAsName] = useState('');
     const [aboutVolcaNubassDivState, setAboutVolcaNubassDivState] = useState('Inactive');
     
+    const updateNubassState = () => {
+        currentOutput.send([0xB0 | currentMidiChannel, 0x28, nubassParameters.pitch]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x29, nubassParameters.saturation]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x2A, nubassParameters.level]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x2B, nubassParameters.cutoff]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x2C, nubassParameters.peak]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x2D, nubassParameters.attack]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x2E, nubassParameters.decay]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x2F, nubassParameters.egInt]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x30, nubassParameters.accent]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x31, nubassParameters.lfoRate]);
+        currentOutput.send([0xB0 | currentMidiChannel, 0x32, nubassParameters.lfoInt]);
+//        vtoWave
+//        lfoWave
+//        amplitude
+//        pitch
+//        cutoff
+//        lfoSync
+//        sustain
+        currentOutput.send([0xB0 | currentMidiChannel, 0x0A, nubassGlobalParams.pan]);
+        if (nubassGlobalParams.portamento) {
+            currentOutput.send([0xB0 | currentMidiChannel, 0x41, 127]);
+        } else {
+            currentOutput.send([0xB0 | currentMidiChannel, 0x41, 0]);
+        }
+        currentOutput.send([0xB0 | currentMidiChannel, 0x05, nubassGlobalParams.portamentoTime]);
+    }
+    
+    const loadModalOn = () => {
+        setVolcaNubassLoadModalState('_Active');
+        setNubassContainerState('Inactive');
+        axios.get(`/volca_nubass_patches/byuser/${user.uuid}`)
+        .then(patchesData => {
+            const patches = patchesData.data.sort((a, b) => {
+                if (a.global_params.name.toLowerCase() > b.global_params.name.toLowerCase()) {
+                    return 1;
+                } else if (a.global_params.name.toLowerCase() < b.global_params.name.toLowerCase()) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+            setUserPatches(patches);
+            let loadUuid = null;
+            if (patchesData.data.length > 0) {
+                loadUuid = patchesData.data[0].uuid;
+            }
+            setLoadPatchUuid(loadUuid);
+        });
+    }
+    
+    const resetLoadPatchUuid = (val) => {
+        setLoadPatchUuid(val);
+    }
+    
+    const cancelPatchLoad = () => {
+        setVolcaNubassLoadModalState('_Inactive');
+        setNubassContainerState('Active');
+    }
+    
+    const loadSelectedPatch = () => {
+        axios.get(`/volca_nubass_patches/patch/${loadPatchUuid}`)
+        .then(patchData => {
+            const patch = patchData.data;
+            setNubassParameters({
+                pitch: patch.nubass_parameters.pitch,
+                saturation: patch.nubass_parameters.saturation,
+                level: patch.nubass_parameters.level,
+                cutoff: patch.nubass_parameters.cutoff,
+                peak: patch.nubass_parameters.peak,
+                attack: patch.nubass_parameters.attack,
+                decay: patch.nubass_parameters.decay,
+                egInt: patch.nubass_parameters.egInt,
+                accent: patch.nubass_parameters.accent,
+                lfoRate: patch.nubass_parameters.lfoRate,
+                lfoInt: patch.nubass_parameters.lfoInt
+            });
+            setNubassFaceplateParams({
+                vtoWave: patch.nubass_faceplate_params.vtoWave,
+                lfoWave: patch.nubass_faceplate_params.lfoWave,
+                amplitude: patch.nubass_faceplate_params.amplitude,
+                pitch: patch.nubass_faceplate_params.pitch,
+                cutoff: patch.nubass_faceplate_params.cutoff,
+                lfoSync: patch.nubass_faceplate_params.lfoSync,
+                sustain: patch.nubass_faceplate_params.sustain
+            });
+            setNubassGlobalParams({
+                name: patch.global_params.name,
+                pan: patch.global_params.pan,
+                portamento: patch.global_params.portamento,
+                portamentoTime: patch.global_params.portamentoTime
+            });
+            updateNubassState();
+            setCurrentPatchUuid(loadPatchUuid);
+            setPatchAltered(false);
+            cancelPatchLoad();
+        });
+    }
+    
     const submitSaveAsDialog = (val) => {
-        let deepCopy = {...nubassGlobalParams};
         
         if (val === '') {
             return;
         } else {
-            deepCopy.name = val;
-            setNubassGlobalParams(deepCopy);
-            setSaveAsDialogStatus('Inactive'); 
-            setNubassContainerState('Active');
+            const patch = {
+            user_uuid: user.uuid,
+            nubass_parameters: nubassParameters,
+            nubass_faceplate_params: nubassFaceplateParams,
+            global_params: nubassGlobalParams
+            }
+            patch.global_params.name = val;
+            axios.post(`/volca_nubass_patches/patch`, patch)
+            .then(() => {
+                setSaveAsDialogStatus('Inactive'); 
+                setNubassContainerState('Active');
+            });
         }
     }
     
@@ -128,6 +239,7 @@ function VolcaNubass() {
             lfoInt: 8 
         });
         setPatchAltered(true);
+        updateNubassState();
     }
     
     const makeRandomPatch = () => {
@@ -145,6 +257,7 @@ function VolcaNubass() {
             lfoInt: Math.floor(Math.random() * 128) 
         });
         setPatchAltered(true);
+        updateNubassState();
     }
     
     const updateCurrentMidiChannel = (val) => {
@@ -166,7 +279,43 @@ function VolcaNubass() {
     }
     
     const revertPatch = () => {
-        setPatchAltered(false);
+        if (currentPatchUuid !== null) {
+            axios.get(`/volca_nubass_patches/patch/${currentPatchUuid}`)
+            .then(patchData => {
+                const patch = patchData.data;
+                setNubassParameters({
+                    pitch: patch.nubass_parameters.pitch,
+                    saturation: patch.nubass_parameters.saturation,
+                    level: patch.nubass_parameters.level,
+                    cutoff: patch.nubass_parameters.cutoff,
+                    peak: patch.nubass_parameters.peak,
+                    attack: patch.nubass_parameters.attack,
+                    decay: patch.nubass_parameters.decay,
+                    egInt: patch.nubass_parameters.egInt,
+                    accent: patch.nubass_parameters.accent,
+                    lfoRate: patch.nubass_parameters.lfoRate,
+                    lfoInt: patch.nubass_parameters.lfoInt
+                });
+                setNubassFaceplateParams({
+                    vtoWave: patch.nubass_faceplate_params.vtoWave,
+                    lfoWave: patch.nubass_faceplate_params.lfoWave,
+                    amplitude: patch.nubass_faceplate_params.amplitude,
+                    pitch: patch.nubass_faceplate_params.pitch,
+                    cutoff: patch.nubass_faceplate_params.cutoff,
+                    lfoSync: patch.nubass_faceplate_params.lfoSync,
+                    sustain: patch.nubass_faceplate_params.sustain
+                });
+                setNubassGlobalParams({
+                    name: patch.global_params.name,
+                    pan: patch.global_params.pan,
+                    portamento: patch.global_params.portamento,
+                    portamentoTime: patch.global_params.portamentoTime
+                });
+                updateNubassState();
+                setCurrentPatchUuid(loadPatchUuid);
+                setPatchAltered(false);
+            });
+        }
     }
     
     const executeSaveAsDialog = () => {
@@ -176,7 +325,25 @@ function VolcaNubass() {
     }
     
     const savePatch = () => {
-        setPatchAltered(false);
+        const patch = {
+            user_uuid: user.uuid,
+            nubass_parameters: nubassParameters,
+            nubass_faceplate_params: nubassFaceplateParams,
+            global_params: nubassGlobalParams
+        }
+        
+        if (currentPatchUuid === null) {
+            axios.post(`/volca_nubass_patches/patch`, patch)
+            .then(responseData => {
+                setCurrentPatchUuid(responseData.data.uuid);
+                setPatchAltered(false);
+            });
+        } else {
+            axios.patch(`/volca_nubass_patches/patch/${currentPatchUuid}`, patch)
+            .then(() => {
+                setPatchAltered(false);
+            });
+        }
     }
     
     const patchNameUpdate = (val) => {
@@ -683,6 +850,8 @@ function VolcaNubass() {
                             src={midiImage}></img></NavLink>
                     </div>
                     <h3 className={'volcaNubassEditorTitle' + volcaNubassEditMonth}>Volca Nubass Editor</h3>
+                    <button className={'volcaNubassLoadButton' + volcaNubassEditMonth}
+                        onClick={() => loadModalOn()}>load</button>
                     <input className={'patchNameInput' + volcaNubassEditMonth}
                         onChange={(e) => patchNameUpdate(e.target.value)}
                         type="text"
@@ -998,6 +1167,21 @@ function VolcaNubass() {
             </div>
             <div className={panicState + volcaNubassEditMonth}>
                 <img src={currentSpinner} />
+            </div>
+            <div className={'volcaNubassLoadModal' + volcaNubassLoadModalState + volcaNubassEditMonth}>
+                <div className={'volcaNubassLoadContainer' + volcaNubassEditMonth}>
+                    <p className={'volcaNubassLoadTitle' + volcaNubassEditMonth}>Load Volca Nubass Patch</p>
+                    <select className={'volcaNubassLoadSelector' + volcaNubassEditMonth}
+                        onChange={(e) => {resetLoadPatchUuid(e.target.value)}}
+                        value={loadPatchUuid}>
+                        {userPatches.map(patch => (
+                                <option key={patch.uuid} value={patch.uuid}>{patch.global_params.name}</option>))}
+                    </select>
+                    <button className={'volcaNubassLoadLoadButton' + volcaNubassEditMonth}
+                        onClick={() => loadSelectedPatch()}>load</button>
+                    <button className={'volcaNubassLoadCancelButton' + volcaNubassEditMonth}
+                        onClick={() => cancelPatchLoad()}>cancel</button>
+                </div>
             </div>
         </div>
         );

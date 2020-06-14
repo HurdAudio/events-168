@@ -243,7 +243,7 @@ function UserHub() {
                         {VolcaFm(user, null)}
                     </Route>
                     <Route path="/volca-nubass-editor">
-                        <VolcaNubass />
+                        {VolcaNubass(user, null)}
                     </Route>
                     <Route path="/volca-drum-editor">
                         <VolcaDrum />
