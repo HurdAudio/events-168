@@ -155,7 +155,7 @@ function Landing() {
                     <volcaFm />
                 </Route>
                 <Route path="/volca-nubass-editor">
-                    <volcaNubass />
+                    {volcaNubass(null, null)}
                 </Route>
                 <Route path="/volca-drum-editor">
                     {volcaDrum()}
