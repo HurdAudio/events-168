@@ -12,6 +12,7 @@ import {
 import './volcaFm.style.jana.css';
 import './volcaFm.style.janb.css';
 import './volcaFm.style.janc.css';
+import './volcaFm.style.feba.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaFmImg1 from '../img/volcaFmImg1.png';
 import axios from 'axios';
@@ -28,6 +29,7 @@ function VolcaFm(user, patch) {
     const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/january/spinner/smile_loader_by_gleb.gif';
     const janbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/january/spinner/material-preloader.gif';
     const jancSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/giphy-janb.gif';
+    const febaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/february/spinner/Snake_04.gif';
 
     let midiOutput = null;
     let inputs = null;
@@ -41,7 +43,7 @@ function VolcaFm(user, patch) {
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
     const [userPatches, setUserPatches] = useState([]);
     const [volcaFmLoadModalState, setVolcaFmLoadModalState] = useState('_Inactive');
-    const [currentSpinner, setCurrentSpinner] = useState(janaSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(febaSpinner);
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState(0);
@@ -53,7 +55,7 @@ function VolcaFm(user, patch) {
     const [volcaFmContainerState, setVolcaFmContainerState] = useState('Active');
     const [saveAsName, setSaveAsName] = useState('');
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('Inactive');
-    const [volcaFmMonth, setVolcaFmMonth] = useState('_JanuaryC');
+    const [volcaFmMonth, setVolcaFmMonth] = useState('_FebruaryA');
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [patchAltered, setPatchAltered] = useState(false);
     const [currentAlgorithm, setCurrentAlgorithm] = useState('_algorithm1');
