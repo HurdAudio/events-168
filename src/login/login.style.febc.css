@@ -1,0 +1,112 @@
+.loginContainer_FebruaryC {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.loginImageDiv_FebruaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/february/jeans-4742552_1920.jpg);
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.loginOuterBox_FebruaryC {
+    backdrop-filter: blur(4px) hue-rotate(-45deg);
+    background: #768db6;
+    height: 60vh;
+    left: 25%;
+    opacity: 0.6;
+    position: absolute;
+    top: 20%;
+    width: 50%;
+}
+
+.loginBoxContainer_FebruaryC {
+    backdrop-filter: hue-rotate(-45deg) saturate(120%);
+    background: transparent;
+    border: 2px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/february/jeans-4742552_1920.jpg) 70 stretch;
+    height: 52.5vh;
+    justify-content: center;
+    left: 27.5%;
+    perspective: 200px;
+    position: absolute;
+    top: 23.5%;
+    transition: all 0.4s linear;
+    width: 45%;
+}
+
+.loginBoxContainer_FebruaryC:hover {
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/february/jeans-4742552_1920.jpg) 1 stretch;
+    transition: all 0.4s linear;
+}
+
+.loginBoxContainer_FebruaryC input {
+    background: #cbd9e7;
+    border: none;
+    color: #02050c;
+    font-family: 'Fondamento', cursive;
+    font-size: 24px;
+    margin: 24px 48px;
+    outline-color: #89949f;
+    padding: 5px 5px 5px 15px;
+    width: 80%;
+}
+
+.loginBoxContainer_FebruaryC input::placeholder {
+    color: #485d78;
+}
+
+.loginBoxContainer_FebruaryC button {
+    background: #2f3848;
+    border: none;
+    color: #cbd9e7;
+    cursor: pointer;
+    font-family: 'Fondamento', cursive;
+    font-size: 24px;
+    left: 41%;
+    margin-top: 18px;
+    outline-color: #89949f;
+    padding: 5px 15px;
+    position: relative;
+    transition: all 0.2s linear;
+}
+.loginBoxContainer_FebruaryC button:hover {
+    background: #02050c;
+    box-shadow: -8px -8px 10px #a4aebc, 8px -8px 10px #a4aebc, -8px 8px 10px #a4aebc, 8px 8px 10px #a4aebc;
+    color: #a4aebc;
+    transition: all 0.2s linear;
+}
+
+.loginTitle_FebruaryC {
+    color: #02050c;
+    font-family: 'Fondamento', cursive;
+    font-size: 36px;
+    margin: 24px 48px 12px 48px;
+}
+
+.loginErrorMessaging_FebruaryC {
+    color: #ff0000;
+    font-family: 'Fondamento', cursive;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 24px 48px;
+    padding: 6px;
+    width: 78%;
+}
+
+.loginSubmitHide_FebruaryC {
+    visibility: hidden;
+}
+
+.loginSubmitShow_FebruaryC {
+    visibility: visible;
+}
