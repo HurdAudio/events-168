@@ -10,6 +10,7 @@ import './userhub.style.jana.css';
 import './userhub.style.janb.css';
 import './userhub.style.janc.css';
 import './userhub.style.feba.css';
+import './userhub.style.febb.css';
 import midi5pin from '../img/midi5pin.svg';
 import dna from '../img/dna.svg';
 
@@ -26,7 +27,7 @@ const sequenceProjects = [
 
 function Sequencer() {
     
-    const [sequenceMonth, setSequenceMonth] = useState('_FebruaryA');
+    const [sequenceMonth, setSequenceMonth] = useState('_FebruaryB');
     
         return(
             <div className={'homeContainer' + sequenceMonth}>
