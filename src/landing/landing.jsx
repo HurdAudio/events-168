@@ -24,13 +24,16 @@ import volcaNubass from '../volcaNubass/volcaNubass';
 import volcaDrum from '../volcaDrum/volcaDrum';
 import MidiManager from '../midiManager/midiManager';
 import Gr1Editor from '../gr1Editor/gr1Editor';
+import SkinsTable from '../skins/skins';
 
 
 function Landing() {
     
-    const [landingMonth, setLandingMonth] = useState('_FebruaryC');
+    const skins = SkinsTable('landing');
+    
+    const [landingMonth, setLandingMonth] = useState(skins.landing.skin);
     const [midiImageClass, setMidiImageClass] = useState('midiImage');
-    const [midiImage, setMidiImage] = useState(bleu_midi_icon);
+    const [midiImage, setMidiImage] = useState(skins.landing.logo);
     
     const now = new Date();
     
