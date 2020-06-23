@@ -18,6 +18,7 @@ import book from '../img/book.svg';
 const midiDevices = [
     {
         uuid: '18903503-5368-4a42-b52b-bceca81c5262',
+        patchManager: '/volca-fm-patch-manager',
         name: 'korg volca fm',
         path: '/volca-fm-editor',
         component: '<volcaFm />'
@@ -84,21 +85,24 @@ function Library() {
     const [libraryMonth, setLibraryMonth] = useState('_FebruaryB');
     const [patchEditorState, setPatchEditorState] = useState({
         path: midiDevices[0].path,
+        patchManager: midiDevices[0].patchManager,
         component: midiDevices[0].component
     });
     const [patchEditorActive, setPatchEditorActive] = useState(false);
     
     const updateEditorPath = (val) => {
-        let path, component;
+        let path, component, patchManager;
         
         for (let i = 0; i < midiDevices.length; i++) {
             if (midiDevices[i].uuid === val) {
                 path = midiDevices[i].path;
+                patchManager = midiDevices[i].patchManager;
                 component = midiDevices[i].component;
             }
         }
         setPatchEditorState({
             path: path,
+            patchManager: patchManager,
             component: component
         });
     }
@@ -137,7 +141,9 @@ function Library() {
                                 <option key={item.uuid} value={item.uuid}>{item.name}</option>
                             )}
                         </select>
-                        <button className={'homeButtons' + libraryMonth}>load manager</button>
+                        <Link to={patchEditorState.patchManager}>
+                            <button className={'homeButtons' + libraryMonth}>load manager</button>
+                        </Link>
                     </div>
                     <div className={'homeBulletList' + libraryMonth}>
                         <img className={'homeMidiBullet' + libraryMonth} 

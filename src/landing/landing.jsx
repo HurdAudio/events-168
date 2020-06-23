@@ -24,6 +24,7 @@ import volcaNubass from '../volcaNubass/volcaNubass';
 import volcaDrum from '../volcaDrum/volcaDrum';
 import MidiManager from '../midiManager/midiManager';
 import Gr1Editor from '../gr1Editor/gr1Editor';
+import VolcaFmPatchManager from '../volcaFmPatchManager/volcaFmPatchManager';
 import SkinsTable from '../skins/skins';
 
 
@@ -168,6 +169,9 @@ function Landing() {
                 </Route>
                 <Route path="/gr1-editor">
                     {Gr1Editor(null, null)}
+                </Route>
+                <Route path="/volca-fm-patch-manager">
+                    {VolcaFmPatchManager(null, null)}
                 </Route>
             </Switch>
         </Router>

@@ -1,0 +1,173 @@
+.volcaFmPatchManagerContainer_Active_JanuaryA {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaFmPatchManagerContainer_Inactive_JanuaryA {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaFmPatchManagerImageDiv_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/january/solitude_in_blue_by_machiavellicro_d5nzygg-pre.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [row9] 12.5%[rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.volcaFmPatchManagerTopBar_JanuaryA {
+    backdrop-filter: blur(5px) brightness(100%) hue-rotate(135deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.volcaFmPmNavImage_JanuaryA {
+    cursor: pointer;
+    filter: contrast(110%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.volcaFmPmNavImage_JanuaryA:hover {
+    filter: contrast(130%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.volcaFmPatchManagerTitle_JanuaryA {
+    color: #387bc2;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 36px;
+    grid-column: col2 / col6;
+    grid-row: row1 / row2;
+    margin: 5px;
+    z-index: 55;
+}
+
+.volcaFmPatchManagerSidebarManager_JanuaryA {
+    backdrop-filter: blur(3px) brightness(110%) hue-rotate(180deg);
+    box-sizing: border-box;
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 1;
+}
+
+.volcaFmPatchManagerPanicButton_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #387bc2;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 24px;
+    grid-column: col10 / rightEdge;
+    grid-row: row1 / row2;
+    z-index: 56;
+}
+
+.volcaFmPatchManagerLoadButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #387bc2;
+    color: #387bc2;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #070f1a) saturate(200%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+    margin: 6px 65px 0 35px;
+    outline-color: #8993a1;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.volcaFmPatchManagerLoadButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #132742;
+    color: #132742;
+    filter: brightness(115%) drop-shadow(8px 8px 5px #070f1a) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaFmPatchManagerLoadButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #070f1a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaFmPatchManagerNameInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #387bc2;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #b6d0f1;
+    position: absolute;
+    top: 1%;
+}
+
+.volcaFmPatchManagerUserPatchesListDiv_JanuaryA {
+    backdrop-filter: blur(6px) grayscale(50%) saturate(50%);
+    grid-column: col3 / col6;
+    grid-row: row2 / row7;
+}
+
+.volcaFmPatchManagerPatchActionsDiv_JanuaryA {
+    backdrop-filter: blur(5px) hue-rotate(-135deg);
+    grid-column: col6 / col7;
+    grid-row: row2 / row7;
+}
+
+.volcaFmPatchManagerBanksDiv_JanuaryA {
+    backdrop-filter: brightness(50%) contrast(160%) sepia(65%);
+    grid-column: col7 / rightEdge;
+    grid-row: row2 / row7;
+}
+
+.volcaFmPatchManagerDeviceDiv_JanuaryA {
+    backdrop-filter: saturate(150%);
+    grid-column: col3 / col7;
+    grid-row: row7 / rowEnd;
+}
+
+.volcaFmPatchManagerUserNotesDiv_JanuaryA {
+    backdrop-filter: blur(3px) hue-rotate(-15deg);
+    grid-column: col7 / rightEdge;
+    grid-row: row7 / rowEnd;
+}
