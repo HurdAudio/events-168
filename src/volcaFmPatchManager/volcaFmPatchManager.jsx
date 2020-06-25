@@ -39,10 +39,12 @@ function VolcaFmPatchManager(user, banks) {
     const [volcaFmPatchManagerContainerState, setVolcaFmPatchManagerContainerState] = useState('_Active');
     const [volcaFmPatchManagerMonth, setVolcaFmPatchManagerMonth] = useState('_JanuaryA');
     const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
+    const [dragData, setDragData] = useState(null);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
     const [userPatches, setUserPatches] = useState([]);
     const [currentSpinner, setCurrentSpinner] = useState(janaSpinner);
     const [selectedPatchPatch, setSelectedPatchPatch] = useState('');
+    const [selectedBankPatch, setSelectedBankPatch] = useState('');
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState(0);
@@ -70,8 +72,63 @@ function VolcaFmPatchManager(user, banks) {
     });
     const [currentEditBank, setCurrentEditBank] = useState(patchCollection.banks[0].uuid);
     
+    const removeBankPatch = (patch) => {
+        let deepCopy = {...patchCollection};
+        let index = null;
+        let index2 = null;
+        
+        for (let i = 0; i < deepCopy.banks.length; i++) {
+            if (deepCopy.banks[i].uuid === currentEditBank) {
+                index = i;
+            }
+        }
+        if (index === null) {
+            alert('ERROR: Current bank is invalid');
+            return;
+        }
+        for (let j = 0; j < deepCopy.banks[index].patches.length; j++) {
+            if (deepCopy.banks[index].patches[j].uuid === patch.uuid) {
+                index2 = j;
+            }
+        }
+        if (index2 === null) {
+            alert('ERROR: Invalid patch');
+            return;
+        }
+        deepCopy.banks[index].patches.splice(index2, 1);
+        setPatchCollection(deepCopy);
+    }
+    
+    const dragDataSet = (data) => {
+        setDragData(data);
+    }
+    
+    const addPatchToBank = (bank) => {
+        let deepCopy = {...patchCollection};
+        let index = null;
+        
+        for (let i = 0; i < deepCopy.banks.length; i++) {
+            if (deepCopy.banks[i].uuid === bank.uuid) {
+                index = i;
+            }
+        }
+        if (index === null) {
+            alert('ERROR: Patch set not found');
+            return;
+        }
+        deepCopy.banks[index].patches.push(dragData);
+        setDragData(null);
+        setPatchCollection(deepCopy);
+    }
+    
+    const updateSelectedBankPatch = (val) => {
+        setSelectedPatchPatch('');
+        setSelectedBankPatch(val);
+    }
+    
     const makePatchPatchCurrent = (val) => {
         setSelectedPatchPatch(val);
+        setSelectedBankPatch('');
     }
     
     const changeBankEdit = (val) => {
@@ -464,14 +521,16 @@ function VolcaFmPatchManager(user, banks) {
                     <div className={'volcaFmPatchManagerUserPatchesListDiv' + volcaFmPatchManagerMonth}>
                         <div className={'volcaFmPatchManagerUserPatchesListContainer' + volcaFmPatchManagerMonth}>
                             <div className={'volcaFmPatchManagerUserPatchesList' + volcaFmPatchManagerMonth}></div>
-                            <div className={'volcaFmPatchManagerUserPatchListRealDiv' + volcaFmPatchManagerMonth}>
+                            {(userPatches.length > 0) && (<div className={'volcaFmPatchManagerUserPatchListRealDiv' + volcaFmPatchManagerMonth}>
                                 {userPatches.map(patch => 
                                     <p className={'volcaFmPatchManagerPatchNameDisplay' + (selectedPatchPatch === patch.uuid) + volcaFmPatchManagerMonth}
                                         draggable={true}
                                         onClick={() => makePatchPatchCurrent(patch.uuid)}
+                                        onDragOver={(e) => e.preventDefault()}
+                                        onDragStart={() => dragDataSet(patch)}
                                         key={patch.uuid}>{patch.patch_name}</p>
                                 )}
-                            </div>
+                            </div>)}
                             <button className={'volcaFmPatchManagerUpdateButton' + volcaFmPatchManagerMonth}
                                 onClick={() => updateUserPatches()}>update</button>
                         </div>
@@ -499,7 +558,27 @@ function VolcaFmPatchManager(user, banks) {
                                 {patchCollection.banks.map(item => 
                                     <div className={'volcaFMPatchManagerBankDisplayer' + (item.uuid === currentEditBank) + volcaFmPatchManagerMonth}
                                         onClick={() => {if (item.uuid !== currentEditBank) changeBankEdit(item.uuid)}}
-                                        key={item.uuid}></div>
+                                        onDragOver={(e) => e.preventDefault()}
+                                        onDrop={() => { if (item.uuid === currentEditBank) addPatchToBank(item)}}
+                                        key={item.uuid}>
+                                        {(item.uuid === currentEditBank) && (<div className={'volcaFmPatchManagerBankDisplayReal' + volcaFmPatchManagerMonth}>
+                                            {(item.patches.length > 0) && (
+                                                <div>
+                                                    {item.patches.map(patch => 
+                                                        <div className={'volcaFmPatchManagerBankItemDiv' + volcaFmPatchManagerMonth}
+                                                            key={patch.uuid}>
+                                                            <p className={'volcaFmPatchManagerBankPatchName' + (patch.uuid === selectedBankPatch) + volcaFmPatchManagerMonth}
+                                                                onClick={() => updateSelectedBankPatch(patch.uuid)}>{patch.patch_name}</p>
+                                                            <p className={'volcaFmPatchManakerDeleteChar' + volcaFmPatchManagerMonth}>&#8593;</p>
+                                                            <p className={'volcaFmPatchManakerDeleteChar' + volcaFmPatchManagerMonth}>&#8595;</p>
+                                                            <p className={'volcaFmPatchManakerDeleteChar' + volcaFmPatchManagerMonth}
+                                                                onClick={() => removeBankPatch(patch)}>&#127303;</p>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>)}
+                                    </div>
                                 )}
                             </div>
                             <input className={'volcaFmPatchManagerBankNameInput' + volcaFmPatchManagerMonth}

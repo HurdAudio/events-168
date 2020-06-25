@@ -248,6 +248,64 @@
     grid-row: row2 / row7;
 }
 
+.volcaFmPatchManagerBankDisplayReal_JanuaryA {
+    height: 40.5vh;
+    margin-left: 5%;
+    margin-top: 4vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 95%;
+}
+
+.volcaFmPatchManagerBankItemDiv_JanuaryA {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+.volcaFmPatchManagerBankPatchNamefalse_JanuaryA {
+    background: #132742;
+    color: #387bc2;
+    cursor: pointer;
+    filter: brightness(200%) contrast(150%) saturate(100%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 24px;
+    opacity: 0.9;
+    padding: 4px 3px;
+    width: 75%;
+}
+
+.volcaFmPatchManagerBankPatchNamefalse_JanuaryA:hover {
+    filter: brightness(200%) contrast(250%) saturate(300%);
+}
+
+.volcaFmPatchManagerBankPatchNametrue_JanuaryA {
+    background: #132742;
+    color: #387bc2;
+    cursor: none;
+    filter: brightness(220%) contrast(150%) hue-rotate(-90deg) saturate(100%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 24px;
+    opacity: 0.9;
+    padding: 4px 3px;
+    width: 75%;
+}
+
+.volcaFmPatchManakerDeleteChar_JanuaryA {
+   color: #387bc2;
+    cursor: pointer;
+    filter: brightness(220%) contrast(150%) saturate(100%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 24px;
+    opacity: 0.9;
+    padding: 4px 3px;
+    width: 25px; 
+}
+
+.volcaFmPatchManakerDeleteChar_JanuaryA:hover {
+    filter: invert(100%);
+}
+
 .volcaFmPatchManagerBanksContainer_JanuaryA {
     display: grid;
     grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [rightEdge];
@@ -339,6 +397,7 @@
     border: 2px solid #132742;
     border-radius: 0 0 15px 0;
     box-sizing: border-box;
+    cursor: pointer;
     height: 100%;
     opacity: 0.5;
     transition: all 0.8s linear;
