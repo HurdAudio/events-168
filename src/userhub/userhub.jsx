@@ -27,6 +27,7 @@ import VolcaFm from '../volcaFm/volcaFm';
 import VolcaNubass from '../volcaNubass/volcaNubass';
 import VolcaDrum from '../volcaDrum/volcaDrum';
 import Gr1Editor from '../gr1Editor/gr1Editor';
+import VolcaFmPatchManager from '../volcaFmPatchManager/volcaFmPatchManager';
 import MidiManager from '../midiManager/midiManager';
 import CheckStatus from '../login/checkLoginStatus';
 import SetStatus from '../login/setLoginStatus';
@@ -255,6 +256,9 @@ function UserHub() {
                     </Route>
                     <Route path="/gr1-editor">
                         {Gr1Editor(user, null)}
+                    </Route>
+                    <Route path="/volca-fm-patch-manager">
+                        {VolcaFmPatchManager(user, null)}
                     </Route>
                 </Switch>
                 <div className={'userHubContainer' + userhubMonth}>

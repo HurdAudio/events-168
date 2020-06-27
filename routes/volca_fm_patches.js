@@ -97,4 +97,44 @@ router.post('/patch', (req, res, next) => {
       });
 });
 
+router.delete('/:uuid', (req, res, next) => {
+    let record;
+    
+      knex('volca_fm_patches')
+        .where('uuid', req.params.uuid)
+        .first()
+        .then((row) => {
+          if (!row) {
+            return next();
+          }
+          record = row;
+          return knex('volca_fm_patches')
+            .del()
+            .where('uuid', req.params.uuid);
+        })
+        .then(() => {
+          var holder = record.uuid;
+          delete record.uuid;
+          var obj = {
+            id: holder,
+            volca_fm_patches: record.volca_fm_patches,
+            patch_name: record.patch_name,
+            algorithm: record.algorithm,
+            settings: record.settings,
+            lfo: req.body.lfo,
+            pitch_envelope: record.pitch_envelope,
+            global: record.global,
+            performance: record.performance,
+            operatorParams: record.operatorParams,
+            created_at: record.created_at,
+            updated_at: record.updated_at
+          };
+
+          res.send({deleted: req.params.uuid});
+        })
+        .catch((err) => {
+          next(err);
+        });
+    });
+
 module.exports = router;
