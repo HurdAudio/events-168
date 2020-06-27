@@ -10,6 +10,7 @@ import {
     Link
 } from "react-router-dom";
 import VolcaFm from '../volcaFm/volcaFm';
+import VolcaFmPatchTransmitter from './volcaFmPatchTransmitter';
 import midi5pin from '../img/midi5pin.svg';
 import './volcaFmPatchManager.style.jana.css';
 import axios from 'axios';
@@ -24,7 +25,7 @@ function VolcaFmPatchManager(user, banks) {
     const envelopeEndGraph = 410;
     const breakpointOffset = 4;
     const scaleScaler = 1.12;
-    const janaSpinner = '';
+    const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/january/spinners/e07f6af981d70eb773e6b7d7f1899936.gif';
     const janbSpinner = '';
     const jancSpinner = '';
     const febaSpinner = '';
@@ -36,8 +37,14 @@ function VolcaFmPatchManager(user, banks) {
     let rootNote = 60;
     let keyEngaged = {};
 
-    const [panicState, setPanicState] = useState('panicOff');
+    const [panicState, setPanicState] = useState('volcaFmPatchManagerPanicOff');
+    const [patchDeleteGuardrailState, setPatchDeleteGuardrailState] = useState('_Inactive');
+    const [saveAsModalState, setSaveAsModalState] = useState('_Inactive');
     const [volcaFmPatchManagerContainerState, setVolcaFmPatchManagerContainerState] = useState('_Active');
+    const [shareModalState, setShareModalState] = useState('_Inactive');
+    const [deleteCollectionModalState, setDeleteCollectionModalState] = useState('_Inactive');
+    const [aboutModalState, setAboutModalState] = useState('_Inactive');
+    const [collectionLoadModalState, setCollectionLoadModalState] = useState('_Inactive');
     const [volcaFmPatchManagerMonth, setVolcaFmPatchManagerMonth] = useState('_JanuaryA');
     const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
     const [dragData, setDragData] = useState(null);
@@ -75,9 +82,144 @@ function VolcaFmPatchManager(user, banks) {
         name: 'collection 1'
     });
     const [currentEditBank, setCurrentEditBank] = useState(patchCollection.banks[0].uuid);
-    const [collectionAltered, setCollectionAltered] = useState(true);
+    const [collectionAltered, setCollectionAltered] = useState(false);
+    
+    const openLoadCollectionModal = () => {
+        setCollectionLoadModalState('_Active');
+        setVolcaFmPatchManagerContainerState('_Inactive');
+    }
+    
+    const closeCollectionLoadModal = () => {
+        setCollectionLoadModalState('_Inactive');
+        setVolcaFmPatchManagerContainerState('_Active');
+    }
+    
+    const loadCollection = () => {
+        setCollectionLoadModalState('_Inactive');
+        setVolcaFmPatchManagerContainerState('_Active');
+    }
+    
+    const openAboutModal = () => {
+        setAboutModalState('_Active');
+        setVolcaFmPatchManagerContainerState('_Inactive');
+    }
+    
+    const closeAboutModal = () => {
+        setAboutModalState('_Inactive');
+        setVolcaFmPatchManagerContainerState('_Active');
+    }
+    
+    const openDeleteCollectionModal = () => {
+        setDeleteCollectionModalState('_Active');
+        setVolcaFmPatchManagerContainerState('_Inactive');
+    }
+    
+    const closeDeleteCollectionModal = () => {
+        setDeleteCollectionModalState('_Inactive');
+        setVolcaFmPatchManagerContainerState('_Active');
+    }
+    
+    const initializeNewCollection = () => {
+        const uuid = uuid4();
+        setPatchCollection({
+        banks: [
+            {
+                uuid: uuid,
+                name: 'bank',
+                notes: '',
+                patches: []
+            }
+        ],
+        name: 'init'
+    });
+        setSelectedPatchPatch('');
+        setSelectedBankPatch('');
+        setCollectionAltered(true);
+        setCurrentEditBank(uuid);
+    }
+    
+    const openShareModal = () => {
+        setShareModalState('_Active');
+        setVolcaFmPatchManagerContainerState('_Inactive');
+    }
+    
+    const closeShareModal = () => {
+        setShareModalState('_Inactive');
+        setVolcaFmPatchManagerContainerState('_Active');
+    }
+    
+    const submitShareModal = () => {
+        setShareModalState('_Inactive');
+        setVolcaFmPatchManagerContainerState('_Active');
+    }
+    
+    const closeSaveAsModal = () => {
+        setSaveAsModalState('_Inactive');
+        setVolcaFmPatchManagerContainerState('_Active');
+        document.getElementById('volcaFmPatchManagerSaveAsInput').value = '';
+    }
+    
+    const openSaveAsModal = () => {
+        setSaveAsModalState('_Active');
+        setVolcaFmPatchManagerContainerState('_Inactive');
+//        setTimeout(() => {
+//            document.getElementById('volcaFmPatchManagerSaveAsInput').focus();
+//        }, 150);
+        
+    }
+    
+    const deleteActivePatch = () => {
+        let deepCopy = {...patchCollection};
+        let deepUserCopy = [...userPatches];
+        let index = null;
+        
+        axios.delete(`/volca_fm_patches/${selectedPatchPatch}`)
+        .then(removedPatchData => {
+            for (let i = 0; i < deepCopy.banks.length; i++) {
+                index = null;
+                for (let j = 0; j < deepCopy.banks[i].patches.length; j++) {
+                    if (deepCopy.banks[i].patches[j].uuid === selectedPatchPatch) {
+                        index = j;
+                    }
+                }
+                if (index !== null) {
+                    deepCopy.banks[i].patches.splice(index, 1);
+                }
+            }
+            index = null;
+            for (let k = 0; k < deepUserCopy.length; k++) {
+                if (deepUserCopy[k].uuid === selectedPatchPatch) {
+                    index = k;
+                }
+            }
+            if (index !== null) {
+                deepUserCopy.splice(index, 1);
+            }
+            setSelectedPatchPatch('');
+            setPatchCollection(deepCopy);
+            setUserPatches(deepUserCopy);
+            setVolcaFmPatchManagerContainerState('_Active');
+            setPatchDeleteGuardrailState('_Inactive');
+        });
+    }
+    
+    const cancelPatchDeleteGuardrail = () => {
+        setVolcaFmPatchManagerContainerState('_Active');
+        setPatchDeleteGuardrailState('_Inactive');
+    }
+    
+    const deletePatchGuardrail = () => {
+        setVolcaFmPatchManagerContainerState('_Inactive');
+        setPatchDeleteGuardrailState('_Active');
+    }
+    
+    const revertCollection = () => {
+        setCollectionAltered(false);
+        return null;
+    }
     
     const saveCollection = () => {
+        setCollectionAltered(false);
         return null;
     }
     
@@ -97,6 +239,7 @@ function VolcaFmPatchManager(user, banks) {
         deepCopy.banks[index].notes = val;
         
         setPatchCollection(deepCopy);
+        setCollectionAltered(true);
     }
     
     const moveBankPatchUp = (patch) => {
@@ -126,6 +269,7 @@ function VolcaFmPatchManager(user, banks) {
             [deepCopy.banks[index].patches[index2 - 1], deepCopy.banks[index].patches[index2]] = [deepCopy.banks[index].patches[index2], deepCopy.banks[index].patches[index2 - 1]];
         }
         setPatchCollection(deepCopy);
+        setCollectionAltered(true);
     }
     
     const moveBankPatchDown = (patch) => {
@@ -155,6 +299,7 @@ function VolcaFmPatchManager(user, banks) {
             [deepCopy.banks[index].patches[index2], deepCopy.banks[index].patches[index2 + 1]] = [deepCopy.banks[index].patches[index2 + 1], deepCopy.banks[index].patches[index2]];
         }
         setPatchCollection(deepCopy);
+        setCollectionAltered(true);
     }
     
     const removeBankPatch = (patch) => {
@@ -182,6 +327,7 @@ function VolcaFmPatchManager(user, banks) {
         }
         deepCopy.banks[index].patches.splice(index2, 1);
         setPatchCollection(deepCopy);
+        setCollectionAltered(true);
     }
     
     const dragDataSet = (data) => {
@@ -242,6 +388,7 @@ function VolcaFmPatchManager(user, banks) {
         }
         
         setPatchCollection(deepCopy);
+        setCollectionAltered(true);
     }
     
     const addPatchToBank = (bank) => {
@@ -267,16 +414,33 @@ function VolcaFmPatchManager(user, banks) {
          
         setDragData(null);
         setPatchCollection(deepCopy);
+        setCollectionAltered(true);
     }
     
     const updateSelectedBankPatch = (val) => {
+        let patch;
+        
         setSelectedPatchPatch('');
         setSelectedBankPatch(val);
+        for (let i = 0; i < userPatches.length; i++) {
+            if (userPatches[i].uuid === val) {
+                patch = userPatches[i];
+            }
+        }
+        VolcaFmPatchTransmitter(patch, currentOutput, currentMidiChannel);
     }
     
     const makePatchPatchCurrent = (val) => {
+        let patch;
+        
         setSelectedPatchPatch(val);
         setSelectedBankPatch('');
+        for (let i = 0; i < userPatches.length; i++) {
+            if (userPatches[i].uuid === val) {
+                patch = userPatches[i];
+            }
+        }
+        VolcaFmPatchTransmitter(patch, currentOutput, currentMidiChannel);
     }
     
     const changeBankEdit = (val) => {
@@ -296,6 +460,7 @@ function VolcaFmPatchManager(user, banks) {
         
         setPatchCollection(deepCopy);
         setCurrentEditBank(id);
+        setCollectionAltered(true);
     }
     
     const updateBankName = (val) => {
@@ -313,6 +478,7 @@ function VolcaFmPatchManager(user, banks) {
         }
         deepCopy.banks[index].name = val;
         setPatchCollection(deepCopy);
+        setCollectionAltered(true);
     }
     
     const deleteCurrentBank = () => {
@@ -331,6 +497,7 @@ function VolcaFmPatchManager(user, banks) {
         deepCopy.banks.splice(index, 1);
         setCurrentEditBank(deepCopy.banks[0].uuid);
         setPatchCollection(deepCopy);
+        setCollectionAltered(true);
     }
     
     const patchCollectionNameUpdate = (val) => {
@@ -339,6 +506,7 @@ function VolcaFmPatchManager(user, banks) {
         deepCopy.name = val;
         
         setPatchCollection(deepCopy);
+        setCollectionAltered(true);
     }
     
     const updateUserPatches = () => {
@@ -354,7 +522,6 @@ function VolcaFmPatchManager(user, banks) {
                 }
             });
             setUserPatches(patches);
-            console.log(userPatches);
         });
     }
 
@@ -579,8 +746,8 @@ function VolcaFmPatchManager(user, banks) {
     }
     
     const panic = () => {
-        setPanicState('panicOn');
-//        setVolcaFmContainerState('Inactive');
+        setPanicState('volcaFmPatchManagerPanicOn');
+        setVolcaFmPatchManagerContainerState('_Inactive');
         for (let i = 0; i < availableOutputs.length; i++) {
             for (let channel = 0; channel < 16; channel++) {
                 for (let note = 0; note < 128; note++) {
@@ -589,8 +756,8 @@ function VolcaFmPatchManager(user, banks) {
             }
         }
         setTimeout(() => {
-            setPanicState('panicOff');
-//            setVolcaFmContainerState('Active');
+            setPanicState('volcaFmPatchManagerPanicOff');
+            setVolcaFmPatchManagerContainerState('_Active');
         }, availableOutputs.length * 2000);
     }
     
@@ -640,6 +807,9 @@ function VolcaFmPatchManager(user, banks) {
             if (patchCollection.banks[i].uuid === currentEditBank) {
                 index = i;
             }
+        }
+        if (index === null) {
+            return '';
         }
         
         return patchCollection.banks[index].name;
@@ -717,7 +887,8 @@ function VolcaFmPatchManager(user, banks) {
                                 src={midiImage}></img></NavLink>
                         </div>
                         <h3 className={'volcaFmPatchManagerTitle' + volcaFmPatchManagerMonth}>Volca FM Patch Manager</h3>
-                        <button className={'volcaFmPatchManagerLoadButton' + volcaFmPatchManagerMonth}>load</button>
+                        <button className={'volcaFmPatchManagerLoadButton' + volcaFmPatchManagerMonth}
+                            onClick={() => openLoadCollectionModal()}>load</button>
                         <input className={'volcaFmPatchManagerNameInput' + volcaFmPatchManagerMonth}
                             onChange={(e) => patchCollectionNameUpdate(e.target.value)}
                             type="text"
@@ -728,8 +899,10 @@ function VolcaFmPatchManager(user, banks) {
                             <div className={'volcaFmPatchManagerSidebarContainer' + volcaFmPatchManagerMonth}>
                                 <button className={'volcaFmPatchManagerSaveButton' + collectionAltered + volcaFmPatchManagerMonth}
                                     onClick={() => saveCollection()}>save</button>
-                                <button className={'volcaFmPatchManagerSaveAsButton' + volcaFmPatchManagerMonth}>save as...</button>
-                                <button className={'volcaFmPatchManagerRevertButton' + collectionAltered + volcaFmPatchManagerMonth}>revert</button>
+                                <button className={'volcaFmPatchManagerSaveAsButton' + volcaFmPatchManagerMonth}
+                                    onClick={() => openSaveAsModal()}>save as...</button>
+                                <button className={'volcaFmPatchManagerRevertButton' + collectionAltered + volcaFmPatchManagerMonth}
+                                    onClick={() => revertCollection()}>revert</button>
                                 <p className={'volcaFmPatchManagerMidiOutputLabel' + volcaFmPatchManagerMonth}>midi output:</p>
                                 <select className={'volcaFmPatchManagerMidiOutputSelect' + volcaFmPatchManagerMonth}
                                     onChange={(e) => updateCurrentOutput(e.target.value)}
@@ -745,10 +918,14 @@ function VolcaFmPatchManager(user, banks) {
                                     step="1"
                                     type="number"
                                     value={currentMidiChannel}/>
-                                <button className={'volcaFmPatchManagerShareButton' + volcaFmPatchManagerMonth}>share</button>
-                                <button className={'volcaFmPatchManagerInitButton' + volcaFmPatchManagerMonth}>init</button>
-                                <button className={'volcaFmPatchManagerDeleteCollectionButton' + volcaFmPatchManagerMonth}>delete</button>
-                                <button className={'volcaFmPatchManagerAboutFmManagement' + volcaFmPatchManagerMonth}>about</button>
+                                <button className={'volcaFmPatchManagerShareButton' + volcaFmPatchManagerMonth}
+                                    onClick={() => openShareModal()}>share</button>
+                                <button className={'volcaFmPatchManagerInitButton' + volcaFmPatchManagerMonth}
+                                    onClick={() => initializeNewCollection()}>init</button>
+                                <button className={'volcaFmPatchManagerDeleteCollectionButton' + volcaFmPatchManagerMonth}
+                                    onClick={() => openDeleteCollectionModal()}>delete</button>
+                                <button className={'volcaFmPatchManagerAboutFmManagement' + volcaFmPatchManagerMonth}
+                                    onClick={() => openAboutModal()}>about</button>
                             </div>
                         </div>
                         <div className={'volcaFmPatchManagerUserPatchesListDiv' + volcaFmPatchManagerMonth}>
@@ -777,7 +954,8 @@ function VolcaFmPatchManager(user, banks) {
                                     </Link>
                                 )}
                                 {(selectedPatchPatch !== '') && (
-                                    <button className={'volcaFmPatchManagerDeleteActivePatchButton' + volcaFmPatchManagerMonth}>delete</button>
+                                    <button className={'volcaFmPatchManagerDeleteActivePatchButton' + volcaFmPatchManagerMonth}
+                                        onClick={() => deletePatchGuardrail()}>delete</button>
                                 )}
                                 {(selectedPatchPatch !== '') && (
                                     <button className={'volcaFmPatchManagerMoveActivePatchButton' + volcaFmPatchManagerMonth}
@@ -861,6 +1039,80 @@ function VolcaFmPatchManager(user, banks) {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={'volcaFmPatchManagerDeletePatchGuardrail' + patchDeleteGuardrailState + volcaFmPatchManagerMonth}>
+                <p className={'volcaFmPatchManagerDeletePatchGuardrailLabel' + volcaFmPatchManagerMonth}>Delete patch?</p>
+                <p className={'volcaFmPatchManagerDeletePatchGuardrailFinePrint' + volcaFmPatchManagerMonth}>This will permanently delete patch and remove it from all banks in all collections.</p>
+                <div className={'volcaFmPatchManagerDeleteGuardrailButtonsDiv' + volcaFmPatchManagerMonth}>
+                    <button onClick={() => deleteActivePatch()}>delete</button>
+                    <button onClick={() => cancelPatchDeleteGuardrail()}>cancel</button>
+                </div>
+            </div>
+            <div className={'volcaFmPatchManagerSaveAsModal' + saveAsModalState + volcaFmPatchManagerMonth}>
+                <p className={'volcaFmPatchManagerSaveAsLabel' + volcaFmPatchManagerMonth}>Save collection as:</p>
+                <input className={'volcaFmPatchManagerSaveAsInput' + volcaFmPatchManagerMonth}
+                    id="volcaFmPatchManagerSaveAsInput"
+                    placeholder={'copy of ' + patchCollection.name}
+                    type="text" />
+                <div className={'volcaFmPatchManagerDeleteGuardrailButtonsDiv' + volcaFmPatchManagerMonth}>
+                    <button>save</button>
+                    <button onClick={() => closeSaveAsModal()}>cancel</button>
+                </div>
+            </div>
+            <div className={'volcaFmPatchManagerShareModal' + shareModalState + volcaFmPatchManagerMonth}>
+                <p className={'volcaFmPatchManagerShareLabel' + volcaFmPatchManagerMonth}>Submit collection "{patchCollection.name}" to Volca FM Patch Marketplace:</p>
+                <div className={'volcaFmPatchManagerShareForm' + volcaFmPatchManagerMonth}>
+                    <p className={'volcaFmPatchManagerCollectionNameLabel' + volcaFmPatchManagerMonth}>collection name:</p>
+                    <p className={'volcaFmPatchManagerCollectionName' + volcaFmPatchManagerMonth}>{patchCollection.name}</p>
+                    <p className={'volcaFmPatchManagerSubmittedByLabel' + volcaFmPatchManagerMonth}>submitted by:</p>
+                    <p className={'volcaFmPatchManagerSubmittedBy' + volcaFmPatchManagerMonth}>{user.first_name} {user.last_name}</p>
+                    <p className={'volcaFmPatchManagerPublicDescriptionLabel' + volcaFmPatchManagerMonth}>public description:</p>
+                    <textarea className={'volcaFmPatchManagerPublicDescription' + volcaFmPatchManagerMonth}
+                        placeholder="Description of this collection"
+                        rows="9"></textarea>
+                    <button className={'volcaFmPatchManagerShareSubmitButton' + volcaFmPatchManagerMonth}
+                        onClick={() => submitShareModal()}>submit</button>
+                    <button className={'volcaFmPatchManagerShareCancelButton' + volcaFmPatchManagerMonth}
+                        onClick={() => closeShareModal()}>cancel</button>
+                </div>
+            </div>
+            <div className={'volcaFmPatchManagerDeleteCollectionModal' + deleteCollectionModalState + volcaFmPatchManagerMonth}>
+                <p className={'volcaFmPatchManagerDeletePatchGuardrailLabel' + volcaFmPatchManagerMonth}>Delete collection "{patchCollection.name}"?</p>
+                <p className={'volcaFmPatchManagerDeletePatchGuardrailFinePrint' + volcaFmPatchManagerMonth}>This will permanently remove collection.</p>
+                <div className={'volcaFmPatchManagerDeleteGuardrailButtonsDiv' + volcaFmPatchManagerMonth}>
+                    <button>delete</button>
+                    <button onClick={() => closeDeleteCollectionModal()}>cancel</button>
+                </div>
+            </div>
+            <div className={'volcaFmPatchManagerAboutModal' + aboutModalState + volcaFmPatchManagerMonth}>
+                <div className={'volcaFmPatchManagerAboutContentDiv' + volcaFmPatchManagerMonth}>
+                    <h2>The Korg Volca FM Patch Manager</h2>
+                    <p>This patch manager is a utility for organizing collections of custom patches into banks for exporting into the 168 Events sequencing environment or for sharing with other users of 168 Events.</p>
+                    <p>Some useful definitions for understanding the Volca FM Patch Manager heirarchy:</p>
+                    <h3>Patches</h3>
+                    <p>A patch is an individual "preset" that one creates in the Volca FM Editor. Think of it as a single instrument.</p>
+                    <h3>Banks</h3>
+                    <p>A bank is an organized set of patches. Think of it as an ensemble of instruments. Each bank comes with a scratch pad for storing notes to help you track your bank structure.</p>
+                    <h3>Collections</h3>
+                    <p>A collection is an organized set of banks. Think of it as an orchestra made up of discreet sections of instrument types. Collections are available for import into sequences and are the standard format for sharing one's patches with other users.</p>
+                </div>
+                <button className={'volcaFmPatchManagerAboutCloseButton' + volcaFmPatchManagerMonth}
+                    onClick={() => closeAboutModal()}>close</button>
+            </div>
+            <div className={'volcaFmPatchManagerCollectionLoadModal' + collectionLoadModalState + volcaFmPatchManagerMonth}>
+                <div className={'volcaFmPatchManagerCollectionLoadContainer' + volcaFmPatchManagerMonth}>
+                    <p className={'volcaFmPatchManagerLoadTitle' + volcaFmPatchManagerMonth}>Load Volca FM Collection</p>
+                    <select className={'volcaFmPatchManagerLoadSelector' + volcaFmPatchManagerMonth}>
+                        <option>placeholder</option>
+                    </select>
+                    <button className={'volcaFmPatchManagerLoadLoadButton' + volcaFmPatchManagerMonth}
+                        onClick={() => loadCollection()}>load</button>
+                    <button className={'volcaFmPatchManagerLoadCancelButton' + volcaFmPatchManagerMonth}
+                        onClick={() => closeCollectionLoadModal()}>cancel</button>
+                </div>
+            </div>
+            <div className={panicState + volcaFmPatchManagerMonth}>
+                <img src={currentSpinner} />
             </div>
         </div>
         );

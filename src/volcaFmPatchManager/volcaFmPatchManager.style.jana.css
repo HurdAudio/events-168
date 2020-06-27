@@ -898,3 +898,525 @@
     filter: brightness(85%) drop-shadow(0 0 0 #070f1a) invert(100%);
     transition: all 0.1s linear;
 }
+
+.volcaFmPatchManagerDeletePatchGuardrail_Inactive_JanuaryA {
+    background: linear-gradient(135deg, #cadbe9, #94b6d2, #838790, #94b6d2, #94b6d2, #94b6d2, #838790, #94b6d2, #cadbe9);
+    border-radius: 0 0 15px 0;
+    height: 20%;
+    left: -55%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.volcaFmPatchManagerDeletePatchGuardrail_Active_JanuaryA {
+    background: linear-gradient(135deg, #cadbe9, #94b6d2, #838790, #94b6d2, #94b6d2, #94b6d2, #838790, #94b6d2, #cadbe9);
+    border-radius: 0 0 15px 0;
+    height: 20%;
+    left: 35%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.volcaFmPatchManagerDeletePatchGuardrailLabel_JanuaryA {
+    color: #070e21;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 24px;
+    margin: 15px 25px;
+}
+
+.volcaFmPatchManagerDeletePatchGuardrailFinePrint_JanuaryA {
+    color: #070e21;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    margin: 15px;
+}
+
+.volcaFmPatchManagerDeleteGuardrailButtonsDiv_JanuaryA {
+    display: flex;
+    width: 100%;
+}
+
+.volcaFmPatchManagerDeleteGuardrailButtonsDiv_JanuaryA button {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #387bc2;
+    color: #387bc2;
+    cursor: pointer;
+    filter: brightness(70%) drop-shadow(8px 8px 5px #070f1a) saturate(100%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    height: 100%;
+    margin-left: 15%;
+    outline-color: #8993a1;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaFmPatchManagerDeleteGuardrailButtonsDiv_JanuaryA button:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #132742;
+    color: #132742;
+    filter: brightness(125%) drop-shadow(4px 4px 5px #070f1a) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaFmPatchManagerDeleteGuardrailButtonsDiv_JanuaryA button:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #070f1a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaFmPatchManagerSaveAsModal_Inactive_JanuaryA {
+    background: linear-gradient(135deg, #cadbe9, #94b6d2, #838790, #94b6d2, #94b6d2, #94b6d2, #838790, #94b6d2, #cadbe9);
+    border-radius: 0 0 15px 0;
+    height: 20%;
+    left: 185%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.volcaFmPatchManagerSaveAsModal_Active_JanuaryA {
+    background: linear-gradient(135deg, #cadbe9, #94b6d2, #838790, #94b6d2, #94b6d2, #94b6d2, #838790, #94b6d2, #cadbe9);
+    border-radius: 0 0 15px 0;
+    height: 20%;
+    left: 35%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.volcaFmPatchManagerSaveAsLabel_JanuaryA {
+    color: #070e21;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 24px;
+    margin: 15px 25px;
+}
+
+.volcaFmPatchManagerSaveAsInput_JanuaryA {
+    background: #96a8c9;
+    border: none;
+    color: #070e21;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    margin: 5px 0 20px 15%;
+    outline-color: #8993a1;
+    width: 70%;
+}
+
+.volcaFmPatchManagerShareModal_Inactive_JanuaryA {
+    background: linear-gradient(135deg, #cadbe9, #94b6d2, #838790, #94b6d2, #94b6d2, #94b6d2, #838790, #94b6d2, #cadbe9);
+    border-radius: 0 0 15px 0;
+    height: 60%;
+    left: 25%;
+    opacity: 0;
+    position: absolute;
+    top: 15%;
+    transform: rotateY(90deg);
+    transition: all 0.5s linear;
+    width: 50%;
+    z-index: 200;
+}
+
+.volcaFmPatchManagerShareModal_Active_JanuaryA {
+    background: linear-gradient(135deg, #cadbe9, #94b6d2, #838790, #94b6d2, #94b6d2, #94b6d2, #838790, #94b6d2, #cadbe9);
+    border-radius: 0 0 15px 0;
+    height: 60%;
+    left: 25%;
+    opacity: 1;
+    position: absolute;
+    top: 15%;
+    transform: rotateY(0deg);
+    transition: all 0.5s linear;
+    width: 50%;
+    z-index: 200;
+}
+
+.volcaFmPatchManagerShareLabel_JanuaryA {
+    color: #070e21;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 24px;
+    margin: 15px 25px;
+}
+
+.volcaFmPatchManagerShareForm_JanuaryA {
+    border-top: 2px solid #070e21;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [colEnd];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaFmPatchManagerCollectionNameLabel_JanuaryA {
+    color: #070e21;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col7;
+    grid-row: row2 / row3;
+}
+
+.volcaFmPatchManagerSubmittedByLabel_JanuaryA {
+    color: #070e21;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    grid-column: col10 / col15;
+    grid-row: row2 / row3;
+}
+
+.volcaFmPatchManagerCollectionName_JanuaryA {
+    color: #070e21;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col8;
+    grid-row: row3 / row4;
+}
+
+.volcaFmPatchManagerSubmittedBy_JanuaryA {
+    color: #070e21;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    grid-column: col11 / col16;
+    grid-row: row3 / row4;
+}
+
+.volcaFmPatchManagerPublicDescriptionLabel_JanuaryA {
+    color: #070e21;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col9;
+    grid-row: row5 / row6;
+}
+
+.volcaFmPatchManagerPublicDescription_JanuaryA {
+    background: #96a8c9;
+    border: none;
+    border-radius: 0 0 15px 0;
+    color: #070e21;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col16;
+    grid-row: row6 / row9;
+    outline-color: #8993a1;
+}
+
+.volcaFmPatchManagerShareSubmitButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #387bc2;
+    color: #387bc2;
+    cursor: pointer;
+    filter: brightness(70%) drop-shadow(8px 8px 5px #070f1a) saturate(100%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    grid-column: col6 / col8;
+    grid-row: row10 / row11;
+    outline-color: #8993a1;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.volcaFmPatchManagerShareSubmitButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #132742;
+    color: #132742;
+    filter: brightness(125%) drop-shadow(4px 4px 5px #070f1a) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaFmPatchManagerShareSubmitButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #070f1a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaFmPatchManagerShareCancelButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #387bc2;
+    color: #387bc2;
+    cursor: pointer;
+    filter: brightness(70%) drop-shadow(8px 8px 5px #070f1a) saturate(100%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    grid-column: col9 / col11;
+    grid-row: row10 / row11;
+    outline-color: #8993a1;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.volcaFmPatchManagerShareCancelButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #132742;
+    color: #132742;
+    filter: brightness(125%) drop-shadow(4px 4px 5px #070f1a) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaFmPatchManagerShareCancelButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #070f1a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaFmPatchManagerDeleteCollectionModal_Inactive_JanuaryA {
+    background: linear-gradient(135deg, #cadbe9, #94b6d2, #838790, #94b6d2, #94b6d2, #94b6d2, #838790, #94b6d2, #cadbe9);
+    border-radius: 0 0 15px 0;
+    height: 20%;
+    left: 35%;
+    position: absolute;
+    top: -120%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.volcaFmPatchManagerDeleteCollectionModal_Active_JanuaryA {
+    background: linear-gradient(135deg, #cadbe9, #94b6d2, #838790, #94b6d2, #94b6d2, #94b6d2, #838790, #94b6d2, #cadbe9);
+    border-radius: 0 0 15px 0;
+    height: 20%;
+    left: 35%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.volcaFmPatchManagerAboutModal_Inactive_JanuaryA {
+    background: linear-gradient(135deg, #cadbe9, #94b6d2, #838790, #94b6d2, #94b6d2, #94b6d2, #838790, #94b6d2, #cadbe9);
+    border-radius: 0 0 15px 0;
+    filter: invert(0%);
+    height: 90%;
+    left: 5%;
+    position: absolute;
+    top: 115%;
+    transition: all 0.5s linear;
+    width: 90%;
+    z-index: 200;
+}
+
+.volcaFmPatchManagerAboutModal_Active_JanuaryA {
+    background: linear-gradient(135deg, #cadbe9, #94b6d2, #838790, #94b6d2, #94b6d2, #94b6d2, #838790, #94b6d2, #cadbe9);
+    border-radius: 0 0 15px 0;
+    filter: invert(100%);
+    height: 90%;
+    left: 5%;
+    position: absolute;
+    top: 5%;
+    transition: all 0.5s linear;
+    width: 90%;
+    z-index: 200;
+}
+
+.volcaFmPatchManagerAboutContentDiv_JanuaryA {
+    background: #132742;
+    border-radius: 0 0 15px 0;
+    height: 85%;
+    left: 5%;
+    position: relative;
+    top: 5%;
+    width: 90%;
+}
+
+.volcaFmPatchManagerAboutContentDiv_JanuaryA h2 {
+    color: #cadbe9;
+    font-family: 'Alata', serif;
+    font-size: 36px;
+    margin: 5px 0 30px 30px;
+}
+
+.volcaFmPatchManagerAboutContentDiv_JanuaryA h3 {
+    color: #cadbe9;
+    font-family: 'Alata', serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 10px 25px 10px 45px;
+    max-width: 950px;
+}
+
+.volcaFmPatchManagerAboutContentDiv_JanuaryA p {
+    color: #cadbe9;
+    font-family: 'Alata', serif;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 5px 25px 30px 25px;
+    max-width: 950px;
+}
+
+.volcaFmPatchManagerAboutCloseButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #387bc2;
+    color: #387bc2;
+    cursor: pointer;
+    filter: brightness(70%) drop-shadow(8px 8px 5px #070f1a) saturate(100%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    margin-left: 45%;
+    margin-top: 4.5%;
+    outline-color: #8993a1;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.volcaFmPatchManagerAboutCloseButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #132742;
+    color: #132742;
+    filter: brightness(125%) drop-shadow(4px 4px 5px #070f1a) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaFmPatchManagerAboutCloseButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #070f1a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaFmPatchManagerCollectionLoadModal_Inactive_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/january/solitude_in_blue_by_machiavellicro_d5nzygg-pre.jpg);
+    background-size: cover;
+    border: 2px solid #14357a;
+    box-shadow: 5px 5px 5px #12203a;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: -170%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.volcaFmPatchManagerCollectionLoadModal_Active_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/january/solitude_in_blue_by_machiavellicro_d5nzygg-pre.jpg);
+    background-size: cover;
+    border: 2px solid #14357a;
+    box-shadow: 5px 5px 5px #12203a;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.volcaFmPatchManagerCollectionLoadContainer_JanuaryA {
+    backdrop-filter: blur(5px) hue-rotate(-30deg);
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaFmPatchManagerLoadTitle_JanuaryA {
+    color: #cadbe9;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #12203a);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col9;
+    grid-row: row2 / row3;
+}
+
+.volcaFmPatchManagerLoadSelector_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #cadbe9;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #12203a);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col10;
+    grid-row: row4 / row5;
+    outline-color: #8993a1;
+}
+
+.volcaFmPatchManagerLoadLoadButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #387bc2;
+    color: #387bc2;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #070f1a) saturate(100%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    outline-color: #8993a1;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.volcaFmPatchManagerLoadLoadButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #132742;
+    color: #132742;
+    filter: brightness(175%) drop-shadow(4px 4px 5px #070f1a) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaFmPatchManagerLoadLoadButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #070f1a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaFmPatchManagerLoadCancelButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #387bc2;
+    color: #387bc2;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #070f1a) saturate(100%);
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 18px;
+    grid-column: col7 / col9;
+    grid-row: row7 / row8;
+    outline-color: #8993a1;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.volcaFmPatchManagerLoadCancelButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #132742;
+    color: #132742;
+    filter: brightness(175%) drop-shadow(4px 4px 5px #070f1a) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaFmPatchManagerLoadCancelButton_JanuaryA:active {
+   filter: brightness(85%) drop-shadow(0 0 0 #070f1a) invert(100%);
+    transition: all 0.1s linear; 
+}
+
+.volcaFmPatchManagerPanicOff_JanuaryA {
+    display: none;
+}
+
+.volcaFmPatchManagerPanicOn_JanuaryA {
+    border-radius: 0 0 15px 0;
+    height: 80%;
+    left: 25%;
+    opacity: 0.8;
+    position: absolute;
+    top: 10%;
+    width: 80%;
+    z-index: 400;
+}
