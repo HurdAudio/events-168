@@ -88,7 +88,27 @@ function Library() {
         patchManager: midiDevices[0].patchManager,
         component: midiDevices[0].component
     });
+    const [patchManagerState, setPatchManagerState] = useState({
+        path: midiDevices[0].path,
+        patchManager: midiDevices[0].patchManager,
+        component: midiDevices[0].component
+    })
     const [patchEditorActive, setPatchEditorActive] = useState(false);
+    
+    const updateManagerPath = (val) => {
+        let path, component, patchManager;
+        
+        for (let i = 0; i < midiDevices.length; i++) {
+            path = midiDevices[i].path;
+            patchManager = midiDevices[i].patchManager;
+            component = midiDevices[i].component;
+        }
+        setPatchManagerState({
+            path: path,
+            patchManager: patchManager,
+            component: component
+        });
+    }
     
     const updateEditorPath = (val) => {
         let path, component, patchManager;
@@ -136,12 +156,13 @@ function Library() {
                         <img className={'homeMidiBullet' + libraryMonth} 
                             src={midi5pin}></img>
                         <p className={'homeDropdownLabel' + libraryMonth}>patch manager:</p>
-                        <select className={'homeDropdown' + libraryMonth}>
+                        <select className={'homeDropdown' + libraryMonth}
+                            onChange={(e) => updateManagerPath(e.target.value)}>
                             {midiDevices.map(item => 
                                 <option key={item.uuid} value={item.uuid}>{item.name}</option>
                             )}
                         </select>
-                        <Link to={patchEditorState.patchManager}>
+                        <Link to={patchManagerState.patchManager}>
                             <button className={'homeButtons' + libraryMonth}>load manager</button>
                         </Link>
                     </div>
