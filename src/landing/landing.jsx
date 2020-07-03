@@ -19,16 +19,11 @@ import './landing.style.feba.css';
 import './landing.style.febb.css';
 import './landing.style.febc.css';
 import Login from '../login/login';
-import volcaFm from '../volcaFm/volcaFm';
-import volcaNubass from '../volcaNubass/volcaNubass';
-import volcaDrum from '../volcaDrum/volcaDrum';
-import MidiManager from '../midiManager/midiManager';
-import Gr1Editor from '../gr1Editor/gr1Editor';
-import VolcaFmPatchManager from '../volcaFmPatchManager/volcaFmPatchManager';
 import SkinsTable from '../skins/skins';
 
 
 function Landing() {
+    console.log('landing is lit');
     
     const skins = SkinsTable('landing');
     
@@ -61,7 +56,7 @@ function Landing() {
     checkLogin();
     
  
-        return(
+        return (
             <Router>
             <div className={'container' + landingMonth}>
                 <div className={'imageDiv' + landingMonth}>
@@ -151,27 +146,6 @@ function Landing() {
                 </Route>
                 <Route path="/about">
                     <About />
-                </Route>
-                <Route path="/">
-                    <Home />
-                </Route>
-                <Route path="/volca-fm-editor">
-                    <volcaFm />
-                </Route>
-                <Route path="/volca-nubass-editor">
-                    {volcaNubass(null, null)}
-                </Route>
-                <Route path="/volca-drum-editor">
-                    {volcaDrum()}
-                </Route>
-                <Route path="/midi-manager">
-                    {MidiManager(null, null)}
-                </Route>
-                <Route path="/gr1-editor">
-                    {Gr1Editor(null, null)}
-                </Route>
-                <Route path="/volca-fm-patch-manager">
-                    {VolcaFmPatchManager(null, null)}
                 </Route>
             </Switch>
         </Router>
