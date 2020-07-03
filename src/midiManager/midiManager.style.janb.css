@@ -230,8 +230,8 @@
 }
 
 .midiManagerPresetsLabel_JanuaryB {
-    display: none;
-    color: #043582;
+    color: #ccd5e0;
+    filter: brightness(90%) saturate(50%);
     font-family: 'Baloo 2', cursive;
     font-size: 18px;
     grid-column: sideCol2 / sideCol5;

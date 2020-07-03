@@ -1,0 +1,728 @@
+.midiManagerContainer_Active_JanuaryC {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.midiManagerContainer_Inactive_JanuaryC {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.midiManagerImageDiv_JanuaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/january/ice_cave_chasm_by_saxonsurokov_d7xqcxj-fullview.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.midiManagerTopBar_JanuaryC {
+    backdrop-filter: blur(7px) brightness(100%) contrast(105%) hue-rotate(-70deg) saturate(250%);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.midiManagerNavImage_JanuaryC {
+    cursor: pointer;
+    filter: contrast(150%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.midiManagerNavImage_JanuaryC:hover {
+    filter: contrast(120%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.midiManagerTitle_JanuaryC {
+    color: #031223;
+    filter: brightness(50%) contrast(150%);
+    font-family: 'Oxanium', cursive;
+    font-size: 36px;
+    grid-column: col3 / col7;
+    grid-row: row1 / row2;
+    margin: 9px;
+    z-index: 55;
+}
+
+.midiManagerPanicButton_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #031223;
+    cursor: pointer;
+    filter: brightness(50%) contrast(150%);
+    font-family: 'Oxanium', cursive;
+    font-size: 24px;
+    grid-column: col10 / rightEdge;
+    grid-row: row1 / row2;
+    z-index: 56;
+}
+
+.midiManagerSidebarManager_JanuaryC {
+    backdrop-filter: blur(8px);
+    background: linear-gradient(180deg, transparent, #092e58, #437097, #437097, #76abcb);
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 0.8;
+}
+
+.midiManagerSidebarContainer_JanuaryC {
+    display: grid;
+    grid-template-columns: [sideCol1] 1fr [sideCol2] 1fr [sideCol3] 1fr [sideCol4] 1fr [sideCol5] 1fr [sideColEnd];
+    grid-template-rows: [sideRow1] 1fr [sideRow2] 1fr [sideRow3] 1fr [sideRow4] 1fr [sideRow5] 1fr [sideRow6] 1fr [sideRow7] 1fr [sideRow8] 1fr [sideRow9] 1fr [sideRow10] 1fr [sideRow11] 1fr [sideRow12] 1fr [sideRow13] 1fr [sideRow14] 1fr [sideRow15] 1fr [sideRow16] 1fr [sideRow17] 1fr [sideRow18] 1fr [sideRow19] 1fr [sideRow20] 1fr [sideRow21] 1fr [sideRow22] 1fr [sideRow23] 1fr [sideRow24] 1fr [sideRowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.midiManagerCheckConnections_JanuaryC {
+    backdrop-filter: contrast(200%) hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #e1eef5;
+    color: #e1eef5;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #263846);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow2 / sideRow3;
+    outline-color: #90acc3;
+    transition: all 0.4s linear;
+}
+
+.midiManagerCheckConnections_JanuaryC:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #092e58;
+    color: #bbd5e5;
+    filter: brightness(150%) drop-shadow(2px 6px 5px #263846);
+    transition: all 0.4s linear;
+}
+
+.midiManagerCheckConnections_JanuaryC:active {
+    filter: brightness(250%) drop-shadow(0 0 0 #263846) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.midiManagerSaveConfigurationfalse_JanuaryC {
+    display: none;
+}
+
+.midiManagerSaveConfigurationtrue_JanuaryC {
+    backdrop-filter: contrast(200%) hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #e1eef5;
+    color: #e1eef5;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #263846);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow4 / sideRow5;
+    outline-color: #90acc3;
+    transition: all 0.4s linear;
+}
+
+.midiManagerSaveConfigurationtrue_JanuaryC:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #092e58;
+    color: #bbd5e5;
+    filter: brightness(150%) drop-shadow(2px 6px 5px #263846);
+    transition: all 0.4s linear;
+}
+
+.midiManagerSaveConfigurationtrue_JanuaryC:active {
+    filter: brightness(250%) drop-shadow(0 0 0 #263846) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.midiManagerSaveAsConfiguration_JanuaryC {
+    backdrop-filter: contrast(200%) hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #e1eef5;
+    color: #e1eef5;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #263846);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow6 / sideRow7;
+    outline-color: #90acc3;
+    transition: all 0.4s linear;
+}
+
+.midiManagerSaveAsConfiguration_JanuaryC:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #092e58;
+    color: #bbd5e5;
+    filter: brightness(150%) drop-shadow(2px 6px 5px #263846);
+    transition: all 0.4s linear;
+}
+
+.midiManagerSaveAsConfiguration_JanuaryC:active {
+    filter: brightness(250%) drop-shadow(0 0 0 #263846) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.midiManagerRevertConfigurationfalse_JanuaryC {
+    display: none;
+}
+
+.midiManagerRevertConfigurationtrue_JanuaryC {
+    backdrop-filter: contrast(200%) hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #e1eef5;
+    color: #e1eef5;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #263846);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow8 / sideRow9;
+    outline-color: #90acc3;
+    transition: all 0.4s linear;
+}
+
+.midiManagerRevertConfigurationtrue_JanuaryC:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #092e58;
+    color: #bbd5e5;
+    filter: brightness(150%) drop-shadow(2px 6px 5px #263846);
+    transition: all 0.4s linear;
+}
+
+.midiManagerRevertConfigurationtrue_JanuaryC:active {
+    filter: brightness(250%) drop-shadow(0 0 0 #263846) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.midiManagerPresetsLabel_JanuaryC {
+    color: #e1eef5;
+    filter: brightness(150%) contrast(150%);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow10 / sideRow11;
+}
+
+.midiManagerPresetsList_JanuaryC {
+    backdrop-filter: hue-rotate(95deg);
+    background: transparent;
+    border: 2px solid #76abcb;
+    box-sizing: border-box;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #263846);
+    grid-column: sideCol1 / sideColEnd;
+    grid-row: sideRow11 / sideRow19;
+    margin: 0 5%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.midiManagerLoadConfiguration_JanuaryC {
+    backdrop-filter: contrast(200%) hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #e1eef5;
+    color: #e1eef5;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #263846);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow20 / sideRow21;
+    outline-color: #90acc3;
+    transition: all 0.4s linear;
+}
+
+.midiManagerLoadConfiguration_JanuaryC:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #092e58;
+    color: #bbd5e5;
+    filter: brightness(150%) drop-shadow(2px 6px 5px #263846);
+    transition: all 0.4s linear;
+}
+
+.midiManagerLoadConfiguration_JanuaryC:active {
+    filter: brightness(250%) drop-shadow(0 0 0 #263846) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.midiManagerDeleteConfiguration_JanuaryC {
+    backdrop-filter: contrast(200%) hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #e1eef5;
+    color: #e1eef5;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #263846);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow22 / sideRow23;
+    outline-color: #90acc3;
+    transition: all 0.4s linear;
+}
+
+.midiManagerDeleteConfiguration_JanuaryC:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #092e58;
+    color: #bbd5e5;
+    filter: brightness(150%) drop-shadow(2px 6px 5px #263846);
+    transition: all 0.4s linear;
+}
+
+.midiManagerDeleteConfiguration_JanuaryC:active {
+    filter: brightness(250%) drop-shadow(0 0 0 #263846) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.midiManagerPresetNameContainertrue_JanuaryC {
+    background: #c3ddea;
+    padding: 5px 10px;
+    transform: rotateX(0deg);
+}
+
+.midiManagerPresetNameContainerfalse_JanuaryC {
+    background: transparent;
+    cursor: pointer;
+    padding: 5px 5px;
+    transform: rotateX(25deg);
+    transition: transform 0.1s linear;
+}
+
+.midiManagerPresetNameContainerfalse_JanuaryC:hover {
+    transform: rotateX(0deg);
+    transition: transform 0.1s linear;
+}
+
+.midiManagerPresetNametrue_JanuaryC {
+    color: #031223;
+    font-family: 'Oxanium', cursive;
+    font-size: 18px; 
+    margin: 3px 0 3px 0;
+}
+
+.midiManagerPresetNamefalse_JanuaryC {
+    color: #e1eef5;
+    font-family: 'Oxanium', cursive;
+    filter: brightness(130%);
+    font-size: 18px; 
+    margin: 0;
+}
+
+.midiManagerPresetNamefalse_JanuaryC:hover {
+    color: #76abcb;
+}
+
+.midiManagerInputsPane_JanuaryC {
+    backdrop-filter: blur(8px) brightness(65%) contrast(200%) saturate(25%);
+    grid-column: col3 / col6;
+    grid-row: row2 / rowEnd;
+}
+
+.midiManagerOutputsPane_JanuaryC {
+    backdrop-filter: blur(8px) brightness(35%) contrast(160%) saturate(100%);
+    grid-column: col6 / col8;
+    grid-row: row2 / rowEnd;
+}
+
+.midiManagerInputDetailsPane_JanuaryC {
+    backdrop-filter: blur(12px) brightness(100%) contrast(140%) hue-rotate(10deg);
+    grid-column: col8 / rightEdge;
+    grid-row: row2 / row5;
+}
+
+.midiManagerOutputDetailsPane_JanuaryC {
+    backdrop-filter: blur(12px) brightness(100%) contrast(140%) hue-rotate(-10deg);
+    grid-column: col8 / rightEdge;
+    grid-row: row5 / row8;
+}
+
+.midiManagerDeviceDetailsPane_JanuaryC {
+    backdrop-filter: blur(2px) contrast(200%) invert(100%);
+    grid-column: col8 / rightEdge;
+    grid-row: row8 / rowEnd;
+}
+
+.midiManagerInputsContainer_JanuaryC {
+    display: grid;
+    grid-template-columns: [inCol1] 1fr [inCol2] 1fr [inCol3] 1fr [inCol4] 1fr [inCol5] 1fr [inCol6] 1fr [inCol7] 1fr [inCol8] 1fr [inColEnd];
+    grid-template-rows: [inRow1] 1fr [inRow2] 1fr [inRow3] 1fr [inRow4] 1fr [inRow5] 1fr [inRow6] 1fr [inRow7] 1fr [inRow8] 1fr [inRow9] 1fr [inRow10] 1fr [inRow11] 1fr [inRow12] 1fr [inRow13] 1fr [inRow14] 1fr [inRow15] 1fr [inRow16] 1fr [inRow17] 1fr [inRow18] 1fr [inRow19] 1fr [inRow20] 1fr [inRow21] 1fr [inRow22] 1fr [inRow23] 1fr [inRow24] 1fr [inRowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.midiManagerInputsPaneLabel_JanuaryC {
+    color: #e1eef5;
+    filter: brightness(120%);
+    font-family: 'Oxanium', cursive;
+    font-size: 24px;
+    grid-column: inCol2 / inCol8;
+    grid-row: inRow2 / inRow3;
+}
+
+.midiManagerInputsTable_JanuaryC {
+    background: transparent;
+    border: 2px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/january/ice_cave_chasm_by_saxonsurokov_d7xqcxj-fullview.jpg) 15 stretch;
+    box-sizing: border-box;
+    filter: drop-shadow(8px 8px 5px #263846);
+    grid-column: inCol2 / inCol8;
+    grid-row: inRow3 / inRow24;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.midiManagerInputEntryDiv_JanuaryC {
+    border-bottom: 1px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/january/ice_cave_chasm_by_saxonsurokov_d7xqcxj-fullview.jpg) 55 stretch;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    height: auto;
+    padding: 27px 15px;
+    width: 100%;
+}
+
+.midiManagerInputControlSwitchDiv_JanuaryC {
+    border: 1px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/january/ice_cave_chasm_by_saxonsurokov_d7xqcxj-fullview.jpg) 65 stretch;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 45px;
+    margin: 3px;
+    width: 20%;
+}
+
+.midiManagerInputControlSwitchfalse_JanuaryC {
+    background: radial-gradient(closest-corner, transparent, #e1eef5, transparent);
+    filter: brightness(50%) saturate(50%);
+    height: 100%;
+    transition: all 0.25s linear;
+    width: 100%;
+}
+
+.midiManagerInputControlSwitchtrue_JanuaryC {
+    background: radial-gradient(closest-corner, #e1eef5, transparent, #e1eef5);
+    filter: brightness(200%) saturate(150%);
+    height: 100%;
+    transition: all 0.25s linear;
+    width: 100%;
+}
+
+.midiManagerInputLabel_JanuaryC {
+    color: #e1eef5;
+    cursor: pointer;
+    filter: brightness(130%);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    margin: 20px 5px 5px 9px;
+    width: 75%;
+}
+
+.midiManagerInputLabel_JanuaryC:hover {
+    color: #76abcb;
+    filter: brightness(200%);
+}
+
+.midiManagerHardwareInputLabel_JanuaryC {
+    color: #e1eef5;
+    filter: brightness(130%);
+    font-family: 'Oxanium', cursive;
+    font-size: 12px;
+    margin: 3px 5px 1px 9px;
+    width: 100%;
+}
+
+.midiManagerInputDetailContainer_JanuaryC {
+    display: grid;
+    grid-template-columns: [inDCol1] 1fr [inDCol2] 1fr [inDCol3] 1fr [inDCol4] 1fr [inDCol5] 1fr [inDCol6] 1fr [inDCol7] 1fr [inDCol8] 1fr [inDCol9] 1fr [inDCol10] 1fr [inDCol11] 1fr [inDCol12] 1fr [inDColEnd];
+    grid-template-rows: [inDRow1] 1fr [inDRow2] 1fr [inDRow3] 1fr [inDRow4] 1fr [inDRow5] 1fr [inDRow6] 1fr [inDRow7] 1fr [inDRow8] 1fr [inDRow9] 1fr [inDRow10] 1fr [inDRow11] 1fr [inDRow12] 1fr [inDRowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.midiManagerInputDetailLabel_JanuaryC {
+    color: #031223;
+    filter: brightness(60%);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    grid-column: inDCol2 / inDCol7;
+    grid-row: inDRow2 / inDRow3;
+}
+
+.midiManagerInputDetailBox_JanuaryC {
+    grid-column: inDCol2 / inDCol12;
+    grid-row: inDRow3 / inDRow12;
+    padding: 5px;
+}
+
+.midiManagerMidiInLabelAndPort_JanuaryC {
+    color: #031223;
+    filter: brightness(60%);
+    font-family: 'Oxanium', cursive;
+    font-size: 13px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+
+.midiManagerMidiInLabelLabel_JanuaryC {
+    color: #031223;
+    filter: brightness(60%);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.midiManagerInInputForLabel_JanuaryC {
+    background: #9ac7de;
+    border: none;
+    color: #031223;
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    outline-color: #90acc3;
+    width: 100%;
+}
+
+.midiManagerMidiInDeviceLabel_JanuaryC {
+    color: #031223;
+    filter: brightness(60%);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    margin-bottom: 6px;
+    margin-top: 15px;
+}
+
+.midiManagerDeviceSelect_JanuaryC {
+    background: #9ac7de;
+    border: none;
+    border-radius: 0;
+    color: #031223;
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    outline-color: #90acc3;
+    width: 100%;
+}
+
+.midiManagerSelectMidiChannelDiv_JanuaryC {
+    display: flex;
+}
+
+.midiManagerSubDivSelect_JanuaryC {
+    width: 75%;
+}
+
+.midiManagerMidiChannelOnlyDiv_JanuaryC {
+    padding-left: 20px;
+    width: 35%;
+}
+
+.midiManagerInputMidiChannelLabel_JanuaryC {
+    color: #031223;
+    filter: brightness(60%);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    margin-bottom: 6px;
+    margin-top: 15px; 
+}
+
+.midiManagerMidiChannelInputInput_JanuaryC {
+    background: #9ac7de;
+    border: none;
+    border-radius: 0;
+    color: #031223;
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    margin-left: 20px;
+    outline-color: #90acc3;
+    width: 50%;
+}
+
+.midiManagerOutputDetailLabel_JanuaryC {
+    color: #031223;
+    filter: brightness(60%);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    grid-column: inDCol2 / inDCol7;
+    grid-row: inDRow2 / inDRow3;
+}
+
+.midiManagerMidiOutLabelAndPort_JanuaryC {
+    color: #031223;
+    filter: brightness(60%);
+    font-family: 'Oxanium', cursive;
+    font-size: 13px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+
+.midiManagerMidiOutLabelLabel_JanuaryC {
+    color: #031223;
+    filter: brightness(60%);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.midiManagerMidiOutDeviceLabel_JanuaryC {
+    color: #031223;
+    filter: brightness(60%);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    margin-bottom: 6px;
+    margin-top: 15px;
+}
+
+.midiManagerOutputMidiChannelLabel_JanuaryC {
+    color: #031223;
+    filter: brightness(60%);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    margin-bottom: 6px;
+    margin-top: 15px;
+}
+
+.midiManagerDeviceImage_JanuaryC {
+    filter: drop-shadow(8px 8px 5px #181b20);
+    margin-left: 10%;
+    max-height: 31vh;
+    max-width: 80%;
+}
+
+.midiManagerNameNewPatchModal_Active_JanuaryC {
+    background: #76abcb;
+    border: 4px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/january/ice_cave_chasm_by_saxonsurokov_d7xqcxj-fullview.jpg) 40 stretch;
+    filter: drop-shadow(8px 8px 5px #263846);
+    height: auto;
+    left: 20%;
+    padding: 45px;
+    position: absolute;
+    top: 20%;
+    transition: all 0.55s linear;
+    width: auto;
+    z-index: 200;
+}
+
+.midiManagerNameNewPatchModal_Inactive_JanuaryC {
+    background: #76abcb;
+    border: 4px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/january/ice_cave_chasm_by_saxonsurokov_d7xqcxj-fullview.jpg) 40 stretch;
+    filter: drop-shadow(8px 8px 5px #263846);
+    height: auto;
+    left: -160%;
+    padding: 45px;
+    position: absolute;
+    top: 20%;
+    transition: all 0.55s linear;
+    width: auto;
+    z-index: 200;
+}
+
+.midiManagerNewPresetNameLabel_JanuaryC {
+    color: #031223;
+    filter: brightness(100%);
+    font-family: 'Oxanium', cursive;
+    font-size: 24px;
+    margin: 0 0 15px 0;
+}
+
+.midiManagerNewPresetNameInput_JanuaryC {
+    background: #9ac7de;
+    border: none;
+    color: #031223;
+    font-family: 'Oxanium', cursive;
+    font-size: 24px;
+    outline-color: #90acc3;
+    margin: 0 0 20px 0;
+    width: 30vw;
+}
+
+.midiManagerNewPresetNameModalButtons_JanuaryC {
+    display: flex;
+    height: auto;
+    margin: 0 0 5px 0;
+    padding: 0 25%;
+    width: 30vw;
+}
+
+.midiManagerModalButton_JanuaryC {
+    backdrop-filter: contrast(200%) hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #e1eef5;
+    color: #031223;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #263846);
+    font-family: 'Oxanium', cursive;
+    font-size: 18px;
+    margin: 15px;
+    outline-color: #90acc3;
+    transition: all 0.4s linear;
+}
+
+.midiManagerModalButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #092e58;
+    color: #092e58;
+    filter: brightness(150%) drop-shadow(2px 6px 5px #263846);
+    transition: all 0.4s linear;
+}
+
+.midiManagerModalButton_JanuaryC:active {
+    filter: brightness(250%) drop-shadow(0 0 0 #263846) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.midiManagerGuardrailModalButtons_JanuaryC {
+    display: flex;
+    height: auto;
+    margin: 0 0 5px 0;
+    padding: 0 35%;
+    width: 90%;
+}
+
+.midiManagerPanicOff_JanuaryC {
+    display: none;
+}
+
+.midiManagerPanicOn_JanuaryC {
+    height: 80%;
+    left: 25%;
+    opacity: 0.8;
+    position: absolute;
+    top: 10%;
+    width: 70%;
+    z-index: 200;
+}
+
+.midiManagerPanicOn_JanuaryC img {
+    opacity: 1;
+    width: 80%;
+}
