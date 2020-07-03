@@ -15,10 +15,11 @@ import './volcaDrum.style.janc.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaDrumImg1 from '../img/volcaDrumImg1.png';
 import midiConnection from '../midiManager/midiConnection';
+import axios from 'axios';
 
 let connections;
 
-function VolcaDrum() {
+function VolcaDrum(user, patch) {
         
     let midiOutput = null;
     let inputs = null;
@@ -41,6 +42,7 @@ function VolcaDrum() {
     const [midiConnections, setMidiConnections] = useState(undefined);
     const [panicState, setPanicState] = useState('volcaDrumPanicOff');
     const [currentSpinner, setCurrentSpinner] = useState(jancSpinner);
+    const [volcaDrumLoadModalState, setVolcaDrumLoadModalState] = useState('_Inactive');
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState([]);
@@ -52,6 +54,8 @@ function VolcaDrum() {
     const [volcaDrumMonth, setVolcaDrumMonth] = useState('_JanuaryC');
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [patchAltered, setPatchAltered] = useState(false);
+    const [loadPatchUuid, setLoadPatchUuid] = useState('');
+    const [userPatches, setUserPatches] = useState([]);
     const [activeLayers, setActiveLayers] = useState([
        true, false, false, false, false, false 
     ]);
@@ -66,9 +70,9 @@ function VolcaDrum() {
         waveGuide: {
             body: 0,
             decay: 0,
-            tune:0
+            tune: 0
         }
-    })
+    });
     const [currentPatch, setCurrentPatch] = useState([
         {
             layer1: {
@@ -401,7 +405,54 @@ function VolcaDrum() {
             patch: 0
         }
     ]);
+    const [currentPatchUuid, setCurrentPatchUuid] = useState('');
     
+    const cancelPatchLoad = () => {
+        setVolcaDrumLoadModalState('_Inactive');
+        setVolcaDrumContainerState('Active');
+    } 
+    
+    const loadSelectedPatch = () => {
+        axios.get(`/volca_drum_patches/patch/${loadPatchUuid}`)
+        .then(patchData => {
+            const loadPatch = patchData.data;
+            setGlobalParams(loadPatch.globalParams);
+            setCurrentPatch(loadPatch.patch.patch);
+            setCurrentPatchUuid(loadPatchUuid);
+            setPatchAltered(false);
+            if (currentOutput.send) {
+                sendVolcaDrumPatch();
+            }
+            cancelPatchLoad();
+        });
+    }
+    
+    const resetLoadPatchUuid = (val) => {
+        setLoadPatchUuid(val);
+    }
+    
+    const loadModalOn = () => {
+        setVolcaDrumLoadModalState('_Active');
+        setVolcaDrumContainerState('Inactive');
+        axios.get(`/volca_drum_patches/byuser/${user.uuid}`)
+        .then(patchesData => {
+            const loadPatches = patchesData.data.sort((a, b) => {
+                if (a.globalParams.name.toLowerCase() > b.globalParams.name.toLowerCase()) {
+                    return 1;
+                } else if (a.globalParams.name.toLowerCase() < b.globalParams.name.toLowerCase()) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+            setUserPatches(loadPatches);
+            let loadUuid = null;
+            if (patchesData.data.length > 0) {
+                loadUuid = patchesData.data[0].uuid;
+            }
+            setLoadPatchUuid(loadUuid);
+        });
+    }
     
     const openVolcaDrumAboutDiv = () => {
         setVolcaDrumContainerState('Inactive');
@@ -1052,7 +1103,9 @@ function VolcaDrum() {
             }
         }
         setCurrentPatch(newCurrent);
-        sendVolcaDrumPatch();
+        if (currentOutput.send) {
+            sendVolcaDrumPatch();
+        }
         setPatchAltered(true);
     }
     
@@ -1402,7 +1455,9 @@ function VolcaDrum() {
                 patch: 3
             }
         ]);
-        sendVolcaDrumPatch();
+        if (currentOutput.send) {
+            sendVolcaDrumPatch();
+        }
         setPatchAltered(true);
     }
     
@@ -2200,8 +2255,22 @@ function VolcaDrum() {
     }
         
     const submitSaveAsDialog = (val) => {
-       setSaveAsDialogStatus('Inactive'); 
-    setVolcaDrumContainerState('Active');
+        if (val === '') {
+            return;
+        } else {
+            const saveAsPatch = {
+                user_uuid: user.uuid,
+                globalParams: globalParams,
+                patch: {
+                    patch: currentPatch
+                }
+            }
+            saveAsPatch.globalParams.name = val;
+            axios.post(`/volca_drum_patches/patch`, saveAsPatch)
+            .then(() => {
+                cancelSaveAsDialog();
+            });
+        }
     }
     
     const cancelSaveAsDialog = () => {
@@ -2220,11 +2289,41 @@ function VolcaDrum() {
     }
     
     const savePatch = () => {
-        setPatchAltered(false);
+        const patchObj = {
+            user_uuid: user.uuid,
+            globalParams: globalParams,
+            patch: {
+                patch: currentPatch
+            }
+        };
+        if (currentPatchUuid === '') {
+            axios.post(`/volca_drum_patches/patch`, patchObj)
+            .then(responseData => {
+                setCurrentPatchUuid(responseData.data.uuid);
+                setPatchAltered(false);
+            });
+        } else {
+            axios.patch(`/volca_drum_patches/patch/${currentPatchUuid}`, patchObj)
+            .then(() => {
+                setPatchAltered(false);
+            });
+        }
     }
     
     const revertPatch = () => {
-        setPatchAltered(false);
+        if (currentPatchUuid !== '') {
+            axios.get(`/volca_drum_patches/patch/${currentPatchUuid}`)
+            .then(patchData => {
+                console.log(patchData.data);
+                const patchRevert = patchData.data;
+                setGlobalParams(patchRevert.globalParams);
+                setCurrentPatch(patchRevert.patch.patch);
+                setPatchAltered(false);
+                if (currentOutput.send) {
+                    sendVolcaDrumPatch();
+                }
+            });
+        }        
     }
     
     const patchNameUpdate = (val) => {
@@ -2537,6 +2636,8 @@ function VolcaDrum() {
                         
                     </div>
                     <h3 className={'volcaDrumEditorTitle' + volcaDrumMonth}>Volca Drum Editor</h3>
+                    <button className={'volcaDrumLoadButton' + volcaDrumMonth}
+                        onClick={() => loadModalOn()}>load</button>
                     <input className={'volcaPatchNameInput' + volcaDrumMonth}
                         onChange={(e) => patchNameUpdate(e.target.value)}
                         type="text"
@@ -3408,6 +3509,21 @@ function VolcaDrum() {
             </div>
             <div className={panicState + volcaDrumMonth}>
                 <img src={currentSpinner} />
+            </div>
+            <div className={'volcaDrumLoadModal' + volcaDrumLoadModalState + volcaDrumMonth}>
+                <div className={'volcaDrumLoadContainer' + volcaDrumMonth}>
+                    <p className={'volcaDrumLoadTitle' + volcaDrumMonth}>Load Volca Drum Patch</p>
+                    <select className={'volcaDrumLoadSelector' + volcaDrumMonth}
+                        onChange={(e) => {resetLoadPatchUuid(e.target.value)}}
+                        value={loadPatchUuid}>
+                        {userPatches.map(patch => (
+                                <option key={patch.uuid} value={patch.uuid}>{patch.globalParams.name}</option>))}
+                    </select>
+                    <button className={'volcaDrumLoadLoadButton' + volcaDrumMonth}
+                        onClick={() => loadSelectedPatch()}>load</button>
+                    <button className={'volcaDrumLoadCancelButton' + volcaDrumMonth}
+                        onClick={() => cancelPatchLoad()}>cancel</button>
+                </div>
             </div>
         </div>
         );
