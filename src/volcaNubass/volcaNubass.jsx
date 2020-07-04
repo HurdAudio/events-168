@@ -12,6 +12,7 @@ import {
 import './volcaNubass.style.jana.css';
 import './volcaNubass.style.janb.css';
 import './volcaNubass.style.janc.css';
+import './volcaNubass.style.feba.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaNubassImg1 from '../img/volcaNubassImg1.png';
 import axios from 'axios';
@@ -28,6 +29,7 @@ function VolcaNubass(user, patch) {
     const januaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif';
     const januaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif';
     const januaryCSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif';
+    const februaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif';
 
     let midiOutput = null;
     let inputs = null;
@@ -42,8 +44,8 @@ function VolcaNubass(user, patch) {
     const [volcaNubassLoadModalState, setVolcaNubassLoadModalState] = useState('_Inactive');
     const [userPatches, setUserPatches] = useState([]);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
-    const [currentSpinner, setCurrentSpinner] = useState(januaryCSpinner);
-    const [volcaNubassEditMonth, setVolcaNubassEditMonth] = useState('_JanuaryC');
+    const [currentSpinner, setCurrentSpinner] = useState(februaryASpinner);
+    const [volcaNubassEditMonth, setVolcaNubassEditMonth] = useState('_FebruaryA');
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState(0);
