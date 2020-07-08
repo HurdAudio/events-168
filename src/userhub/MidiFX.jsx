@@ -11,6 +11,7 @@ import './userhub.style.janb.css';
 import './userhub.style.janc.css';
 import './userhub.style.feba.css';
 import './userhub.style.febb.css';
+import './userhub.style.febc.css';
 import midi5pin from '../img/midi5pin.svg';
 import axis from '../img/axis.svg';
 
@@ -80,7 +81,7 @@ const midiGlitches = [
 
 function MidiFX() {
     
-    const [midiFXMonth, setMidiFXMonth] = useState('_FebruaryB');
+    const [midiFXMonth, setMidiFXMonth] = useState('_FebruaryC');
     
         return(
             <div className={'homeContainer' + midiFXMonth}>
