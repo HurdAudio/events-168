@@ -18,11 +18,13 @@ import './userhub.style.janb.css';
 import './userhub.style.janc.css';
 import './userhub.style.feba.css';
 import './userhub.style.febb.css';
+import './userhub.style.febc.css';
 import midi5pin from '../img/midi5pin.svg';
 import redMIDI from '../img/redMIDI.png';
 import vectorMidiPng from '../img/vectorMidiPng.png';
 import febaMidi_0 from '../img/febaMidi_0.png';
 import midiKeys from '../img/midiKeys.png';
+import bleu_midi_icon from '../img/bleu_midi_icon.png';
 import VolcaFm from '../volcaFm/volcaFm';
 import VolcaNubass from '../volcaNubass/volcaNubass';
 import VolcaDrum from '../volcaDrum/volcaDrum';
@@ -58,7 +60,7 @@ function UserHub() {
     const [currentOutput, setCurrentOutput] = useState([]);
     const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
     const [user, setUser] = useState({});
-    const [userhubMonth, setUserhubMonth] = useState('_FebruaryB');
+    const [userhubMonth, setUserhubMonth] = useState('_FebruaryC');
     const [userhubState, setUserhubState] = useState({
         home: 'homeContentActive',
         homeDiv: 'homeContentOn',
@@ -74,7 +76,7 @@ function UserHub() {
         socialDiv: 'soccialOff',
         tab: 'sliderTabHome'
     });
-    const [panicMonth, setPanicMonth] = useState('_FebruaryB');
+    const [panicMonth, setPanicMonth] = useState('_FebruaryC');
     const [panicOn, setPanicOn] = useState(false);
     
     const hubStateHome = () => {
@@ -264,7 +266,7 @@ function UserHub() {
                 <div className={'userHubContainer' + userhubMonth}>
                     <div className={'userHubImageDiv' + userhubMonth}>
                         <img className={'userHubLogoImg' + userhubMonth}
-                            src={midiKeys}></img>
+                            src={bleu_midi_icon}></img>
                         <div className={'userHubTitleBar' + userhubMonth}>
                             <h2 className={'userHubTitle' + userhubMonth}>168 Events</h2>
                             <div className={'userHubLoggedInAsDiv' + userhubMonth}>

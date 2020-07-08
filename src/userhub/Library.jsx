@@ -12,6 +12,7 @@ import './userhub.style.janb.css';
 import './userhub.style.janc.css';
 import './userhub.style.feba.css';
 import './userhub.style.febb.css';
+import './userhub.style.febc.css';
 import midi5pin from '../img/midi5pin.svg';
 import book from '../img/book.svg';
 
@@ -82,7 +83,7 @@ const midiDevices = [
 function Library() {
     
     const [user, setUser] = useState({});
-    const [libraryMonth, setLibraryMonth] = useState('_FebruaryB');
+    const [libraryMonth, setLibraryMonth] = useState('_FebruaryC');
     const [patchEditorState, setPatchEditorState] = useState({
         path: midiDevices[0].path,
         patchManager: midiDevices[0].patchManager,
