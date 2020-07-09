@@ -22,12 +22,12 @@ function randomizeArray(arr, days) {
 
 //const days = 31;
 //
-//let arr = ['_JanuaryA'];
+//let arr = [{ skin: '_JanuaryA'}];
 //
 //for (let i = 0; i < 10; i++) {
-//    arr.push('_JanuaryC');
-//    arr.push('_JanuaryB');
-//    arr.push('_JanuaryA')
+//    arr.push({ skin: '_JanuaryC' });
+//    arr.push({ skin: '_JanuaryB' });
+//    arr.push({ skin: '_JanuaryA' });
 //}
 
 const days = 29
@@ -35,11 +35,11 @@ const days = 29
 let arr = [];
 
 for (let i = 0; i < 9; i++) {
-    arr.push('_FebruaryA');
+    arr.push({ skin: '_FebruaryA' });
 }
 for (let i = 0; i < 10; i++) {
-    arr.push('_FebruaryB');
-    arr.push('_FebruaryC');
+    arr.push({ skin: '_FebruaryB' });
+    arr.push({ skin: '_FebruaryC' });
 }
 
 //const days = 31;
