@@ -10,13 +10,15 @@ import './login.style.febc.css';
 import CheckStatus from './checkLoginStatus';
 import EncryptPassword from './encryptPassword';
 import SetStatus from './setLoginStatus';
+import SkinsTable from '../skins/skins';
 import axios from 'axios';
 
 
 function Login() {
     
-//    const [loginMonth, setLoginMonth] = useState('_JanuaryA');
-    const loginMonth = '_FebruaryC';
+    const skins = SkinsTable('login');
+    
+    const [loginMonth, setLoginMonth] = useState(skins.login.skin);
     const [errorMessage, setErrorMessage] = useState('');
     const [emailValue, setEmailValue] = useState('');
     const [passwordValue, setPasswordValue] = useState('');

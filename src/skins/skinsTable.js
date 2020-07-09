@@ -291,6 +291,221 @@ function Table(access) {
             october: [31],
             november: [30],
             december: [31]
+        },
+        login: {
+            available: [
+                {
+                    skin: '_JanuaryA'
+                },
+                        {
+                    skin: '_JanuaryB'            
+                },
+                        {
+                    skin: '_JanuaryC'           
+                },
+                        {
+                    skin: '_FebruaryA'           
+                },
+                        {
+                    skin: '_FebruaryB'           
+                },
+                        {
+                    skin: '_FebruaryC'          
+                }
+                       ],
+            january: [ 31, 
+                      { 
+                          skin: '_JanuaryC' 
+                }, 
+                      { 
+                          skin: '_JanuaryB' 
+                },
+                      { 
+                          skin: '_JanuaryA' 
+                },
+                      { 
+                          skin: '_JanuaryA' 
+                },
+                      { 
+                          skin: '_JanuaryA' 
+                },
+                      { 
+                          skin: '_JanuaryA' 
+                },
+                      { 
+                          skin: '_JanuaryA' 
+                },
+                      { 
+                          skin: '_JanuaryB' 
+                },
+                      { 
+                          skin: '_JanuaryB' 
+                },
+                      { 
+                          skin: '_JanuaryB' 
+                },
+                      { 
+                          skin: '_JanuaryA' 
+                },
+                      { 
+                          skin: '_JanuaryA' 
+                },
+                      { 
+                          skin: '_JanuaryC' 
+                },
+                      { 
+                          skin: '_JanuaryC' 
+                },
+                      { 
+                          skin: '_JanuaryC' 
+                },
+                      { 
+                          skin: '_JanuaryC' 
+                },
+                      { 
+                          skin: '_JanuaryA' 
+                },
+                      { 
+                          skin: '_JanuaryC' 
+                },
+                      { 
+                          skin: '_JanuaryB' 
+                },
+                      { 
+                          skin: '_JanuaryC' 
+                },
+                      { 
+                          skin: '_JanuaryB' 
+                },
+                      { 
+                          skin: '_JanuaryC' 
+                },
+                      { 
+                          skin: '_JanuaryA' 
+                },
+                      { 
+                          skin: '_JanuaryC' 
+                },
+                      { 
+                          skin: '_JanuaryA' 
+                },
+                      { 
+                          skin: '_JanuaryA' 
+                },
+                      { 
+                          skin: '_JanuaryB' 
+                },
+                      { 
+                          skin: '_JanuaryB' 
+                },
+                      { 
+                          skin: '_JanuaryB' 
+                },
+                      { 
+                          skin: '_JanuaryB' 
+                },
+                      { skin: '_JanuaryC' 
+                } 
+            ],
+            february: [ 29,
+                       { 
+                           skin: '_FebruaryB' 
+                },
+                       { 
+                           skin: '_FebruaryA' 
+                },
+                       { 
+                           skin: '_FebruaryB' 
+                },
+                       { 
+                           skin: '_FebruaryC' 
+                },
+                       { 
+                           skin: '_FebruaryA' 
+                },
+                       { 
+                           skin: '_FebruaryA' 
+                },
+                       { 
+                           skin: '_FebruaryC' 
+                },
+                       { 
+                           skin: '_FebruaryC' 
+                },
+                       { 
+                           skin: '_FebruaryC' 
+                },
+                       { 
+                           skin: '_FebruaryA' 
+                },
+                       { 
+                           skin: '_FebruaryB' 
+                },
+                       { 
+                           skin: '_FebruaryC' 
+                },
+                       { 
+                           skin: '_FebruaryC' 
+                },
+                       { 
+                           skin: '_FebruaryC' 
+                },
+                       { 
+                           skin: '_FebruaryA' 
+                },
+                       { 
+                           skin: '_FebruaryA' 
+                },
+                       { 
+                           skin: '_FebruaryB' 
+                },
+                       { 
+                           skin: '_FebruaryB' 
+                },
+                       { 
+                           skin: '_FebruaryC' 
+                },
+                       { 
+                           skin: '_FebruaryA' 
+                },
+                       { 
+                           skin: '_FebruaryB' 
+                },
+                       { 
+                           skin: '_FebruaryA' 
+                },
+                       { 
+                           skin: '_FebruaryA' 
+                },
+                       { 
+                           skin: '_FebruaryB' 
+                },
+                       { 
+                           skin: '_FebruaryC' 
+                },
+                       { 
+                           skin: '_FebruaryB' 
+                },
+                       { 
+                           skin: '_FebruaryB' 
+                },
+                       { 
+                           skin: '_FebruaryC' 
+                },
+                       { 
+                           skin: '_FebruaryB' 
+                } 
+            ],
+            march: [31],
+            april: [30],
+            may: [31],
+            june: [30],
+            july: [31],
+            august: [31],
+            september: [30],
+            october: [31],
+            november: [30],
+            december: [31]
         }
     });
 }
