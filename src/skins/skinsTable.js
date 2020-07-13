@@ -5,6 +5,7 @@ import vectorMidiPng from '../img/vectorMidiPng.png';
 import febaMidi_0 from '../img/febaMidi_0.png';
 import midiKeys from '../img/midiKeys.png';
 import bleu_midi_icon from '../img/bleu_midi_icon.png';
+import midiPortCropped1 from '../img/midiPortCropped1.jpg';
 
 
 function Table(access) {
@@ -35,6 +36,10 @@ function Table(access) {
                         {
                     logo: bleu_midi_icon,
                     skin: '_FebruaryC'          
+                },
+                        {
+                    logo: midiPortCropped1,
+                    skin: '_MarchA'          
                 }
                        ],
             january: [ 31,      
