@@ -412,7 +412,7 @@
 }
 
 .volcaFmPatchManakerDeleteChar_JanuaryA {
-   color: #387bc2;
+    color: #387bc2;
     cursor: pointer;
     filter: brightness(220%) contrast(150%) saturate(100%);
     font-family: 'Tomorrow', sans-serif;
