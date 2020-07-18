@@ -26,6 +26,7 @@ const midiDevices = [
     },
     {
         uuid: '149c3b5d-74f7-4241-bcb9-b907dea6081f',
+        patchManager: '/volca-nubass-patch-manager',
         name: 'korg nubass',
         path: '/volca-nubass-editor',
         component: '<volcaNubass />'
@@ -97,12 +98,16 @@ function Library() {
     const [patchEditorActive, setPatchEditorActive] = useState(false);
     
     const updateManagerPath = (val) => {
+        console.log(val);
         let path, component, patchManager;
         
         for (let i = 0; i < midiDevices.length; i++) {
-            path = midiDevices[i].path;
-            patchManager = midiDevices[i].patchManager;
-            component = midiDevices[i].component;
+            if (midiDevices[i].uuid === val) {
+                path = midiDevices[i].path;
+                patchManager = midiDevices[i].patchManager;
+                component = midiDevices[i].component;
+            }
+            
         }
         setPatchManagerState({
             path: path,
@@ -178,8 +183,6 @@ function Library() {
                         </select>
                         <button className={'homeButtons' + libraryMonth}>patch market</button>
                     </div>
-
-
                 </div>
         );
     

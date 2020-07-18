@@ -87,4 +87,39 @@ router.post('/patch', (req, res, next) => {
       });
 });
 
+router.delete('/:uuid', (req, res, next) => {
+    let record;
+    
+      knex('volca_nubass_patches')
+        .where('uuid', req.params.uuid)
+        .first()
+        .then((row) => {
+          if (!row) {
+            return next();
+          }
+          record = row;
+          return knex('volca_nubass_patches')
+            .del()
+            .where('uuid', req.params.uuid);
+        })
+        .then(() => {
+          var holder = record.uuid;
+          delete record.uuid;
+          var obj = {
+            uuid: holder,
+            user_uuid: record.user_uuid,
+            nubass_parameters: record.nubass_parameters,
+            nubass_faceplate_params: record.nubass_faceplate_params,
+            global_params: record.global_params,
+            created_at: record.created_at,
+            updated_at: record.updated_at
+          };
+
+          res.send({deleted: req.params.uuid});
+        })
+        .catch((err) => {
+          next(err);
+        });
+    });
+
 module.exports = router;
