@@ -17,7 +17,7 @@ function VolcaFmPatchTransmitter(patch, currentOutput, currentMidiChannel) {
     
     sendSysexDump();
     for (let i = 0; i < controlMessages.length; i++) {
-        currentOutput.send(patch, currentMidiChannel, controlMessages[i])
+        currentOutput.send(VolcaFmControlChangeMessages(patch, currentMidiChannel, controlMessages[i]))
     }
 }
 

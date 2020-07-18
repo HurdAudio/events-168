@@ -12,6 +12,7 @@ import {
 import midi5pin from '../img/midi5pin.svg';
 import VolcaNubass from '../volcaNubass/volcaNubass';
 import './volcaNubassPatchManager.style.jana.css';
+import VolcaNubassPatchTransmitter from './volcaNubassPatchTransmitter';
 import axios from 'axios';
 import uuid4 from 'uuid4';
 
@@ -426,7 +427,7 @@ function VolcaNubassPatchManager(user, banks) {
                 patch = userPatches[i];
             }
         }
-//        VolcaNubassPatchTransmitter(patch, currentOutput, currentMidiChannel);
+        VolcaNubassPatchTransmitter(patch, currentOutput, currentMidiChannel);
     }
     
     const makePatchPatchCurrent = (val) => {
@@ -439,7 +440,7 @@ function VolcaNubassPatchManager(user, banks) {
                 patch = userPatches[i];
             }
         }
-//        VolcaNubassPatchTransmitter(patch, currentOutput, currentMidiChannel);
+        VolcaNubassPatchTransmitter(patch, currentOutput, currentMidiChannel);
     }
     
     const changeBankEdit = (val) => {
