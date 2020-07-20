@@ -12,6 +12,7 @@ import {
 import sampleImage from '../img/sampleImage.png';
 import './gr1Editor.style.jana.css';
 import './gr1Editor.style.janb.css';
+import './gr1Editor.style.janc.css';
 import midi5pin from '../img/midi5pin.svg';
 import midiConnection from '../midiManager/midiConnection';
 
@@ -19,6 +20,7 @@ let connections;
 
 const januaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/spinners/unnamed_GR1_spinner.gif';
 const januaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/spinners/loading51.gif';
+const januaryCSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/spinners/JVQ25yB.gif';
 
 function Gr1Editor(user, patch) {
         
@@ -41,7 +43,7 @@ function Gr1Editor(user, patch) {
     const [gr1ContainerState, setGr1ContainerState] = useState('_Active');
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('_Inactive');
     const [aboutGR1DivState, setAboutGR1DivState] = useState('_Inactive');
-    const [currentSpinner, setCurrentSpinner] = useState(januaryBSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(januaryCSpinner);
     const [saveAsName, setSaveAsName] = useState('');
     const [currentOutput, setCurrentOutput] = useState([]);
     const [midiConnections, setMidiConnections] = useState(undefined);
@@ -49,7 +51,7 @@ function Gr1Editor(user, patch) {
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
-    const [gr1Month, setGr1Month] = useState('_JanuaryB');
+    const [gr1Month, setGr1Month] = useState('_JanuaryC');
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [patchAltered, setPatchAltered] = useState(false);
     const [globalParams, setGlobalParams] =  useState({
