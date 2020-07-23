@@ -799,7 +799,7 @@ function VolcaNubassPatchManager(user, banks) {
             .then(onMIDISuccess, onMIDIFailure);
     }
 
-    initiateMidiAccess();
+//    initiateMidiAccess();
     
     const getCurrentBankName = () => {
         let index = null;

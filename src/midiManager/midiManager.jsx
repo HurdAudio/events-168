@@ -11,87 +11,17 @@ import midi5pin from '../img/midi5pin.svg';
 import './midiManager.style.jana.css';
 import './midiManager.style.janb.css';
 import './midiManager.style.janc.css';
-import midiConnection from '../midiManager/midiConnection';
+import midiConnection from './midiConnection';
+import AvailableDevices from './availableDevices';
 import UUID from 'uuidjs';
+import axios from 'axios';
 
 let connections = {
     inputs: [],
     outputs:[]
 };
 
-const availableDevices = [
-    {
-        device: 'no device',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/keyboard-2779734_1280.png',
-        uuid: '0'
-    },
-    {
-        device: 'Arturia Microfreak',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/microfreak-image.png',
-        uuid: '5e3a4543-97c4-43eb-b1a0-b90a1ca13ffe'
-    },
-    {
-        device: 'Bastil Thyme',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/bastl-instruments-thyme.jpg',
-        uuid: 'fc30dcf7-aeba-4a66-8630-0ec44622231d'
-    },
-    {
-        device: 'Eventide Space',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/Space-Right.png',
-        uuid: 'afc43874-1311-471c-871d-ac2243d014c9'
-    },
-    {
-        device: 'Expressive E Osmose',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/ek49_001_front_tranche.png',
-        uuid: '7d35e14a-9f36-425a-a8c4-be778de841f3'
-    },
-    {
-        device: 'Gamechanger Audio Motor Synth',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/xkkm8romonmuu44oonbd.jpeg',
-        uuid: 'd18af509-2452-4055-9ce2-e7a91ea61233'
-    },
-    {
-        device: 'Korg Kaoss Pad 3',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/ccs-14-0-17985500-1442954524.png',
-        uuid: '88947b9b-9c2a-45c6-944c-05c4cbff494d'
-    },
-    {
-        device: 'Korg SV-1',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/straight-73_634625749518950000.png',
-        uuid: '13cb42f1-451f-4906-95ea-a135885a1133'
-    },
-    {
-        device: 'Korg Volca Drum',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/7d9e95d93948da4072dadc31fd718325_pc.png',
-        uuid: '3abd3875-667e-4098-abdb-12910b43ba2f'
-    },
-    {
-        device: 'Korg Volca FM',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/b3773bb133b4062103d9807e45bb300c_sp.png',
-        uuid: 'e3bfacf5-499a-4247-b512-2c4bd15861ad'
-    },
-    {
-        device: 'Korg Volca Nubass',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/07887ab0a1001f02a115e9c90af92da6_sp.png',
-        uuid: 'bda73d0e-c18c-472e-add6-1e1a4f123949'
-    },
-    {
-        device: 'M-Audio Venom',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/venom.jpeg',
-        uuid: 'c725bfdd-8829-477d-a0dc-d9b95ddc2189'
-    },
-    {
-        device: 'Tasty Chips GR-1',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/tastychipselectronics_gr-1_01.jpg',
-        uuid: '2ce7d861-1f69-4294-9e0b-cf537b950e04'
-    },
-    {
-        device: 'Tubbutec µTune',
-        imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/PanelFrontFinalSmaller-withwhiteboarder.jpg',
-        uuid: '72e96c46-809c-408d-8c5d-d44e450f3421'
-    }
-
-];
+const availableDevices = AvailableDevices();
 
 const januaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/dynamic-scifi-hud-element.gif';
 const januaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/2316bf07d0598a9892debf49f09b4f03.gif';
@@ -110,545 +40,24 @@ function MidiManager(user, config) {
                 {
                     channel: 0,
                     controller: true,
-                    device: 'Korg SV-1',
-                    deviceUuid: '13cb42f1-451f-4906-95ea-a135885a1133',
-                    hardwareIn: 'Alyseum U3-88c A Port 1',
-                    label: 'SV-1'
-                },
-                {
-                    channel: 0,
-                    controller: true,
-                    device: 'Expressive E Osmose',
-                    deviceUuid: '7d35e14a-9f36-425a-a8c4-be778de841f3',
-                    hardwareIn: 'Alyseum U3-88c A Port 2',
-                    label: 'Osmose'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'Arturia Microfreak',
-                    deviceUuid: '5e3a4543-97c4-43eb-b1a0-b90a1ca13ffe',
-                    hardwareIn: 'Alyseum U3-88c A Port 3',
-                    label: 'Microfreak'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'Tubbutec µTune',
-                    deviceUuid: '72e96c46-809c-408d-8c5d-d44e450f3421',
-                    hardwareIn: 'Alyseum U3-88c A Port 4',
-                    label: 'µTune'
-                },
-                {
-                    channel: 0,
-                    controller: true,
-                    device: 'Korg Kaoss Pad 3',
-                    deviceUuid: '88947b9b-9c2a-45c6-944c-05c4cbff494d',
-                    hardwareIn: 'Alyseum U3-88c A Port 5',
-                    label: 'Kaoss Pad 3'
-                },
-                {
-                    channel: 0,
-                    controller: false,
                     device: 'no device',
                     deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 6',
-                    label: '<--empty-->'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 7',
-                    label: '<--empty-->'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 8',
+                    hardwareIn: 'Port 1',
                     label: '<--empty-->'
                 }
             ],
             name: 'default',
             outputs: [
                 {
-                    activeReciever: true,
-                    channel: 0,
-                    device: 'Korg Volca FM',
-                    deviceUuid: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
-                    hardwareIn: 'Alyseum U3-88c A Port 1',
-                    label: 'Volca FM 1'
-                },
-                {
                     activeReciever: false,
                     channel: 0,
-                    device: 'Korg Volca FM',
-                    deviceUuid: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
-                    hardwareIn: 'Alyseum U3-88c A Port 2',
-                    label: 'Volca FM 2'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca FM',
-                    deviceUuid: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
-                    hardwareIn: 'Alyseum U3-88c A Port 3',
-                    label: 'Volca FM 3'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca FM',
-                    deviceUuid: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
-                    hardwareIn: 'Alyseum U3-88c A Port 4',
-                    label: 'Volca FM 4'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca Nubass',
-                    deviceUuid: 'bda73d0e-c18c-472e-add6-1e1a4f123949',
-                    hardwareIn: 'Alyseum U3-88c A Port 5',
-                    label: 'Volca Nubass'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca Drum',
-                    deviceUuid: '3abd3875-667e-4098-abdb-12910b43ba2f',
-                    hardwareIn: 'Alyseum U3-88c A Port 6',
-                    label: 'Volca Drum'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Tasty Chips GR-1',
-                    deviceUuid: '2ce7d861-1f69-4294-9e0b-cf537b950e04',
-                    hardwareIn: 'Alyseum U3-88c A Port 7',
-                    label: 'GR-1'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Arturia Microfreak',
-                    deviceUuid: '5e3a4543-97c4-43eb-b1a0-b90a1ca13ffe',
-                    hardwareIn: 'Alyseum U3-88c A Port 8',
-                    label: 'Microfreak'
-                }
-            ],
-            uuid: '08f89162-6bdf-47e1-b128-df6d8f1d2d26'
-        },
-        {
-            inputs: [
-                {
-                    channel: 0,
-                    controller: true,
-                    device: 'Korg SV-1',
-                    deviceUuid: '13cb42f1-451f-4906-95ea-a135885a1133',
-                    hardwareIn: 'Alyseum U3-88c A Port 1',
-                    label: 'SV-1'
-                },
-                {
-                    channel: 0,
-                    controller: true,
-                    device: 'Expressive E Osmose',
-                    deviceUuid: '7d35e14a-9f36-425a-a8c4-be778de841f3',
-                    hardwareIn: 'Alyseum U3-88c A Port 2',
-                    label: 'Osmose'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'Arturia Microfreak',
-                    deviceUuid: '5e3a4543-97c4-43eb-b1a0-b90a1ca13ffe',
-                    hardwareIn: 'Alyseum U3-88c A Port 3',
-                    label: 'Microfreak'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'Tubbutec µTune',
-                    deviceUuid: '72e96c46-809c-408d-8c5d-d44e450f3421',
-                    hardwareIn: 'Alyseum U3-88c A Port 4',
-                    label: 'µTune'
-                },
-                {
-                    channel: 0,
-                    controller: true,
-                    device: 'Korg Kaoss Pad 3',
-                    deviceUuid: '88947b9b-9c2a-45c6-944c-05c4cbff494d',
-                    hardwareIn: 'Alyseum U3-88c A Port 5',
-                    label: 'Kaoss Pad 3'
-                },
-                {
-                    channel: 0,
-                    controller: false,
                     device: 'no device',
                     deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 6',
-                    label: '<--empty-->'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 7',
-                    label: '<--empty-->'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 8',
+                    hardwareIn: 'Port 1',
                     label: '<--empty-->'
                 }
             ],
-            name: 'volca setup',
-            outputs: [
-                {
-                    activeReciever: true,
-                    channel: 0,
-                    device: 'Korg Volca FM',
-                    deviceUuid: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
-                    hardwareIn: 'Alyseum U3-88c A Port 1',
-                    label: 'Volca FM 1'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca FM',
-                    deviceUuid: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
-                    hardwareIn: 'Alyseum U3-88c A Port 2',
-                    label: 'Volca FM 2'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca FM',
-                    deviceUuid: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
-                    hardwareIn: 'Alyseum U3-88c A Port 3',
-                    label: 'Volca FM 3'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca FM',
-                    deviceUuid: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
-                    hardwareIn: 'Alyseum U3-88c A Port 4',
-                    label: 'Volca FM 4'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca Nubass',
-                    deviceUuid: 'bda73d0e-c18c-472e-add6-1e1a4f123949',
-                    hardwareIn: 'Alyseum U3-88c A Port 5',
-                    label: 'Volca Nubass'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca Drum',
-                    deviceUuid: '3abd3875-667e-4098-abdb-12910b43ba2f',
-                    hardwareIn: 'Alyseum U3-88c A Port 6',
-                    label: 'Volca Drum'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Bastil Thyme',
-                    deviceUuid: 'fc30dcf7-aeba-4a66-8630-0ec44622231d',
-                    hardwareIn: 'Alyseum U3-88c A Port 7',
-                    label: 'Thyme'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Eventide Space',
-                    deviceUuid: 'afc43874-1311-471c-871d-ac2243d014c9',
-                    hardwareIn: 'Alyseum U3-88c A Port 8',
-                    label: 'Space'
-                }
-            ],
-            uuid: '47ea7b8f-9601-442c-9a4c-58bec571f2c3'
-        },
-        {
-            inputs: [
-                {
-                    channel: 0,
-                    controller: true,
-                    device: 'Korg SV-1',
-                    deviceUuid: '13cb42f1-451f-4906-95ea-a135885a1133',
-                    hardwareIn: 'Alyseum U3-88c A Port 1',
-                    label: 'SV-1'
-                },
-                {
-                    channel: 0,
-                    controller: true,
-                    device: 'Expressive E Osmose',
-                    deviceUuid: '7d35e14a-9f36-425a-a8c4-be778de841f3',
-                    hardwareIn: 'Alyseum U3-88c A Port 2',
-                    label: 'Osmose'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 3',
-                    label: '<--empty-->'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 4',
-                    label: '<--empty-->'
-                },
-                {
-                    channel: 0,
-                    controller: true,
-                    device: 'Korg Kaoss Pad 3',
-                    deviceUuid: '88947b9b-9c2a-45c6-944c-05c4cbff494d',
-                    hardwareIn: 'Alyseum U3-88c A Port 5',
-                    label: 'Kaoss Pad 3'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 6',
-                    label: '<--empty-->'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 7',
-                    label: '<--empty-->'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 8',
-                    label: '<--empty-->'
-                }
-            ],
-            name: 'live rig',
-            outputs: [
-                {
-                    activeReciever: true,
-                    channel: 0,
-                    device: 'Korg Volca FM',
-                    deviceUuid: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
-                    hardwareIn: 'Alyseum U3-88c A Port 1',
-                    label: 'Volca FM 1'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca FM',
-                    deviceUuid: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
-                    hardwareIn: 'Alyseum U3-88c A Port 2',
-                    label: 'Volca FM 2'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'M-Audio Venom',
-                    deviceUuid: 'c725bfdd-8829-477d-a0dc-d9b95ddc2189',
-                    hardwareIn: 'Alyseum U3-88c A Port 3',
-                    label: 'Venom'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Tubbutec µTune',
-                    deviceUuid: '72e96c46-809c-408d-8c5d-d44e450f3421',
-                    deviceUuid: '72e96c46-809c-408d-8c5d-d44e450f3421',
-                    hardwareIn: 'Alyseum U3-88c A Port 4',
-                    label: 'µTune'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca Nubass',
-                    deviceUuid: 'bda73d0e-c18c-472e-add6-1e1a4f123949',
-                    hardwareIn: 'Alyseum U3-88c A Port 5',
-                    label: 'Volca Nubass'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca Drum',
-                    deviceUuid: '3abd3875-667e-4098-abdb-12910b43ba2f',
-                    hardwareIn: 'Alyseum U3-88c A Port 6',
-                    label: 'Volca Drum'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Bastil Thyme',
-                    deviceUuid: 'fc30dcf7-aeba-4a66-8630-0ec44622231d',
-                    hardwareIn: 'Alyseum U3-88c A Port 7',
-                    label: 'Thyme'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Eventide Space',
-                    deviceUuid: 'afc43874-1311-471c-871d-ac2243d014c9',
-                    hardwareIn: 'Alyseum U3-88c A Port 8',
-                    label: 'Space'
-                }
-            ],
-            uuid: 'ca90f090-60fb-4cac-9cfe-bf822cac99dd'
-        },
-        {
-            inputs: [
-                {
-                    channel: 0,
-                    controller: true,
-                    device: 'Korg SV-1',
-                    deviceUuid: '13cb42f1-451f-4906-95ea-a135885a1133',
-                    hardwareIn: 'Alyseum U3-88c A Port 1',
-                    label: 'SV-1'
-                },
-                {
-                    channel: 0,
-                    controller: true,
-                    device: 'Expressive E Osmose',
-                    deviceUuid: '7d35e14a-9f36-425a-a8c4-be778de841f3',
-                    hardwareIn: 'Alyseum U3-88c A Port 2',
-                    label: 'Osmose'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'Arturia Microfreak',
-                    deviceUuid: '5e3a4543-97c4-43eb-b1a0-b90a1ca13ffe',
-                    hardwareIn: 'Alyseum U3-88c A Port 3',
-                    label: 'Microfreak'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'Tubbutec µTune',
-                    deviceUuid: '72e96c46-809c-408d-8c5d-d44e450f3421',
-                    hardwareIn: 'Alyseum U3-88c A Port 4',
-                    label: 'µTune'
-                },
-                {
-                    channel: 0,
-                    controller: true,
-                    device: 'Korg Kaoss Pad 3',
-                    deviceUuid: '88947b9b-9c2a-45c6-944c-05c4cbff494d',
-                    hardwareIn: 'Alyseum U3-88c A Port 5',
-                    label: 'Kaoss Pad 3'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 6',
-                    label: '<--empty-->'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 7',
-                    label: '<--empty-->'
-                },
-                {
-                    channel: 0,
-                    controller: false,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 8',
-                    label: '<--empty-->'
-                }
-            ],
-            name: 'tasty chips gr-1 centric',
-            outputs: [
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Tasty Chips GR-1',
-                    deviceUuid: '2ce7d861-1f69-4294-9e0b-cf537b950e04',
-                    hardwareIn: 'Alyseum U3-88c A Port 1',
-                    label: 'GR-1'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Bastil Thyme',
-                    deviceUuid: 'fc30dcf7-aeba-4a66-8630-0ec44622231d',
-                    hardwareIn: 'Alyseum U3-88c A Port 2',
-                    label: 'Thyme'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Eventide Space',
-                    deviceUuid: 'afc43874-1311-471c-871d-ac2243d014c9',
-                    hardwareIn: 'Alyseum U3-88c A Port 3',
-                    label: 'Space'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Arturia Microfreak',
-                    deviceUuid: '5e3a4543-97c4-43eb-b1a0-b90a1ca13ffe',
-                    hardwareIn: 'Alyseum U3-88c A Port 4',
-                    label: 'Microfreak'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg SV-1',
-                    deviceUuid: '13cb42f1-451f-4906-95ea-a135885a1133',
-                    hardwareIn: 'Alyseum U3-88c A Port 5',
-                    label: 'SV-1'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'Korg Volca Drum',
-                    deviceUuid: '3abd3875-667e-4098-abdb-12910b43ba2f',
-                    hardwareIn: 'Alyseum U3-88c A Port 6',
-                    label: 'Volca Drum'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 7',
-                    label: '<--empty-->'
-                },
-                {
-                    activeReciever: false,
-                    channel: 0,
-                    device: 'no device',
-                    deviceUuid: '0',
-                    hardwareIn: 'Alyseum U3-88c A Port 8',
-                    label: '<--empty-->'
-                }
-            ],
-            uuid: '9ee880c2-3a38-4647-8424-96ebf555ac33'
+            uuid: '0'
         }
     ]);
     const [currentPreset, setCurrentPreset] = useState(userPresets[0]);
@@ -698,7 +107,111 @@ function MidiManager(user, config) {
     }
     
     const checkMidiConnections = () => {
-        navigator.requestMIDIAccess({ sysex: true })
+        if ((userPresets.length === 1) && (userPresets[0].uuid === '0')) {
+            axios.get(`/midi_manager_patches/byuser/${user.uuid}`)
+            .then(userConnectionsData => {
+                let aStr, bStr;
+                const userConnections = userConnectionsData.data.sort((a, b) => {
+                    if (a.user_preset.name.toLowerCase().slice[0, 4] === 'the ') {
+                        aStr = a.user_preset.name.toLowerCase().slice[4];
+                    } else if (a.user_preset.name.toLowerCase().slice[0, 2] === 'a ') {
+                        aStr = a.user_preset.name.toLowerCase().slice[2];
+                    } else {
+                        aStr = a.user_preset.name.toLowerCase();
+                    }
+                    if (b.user_preset.name.toLowerCase().slice[0, 4] === 'the ') {
+                        bStr = b.user_preset.name.toLowerCase().slice[4];
+                    } else if (b.user_preset.name.toLowerCase().slice[0, 2] === 'a ') {
+                        bStr = b.user_preset.name.toLowerCase().slice[2];
+                    } else {
+                        bStr = b.user_preset.name.toLowerCase();
+                    }
+                    if (aStr < bStr) {
+                        return -1;
+                    } else if (aStr > bStr) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                });
+                if (userConnections.length === 0) {
+                    navigator.requestMIDIAccess({ sysex: true })
+                    .then((midiAccess) => {               
+                        connections = midiConnection(midiAccess);
+                        setMidiConnections(connections);
+                        console.log(midiConnections);
+                        
+                        let inputs = [];
+                        let outputs = [];
+                        let deepCopy = [];
+                        const uuid = UUID.generate();
+                        for (let i = 0; i < midiConnections.inputs.length; i++) {
+                            inputs[i] = {
+                                channel: 0,
+                                controller: false,
+                                device: 'no device',
+                                deviceUuid: '0',
+                                hardwareIn: midiConnections.inputs[i].name,
+                                label: '<--empty-->'
+                            };
+                        }
+                        for (let o = 0; o < midiConnections.outputs.length; o++) {
+                            outputs[o] = {
+                                activeReciever: false,
+                                channel: 0,
+                                device: 'no device',
+                                deviceUuid: '0',
+                                hardwareIn: midiConnections.outputs[o].name,
+                                label: '<--empty-->'
+                            }
+                        }
+                        axios.post(`/midi_manager_patches/patch`, {
+                            user_uuid: user.uuid,
+                            user_preset: {
+                                inputs: inputs,
+                                name: 'default',
+                                outputs: outputs``
+                            }
+                        })
+                        .then(postedData => {
+                            const posted = postedData.data[0];
+                            deepCopy.push({
+                                uuid: posted.uuid,
+                                inputs: inputs,
+                                name: 'default',
+                                outputs: outputs
+                                });
+                            setUserPresets(deepCopy);
+                            setMIDIListeners();
+                        });
+                    }, () => {
+                        alert('No MIDI ports accessible');
+                    });                    
+                } else {
+                    let presets = [];
+                    console.log(userConnections);
+                    for (let i = 0; i < userConnections.length; i++) {
+                        presets.push({
+                            inputs: userConnections[i].user_preset.inputs,
+                            name: userConnections[i].user_preset.name,
+                            outputs: userConnections[i].user_preset.outputs,
+                            uuid: userConnections[i].uuid
+                        });
+                    }
+                    setUserPresets(presets);
+                    navigator.requestMIDIAccess({ sysex: true })
+                    .then((midiAccess) => {               
+                        connections = midiConnection(midiAccess);
+                        setMidiConnections(connections);
+                        console.log(midiConnections);
+                        setMIDIListeners();
+                    }, () => {
+                        alert('No MIDI ports accessible');
+                    });
+                }
+            });
+        } else {
+            navigator.requestMIDIAccess({ sysex: true })
             .then((midiAccess) => {               
                 connections = midiConnection(midiAccess);
                 setMidiConnections(connections);
@@ -707,6 +220,10 @@ function MidiManager(user, config) {
             }, () => {
                 alert('No MIDI ports accessible');
             });
+        }
+        
+        
+        
     }
     
     const toggleController = (inputDevice) => {
@@ -731,6 +248,7 @@ function MidiManager(user, config) {
         }
         setUserPresets(deepCopy2);
         setCurrentPreset(deepCopy);
+        setCurrentPresetUuid(deepCopy.uuid);
         setConfigAltered(true);
         setMIDIListeners();
     }
@@ -758,6 +276,7 @@ function MidiManager(user, config) {
         console.log(deepCopy);
         setUserPresets(deepCopy2);
         setCurrentPreset(deepCopy);
+        setCurrentPresetUuid(deepCopy.uuid);
         setConfigAltered(true);
     }
     
@@ -796,6 +315,7 @@ function MidiManager(user, config) {
         setImage(deepCopy.deviceUuid);
         setCurrentOutputDetail(deepCopy);
         setCurrentPreset(deepPatch);
+        setCurrentPresetUuid(deepPatch.uuid);
         setUserPresets(masterDepth);
         setConfigAltered(true);
     }
@@ -825,6 +345,7 @@ function MidiManager(user, config) {
         setImage(deepCopy.deviceUuid);
         setCurrentInputDetail(deepCopy);
         setCurrentPreset(deepPatch);
+        setCurrentPresetUuid(deepPatch.uuid);
         setUserPresets(masterDepth);
         setConfigAltered(true);
     }
@@ -897,6 +418,7 @@ function MidiManager(user, config) {
         setImage(deepCopy.deviceUuid);
         setCurrentInputDetail(deepCopy);
         setCurrentPreset(deepPatch);
+        setCurrentPresetUuid(deepPatch.uuid);
         setUserPresets(masterDepth);
         setConfigAltered(true);
     }
@@ -927,6 +449,7 @@ function MidiManager(user, config) {
         setImage(deepCopy.deviceUuid);
         setCurrentOutputDetail(deepCopy);
         setCurrentPreset(deepPatch);
+        setCurrentPresetUuid(deepPatch.uuid);
         setUserPresets(masterDepth);
         setConfigAltered(true);
     }
@@ -957,6 +480,7 @@ function MidiManager(user, config) {
         setImage(deepCopy.deviceUuid);
         setCurrentInputDetail(deepCopy);
         setCurrentPreset(deepPatch);
+        setCurrentPresetUuid(deepPatch.uuid);
         setUserPresets(masterDepth);
         setConfigAltered(true);
     }
@@ -989,7 +513,6 @@ function MidiManager(user, config) {
     
     const createNewPatch = (name) => {
         let deepCopy = [...userPresets];
-        const uuid = UUID.generate();
         const inputs = [];
         const outputs = [];
         
@@ -1014,26 +537,37 @@ function MidiManager(user, config) {
                 label: '<--empty-->'
             }
         }
-        
-        deepCopy.push(
-            {
+        axios.post(`/midi_manager_patches/patch`, {
+            user_uuid: user.uuid,
+            user_preset: {
                 inputs: inputs,
-                name: name,
-                outputs: outputs,
-                uuid: uuid
+                output: outputs,
+                name: name
             }
-        );
+        })
+        .then(postedData => {
+            const posted = postedData.data[0];
+            deepCopy.push(
+                {
+                    inputs: inputs,
+                    name: name,
+                    outputs: outputs,
+                    uuid: posted.uuid
+                }
+            );
+
+            setUserPresets(deepCopy);
+            setCurrentPreset(deepCopy[deepCopy.length - 1]);
+            setCurrentPresetUuid(posted.uuid);
+            setConfigAltered(false);
+            setCurrentInputDetail(null);
+            setCurrentOutputDetail(null);
+            setCurrentDeviceImage(null);
+            setNewPatchModalState('_Inactive');
+            document.getElementById('midiManagerNewPresetNameInput').value = '';
+            setMidiManagerContainerState('_Active');
+        });
         
-        setUserPresets(deepCopy);
-        setCurrentPreset(deepCopy[deepCopy.length - 1]);
-        setCurrentPresetUuid(uuid);
-        setConfigAltered(false);
-        setCurrentInputDetail(null);
-        setCurrentOutputDetail(null);
-        setCurrentDeviceImage(null);
-        setNewPatchModalState('_Inactive');
-        document.getElementById('midiManagerNewPresetNameInput').value = '';
-        setMidiManagerContainerState('_Active');
     }
     
     const deletePatchGuardrail = () => {
@@ -1056,14 +590,21 @@ function MidiManager(user, config) {
                 index = i;
             }
         }
-        deepCopy.splice(index, 1);
-        setUserPresets(deepCopy);
-        if (deepCopy.length !== 0) {
-            newCurrent = deepCopy[0];
-            newCurrentUUID = deepCopy[0].uuid;
-        }
-        setCurrentPreset(newCurrent);
-        setCurrentPresetUuid(newCurrentUUID);
+        axios.delete(`/midi_manager_patches/${deepCopy[index].uuid}`)
+        .then(() => {
+            deepCopy.splice(index, 1);
+            setUserPresets(deepCopy);
+            if (deepCopy.length !== 0) {
+                newCurrent = deepCopy[0];
+                newCurrentUUID = deepCopy[0].uuid;
+            } else {
+                newCurrent = null;
+                newCurrentUUID = null;
+            }
+            setCurrentPreset(newCurrent);
+            setCurrentPresetUuid(newCurrentUUID);
+        });
+        
     }
     
     const deleteGuardrailCleared = () => {
@@ -1072,7 +613,25 @@ function MidiManager(user, config) {
     }
     
     const revertToSavedCopy = () => {
-        setConfigAltered(false);
+        let index = null;
+        let deepCopyPatches = [...userPresets];
+        axios.get(`/midi_manager_patches/patch/${currentPreset.uuid}`)
+        .then(savedPatchData => {
+            const savedPatch = savedPatchData.data;
+            for (let i = 0; i < deepCopyPatches.length; i++) {
+                if (deepCopyPatches[i].uuid === savedPatch.uuid) {
+                    index = i;
+                    deepCopyPatches[i].inputs = savedPatch.user_preset.inputs;
+                    deepCopyPatches[i].outputs = savedPatch.user_preset.outputs;
+                    deepCopyPatches[i].name = savedPatch.user_preset.name;
+                }
+            }
+            setUserPresets(deepCopyPatches);
+            setCurrentPreset(deepCopyPatches[index]);
+            setCurrentPresetUuid(deepCopyPatches[index].uuid);
+            setConfigAltered(false);
+        });
+        
     }
     
     const openSaveAsModal = () => {
@@ -1092,16 +651,37 @@ function MidiManager(user, config) {
             const deepCopy = {...currentPreset};
             const deepPatch = [...userPresets];
             deepCopy.name = document.getElementById('midiManagerSaveAsNameInput').value;
-            deepCopy.uuid = UUID.generate();
-            deepPatch.push(deepCopy);
-            setUserPresets(deepPatch);
-            setCurrentPreset(deepCopy);
-            closeSaveAsModal();
+            axios.post(`/midi_manager_patches/patch`, {
+                user_uuid: user.uuid,
+                user_preset: {
+                    inputs: deepCopy.inputs,
+                    outputs: deepCopy.outputs,
+                    name: deepCopy.name
+                }
+            })
+            .then(postedData => {
+                const posted = postedData.data[0];
+                deepCopy.uuid = posted.uuid;
+                deepPatch.push(deepCopy);
+                setUserPresets(deepPatch);
+                setCurrentPreset(deepCopy);
+                setCurrentPresetUuid(deepCopy.uuid);
+                closeSaveAsModal();
+            });            
         }
     }
     
     const saveCurrentPreset = () => {
-        setConfigAltered(false);
+        axios.patch(`/midi_manager_patches/patch/${currentPreset.uuid}`, {
+            user_preset: {
+                inputs: currentPreset.inputs,
+                outputs: currentPreset.outputs,
+                name: currentPreset.name
+            }
+        })
+        .then(() => {
+            setConfigAltered(false);
+        });
     }
     
     const panic = () => {
