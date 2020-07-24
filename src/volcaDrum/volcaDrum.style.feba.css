@@ -1,0 +1,1348 @@
+.volcaDrumEditorContainerActive_FebruaryA {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaDrumEditorContainerInactive_FebruaryA {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaDrumEditorImageDiv_FebruaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/fabric_by_theedgeofchaos_d1s1o32-fullview.jpg);
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [row9] 12.5%[rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.volcaDrumEditorTopBar_FebruaryA {
+    backdrop-filter: blur(11px) contrast(400%) saturate(25%);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.volcaDrumNavImage_FebruaryA {
+    cursor: pointer;
+    filter: contrast(120%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.volcaDrumNavImage_FebruaryA:hover {
+    filter: contrast(100%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.volcaDrumEditorTitle_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Red Rose', cursive;
+    font-size: 36px;
+    grid-column: col2 / col7;
+    grid-row: row1 / row2;
+    margin: 8px 5px 5px 5px;
+    z-index: 5;
+}
+
+.volcaDrumSidebarManager_FebruaryA {
+    backdrop-filter: hue-rotate(180deg);
+    background: linear-gradient(180deg, transparent, #4b3753, #2a2e4b);
+    box-sizing: border-box;
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+}
+
+.volcaDrumLayerSelectorDiv_FebruaryA {
+    align-content: flex-end;
+    background: linear-gradient(-45deg, #8f93d0, #1e27a0);
+    display: flex;
+    filter: contrast(200%);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: col3 / col7;
+    grid-row: row2 / row3;
+    justify-content: flex-end;
+    opacity: 0.9;
+}
+
+.volcaDrumLayerSelectorLabel_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(150%);
+    font-family: 'Red Rose', cursive;
+    font-size: 42px;
+    margin: 5px 45px 0 0;
+}
+
+.volcaDrumLayerButtontrue_FebruaryA {
+    background: #1e1621;
+    border: 1px solid #9597a5;
+    box-sizing: border-box;
+    color: #9794d5;
+    filter: contrast(170%) saturate(100%);
+    font-family: 'Red Rose', cursive;
+    font-size: 33px;
+    height: 90%;
+    margin: 0 4px 0 1px;
+    outline-color: #8e91bc;
+    transform: translateY(3px);
+    transition: all 0.8s linear;
+    width: 11%;
+}
+
+.volcaDrumLayerButtonfalse_FebruaryA {
+    background: transparent;
+    border: none;
+    color: #2a2e4b;
+    cursor: pointer;
+    filter: contrast(100%) saturate(60%);
+    font-family: 'Red Rose', cursive;
+    font-size: 33px;
+    height: 90%;
+    margin: 0 4px 0 1px;
+    outline-color: #8e91bc;
+    transform: translateY(3px);
+    transition: all 0.8s linear;
+    width: 11%;
+}
+
+.volcaDrumPatchSelectorDiv_FebruaryA {
+    align-content: flex-end;
+    background: linear-gradient(135deg, #8f93d0, #1e27a0);
+    display: flex;
+    filter: contrast(170%);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: col7 / rightEdge;
+    grid-row: row2 / row3;
+    justify-content: flex-end;
+    opacity: 0.9;
+}
+
+.volcaDrumGeneralGlobalParamsDiv_FebruaryA {
+    backdrop-filter: brightness(66%);
+    grid-column: col3 / col8;
+    grid-row: row7 / rowEnd;
+}
+
+.volcaDrumGeneralGlobalParamsContainer_FebruaryA {
+    display: grid;
+    grid-template-columns: [ggcol1] 1fr [ggcol2] 1fr [ggcol3] 1fr [ggcol4] 1fr [ggcol5] 1fr [ggcol6] 1fr [ggcol7] 1fr [ggcol8] 1fr [ggcol9] 1fr [ggcol10] 1fr [ggcol11] 1fr [ggcol12] 1fr [ggcol13] 1fr [ggcol14] 1fr [ggcol15] 1fr [ggcol16] 1fr [ggcol17] 1fr [lprightEdge];
+    grid-template-rows: [ggrow1] 1fr [ggrow2] 1fr [ggrow3] 1fr [ggrow4] 1fr [ggrow5] 1fr [ggrow6] 1fr [ggrow7] 1fr [ggrow8] 1fr [ggrow9] 1fr [ggrow10] 1fr [ggrow11] 1fr [ggrow12] 1fr [ggrowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaDrumPanLabel_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(150%);
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    grid-column: ggcol2 / ggcol4;
+    grid-row: ggrow2 / ggrow3;
+}
+
+.volcaDrumPanSliderContainer_FebruaryA {
+    background: #121044;
+    border: 2px solid #42335a;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    grid-column: ggcol4 / ggcol17;
+    grid-row: ggrow2 / ggrow3;
+    height: 30px;
+}
+
+.globalParamsBitReductionContainer_FebruaryA {
+    grid-column: ggcol2 / ggcol5;
+    grid-row: ggrow4 / ggrowend;
+}
+
+.globalParamsBitReductionSliderContainer_FebruaryA {
+    background: #121044;
+    border: 2px solid #42335a;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    height: 30px;
+    transform: rotateZ(-90deg) translateX(-95px) translateY(-90px);
+    width: 165%;
+}
+
+.volcaDrumBitReductionLabel_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(150%);
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    left: 28%;
+    position: relative;
+    top: -10%;
+    width: 74%;
+}
+
+.volcaDrumBitReductionInput_FebruaryA {
+    background: transparent;
+    border: none;
+    color: #a59ba9;
+    filter: brightness(150%);
+    font-family: 'Red Rose', cursive;
+    font-size: 36px;
+    left: 45%;
+    outline-color: #8e91bc;
+    position: relative;
+    top: 70%;
+    width: 70%;
+}
+
+.globalParamsWaveFolderContainer_FebruaryA {
+    grid-column: ggcol6 / ggcol9;
+    grid-row: ggrow4 / ggrowend;
+}
+
+.globalParamsOverdriveGainContainer_FebruaryA {
+    grid-column: ggcol10 / ggcol13;
+    grid-row: ggrow4 / ggrowend;
+}
+
+.globalParamsPremixGainContainer_FebruaryA {
+    grid-column: ggcol14 / ggcol17;
+    grid-row: ggrow4 / ggrowend;
+}
+
+.volcaDrumPartParamsDiv_FebruaryA {
+    backdrop-filter: blur(4px) brightness(80%) grayscale(30%) hue-rotate(-90deg) saturate(100%);
+    grid-column: col3 / col8;
+    grid-row: row3 / row7;
+}
+
+.volcaDrumPartParamsContainer_FebruaryA {
+    display: grid;
+    grid-template-columns: [lpcol1] 1fr [lpcol2] 1fr [lpcol3] 1fr [lpcol4] 1fr [lpcol5] 1fr [lpcol6] 1fr [lpcol7] 1fr [lpcol8] 1fr [lpcol9] 1fr [lpcol10] 1fr [lpcol11] 1fr [lpcol12] 1fr [lpcol13] 1fr [lpcol14] 1fr [lpcol15] 1fr [lpcol16] 1fr [lprightEdge];
+    grid-template-rows: [lprow1] 1fr [lprow2] 1fr [lprow3] 1fr [lprow4] 1fr [lprow5] 1fr [lprow6] 1fr [lprow7] 1fr [lprow8] 1fr [lprow9] 1fr [lprow10] 1fr [lprow11] 1fr [lprow12] 1fr [lprowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaDrumPartLayerTabStrip_FebruaryA {
+    align-content: center;
+    background: transparent;
+    border: 1px solid #8f93d0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: lpcol2 / lpcol16;
+    grid-row: lprow1 / lprow2;
+    justify-content: flex-start;
+    margin-top: 4px;
+}
+
+.volcaDrumpartLayerTabtrue_FebruaryA {
+    background: linear-gradient(90deg, #42335a, #a199ad);
+    cursor: none;
+    filter: brightness(125%);
+    height: 100%;
+    opacity: 1;
+    transition: all 0.4s linear;
+    width: 33.3%;
+}
+
+.volcaDrumpartLayerTabtrue_FebruaryA p {
+    color: #0a0815;
+    filter: brightness(100%) contrast(150%);
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    margin: 1px 0 0 25%;
+}
+
+.volcaDrumpartLayerTabfalse_FebruaryA {
+    background: transparent;
+    cursor: pointer;
+    height: 100%;
+    opacity: 0.6;
+    transition: all 0.4s linear;
+    width: 33.3%;
+}
+
+.volcaDrumModulationLabel_FebruaryA {
+    color: #a59ba9;
+    filter: contrast(300%) saturate(200%);
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    left: 32.5%;
+    position: fixed;
+    top: 65%;
+    transform: rotateZ(-90deg);
+}
+
+.volcaDrumEGLabel_FebruaryA {
+    color: #a59ba9;
+    filter: contrast(300%) saturate(200%);
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    left: 51%;
+    position: fixed;
+    top: 63%;
+    transform: rotateZ(-90deg);
+}
+
+.volcaDrumLayerLevelSlot_FebruaryA {
+    grid-column: lpcol2 / lpcol4;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerPitchSlot_FebruaryA {
+    grid-column: lpcol4 / lpcol6;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerModulationAmountSlot_FebruaryA {
+    grid-column: lpcol6 / lpcol8;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerModulationRateSlot_FebruaryA {
+    grid-column: lpcol8 / lpcol10;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerEGAttackSlot_FebruaryA {
+    grid-column: lpcol10 / lpcol12;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerEGReleaseSlot_FebruaryA {
+    grid-column: lpcol12 / lpcol14;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumLayerSendSlot_FebruaryA {
+    grid-column: lpcol14 / lpcol16;
+    grid-row: lprow3 / lprowEnd;
+}
+
+.volcaDrumVisualSendConnector_FebruaryA {
+    background: #9597a5;
+    border-radius: 4px;
+    height: 5px;
+    left: 83.2%;
+    margin: 15px 0 0 25px;
+    position: fixed;
+    top: 85%;
+    width: 210px;
+}
+
+.volcaDrumLayerLevelLabel_FebruaryA {
+    color: #a59ba9;
+    filter: contrast(300%) saturate(200%);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px; 
+}
+
+.volcaDrumLayerLevelInput_FebruaryA {
+    background: transparent;
+    border: none;
+    color: #a59ba9;
+    filter: contrast(300%) saturate(200%);
+    font-family: 'Red Rose', cursive;
+    font-size: 30px;
+    outline-color: #8e91bc;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.volcaDrumLayerParamSliderContainer_FebruaryA {
+    background: #121044;
+    border: 2px solid #42335a;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    grid-column: wgcol1 / wgcol6;
+    grid-row: wgrow4 / wgrow5;
+    height: 30px;
+    transform: rotateZ(-90deg) translateX(-100px) translateY(-100px);
+    width: 280%;
+}
+
+.volcaDrumpartLayerTabfalse_FebruaryA p {
+    color: #9597a5;
+    filter: brightness(120%);
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    margin: 1px 0 0 20%; 
+}
+
+.volcaDrumWaveguideModel_FebruaryA {
+    backdrop-filter: brightness(60%) sepia(65%);
+    grid-column: col8 / rightEdge;
+    grid-row: row3 / row6;
+}
+
+.volcaDrumWaveGuideParams_FebruaryA {
+    backdrop-filter: brightness(65%) hue-rotate(90deg) saturate(150%);
+    grid-column: col8 / rightEdge;
+    grid-row: row6 / rowEnd;
+}
+
+.volcaDrumWaveguideContainer_FebruaryA {
+    grid-template-columns: [wgucol1] 1fr [wgucol2] 1fr [wgucol3] 1fr [wgucol4] 1fr [wgucol5] 1fr [wgucol6] 1fr [wgucol7] 1fr [wgucol8] 1fr [wgucolend];
+    grid-template-rows: [wgurow1] 1fr [wgurow2] 1fr [wgurow3] 1fr [wgurow4] 1fr [wgurow5] 1fr [wgurow6] 1fr [wgurow7] 1fr [wgurow8] 1fr [wgurow9] 1fr [wgurow10] 1fr [wgurow11] 1fr [wgurow12] 1fr [wgurow13] 1fr [wgurow14] 1fr [wgurow15] 1fr [wgurowend];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaDrumWaveguideModelLabel_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(250%);
+    font-family: 'Red Rose', cursive;
+    font-size: 36px;
+    grid-column: wgucol3 / wgucol8;
+    grid-row: wgurow1 / wgurow2;
+    margin-left: 3%;
+    margin-top: 5px;
+}
+
+.volcaDrumSoundSourceLabel_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(250%);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: wgucol2 / wgucol8;
+    grid-row: wgurow3 / wgurow4;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+
+.volcaDrumSoundSourceTabStrip_FebruaryA {
+    align-content: center;
+    background: transparent;
+    border: 1px solid #8f93d0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: lpcol2 / lpcol16;
+    grid-row: lprow1 / lprow2;
+    justify-content: flex-start;
+    margin-top: 4px;
+}
+
+.volcaDrumSoundSorceTabtrue_FebruaryA {
+    background: linear-gradient(90deg, #42335a, #a199ad);
+    cursor: none;
+    filter: brightness(125%);
+    height: 100%;
+    opacity: 1;
+    transition: all 0.4s linear;
+    width: 20%;
+}
+
+.volcaDrumSoundSorceTabtrue_FebruaryA p {
+    color: #0a0815;
+    filter: brightness(100%) contrast(150%);
+    font-family: 'Red Rose', cursive;
+    font-size: 13px;
+    margin: 10px 0 0 5px;
+}
+
+.volcaDrumSoundSorceTabfalse_FebruaryA {
+    background: transparent;
+    cursor: pointer;
+    height: 100%;
+    opacity: 0.6;
+    transition: all 0.4s linear;
+    width: 20%;
+}
+
+.volcaDrumSoundSorceTabfalse_FebruaryA p {
+    color: #9597a5;
+    filter: brightness(100%);
+    font-family: 'Red Rose', cursive;
+    font-size: 13px;
+    margin: 10px 0 0 5px;
+}
+
+.volcaDrumPitchModulatorsLabel_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(250%);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: wgucol2 / wgucol8;
+    grid-row: wgurow7 / wgurow8;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+
+.volcaDrumPitchModulatorTabStrip_FebruaryA {
+    align-content: center;
+    background: transparent;
+    border: 1px solid #8f93d0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: wgucol2 / wgucol8;
+    grid-row: wgurow8 / wgurow10;
+    justify-content: flex-start;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    width: 90%;
+}
+
+.volcaDrumPitchModulatorTabtrue_FebruaryA {
+    background: linear-gradient(90deg, #42335a, #a199ad);
+    cursor: none;
+    filter: brightness(125%);
+    height: 100%;
+    opacity: 1;
+    transition: all 0.4s linear;
+    width: 33.3%;
+}
+
+.volcaDrumPitchModulatorTabtrue_FebruaryA p {
+    color: #0a0815;
+    filter: brightness(100%) contrast(150%);
+    font-family: 'Red Rose', cursive;
+    font-size: 13px;
+    margin: 10px 0 0 23%;
+}
+
+
+.volcaDrumPitchModulatorTabfalse_FebruaryA {
+    background: transparent;
+    cursor: pointer;
+    height: 100%;
+    opacity: 0.6;
+    transition: all 0.4s linear;
+    width: 33.3%;
+}
+
+.volcaDrumPitchModulatorTabfalse_FebruaryA p {
+    color: #9597a5;
+    filter: brightness(100%);
+    font-family: 'Red Rose', cursive;
+    font-size: 13px;
+    margin: 10px 0 0 23%;
+}
+
+.volcaDrumEnvelopeGeneratorsLabel_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(250%);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: wgucol2 / wgucol8;
+    grid-row: wgurow11 / wgurow12;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+
+.volcaDrumEnevelopeGeneratorTabStrip_FebruaryA {
+    align-content: center;
+    background: transparent;
+    border: 1px solid #8f93d0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: wgucol2 / wgucol8;
+    grid-row: wgurow12 / wgurow14;
+    justify-content: flex-start;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    width: 90%;
+}
+
+.volcaDrumWaveguideParamsContainer_FebruaryA {
+    display: grid;
+    grid-template-columns: [wgcol1] 1fr [wgcol2] 1fr [wgcol3] 1fr [wgcol4] 1fr [wgcol5] 1fr [wgcol6] 1fr [wgcol7] 1fr [wgcol8] 1fr [wgcolend];
+    grid-template-rows: [wgrow1] 1fr [wgrow2] 1fr [wgrow3] 1fr [wgrow4] 1fr [wgrow5] 1fr [wgrow6] 1fr [wgrow7] 1fr [wgrow8] 1fr [wgrowend];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaDrumWaveGuideLabel_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(250%);
+    font-family: 'Red Rose', cursive;
+    font-size: 48px;
+    grid-column: wgcol4 / wgcol6;
+    grid-row: wgrow4 / grow6;
+    margin: 0 0 0 10px;
+}
+
+.volcaDrumDecayLabel_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(250%);
+    font-family: 'Red Rose', cursive;
+    font-size: 36px;
+    grid-column: wgcol1 / wgcol4;
+    grid-row: wgrow4 / grow5;
+    margin: 5px 0 0 45px;
+}
+
+.volcaDrumDecayInputContainer_FebruaryA {
+    background: #121044;
+    border: 2px solid #42335a;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    grid-column: wgcol1 / wgcol6;
+    grid-row: wgrow4 / wgrow5;
+    height: 30px;
+    transform: rotateZ(-58deg) translateX(-20px) translateY(10px);
+}
+
+.volcaDrumWaveGuideDecaySlider_FebruaryA {
+    -webkit-appearance: none;
+    border: 2px solid #121044;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 20px;
+    outline: 0;
+    overflow: hidden;
+    transform: translateX(-1px) translateY(-1px);
+    width: 98%;
+}
+
+.volcaDrumWaveGuideDecaySlider_FebruaryA::-webkit-slider-runnable-track {
+    background: #121044;
+}
+
+.volcaDrumWaveGuideDecaySlider_FebruaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #2e31d6;
+    box-shadow: -100vw 0 0 100vw #2e31d6;
+    height: 20px;
+    transform-origin: bottom right;
+    transform: skew(45deg);
+    width: 20px;
+}
+
+.volcaDrumBodyLabel_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(250%);
+    font-family: 'Red Rose', cursive;
+    font-size: 36px;
+    grid-column: wgcol6 / wgcol8;
+    grid-row: wgrow4 / grow5;
+    margin: 5px 0 0 55px;
+}
+
+.volcaDrumBodyInputContainer_FebruaryA {
+    background: #121044;
+    border: 2px solid #42335a;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    grid-column: wgcol4 / wgcolend;
+    grid-row: wgrow4 / wgrow5;
+    height: 30px;
+    transform: rotateZ(-122deg) translateX(-20px) translateY(-10px);
+}
+
+.volcaDrumTuneLabel_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(250%);
+    font-family: 'Red Rose', cursive;
+    font-size: 36px;
+    grid-column: wgcol4 / wgcol7;
+    grid-row: wgrow7 / grow8;
+    margin: 10px 0 0 30px;
+}
+
+.volcaDrumTuneInputContainer_FebruaryA {
+    background: #121044;
+    border: 2px solid #42335a;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    grid-column: wgcol2 / wgcol8;
+    grid-row: wgrow8 / wgrowend;
+    height: 30px;
+}
+
+.volcaDrumWaveGuideTuningSlider_FebruaryA {
+    -webkit-appearance: none;
+    border: 2px solid #121044;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 20px;
+    outline: 0;
+    overflow: hidden;
+    transform: translateX(-1px) translateY(-1px);
+    width: 98%;
+}
+
+.volcaDrumWaveGuideTuningSlider_FebruaryA::-webkit-slider-runnable-track {
+    background: #121044;
+}
+
+.volcaDrumWaveGuideTuningSlider_FebruaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #2e31d6;
+    box-shadow: -100vw 0 0 100vw #2e31d6;
+    height: 20px;
+    transform-origin: bottom right;
+    transform: skew(45deg);
+    width: 20px;
+}
+
+.volcaDrumPatchInput_FebruaryA {
+    background: transparent;
+    border: none;
+    color: #8e91bc;
+    font-family: 'Red Rose', cursive;
+    font-size: 36px;
+    outline-color: #869fb2;
+    margin-top: 10px;
+    width: 7%;
+}
+
+.volcaDrumPatchSliderContainer_FebruaryA {
+    background: #121044;
+    border: 2px solid #42335a;
+    box-sizing: border-box;
+    border-radius: 15px;
+    filter: saturate(200%);
+    height: 30px;
+    margin: 10px 50px 0 5px;
+    width: 420px;
+}
+
+.volcaDrumPatchSlider_FebruaryA {
+    -webkit-appearance: none;
+    border: 2px solid #121044;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 20px;
+    outline: 0;
+    overflow: hidden;
+    transform: translateX(-1px) translateY(-1px);
+    width: 98%;
+}
+
+.volcaDrumPatchSlider_FebruaryA::-webkit-slider-runnable-track {
+    background: #121044;
+}
+
+.volcaDrumPatchSlider_FebruaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #2e31d6;
+    box-shadow: -100vw 0 0 100vw #2e31d6;
+    height: 20px;
+    transform-origin: bottom right;
+    transform: skew(45deg);
+    width: 20px;
+}
+
+
+.sidebarContainer_FebruaryA {
+    display: grid;
+    grid-template-columns: [sideCol1] 1fr [sideCol2] 1fr [sideCol3] 1fr [sideCol4] 1fr [sideCol5] 1fr [sideColEnd];
+    grid-template-rows: [sideRow1] 1fr [sideRow2] 1fr [sideRow3] 1fr [sideRow4] 1fr [sideRow5] 1fr [sideRow6] 1fr [sideRow7] 1fr [sideRow8] 1fr [sideRow9] 1fr [sideRow10] 1fr [sideRow11] 1fr [sideRow12] 1fr [sideRow13] 1fr [sideRow14] 1fr [sideRow15] 1fr [sideRow16] 1fr [sideRow17] 1fr [sideRow18] 1fr [sideRow19] 1fr [sideRow20] 1fr [sideRow21] 1fr [sideRow22] 1fr [sideRow23] 1fr [sideRow24] 1fr [sideRowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaPatchNameInput_FebruaryA {
+    background: transparent;
+    border: none;
+    color: #a59ba9;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #8e91bc;
+    position: absolute;
+    top: 1%;
+}
+
+.volcaDrumPanicButton_FebruaryA {
+    background: transparent;
+    border: none;
+    color: #a59ba9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    grid-column: col10 / rightEdge;
+    grid-row: row1 / row2;
+    outline-color: #8e91bc;
+    z-index: 56;
+}
+
+.volcaDrumImage1_FebruaryA {
+    filter: brightness(160%) drop-shadow(8px 8px 5px #1a1424);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow1 / sideRow3;
+    margin: 10px 0 0 25px;
+    max-width: 60%;
+    opacity: 0.8;
+}
+
+.saveButtonVolcaDrumfalse_FebruaryA {
+    display: none;
+}
+
+.saveButtonVolcaDrumtrue_FebruaryA {
+    backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
+    background: transparent;
+    border: 2px solid #9794d5;
+    color: #9794d5;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #1a1424);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow3 / sideRow4;
+    outline-color: #8e91bc;
+    transition: all 0.4s linear;
+}
+
+.saveButtonVolcaDrumtrue_FebruaryA:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #1d2379;
+    color: #1d2379;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #1a1424);
+    transition: all 0.4s linear;
+}
+
+.saveButtonVolcaDrumtrue_FebruaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #1a1424) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.saveAsButtonVolcaDrum_FebruaryA {
+    backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
+    background: transparent;
+    border: 2px solid #9794d5;
+    color: #9794d5;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #1a1424);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow5 / sideRow6;
+    outline-color: #8e91bc;
+    transition: all 0.4s linear;
+}
+
+.saveAsButtonVolcaDrum_FebruaryA:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #1d2379;
+    color: #1d2379;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #1a1424);
+    transition: all 0.4s linear;
+}
+
+.saveAsButtonVolcaDrum_FebruaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #1a1424) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.saveAsDialogVolcaDrumDivInactive_FebruaryA {
+    background: #8f93d0;
+    border-radius: 0;
+    color: #0a0815;
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    padding: 2%;
+    position: absolute;
+    top: -100%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.saveAsDialogVolcaDrumDivActive_FebruaryA {
+    background: #8f93d0;
+    border-radius: 0;
+    color: #0a0815;
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    margin: 0 0 0 0;
+    padding: 2%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.saveAsInputVolcaDrum_FebruaryA {
+    background: #a59ba9;
+    border: none;
+    color: #0a0815;
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    margin: 5% 10% 3% 10%;
+    outline-color: #8e91bc;
+    padding: 2px 5px;
+    width: 80%;
+}
+
+.saveAsButtonsVolcaDrumDiv_FebruaryA {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 7vh;
+    justify-content: center;
+    margin: 0 10% 1% 10%;
+    width: 82%;
+}
+
+.saveAsButtonsVolcaDrum_FebruaryA {
+    backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
+    background: transparent;
+    border: 2px solid #10121e;
+    color: #10121e;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(6px 6px 5px #1a1424);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    height: 35px;
+    margin: 0 30px;
+    outline-color: #8e91bc;
+    padding: 0 15px;
+    transition: all 0.4s linear;
+}
+
+.saveAsButtonsVolcaDrum_FebruaryA:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #1d2379;
+    color: #1d2379;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #1a1424);
+    transition: all 0.4s linear;
+}
+
+.saveAsButtonsVolcaDrum_FebruaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #1a1424) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.revertButtonVolcaDrumfalse_FebruaryA {
+    display: none;   
+}
+
+.revertButtonVolcaDrumtrue_FebruaryA {
+    backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
+    background: transparent;
+    border: 2px solid #9794d5;
+    color: #9794d5;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #1a1424);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow7 / sideRow8;
+    outline-color: #8e91bc;
+    transition: all 0.4s linear;
+}
+
+.revertButtonVolcaDrumtrue_FebruaryA:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #1d2379;
+    color: #1d2379;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #1a1424);
+    transition: all 0.4s linear;
+}
+
+.revertButtonVolcaDrumtrue_FebruaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #1a1424) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.midiOutputVolcaDrumLabel_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(200%) drop-shadow(8px 8px 5px #1a1424);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow10 / sideRow11;
+}
+
+.midiOutputVolcaDrumSelect_FebruaryA {
+    background: transparent;
+    border: none;
+    color: #a59ba9;
+    filter: brightness(200%) drop-shadow(8px 8px 5px #1a1424);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow11 / sideRow12;
+    font-family: 'Red Rose', cursive;
+    font-size: 15px;
+    outline-color: #8e91bc;
+}
+
+.initVolcaDrumButton_FebruaryA {
+    backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
+    background: transparent;
+    border: 2px solid #9794d5;
+    color: #9794d5;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #1a1424);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow19 / sideRow20;
+    outline-color: #8e91bc;
+    transition: all 0.4s linear;
+}
+
+.initVolcaDrumButton_FebruaryA:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #1d2379;
+    color: #1d2379;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #1a1424);
+    transition: all 0.4s linear;
+}
+
+.initVolcaDrumButton_FebruaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #1a1424) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.randomVolcaDrumButton_FebruaryA {
+    backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
+    background: transparent;
+    border: 2px solid #9794d5;
+    color: #9794d5;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #1a1424);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow21 / sideRow22;
+    outline-color: #8e91bc;
+    transition: all 0.4s linear;
+}
+
+.randomVolcaDrumButton_FebruaryA:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #1d2379;
+    color: #1d2379;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #1a1424);
+    transition: all 0.4s linear;
+}
+
+.randomVolcaDrumButton_FebruaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #1a1424) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.aboutVolcaDrumButton_FebruaryA {
+    backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
+    background: transparent;
+    border: 2px solid #9794d5;
+    color: #9794d5;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #1a1424);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    outline-color: #8e91bc;
+    transition: all 0.4s linear;
+}
+
+.aboutVolcaDrumButton_FebruaryA:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #1d2379;
+    color: #1d2379;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #1a1424);
+    transition: all 0.4s linear;
+}
+
+.aboutVolcaDrumButton_FebruaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #1a1424) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.aboutTheKorgVolcaDrumDivInactive_FebruaryA {
+    background: #4b3753;
+    border-radius: 0;
+    color: #0a0815;
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 115%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheKorgVolcaDrumDivActive_FebruaryA {
+    background: #4b3753;
+    border-radius: 0;
+    color: #0a0815;
+    font-family: 'Red Rose', cursive;
+    font-size: 24px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 5%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheKorgVolcaDrumContent_FebruaryA {
+    background: #a199ad;
+    height: 79vh;
+    margin-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 97%;
+}
+
+.volcaDrumAboutImg_FebruaryA {
+    filter: drop-shadow(8px 8px 5px #1a1424);
+    float: left;
+    margin: 12px;
+    max-width: 40%;
+}
+
+.aboutTheKorgVolcaDrumContent_FebruaryA h2 {
+    color: #0a0815;
+    font-family: 'Alata', serif;
+    font-size: 36px;
+    margin: 5px 0 30px 30px;
+}
+
+.aboutTheKorgVolcaDrumContent_FebruaryA p {
+    color: #0a0815;
+    font-family: 'Alata', serif;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 5px 25px 30px 25px;
+    max-width: 950px;
+}
+
+.aboutTheKorgVolcaDrumContent_FebruaryA h3 {
+    color: #0a0815;
+    font-family: 'Alata', serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 10px 25px 10px 45px;
+    max-width: 950px;
+}
+
+.volcaDrumPanicOff_FebruaryA {
+    display: none;
+}
+
+.volcaDrumPanicOn_FebruaryA {
+    display: initial;
+    height: auto%;
+    left: 20%;
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    z-index: 101;
+}
+
+.volcaDrumPanicOn_FebruaryA img {
+    margin-left: 10%;
+    opacity: 1;
+    width: 40%;
+}
+
+.volcaDrumLoadButton_FebruaryA {
+    backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
+    background: transparent;
+    border: 2px solid #9794d5;
+    color: #9794d5;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #1a1424);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+    height: 35px;
+    margin: 6px 65px 0 35px;
+    outline-color: #8e91bc;
+    padding: 0 15px;
+    transition: all 0.4s linear;
+    z-index: 44;
+}
+
+.volcaDrumLoadButton_FebruaryA:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #1d2379;
+    color: #1d2379;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #1a1424);
+    transition: all 0.4s linear;
+}
+
+.volcaDrumLoadButton_FebruaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #1a1424) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaDrumLoadModal_Inactive_FebruaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/fabric_by_theedgeofchaos_d1s1o32-fullview.jpg);
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #2a2e4b;
+    box-shadow: 5px 5px 5px #1a1424;
+    box-sizing: border-box;
+    filter: invert(100%);
+    height: 40vh;
+    left: 120%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.volcaDrumLoadModal_Active_FebruaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/fabric_by_theedgeofchaos_d1s1o32-fullview.jpg);
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #2a2e4b;
+    box-shadow: 5px 5px 5px #1a1424;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.volcaDrumLoadContainer_FebruaryA {
+    backdrop-filter: blur(5px) brightness(50%) contrast(200%) saturate(200%);
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaDrumLoadTitle_FebruaryA {
+    color: #a59ba9;
+    filter: brightness(250%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    grid-column: col3 / col9;
+    grid-row: row2 / row3;
+}
+
+.volcaDrumLoadSelector_FebruaryA {
+    background: transparent;
+    border: none;
+    color: #a59ba9;
+    filter: brightness(250%);
+    font-family: 'Nova Flat', cursive;
+    font-size: 24px;
+    grid-column: col2 / col10;
+    grid-row: row4 / row5;
+    outline-color: #8e91bc;
+}
+
+.volcaDrumLoadLoadButton_FebruaryA {
+    backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
+    background: transparent;
+    border: 2px solid #9794d5;
+    color: #9794d5;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #1a1424);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    height: 35px;
+    outline-color: #8e91bc;
+    padding: 0 15px;
+    transition: all 0.4s linear;
+    z-index: 155;
+}
+
+.volcaDrumLoadLoadButton_FebruaryA:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #1d2379;
+    color: #1d2379;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #1a1424);
+    transition: all 0.4s linear;
+}
+
+.volcaDrumLoadLoadButton_FebruaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #1a1424) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaDrumLoadCancelButton_FebruaryA {
+    backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
+    background: transparent;
+    border: 2px solid #9794d5;
+    color: #9794d5;
+    cursor: pointer;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #1a1424);
+    font-family: 'Red Rose', cursive;
+    font-size: 18px;
+    grid-column: col7 / col9;
+    grid-row: row7 / row8;
+    height: 35px;
+    outline-color: #8e91bc;
+    padding: 0 15px;
+    transition: all 0.4s linear;
+    z-index: 155;
+}
+
+.volcaDrumLoadCancelButton_FebruaryA:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #1d2379;
+    color: #1d2379;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #1a1424);
+    transition: all 0.4s linear;
+}
+
+.volcaDrumLoadCancelButton_FebruaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #1a1424) invert(100%);
+    transition: all 0.1s linear;
+}

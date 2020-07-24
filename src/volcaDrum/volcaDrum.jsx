@@ -12,6 +12,7 @@ import {
 import './volcaDrum.style.jana.css';
 import './volcaDrum.style.janb.css';
 import './volcaDrum.style.janc.css';
+import './volcaDrum.style.feba.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaDrumImg1 from '../img/volcaDrumImg1.png';
 import midiConnection from '../midiManager/midiConnection';
@@ -38,10 +39,11 @@ function VolcaDrum(user, patch) {
     const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/spinner/cloe-ferrara-loader1-0.gif';
     const janbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/spinner/CleanGiantFlea-small.gif';
     const jancSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/spinner/jancdrums.gif';
+    const febaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/spinner/3129460143a343c72f39adc53ad7fa62.gif';
 
     const [midiConnections, setMidiConnections] = useState(undefined);
     const [panicState, setPanicState] = useState('volcaDrumPanicOff');
-    const [currentSpinner, setCurrentSpinner] = useState(jancSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(febaSpinner);
     const [volcaDrumLoadModalState, setVolcaDrumLoadModalState] = useState('_Inactive');
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
@@ -51,7 +53,7 @@ function VolcaDrum(user, patch) {
     const [saveAsName, setSaveAsName] = useState('');
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('Inactive');
     const [aboutVolcaDrumDivState, setAboutVolcaDrumDivState] = useState('Inactive');
-    const [volcaDrumMonth, setVolcaDrumMonth] = useState('_JanuaryC');
+    const [volcaDrumMonth, setVolcaDrumMonth] = useState('_FebruaryA');
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [patchAltered, setPatchAltered] = useState(false);
     const [loadPatchUuid, setLoadPatchUuid] = useState('');
