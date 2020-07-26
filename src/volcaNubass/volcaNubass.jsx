@@ -840,7 +840,7 @@ function VolcaNubass(user, patch) {
             .then(onMIDISuccess, onMIDIFailure);
     }
 
-    initiateMidiAccess();
+//    initiateMidiAccess();
     
     return (
         <div>
