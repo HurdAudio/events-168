@@ -1,0 +1,1411 @@
+.volcaNubassEditorContainerActive_FebruaryB {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaNubassEditorContainerInactive_FebruaryB {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaNubassEditorImageDiv_FebruaryB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassEditor/february/fabric_by_salvage24_d4sspg7-fullview.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [row9] 12.5% [rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.volcaNubassEditorTopBar_FebruaryB {
+    backdrop-filter: blur(25px) brightness(110%) hue-rotate(135deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.volcaNubassNavImage_FebruaryB {
+    cursor: pointer;
+    filter: contrast(100%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.volcaNubassNavImage_FebruaryB:hover {
+    filter: contrast(110%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassEditorTitle_FebruaryB {
+    color: #edeaed;
+    filter: brightness(150%) contrast(150%) saturate(150%);
+    font-family: 'Girassol', cursive;
+    font-size: 42px;
+    grid-column: col2 / col7;
+    grid-row: row1 / row2;
+    margin: 5px;
+    z-index: 55;
+}
+
+.volcaNubassSidebarManager_FebruaryB {
+    backdrop-filter: blur(4px) hue-rotate(-45deg);
+    background: linear-gradient(0deg, #353243, #888894, transparent);
+    border-right: 3px solid #5d6b92;
+    box-sizing: border-box;
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 0.9;
+}
+
+.volcaNubassVacuumTubeOscillator_FebruaryB {
+    backdrop-filter: blur(10px) brightness(110%) sepia(25%);
+    grid-column: col3 / col8;
+    grid-row: row2 / row6;
+    padding: 1vh 2vw;
+}
+
+.volcaNubassGlobalsEditFace_FebruaryB {
+    backdrop-filter: brightness(60%);
+    grid-column: col8 / rightEdge;
+    grid-row: row2 / row6;
+}
+
+.volcaNubassVoltageControlledFilterContainer_FebruaryB {
+    backdrop-filter: blur(4px) brightness(40%) hue-rotate(-45deg) saturate(60%);
+    grid-column: col5 / rightEdge;
+    grid-row: row6 / rowEnd;
+    padding: 1vh 2vw;
+}
+
+.volcaNubassFaceplateParamsContainer_FebruaryB {
+    backdrop-filter: brightness(200%) saturate(280%) sepia(80%);
+    grid-column: col3 / col5;
+    grid-row: row6 / rowEnd;
+}
+
+.volcaNubassVacuumTubeOscLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    margin: 2vh 0 0 0;
+}
+
+.voclaNubassVacuum_FebruaryB {
+    background: #aba8bd;
+    border-radius: 40%;
+    float: right;
+    height: 60px;
+    position: relative;
+    top: 0;
+    width: 60%;
+}
+
+.volcaNubassFilament_FebruaryB {
+    background: #5d6b92;
+    border-radius: 45%;
+    height: 20%;
+    left: 10%;
+    position: relative;
+    top: 40%;
+    width: 80%;
+    
+}
+
+.volcaNubassVacuumTubeOscContainer_FebruaryB {
+    display: grid;
+    grid-template-columns: [vcol1] 1fr [vcol2] 1fr [vcol3] 1fr [vcol4] 1fr [vcol5] 1fr [vcol6] 1fr [vcol7] 1fr [vcol8] 1fr [vcol9] 1fr [vcol10] 1fr [vcol11] 1fr [vcol12] 1fr [vcol13] 1fr [vcol14] 1fr [vcol15] 1fr [vcol16] 1fr [vcol17] 1fr [vcol18] 1fr [vcol19] 1fr [vcol20] 1fr [vcol21] 1fr [vcol22] 1fr [vcol23] 1fr [vcol24] 1fr [rightEdge];
+    grid-template-rows: [vrow1] 1fr [vrow2] 1fr [vrow3] 1fr [vrow4] 1fr [vrow5] 1fr [rowEnd];
+    height: 71%;
+    position: relative;
+    top: 10%;
+    width: 100%;
+}
+
+.volcaNubassTubeOscPitchLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    grid-column: vcol1 / vcol2;
+    grid-row: vrow1 / vrow2;
+}
+
+
+.volcaNubassTubeOscLeverContainerPitch_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: vcol3 / vcol4;
+    grid-row: vrow1 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassOscLever_FebruaryB {
+    -webkit-appearance: none;
+    border: 2px solid #353243;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 15px;
+    outline: 0;
+    position: relative;
+    overflow: hidden;
+    transform: rotateZ(-90deg) translateX(-103px) translateY(-106px);
+    width: 225px;
+}
+
+.volcaNubassOscLever_FebruaryB::-webkit-slider-runnable-track {
+    background: #15141a;
+}
+
+.volcaNubassOscLever_FebruaryB::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #d5a0b4;
+    box-shadow: -100vw 0 0 100vw #d5a0b4;
+    filter: brightness(100%) saturate(500%);
+    height: 20px;
+    transform-origin: bottom right;
+    width: 10px;
+}
+
+.volcaNubassTubeOscSubOscLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    grid-column: vcol6 / vcol11;
+    grid-row: vrow3 / vrow4;
+}
+
+.volcaNubassTubeOscSaturationLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    grid-column: vcol11 / vcol12;
+    grid-row: vrow1 / vrow2;
+}
+
+.volcaNubassTubeOscLeverContainerSaturation_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: vcol13 / vcol14;
+    grid-row: vrow1 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassTubeOscLevelLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    grid-column: vcol17 / vcol18;
+    grid-row: vrow1 / vrow2;
+}
+
+.volcaNubassTubeOscLeverContainerLevel_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: vcol20 / vcol22;
+    grid-row: vrow1 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVCALabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    margin: 2vh 0 0 0;
+}
+
+.volcaNubassVCFParamsContainer_FebruaryB {
+    display: grid;
+    grid-template-columns: [fcol1] 1fr [fcol2] 1fr [fcol3] 1fr [fcol4] 1fr [fcol5] 1fr [fcol6] 1fr [fcol7] 1fr [fcol8] 1fr [fcol9] 1fr [fcol10] 1fr [fcol11] 1fr [fcol12] 1fr [fcol13] 1fr [fcol14] 1fr [fcol15] 1fr [fcol16] 1fr [fcol17] 1fr [fcol18] 1fr [fcol19] 1fr [fcol20] 1fr [fcol21] 1fr [fcol22] 1fr [fcol23] 1fr [fcol24] 1fr [fcol25] 1fr [fcol26] 1fr [fcol27] 1fr [fcol28] 1fr [fcoll29] 1fr [fcol30] 1fr [fcol31] 1fr [fcol32] 1fr [fcol33] 1fr [fcol34] 1fr [fcol35] 1fr [fcol36] 1fr [fcol37] 1fr [fcol38] 1fr [fcol39] 1fr [fcol40] 1fr [rightEdge];
+    grid-template-rows: [frow1] 1fr [frow2] 1fr [frow3] 1fr [frow4] 1fr [frow5] 1fr [rowEnd];
+    height: 80%;
+    position: relative;
+    top: 10%;
+    width: 100%;
+}
+
+.volcaNubassVFCCutoffLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 30px;
+    grid-column: fcol1 / fcol2;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerCutoff_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: fcol2 / fcol3;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCPeakLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 30px;
+    grid-column: fcol5 / fcol6;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerPeak_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: fcol6 / fcol7;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCAttackLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 30px;
+    grid-column: fcol9 / fcol10;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerAttack_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: fcol10 / fcol11;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCDecayLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 30px;
+    grid-column: fcol13 / fcol14;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerDecay_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: fcol14 / fcol15;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCEgIntLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 30px;
+    grid-column: fcol17 / fcol21;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerEgInt_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: fcol21 / fcol22;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCAccentLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 30px;
+    grid-column: fcol24 / fcol25;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerAccent_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: fcol25 / fcol26;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCLFORateLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 30px;
+    grid-column: fcol28 / fcol33;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerLFORate_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: fcol32 / fcol33;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassVFCLFOIntLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 30px;
+    grid-column: fcol35 / fcol39;
+    grid-row: frow1 / frow2;
+}
+
+.volcaNubassVCFContainerLFOInt_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: fcol39 / fcol40;
+    grid-row: frow2 / rowEnd;
+    height: 230px;
+    width: 20px;
+}
+
+.volcaNubassFaceplateParamsGrid_FebruaryB {
+    display: grid;
+    grid-template-columns: [fpcol1] 1fr [fpcol2] 1fr [fpcol3] 1fr [fpcol4] 1fr [rightEdge];
+    grid-template-rows: [fprow1] 14.25% [fprow2] 14.25% [fprow3] 14.25% [fprow4] 14.25% [fprow5] 14.25% [fprow6] 14.25% [fprow7] 14.25% [rowEnd];
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.volcaNubassVTOWaveEdit_FebruaryB {
+    background: linear-gradient(90deg, #aba8bd, #aeb5c9, #aba8bd);
+    grid-column: fpcol1 / rightEdge;
+    grid-row: fprow1 / fprow2;
+    opacity: 0.95;
+}
+
+.volcaNubassVTOWaveLabelDiv_FebruaryB {
+    border-bottom: 1px solid #0d0a0e;
+    box-sizing: border-box;
+    height: 35%;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.volcaNubassVTOWaveLabel_FebruaryB {
+    color: #0d0a0e;
+    font-family: 'Girassol', cursive;
+    font-size: 120%;
+    margin: 0 12%;
+}
+
+.volcaNubassVTOInteractDiv_FebruaryB {
+    align-content: center;
+    border-bottom: 1px solid #0d0a0e;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 65%;
+    justify-content: center;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.volcaNubassVTOInteractDiv_FebruaryB p {
+    color: #0d0a0e;
+    font-family: 'Girassol', cursive;
+    font-size: 20px;
+    margin: 5% 10%;
+}
+
+.vtoWaveformSwitchtrue_FebruaryB {
+    background: #353243;
+    height: 9.25%;
+    left: 0;
+    position: fixed;
+    top: 5%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.vtoWaveformSwitchfalse_FebruaryB {
+    background: #353243;
+    height: 9.25%;
+    left: 50%;
+    position: fixed;
+    top: 5%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.volcaNubassLFOWaveEdit_FebruaryB {
+    background: linear-gradient(90deg, #aba8bd, #aeb5c9, #aba8bd);
+    grid-column: fpcol1 / rightEdge;
+    grid-row: fprow2 / fprow3;
+    opacity: 0.95;
+}
+
+.lfoWaveformSwitchtrue_FebruaryB {
+    background: #353243;
+    height: 9.25%;
+    left: 0;
+    position: fixed;
+    top: 19.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoWaveformSwitchfalse_FebruaryB {
+    background: #353243;
+    height: 9.25%;
+    left: 50%;
+    position: fixed;
+    top: 19.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.volcaNubassLFOTarget_FebruaryB {
+    background: linear-gradient(90deg, #aba8bd, #aeb5c9, #aba8bd);
+    grid-column: fpcol1 / rightEdge;
+    grid-row: fprow3 / fprow6;
+    opacity: 0.95;
+}
+
+.volcaNubassLFOTargetLabelDiv_FebruaryB {
+    height: 10%;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.volcaNubassLFOTargetLabelDiv_FebruaryB p {
+    color: #0d0a0e;
+    font-family: 'Girassol', cursive;
+    font-size: 120%;
+    margin: 0 25%;
+}
+
+.lfoTargetDiv_FebruaryB {
+    height: 30%;
+    width: 100%;
+}
+
+.lfoTargetLabelDiv_FebruaryB {
+    border-bottom: 1px solid #0d0a0e;
+    box-sizing: border-box;
+    height: 35%;
+    width: 100%;
+}
+
+.lfoTargetLabelDiv_FebruaryB p {
+    color: #0d0a0e;
+    font-family: 'Girassol', cursive;
+    font-size: 120%;
+    margin: 0 5%; 
+}
+
+.lfoTargetInteractiveDiv_FebruaryB {
+    align-content: center;
+    border-bottom: 1px solid #0d0a0e;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 65%;
+    justify-content: center;
+    width: 100%;
+}
+
+.lfoTargetInteractiveDiv_FebruaryB p {
+    color: #0d0a0e;
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    margin: 5% 12%;
+}
+
+.lfoTargetAmpSwitchtrue_FebruaryB {
+    background: #353243;
+    height: 8.5%;
+    left: 0;
+    position: fixed;
+    top: 37.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoTargetAmpSwitchfalse_FebruaryB {
+    background: #353243;
+    height: 8.5%;
+    left: 50%;
+    position: fixed;
+    top: 37.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoTargetPitchSwitchtrue_FebruaryB {
+    background: #353243;
+    height: 8.25%;
+    left: 0;
+    position: fixed;
+    top: 50%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoTargetPitchSwitchfalse_FebruaryB {
+    background: #353243;
+    height: 8.25%;
+    left: 50%;
+    position: fixed;
+    top: 50%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoTargetCutoffSwitchtrue_FebruaryB {
+    background: #353243;
+    height: 8.25%;
+    left: 0;
+    position: fixed;
+    top: 63%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoTargetCutoffSwitchfalse_FebruaryB {
+    background: #353243;
+    height: 8.25%;
+    left: 50%;
+    position: fixed;
+    top: 63%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.volcaNubassLFOSyncEdit_FebruaryB {
+    background: linear-gradient(90deg, #aba8bd, #aeb5c9, #aba8bd);
+    grid-column: fpcol1 / rightEdge;
+    grid-row: fprow6 / fprow7;
+    opacity: 0.95;
+}
+
+.lfoSyncformSwitchtrue_FebruaryB {
+    background: #353243;
+    height: 9.25%;
+    left: 0;
+    position: fixed;
+    top: 76.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.lfoSyncformSwitchfalse_FebruaryB {
+    background: #353243;
+    height: 9.25%;
+    left: 50%;
+    position: fixed;
+    top: 76.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.volcaNubassSustainEdit_FebruaryB {
+    background: linear-gradient(90deg, #aba8bd, #aeb5c9, #aba8bd);
+    grid-column: fpcol1 / rightEdge;
+    grid-row: fprow7 / rowEnd;
+    opacity: 0.95;
+}
+
+.sustainformSwitchtrue_FebruaryB {
+    background: #353243;
+    height: 9.25%;
+    left: 0;
+    position: fixed;
+    top: 90.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.sustainformSwitchfalse_FebruaryB {
+    background: #353243;
+    height: 9.25%;
+    left: 50%;
+    position: fixed;
+    top: 90.25%;
+    transition: all 0.3s linear;
+    width: 50%;
+    z-index: 99;
+}
+
+.volcaNubassGlobalsContainer_FebruaryB {
+    display: grid;
+    grid-template-columns: [gcol1] 1fr [gcol2] 1fr [gcol3] 1fr [gcol4] 1fr [gcol5] 1fr [gcol6] 1fr [gcol7] 1fr [gcol8]  1fr [rightEdge];
+    grid-template-rows: [grow1] 1fr [grow2] 1fr [grow3] 1fr [grow4] 1fr [grow5] 1fr [grow6] 1fr [grow7] 1fr [grow8] 1fr [grow9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaNubassPanLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    grid-column: gcol2 / gcol3;
+    grid-row: grow2 / grow3;
+}
+
+.volcaNubassGlobalsLeverContainer_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: gcol2 / gcol8;
+    grid-row: grow3 / grow4;
+    height: 20px;
+    width: 330px;
+}
+
+.volcaNubassOscLever2_FebruaryB {
+    -webkit-appearance: none;
+    border: 2px solid #353243;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 15px;
+    outline: 0;
+    position: relative;
+    overflow: hidden;
+    transform: translateX(0) translateY(0);
+    width: 325px;
+}
+
+.volcaNubassOscLever2_FebruaryB::-webkit-slider-runnable-track {
+    background: #15141a;
+}
+
+.volcaNubassOscLever2_FebruaryB::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #d5a0b4;
+    box-shadow: -100vw 0 0 100vw #d5a0b4;
+    filter: brightness(100%) saturate(500%);
+    height: 20px;
+    transform-origin: bottom right;
+    width: 10px;
+}
+
+.volcaNubassPortamentoOnOffLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    grid-column: gcol2 / gcol3;
+    grid-row: grow5 / grow6;
+}
+
+.volcaNubassPortamentoOnOffSwitchDiv_FebruaryB {
+    align-content: center;
+    background: #aba8bd;
+    border: 2px solid #0d0a0e;
+    cursor: pointer;
+    display: flex;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-column: gcol4 / gcol6;
+    grid-row: grow5 / grow6;
+    justify-content: center;
+}
+
+.volcaNubassPortamentoOnOffSwitchDiv_FebruaryB p {
+    color: #0d0a0e;
+    filter: brightness(200%);
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    margin: 10px 7% 0 7%;
+}
+
+.portamentoSwitchtrue_FebruaryB {
+    background: #353243;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    transition: all 0.3s linear;
+    width: 50%;
+}
+
+.portamentoSwitchfalse_FebruaryB {
+    background: #353243;
+    height: 100%;
+    left: 50%;
+    position: fixed;
+    transition: all 0.3s linear;
+    width: 50%;
+}
+
+.volcaNubassPortomentoTimeLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(155%);
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    grid-column: gcol2 / gcol7;
+    grid-row: grow7 / grow8;
+}
+
+.volcaNubassGlobalsLeverContainerPort_FebruaryB {
+    background: transparent;
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    grid-column: gcol2 / gcol8;
+    grid-row: grow8 / grow9;
+    height: 20px;
+    width: 330px; 
+}
+
+.patchNameInput_FebruaryB {
+    background: transparent;
+    border: none;
+    color: #edeaed;
+    filter: brightness(150%) contrast(150%) saturate(150%);
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #9a99a1;
+    position: absolute;
+    top: 1%;
+}
+
+.volcaNubassPanicButton_FebruaryB {
+    background: transparent;
+    border: none;
+    color: #9a99a1;
+    cursor: pointer;
+    filter: brightness(150%) contrast(150%) saturate(150%);
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    grid-column: col10 / rightEdge;
+    grid-row: row1 / row2;
+    outline-color: #9a99a1;
+    z-index: 56;
+}
+
+.volcaNubassPanicOff_FebruaryB {
+    display: none;
+}
+
+.volcaNubassPanicOn_FebruaryB {
+    display: initial;
+    left: 15%;
+    position: absolute;
+    top: 10%;
+    z-index: 101;
+}
+
+.volcaNubassPanicOn_FebruaryB img {
+    border-radius: 50px;
+    margin-left: 10%;
+    opacity: 1;
+    width: 100%;
+}
+
+.sidebarContainer_FebruaryB {
+    display: grid;
+    grid-template-columns: [sideCol1] 1fr [sideCol2] 1fr [sideCol3] 1fr [sideCol4] 1fr [sideCol5] 1fr [sideColEnd];
+    grid-template-rows: [sideRow1] 1fr [sideRow2] 1fr [sideRow3] 1fr [sideRow4] 1fr [sideRow5] 1fr [sideRow6] 1fr [sideRow7] 1fr [sideRow8] 1fr [sideRow9] 1fr [sideRow10] 1fr [sideRow11] 1fr [sideRow12] 1fr [sideRow13] 1fr [sideRow14] 1fr [sideRow15] 1fr [sideRow16] 1fr [sideRow17] 1fr [sideRow18] 1fr [sideRow19] 1fr [sideRow20] 1fr [sideRow21] 1fr [sideRow22] 1fr [sideRow23] 1fr [sideRow24] 1fr [sideRowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.nubassImage1_FebruaryB {
+    filter: brightness(130%) drop-shadow(8px 8px 5px #44434b);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow1 / sideRow3;
+    margin: 10px 0 0 25px;
+    max-width: 60%;
+    opacity: 0.7;
+}
+
+.saveVolcaNubassButtonfalse_FebruaryB {
+    display: none;
+}
+
+.saveVolcaNubassButtontrue_FebruaryB {
+    backdrop-filter: hue-rotate(-90deg);
+    background: transparent;
+    border: 2px solid #5d6b92;
+    color: #5d6b92;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a) invert(0%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow3 / sideRow4;
+    outline-color: #898e97;
+    transition: all 0.2s linear;
+}
+
+.saveVolcaNubassButtontrue_FebruaryB:hover {
+    backdrop-filter: hue-rotate(90deg);
+    border: 2px solid #0d0a0e;
+    color: #0d0a0e;
+    filter: brightness(145%) drop-shadow(0px 8px 5px #252a3a) invert(0%);
+    transition: all 0.2s linear;
+}
+
+.saveVolcaNubassButtontrue_FebruaryB:active {
+    filter: brightness(100%) drop-shadow(0 0 0 #252a3a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.saveAsVolcaNubassButton_FebruaryB {
+    backdrop-filter: hue-rotate(-90deg);
+    background: transparent;
+    border: 2px solid #5d6b92;
+    color: #5d6b92;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a) invert(0%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow5 / sideRow6;
+    outline-color: #898e97;
+    transition: all 0.2s linear;
+}
+
+.saveAsVolcaNubassButton_FebruaryB:hover {
+    backdrop-filter: hue-rotate(90deg);
+    border: 2px solid #0d0a0e;
+    color: #0d0a0e;
+    filter: brightness(145%) drop-shadow(0px 8px 5px #252a3a) invert(0%);
+    transition: all 0.2s linear;
+}
+
+.saveAsVolcaNubassButton_FebruaryB:active {
+    filter: brightness(100%) drop-shadow(0 0 0 #252a3a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.revertButtonVolcaNubassfalse_FebruaryB {
+    display: none;   
+}
+
+.revertButtonVolcaNubasstrue_FebruaryB {
+    backdrop-filter: hue-rotate(-90deg);
+    background: transparent;
+    border: 2px solid #5d6b92;
+    color: #5d6b92;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a) invert(0%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow7 / sideRow8;
+    outline-color: #898e97;
+    transition: all 0.2s linear;
+}
+
+.revertButtonVolcaNubasstrue_FebruaryB:hover {
+    backdrop-filter: hue-rotate(90deg);
+    border: 2px solid #0d0a0e;
+    color: #0d0a0e;
+    filter: brightness(145%) drop-shadow(0px 8px 5px #252a3a) invert(0%);
+    transition: all 0.2s linear;
+}
+
+.revertButtonVolcaNubasstrue_FebruaryB:active {
+    filter: brightness(100%) drop-shadow(0 0 0 #252a3a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.midiOutputVolcaNubassLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow10 / sideRow11;
+    font-family: 'Girassol', cursive;
+    font-size: 15px;
+}
+
+.midiOutputVolcaNubassSelect_FebruaryB {
+    background: transparent;
+    border: none;
+    color: #edeaed;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow11 / sideRow12;
+    font-family: 'Girassol', cursive;
+    font-size: 15px;
+    outline-color: #9a99a1;
+}
+
+.midiChannelVolcaNubassLabel_FebruaryB {
+    color: #edeaed;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow13 / sideRow14;
+    font-family: 'Girassol', cursive;
+    font-size: 15px;
+}
+
+.midiChannelVolcaNubassInput_FebruaryB {
+    background: transparent;
+    border: none;
+    color: #edeaed;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a);
+    grid-column: sideCol3 / sideCol4;
+    grid-row: sideRow14 / sideRow15;
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    outline-color: #9a99a1;
+}
+
+.initVolcaNubassButton_FebruaryB {
+    backdrop-filter: hue-rotate(-90deg);
+    background: transparent;
+    border: 2px solid #5d6b92;
+    color: #5d6b92;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a) invert(0%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow19 / sideRow20;
+    outline-color: #898e97;
+    transition: all 0.2s linear;
+}
+
+.initVolcaNubassButton_FebruaryB:hover {
+    backdrop-filter: hue-rotate(90deg);
+    border: 2px solid #0d0a0e;
+    color: #0d0a0e;
+    filter: brightness(145%) drop-shadow(0px 8px 5px #252a3a) invert(0%);
+    transition: all 0.2s linear;
+}
+
+.initVolcaNubassButton_FebruaryB:active {
+    filter: brightness(100%) drop-shadow(0 0 0 #252a3a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.randomVolcaNubassButton_FebruaryB {
+    backdrop-filter: hue-rotate(-90deg);
+    background: transparent;
+    border: 2px solid #5d6b92;
+    color: #5d6b92;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a) invert(0%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow21 / sideRow22;
+    outline-color: #898e97;
+    transition: all 0.2s linear;
+}
+
+.randomVolcaNubassButton_FebruaryB:hover {
+    backdrop-filter: hue-rotate(90deg);
+    border: 2px solid #0d0a0e;
+    color: #0d0a0e;
+    filter: brightness(145%) drop-shadow(0px 8px 5px #252a3a) invert(0%);
+    transition: all 0.2s linear;
+}
+
+.randomVolcaNubassButton_FebruaryB:active {
+    filter: brightness(100%) drop-shadow(0 0 0 #252a3a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.aboutNubassButton_FebruaryB {
+    backdrop-filter: hue-rotate(-90deg);
+    background: transparent;
+    border: 2px solid #5d6b92;
+    color: #5d6b92;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a) invert(0%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    outline-color: #898e97;
+    transition: all 0.2s linear;
+}
+
+.aboutNubassButton_FebruaryB:hover {
+    backdrop-filter: hue-rotate(90deg);
+    border: 2px solid #0d0a0e;
+    color: #0d0a0e;
+    filter: brightness(145%) drop-shadow(0px 8px 5px #252a3a) invert(0%);
+    transition: all 0.2s linear;
+}
+
+.aboutNubassButton_FebruaryB:active {
+    filter: brightness(100%) drop-shadow(0 0 0 #252a3a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.saveAsDialogVolcaNubassDivInactive_FebruaryB {
+    background: #201f26;
+    border-radius: 0;
+    color: #edeaed;
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    padding: 2%;
+    position: absolute;
+    top: -100%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.saveAsDialogVolcaNubassDivActive_FebruaryB {
+    background: #201f26;
+    border-radius: 0;
+    color: #edeaed;
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    margin: 0 0 0 0;
+    padding: 2%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.saveAsInputVolcaNubass_FebruaryB {
+    background: #aeb5c9;
+    border: none;
+    color: #0d0a0e;
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    margin: 5% 10% 3% 10%;
+    outline-color: #9a99a1;
+    padding: 2px 5px;
+    width: 80%;
+}
+
+.saveAsButtonsVolcaNubassDiv_FebruaryB {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 7vh;
+    justify-content: center;
+    margin: 0 10% 1% 10%;
+    width: 82%;
+}
+
+.saveAsButtonsVolcaNubass_FebruaryB {
+    backdrop-filter: hue-rotate(-90deg);
+    background: transparent;
+    border: 2px solid #5d6b92;
+    color: #5d6b92;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a) invert(0%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    margin: 0 45px;
+    outline-color: #898e97;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+}
+
+.saveAsButtonsVolcaNubass_FebruaryB:hover {
+    backdrop-filter: hue-rotate(90deg);
+    border: 2px solid #0d0a0e;
+    color: #0d0a0e;
+    filter: brightness(145%) drop-shadow(0px 8px 5px #252a3a) invert(0%);
+    transition: all 0.2s linear;
+}
+
+.saveAsButtonsVolcaNubass_FebruaryB:active {
+    filter: brightness(100%) drop-shadow(0 0 0 #252a3a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.aboutTheKorgVolcaNubassDivInactive_FebruaryB {
+    background: #353243;
+    border-radius: 0;
+    color: #0d0a0e;
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 115%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheKorgVolcaNubassDivActive_FebruaryB {
+    background: #353243;
+    border-radius: 0;
+    color: #0d0a0e;
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 5%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheKorgVolcaNubassContent_FebruaryB {
+    background: #c4c4ca;
+    height: 79vh;
+    margin-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 97%;
+}
+
+.volcaAboutVolcaNubassImg_FebruaryB {
+    filter: drop-shadow(8px 8px 5px #252a3a);
+    float: left;
+    margin: 12px;
+    max-width: 40%;
+}
+
+.aboutTheKorgVolcaNubassContent_FebruaryB h2 {
+    color: #0d0a0e;
+    font-family: 'Alata', serif;
+    font-size: 36px;
+    margin: 5px 0 30px 30px;
+}
+
+.aboutTheKorgVolcaNubassContent_FebruaryB p {
+    color: #0d0a0e;
+    font-family: 'Alata', serif;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 5px 25px 30px 25px;
+    max-width: 950px;
+}
+
+.aboutTheKorgVolcaNubassContent_FebruaryB h3 {
+    color: #0d0a0e;
+    font-family: 'Alata', serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 10px 25px 10px 45px;
+    max-width: 950px;
+}
+
+.volcaNubassLoadButton_FebruaryB {
+    backdrop-filter: hue-rotate(-90deg);
+    background: transparent;
+    border: 2px solid #5d6b92;
+    color: #5d6b92;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a) invert(0%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+    height: 35px;
+    margin: 6px 65px 0 35px;
+    outline-color: #898e97;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.volcaNubassLoadButton_FebruaryB:hover {
+    backdrop-filter: hue-rotate(90deg);
+    border: 2px solid #0d0a0e;
+    color: #0d0a0e;
+    filter: brightness(145%) drop-shadow(0px 8px 5px #252a3a) invert(0%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassLoadButton_FebruaryB:active {
+    filter: brightness(100%) drop-shadow(0 0 0 #252a3a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassLoadModal_Inactive_FebruaryB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassEditor/february/fabric_by_salvage24_d4sspg7-fullview.jpg);
+    background-size: cover;
+    border: 2px solid #0d0a0e;
+    box-shadow: 5px 5px 5px #252a3a;
+    box-sizing: border-box;
+    filter: invert(100%);
+    height: 40vh;
+    left: 120%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.volcaNubassLoadModal_Active_FebruaryB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassEditor/february/fabric_by_salvage24_d4sspg7-fullview.jpg);
+    background-size: cover;
+    border: 2px solid #0d0a0e;
+    box-shadow: 5px 5px 5px #252a3a;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.volcaNubassLoadContainer_FebruaryB {
+    backdrop-filter: blur(5px) contrast(190%) saturate(10%) sepia(50%);
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaNubassLoadTitle_FebruaryB {
+    color: #edeaed;
+    filter: brightness(250%) drop-shadow(8px 8px 5px #252a3a);
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    grid-column: col3 / col9;
+    grid-row: row2 / row3;
+}
+
+.volcaNubassLoadSelector_FebruaryB {
+    background: transparent;
+    border: none;
+    color: #edeaed;
+    filter: brightness(250%) drop-shadow(8px 8px 5px #252a3a);
+    font-family: 'Girassol', cursive;
+    font-size: 24px;
+    grid-column: col2 / col10;
+    grid-row: row4 / row5;
+    outline-color: #9a99a1;
+}
+
+.volcaNubassLoadLoadButton_FebruaryB {
+    backdrop-filter: hue-rotate(-90deg);
+    background: transparent;
+    border: 2px solid #5d6b92;
+    color: #5d6b92;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a) invert(0%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    height: 35px;
+    outline-color: #898e97;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.volcaNubassLoadLoadButton_FebruaryB:hover {
+    backdrop-filter: hue-rotate(90deg);
+    border: 2px solid #edeaed;
+    color: #edeaed;
+    filter: brightness(145%) drop-shadow(0px 8px 5px #252a3a) invert(0%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassLoadLoadButton_FebruaryB:active {
+    filter: brightness(100%) drop-shadow(0 0 0 #252a3a) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassLoadCancelButton_FebruaryB {
+    backdrop-filter: hue-rotate(-90deg);
+    background: transparent;
+    border: 2px solid #5d6b92;
+    color: #5d6b92;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #252a3a) invert(0%);
+    font-family: 'Girassol', cursive;
+    font-size: 18px;
+    grid-column: col7 / col9;
+    grid-row: row7 / row8;
+    height: 35px;
+    outline-color: #898e97;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.volcaNubassLoadCancelButton_FebruaryB:hover {
+    backdrop-filter: hue-rotate(90deg);
+    border: 2px solid #edeaed;
+    color: #edeaed;
+    filter: brightness(145%) drop-shadow(0px 8px 5px #252a3a) invert(0%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassLoadCancelButton_FebruaryB:active {
+    filter: brightness(100%) drop-shadow(0 0 0 #252a3a) invert(100%);
+    transition: all 0.1s linear;
+}
