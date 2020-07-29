@@ -602,6 +602,7 @@ router.patch('/:uuid', (req, res, next) => {
         associates: req.body.associates,
         security: req.body.security,
         email_reset: req.body.email_reset,
+        midi_patch: req.body.midi_patch,
         updated_at: now
       }, '*')
         .then((results)=>{
@@ -624,6 +625,7 @@ router.patch('/:uuid', (req, res, next) => {
         associates: req.body.associates,
         security: req.body.security,
         email_reset: req.body.email_reset,
+        midi_patch: req.body.midi_patch,
         updated_at: now
       }, '*')
         .then((results)=>{

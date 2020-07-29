@@ -405,7 +405,7 @@
     z-index: -5;
 }
 
-.panicContentActive_FebruaryC {
+.hubPanicContentActive_FebruaryC {
     backdrop-filter: brightness(80%) hue-rotate(180deg) saturate(150%);
     grid-column: col1 / rightEdge;
     grid-row: row2 / rowEnd;
@@ -417,7 +417,7 @@
     z-index: 5;
 }
 
-.panicContentInactive_FebruaryC {
+.hubPanicContentInactive_FebruaryC {
     backdrop-filter: brightness(600%) hue-rotate(-360deg) saturate(1000%);
     grid-column: col1 / rightEdge;
     grid-row: row2 / rowEnd;
@@ -479,12 +479,12 @@
     transition: all 0.7s linear; 
 }
 
-.panicOn_FebruaryC {
+.hubPanicOn_FebruaryC {
     opacity: 1;
     transition: all 0.7s linear;
 }
 
-.panicOff_FebruaryC {
+.hubPanicOff_FebruaryC {
     opacity: 0;
     transition: all 0.7s linear; 
 }
@@ -536,7 +536,7 @@
     padding: 3px;
 }
 
-.panicIcon_FebruaryC {
+.hubPanicIcon_FebruaryC {
     background: #ab4119;
     color: transparent;
     margin-left: 75%;
@@ -599,22 +599,22 @@
     transition: all 0.3 linear;
 }
 
-.panicSpinner_FebruaryC {
-    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/Prof._Stampfer's_Stroboscopische_Scheibe_No._X.gif);
+.hubPanicSpinner_FebruaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/giphy_39b252da80fd419b889daa8743db1e7c.gif);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 60%;
     height: 500px;
-    left: 10%;
+    left: 20%;
     opacity: 1;
     position: absolute;
-    top: 10%;
+    top: 40%;
     width: 60%;
-    z-index: 400;
+    z-index: 100;
 }
 
-.panicComplete_FebruaryC {
+.hubPanicComplete_FebruaryC {
     align-content: center;
-    background: #d5a08c;
+    background: #b19a8f;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -623,12 +623,12 @@
     left: 30%;
     opacity: 1;
     position: absolute;
-    top: 40%;
+    top: 90%;
     width: 20%;
     z-index: 100;
 }
 
-.panicCompleteMessage_FebruaryC {
+.hubPanicCompleteMessage_FebruaryC {
     color: #220813;
     cursor: pointer;
     filter: brightness(110%);

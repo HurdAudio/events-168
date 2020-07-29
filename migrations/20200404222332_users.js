@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
     table.boolean('email_confirmed').notNullable().defaultTo(false);
     table.string('avatar_path').notNullable().defaultTo('');
     table.integer('clock_resolution').notNullable().defaultTo(480);
+    table.uuid('midi_patch').defaultTo(null);
     table.json('associates').defaultTo(null);
     table.json('security').defaultTo(null);
     table.json('email_reset').defaultTo(null);

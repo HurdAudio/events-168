@@ -81,10 +81,10 @@ const midiDevices = [
     }
 ]
 
-function Library() {
+function Library(skin) {
     
     const [user, setUser] = useState({});
-    const [libraryMonth, setLibraryMonth] = useState('_FebruaryC');
+    const [libraryMonth, setLibraryMonth] = useState(skin);
     const [patchEditorState, setPatchEditorState] = useState({
         path: midiDevices[0].path,
         patchManager: midiDevices[0].patchManager,

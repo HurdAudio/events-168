@@ -79,9 +79,9 @@ const midiGlitches = [
     }
 ];
 
-function MidiFX() {
+function MidiFX(skin) {
     
-    const [midiFXMonth, setMidiFXMonth] = useState('_FebruaryC');
+    const [midiFXMonth, setMidiFXMonth] = useState(skin);
     
         return(
             <div className={'homeContainer' + midiFXMonth}>

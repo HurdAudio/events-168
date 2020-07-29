@@ -21,9 +21,9 @@ import reddit from '../img/reddit.svg';
 import soundcloud from '../img/soundcloud.svg';
 import bandcamp from '../img/bandcamp.svg';
 
-function Social() {
+function Social(skin) {
     
-    const [socialMonth, setSocialMonth] = useState('_FebruaryC');
+    const [socialMonth, setSocialMonth] = useState(skin);
     const [socialIcons, setSocialIcons] = useState({
         gitHub: 'socialGitHub',
         facebook: 'socialFacebook',

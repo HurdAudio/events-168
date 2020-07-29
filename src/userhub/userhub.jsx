@@ -34,6 +34,7 @@ import VolcaNubassPatchManager from '../volcaNubassPatchManager/volcaNubassPatch
 import MidiManager from '../midiManager/midiManager';
 import CheckStatus from '../login/checkLoginStatus';
 import SetStatus from '../login/setLoginStatus';
+import SkinsTable from '../skins/skins';
 import axios from 'axios';
 import midiConnection from '../midiManager/midiConnection';
 
@@ -55,13 +56,16 @@ let connections = undefined;
 
 function UserHub() {
     
+    const skins = SkinsTable('userHub');
+    
     const [midiConnections, setMidiConnections] = useState(connections);
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState([]);
     const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
     const [user, setUser] = useState({});
-    const [userhubMonth, setUserhubMonth] = useState('_FebruaryC');
+    const [userhubMonth, setUserhubMonth] = useState(skins.userHub.skin);
+    const [userhubLogo, setUserhubLogo] = useState(skins.userHub.logo);
     const [userhubState, setUserhubState] = useState({
         home: 'homeContentActive',
         homeDiv: 'homeContentOn',
@@ -69,16 +73,16 @@ function UserHub() {
         libraryDiv: 'libraryContentOff',
         midiFX: 'midiFXContentInactive',
         midiFXDiv: 'midiFXOff',
-        panic: 'panicContentInactive',
-        panicDiv: 'panicOff',
+        panic: 'hubPanicContentInactive',
+        panicDiv: 'hubPanicOff',
         sequencer: 'sequencerContentInactive',
         sequencerDiv: 'sequencerContentOff',
         social: 'socialContentInactive',
         socialDiv: 'soccialOff',
         tab: 'sliderTabHome'
     });
-    const [panicMonth, setPanicMonth] = useState('_FebruaryC');
-    const [panicOn, setPanicOn] = useState(false);
+    const [panicMonth, setPanicMonth] = useState(skins.userHub.skin);
+    const [panicOn, setPanicOn] = useState(true);
     
     const hubStateHome = () => {
         if (userhubState.tab === 'sliderTabHome') {
@@ -91,8 +95,8 @@ function UserHub() {
             libraryDiv: 'libraryContentOff',
             midiFX: 'midiFXContentInactive',
             midiFXDiv: 'midiFXOff',
-            panic: 'panicContentInactive',
-            panicDiv: 'panicOff',
+            panic: 'hubPanicContentInactive',
+            panicDiv: 'hubPanicOff',
             sequencer: 'sequencerContentInactive',
             sequencerDiv: 'sequencerContentOff',
             social: 'socialContentInactive',
@@ -103,17 +107,6 @@ function UserHub() {
     
     const hubStateLibrarian = () => {
         securityClearance();
-        if (midiConnections === undefined) {
-            navigator.requestMIDIAccess({ sysex: true })
-            .then((midiAccess) => {               
-                connections = midiConnection(midiAccess);
-                setMidiConnections(connections);
-            }, () => {
-                alert('No MIDI ports accessible');
-            });
-        }
-        
-        console.log(midiConnections);
         setUserhubState({
             home: 'homeContentInactive',
             homeDiv: 'homeContentOff',
@@ -121,8 +114,8 @@ function UserHub() {
             libraryDiv: 'libraryContentOn',
             midiFX: 'midiFXContentInactive',
             midiFXDiv: 'midiFXOff',
-            panic: 'panicContentInactive',
-            panicDiv: 'panicOff',
+            panic: 'hubPanicContentInactive',
+            panicDiv: 'hubPanicOff',
             sequencer: 'sequencerContentInactive',
             sequencerDiv: 'sequencerContentOff',
             social: 'socialContentInactive',
@@ -143,8 +136,8 @@ function UserHub() {
             libraryDiv: 'libraryContentOff',
             midiFX: 'midiFXContentInactive',
             midiFXDiv: 'midiFXOff',
-            panic: 'panicContentInactive',
-            panicDiv: 'panicOff',
+            panic: 'hubPanicContentInactive',
+            panicDiv: 'hubPanicOff',
             sequencer: 'sequencerContentActive',
             sequencerDiv: 'sequencerContentOn',
             social: 'socialContentInactive',
@@ -164,8 +157,8 @@ function UserHub() {
             libraryDiv: 'libraryContentOff',
             midiFX: 'midiFXContentActive',
             midiFXDiv: 'midiFXOn',
-            panic: 'panicContentInactive',
-            panicDiv: 'panicOff',
+            panic: 'hubPanicContentInactive',
+            panicDiv: 'hubPanicOff',
             sequencer: 'sequencerContentInactive',
             sequencerDiv: 'sequencerContentOff',
             social: 'socialContentInactive',
@@ -185,8 +178,8 @@ function UserHub() {
             libraryDiv: 'libraryContentOff',
             midiFX: 'midiFXContentInactive',
             midiFXDiv: 'midiFXOff',
-            panic: 'panicContentInactive',
-            panicDiv: 'panicOff',
+            panic: 'hubPanicContentInactive',
+            panicDiv: 'hubPanicOff',
             sequencer: 'sequencerContentInactive',
             sequencerDiv: 'sequencerContentOff',
             social: 'socialContentActive',
@@ -206,8 +199,8 @@ function UserHub() {
             libraryDiv: 'libraryContentOff',
             midiFX: 'midiFXContentInactive',
             midiFXDiv: 'midiFXOff',
-            panic: 'panicContentActive',
-            panicDiv: 'panicOn',
+            panic: 'hubPanicContentActive',
+            panicDiv: 'hubPanicOn',
             sequencer: 'sequencerContentInactive',
             sequencerDiv: 'sequencerContentOff',
             social: 'socialContentInactive',
@@ -217,7 +210,7 @@ function UserHub() {
         setPanicOn(true);
         setTimeout(() => {
            setPanicOn(false); 
-        }, 7000);
+        }, 13000);
     }
     
     const securityClearance = () => {
@@ -270,7 +263,7 @@ function UserHub() {
                 <div className={'userHubContainer' + userhubMonth}>
                     <div className={'userHubImageDiv' + userhubMonth}>
                         <img className={'userHubLogoImg' + userhubMonth}
-                            src={bleu_midi_icon}></img>
+                            src={userhubLogo}></img>
                         <div className={'userHubTitleBar' + userhubMonth}>
                             <h2 className={'userHubTitle' + userhubMonth}>168 Events</h2>
                             <div className={'userHubLoggedInAsDiv' + userhubMonth}>
@@ -311,38 +304,38 @@ function UserHub() {
                         <span className={userhubState.tab + userhubMonth}></span>
                         <div className={userhubState.home + userhubMonth}>
                             <div className={userhubState.homeDiv + userhubMonth}>
-                                {Home(user)}
+                                {Home(user, userhubMonth)}
                             </div>
                         </div>
                         <div className={userhubState.librarian + userhubMonth}>
                             <div className={userhubState.libraryDiv + userhubMonth}>
-                                <Library />
+                                {Library(userhubMonth) }
                             </div>
                         </div>
                         <div className={userhubState.sequencer + userhubMonth}>
                             <div className={userhubState.sequencerDiv + userhubMonth}>
-                                <Sequencer />
+                                {Sequencer(userhubMonth) }
                             </div>
                         </div>
                         <div className={userhubState.midiFX + userhubMonth}>
                             <div className={userhubState.midiFXDiv + userhubMonth}>
-                                <MidiFX />
+                                {MidiFX(userhubMonth) }
                             </div>
                         </div>
                         <div className={userhubState.social + userhubMonth}>
                             <div className={userhubState.socialDiv + userhubMonth}>
-                                <Social />
+                                {Social(userhubMonth)}
                             </div>
                         </div>
                         <div className={userhubState.panic + userhubMonth}>
                             <div className={userhubState.panicDiv + userhubMonth}>
                                 <div className={'homeContainer' + panicMonth}>
-                                <img className={'panicIcon' + panicMonth}
+                                <img className={'hubPanicIcon' + panicMonth}
                                     src={panic}></img>
 
-                                {panicOn && (<div className={'panicSpinner' + panicMonth}></div>)}
-                                {!panicOn && (<div className={'panicComplete' + panicMonth}>
-                                        <p className={'panicCompleteMessage' + panicMonth}>all notes off</p></div>)}
+                                {panicOn && (<div className={'hubPanicSpinner' + panicMonth}></div>)}
+                                {!panicOn && (<div className={'hubPanicComplete' + panicMonth}>
+                                        <p className={'hubPanicCompleteMessage' + panicMonth}>all notes off</p></div>)}
 
                                 </div>
                             </div>

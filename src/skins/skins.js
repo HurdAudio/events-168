@@ -24,6 +24,13 @@ function SkinsTable(access) {
                 skins.login = table.login[months[now.getMonth()]][now.getDate()];
             }
             break;
+        case('userHub'):
+            if (table.userHub[months[now.getMonth()]].length === 1) {
+                skins.userHub = table.userHub.available[Math.floor(Math.random() * (table.userHub.available.length))];
+            } else {
+                skins.userHub = table.userHub[months[now.getMonth()]][now.getDate()];
+            }
+            break;
         default:
             alert('ERROR STATE: Unsupported Skins Action');
     }
