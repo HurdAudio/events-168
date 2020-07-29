@@ -388,7 +388,7 @@
     z-index: -5;
 }
 
-.panicContentActive_FebruaryA {
+.hubPanicContentActive_FebruaryA {
     backdrop-filter: brightness(80%) hue-rotate(360deg);
     grid-column: col1 / rightEdge;
     grid-row: row2 / rowEnd;
@@ -399,7 +399,7 @@
     z-index: 5;
 }
 
-.panicContentInactive_FebruaryA {
+.hubPanicContentInactive_FebruaryA {
     backdrop-filter: brightness(600%) hue-rotate(-360deg);
     grid-column: col1 / rightEdge;
     grid-row: row2 / rowEnd;
@@ -460,12 +460,12 @@
     transition: all 0.7s linear; 
 }
 
-.panicOn_FebruaryA {
+.hubPanicOn_FebruaryA {
     opacity: 1;
     transition: all 0.7s linear;
 }
 
-.panicOff_FebruaryA {
+.hubPanicOff_FebruaryA {
     opacity: 0;
     transition: all 0.7s linear; 
 }
@@ -517,7 +517,7 @@
     padding: 3px;
 }
 
-.panicIcon_FebruaryA {
+.hubPanicIcon_FebruaryA {
     background: #994952;
     color: transparent;
     margin-left: 75%;
@@ -577,20 +577,20 @@
     transition: all 0.3 linear;
 }
 
-.panicSpinner_FebruaryA {
+.hubPanicSpinner_FebruaryA {
     background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/230001-0070.gif);
     background-repeat: no-repeat;
     background-size: 60%;
     height: 500px;
     left: 20%;
-    opacity: 0.9;
+    opacity: 1;
     position: absolute;
     top: 40%;
     width: 60%;
     z-index: 100;
 }
 
-.panicComplete_FebruaryA {
+.hubPanicComplete_FebruaryA {
     align-content: center;
     background: #aaa4b3;
     display: flex;
@@ -599,14 +599,14 @@
     height: 80px;
     justify-content: center;
     left: 30%;
-    opacity: 0.8;
+    opacity: 1;
     position: absolute;
-    top: 40%;
+    top: 90%;
     width: 20%;
     z-index: 100;
 }
 
-.panicCompleteMessage_FebruaryA {
+.hubPanicCompleteMessage_FebruaryA {
     color: #0b0405;
     cursor: pointer;
     filter: brightness(110%);

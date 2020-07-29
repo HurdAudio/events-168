@@ -26,9 +26,9 @@ const sequenceProjects = [
     }
 ]
 
-function Sequencer() {
+function Sequencer(skin) {
     
-    const [sequenceMonth, setSequenceMonth] = useState('_FebruaryC');
+    const [sequenceMonth, setSequenceMonth] = useState(skin);
     
         return(
             <div className={'homeContainer' + sequenceMonth}>

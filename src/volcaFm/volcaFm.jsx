@@ -3174,7 +3174,7 @@ function VolcaFm(user, patch) {
             .then(onMIDISuccess, onMIDIFailure);
     }
 
-    initiateMidiAccess();
+//    initiateMidiAccess();
     
     function curveY1Value(op) {
         let val = 0;

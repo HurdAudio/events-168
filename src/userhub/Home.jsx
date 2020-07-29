@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import midiConnection from '../midiManager/midiConnection';
 import './userhub.style.jana.css';
 import './userhub.style.janb.css';
 import './userhub.style.janc.css';
@@ -17,43 +18,74 @@ import home from '../img/home.svg';
 import axios from 'axios';
 
 let localStorage = window.localStorage;
+let connections;
 
-const midiConfigurations = [
-    {
-        uuid: 'a26e975c-4d0a-4bc8-9064-0b29126423b5',
-        name: 'default'
-    },
-    {
-        uuid: '4870866b-fcde-4510-b305-ba456b050280',
-        name: 'volca setup'
-    },
-    {
-        uuid: 'fedf4790-c908-4baf-b21b-09920034c5e2',
-        name: 'live rig'
-    },
-    {
-        uuid: '59e7b5ff-ab8d-4766-804a-72c31f06821d',
-        name: 'studio rig'
-    },
-    {
-        uuid: '496b2a79-d6cf-4501-a964-1b484a6d2c02',
-        name: 'tasty chips gr-1 centric'
-    },
-    {
-        uuid: '161277f7-6ebe-45b1-bafc-2c0a8b0ae7d6',
-        name: 'space and thyme'
-    }
-];
-
-function Home(user) {
+function Home(user, skin) {
     
-    const [homeMonth, setHomeMonth] = useState('_FebruaryC');
+    const [homeMonth, setHomeMonth] = useState(skin);
     const [userClockResolution, setUserClockResolution] = useState(user.clock_resolution);
+    const [midiConfigurations, setMidiConfigurations] = useState([]);
+    const [midiPatchValue, setMidiPatchValue] = useState(null);
+    const [midiConnections, setMidiConnections] = useState(undefined);
+    const [currentOutput, setCurrentOutput] = useState([]);
+    const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
+    const [availableInputs, setAvailableInputs] = useState([]);
+    const [availableOutputs, setAvailableOutputs] = useState([]);
     
     const clockResolutionChange = (val) => {
         user.clock_resolution = val;
         setUserClockResolution(val);
         axios.patch(`/users/${user.uuid}`, { clock_resolution: val });
+    }
+    
+    const checkConfiguration = () => {
+        let patchValue = null;
+        
+        axios.get(`/midi_manager_patches/byuser/${user.uuid}`)
+        .then(patchesData => {
+            setMidiConfigurations(patchesData.data);
+            if (user.midi_patch !== null) {
+                patchValue = user.midi_patch;
+            } else if (midiConfigurations.length > 0) {
+                patchValue = midiConfigurations[0].uuid;
+            }
+            setMidiPatchValue(patchValue);
+            if (midiConnections === undefined) {
+                navigator.requestMIDIAccess({ sysex: true })
+                .then((midiAccess) => {               
+                    connections = midiConnection(midiAccess);
+                    setMidiConnections(connections);
+                    setCurrentOutput(connections.currentOutput);
+                    setCurrentMidiChannel(connections.currentMidiChannel);
+                    setAvailableOutputs(connections.outputs);
+                    setAvailableInputs(connections.inputs);
+                    user.midi_connections = connections;
+                    return;
+                }, () => {
+                    alert('No MIDI ports accessible');
+                });
+            }
+        });
+    }
+    
+    const changeMidiPatch = (val) => {
+        setMidiPatchValue(val);
+        axios.patch(`/users/${user.uuid}`, { midi_patch: val });
+        if (midiConnections === undefined) {
+            navigator.requestMIDIAccess({ sysex: true })
+            .then((midiAccess) => {               
+                connections = midiConnection(midiAccess);
+                setMidiConnections(connections);
+                setCurrentOutput(connections.currentOutput);
+                setCurrentMidiChannel(connections.currentMidiChannel);
+                setAvailableOutputs(connections.outputs);
+                setAvailableInputs(connections.inputs);
+                user.midi_connections = connections;
+                return;
+            }, () => {
+                alert('No MIDI ports accessible');
+            });
+        }
     }
     
     if (isNaN(userClockResolution)) {
@@ -72,12 +104,15 @@ function Home(user) {
                     <img className={'homeMidiBullet' + homeMonth} 
                         src={midi5pin}></img>
                     <p className={'homeDropdownLabel' + homeMonth}>MIDI manager:</p>
-                    <select className={'homeDropdown' + homeMonth}>
+                    <select className={'homeDropdown' + homeMonth}
+                        onChange={(e) => changeMidiPatch(e.target.value)}
+                        value={midiPatchValue}>
                         {midiConfigurations.map(item => 
-                            <option key={item.uuid} value={item.uuid}>{item.name}</option>
+                            <option key={item.uuid} value={item.uuid}>{item.user_preset.name}</option>
                         )}
                     </select>
-                    <button className={'homeButtons' + homeMonth}>load</button>
+                    <button className={'homeButtons' + homeMonth}
+                        onClick={() => checkConfiguration()}>load</button>
                     <Link to="/midi-manager">
                         <button className={'homeButtons' + homeMonth}>edit</button>
                     </Link>
