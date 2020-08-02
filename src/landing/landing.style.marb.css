@@ -1,0 +1,980 @@
+.container_MarchB {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: all 0.4s linear;
+    width: 100%;
+}
+
+.containerContained_MarchB {
+    filter: blur(5px);
+    transition: all 0.4s linear;
+}
+
+.imageDiv_MarchB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/landing/march/hao-dong-Z7n3UpoU_3Y-unsplash.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 12.5% [col2] 12.5% [col3] 12.5% [col4] 12.5% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [rightEdge];
+    grid-template-rows: [row1] 12.5% [row2] 12.5% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [rowEnd];
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.midiImage_MarchB {
+    filter: brightness(100%);
+    height: auto;
+    left: 40%;
+    opacity: 1;
+    position: absolute;
+    top: 40%;
+    transition: all 4s linear;
+    width: 210px;
+}
+
+.col1row1_MarchB {
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol1row1_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 84%;
+    opacity: 0.6;
+    position: absolute;
+    top: 72%;
+    transform: rotateZ(-27.5deg) skewY(-27deg);
+    transition: all 4s linear;
+    width: 180px;
+}
+
+.col2row1_MarchB {
+    grid-column: col2 / col3;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol2row1_MarchB {
+    display: none;
+}
+
+.col3row1_MarchB {
+    grid-column: col3 / col4;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol3row1_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 86%;
+    opacity: 0.6;
+    position: absolute;
+    top: 13%;
+    transform: rotateZ(-29.5deg) skewY(-27deg);
+    transition: all 4s linear;
+    width: 180px;
+}
+
+.col4row1_MarchB {
+    grid-column: col4 / col5;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol4row1_MarchB {
+    display: none;
+}
+
+.col5row1_MarchB {
+    grid-column: col5 / col6;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol5row1_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 58.5%;
+    opacity: 0.6;
+    position: absolute;
+    top: 30%;
+    transform: rotateZ(-12.5deg) skewY(-50deg);
+    transition: all 4s linear;
+    width: 80px;
+}
+
+.col6row1_MarchB {
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol6row1_MarchB {
+    display: none;
+}
+
+.col7row1_MarchB {
+    grid-column: col7 / col8;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol7row1_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 30%;
+    opacity: 0.6;
+    position: absolute;
+    top: 92%;
+    transform: rotateZ(-1.5deg) skewY(50deg);
+    transition: all 4s linear;
+    width: 40px;
+}
+
+.col8row1_MarchB {
+    grid-column: col8 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.midiImagecol8row1_MarchB {
+    display: none;
+}
+
+.col1row2_MarchB {
+    grid-column: col1 / col2;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol1row2_MarchB {
+    display: none;
+}
+
+.col2row2_MarchB {
+    grid-column: col2 / col3;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol2row2_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 56%;
+    opacity: 0.6;
+    position: absolute;
+    top: 72%;
+    transform: rotateZ(-8.5deg) skewY(-50deg);
+    transition: all 4s linear;
+    width: 80px;
+}
+
+.col3row2_MarchB {
+    grid-column: col3 / col4;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol3row2_MarchB {
+    display: none;
+}
+
+.col4row2_MarchB {
+    grid-column: col4 / col5;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol4row2_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 79%;
+    opacity: 0.6;
+    position: absolute;
+    top: 48%;
+    transform: rotateZ(-23.5deg) skewY(-35deg);
+    transition: all 4s linear;
+    width: 150px;
+}
+
+.col5row2_MarchB {
+    grid-column: col5 / col6;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol5row2_MarchB {
+    display: none;
+}
+
+.col6row2_MarchB {
+    grid-column: col6 / col7;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol6row2_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 49%;
+    opacity: 0.6;
+    position: absolute;
+    top: 12%;
+    transform: rotateZ(-5.5deg) skewY(-56deg);
+    transition: all 4s linear;
+    width: 40px;
+}
+
+.col7row2_MarchB {
+    grid-column: col7 / col8;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol7row2_MarchB {
+    display: none;
+}
+
+.col8row2_MarchB {
+    grid-column: col8 / rightEdge;
+    grid-row: row2 / row3;
+}
+
+.midiImagecol8row2_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 39%;
+    opacity: 0.6;
+    position: absolute;
+    top: 72%;
+    transform: rotateZ(-88deg) skewX(-32deg);
+    transition: all 4s linear;
+    width: 110px;
+}
+
+.col1row3_MarchB {
+    grid-column: col1 / col2;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol1row3_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 86%;
+    opacity: 0.6;
+    position: absolute;
+    top: 13%;
+    transform: rotateZ(-29.5deg) skewY(-27deg);
+    transition: all 4s linear;
+    width: 180px;
+}
+
+.col2row3_MarchB {
+    grid-column: col2 / col3;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol2row3_MarchB {
+    display: none;
+}
+
+.col3row3_MarchB {
+    grid-column: col3 / col4;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol3row3_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 58.5%;
+    opacity: 0.6;
+    position: absolute;
+    top: 30%;
+    transform: rotateZ(-12.5deg) skewY(-50deg);
+    transition: all 4s linear;
+    width: 80px;
+}
+
+.col4row3_MarchB {
+    grid-column: col4 / col5;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol4row3_MarchB {
+    display: none;
+}
+
+.col5row3_MarchB {
+    grid-column: col5 / col6;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol5row3_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 30%;
+    opacity: 0.6;
+    position: absolute;
+    top: 92%;
+    transform: rotateZ(-1.5deg) skewY(50deg);
+    transition: all 4s linear;
+    width: 40px;
+}
+
+.col6row3_MarchB {
+    grid-column: col6 / col7;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol6row3_MarchB {
+    display: none;
+}
+
+.col7row3_MarchB {
+    grid-column: col7 / col8;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol7row3_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 56%;
+    opacity: 0.6;
+    position: absolute;
+    top: 72%;
+    transform: rotateZ(-8.5deg) skewY(-50deg);
+    transition: all 4s linear;
+    width: 80px;
+}
+
+.col8row3_MarchB {
+    grid-column: col8 / rightEdge;
+    grid-row: row3 / row4;
+}
+
+.midiImagecol8row3_MarchB {
+    display: none;
+}
+
+.col1row4_MarchB {
+    grid-column: col1 / col2;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol1row4_MarchB {
+    display: none;
+}
+
+.col2row4_MarchB {
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol2row4_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 79%;
+    opacity: 0.6;
+    position: absolute;
+    top: 48%;
+    transform: rotateZ(-23.5deg) skewY(-35deg);
+    transition: all 4s linear;
+    width: 150px;
+}
+
+.col3row4_MarchB {
+    grid-column: col3 / col4;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol3row4_MarchB {
+    display: none;
+}
+
+.col4row4_MarchB {
+    grid-column: col4 / col5;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol4row4_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 49%;
+    opacity: 0.6;
+    position: absolute;
+    top: 12%;
+    transform: rotateZ(-5.5deg) skewY(-56deg);
+    transition: all 4s linear;
+    width: 40px;
+}
+
+.col5row4_MarchB {
+    grid-column: col5 / col6;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol5row4_MarchB {
+    display: none;
+}
+
+.col6row4_MarchB {
+    grid-column: col6 / col7;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol6row4_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 39%;
+    opacity: 0.6;
+    position: absolute;
+    top: 72%;
+    transform: rotateZ(-88deg) skewX(-32deg);
+    transition: all 4s linear;
+    width: 110px;
+}
+
+.col7row4_MarchB {
+    grid-column: col7 / col8;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol7row4_MarchB {
+    display: none;
+}
+
+.col8row4_MarchB {
+    grid-column: col8 / rightEdge;
+    grid-row: row4 / row5;
+}
+
+.midiImagecol8row4_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 84%;
+    opacity: 0.6;
+    position: absolute;
+    top: 72%;
+    transform: rotateZ(-27.5deg) skewY(-27deg);
+    transition: all 4s linear;
+    width: 180px;
+}
+
+.col1row5_MarchB {
+    grid-column: col1 / col2;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol1row5_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 58.5%;
+    opacity: 0.6;
+    position: absolute;
+    top: 30%;
+    transform: rotateZ(-12.5deg) skewY(-50deg);
+    transition: all 4s linear;
+    width: 80px;
+}
+
+.col2row5_MarchB {
+    grid-column: col2 / col3;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol2row5_MarchB {
+    display: none;
+}
+
+.col3row5_MarchB {
+    grid-column: col3 / col4;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol3row5_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 30%;
+    opacity: 0.6;
+    position: absolute;
+    top: 92%;
+    transform: rotateZ(-1.5deg) skewY(50deg);
+    transition: all 4s linear;
+    width: 40px;
+}
+
+.col4row5_MarchB {
+    grid-column: col4 / col5;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol4row5_MarchB {
+    display: none;
+}
+
+.col5row5_MarchB {
+    grid-column: col5 / col6;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol5row5_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 56%;
+    opacity: 0.6;
+    position: absolute;
+    top: 72%;
+    transform: rotateZ(-8.5deg) skewY(-50deg);
+    transition: all 4s linear;
+    width: 80px;
+}
+
+.col6row5_MarchB {
+    grid-column: col6 / col7;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol6row5_MarchB {
+    display: none;
+}
+
+.col7row5_MarchB {
+    grid-column: col7 / col8;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol7row5_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 79%;
+    opacity: 0.6;
+    position: absolute;
+    top: 48%;
+    transform: rotateZ(-23.5deg) skewY(-35deg);
+    transition: all 4s linear;
+    width: 150px;
+}
+
+.col8row5_MarchB {
+    grid-column: col8 / rightEdge;
+    grid-row: row5 / row6;
+}
+
+.midiImagecol8row5_MarchB {
+    display: none;
+}
+
+.col1row6_MarchB {
+    grid-column: col1 / col2;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol1row6_MarchB {
+    display: none;
+}
+
+.col2row6_MarchB {
+    grid-column: col2 / col3;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol2row6_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 49%;
+    opacity: 0.6;
+    position: absolute;
+    top: 12%;
+    transform: rotateZ(-5.5deg) skewY(-56deg);
+    transition: all 4s linear;
+    width: 40px;
+}
+
+.col3row6_MarchB {
+    grid-column: col3 / col4;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol3row6_MarchB {
+    display: none;
+}
+
+.col4row6_MarchB {
+    grid-column: col4 / col5;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol4row6_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 39%;
+    opacity: 0.6;
+    position: absolute;
+    top: 72%;
+    transform: rotateZ(-88deg) skewX(-32deg);
+    transition: all 4s linear;
+    width: 110px;
+}
+
+.col5row6_MarchB {
+    grid-column: col5 / col6;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol5row6_MarchB {
+    display: none;
+}
+
+.col6row6_MarchB {
+    grid-column: col6 / col7;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol6row6_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 84%;
+    opacity: 0.6;
+    position: absolute;
+    top: 72%;
+    transform: rotateZ(-27.5deg) skewY(-27deg);
+    transition: all 4s linear;
+    width: 180px;
+}
+
+.col7row6_MarchB {
+    grid-column: col7 / col8;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol7row6_MarchB {
+    display: none;
+}
+
+.col8row6_MarchB {
+    grid-column: col8 / rightEdge;
+    grid-row: row6 / row7;
+}
+
+.midiImagecol8row6_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 86%;
+    opacity: 0.6;
+    position: absolute;
+    top: 13%;
+    transform: rotateZ(-29.5deg) skewY(-27deg);
+    transition: all 4s linear;
+    width: 180px;
+}
+
+.col1row7_MarchB {
+    grid-column: col1 / col2;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol1row7_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 30%;
+    opacity: 0.6;
+    position: absolute;
+    top: 92%;
+    transform: rotateZ(-1.5deg) skewY(50deg);
+    transition: all 4s linear;
+    width: 40px;
+}
+
+.col2row7_MarchB {
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol2row7_MarchB {
+    display: none;
+}
+
+.col3row7_MarchB {
+    grid-column: col3 / col4;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol3row7_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 56%;
+    opacity: 0.6;
+    position: absolute;
+    top: 72%;
+    transform: rotateZ(-8.5deg) skewY(-50deg);
+    transition: all 4s linear;
+    width: 80px;
+}
+
+.col4row7_MarchB {
+    grid-column: col4 / col5;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol4row7_MarchB {
+    display: none;
+}
+
+.col5row7_MarchB {
+    grid-column: col5 / col6;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol5row7_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 79%;
+    opacity: 0.6;
+    position: absolute;
+    top: 48%;
+    transform: rotateZ(-23.5deg) skewY(-35deg);
+    transition: all 4s linear;
+    width: 150px;
+}
+
+.col6row7_MarchB {
+    grid-column: col6 / col7;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol6row7_MarchB {
+    display: none;
+}
+
+.col7row7_MarchB {
+    grid-column: col7 / col8;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol7row7_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 39%;
+    opacity: 0.6;
+    position: absolute;
+    top: 72%;
+    transform: rotateZ(-88deg) skewX(-32deg);
+    transition: all 4s linear;
+    width: 110px;
+}
+
+.col8row7_MarchB {
+    grid-column: col8 / rightEdge;
+    grid-row: row7 / row8;
+}
+
+.midiImagecol8row7_MarchB {
+    display: none;
+}
+
+.col1row8_MarchB {
+    grid-column: col1 / col2;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol1row8_MarchB {
+    display: none;
+}
+
+.col2row8_MarchB {
+    grid-column: col2 / col3;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol2row8_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 84%;
+    opacity: 0.6;
+    position: absolute;
+    top: 72%;
+    transform: rotateZ(-27.5deg) skewY(-27deg);
+    transition: all 4s linear;
+    width: 180px;
+}
+
+.col3row8_MarchB {
+    grid-column: col3 / col4;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol3row8_MarchB {
+    display: none;
+}
+
+.col4row8_MarchB {
+    grid-column: col4 / col5;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol4row8_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 86%;
+    opacity: 0.6;
+    position: absolute;
+    top: 13%;
+    transform: rotateZ(-29.5deg) skewY(-27deg);
+    transition: all 4s linear;
+    width: 180px;
+}
+
+.col5row8_MarchB {
+    grid-column: col5 / col6;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol5row8_MarchB {
+    display: none;
+}
+
+.col6row8_MarchB {
+    grid-column: col6 / col7;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol6row8_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 58.5%;
+    opacity: 0.6;
+    position: absolute;
+    top: 30%;
+    transform: rotateZ(-12.5deg) skewY(-50deg);
+    transition: all 4s linear;
+    width: 80px;
+}
+
+.col7row8_MarchB {
+    grid-column: col7 / col8;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol7row8_MarchB {
+    display: none;
+}
+
+.col8row8_MarchB {
+    grid-column: col8 / rightEdge;
+    grid-row: row8 / rowEnd;
+}
+
+.midiImagecol8row8_MarchB {
+    filter: brightness(70%);
+    height: auto;
+    left: 30%;
+    opacity: 0.6;
+    position: absolute;
+    top: 92%;
+    transform: rotateZ(-1.5deg) skewY(50deg);
+    transition: all 4s linear;
+    width: 40px;
+}
+
+.landingTitleDiv_MarchB {
+    grid-column: col1 / col2;
+    grid-row: row1 / rowEnd;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 1;
+}
+
+.landingTitle_MarchB {
+    color: #112c35;
+    cursor: pointer;
+    filter: brightness(100%) saturate(200%);
+    font-family: 'Manrope', sans-serif;
+    font-size: 114px;
+    left: -200px;
+    position: absolute;
+    top: 30%;
+    transform: rotateZ(-90deg);
+    transition: all 4s linear;
+    z-index: 55;
+}
+
+.landingTitle_MarchB:hover {
+    color: #b5b6ae;
+    filter: brightness(350%) saturate(300%);
+    transition: all 4s linear;
+}
+
+.landingByline_MarchB {
+    color: #112c35;
+    cursor: none;
+    filter: brightness(100%) saturate(200%);
+    font-family: 'Manrope', sans-serif;
+    font-size: 30px;
+    left: -90px;
+    position: absolute;
+    top: 32%;
+    transform: rotateZ(-90deg) translateX(30px) translateY(20px);
+    transition: all 4s linear;
+    z-index: 55;
+}
+
+.landingByline_MarchB:hover {
+    color: #b5b6ae;
+    filter: brightness(350%) saturate(200%);
+    transition: all 4s linear;
+}
+
+.userLogin_MarchB {
+    backdrop-filter: contrast(200%) hue-rotate(-90deg);
+    background: transparent;
+    border: none;
+    color: #c8cadb;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-size: 30px;
+    grid-column: col7 / col8;
+    grid-row: row1 / row2;
+    left: 10%;
+    outline-color: #88969a;
+    position: absolute;
+    top: 10%;
+    transition: all 0.3s linear;
+}
+
+.userLogin_MarchB:hover {
+    backdrop-filter: contrast(200%) hue-rotate(90deg);
+    color: #6b6c5c;
+    transition: all 0.3s linear;
+}
+
+.aboutButton_MarchB {
+    backdrop-filter: contrast(200%) hue-rotate(-90deg);
+    background: transparent;
+    border: none;
+    color: #c8cadb;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-size: 30px;
+    grid-column: col8 / rightEdge;
+    grid-row: row1 / row2;
+    left: 10%;
+    outline-color: #88969a;
+    position: absolute;
+    top: 10%;
+    transition: all 0.3s linear;
+}
+
+.aboutButton_MarchB:hover {
+    backdrop-filter: contrast(200%) hue-rotate(90deg);
+    color: #6b6c5c;
+    transition: all 0.3s linear;
+}
+
+.landingFooterDiv_MarchB {
+    bottom: 0;
+    height: auto;
+    left: 70%;
+    position: absolute;
+    width: 30%;
+}
+
+.landingFooter_MarchB {
+    color: #c8cadb;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+}
