@@ -1,0 +1,376 @@
+.stepSequencerContainer_Active_JanuaryA {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.stepSequencerContainer_Inactive_JanuaryA {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.stepSequencerImageDiv_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/stepSequencer/january/d8d2y1p-3300cbb4-b87c-4521-b5b8-9a40280d3284.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [row9] 12.5%[rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 80;
+}
+
+.stepSequencerEditorTopBar_JanuaryA {
+      backdrop-filter: blur(7px) brightness(150%) hue-rotate(-45deg);
+    background: linear-gradient(90deg, transparent, #04070c, #04070c, #253358, #253358, #868ea3, transparent);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.stepSeqNavImage_JanuaryA {
+    cursor: pointer;
+    filter: contrast(80%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.stepSeqNavImage_JanuaryA:hover {
+    filter: contrast(110%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTitle_JanuaryA {
+    color: #d2d6df;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 36px;
+    grid-column: col2 / col6;
+    grid-row: row1 / row2;
+    margin-left: 10px;
+    margin-top: 10px;
+    z-index: 55;
+}
+
+.stepSequencerLoadButton_JanuaryA {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #d2d6df;
+    color: #d2d6df;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #868ea3);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+    margin: 6px 65px 0 35px;
+    outline-color: #8f9193;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.stepSequencerLoadButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #253358;
+    color: #253358;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #868ea3);
+}
+
+.stepSequencerLoadButton_JanuaryA:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #868ea3);
+}
+
+.stepSequencerNameInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #d2d6df;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #8f9193;
+    position: absolute;
+    top: 1%;
+}
+
+.stepSequencerPanicButton_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #d2d6df;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col10 / rightEdge;
+    grid-row: row1 / row2;
+    z-index: 56;
+}
+
+.stepSequencerSidebarManager_JanuaryA {
+    backdrop-filter: hue-rotate(180deg);
+    background: radial-gradient(closest-corner, #253358, #04070c, #253358);
+    border-right: 3px solid #41444c;
+    box-sizing: border-box;
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 0.9;
+}
+
+.stepSequencerPositionDisplay_JanuaryA {
+    backdrop-filter: brightness(60%) blur(8px) contrast(100%) sepia(50%);
+    display: flex;
+    grid-column: col3 / col7;
+    grid-row: row2 / row3;
+}
+
+.stepSequencerShuttleControls_JanuaryA {
+    backdrop-filter: blur(8px);
+    background: linear-gradient(90deg, transparent, #8f9193, #8f9193, #6b7380, #6b7380, #253358, transparent);
+    grid-column: col7 / colEnd;
+    grid-row: row2 / row3;
+}
+
+.stepSequencerTempoTracking_JanuaryA {
+    backdrop-filter: blur(5px) brightness(30%) contrast(100%) hue-rotate(-90deg);
+    display: grid;
+    grid-column: col3 / col6;
+    grid-row: row3 / row9;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [rowEnd];
+}
+
+.stepSequencerTracking_JanuaryA {
+    backdrop-filter: blur(12px) brightness(45%) contrast(100%) hue-rotate(135deg);
+    grid-column: col6 / col10;
+    grid-row: row3 / row9;
+}
+
+.stepSequencerInputsControl_JanuaryA {
+    backdrop-filter: blur(3px) brightness(50%) contrast(90%) saturate(50%);
+    grid-column: col10 / colEnd;
+    grid-row: row3 / row9;
+}
+
+.stepSequencerPluginsPanel_JanuaryA {
+    backdrop-filter: blur(9px) hue-rotate(-90deg);
+    grid-column: col3 / colEnd;
+    grid-row: row9 / rowEnd;
+}
+
+.stepSequencerPositionBarInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #d2d6df;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    text-align: right;
+    width: 6%;
+}
+
+.stepSequencerPositionSeparator_JanuaryA {
+    color: #d2d6df;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 42px;
+    text-align: right;
+    width: 3%;
+}
+
+.stepSequencerPositionTicker_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #d2d6df;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    text-align: right;
+}
+
+.stepSequencerDisplayCurrentMeterAndTempo_JanuaryA {
+    background: transparent;
+    display: flex;
+    grid-column: col1 / colEnd;
+    grid-row: row1 / row2;
+}
+
+.stepSequencerDisplayCurrentMeterNumerator_JanuaryA {
+    color: #9299ac;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 36px;
+    margin: 2px 0 0 10px;
+    text-align: right;
+}
+
+.stepSequencerTempoNote_JanuaryA {
+    filter: brightness(100%) invert(100%);
+    margin-left: 20px;
+    max-height: 85%;
+    max-width: 10%;
+}
+
+.stepSequencerTempoTrackTracker_JanuaryA {
+    border: 1px solid #9299ac;
+    filter: brightness(150%) saturate(400%);
+    grid-column: col1 / colEnd;
+    grid-row: row2 / row15;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.stepSequencerTempoTrackTracker_JanuaryA::-webkit-scrollbar {
+    background: transparent;
+}
+
+.stepSequencerTempoEventLinetrue_JanuaryA {
+    background: #6b7380;
+    color: #010204;
+    display: flex;
+    filter: brightness(100%) saturate(100%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    width: 100%;
+}
+
+.stepSequencerTempoEventLinefalse_JanuaryA {
+    background: transparent;
+    color: #9299ac;
+    display: flex;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    width: 100%;
+}
+
+.stepSequencerTempoTrackDisplayLine_JanuaryA {
+    color: #9299ac;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin: 2px 10% 0 10px;
+    text-align: right;
+}
+
+.stepSequencerTempoTrackNumericalInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #9299ac;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    height: 25px;
+    text-align: right;
+    width: 3vmin;
+}
+
+.stepSequencerTempoTrackNumericalInput2_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #9299ac;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    height: 25px;
+    text-align: left;
+    width: 3vmin;
+}
+
+.stepSequencerTempoTrackDisplayLine2_JanuaryA {
+    color: #9299ac;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin: 2px 0 0 0;
+    text-align: right;
+}
+
+.stepSequencerTempoTrackerNoteImg_JanuaryA {
+    cursor: pointer;
+    filter: brightness(100%) invert(100%);
+    margin-left: 20px;
+    max-height: 20px;
+    max-width: 5%;
+}
+
+.stepSequencerTempoTrackTempoInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #9299ac;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    height: 25px;
+    text-align: left;
+    width: 14vmin;
+}
+
+.stepSequencerTrackingBarInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #9299ac;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin: 2px 0 0 0;
+    text-align: right;
+    width: 5vmin;
+}
+
+.stepSequencerTrackingMeterChangeInputsDiv_JanuaryA {
+    display: flex;
+    margin: 0 0 0 35px;
+}
+
+.stepSequencerTempoTrackerNoteImg2_JanuaryA {
+    cursor: pointer;
+    filter: brightness(100%) invert(100%);
+    margin-left: 20px;
+    max-height: 20px;
+    max-width: 15%;
+}
+
+.stepSequencerCurrentClockPositionDisplay_JanuaryA {
+    color: #d2d6df;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin: 13px 0 0 110px;
+    text-align: right;
+    width: 6%;
+}
+
+.stepSequencerTempoTrackEndMarker_JanuaryA {
+    color: #9299ac;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin: 2px 0 0 60px;
+}
