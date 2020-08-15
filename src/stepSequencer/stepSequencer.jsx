@@ -11,7 +11,17 @@ import midiConnection from '../midiManager/midiConnection';
 import './stepSequencer.style.jana.css';
 import midi5pin from '../img/midi5pin.svg';
 import quarterNote from '../img/quarterNote.png';
-
+import dottedQuarter from '../img/dottedQuarter.png';
+import halfNote from '../img/halfNote.png';
+import dottedHalfNote from '../img/dottedHalfNote.png';
+import wholeNote from '../img/wholeNote.png';
+import dottedWholeNote from '../img/dottedWholeNote.png';
+import doubleWholeNote from '../img/doubleWholeNote.png';
+import oneHundredTwentyEighthNote from '../img/oneHundredTwentyEighthNote.png';
+import sixtyfourthNote from '../img/sixtyfourthNote.png';
+import thirtySecondNote from '../img/thirtySecondNote.png';
+import sixteenthNote from '../img/sixteenthNote.png';
+import eighthNote from '../img/eighthNote.png';
 
 
 function StepSequencer(user, seq) {
@@ -74,6 +84,8 @@ function StepSequencer(user, seq) {
                 meterChange: true,
                 meterNumerator: 3,
                 meterDenominator: 4,
+                tempo: 120,
+                tempoBase: 'quarter',
                 tempoChange: false
             },
             {
@@ -82,6 +94,8 @@ function StepSequencer(user, seq) {
                 cumulativeTime: 28000,
                 ticks: 0,
                 meterChange: false,
+                meterNumerator: 3,
+                meterDenominator: 4,
                 tempo: 60,
                 tempoBase: 'quarter',
                 tempoChange: true
@@ -89,9 +103,13 @@ function StepSequencer(user, seq) {
             {
                 bar: 25,
                 beat: 1,
-                cumulativeTime: 5800,
+                cumulativeTime: 58000,
                 ticks: 0,
                 meterChange: false,
+                meterNumerator: 1,
+                meterDenominator: 1,
+                tempo: null,
+                tempoBase: null,
                 tempoChange: false
             }
         ]
@@ -106,6 +124,164 @@ function StepSequencer(user, seq) {
     });
     const [currentClockPosition, setCurrentClockPosition] = useState('0:00.000');
     
+    const setInitialTempoBase = (oldBase) => {
+        let deepCopy = {...tempoTrack};
+        let deepCurrent = {...currentTempo};
+        
+        switch(oldBase) {
+            case('dottedEighthNote'):
+                deepCurrent.tempoBase = 'quarter';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) / 4) * 3;
+                deepCopy.tick[0].tempoBase = 'quarter';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) / 4) * 3;
+                break;
+            case('dottedHalf'):
+                deepCurrent.tempoBase = 'wholeNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) / 4) * 3;
+                deepCopy.tick[0].tempoBase = 'wholeNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) / 4) * 3;
+                break;
+            case('dottedOneHundredTwentyEighthNote'):
+                deepCurrent.tempoBase = 'sixtyFourthNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) / 4) * 3;
+                deepCopy.tick[0].tempoBase = 'sixtyFourthNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) / 4) * 3;
+                break;
+            case('dottedQuarter'):
+                deepCurrent.tempoBase = 'halfNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) / 4) * 3;
+                deepCopy.tick[0].tempoBase = 'halfNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) / 4) * 3;
+                break;
+            case('dottedSixteenthNote'):
+                deepCurrent.tempoBase = 'eighthNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) / 4) * 3;
+                deepCopy.tick[0].tempoBase = 'eighthNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) / 4) * 3;
+                break;
+            case('dottedSixtyFourthNote'):
+                deepCurrent.tempoBase = 'thirtySecondNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) / 4) * 3;
+                deepCopy.tick[0].tempoBase = 'thirtySecondNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) / 4) * 3;
+                break;
+            case('dottedThirtySecondNote'):
+                deepCurrent.tempoBase = 'sixteenthNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) / 4) * 3;
+                deepCopy.tick[0].tempoBase = 'sixteenthNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) / 4) * 3;
+                break;
+            case('dottedWhole'):
+                deepCurrent.tempoBase = 'doubleWholeNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) / 4) * 3;
+                deepCopy.tick[0].tempoBase = 'doubleWholeNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) / 4) * 3;
+                break;
+            case('doubleWholeNote'):
+                deepCurrent.tempoBase = 'oneHundredTwentyEighthNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) * 256);
+                deepCopy.tick[0].tempoBase = 'oneHundredTwentyEighthNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) * 256);
+                break;
+            case('eighthNote'):
+                deepCurrent.tempoBase = 'dottedEighthNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) * 2) / 3;
+                deepCopy.tick[0].tempoBase = 'dottedEighthNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) * 2) /3;
+                break;
+                break;
+            case('halfNote'):
+                deepCurrent.tempoBase = 'dottedHalf';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) / 3) * 2;
+                deepCopy.tick[0].tempoBase = 'dottedHalf';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) / 3) * 2;
+                break;
+            case('oneHundredTwentyEighthNote'):
+                deepCurrent.tempoBase = 'dottedOneHundredTwentyEighthNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) / 3) * 2;
+                deepCopy.tick[0].tempoBase = 'dottedOneHundredTwentyEighthNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) / 3) * 2;
+                break;
+            case('quarter'):
+                deepCurrent.tempoBase = 'dottedQuarter';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) * 2) / 3;
+                deepCopy.tick[0].tempoBase = 'dottedQuarter';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) * 2) /3;
+                break;
+            case('sixteenthNote'):
+                deepCurrent.tempoBase = 'dottedSixteenthNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) * 2) / 3;
+                deepCopy.tick[0].tempoBase = 'dottedSixteenthNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) * 2) /3;
+                break;
+            case('sixtyFourthNote'):
+                deepCurrent.tempoBase = 'dottedSixtyFourthNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) * 2) / 3;
+                deepCopy.tick[0].tempoBase = 'dottedSixtyFourthNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) * 2) /3;
+                break;
+            case('thirtySecondNote'):
+                deepCurrent.tempoBase = 'dottedThirtySecondNote';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) * 2) / 3;
+                deepCopy.tick[0].tempoBase = 'dottedThirtySecondNote';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) * 2) /3;
+                break;
+            case('wholeNote'):
+                deepCurrent.tempoBase = 'dottedWhole';
+                deepCurrent.tempo = (parseInt(deepCurrent.tempo) / 3) * 2;
+                deepCopy.tick[0].tempoBase = 'dottedWhole';
+                deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) / 3) * 2;
+                break;
+            default:
+                alert('unsupported tempo base');
+        }
+        
+        setTempoTrack(deepCopy);
+        setCurrentTempo(deepCurrent);
+    }
+    
+    const cellDuration = (cell1, cell2) => {
+        let elapsedTime = cell1.cumulativeTime;
+        let bars = 0;
+        let beats = 0;
+        let ticks = 0;
+        
+        if (parseInt(cell2.bar) > parseInt(cell1.bar)) {
+            bars = parseInt(cell2.bar) - parseInt(cell1.bar);
+            elapsedTime += ((60000 / parseInt(cell1.tempo)) * parseInt(cell1.meterNumerator) * bars);
+        }
+        beats = (parseInt(cell2.beat) - parseInt(cell1.beat));
+        elapsedTime += ((60000 / parseInt(cell1.tempo)) * beats);
+        ticks = (parseInt(cell2.ticks) - parseInt(cell1.ticks));
+        elapsedTime += ((60000 / parseInt(cell1.tempo)) / getTickMax(parseInt(cell1.meterDenominator)));
+        
+        return elapsedTime;
+    }
+    
+    const recalculateTempoTrack = () => {
+        let deepCopy = {...tempoTrack};
+        
+        for (let i = 0; i < deepCopy.tick.length; i++) {
+            if (i === 0) {
+                deepCopy.tick[i].cumulativeTime = 0;
+            } else {
+                if (deepCopy.tick[i].meterChange) {
+                    if (deepCopy.tick[i].tempo !== null) {
+                        deepCopy.tick[i].tempo = deepCopy.tick[i - 1].tempo;
+                        deepCopy.tick[i].tempoBase = deepCopy.tick[i - 1].tempoBase;
+                    }
+                }
+                if (deepCopy.tick[i].tempoChange) {
+                    deepCopy.tick[i].meterNumerator = deepCopy.tick[i - 1].meterNumerator;
+                    deepCopy.tick[i].meterDenominator = deepCopy.tick[i - 1].meterDenominator;
+                }
+                deepCopy.tick[i].cumulativeTime = cellDuration(deepCopy.tick[i - 1], deepCopy.tick[i]);
+            }
+        }
+        
+        setTempoTrack(deepCopy);
+    }
+    
     const setInitialTempo = (val) => {
         let deepCopy = {...tempoTrack};
         let deepTempo = {...currentTempo};
@@ -115,6 +291,15 @@ function StepSequencer(user, seq) {
         
         setTempoTrack(deepCopy);
         setCurrentTempo(deepTempo);
+        setCurrentPosition({
+            measure: {
+                bar: parseInt(1),
+                beat: parseInt(1),
+                ticks: parseInt(0) 
+            }
+        });
+        setCurrentClockPosition('0:00.000');
+        recalculateTempoTrack();
     }
     
     const setInitialMeterNumerator = (val) => {
@@ -126,6 +311,15 @@ function StepSequencer(user, seq) {
             deepMeter.numerator = val;
             setTempoTrack(deepCopy);
             setCurrentMeter(deepMeter);
+            setCurrentPosition({
+                measure: {
+                    bar: parseInt(1),
+                    beat: parseInt(1),
+                    ticks: parseInt(0) 
+                }
+            });
+            setCurrentClockPosition('0:00.000');
+            recalculateTempoTrack();
         }
     }
     
@@ -142,6 +336,14 @@ function StepSequencer(user, seq) {
                 deepMeter.denominator = deepCopy.tick[0].meterDenominator;
             }
             setTempoTrack(deepCopy);
+            setCurrentPosition({
+                measure: {
+                    bar: parseInt(1),
+                    beat: parseInt(1),
+                    ticks: parseInt(0) 
+                }
+            });
+            setCurrentClockPosition('0:00.000');
             setCurrentMeter(deepMeter);
         }
     }
@@ -154,43 +356,86 @@ function StepSequencer(user, seq) {
         setSequence(deepCopy);
     }
     
+    const updateCurrentPositionValues = () => {
+        let index = 0;
+        let exitCondition = false;
+        
+        while(!exitCondition) {
+            if (positionEqualTo(currentPosition.measure, tempoTrack.tick[index])) {
+                exitCondition = true;
+            } else {
+                if ((positionGreaterThan(tempoTrack.tick[index], currentPosition.measure)) && (positionGreaterThan(currentPosition.measure, tempoTrack.tick[index + 1]))) {
+                    exitCondition = true;
+                } else {
+                    ++index;
+                }
+            }
+        }
+        if (parseInt(index) === parseInt(tempoTrack.tick.length - 1)) {
+            return;
+        }
+        setCurrentMeter({
+            numerator: parseInt(tempoTrack.tick[index].meterNumerator),
+            denominator: parseInt(tempoTrack.tick[index].meterDenominator)
+        });
+        setCurrentTempo({
+            tempo: tempoTrack.tick[index].tempo,
+            tempoBase: tempoTrack.tick[index].tempoBase
+        });
+        
+    }
+    
     const updateBarPosition = (val) => {
         let deepCopy = {...currentPosition};
         let deepSequence = {...sequence};
         
         if (val > 0) {
             deepCopy.measure.bar = parseInt(val);
+            deepCopy.measure.beat = 1;
+            deepCopy.measure.ticks = 0;
         }
         setCurrentPosition(deepCopy);
-        if (deepCopy.measure.bar > deepSequence.duration.bar) {
-            deepSequence.duration.bar = deepCopy.measure.bar;
-        }
-        setSequence(deepSequence);
+        updateCurrentPositionValues();
         setCurrentClockPosition(calculateTimeString(deepCopy.measure));
+        
+        
     }
     
     const updateBeatPosition = (val) => {
         let deepCopy = {...currentPosition};
         let deepSequence = {...sequence};
         
+        if (parseInt(deepCopy.measure.bar) === parseInt(deepSequence.duration.bar)) {
+            if (val > 1) {
+                return;
+            }
+        }
+        
         if (val > currentMeter.numerator) {
+            if (parseInt(deepCopy.measure.bar) === parseInt(deepSequence.duration.bar)) {
+                return;
+            }
             deepCopy.measure.bar = parseInt(deepCopy.measure.bar + 1);
             deepCopy.measure.beat = 1;
+            deepCopy.measure.ticks = 0;
         } else if (val < 1) {
             if (deepCopy.measure.bar > 1) {
                 deepCopy.measure.bar = parseInt(deepCopy.measure.bar - 1);
                 deepCopy.measure.beat = currentMeter.numerator;
+                deepCopy.measure.ticks = 0;
             } else {
                 return;
             }
         } else {
             deepCopy.measure.beat = val;
+            deepCopy.measure.ticks = 0;
         }
         setCurrentPosition(deepCopy);
         if (deepCopy.measure.bar > deepSequence.duration.bar) {
             deepSequence.duration.bar = deepCopy.measure.bar;
         }
         setSequence(deepSequence);
+        updateCurrentPositionValues();
         setCurrentClockPosition(calculateTimeString(deepCopy.measure));
     }
     
@@ -314,7 +559,9 @@ function StepSequencer(user, seq) {
                 deepCopy.measure.ticks = parseInt(maxValue - 1);
             }
         } else {
-            deepCopy.measure.ticks = parseInt(val);
+            if (deepCopy.measure.bar !== sequence.duration.bar) {
+                deepCopy.measure.ticks = parseInt(val);
+            }
         }
         
         setCurrentPosition(deepCopy);
@@ -322,6 +569,7 @@ function StepSequencer(user, seq) {
             deepSequence.duration.bar = deepCopy.measure.bar;
         }
         setSequence(deepSequence);
+        updateCurrentPositionValues();
         setCurrentClockPosition(calculateTimeString(deepCopy.measure));
     }
     
@@ -344,6 +592,11 @@ function StepSequencer(user, seq) {
         } else {
             second = Math.floor(base/1000);
             base = base % 1000;
+            if (second > 59) {
+                while(second > 59) {
+                    second -= 60;
+                }
+            }
         }
         if (second < 10) {
             time += '0' + second.toString() + '.';
@@ -458,6 +711,8 @@ function StepSequencer(user, seq) {
                     <div className={'stepSequencerSidebarManager' + stepSequenceMonth}></div>
                     <div className={'stepSequencerPositionDisplay' + stepSequenceMonth}>
                         <input className={'stepSequencerPositionBarInput' + stepSequenceMonth} 
+                            max={sequence.duration.bar}
+                            min="1"
                             onChange={(e) => updateBarPosition(e.target.value)}
                             type="number"
                             value={currentPosition.measure.bar} />
@@ -482,6 +737,70 @@ function StepSequencer(user, seq) {
                                 <img className={'stepSequencerTempoNote' + stepSequenceMonth}
                                     src={quarterNote} />
                             )}
+                            {(currentTempo.tempoBase === 'dottedQuarter') && (
+                                <div><img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={quarterNote} /><p style={{color: 'white', float: 'right', marginTop: '15px'}}>.</p></div>
+                            )}
+                            {(currentTempo.tempoBase === 'halfNote') && (
+                                <img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={halfNote} />
+                            )}
+                            {(currentTempo.tempoBase === 'dottedHalf') && (
+                                <div><img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={halfNote} /><p style={{color: 'white', float: 'right', marginTop: '15px'}}>.</p></div>
+                            )}
+                            {(currentTempo.tempoBase === 'wholeNote') && (
+                                <img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={wholeNote} />
+                            )}
+                            {(currentTempo.tempoBase === 'dottedWhole') && (
+                                <div><img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={wholeNote} /><p style={{color: 'white', float: 'right', marginTop: '15px'}}>.</p></div>
+                            )}
+                            {(currentTempo.tempoBase === 'doubleWholeNote') && (
+                                <img className={'stepSequencerTempoNoteWhole' + stepSequenceMonth}
+                                    src={doubleWholeNote} />
+                            )}
+                            {(currentTempo.tempoBase === 'oneHundredTwentyEighthNote') && (
+                                <img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={oneHundredTwentyEighthNote} />
+                            )}
+                            {(currentTempo.tempoBase === 'dottedOneHundredTwentyEighthNote') && (
+                                <div><img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={oneHundredTwentyEighthNote} /><p style={{color: 'white', float: 'right', marginTop: '15px'}}>.</p></div>
+                            )}
+                            {(currentTempo.tempoBase === 'sixtyFourthNote') && (
+                                <img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={sixtyfourthNote} />
+                            )}
+                            {(currentTempo.tempoBase === 'dottedSixtyFourthNote') && (
+                                <div><img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={sixtyfourthNote} /><p style={{color: 'white', float: 'right', marginTop: '15px'}}>.</p></div>
+                            )}
+                            {(currentTempo.tempoBase === 'thirtySecondNote') && (
+                                <img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={thirtySecondNote} />
+                            )}
+                            {(currentTempo.tempoBase === 'dottedThirtySecondNote') && (
+                                <div><img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={thirtySecondNote} /><p style={{color: 'white', float: 'right', marginTop: '15px'}}>.</p></div>
+                            )}
+                            {(currentTempo.tempoBase === 'sixteenthNote') && (
+                                <img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={sixteenthNote} />
+                            )}
+                            {(currentTempo.tempoBase === 'dottedSixteenthNote') && (
+                                <div><img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={sixteenthNote} /><p style={{color: 'white', float: 'right', marginTop: '15px'}}>.</p></div>
+                            )}
+                            {(currentTempo.tempoBase === 'eighthNote') && (
+                                <img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={eighthNote} />
+                            )}
+                            {(currentTempo.tempoBase === 'dottedEighthNote') && (
+                                <div><img className={'stepSequencerTempoNote' + stepSequenceMonth}
+                                    src={eighthNote} /><p style={{color: 'white', float: 'right', marginTop: '15px'}}>.</p></div>
+                            )}
                             <p className={'stepSequencerDisplayCurrentMeterNumerator' + stepSequenceMonth}> = {currentTempo.tempo}</p>
                         </div>
                         <div className={'stepSequencerTempoTrackTracker' + stepSequenceMonth}>
@@ -502,7 +821,88 @@ function StepSequencer(user, seq) {
                                                 value={eve.meterDenominator} />
                                             {(eve.tempoBase === 'quarter') && (
                                                 <img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('quarter')}
                                                     src={quarterNote} />
+                                            )}
+                                            {(eve.tempoBase === 'dottedQuarter') && (
+                                                <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('dottedQuarter')}
+                                                    src={quarterNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                            )}
+                                            {(eve.tempoBase === 'halfNote') && (
+                                                <img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('halfNote')}
+                                                    src={halfNote} />
+                                            )}
+                                            {(eve.tempoBase === 'dottedHalf') && (
+                                                <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('dottedHalf')}
+                                                    src={halfNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                            )}
+                                            {(eve.tempoBase === 'wholeNote') && (
+                                                <img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('wholeNote')}
+                                                    src={wholeNote} />
+                                            )}
+                                            {(eve.tempoBase === 'dottedWhole') && (
+                                                <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('dottedWhole')}
+                                                    src={wholeNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                            )}
+                                            {(eve.tempoBase === 'doubleWholeNote') && (
+                                                <img className={'stepSequencerTempoTrackerNoteImgWhole' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('doubleWholeNote')}
+                                                    src={doubleWholeNote} />
+                                            )}
+                                            {(eve.tempoBase === 'oneHundredTwentyEighthNote') && (
+                                                <img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('oneHundredTwentyEighthNote')}
+                                                    src={oneHundredTwentyEighthNote} />
+                                            )}
+                                            {(eve.tempoBase === 'dottedOneHundredTwentyEighthNote') && (
+                                                <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('dottedOneHundredTwentyEighthNote')}
+                                                    src={oneHundredTwentyEighthNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                            )}
+                                            {(eve.tempoBase === 'sixtyFourthNote') && (
+                                                <img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('sixtyFourthNote')}
+                                                    src={sixtyfourthNote} />
+                                            )}
+                                            {(eve.tempoBase === 'dottedSixtyFourthNote') && (
+                                                <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('dottedSixtyFourthNote')}
+                                                    src={sixtyfourthNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                            )}
+                                            {(eve.tempoBase === 'thirtySecondNote') && (
+                                                <img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('thirtySecondNote')}
+                                                    src={thirtySecondNote} />
+                                            )}
+                                            {(eve.tempoBase === 'dottedThirtySecondNote') && (
+                                                <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('dottedThirtySecondNote')}
+                                                    src={thirtySecondNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                            )}
+                                            {(eve.tempoBase === 'sixteenthNote') && (
+                                                <img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('sixteenthNote')}
+                                                    src={sixteenthNote} />
+                                            )}
+                                            {(eve.tempoBase === 'dottedSixteenthNote') && (
+                                                <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('dottedSixteenthNote')}
+                                                    src={sixteenthNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                            )}
+                                            {(eve.tempoBase === 'eighthNote') && (
+                                                <img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('eighthNote')}
+                                                    src={eighthNote} />
+                                            )}
+                                            {(eve.tempoBase === 'dottedEighthNote') && (
+                                                <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg' + stepSequenceMonth} 
+                                                    onClick={() => setInitialTempoBase('dottedEighthNote')}
+                                                    src={eighthNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
                                             )}
                                             <p className={'stepSequencerTempoTrackDisplayLine2' + stepSequenceMonth}>=</p>
                                             <input className={'stepSequencerTempoTrackTempoInput' + stepSequenceMonth}
@@ -541,6 +941,70 @@ function StepSequencer(user, seq) {
                                                     {(eve.tempoBase === 'quarter') && (
                                                         <img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
                                                         src={quarterNote} />
+                                                    )}
+                                                    {(eve.tempoBase === 'dottedQuarter') && (
+                                                        <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={quarterNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                                    )}
+                                                    {(eve.tempoBase === 'halfNote') && (
+                                                        <img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={halfNote} />
+                                                    )}
+                                                    {(eve.tempoBase === 'dottedHalf') && (
+                                                        <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={halfNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                                    )}
+                                                    {(eve.tempoBase === 'wholeNote') && (
+                                                        <img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={wholeNote} />
+                                                    )}
+                                                    {(eve.tempoBase === 'dottedWhole') && (
+                                                        <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={wholeNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                                    )}
+                                                    {(eve.tempoBase === 'doubleWholeNote') && (
+                                                        <img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={doubleWholeNote} />
+                                                    )}
+                                                    {(eve.tempoBase === 'oneHundredTwentyEighthNote') && (
+                                                        <img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={oneHundredTwentyEighthNote} />
+                                                    )}
+                                                    {(eve.tempoBase === 'dottedOneHundredTwentyEighthNote') && (
+                                                        <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={oneHundredTwentyEighthNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                                    )}
+                                                    {(eve.tempoBase === 'sixtyFourthNote') && (
+                                                        <img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={sixtyfourthNote} />
+                                                    )}
+                                                    {(eve.tempoBase === 'dottedSixtyFourthNote') && (
+                                                        <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={sixtyfourthNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                                    )}
+                                                    {(eve.tempoBase === 'thirtySecondNote') && (
+                                                        <img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={thirtySecondNote} />
+                                                    )}
+                                                    {(eve.tempoBase === 'dottedThirtySecondNote') && (
+                                                        <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={thirtySecondNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                                    )}
+                                                    {(eve.tempoBase === 'sixteenthNote') && (
+                                                        <img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={sixteenthNote} />
+                                                    )}
+                                                    {(eve.tempoBase === 'dottedSixteenthNote') && (
+                                                        <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={sixteenthNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
+                                                    )}
+                                                    {(eve.tempoBase === 'eighthNote') && (
+                                                        <img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={eighthNote} />
+                                                    )}
+                                                    {(eve.tempoBase === 'dottedEighthNote') && (
+                                                        <div style={{display: 'flex'}}><img className={'stepSequencerTempoTrackerNoteImg2' + stepSequenceMonth} 
+                                                        src={eighthNote} /><p style={{color: 'white', float: 'right', marginTop: '1px'}}>.</p></div>
                                                     )}
                                                     <p className={'stepSequencerTempoTrackDisplayLine2' + stepSequenceMonth}>=</p>
                                                     <input className={'stepSequencerTempoTrackTempoInput' + stepSequenceMonth}

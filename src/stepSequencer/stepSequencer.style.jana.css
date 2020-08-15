@@ -232,9 +232,19 @@
 
 .stepSequencerTempoNote_JanuaryA {
     filter: brightness(100%) invert(100%);
+    margin-bottom: -10px;
+    margin-right: -5px;
     margin-left: 20px;
-    max-height: 85%;
-    max-width: 10%;
+    max-height: 40px;
+    max-width: 70px;
+}
+
+.stepSequencerTempoNoteWhole_JanuaryA {
+    filter: brightness(100%) invert(100%);
+    margin-left: 20px;
+    margin-top: 10px;
+    max-height: 20px;
+    max-width: 40px;
 }
 
 .stepSequencerTempoTrackTracker_JanuaryA {
@@ -252,9 +262,9 @@
 
 .stepSequencerTempoEventLinetrue_JanuaryA {
     background: #6b7380;
-    color: #010204;
+    color: #d2d6df;
     display: flex;
-    filter: brightness(100%) saturate(100%);
+    filter: brightness(70%) saturate(50%);
     font-family: 'Epilogue', sans-serif;
     font-size: 24px;
     width: 100%;
@@ -315,9 +325,21 @@
 .stepSequencerTempoTrackerNoteImg_JanuaryA {
     cursor: pointer;
     filter: brightness(100%) invert(100%);
-    margin-left: 20px;
-    max-height: 20px;
-    max-width: 5%;
+    margin-bottom: -5px;
+    margin-left: 10px;
+    margin-right: -10px;
+    margin-top: -5px;
+    max-height: 35px;
+    max-width: 35px;
+}
+
+.stepSequencerTempoTrackerNoteImgWhole_JanuaryA {
+    cursor: pointer;
+    filter: brightness(100%) invert(100%);
+    margin-left: 10px;
+    margin-top: 7px;
+    max-height: 15px;
+    max-width: 30px;
 }
 
 .stepSequencerTempoTrackTempoInput_JanuaryA {
@@ -352,9 +374,11 @@
 .stepSequencerTempoTrackerNoteImg2_JanuaryA {
     cursor: pointer;
     filter: brightness(100%) invert(100%);
-    margin-left: 20px;
-    max-height: 20px;
-    max-width: 15%;
+    margin-left: 1px;
+    margin-right: -10px;
+    margin-top: -5px;
+    max-height: 35px;
+    max-width: 65px;
 }
 
 .stepSequencerCurrentClockPositionDisplay_JanuaryA {
@@ -372,5 +396,5 @@
     filter: brightness(150%) saturate(400%);
     font-family: 'Epilogue', sans-serif;
     font-size: 24px;
-    margin: 2px 0 0 60px;
+    margin: 2px 0 0 40px;
 }
