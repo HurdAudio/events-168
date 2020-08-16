@@ -382,6 +382,15 @@
     max-width: 65px;
 }
 
+.stepSequencerTempoTrackerNoteImg2Whole_JanuaryA {
+    cursor: pointer;
+    filter: brightness(100%) invert(100%);
+    margin-left: 10px;
+    margin-top: 10px;
+    max-height: 15px;
+    max-width: 20px;
+}
+
 .stepSequencerCurrentClockPositionDisplay_JanuaryA {
     color: #d2d6df;
     filter: brightness(150%) saturate(400%);
@@ -398,4 +407,116 @@
     font-family: 'Epilogue', sans-serif;
     font-size: 24px;
     margin: 2px 0 0 40px;
+}
+
+.stepSequencerTempoTrackEventDeleteX_JanuaryA {
+    color: transparent;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin-top: 5px;
+    right: 100%;
+    position: relative;
+}
+
+.stepSequencerTempoTrackEventDeleteX_JanuaryA:hover {
+    color: #9299ac;
+}
+
+.stepSequencerTempoTrackAddLabel_JanuaryA {
+    color: #d2d6df;
+    filter: brightness(250%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col1 / col4;
+    grid-row: row15 / rowEnd;
+    margin: 10px 0 0 15px;
+}
+
+.stepSequencerTempoTrackAddMeterButton_JanuaryA {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #d2d6df;
+    color: #d2d6df;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #868ea3);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col4 / col7;
+    grid-row: row15 / row16;
+    margin: 2px 0 0 2px;
+    outline-color: #8f9193;
+    padding: 0 1px;
+    z-index: 155;
+}
+
+.stepSequencerTempoTrackAddMeterButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #253358;
+    color: #253358;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #868ea3);
+}
+
+.stepSequencerTempoTrackAddMeterButton_JanuaryA:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #868ea3);
+}
+
+.stepSequencerTempoTrackAddTempoButton_JanuaryA {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #d2d6df;
+    color: #d2d6df;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #868ea3);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col7 / col10;
+    grid-row: row15 / row16;
+    margin: 2px 0 0 2px;
+    outline-color: #8f9193;
+    padding: 0 1px;
+    z-index: 155;
+}
+
+.stepSequencerTempoTrackAddTempoButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #253358;
+    color: #253358;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #868ea3);
+}
+
+.stepSequencerTempoTrackAddTempoButton_January:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #868ea3);
+}
+
+.stepSequencerTempoTrackRitAccelButton_JanuaryA {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #d2d6df;
+    color: #d2d6df;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #868ea3);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col10 / colEnd;
+    grid-row: row15 / row16;
+    margin: 2px 0 0 2px;
+    outline-color: #8f9193;
+    padding: 0 1px;
+    z-index: 155;
+}
+
+.stepSequencerTempoTrackRitAccelButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #253358;
+    color: #253358;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #868ea3);
+}
+
+.stepSequencerTempoTrackRitAccelButton_JanuaryA:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #868ea3);
 }
