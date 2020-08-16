@@ -70,6 +70,7 @@ function StepSequencer(user, seq) {
                 bar: 1,
                 beat: 1,
                 cumulativeTime: 0,
+                index: 0,
                 ticks: 0,
                 meterNumerator: 4,
                 meterDenominator: 4,
@@ -80,6 +81,7 @@ function StepSequencer(user, seq) {
                 bar: 9,
                 beat: 1,
                 cumulativeTime: 16000,
+                index: 1,
                 ticks: 0,
                 meterChange: true,
                 meterNumerator: 3,
@@ -92,6 +94,7 @@ function StepSequencer(user, seq) {
                 bar: 15,
                 beat: 1,
                 cumulativeTime: 28000,
+                index: 2,
                 ticks: 0,
                 meterChange: false,
                 meterNumerator: 3,
@@ -104,6 +107,7 @@ function StepSequencer(user, seq) {
                 bar: 25,
                 beat: 1,
                 cumulativeTime: 58000,
+                index: 3,
                 ticks: 0,
                 meterChange: false,
                 meterNumerator: 1,
@@ -123,6 +127,774 @@ function StepSequencer(user, seq) {
         tempoBase: 'quarter'
     });
     const [currentClockPosition, setCurrentClockPosition] = useState('0:00.000');
+    
+    const sortTempoTrack = () => {
+        let deepCopy = {...tempoTrack};
+        
+        deepCopy.tick = deepCopy.tick.sort((a, b) => {
+            if (a.bar < b.bar) {
+                return -1;
+            } else if (a.bar > b.bar) {
+                return 1;
+            } else {
+                if (a.beat < b.beat) {
+                    return -1;
+                } else if (a.beat > b.beat) {
+                    return 1;
+                } else {
+                    if (a.ticks < b.ticks) {
+                        return -1;
+                    } else if (a.ticks > b.ticks) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                }
+            }
+        });
+        
+        for (let i = 1; i < deepCopy.tick.length; i++) {
+            deepCopy.tick[i].index = i;
+            if (deepCopy.tick[i].meterChange) {
+                deepCopy.tick[i].tempo = deepCopy.tick[i - 1].tempo;
+                deepCopy.tick[i].tempoBase = deepCopy.tick[i - 1].tempoBase;
+            }
+            if (deepCopy.tick[i].tempoChange) {
+                deepCopy.tick[i].meterNumerator = deepCopy.tick[i - 1].meterNumerator;
+                deepCopy.tick[i].meterDenominator = deepCopy.tick[i - 1].meterDenominator;
+            }
+        }
+        
+        setTempoTrack(deepCopy);
+    }
+    
+    const meterAtPosition = (position) => {
+        let index = 0;
+        let meter = {};
+        let exitCondition = false;
+        
+        if ((parseInt(position.bar) === 1) || (parseInt(position.bar) === 0)) {
+            return {
+                meterNumerator: tempoTrack.tick[0].meterNumerator,
+                meterDenominator: tempoTrack.tick[0].meterDenominator
+            };
+        }
+        
+        while(!exitCondition){
+            if (positionEqualTo(position, tempoTrack.tick[index])) {
+                exitCondition = true;
+            } else {
+                if ((positionGreaterThan(tempoTrack.tick[index], position)) && (positionGreaterThan(position, tempoTrack.tick[index + 1]))) {
+                    exitCondition = true;
+                } else {
+                    ++index;
+                }
+            }
+        }
+        meter.meterNumerator = tempoTrack.tick[index].meterNumerator;
+        meter.meterDenominator = tempoTrack.tick[index].meterDenominator;
+        
+        return meter;
+    }
+    
+    const getTotalTicks = (denominator) => {
+        let total = parseInt(user.clock_resolution);
+        
+        switch(denominator) {
+            case(1):
+                total = total * 4;
+                break;
+            case(2):
+                total = total * 2;
+                break;
+            case(4):
+                total = total;
+                break;
+            case(8):
+                total = total / 2;
+                break;
+            case(16):
+                total = total / 4;
+                break;
+            case(32):
+                total = total / 8;
+                break;
+            case(64):
+                total = total / 16;
+                break;
+            case(128):
+                total = total / 32;
+                break;
+            default:
+                alert('ERROR: Faulty meter denominator');
+        }
+        
+        return total;
+    }
+    
+    const updateTempoEventTicks = (val, index) => {
+        let deepCopy = {...tempoTrack};
+        let bar, beat, ticks;
+        let meter = meterAtPosition(tempoTrack.tick[index]);
+        let meter2 = meterAtPosition({bar: parseInt(tempoTrack.tick[index].bar - 1), beat: 0, ticks: 0});
+        
+        if (parseInt(val) < 0) {
+            if (parseInt(deepCopy.tick[index].beat) === 1) {
+                if (parseInt(deepCopy.tick[index].bar) === 2) {
+                    return;
+                }
+                deepCopy.tick[index].bar = parseInt(deepCopy.tick[index].bar) - 1;
+                deepCopy.tick[index].beat = parseInt(meter2.meterNumerator);
+                deepCopy.tick[index].ticks = parseInt(getTotalTicks(meter2.meterDenominator) - 1);
+            } else {
+                deepCopy.tick[index].beat = parseInt(deepCopy.tick[index].beat) - 1;
+                deepCopy.tick[index].ticks = parseInt(getTotalTicks(meter2.meterDenominator) - 1);
+            }
+        } else if (parseInt(val) > (getTotalTicks(meter.meterDenominator) - 1)) {
+            if (parseInt(deepCopy.tick[index].beat) === parseInt(meter.numerator)) {
+                if (parseInt(deepCopy.tick[index].bar) === (parseInt(sequence.duration.bar) - 1)) {
+                    return;
+                }
+                deepCopy.tick[index].bar = parseInt(deepCopy.tick[index].bar) + 1;
+                deepCopy.tick[index].beat = 1;
+                deepCopy.tick[index].ticks = 0;
+            } else {
+                deepCopy.tick[index].beat = parseInt(deepCopy.tick[index].beat) + 1;
+                deepCopy.tick[index].ticks = 0;
+            }
+        } else {
+            deepCopy.tick[index].ticks = parseInt(val);
+        }
+        bar = parseInt(deepCopy.tick[index].bar);
+        beat = parseInt(deepCopy.tick[index].beat);
+        ticks = parseInt(deepCopy.tick[index].ticks);
+        setCurrentPosition({
+            measure: {
+                bar,
+                beat,
+                ticks 
+            }
+        });
+        setCurrentTempo({
+            tempo: deepCopy.tick[index].tempo,
+            tempoBase: deepCopy.tick[index].tempoBase
+        });
+        setTempoTrack(deepCopy);
+        sortTempoTrack();        
+        recalculateTempoTrack();
+        setCurrentClockPosition(calculateTimeString({bar, beat, ticks}));
+    }
+    
+    const updateTempoEventBeat = (val, index) => {
+        let deepCopy = {...tempoTrack};
+        let bar, beat, ticks;
+        let meter = meterAtPosition(tempoTrack.tick[index]);
+        let meter2 = meterAtPosition({bar: parseInt(tempoTrack.tick[index].bar - 1), beat: 0, ticks: 0});
+        
+        if (parseInt(val) === 0) {
+            if (parseInt(deepCopy.tick[index].bar) === 1) {
+                return;
+            }
+            deepCopy.tick[index].bar = parseInt(deepCopy.tick[index].bar) - 1;
+            deepCopy.tick[index].beat = parseInt(meter2.meterNumerator);
+            deepCopy.tick[index].ticks = 0;
+        } else if (parseInt(val) === 1){
+            if (parseInt(deepCopy.tick[index].bar) === 1) {
+                return;
+            }
+            deepCopy.tick[index].beat = 1;
+        } else if (parseInt(val) > parseInt(meter.meterNumerator)) {
+            if (parseInt(deepCopy.tick[index].bar) === (parseInt(sequence.duration.bar) - 1)) {
+                return;
+            }
+            deepCopy.tick[index].bar = parseInt(deepCopy.tick[index].bar) + 1;
+            deepCopy.tick[index].beat = 1;
+            deepCopy.tick[index].ticks = 0;
+        } else {
+            deepCopy.tick[index].beat = parseInt(val);
+        }
+        bar = parseInt(deepCopy.tick[index].bar);
+        beat = parseInt(deepCopy.tick[index].beat);
+        ticks = parseInt(deepCopy.tick[index].ticks);
+        setCurrentPosition({
+            measure: {
+                bar,
+                beat,
+                ticks 
+            }
+        });
+        setCurrentTempo({
+            tempo: deepCopy.tick[index].tempo,
+            tempoBase: deepCopy.tick[index].tempoBase
+        });
+        setTempoTrack(deepCopy);
+        sortTempoTrack();        
+        recalculateTempoTrack();
+        setCurrentClockPosition(calculateTimeString({bar, beat, ticks}));
+    }
+    
+    const updateTempoEventBar = (val, index) => {
+        let deepCopy = {...tempoTrack};
+        let deepSequence = {...sequence};
+        let bar, beat, ticks;
+        
+        if ((parseInt(val) === 1) || (parseInt(val) === parseInt(sequence.duration.bar))) {
+            return;
+        }
+        if (parseInt(index) === (deepCopy.tick.length - 1)) {
+            if (parseInt(val) < (parseInt(deepCopy.tick[index - 1].bar) + 1)) {
+                return;
+            }
+            deepSequence.duration.bar = val;
+        } else {
+            if (val > deepSequence.duration.bar) {
+                return;
+            }
+        }
+        deepCopy.tick[index].bar = parseInt(val);
+        bar = parseInt(deepCopy.tick[index].bar);
+        beat = parseInt(deepCopy.tick[index].beat);
+        ticks = parseInt(deepCopy.tick[index].ticks);
+        setCurrentPosition({
+            measure: {
+                bar,
+                beat,
+                ticks 
+            }
+        });
+        setCurrentTempo({
+            tempo: deepCopy.tick[index].tempo,
+            tempoBase: deepCopy.tick[index].tempoBase
+        });
+        
+        setTempoTrack(deepCopy);
+        setSequence(deepSequence);
+        sortTempoTrack();        
+        recalculateTempoTrack();
+        setCurrentClockPosition(calculateTimeString({bar, beat, ticks}));
+        
+    }
+    
+    const tempoBeatValue = (tempoObj) => {
+        let tempo = parseInt(tempoObj.tempo);
+        
+        switch(tempoObj.tempoBase) {
+             case('dottedEighthNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = ((tempo * 3) / 16);
+                        break;
+                    case(2):
+                        tempo = ((tempo * 3) / 8);
+                        break;
+                    case(4):
+                        tempo = ((tempo * 3) / 4);
+                        break;
+                    case(8):
+                        tempo = ((tempo * 3) / 2);
+                        break;
+                    case(16):
+                        tempo = (tempo * 3);
+                        break;
+                    case(32):
+                        tempo = (tempo * 6);
+                        break;
+                    case(64):
+                        tempo = (tempo * 12);
+                        break;
+                    case(128):
+                        tempo = (tempo * 24);
+                        break;
+                    default:
+                        alert('ERROR: dotted eighth note conversion');
+                }
+                break;
+            case('dottedHalf'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo * 3) / 4;
+                        break;
+                    case(2):
+                        tempo = (tempo * 3) / 2;
+                        break;
+                    case(4):
+                        tempo = (tempo * 3);
+                        break;
+                    case(8):
+                        tempo = (tempo * 6);
+                        break;
+                    case(16):
+                        tempo = (tempo * 12);
+                        break;
+                    case(32):
+                        tempo = (tempo * 24);
+                        break;
+                    case(64):
+                        tempo = (tempo * 48);
+                        break;
+                    case(128):
+                        tempo = (tempo * 96);
+                        break;
+                    default:
+                       alert('ERROR: dotted half note conversion'); 
+                }
+                break;
+            case('dottedOneHundredTwentyEighthNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo * 3) / 256;
+                        break;
+                    case(2):
+                        tempo = (tempo * 3) / 128;
+                        break;
+                    case(4):
+                        tempo = (tempo * 3) / 64;
+                        break;
+                    case(8):
+                        tempo = (tempo * 3) / 32;
+                        break;
+                    case(16):
+                        tempo = (tempo * 3) / 16;
+                        break;
+                    case(32):
+                        tempo = (tempo * 3) / 8;
+                        break;
+                    case(64):
+                        tempo = (tempo * 3) / 4;
+                        break;
+                    case(128):
+                        tempo = (tempo * 3) / 2;
+                        break;
+                    default:
+                       alert('ERROR: dotted one hundred twenty-eighth note conversion'); 
+                }
+                break;
+            case('dottedQuarter'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo * 3) / 8;
+                        break;
+                    case(2):
+                        tempo = (tempo * 3) / 4;
+                        break;
+                    case(4):
+                        tempo = (tempo * 3) / 2;
+                        break;
+                    case(8):
+                        tempo = (tempo * 3);
+                        break;
+                    case(16):
+                        tempo = (tempo * 6);
+                        break;
+                    case(32):
+                        tempo = (tempo * 12);
+                        break;
+                    case(64):
+                        tempo = (tempo * 24);
+                        break;
+                    case(128):
+                        tempo = (tempo * 48);
+                        break;
+                    default:
+                       alert('ERROR: dotted quarter note conversion'); 
+                }
+                break;
+            case('dottedSixteenthNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo * 3) / 32;
+                        break;
+                    case(2):
+                        tempo = (tempo * 3) / 16;
+                        break;
+                    case(4):
+                        tempo = (tempo * 3) / 8;
+                        break;
+                    case(8):
+                        tempo = (tempo * 3) / 4;
+                        break;
+                    case(16):
+                        tempo = (tempo * 3) / 2;
+                        break;
+                    case(32):
+                        tempo = (tempo * 3);
+                        break;
+                    case(64):
+                        tempo = (tempo * 6);
+                        break;
+                    case(128):
+                        tempo = (tempo * 12);
+                        break;
+                    default:
+                       alert('ERROR: dotted sixteenth note conversion'); 
+                }
+                break;
+            case('dottedSixtyFourthNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo * 3) / 128;
+                        break;
+                    case(2):
+                        tempo = (tempo * 3) / 64;
+                        break;
+                    case(4):
+                        tempo = (tempo * 3) / 32;
+                        break;
+                    case(8):
+                        tempo = (tempo * 3) / 16;
+                        break;
+                    case(16):
+                        tempo = (tempo * 3) / 8;
+                        break;
+                    case(32):
+                        tempo = (tempo * 3) / 4;
+                        break;
+                    case(64):
+                        tempo = (tempo * 3) / 2;
+                        break;
+                    case(128):
+                        tempo = (tempo * 3);
+                        break;
+                    default:
+                       alert('ERROR: dotted sixty-fourth note conversion'); 
+                }
+                break;
+            case('dottedThirtySecondNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo * 3) / 64;
+                        break;
+                    case(2):
+                        tempo = (tempo * 3) / 32;
+                        break;
+                    case(4):
+                        tempo = (tempo * 3) / 16;
+                        break;
+                    case(8):
+                        tempo = (tempo * 3) / 8;
+                        break;
+                    case(16):
+                        tempo = (tempo * 3) / 4;
+                        break;
+                    case(32):
+                        tempo = (tempo * 3) / 2;
+                        break;
+                    case(64):
+                        tempo = (tempo * 3);
+                        break;
+                    case(128):
+                        tempo = (tempo * 6);
+                        break;
+                    default:
+                       alert('ERROR: dotted thirty-second note conversion'); 
+                }
+                break;
+            case('dottedWhole'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo * 3) / 2;
+                        break;
+                    case(2):
+                        tempo = (tempo * 3);
+                        break;
+                    case(4):
+                        tempo = (tempo * 6);
+                        break;
+                    case(8):
+                        tempo = (tempo * 12);
+                        break;
+                    case(16):
+                        tempo = (tempo * 24);
+                        break;
+                    case(32):
+                        tempo = (tempo * 48);
+                        break;
+                    case(64):
+                        tempo = (tempo * 96);
+                        break;
+                    case(128):
+                        tempo = (tempo * 192);
+                        break;
+                    default:
+                       alert('ERROR: dotted whole note conversion'); 
+                }
+                break;
+            case('doubleWholeNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo * 2);
+                        break;
+                    case(2):
+                        tempo = (tempo * 4);
+                        break;
+                    case(4):
+                        tempo = (tempo * 8);
+                        break;
+                    case(8):
+                        tempo = (tempo * 16);
+                        break;
+                    case(16):
+                        tempo = (tempo * 32);
+                        break;
+                    case(32):
+                        tempo = (tempo * 64);
+                        break;
+                    case(64):
+                        tempo = (tempo * 128);
+                        break;
+                    case(128):
+                        tempo = (tempo * 256);
+                        break;
+                    default:
+                       alert('ERROR: double whole note conversion'); 
+                }
+                break;
+            case('eighthNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo / 8);
+                        break;
+                    case(2):
+                        tempo = (tempo / 4);
+                        break;
+                    case(4):
+                        tempo = (tempo / 2);
+                        break;
+                    case(8):
+                        tempo = tempo;
+                        break;
+                    case(16):
+                        tempo = (tempo * 2);
+                        break;
+                    case(32):
+                        tempo = (tempo * 4);
+                        break;
+                    case(64):
+                        tempo = (tempo * 8);
+                        break;
+                    case(128):
+                        tempo = (tempo * 16);
+                        break;
+                    default:
+                       alert('ERROR: eighth note conversion'); 
+                }
+                break;
+            case('halfNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo / 2);
+                        break;
+                    case(2):
+                        tempo = tempo;
+                        break;
+                    case(4):
+                        tempo = (tempo * 2);
+                        break;
+                    case(8):
+                        tempo = (tempo * 4);
+                        break;
+                    case(16):
+                        tempo = (tempo * 8);
+                        break;
+                    case(32):
+                        tempo = (tempo * 16);
+                        break;
+                    case(64):
+                        tempo = (tempo * 32);
+                        break;
+                    case(128):
+                        tempo = (tempo * 64);
+                        break;
+                    default:
+                       alert('ERROR: half note conversion'); 
+                }
+                break;
+            case('oneHundredTwentyEighthNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo / 128);
+                        break;
+                    case(2):
+                        tempo = (tempo / 64);
+                        break;
+                    case(4):
+                        tempo = (tempo / 32);
+                        break;
+                    case(8):
+                        tempo = (tempo / 16);
+                        break;
+                    case(16):
+                        tempo = (tempo / 8);
+                        break;
+                    case(32):
+                        tempo = (tempo / 4);
+                        break;
+                    case(64):
+                        tempo = (tempo / 2);
+                        break;
+                    case(128):
+                        tempo = tempo;
+                        break;
+                    default:
+                       alert('ERROR: one hundred twenty-eighth note conversion'); 
+                }
+                break;
+            case('quarter'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo / 4);
+                        break;
+                    case(2):
+                        tempo = (tempo / 2);
+                        break;
+                    case(4):
+                        tempo = tempo;
+                        break;
+                    case(8):
+                        tempo = (tempo * 2);
+                        break;
+                    case(16):
+                        tempo = (tempo * 4);
+                        break;
+                    case(32):
+                        tempo = (tempo * 8);
+                        break;
+                    case(64):
+                        tempo = (tempo * 16);
+                        break;
+                    case(128):
+                        tempo = (tempo * 32);
+                        break;
+                    default:
+                       alert('ERROR: quarter note conversion'); 
+                }
+                break;
+            case('sixteenthNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo / 16);
+                        break;
+                    case(2):
+                        tempo = (tempo / 8);
+                        break;
+                    case(4):
+                        tempo = (tempo / 4);
+                        break;
+                    case(8):
+                        tempo = (tempo / 2);
+                        break;
+                    case(16):
+                        tempo = tempo;
+                        break;
+                    case(32):
+                        tempo = (tempo * 2);
+                        break;
+                    case(64):
+                        tempo = (tempo * 4);
+                        break;
+                    case(128):
+                        tempo = (tempo * 8);
+                        break;
+                    default:
+                       alert('ERROR: sixteenth note conversion'); 
+                }
+                break;
+            case('sixtyFourthNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo / 64);
+                        break;
+                    case(2):
+                        tempo = (tempo / 32);
+                        break;
+                    case(4):
+                        tempo = (tempo / 16);
+                        break;
+                    case(8):
+                        tempo = (tempo / 8);
+                        break;
+                    case(16):
+                        tempo = (tempo / 4);
+                        break;
+                    case(32):
+                        tempo = (tempo / 2);
+                        break;
+                    case(64):
+                        tempo = tempo;
+                        break;
+                    case(128):
+                        tempo = (tempo * 2);
+                        break;
+                    default:
+                       alert('ERROR: sixty-fourth note conversion'); 
+                }
+                break;
+            case('thirtySecondNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = (tempo / 32);
+                        break;
+                    case(2):
+                        tempo = (tempo / 16);
+                        break;
+                    case(4):
+                        tempo = (tempo / 8);
+                        break;
+                    case(8):
+                        tempo = (tempo / 4);
+                        break;
+                    case(16):
+                        tempo = (tempo / 2);
+                        break;
+                    case(32):
+                        tempo = tempo;
+                        break;
+                    case(64):
+                        tempo = (tempo * 2);
+                        break;
+                    case(128):
+                        tempo = (tempo * 4);
+                        break;
+                    default:
+                       alert('ERROR: thirty-second note conversion'); 
+                }
+                break;
+            case('wholeNote'):
+                switch(parseInt(tempoObj.meterDenominator)) {
+                    case(1):
+                        tempo = tempo;
+                        break;
+                    case(2):
+                        tempo = (tempo * 2);
+                        break;
+                    case(4):
+                        tempo = (tempo * 4);
+                        break;
+                    case(8):
+                        tempo = (tempo * 8);
+                        break;
+                    case(16):
+                        tempo = (tempo * 16);
+                        break;
+                    case(32):
+                        tempo = (tempo * 32);
+                        break;
+                    case(64):
+                        tempo = (tempo * 64);
+                        break;
+                    case(128):
+                        tempo = (tempo * 128);
+                        break;
+                    default:
+                       alert('ERROR: whole note conversion'); 
+                }
+                break;
+            default:
+                alert('unsupported tempo base');   
+        }
+        
+        return tempo; 
+    }
     
     const setInitialTempoBase = (oldBase) => {
         let deepCopy = {...tempoTrack};
@@ -189,7 +961,6 @@ function StepSequencer(user, seq) {
                 deepCopy.tick[0].tempoBase = 'dottedEighthNote';
                 deepCopy.tick[0].tempo = (parseInt(deepCopy.tick[0].tempo) * 2) /3;
                 break;
-                break;
             case('halfNote'):
                 deepCurrent.tempoBase = 'dottedHalf';
                 deepCurrent.tempo = (parseInt(deepCurrent.tempo) / 3) * 2;
@@ -248,12 +1019,12 @@ function StepSequencer(user, seq) {
         
         if (parseInt(cell2.bar) > parseInt(cell1.bar)) {
             bars = parseInt(cell2.bar) - parseInt(cell1.bar);
-            elapsedTime += ((60000 / parseInt(cell1.tempo)) * parseInt(cell1.meterNumerator) * bars);
+            elapsedTime += ((60000 / tempoBeatValue(cell1)) * parseInt(cell1.meterNumerator) * bars);
         }
         beats = (parseInt(cell2.beat) - parseInt(cell1.beat));
-        elapsedTime += ((60000 / parseInt(cell1.tempo)) * beats);
+        elapsedTime += ((60000 / tempoBeatValue(cell1)) * beats);
         ticks = (parseInt(cell2.ticks) - parseInt(cell1.ticks));
-        elapsedTime += ((60000 / parseInt(cell1.tempo)) / getTickMax(parseInt(cell1.meterDenominator)));
+        elapsedTime += ((60000 / tempoBeatValue(cell1)) / getTickMax(parseInt(cell1.meterDenominator)));
         
         return elapsedTime;
     }
@@ -329,6 +1100,9 @@ function StepSequencer(user, seq) {
             let deepMeter = {...currentMeter};
             
             if (val > parseInt(deepCopy.tick[0].meterDenominator)) {
+                if (parseInt(deepCopy.tick[0].meterDenominator) === 128) {
+                    return;
+                }
                 deepCopy.tick[0].meterDenominator = (parseInt(deepCopy.tick[0].meterDenominator) * 2);
                 deepMeter.denominator = deepCopy.tick[0].meterDenominator;
             } else {
@@ -345,6 +1119,15 @@ function StepSequencer(user, seq) {
             });
             setCurrentClockPosition('0:00.000');
             setCurrentMeter(deepMeter);
+            setCurrentPosition({
+                measure: {
+                    bar: parseInt(1),
+                    beat: parseInt(1),
+                    ticks: parseInt(0) 
+                }
+            });
+            setCurrentClockPosition('0:00.000');
+            recalculateTempoTrack();
         }
     }
     
@@ -639,6 +1422,38 @@ function StepSequencer(user, seq) {
         }
     }
     
+    const convertDurationToMilliseconds = (position, tempoReference) => {
+        let milliseconds = 0;
+        let bars = 0;
+        let beats = 0;
+        let ticks = 0;
+        
+        if (parseInt(position.bar) > parseInt(tempoReference.bar)) {
+            bars = (parseInt(position.bar) - parseInt(tempoReference.bar));
+            milliseconds += ((parseInt(bars) * parseInt(tempoReference.meterNumerator)) * (60000 / parseInt(tempoReference.tempo)));
+            if (parseInt(position.beat) !== parseInt(tempoReference.beat)) {
+                beats = parseInt(position.beat) - parseInt(tempoReference.beat);
+                milliseconds += (parseInt(beats) * (60000 / parseInt(tempoReference.tempo)));
+            }
+            if (parseInt(position.ticks) !== parseInt(tempoReference.ticks)) {
+                ticks = parseInt(position.ticks) - parseInt(tempoReference.ticks);
+                milliseconds += (parseInt(ticks) * ((60000 / parseInt(tempoReference.tempo)) / getTickMax(tempoReference.meterDenominator)));
+            }
+        } else if (parseInt(position.beat) > parseInt(tempoReference.beat)) {
+            beats = parseInt(position.beat) - parseInt(tempoReference.beat);
+            milliseconds += (parseInt(beats) * (60000 / parseInt(tempoReference.tempo)));
+            if (parseInt(position.ticks) !== parseInt(tempoReference.ticks)) {
+                ticks = parseInt(position.ticks) - parseInt(tempoReference.ticks);
+                milliseconds += (parseInt(ticks) * ((60000 / parseInt(tempoReference.tempo)) / getTickMax(tempoReference.meterDenominator)));
+            }
+        } else if (parseInt(position.ticks) > parseInt(tempoReference.ticks)) {
+            ticks = parseInt(position.ticks) - parseInt(tempoReference.ticks);
+            milliseconds += (parseInt(ticks) * ((60000 / parseInt(tempoReference.tempo)) / getTickMax(tempoReference.meterDenominator)));
+        }
+        
+        return milliseconds;
+    }
+    
     const calculateTimeString = (position) => {
         let timeStamp = '';
         let index = 0;
@@ -679,13 +1494,14 @@ function StepSequencer(user, seq) {
         if (positionEqualTo(position, tempoTrack.tick[index])) {
             return convertMillisecondsToString(cumulative);
         } else {
-            if (position.bar > tempoTrack.tick[index].bar) {
-                calcTicks += (position.bar - tempoTrack.tick[index].bar) * ((60000 / tempo) * meterNumerator);
-            }
-            if (position.beat > tempoTrack.tick[index].beat) {
-                calcTicks += ((60000 / tempo) * (position.beat - tempoTrack.tick[index].beat));
-            }
-            calcTicks += (position.ticks - tempoTrack.tick[index].ticks) * (60000 / tempo / getTickMax(meterDenominator));
+//            if (position.bar > tempoTrack.tick[index].bar) {
+//                calcTicks += (position.bar - tempoTrack.tick[index].bar) * ((60000 / tempoBeatValue(tempoTrack.tick[index])) * meterNumerator);
+//            }
+//            if (position.beat > tempoTrack.tick[index].beat) {
+//                calcTicks += ((60000 / tempoBeatValue(tempoTrack.tick[index])) * (position.beat - tempoTrack.tick[index].beat));
+//            }
+//            calcTicks += (position.ticks - tempoTrack.tick[index].ticks) * (60000 / tempoBeatValue(tempoTrack.tick[index]) / getTickMax(meterDenominator));
+            calcTicks = convertDurationToMilliseconds(position, tempoTrack.tick[index]);
             cumulative += calcTicks;
             return convertMillisecondsToString(cumulative);
         }
@@ -801,7 +1617,7 @@ function StepSequencer(user, seq) {
                                 <div><img className={'stepSequencerTempoNote' + stepSequenceMonth}
                                     src={eighthNote} /><p style={{color: 'white', float: 'right', marginTop: '15px'}}>.</p></div>
                             )}
-                            <p className={'stepSequencerDisplayCurrentMeterNumerator' + stepSequenceMonth}> = {currentTempo.tempo}</p>
+                            <p className={'stepSequencerDisplayCurrentMeterNumerator' + stepSequenceMonth}> = {(Math.round(currentTempo.tempo * 1000) / 1000)}</p>
                         </div>
                         <div className={'stepSequencerTempoTrackTracker' + stepSequenceMonth}>
                             {tempoTrack.tick.map(eve => (
@@ -816,6 +1632,7 @@ function StepSequencer(user, seq) {
                                                 value={eve.meterNumerator} />
                                             <p className={'stepSequencerTempoTrackDisplayLine2' + stepSequenceMonth}>/</p>
                                             <input className={'stepSequencerTempoTrackNumericalInput2' + stepSequenceMonth}
+                                                max="128"
                                                 onChange={(e) => setInitialMeterDenominator(e.target.value)}
                                                 type="number" 
                                                 value={eve.meterDenominator} />
@@ -911,18 +1728,23 @@ function StepSequencer(user, seq) {
                                                 onChange={(e) => setInitialTempo(e.target.value)}
                                                 step="0.001"
                                                 type="number" 
-                                                value={eve.tempo} />
+                                                value={(Math.round(eve.tempo * 1000) / 1000)} />
                                         </div>
                                     )}
                                     {(eve.cumulativeTime !== 0) && (
                                         <div className={'stepSequencerTempoEventLine' + ((parseInt(eve.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(eve.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(eve.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}>
                                             <input className={'stepSequencerTrackingBarInput' + stepSequenceMonth}
+                                                onChange={(e) => updateTempoEventBar(e.target.value, eve.index)}
                                                 type="number"
                                                 value={eve.bar} />.
                                             <input className={'stepSequencerTrackingBarInput' + stepSequenceMonth}
+                                                disabled={((eve.meterChange) || (!eve.meterChange && !eve.tempoChange))}
+                                                onChange={(e) => updateTempoEventBeat(e.target.value, eve.index)}
                                                 type="number"
                                                 value={eve.beat} />.
                                             <input className={'stepSequencerTrackingBarInput' + stepSequenceMonth}
+                                                disabled={((eve.meterChange) || (!eve.meterChange && !eve.tempoChange))}
+                                                onChange={(e) => updateTempoEventTicks(e.target.value, eve.index)}
                                                 type="number"
                                                 value={eve.ticks} />
                                             {(eve.meterChange) && (
