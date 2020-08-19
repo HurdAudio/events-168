@@ -22,11 +22,19 @@ import sixtyfourthNote from '../img/sixtyfourthNote.png';
 import thirtySecondNote from '../img/thirtySecondNote.png';
 import sixteenthNote from '../img/sixteenthNote.png';
 import eighthNote from '../img/eighthNote.png';
+import home from '../img/home.svg';
+import playButton from '../img/playButton.png';
+import pauseButton from '../img/pauseButton.png';
+import backward from '../img/backward.png';
+import forward from '../img/forward.png';
+import axios from 'axios';
+import AvailableDevices from '../midiManager/availableDevices';
 
 
 function StepSequencer(user, seq) {
     
     let beatDigits;
+    let userOutputs;
     
     const beatResolution = parseInt(user.clock_resolution);
     if (beatResolution > 99999) {
@@ -42,10 +50,24 @@ function StepSequencer(user, seq) {
     } else {
         beatDigits = 1;
     }
+    console.log(user.midi_connections);
+    if (user.midi_connections) {
+        userOutputs = user.midi_connections.outputs;
+    } else {
+        userOutputs = [];
+    }
     
+    const [availableDevices, setAvailableDevices] = useState(AvailableDevices());
     const [stepSequenceMonth, setStepSequenceMonth] = useState('_JanuaryA');
     const [stepSequencerState, setStepSequencerState] = useState('_Active');
+    const [rudeSolo, setRudeSolo] = useState(false);
+    const [midiOutputs, setMidiOutputs] = useState(userOutputs);
+    const [stepInterval, setStepInterval] = useState({
+        intervalTicks: 960,
+        note: 'quarter'
+    });
     const [midiImage, setMidiImage] = useState(midi5pin);
+    const [playState, setPlayState] = useState(false);
     const [sequence, setSequence] = useState({
         duration: {
             bar: 25,
@@ -55,9 +77,73 @@ function StepSequencer(user, seq) {
         header: {
             author: user.uuid,
             name: 'seq 1'
+        },
+        tracks: [
+            {
+                active: true,
+                collection: null,
+                device: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
+                events: [],
+                id: 0,
+                image: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/b3773bb133b4062103d9807e45bb300c_sp.png',
+                mute: false,
+                name: 'track01',
+                output: '-977315806',
+                initialPatch: null,
+                instrument: {
+                    collection: null,
+                    bank: null,
+                    patch: null
+                },
+                solo: false
+            },
+            {
+                active: false,
+                collection: null,
+                device: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
+                events: [],
+                id: 1,
+                image: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/b3773bb133b4062103d9807e45bb300c_sp.png',
+                mute: false,
+                name: 'track02',
+                output: '43172242',
+                initialPatch: null,
+                instrument: {
+                    collection: null,
+                    bank: null,
+                    patch: null
+                },
+                solo: false
+            },
+            {
+                active: false,
+                collection: null,
+                device: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
+                events: [],
+                id: 2,
+                image: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/b3773bb133b4062103d9807e45bb300c_sp.png',
+                mute: false,
+                name: 'track03',
+                output: '-1706185039',
+                initialPatch: null,
+                instrument: {
+                    collection: null,
+                    bank: null,
+                    patch: null
+                },
+                solo: false
+            }
+        ]
+    });
+    const [activeTrack, setActiveTrack] = useState(sequence.tracks[0].id);
+    const [currentPosition, setCurrentPosition] = useState({
+        measure: {
+            bar: parseInt(1),
+            beat: parseInt(1),
+            ticks: parseInt(0)
         }
     });
-    const [currentPosition, setCurrentPosition] = useState({
+    const [homePosition, setHomePosition] = useState({
         measure: {
             bar: parseInt(1),
             beat: parseInt(1),
@@ -127,6 +213,51 @@ function StepSequencer(user, seq) {
         tempoBase: 'quarter'
     });
     const [currentClockPosition, setCurrentClockPosition] = useState('0:00.000');
+    
+    const playSequence = () => {
+        setPlayState(true);
+    }
+    
+    const stopSequence = () => {
+        setPlayState(false);
+    }
+    
+    const sendToHomePosition = () => {
+        let deepCopy = {...homePosition};
+        let deepCurrent = {...currentPosition};
+        let index = 0;
+        let exitCondition = false;
+        
+        while(!exitCondition){
+            if (positionEqualTo(deepCopy.measure, tempoTrack.tick[index])) {
+                exitCondition = true;
+            } else {
+                if ((positionGreaterThan(tempoTrack.tick[index], deepCopy.measure)) && (positionGreaterThan(deepCopy.measure, tempoTrack.tick[index + 1]))) {
+                    exitCondition = true;
+                } else {
+                    ++index;
+                }
+            }
+        }
+        
+        deepCurrent = {
+            measure: {
+                bar: deepCopy.measure.bar,
+                beat: deepCopy.measure.beat,
+                ticks: deepCopy.measure.ticks
+            }
+        };
+        setCurrentPosition(deepCurrent);
+        setCurrentTempo({
+            tempo: tempoTrack.tick[index].tempo,
+            tempoBase: tempoTrack.tick[index].tempoBase
+        });
+        setCurrentMeter({
+            numerator: tempoTrack.tick[index].meterNumerator,
+            denominator: tempoTrack.tick[index].meterDenominator
+        });
+        setCurrentClockPosition(calculateTimeString({bar: deepCopy.measure.bar, beat: deepCopy.measure.beat, ticks: deepCopy.measure.ticks}));
+    }
     
     const sortTempoTrack = () => {
         let deepCopy = {...tempoTrack};
@@ -372,7 +503,7 @@ function StepSequencer(user, seq) {
         sortTempoTrack();
         recalculateTempoTrack();
         setCurrentPosition(deepPosition);
-        setCurrentClockPosition(calculateTimeString({bar: deepPosition.measure.bar, beat: 0, ticks: 0}));
+        setCurrentClockPosition(calculateTimeString({bar: deepPosition.measure.bar, beat: 1, ticks: 0}));
     }
     
     const removeTempoTrackEvent = (index) => {
@@ -485,7 +616,7 @@ function StepSequencer(user, seq) {
         let deepCopy = {...tempoTrack};
         let bar, beat, ticks;
         let meter = meterAtPosition(tempoTrack.tick[index]);
-        let meter2 = meterAtPosition({bar: parseInt(tempoTrack.tick[index].bar - 1), beat: 0, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(tempoTrack.tick[index].bar - 1), beat: 1, ticks: 0});
         
         if (parseInt(val) < 0) {
             if (parseInt(deepCopy.tick[index].beat) === 1) {
@@ -538,7 +669,7 @@ function StepSequencer(user, seq) {
         let deepCopy = {...tempoTrack};
         let bar, beat, ticks;
         let meter = meterAtPosition(tempoTrack.tick[index]);
-        let meter2 = meterAtPosition({bar: parseInt(tempoTrack.tick[index].bar - 1), beat: 0, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(tempoTrack.tick[index].bar - 1), beat: 1, ticks: 0});
         
         if (parseInt(val) === 0) {
             if (parseInt(deepCopy.tick[index].bar) === 1) {
@@ -1417,6 +1548,20 @@ function StepSequencer(user, seq) {
         
     }
     
+    const updateHomeBarPosition = (val) => {
+        let deepCopy = {...homePosition};
+        
+        if (val > 0) {
+            if (parseInt(val) < (parseInt(sequence.duration.bar) + 1)) {
+                deepCopy.measure.bar = parseInt(val);
+                deepCopy.measure.beat = 1;
+                deepCopy.measure.ticks = 0;
+            }
+        }
+        setHomePosition(deepCopy);
+        
+    }
+    
     const updateBarPosition = (val) => {
         let deepCopy = {...currentPosition};
         let deepSequence = {...sequence};
@@ -1430,12 +1575,56 @@ function StepSequencer(user, seq) {
         updateCurrentPositionValues();
         setCurrentClockPosition(calculateTimeString(deepCopy.measure));
         
+    }
+    
+    const updateHomeBeatPosition = (val) => {
+        let deepCopy = {...homePosition};
+        let deepSequence = {...sequence};
+        let meter = meterAtPosition(deepCopy.measure);
+        let meter2;
+        if (parseInt(val) === 0) {
+            meter2 = meterAtPosition({bar: (parseInt(deepCopy.measure.bar) - 1), beat: 1, ticks: 0})
+        } else {
+            meter2 = meterAtPosition({bar: parseInt(deepCopy.measure.bar), beat: 1, ticks: 0});
+        }
+        if (parseInt(deepCopy.measure.bar) === parseInt(deepSequence.duration.bar)) {
+            if (val > 1) {
+                return;
+            }
+        }
+        
+        if (val > meter.meterNumerator) {
+            if (parseInt(deepCopy.measure.bar) === parseInt(deepSequence.duration.bar)) {
+                return;
+            }
+            deepCopy.measure.bar = parseInt(deepCopy.measure.bar + 1);
+            deepCopy.measure.beat = 1;
+            deepCopy.measure.ticks = 0;
+        } else if (val < 1) {
+            if (deepCopy.measure.bar > 1) {
+                deepCopy.measure.bar = parseInt(deepCopy.measure.bar - 1);
+                deepCopy.measure.beat = meter2.meterNumerator;
+                deepCopy.measure.ticks = 0;
+            } else {
+                return;
+            }
+        } else {
+            deepCopy.measure.beat = val;
+            deepCopy.measure.ticks = 0;
+        }
+        setHomePosition(deepCopy);
         
     }
     
     const updateBeatPosition = (val) => {
         let deepCopy = {...currentPosition};
         let deepSequence = {...sequence};
+        let meter2;
+        if (parseInt(val) < 1) {
+            meter2 = meterAtPosition({bar: (parseInt(deepCopy.measure.bar) - 1), beat: 1, ticks: 0})
+        } else {
+            meter2 = meterAtPosition({bar: parseInt(deepCopy.measure.bar), beat: 1, ticks: 0});
+        }
         
         if (parseInt(deepCopy.measure.bar) === parseInt(deepSequence.duration.bar)) {
             if (val > 1) {
@@ -1453,7 +1642,7 @@ function StepSequencer(user, seq) {
         } else if (val < 1) {
             if (deepCopy.measure.bar > 1) {
                 deepCopy.measure.bar = parseInt(deepCopy.measure.bar - 1);
-                deepCopy.measure.beat = currentMeter.numerator;
+                deepCopy.measure.beat = meter2.meterNumerator;
                 deepCopy.measure.ticks = 0;
             } else {
                 return;
@@ -1559,17 +1748,23 @@ function StepSequencer(user, seq) {
         return max;
     }
     
-    const updateTickPosition = (val) => {
-        let deepCopy = {...currentPosition};
-        let deepSequence = {...sequence};
+    const updateHomeTickPosition = (val) => {
+        let deepCopy = {...homePosition};
         const maxValue = parseInt(getMaxTick());
+        let meter = meterAtPosition(deepCopy.measure);
+        let meter2;
+        if (parseInt(val) < 0) {
+            meter2 = meterAtPosition({bar: (parseInt(deepCopy.measure.bar) - 1), beat: 1, ticks: 0})
+        } else {
+            meter2 = meterAtPosition({bar: parseInt(deepCopy.measure.bar), beat: 1, ticks: 0});
+        }
         
         if (parseInt(val) > maxValue) {
             return;
         }
         
         if (parseInt(val) === maxValue) {
-            if (deepCopy.measure.beat === currentMeter.numerator) {
+            if (deepCopy.measure.beat === meter.meterNumerator) {
                 deepCopy.measure.bar = parseInt(deepCopy.measure.bar) + 1;
                 deepCopy.measure.beat = parseInt(1);
                 deepCopy.measure.ticks = parseInt(0);
@@ -1583,7 +1778,54 @@ function StepSequencer(user, seq) {
                     return;
                 } else {
                     deepCopy.measure.bar = parseInt(deepCopy.measure.bar - 1);
-                    deepCopy.measure.beat = parseInt(currentMeter.numerator);
+                    deepCopy.measure.beat = parseInt(meter2.meterNumerator);
+                    deepCopy.measure.ticks = parseInt(maxValue - 1);
+                }
+            } else {
+                deepCopy.measure.beat -= 1;
+                deepCopy.measure.ticks = parseInt(maxValue - 1);
+            }
+        } else {
+            if (deepCopy.measure.bar !== sequence.duration.bar) {
+                deepCopy.measure.ticks = parseInt(val);
+            }
+        }
+        
+        setHomePosition(deepCopy);
+    }
+    
+    const updateTickPosition = (val) => {
+        let deepCopy = {...currentPosition};
+        let deepSequence = {...sequence};
+        const maxValue = parseInt(getMaxTick());
+        let meter = meterAtPosition(deepCopy.measure);
+        let meter2;
+        if (parseInt(val) < 0) {
+            meter2 = meterAtPosition({bar: (parseInt(deepCopy.measure.bar) - 1), beat: 1, ticks: 0})
+        } else {
+            meter2 = meterAtPosition({bar: parseInt(deepCopy.measure.bar), beat: 1, ticks: 0});
+        }
+        
+        if (parseInt(val) > maxValue) {
+            return;
+        }
+        
+        if (parseInt(val) === maxValue) {
+            if (deepCopy.measure.beat === meter.meterNumerator) {
+                deepCopy.measure.bar = parseInt(deepCopy.measure.bar) + 1;
+                deepCopy.measure.beat = parseInt(1);
+                deepCopy.measure.ticks = parseInt(0);
+            } else {
+                deepCopy.measure.beat = parseInt(deepCopy.measure.beat) + 1;
+                deepCopy.measure.ticks = parseInt(0);
+            }
+        } else if (parseInt(val) < 0) {
+            if (deepCopy.measure.beat === 1) {
+                if (deepCopy.measure.bar === 1) {
+                    return;
+                } else {
+                    deepCopy.measure.bar = parseInt(deepCopy.measure.bar) - 1;
+                    deepCopy.measure.beat = parseInt(meter2.meterNumerator);
                     deepCopy.measure.ticks = parseInt(maxValue - 1);
                 }
             } else {
@@ -1749,6 +1991,254 @@ function StepSequencer(user, seq) {
         }
     }
     
+    const updateStepTick = (val) => {
+        let deepCopy = {...stepInterval};
+        
+        deepCopy.intervalTicks = parseInt(val);
+        setStepInterval(deepCopy);
+    }
+    
+    const updateStepNoteInterval = (currentNote) => {
+        const resolution = parseInt(user.clock_resolution);
+        let deepCopy = {...stepInterval};
+        
+        switch(currentNote) {
+            case('dottedEighthNote'):
+                deepCopy.note = 'quarter';
+                deepCopy.intervalTicks = resolution;
+                break;
+            case('dottedHalf'):
+                deepCopy.note = 'wholeNote';
+                deepCopy.intervalTicks = resolution * 4;
+                break;
+            case('dottedOneHundredTwentyEighthNote'):
+                deepCopy.note = 'sixtyFourthNote';
+                deepCopy.intervalTicks = parseInt(resolution / 16);
+                break;
+            case('dottedQuarter'):
+                deepCopy.note = 'halfNote';
+                deepCopy.intervalTicks = resolution * 2;
+                break;
+            case('dottedSixteenthNote'):
+                deepCopy.note = 'eighthNote';
+                deepCopy.intervalTicks = parseInt(resolution / 2);
+                break;
+            case('dottedSixtyFourthNote'):
+                deepCopy.note = 'thirtySecondNote';
+                deepCopy.intervalTicks = parseInt(resolution / 8);
+                break;
+            case('dottedThirtySecondNote'):
+                deepCopy.note = 'sixteenthNote';
+                deepCopy.intervalTicks = parseInt(resolution / 4);
+                break;
+            case('dottedWhole'):
+                deepCopy.note = 'doubleWholeNote';
+                deepCopy.intervalTicks = resolution * 8;
+                break;
+            case('doubleWholeNote'):
+                deepCopy.note = 'oneHundredTwentyEighthNote';
+                deepCopy.intervalTicks = parseInt(resolution / 32);
+                break;
+            case('eighthNote'):
+                deepCopy.note = 'dottedEighthNote';
+                deepCopy.intervalTicks = parseInt((resolution / 4) * 3);
+                break;
+            case('halfNote'):
+                deepCopy.note = 'dottedHalf';
+                deepCopy.intervalTicks = resolution * 3;
+                break;
+            case('oneHundredTwentyEighthNote'):
+                deepCopy.note = 'dottedOneHundredTwentyEighthNote';
+                deepCopy.intervalTicks = parseInt((resolution / 64) * 3);
+                break;
+            case('quarter'):
+                deepCopy.note = 'dottedQuarter';
+                deepCopy.intervalTicks = parseInt((resolution / 2) * 3);
+                break;
+            case('sixteenthNote'):
+                deepCopy.note = 'dottedSixteenthNote';
+                deepCopy.intervalTicks = parseInt((resolution / 8) * 3);
+                break;
+            case('sixtyFourthNote'):
+                deepCopy.note = 'dottedSixtyFourthNote';
+                deepCopy.intervalTicks = parseInt((resolution / 32) * 3);
+                break;
+            case('thirtySecondNote'):
+                deepCopy.note = 'dottedThirtySecondNote';
+                deepCopy.intervalTicks = parseInt((resolution / 16) * 3);
+                break;
+            case('wholeNote'):
+                deepCopy.note = 'dottedWhole';
+                deepCopy.intervalTicks = resolution * 6;
+                break;
+            default:
+                alert('unsupported tempo base');
+        }
+        
+        setStepInterval(deepCopy);
+    }
+    
+    const forwardByInterval = () => {
+        for (let i = 0; i < stepInterval.intervalTicks; i++) {
+            updateTickPosition(currentPosition.measure.ticks + 1);
+        }
+    }
+    
+    const backwardByInterval = () => {
+        for (let i = 0; i < stepInterval.intervalTicks; i++) {
+            updateTickPosition(currentPosition.measure.ticks - 1);
+        }
+    }
+    
+    const updateSelectedTrack = (val) => {
+        let deepSequence = {...sequence};
+        
+        for (let i = 0; i < sequence.tracks.length; i++) {
+            if (i === parseInt(val)) {
+                sequence.tracks[i].active = true;
+            } else {
+                sequence.tracks[i].active = false;
+            }
+        }
+        setActiveTrack(val);
+        setSequence(deepSequence);
+    }
+    
+    const rudeSoloStatus = () => {
+        let status = false;
+        
+        for (let i = 0; i < sequence.tracks.length; i++) {
+            if (sequence.tracks[i].solo) {
+                status = true;
+            }
+        }
+        
+        return status;
+    }
+    
+    const toggleTrackMute = () => {
+        let deepSequence = {...sequence};
+        
+        deepSequence.tracks[activeTrack].mute = !deepSequence.tracks[activeTrack].mute;
+        setSequence(deepSequence);
+    }
+    
+    const toggleTrackSolo = () => {
+        let deepSequence = {...sequence};
+        
+        deepSequence.tracks[activeTrack].solo = !deepSequence.tracks[activeTrack].solo;
+        setSequence(deepSequence);
+        setRudeSolo(rudeSoloStatus());
+    }
+    
+    const updateOutputObject = (arr) => {
+        setMidiOutputs(arr);
+    }
+    
+    const checkCurrentOutputs = () => {
+        if (midiOutputs.length === 0) {
+            if (user.midi_connections && user.midi_patch) {
+                axios.get(`/midi_manager_patches/patch/${user.midi_patch}`)
+                .then(midiPatchData => {
+                    const midiPatch = midiPatchData.data.user_preset.outputs;
+                    let outputsArr = [];
+                    for (let i = 0; i < user.midi_connections.outputs.length; i++) {
+                        outputsArr[i] = {
+                            activeReciever: midiPatch[i].activeReciever,
+                            channel: midiPatch[i].channel,
+                            connection: user.midi_connections.outputs[i].connection,
+                            device: midiPatch[i].device,
+                            hardwareIn: midiPatch[i].hardwareIn,
+                            id: user.midi_connections.outputs[i].id,
+                            label: midiPatch[i].label,
+                            manufacturer: user.midi_connections.outputs[i].manufacturer,
+                            name: midiPatch[i].label,
+                            state: user.midi_connections.outputs[i].state,
+                            type: user.midi_connections.outputs[i].type
+                        }
+                    }
+                    updateOutputObject(outputsArr);
+                });
+            } else if (user.midi_connections) {
+                updateOutputObject(user.midi_connections.outputs);
+            }
+        }
+    }
+    
+    const updateActiveTrackOutput = (val) => {
+        let deepSequence = {...sequence};
+        
+        sequence.tracks[activeTrack].output = val;
+        
+        setSequence(deepSequence);
+    }
+    
+    const addNewTrack = () => {
+        let deepSequence = {...sequence};
+        let trackName = 'track';
+        if (sequence.tracks.length < 9) {
+            trackName += '0';
+        }
+        trackName += (sequence.tracks.length + 1).toString();
+        
+        deepSequence.tracks.push({
+            active: true,
+            collection: null,
+            device: '0',
+            events: [],
+            image: availableDevices[0].imagePath,
+            mute: false,
+            name: trackName,
+            output: '',
+            initialPatch: null,
+            instrument: {
+                collection: null,
+                bank: null,
+                patch: null
+            },
+            solo: false
+        });
+        for (let i = 0; i < deepSequence.tracks.length; i++) {
+            deepSequence.tracks[i].id = i;
+            deepSequence.tracks[i].active = false;
+        }
+        deepSequence.tracks[deepSequence.tracks.length - 1].active = true;
+        
+        setSequence(deepSequence);
+        setActiveTrack(deepSequence.tracks.length - 1);
+    }
+    
+    const deleteTrack = () => {
+        let deepSequence = {...sequence};
+        
+        if (sequence.tracks[activeTrack].events.length === 0) {
+            deepSequence.tracks.splice(activeTrack, 1);
+        } else {
+            // TODO guardrail for delete
+        }
+        
+        for (let i = 0; i < deepSequence.tracks.length; i++) {
+            deepSequence.tracks[i].active = false;
+            deepSequence.tracks[i].id = i;
+        }
+        deepSequence.tracks[0].active = true;
+        
+        setSequence(deepSequence);
+        setActiveTrack(0);
+    }
+    
+    const updateTrackDevice = (val) => {
+        let deepSequence = {...sequence};
+        let imgSrce = availableDevices.filter(dev => {
+            return(dev.uuid === val);
+        });
+        
+        deepSequence.tracks[activeTrack].device = val;
+        deepSequence.tracks[activeTrack].image = imgSrce[0].imagePath;
+        
+        setSequence(deepSequence);
+    }
+    
     return(
         <div>
             <div className={'stepSequencerContainer' + stepSequencerState + stepSequenceMonth}
@@ -1786,8 +2276,139 @@ function StepSequencer(user, seq) {
                             type="number"
                             value={currentPosition.measure.ticks} />
                         <p className={'stepSequencerCurrentClockPositionDisplay' + stepSequenceMonth}>{currentClockPosition}</p>
+                        <div className={'stepSequencerRudeSoloLabelDiv' + rudeSolo + stepSequenceMonth}>
+                            <p className={'stepSequencerRudeSoloLabel' + stepSequenceMonth}>rude solo</p>
+                        </div>
                     </div>
-                    <div className={'stepSequencerShuttleControls' + stepSequenceMonth}></div>
+                    <div className={'stepSequencerShuttleControls' + stepSequenceMonth}>
+                        <img className={'stepSequencerShuttleHome' + stepSequenceMonth}
+                            onClick={() => sendToHomePosition()}
+                            src={home} />
+                        <input className={'stepSequencerHomePositionBarInput' + stepSequenceMonth} 
+                            max={sequence.duration.bar}
+                            min="1"
+                            onChange={(e) => updateHomeBarPosition(e.target.value)}
+                            type="number"
+                            value={homePosition.measure.bar} />
+                        <p className={'stepSequencerHomePositionSeparator' + stepSequenceMonth}>.</p>
+                        <input className={'stepSequencerHomePositionBarInput' + stepSequenceMonth}
+                            onChange={(e) => updateHomeBeatPosition(e.target.value)}
+                            type="number"
+                            value={homePosition.measure.beat}/>
+                        <p className={'stepSequencerHomePositionSeparator' + stepSequenceMonth}>.</p>
+                        <input className={'stepSequencerHomePositionTicker' + stepSequenceMonth}
+                            onChange={(e) => updateHomeTickPosition(e.target.value)}
+                            style={{width: (2.5 * beatDigits).toString() + '%'}}
+                            type="number"
+                            value={homePosition.measure.ticks} />
+                        {(!playState) && (
+                            <img className={'stepSequencerShuttlePlayButton' + stepSequenceMonth}
+                                onClick={() => playSequence()}
+                                src={playButton} />
+                        )}
+                        {(playState) && (
+                            <img className={'stepSequencerShuttlePlayButton' + stepSequenceMonth}
+                                onClick={() => stopSequence()}
+                                src={pauseButton} />
+                        )}
+                        {(stepInterval.note === 'quarter') && (
+                            <img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                    onClick={() => updateStepNoteInterval('quarter')}
+                                    src={quarterNote} />
+                        )}
+                        {(stepInterval.note === 'dottedQuarter') && (
+                            <div><img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                     onClick={() => updateStepNoteInterval('dottedQuarter')}
+                                    src={quarterNote} /><p style={{color: '#000', float: 'right', marginTop: '25px', marginRight: '-5px', transform: 'translateX(-15px)'}}>.</p></div>
+                        )}
+                        {(stepInterval.note === 'halfNote') && (
+                            <img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                    onClick={() => updateStepNoteInterval('halfNote')}
+                                    src={halfNote} />
+                        )}
+                        {(stepInterval.note === 'dottedHalf') && (
+                            <div><img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                     onClick={() => updateStepNoteInterval('dottedHalf')}
+                                    src={halfNote} /><p style={{color: '#000', float: 'right', marginTop: '25px', marginRight: '-5px', transform: 'translateX(-15px)'}}>.</p></div>
+                        )}
+                        {(stepInterval.note === 'wholeNote') && (
+                            <img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                    onClick={() => updateStepNoteInterval('wholeNote')}
+                                    src={wholeNote} />
+                        )}
+                        {(stepInterval.note === 'dottedWhole') && (
+                            <div><img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                     onClick={() => updateStepNoteInterval('dottedWhole')}
+                                    src={wholeNote} /><p style={{color: '#000', float: 'right', marginTop: '25px', marginRight: '-5px', transform: 'translateX(-15px)'}}>.</p></div>
+                        )}
+                        {(stepInterval.note === 'doubleWholeNote') && (
+                            <img className={'stepSequencerStepNoteWhole' + stepSequenceMonth}
+                                    onClick={() => updateStepNoteInterval('doubleWholeNote')}
+                                    src={doubleWholeNote} />
+                        )}
+                        {(stepInterval.note === 'oneHundredTwentyEighthNote') && (
+                            <img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                    onClick={() => updateStepNoteInterval('oneHundredTwentyEighthNote')}
+                                    src={oneHundredTwentyEighthNote} />
+                        )}
+                        {(stepInterval.note === 'dottedOneHundredTwentyEighthNote') && (
+                            <div><img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                     onClick={() => updateStepNoteInterval('dottedOneHundredTwentyEighthNote')}
+                                    src={oneHundredTwentyEighthNote} /><p style={{color: '#000', float: 'right', marginTop: '25px', marginRight: '-5px', transform: 'translateX(-15px)'}}>.</p></div>
+                        )}
+                        {(stepInterval.note === 'sixtyFourthNote') && (
+                            <img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                    onClick={() => updateStepNoteInterval('sixtyFourthNote')}
+                                    src={sixtyfourthNote} />
+                        )}
+                        {(stepInterval.note === 'dottedSixtyFourthNote') && (
+                            <div><img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                     onClick={() => updateStepNoteInterval('dottedSixtyFourthNote')}
+                                    src={sixtyfourthNote} /><p style={{color: '#000', float: 'right', marginTop: '25px', marginRight: '-5px', transform: 'translateX(-15px)'}}>.</p></div>
+                        )}
+                        {(stepInterval.note === 'thirtySecondNote') && (
+                            <img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                    onClick={() => updateStepNoteInterval('thirtySecondNote')}
+                                    src={thirtySecondNote} />
+                        )}
+                        {(stepInterval.note === 'dottedThirtySecondNote') && (
+                            <div><img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                     onClick={() => updateStepNoteInterval('dottedThirtySecondNote')}
+                                    src={thirtySecondNote} /><p style={{color: '#000', float: 'right', marginTop: '25px', marginRight: '-5px', transform: 'translateX(-15px)'}}>.</p></div>
+                        )}
+                        {(stepInterval.note === 'sixteenthNote') && (
+                            <img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                    onClick={() => updateStepNoteInterval('sixteenthNote')}
+                                    src={sixteenthNote} />
+                        )}
+                        {(stepInterval.note === 'dottedSixteenthNote') && (
+                            <div><img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                     onClick={() => updateStepNoteInterval('dottedSixteenthNote')}
+                                    src={sixteenthNote} /><p style={{color: '#000', float: 'right', marginTop: '25px', marginRight: '-5px', transform: 'translateX(-15px)'}}>.</p></div>
+                        )}
+                        {(stepInterval.note === 'eighthNote') && (
+                            <img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                    onClick={() => updateStepNoteInterval('eighthNote')}
+                                    src={eighthNote} />
+                        )}
+                        {(stepInterval.note === 'dottedEighthNote') && (
+                            <div><img className={'stepSequencerStepNote' + stepSequenceMonth}
+                                     onClick={() => updateStepNoteInterval('dottedEighthNote')}
+                                    src={eighthNote} /><p style={{color: '#000', float: 'right', marginTop: '25px', marginRight: '-5px', transform: 'translateX(-15px)'}}>.</p></div>
+                        )}
+                        <input className={'stepSequencerStepTicksInput' + stepSequenceMonth}
+                            min="1"
+                            onChange={(e) => updateStepTick(e.target.value)}
+                            type="number"
+                            value={stepInterval.intervalTicks} />
+                        <img className={'stepSequencerShuttlePlayButton' + stepSequenceMonth}
+                                onClick={() => backwardByInterval()}
+                                src={backward} />
+                        <div className={'stepSequencerShuttleSpacer' + stepSequenceMonth}></div>
+                        <img className={'stepSequencerShuttlePlayButton' + stepSequenceMonth}
+                                onClick={() => forwardByInterval()}
+                                src={forward} />
+                    </div>
                     <div className={'stepSequencerTempoTracking' + stepSequenceMonth}>
                         <div className={'stepSequencerDisplayCurrentMeterAndTempo' + stepSequenceMonth }>
                             <p className={'stepSequencerDisplayCurrentMeterNumerator' + stepSequenceMonth}>{currentMeter.numerator}/{currentMeter.denominator}</p>
@@ -2125,9 +2746,62 @@ function StepSequencer(user, seq) {
                             >tempo</button>
                         <button className={'stepSequencerTempoTrackRitAccelButton' + stepSequenceMonth}>rit/accel</button>
                     </div>
-                    <div className={'stepSequencerTracking' + stepSequenceMonth}></div>
-                    <div className={'stepSequencerInputsControl' + stepSequenceMonth}></div>
-                    <div className={'stepSequencerPluginsPanel' + stepSequenceMonth}></div>
+                    <div className={'stepSequencerTracking' + stepSequenceMonth}>
+                        <div className={'stepSequencerDisplaySequenceTrackDatas' + stepSequenceMonth }>
+                            <button className={'stepSequencerTrackMuteButton' + sequence.tracks[activeTrack].mute + stepSequenceMonth}
+                                onClick={() => toggleTrackMute()}>mute</button>
+                            <button className={'stepSequencerTrackSoloButton' + sequence.tracks[activeTrack].solo + sequence.tracks[activeTrack].mute + stepSequenceMonth}
+                                onClick={() => toggleTrackSolo()}>solo</button>
+                            <select className={'stepSequencerTrackSelector' + stepSequenceMonth}
+                                onChange={(e) => updateSelectedTrack(e.target.value)}
+                                value={activeTrack}>
+                                {sequence.tracks.map(track => (
+                                    <option key={track.id} value={track.id}>{track.name}</option>))}
+                            </select>
+                            <select className={'stepSequencerTrackSelector' + stepSequenceMonth}
+                                onChange={(e) => updateActiveTrackOutput(e.target.value)}
+                                onClick={() => checkCurrentOutputs()}
+                                value={sequence.tracks[activeTrack].output} >
+                                {midiOutputs.map(out => (
+                                    <option key={out.id} value={out.id}>{out.name}</option>))}
+                            </select>
+                            <button className={'stepSequencerAddDeleteTrackButton' + stepSequenceMonth}
+                                onClick={() => addNewTrack()}>add</button>
+                            <button className={'stepSequencerAddDeleteTrackButton' + stepSequenceMonth}
+                                onClick={() => deleteTrack()}
+                                >delete</button>
+                        </div>
+                        <div className={'stepSequencerTracksContainer' + stepSequenceMonth}>
+                            {sequence.tracks.map(track => (
+                                <div className={'stepSequencerIndividualTrack' + track.active + stepSequenceMonth}
+                                    onClick={() => updateSelectedTrack(track.id)}></div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className={'stepSequencerInputsControl' + stepSequenceMonth}>
+                        <img className={'stepSequencerDeviceImage' + stepSequenceMonth}
+                            src={sequence.tracks[activeTrack].image} />
+                        <p className={'stepSequencerDeviceSelectLabel' + stepSequenceMonth}>device:</p>
+                        <select className={'stepSequencerDeviceSelector' + stepSequenceMonth}
+                            onChange={(e) => updateTrackDevice(e.target.value)}
+                            value={sequence.tracks[activeTrack].device}>
+                            {availableDevices.map(device => (
+                                <option key={device.uuid} value={device.uuid}>{device.device}</option>
+                            ))}
+                        </select>
+                        <p className={'stepSequencerCollectionSelectLabel' + stepSequenceMonth}>collection:</p>
+                        <select className={'stepSequencerCollectionSelector' + stepSequenceMonth}></select>
+                        <p className={'stepSequencerBankSelectLabel' + stepSequenceMonth}>bank:</p>
+                        <select className={'stepSequencerBankSelector' + stepSequenceMonth}></select>
+                        <p className={'stepSequencerPatchSelectLabel' + stepSequenceMonth}>patch:</p>
+                        <select className={'stepSequencerPatchSelector' + stepSequenceMonth}></select>
+                        <p className={'stepSequencerEventSelectLabel' + stepSequenceMonth}>event:</p>
+                        <select className={'stepSequencerEventSelector' + stepSequenceMonth}></select>
+                        <button className={'stepSequencerAddEventButton' + stepSequenceMonth}>add</button>
+                        <button className={'stepSequencerRepeatButton' + stepSequenceMonth}>repeat</button>
+                    </div>
+                    <div className={'stepSequencerPluginsPanel' + stepSequenceMonth}
+                        onClick={() => console.log(user)}></div>
                 </div>
             </div>
             

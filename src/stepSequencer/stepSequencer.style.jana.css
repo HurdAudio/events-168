@@ -43,7 +43,7 @@
 }
 
 .stepSequencerEditorTopBar_JanuaryA {
-      backdrop-filter: blur(7px) brightness(150%) hue-rotate(-45deg);
+    backdrop-filter: blur(7px) brightness(150%) hue-rotate(-45deg);
     background: linear-gradient(90deg, transparent, #04070c, #04070c, #253358, #253358, #868ea3, transparent);
     grid-column: col1 / rightEdge;
     grid-row: row1 / row2;
@@ -152,7 +152,8 @@
 
 .stepSequencerShuttleControls_JanuaryA {
     backdrop-filter: blur(8px);
-    background: linear-gradient(90deg, transparent, #8f9193, #8f9193, #6b7380, #6b7380, #253358, transparent);
+    background: linear-gradient(90deg, #d2d6df, #d2d6df, #b5b9c0, #b5b9c0, #6b7380, #9299ac, #9299ac, transparent);
+    display: flex;
     grid-column: col7 / colEnd;
     grid-row: row2 / row3;
 }
@@ -168,14 +169,20 @@
 
 .stepSequencerTracking_JanuaryA {
     backdrop-filter: blur(12px) brightness(45%) contrast(100%) hue-rotate(135deg);
+    display: grid;
     grid-column: col6 / col10;
     grid-row: row3 / row9;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [col17] 1fr [col18] 1fr [col19] 1fr [col20] 1fr [col21] 1fr [col22] 1fr [col23] 1fr [col24] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [rowEnd];
 }
 
 .stepSequencerInputsControl_JanuaryA {
     backdrop-filter: blur(3px) brightness(50%) contrast(90%) saturate(50%);
+    display: grid;
     grid-column: col10 / colEnd;
     grid-row: row3 / row9;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [rowEnd];
 }
 
 .stepSequencerPluginsPanel_JanuaryA {
@@ -519,4 +526,556 @@
 
 .stepSequencerTempoTrackRitAccelButton_JanuaryA:active {
     filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #868ea3);
+}
+
+.stepSequencerShuttleHome_JanuaryA {
+    cursor: pointer;
+    margin: 1% 5px;
+    max-height: 80%;
+    max-width: 10%;
+}
+
+.stepSequencerHomePositionBarInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    filter: brightness(50%) saturate(100%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    text-align: right;
+    width: 6%;
+}
+
+.stepSequencerHomePositionSeparator_JanuaryA {
+    color: #010204;
+    filter: brightness(50%) saturate(100%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 42px;
+    text-align: right;
+    width: 3%;
+}
+
+.stepSequencerHomePositionTicker_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    filter: brightness(50%) saturate(100%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin-right: 50px;
+    text-align: right;
+    width: 10% !important;
+}
+
+.stepSequencerShuttlePlayButton_JanuaryA {
+    cursor: pointer;
+    filter: invert(0);
+    margin: 1% 5px;
+    max-height: 80%;
+    max-width: 10%;
+}
+
+.stepSequencerShuttlePlayButton_JanuaryA:hover {
+    filter: invert(100%);
+}
+
+.stepSequencerStepNote_JanuaryA {
+    cursor: pointer;
+    height: 7vh;
+    margin-left: 10px;
+    max-width: 70px;
+    transform: translateY(-3px);
+}
+
+.stepSequencerStepNoteWhole_JanuaryA {
+    cursor: pointer;
+    height: 2vh;
+    margin-left: 50px;
+    max-width: 30px;
+    transform: translateX(-25px) translateY(20px);
+}
+
+.stepSequencerStepTicksInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    filter: brightness(50%) saturate(100%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    outline-color: #8f9193;
+    margin-right: 30px;
+    text-align: left;
+    width: 7vmin;
+}
+
+.stepSequencerShuttleSpacer_JanuaryA {
+    width: 4vmin;
+}
+
+.stepSequencerDisplaySequenceTrackDatas_JanuaryA {
+    background: transparent;
+    display: flex;
+    grid-column: col1 / colEnd;
+    grid-row: row1 / row2;
+}
+
+.stepSequencerTrackSelector_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #a4acbf;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin: 0 10px;
+    outline-color: #8f9193;
+    width: 25%;
+}
+
+.stepSequencerTrackMuteButtonfalse_JanuaryA {
+    background: #010204;
+    border: 2px solid #828386;
+    box-sizing: border-box;
+    color: #828386;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin: 0 4px;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackMuteButtonfalse_JanuaryA:hover {
+    background: #0c0e0f;
+    border: 2px solid #a4acbf;
+    color: #a4acbf;
+    filter: brightness(100%) saturate(200%);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackMuteButtonfalse_JanuaryA:active {
+    background: #253358;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+@keyframes muteOn {
+  from {filter: brightness(150%) hue-rotate(180deg) saturate(400%);}
+  to {filter: brightness(100%) hue-rotate(150deg) saturate(200%);}
+}
+
+.stepSequencerTrackMuteButtontrue_JanuaryA {
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: muteOn;
+    animation-timing-function: linear;
+    background: #253358;
+    border: 2px solid #c3c7d1;
+    box-sizing: border-box;
+    color: #c3c7d1;
+    cursor: pointer;
+    filter: brightness(150%) hue-rotate(180deg) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin: 0 4px;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackMuteButtontrue_JanuaryA:hover {
+    background: #6b7380;
+    border: 2px solid #010204;
+    color: #010204;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackMuteButtontrue_JanuaryA:active {
+    background: #868ea3;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerTrackSoloButtonfalsefalse_JanuaryA {
+   background: #010204;
+    border: 2px solid #828386;
+    box-sizing: border-box;
+    color: #828386;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin: 0 4px;
+    transition: all 0.2s linear; 
+}
+
+.stepSequencerTrackSoloButtonfalsefalse_JanuaryA:hover {
+    background: #0c0e0f;
+    border: 2px solid #a4acbf;
+    color: #a4acbf;
+    filter: brightness(100%) saturate(200%);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackSoloButtonfalsefalse_JanuaryA:active {
+    background: #253358;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerTrackSoloButtonfalsetrue_JanuaryA {
+   background: #010204;
+    border: 2px solid #828386;
+    box-sizing: border-box;
+    color: #828386;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin: 0 4px;
+    transition: all 0.2s linear; 
+}
+
+.stepSequencerTrackSoloButtonfalsetrue_JanuaryA:hover {
+    background: #0c0e0f;
+    border: 2px solid #a4acbf;
+    color: #a4acbf;
+    filter: brightness(100%) saturate(200%);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackSoloButtonfalsetrue_JanuaryA:active {
+    background: #253358;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerTrackSoloButtontruefalse_JanuaryA {
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: muteOn;
+    animation-timing-function: linear;
+    background: #253358;
+    border: 2px solid #c3c7d1;
+    box-sizing: border-box;
+    color: #c3c7d1;
+    cursor: pointer;
+    filter: brightness(150%) hue-rotate(180deg) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin: 0 4px;
+    transition: all 0.2s linear; 
+}
+
+.stepSequencerTrackSoloButtontruefalse_JanuaryA:hover {
+    background: #6b7380;
+    border: 2px solid #010204;
+    color: #010204;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackSoloButtontruefalse_JanuaryA:active {
+    background: #868ea3;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerTrackSoloButtontruetrue_JanuaryA {
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: muteOn;
+    animation-timing-function: linear;
+    background: #1e2327;
+    border: 2px solid #1e2327;
+    box-sizing: border-box;
+    color: #6b7380;
+    cursor: pointer;
+    filter: brightness(150%) hue-rotate(180deg) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin: 0 4px;
+    transition: all 0.2s linear; 
+}
+
+.stepSequencerTrackSoloButtontruetrue_JanuaryA:hover {
+    background: #6b7380;
+    border: 2px solid #6b7380;
+    color: #1e2327;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackSoloButtontruetrue_JanuaryA:active {
+    background: #52576b;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+@keyframes rudeSolo {
+  from {background: #a4acbf;
+        color: #010204;}
+  to {background: #253358;
+        color: #d2d6df;}
+}
+
+.stepSequencerRudeSoloLabelDivtrue_JanuaryA {
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: rudeSolo;
+    animation-timing-function: linear;
+    display: flex;
+    filter: hue-rotate(90deg);
+    height: 80%;
+    left: 22%;
+    position: relative;
+    text-align: center;
+    top: 10%;
+    width: 70px;
+}
+
+.stepSequencerRudeSoloLabelDivfalse_JanuaryA {
+    display: none;
+}
+
+.stepSequencerRudeSoloLabel_JanuaryA {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin-top: 4px;
+}
+
+.stepSequencerAddDeleteTrackButton_JanuaryA {
+    background: #010204;
+    border: 2px solid #828386;
+    box-sizing: border-box;
+    color: #828386;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin: 0 4px;
+    transition: all 0.2s linear;
+    width: 12%;
+}
+
+.stepSequencerAddDeleteTrackButton_JanuaryA:hover {
+    background: #0c0e0f;
+    border: 2px solid #a4acbf;
+    color: #a4acbf;
+    filter: brightness(100%) saturate(200%);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerAddDeleteTrackButton_JanuaryA:active {
+    background: #253358;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerTracksContainer_JanuaryA {
+    background: transparent;
+    display: flex;
+    grid-column: col1 / colEnd;
+    grid-row: row2 / row15;
+}
+
+.stepSequencerIndividualTracktrue_JanuaryA {
+    background: transparent;
+    border: 1px solid #9299ac;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    pointer-events: none;
+    transition: all 0.5s linear;
+    width: 100%;
+}
+
+.stepSequencerIndividualTracktrue_JanuaryA::-webkit-scrollbar {
+    background: transparent;
+}
+
+.stepSequencerIndividualTrackfalse_JanuaryA {
+    background: transparent;
+    border: 1px solid #9299ac;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: all 0.5s linear;
+    width: 0.4vmin;
+}
+
+.stepSequencerDeviceSelectLabel_JanuaryA {
+    color: #828386;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col4;
+    grid-row: row3 / row4;
+    margin-left: 5px;
+    margin-top: 18px;
+}
+
+.stepSequencerDeviceSelector_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #a4acbf;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 15px;
+    grid-column: col1 / colEnd;
+    grid-row: row4 / row5;
+    outline-color: #8f9193;    
+}
+
+.stepSequencerDeviceImage_JanuaryA {
+    grid-column: col1 / colEnd;
+    grid-row: row1 / row3;
+    margin-left: 5%;
+    max-height: 100%;
+    max-width: 90%;
+    opacity: 0.6;
+}
+
+.stepSequencerCollectionSelectLabel_JanuaryA {
+    color: #828386;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col4;
+    grid-row: row5 / row6;
+    margin-left: 5px;
+    margin-top: 18px;
+}
+
+.stepSequencerCollectionSelector_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #a4acbf;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 15px;
+    grid-column: col1 / colEnd;
+    grid-row: row6 / row7;
+    outline-color: #8f9193;
+}
+
+.stepSequencerBankSelectLabel_JanuaryA {
+    color: #828386;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col4;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 18px;
+}
+
+.stepSequencerBankSelector_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #a4acbf;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 15px;
+    grid-column: col1 / colEnd;
+    grid-row: row8 / row9;
+    outline-color: #8f9193;
+}
+
+.stepSequencerPatchSelectLabel_JanuaryA {
+    color: #828386;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col4;
+    grid-row: row9 / row10;
+    margin-left: 5px;
+    margin-top: 18px;
+}
+
+.stepSequencerPatchSelector_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #a4acbf;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 15px;
+    grid-column: col1 / colEnd;
+    grid-row: row10 / row11;
+    outline-color: #8f9193;
+}
+
+.stepSequencerEventSelectLabel_JanuaryA {
+    color: #828386;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col4;
+    grid-row: row11 / row12;
+    margin-left: 5px;
+    margin-top: 18px;
+}
+
+.stepSequencerEventSelector_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #a4acbf;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 15px;
+    grid-column: col1 / colEnd;
+    grid-row: row12 / row13;
+    outline-color: #8f9193;
+}
+
+.stepSequencerAddEventButton_JanuaryA {
+    background: #010204;
+    border: 2px solid #828386;
+    box-sizing: border-box;
+    color: #828386;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col4;
+    grid-row: row13 / row14;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerAddEventButton_JanuaryA:hover {
+    background: #0c0e0f;
+    border: 2px solid #a4acbf;
+    color: #a4acbf;
+    filter: brightness(100%) saturate(200%);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerAddEventButton_JanuaryA:active {
+    background: #253358;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerRepeatButton_JanuaryA {
+    background: #010204;
+    border: 2px solid #828386;
+    box-sizing: border-box;
+    color: #828386;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col4;
+    grid-row: row15 / row16;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerRepeatButton_JanuaryA:hover {
+    background: #0c0e0f;
+    border: 2px solid #a4acbf;
+    color: #a4acbf;
+    filter: brightness(100%) saturate(200%);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerRepeatButton_JanuaryA:active {
+    background: #253358;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
 }
