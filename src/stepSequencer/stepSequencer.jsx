@@ -62,10 +62,224 @@ function StepSequencer(user, seq) {
     const [stepSequencerState, setStepSequencerState] = useState('_Active');
     const [rudeSolo, setRudeSolo] = useState(false);
     const [midiOutputs, setMidiOutputs] = useState(userOutputs);
+    const [midiEvents, setMidiEvents] = useState([
+        {
+            name: 'initial patch',
+            uuid: '9f4db083-23fa-4c1c-b7a5-ee3f57288aa7'
+        },
+        {
+            name: 'note event',
+            uuid: '439da322-bd74-4dc5-8e4b-b4ca664657a9'
+        },
+        {
+            name: 'pitch bend',
+            uuid: 'd1595e03-bcd9-4ca7-9247-4d54723c5a05'
+        },
+        {
+            name: 'program change',
+            uuid: '2fdb9151-68ad-46f7-b11e-adbb15d12a09'
+        },
+        {
+            name: 'aftertouch poly',
+            uuid: '9a141aff-eea8-46c4-8650-679d9218fb08'
+        },
+        {
+            name: 'aftertouch channel',
+            uuid: 'd1c6b635-d413-40aa-97dd-7d795230d5f4'
+        },
+        {
+            name: 'controller change',
+            uuid: '884e57d3-f5a5-4192-b640-78891802867b'
+        },
+        {
+            name: 'bank select',
+            uuid: '042b257f-f1de-488d-900b-6d7c49361748'
+        },
+        {   
+            name: 'modulation wheel',
+            uuid: '89265cc9-9ce5-4219-bfb6-371b18ed42b1'
+        },
+        {
+            name: 'breath controller',
+            uuid: '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e'
+        },
+        {
+            name: 'foot controller',
+            uuid: '2a3b9983-d175-4bde-aca9-63b70944ec7e'
+        },
+        {
+            name: 'portamento time',
+            uuid: '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c'
+        },
+        {
+            name: 'data entry msb',
+            uuid: 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb'
+        },
+        {
+            name: 'channel volume',
+            uuid: '5138de25-1d5c-473e-8a68-ddbeadc32bd4'
+        },
+        {
+            name: 'balance',
+            uuid: '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24'
+        },
+        {
+            name: 'pan',
+            uuid: 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb'
+        },
+        {
+            name: 'expression controller',
+            uuid: '15a9c413-3dbe-4890-bd52-287c2a48f615'
+        },
+        {
+            name: 'effect control 1',
+            uuid: '9434ea7e-6a63-423c-9be5-77584bd587e4'
+        },
+        {
+            name: 'effect control 2',
+            uuid: 'a97eee86-2a5e-47db-99b1-74b61bc994c1'
+        },
+        {
+            name: 'general purpose controller 1',
+            uuid: '6eaceab3-35bb-49e2-ad82-5bd4c3a32679'
+        },
+        {
+            name: 'general purpose controller 2',
+            uuid: 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c'
+        },
+        {
+            name: 'general purpose controller 3',
+            uuid: '3474f1bf-5aae-434e-ba95-102114de0dd2'
+        },
+        {
+            name: 'general purpose controller 4',
+            uuid: '221e9b45-0ec8-421e-adb6-cfaf19b69610'
+        },
+        {
+            name: 'damper pedal on/off',
+            uuid: 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0'
+        },
+        {
+            name: 'sostenuto on/off',
+            uuid: '26a0ab85-b2cc-4442-84c0-bd30fb239869'
+        },
+        {
+            name: 'soft pedal on/off',
+            uuid: '890d5a31-859b-4958-8eca-dd0b52f1fbec'
+        },
+        {
+            name: 'legato footswitch',
+            uuid: 'f31779f1-2599-487b-8e96-5b0abd35394e'
+        },
+        {
+            name: 'hold 2',
+            uuid: '75cf0bca-6196-4219-9eef-54272e8020a8'
+        },
+        {
+            name: 'sound variation',
+            uuid: 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3'
+        },
+        {
+            name: 'timbre/harmonic intensity',
+            uuid: '5531a226-bc2c-4c60-9505-9b8da30b86c2'
+        },
+        {
+            name: 'release time',
+            uuid: 'cb30f654-a1c1-4e76-b479-d41821ede969'
+        },
+        {
+            name: 'attack time',
+            uuid: '9390dbb8-efe9-4b41-adf3-47c6531f7aa1'
+        },
+        {
+            name: 'brightness',
+            uuid: 'f61546fe-fd2a-4c89-813c-44dde15e6aa2'
+        },
+        {
+            name: 'decay time',
+            uuid: '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b'
+        },
+        {
+            name: 'vibrato rate',
+            uuid: '752a2e67-911e-45b5-801d-0841c38cf8c2'
+        },
+        {
+            name: 'vibrato depth',
+            uuid: '97fb8e80-b937-464d-8830-212dcac90675'
+        },
+        {
+            name: 'vibrato delay',
+            uuid: '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c'
+        },
+        {
+            name: 'undefined',
+            uuid: '1ab83a91-21b1-4d56-b333-3a59c4ade431'
+        },
+        {
+            name: 'general purpose controller 5',
+            uuid: 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1'
+        },
+        {
+            name: 'general purpose controller 6',
+            uuid: 'faf99fca-87c1-4e8e-81f5-b0f14251db08'
+        },
+        {
+            name: 'general purpose controller 7',
+            uuid: '4c64d103-e813-4c4a-80b5-01cd8186635c'
+        },
+        {
+            name: 'general purpose controller 8',
+            uuid: 'e181eaf9-1b61-4e5b-8982-833fb9594529'
+        },
+        {
+            name: 'portamento control',
+            uuid: '246e9232-3d6a-4352-8957-d0ff9c1c834e'
+        },
+        {
+            name: 'high resolution velocity prefix',
+            uuid: '80e77d4b-c523-4393-a279-6d7b15e65d8a'
+        },
+        {
+            name: 'effects 1 depth',
+            uuid: 'c3b8b079-4994-480e-9b0a-8cbce11fba46'
+        },
+        {
+            name: 'effects 2 depth',
+            uuid: '206ff86e-6894-4b56-9f5b-f5387d18f2ea'
+        },
+        {
+            name: 'effects 3 depth',
+            uuid: '2517d341-7ae3-4dae-b866-49bd2fc9b21c'
+        },
+        {
+            name: 'effects 4 depth',
+            uuid: '269524b5-a240-42e5-abfe-bf074ab7cb11'
+        },
+        {
+            name: 'effects 5 depth',
+            uuid: 'e1568b69-6246-469f-9654-a398a1606ef9'
+        },
+        {
+            name: 'mono mode',
+            uuid: '44feabcb-b735-4980-a3fc-1e229b4bd115'
+        },
+        {
+            name: 'poly mode',
+            uuid: '40fc271b-2b22-40ff-a43d-90404ff07c69'
+        },
+        {
+            name: 'sysex',
+            uuid: 'ff38fbb0-ce53-484e-a8f2-2af3b340c103'
+        }
+    ]);
+    const [currentMidiEvent, setCurrentMidiEvent] = useState('439da322-bd74-4dc5-8e4b-b4ca664657a9');
     const [stepInterval, setStepInterval] = useState({
         intervalTicks: 960,
         note: 'quarter'
     });
+    const [currentPitchInput, setCurrentPitchInput] = useState(60);
+    const [currentMidiChannelInput, setCurrentMidiChannelInput] = useState(0);
+    const [currentVelocityInput, setCurrentVelocityInput] = useState(64);
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [playState, setPlayState] = useState(false);
     const [sequence, setSequence] = useState({
@@ -83,7 +297,392 @@ function StepSequencer(user, seq) {
                 active: true,
                 collection: null,
                 device: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
-                events: [],
+                events: [
+                    {
+                        id: 0,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 71,
+                            time: {
+                                bar: 1,
+                                beat: 1,
+                                ticks: 0
+                            },
+                            velocity: 64
+                        },
+                        noteOff: {
+                            note: 71,
+                            time: {
+                                bar: 1,
+                                beat: 1,
+                                ticks: 900
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 1,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 71,
+                            time: {
+                                bar: 1,
+                                beat: 2,
+                                ticks: 0
+                            },
+                            velocity: 64
+                        },
+                        noteOff: {
+                            note: 71,
+                            time: {
+                                bar: 1,
+                                beat: 2,
+                                ticks: 900
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 2,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 71,
+                            time: {
+                                bar: 1,
+                                beat: 3,
+                                ticks: 0
+                            },
+                            velocity: 75
+                        },
+                        noteOff: {
+                            note: 71,
+                            time: {
+                                bar: 1,
+                                beat: 3,
+                                ticks: 900
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 3,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 71,
+                            time: {
+                                bar: 1,
+                                beat: 4,
+                                ticks: 0
+                            },
+                            velocity: 75
+                        },
+                        noteOff: {
+                            note: 71,
+                            time: {
+                                bar: 1,
+                                beat: 4,
+                                ticks: 900
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 4,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 71,
+                            time: {
+                                bar: 2,
+                                beat: 1,
+                                ticks: 0
+                            },
+                            velocity: 90
+                        },
+                        noteOff: {
+                            note: 71,
+                            time: {
+                                bar: 2,
+                                beat: 1,
+                                ticks: 400
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 5,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 69,
+                            time: {
+                                bar: 2,
+                                beat: 1,
+                                ticks: 480
+                            },
+                            velocity: 85
+                        },
+                        noteOff: {
+                            note: 69,
+                            time: {
+                                bar: 2,
+                                beat: 1,
+                                ticks: 920
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 6,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 68,
+                            time: {
+                                bar: 2,
+                                beat: 2,
+                                ticks: 0
+                            },
+                            velocity: 90
+                        },
+                        noteOff: {
+                            note: 68,
+                            time: {
+                                bar: 2,
+                                beat: 2,
+                                ticks: 400
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 7,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 69,
+                            time: {
+                                bar: 2,
+                                beat: 2,
+                                ticks: 480
+                            },
+                            velocity: 99
+                        },
+                        noteOff: {
+                            note: 69,
+                            time: {
+                                bar: 2,
+                                beat: 4,
+                                ticks: 900
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 8,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 71,
+                            time: {
+                                bar: 3,
+                                beat: 1,
+                                ticks: 0
+                            },
+                            velocity: 84
+                        },
+                        noteOff: {
+                            note: 71,
+                            time: {
+                                bar: 3,
+                                beat: 1,
+                                ticks: 900
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 9,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 71,
+                            time: {
+                                bar: 3,
+                                beat: 2,
+                                ticks: 0
+                            },
+                            velocity: 85
+                        },
+                        noteOff: {
+                            note: 71,
+                            time: {
+                                bar: 3,
+                                beat: 2,
+                                ticks: 900
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 10,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 71,
+                            time: {
+                                bar: 3,
+                                beat: 3,
+                                ticks: 0
+                            },
+                            velocity: 97
+                        },
+                        noteOff: {
+                            note: 71,
+                            time: {
+                                bar: 3,
+                                beat: 3,
+                                ticks: 900
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 11,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 71,
+                            time: {
+                                bar: 3,
+                                beat: 4,
+                                ticks: 0
+                            },
+                            velocity: 100
+                        },
+                        noteOff: {
+                            note: 71,
+                            time: {
+                                bar: 3,
+                                beat: 4,
+                                ticks: 900
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 12,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 73,
+                            time: {
+                                bar: 4,
+                                beat: 1,
+                                ticks: 0
+                            },
+                            velocity: 120
+                        },
+                        noteOff: {
+                            note: 73,
+                            time: {
+                                bar: 4,
+                                beat: 1,
+                                ticks: 400
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 13,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 71,
+                            time: {
+                                bar: 4,
+                                beat: 1,
+                                ticks: 480
+                            },
+                            velocity: 99
+                        },
+                        noteOff: {
+                            note: 71,
+                            time: {
+                                bar: 4,
+                                beat: 1,
+                                ticks: 920
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 14,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 69,
+                            time: {
+                                bar: 4,
+                                beat: 2,
+                                ticks: 0
+                            },
+                            velocity: 104
+                        },
+                        noteOff: {
+                            note: 69,
+                            time: {
+                                bar: 4,
+                                beat: 2,
+                                ticks: 400
+                            },
+                            velocity: 0
+                        }
+                    },
+                    {
+                        id: 15,
+                        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                        midiChannel: 0,
+                        name: 'note',
+                        noteOn: {
+                            note: 71,
+                            time: {
+                                bar: 4,
+                                beat: 2,
+                                ticks: 480
+                            },
+                            velocity: 101
+                        },
+                        noteOff: {
+                            note: 71,
+                            time: {
+                                bar: 4,
+                                beat: 4,
+                                ticks: 900
+                            },
+                            velocity: 0
+                        }
+                    }
+                ],
                 id: 0,
                 image: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/b3773bb133b4062103d9807e45bb300c_sp.png',
                 mute: false,
@@ -2239,6 +2838,570 @@ function StepSequencer(user, seq) {
         setSequence(deepSequence);
     }
     
+    const updateCurrentMidiEvent = (val) => {
+        setCurrentMidiEvent(val);
+    }
+    
+    const convertPitchValue = (val) => {
+        let letter = '';
+        
+        switch(val % 12) {
+            case(0):
+                letter += 'C♮ ';
+                break;
+            case(1):
+                letter += 'C♯ ';
+                break;
+            case(2):
+                letter += 'D♮ ';
+                break;
+            case(3):
+                letter += 'E♭ ';
+                break;
+            case(4):
+                letter += 'E♮ ';
+                break;
+            case(5):
+                letter += 'F♮ ';
+                break;
+            case(6):
+                letter += 'F♯ ';
+                break;
+            case(7):
+                letter += 'G♮ ';
+                break;
+            case(8):
+                letter += 'A♭ ';
+                break;
+            case(9):
+                letter += 'A♮ ';
+                break;
+            case(10):
+                letter += 'B♭ ';
+                break;
+            case(11):
+                letter += 'B♮ ';
+                break;
+            default:
+                console.log('impossible transpose value');
+        }
+        if (val < 12) {
+            letter += '-1';
+        } else if (val < 24) {
+            letter += '0';
+        } else if (val < 36) {
+            letter += '1';
+        } else if (val < 48) {
+            letter += '2';
+        } else if (val < 60) {
+            letter += '3';
+        } else if (val < 72) {
+            letter += '4';
+        } else if (val < 84) {
+            letter += '5';
+        } else if (val < 96) {
+            letter += '6';
+        } else if (val < 108) {
+            letter += '7';
+        } else if (val < 120) {
+            letter += '8';
+        } else {
+            letter += '9';
+        }
+        
+        return letter;
+    }
+    
+    const updateTrackName = (val) => {
+        let deepSequence = {...sequence};
+        
+        deepSequence.tracks[activeTrack].name = val;
+        
+        setSequence(deepSequence);
+    }
+    
+    const updateTrackEventMIDIChannel = (val, index) => {
+        let deepSequence = {...sequence};
+        
+        deepSequence.tracks[activeTrack].events[index].midiChannel = val;
+        
+        setCurrentMidiChannelInput(parseInt(val));
+        setSequence(deepSequence);
+    }
+    
+    const updateEventNoteOnNote = (val, index) => {
+        let deepSequence = {...sequence};
+        
+        deepSequence.tracks[activeTrack].events[index].noteOn.note = val;
+        deepSequence.tracks[activeTrack].events[index].noteOff.note = val;
+        
+        setSequence(deepSequence);
+        setCurrentPitchInput(parseInt(val));
+    }
+    
+    const updateEventNoteVelocity = (val, index) => {
+        let deepSequence = {...sequence};
+        
+        deepSequence.tracks[activeTrack].events[index].noteOn.velocity = val;
+        deepSequence.tracks[activeTrack].events[index].noteOff.velocity = val;
+        
+        setCurrentVelocityInput(parseInt(val));
+        setSequence(deepSequence);
+    }
+    
+    const reOrderEvents = () => {
+        let deepSequence = {...sequence};
+        
+        deepSequence.tracks[activeTrack].events = deepSequence.tracks[activeTrack].events.sort((a, b) => {
+            if ((a.event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') && (b.event === '439da322-bd74-4dc5-8e4b-b4ca664657a9')) {
+                if (parseInt(a.noteOn.time.bar) < parseInt(b.noteOn.time.bar)) {
+                    return -1;
+                } else if (parseInt(a.noteOn.time.bar) > parseInt(b.noteOn.time.bar)) {
+                    return 1;
+                } else {
+                    if (parseInt(a.noteOn.time.beat) < parseInt(b.noteOn.time.beat)) {
+                        return -1;
+                    } else if (parseInt(a.noteOn.time.beat) > parseInt(b.noteOn.time.beat)) {
+                        return 1;
+                    } else {
+                        if (parseInt(a.noteOn.time.ticks) < parseInt(b.noteOn.time.ticks)) {
+                            return -1;
+                        } else if (parseInt(a.noteOn.time.ticks) > parseInt(b.noteOn.time.ticks)) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    }
+                }
+            } else if ((a.event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') && (b.event !== '439da322-bd74-4dc5-8e4b-b4ca664657a9')) {
+                if (parseInt(a.noteOn.time.bar) < parseInt(b.time.bar)) {
+                    return -1;
+                } else if (parseInt(a.noteOn.time.bar) > parseInt(b.time.bar)) {
+                    return 1;
+                } else {
+                    if (parseInt(a.noteOn.time.beat) < parseInt(b.time.bar)) {
+                        return -1;
+                    } else if (parseInt(a.noteOn.time.beat) > parseInt(b.time.beat)) {
+                        return 1;
+                    } else {
+                        if (parseInt(a.noteOn.time.ticks) < parseInt(b.time.ticks)) {
+                            return -1;
+                        } else if (parseInt(a.noteOn.time.ticks) < parseInt(b.time.ticks)) {
+                            return 1;
+                        } else {
+                            return 1;
+                        }
+                    }
+                }
+            } else if ((a.event !== '439da322-bd74-4dc5-8e4b-b4ca664657a9') && (b.event === '439da322-bd74-4dc5-8e4b-b4ca664657a9')) {
+                if (parseInt(a.time.bar) < parseInt(b.noteOn.time.bar)) {
+                    return -1;
+                } else if (parseInt(a.time.bar) > parseInt(b.noteOn.time.bar)) {
+                    return 1;
+                } else {
+                    if (parseInt(a.time.beat) < parseInt(b.noteOn.time.beat)) {
+                        return -1;
+                    } else if (parseInt(a.time.beat) < parseInt(b.noteOn.time.beat)) {
+                        return 1;
+                    } else {
+                        if (parseInt(a.time.ticks) < parseInt(b.noteOn.time.ticks)) {
+                            return -1;
+                        } if (parseInt(a.time.ticks) > parseInt(b.noteOn.time.ticks)) {
+                            return 1;
+                        } else {
+                            return -1;
+                        }
+                    }
+                }
+            } else {
+                if (parseInt(a.time.bar) < parseInt(b.time.bar)) {
+                    return -1;
+                } else if (parseInt(a.time.bar) > parseInt(b.time.bar)) {
+                    return 1;
+                } else {
+                    if (parseInt(a.time.beat) < parseInt(b.time.beat)) {
+                        return -1;
+                    } else if (parseInt(a.time.beat) > parseInt(b.time.beat)) {
+                        return 1;
+                    } else {
+                        if (parseInt(a.time.ticks) < parseInt(b.time.ticks)) {
+                            return -1;
+                        } else if (parseInt(a.time.ticks) > parseInt(b.time.ticks)) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    }
+                }
+            }
+        });
+        
+        for (let i = 0; i < deepSequence.tracks[activeTrack].events.length; i++) {
+            deepSequence.tracks[activeTrack].events[i].id = i;
+        }
+        
+        setSequence(deepSequence);
+    }
+    
+    const updateNoteEventBarOnset = (val, index) => {
+        let deepSequence = {...sequence};
+        
+        deepSequence.tracks[activeTrack].events[index].noteOn.time.bar = val;
+        deepSequence.tracks[activeTrack].events[index].noteOn.time.beat = 1;
+        deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks = 0;
+        
+        if (deepSequence.tracks[activeTrack].events[index].noteOff.time.bar < val) {
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.bar = val;
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = 1;
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = 0;
+        }
+        
+        setSequence(deepSequence);
+        reOrderEvents();
+        
+        setCurrentPosition({
+            measure: {
+                bar: deepSequence.tracks[activeTrack].events[index].noteOn.time.bar,
+                beat: deepSequence.tracks[activeTrack].events[index].noteOn.time.beat,
+                ticks: deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks
+            }
+        });
+        setCurrentClockPosition(calculateTimeString({
+            bar: deepSequence.tracks[activeTrack].events[index].noteOn.time.bar, 
+            beat: deepSequence.tracks[activeTrack].events[index].noteOn.time.beat, 
+            ticks: deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks
+        }));
+    }
+    
+    const updateNoteEventBeatOnset = (val, index) => {
+        let deepSequence = {...sequence};
+        let meter = meterAtPosition(deepSequence.tracks[activeTrack].events[index].noteOn.time);
+        let meter2 = meterAtPosition({bar: (parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar) - 1), beat: 1, ticks: 0});
+        
+        if (val < 1) {
+            deepSequence.tracks[activeTrack].events[index].noteOn.time.bar = parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar) - 1;
+            deepSequence.tracks[activeTrack].events[index].noteOn.time.beat = meter2.meterNumerator;
+            deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks = 0;
+        } else if (parseInt(val) > parseInt(meter.meterNumerator)) {
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                return;
+            }
+            deepSequence.tracks[activeTrack].events[index].noteOn.time.bar = parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar) + 1;
+            deepSequence.tracks[activeTrack].events[index].noteOn.time.beat = 1;
+            deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks = 0;
+        } else {
+            deepSequence.tracks[activeTrack].events[index].noteOn.time.beat = val;
+            deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks = 0;
+        }
+        if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.bar = deepSequence.tracks[activeTrack].events[index].noteOn.time.bar;
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = 1;
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = 0;
+        } else if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat)) {
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = deepSequence.tracks[activeTrack].events[index].noteOn.time.beat;
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = 0;
+            } else if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat)) {
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks)) {
+                   deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks; 
+                }
+            }
+        }
+        
+        setSequence(deepSequence);
+        reOrderEvents();
+        
+        setCurrentPosition({
+            measure: {
+                bar: deepSequence.tracks[activeTrack].events[index].noteOn.time.bar,
+                beat: deepSequence.tracks[activeTrack].events[index].noteOn.time.beat,
+                ticks: deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks
+            }
+        });
+        setCurrentClockPosition(calculateTimeString({
+            bar: deepSequence.tracks[activeTrack].events[index].noteOn.time.bar, 
+            beat: deepSequence.tracks[activeTrack].events[index].noteOn.time.beat, 
+            ticks: deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks
+        }));
+    }
+    
+    const updateNoteEventTickOnset = (val, index) => {
+        let deepSequence = {...sequence};
+        let meter = meterAtPosition(deepSequence.tracks[activeTrack].events[index].noteOn.time);
+        let meter2 = meterAtPosition({bar: (parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar) - 1), beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 0) {
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat) === 1) {
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar) === 1) {
+                    return;
+                }
+                deepSequence.tracks[activeTrack].events[index].noteOn.time.bar = parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar) - 1;
+                deepSequence.tracks[activeTrack].events[index].noteOn.time.beat = parseInt(meter2.meterNumerator);
+                deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks = parseInt(getTickMax(meter.meterDenominator)) - 1;
+            } else {
+                deepSequence.tracks[activeTrack].events[index].noteOn.time.beat = parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat) - 1;
+                deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks = parseInt(getTickMax(meter.meterDenominator)) - 1;
+            }
+            
+        } else if (parseInt(val) > (parseInt(getTickMax(meter.meterDenominator)) - 1)) {
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat) === parseInt(meter.meterNumerator)) {
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                    return;
+                }
+                deepSequence.tracks[activeTrack].events[index].noteOn.time.bar = parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar) + 1;
+                deepSequence.tracks[activeTrack].events[index].noteOn.time.beat = 1;
+                deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks = 0;
+                
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+                    deepSequence.tracks[activeTrack].events[index].noteOff.time.bar = deepSequence.tracks[activeTrack].events[index].noteOn.time.bar;
+                    deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = deepSequence.tracks[activeTrack].events[index].noteOn.time.beat;
+                    deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks;
+                } else if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+                    if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat)) {
+                        deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = deepSequence.tracks[activeTrack].events[index].noteOn.time.beat;
+                        deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks;
+                    } else if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat)) {
+                        if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks)) {
+                            deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks;
+                        }
+                    }
+                }
+            } else {
+                deepSequence.tracks[activeTrack].events[index].noteOn.time.beat = parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat) + 1;
+                deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks = 0;
+                
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+                    deepSequence.tracks[activeTrack].events[index].noteOff.time.bar = deepSequence.tracks[activeTrack].events[index].noteOn.time.bar;
+                    deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = deepSequence.tracks[activeTrack].events[index].noteOn.time.beat;
+                    deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks;
+                } else if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+                    if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat)) {
+                        deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = deepSequence.tracks[activeTrack].events[index].noteOn.time.beat;
+                        deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks;
+                    } else if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat)) {
+                        if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks)) {
+                            deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks;
+                        }
+                    }
+                }
+            }
+        } else {
+            deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks = parseInt(val);
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat)) {
+                    if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks)) {
+                        deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = parseInt(val);
+                    }
+                }
+            }
+        }
+        setSequence(deepSequence);
+        reOrderEvents();
+        
+        setCurrentPosition({
+            measure: {
+                bar: deepSequence.tracks[activeTrack].events[index].noteOn.time.bar,
+                beat: deepSequence.tracks[activeTrack].events[index].noteOn.time.beat,
+                ticks: deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks
+            }
+        });
+        setCurrentClockPosition(calculateTimeString({
+            bar: deepSequence.tracks[activeTrack].events[index].noteOn.time.bar, 
+            beat: deepSequence.tracks[activeTrack].events[index].noteOn.time.beat, 
+            ticks: deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks
+        }));
+    }
+    
+    const updateEventNoteOffBar = (val, index) => {
+        let deepSequence = {...sequence};
+        
+        if (parseInt(val) > (parseInt(deepSequence.duration.bar) - 1)) {
+            return;
+        }
+        deepSequence.tracks[activeTrack].events[index].noteOff.time.bar = parseInt(val);
+        if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) < parseInt(deepSequence.tracks[activeTrack].event[index].noteOn.time.beat)) {
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = parseInt(deepSequence.tracks[activeTrack].event[index].noteOn.time.beat);
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = parseInt(deepSequence.tracks[activeTrack].event[index].noteOn.time.ticks);
+            } else if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) === parseInt(deepSequence.tracks[activeTrack].event[index].noteOn.time.beat)) {
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks)) {
+                    deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks);
+                }
+            }
+        }
+        
+        setSequence(deepSequence);
+    }
+    
+    const updateEventNoteOffBeat = (val, index) => {
+        let deepSequence = {...sequence};
+        let meter = meterAtPosition(deepSequence.tracks[activeTrack].events[index].noteOn.time);
+        let meter2 = meterAtPosition({bar: (parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar) - 1), beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar)), beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 1) {
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === 1) {
+                return;
+            }
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+                return;
+            }
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.bar = parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) - 1;
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = parseInt(meter2.meterNumerator);
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = 0;
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat)) {
+                    if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks)) {
+                        deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks);
+                    }
+                }
+            }
+        } else if (parseInt(val) > parseInt(meter3.meterNumerator)) {
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) > (parseInt(deepSequence.duration.bar) - 1)) {
+                return;
+            }
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.bar = parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) + 1;
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = 1;
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = 0;
+        } else {
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = parseInt(val);
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat)) {
+                    return;
+                }
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks)) {
+                    deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks);
+                }
+            } else {
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) < parseInt(deepSequence.duration.bar)) {
+                    deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = parseInt(val);
+                }
+            }
+        }
+        
+        setSequence(deepSequence);
+    }
+    
+    const updateEventNoteOffTicks = (val, index) => {
+        let deepSequence = {...sequence};
+        let meter = meterAtPosition(deepSequence.tracks[activeTrack].events[index].noteOn.time);
+        let meter2 = meterAtPosition({bar: (parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar) - 1), beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar)), beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 0) {
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) === 1) {
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === 1) {
+                    return;
+                }
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.bar = parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) - 1;
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = parseInt(meter2.meterNumerator);
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = parseInt(getTickMax(meter2.meterDenominator)) - 1;
+            } else {
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) - 1;
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = parseInt(getTickMax(meter2.meterDenominator)) - 1;
+            }
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+                return;
+            }
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat)) {
+                    return;
+                }
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat)) {
+                    if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks)) {
+                        return;
+                    }
+                }
+            }
+            
+        } else if (parseInt(val) > (parseInt(getTickMax(meter3.meterDenominator)) - 1)) {
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) === parseInt(meter3.meterNumerator)) {
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === parseInt(deepSequence.duration.bar)) {
+                    return;
+                }
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.bar = parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) + 1;
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = 1;
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = 0;
+            } else {
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.beat = parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) + 1;
+                deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = 0;
+            }
+        } else {
+            deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks = parseInt(val);
+            if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.bar) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.bar)) {
+                if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.beat) === parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.beat)) {
+                    if (parseInt(deepSequence.tracks[activeTrack].events[index].noteOff.time.ticks) < parseInt(deepSequence.tracks[activeTrack].events[index].noteOn.time.ticks)) {
+                        return;
+                    }
+                }
+            }
+        }
+        
+        setSequence(deepSequence);
+    }
+    
+    const deleteEventAt = (index) => {
+        let deepSequence = {...sequence};
+        
+        deepSequence.tracks[activeTrack].events.splice(index, 1);
+        
+        setSequence(deepSequence);
+        reOrderEvents();
+    }
+    
+    const addSelectedEvent = () => {
+        let deepSequence = {...sequence};
+        
+        switch(currentMidiEvent) {
+            case('439da322-bd74-4dc5-8e4b-b4ca664657a9'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'note',
+                    noteOn: {
+                        note: currentPitchInput,
+                        time: {
+                            bar: currentPosition.measure.bar,
+                            beat: currentPosition.measure.beat,
+                            ticks: currentPosition.measure.ticks
+                        },
+                        velocity: currentVelocityInput
+                    },
+                    noteOff: {
+                        note: currentPitchInput,
+                        time: {
+                            bar: currentPosition.measure.bar,
+                            beat: currentPosition.measure.beat,
+                            ticks: currentPosition.measure.ticks
+                        },
+                        velocity: currentVelocityInput
+                    }
+                });
+                break;
+            default:
+                console.log('Unsupported MIDI event');
+        }
+        
+        setSequence(deepSequence);
+        reOrderEvents();
+    }
+    
+    const noteEditCurrentPosition = (index) => {
+        
+        setCurrentPosition({
+            measure: {
+                bar: sequence.tracks[activeTrack].events[index].noteOn.time.bar,
+                beat: sequence.tracks[activeTrack].events[index].noteOn.time.beat,
+                ticks: sequence.tracks[activeTrack].events[index].noteOn.time.ticks
+            }
+        });
+        setCurrentClockPosition(calculateTimeString({
+            bar: sequence.tracks[activeTrack].events[index].noteOn.time.bar, 
+            beat: sequence.tracks[activeTrack].events[index].noteOn.time.beat, 
+            ticks: sequence.tracks[activeTrack].events[index].noteOn.time.ticks
+        }));
+    }
+    
     return(
         <div>
             <div className={'stepSequencerContainer' + stepSequencerState + stepSequenceMonth}
@@ -2256,7 +3419,13 @@ function StepSequencer(user, seq) {
                         type="text"
                         value={sequence.header.name}/>
                     <button className={'stepSequencerPanicButton' + stepSequenceMonth}>panic!</button>
-                    <div className={'stepSequencerSidebarManager' + stepSequenceMonth}></div>
+                    <div className={'stepSequencerSidebarManager' + stepSequenceMonth}>
+                        <div className={'stepSequencerSidebarContainer' + stepSequenceMonth}>
+                            <button className={'stepSequencerSaveButton' + stepSequenceMonth}>save</button>
+                            <button className={'stepSequencerSaveAsButton' + stepSequenceMonth}>save as...</button>
+                            <button className={'stepSequencerRevertButton' + stepSequenceMonth}>revert</button>
+                        </div>
+                    </div>
                     <div className={'stepSequencerPositionDisplay' + stepSequenceMonth}>
                         <input className={'stepSequencerPositionBarInput' + stepSequenceMonth} 
                             max={sequence.duration.bar}
@@ -2774,8 +3943,81 @@ function StepSequencer(user, seq) {
                         <div className={'stepSequencerTracksContainer' + stepSequenceMonth}>
                             {sequence.tracks.map(track => (
                                 <div className={'stepSequencerIndividualTrack' + track.active + stepSequenceMonth}
-                                    onClick={() => updateSelectedTrack(track.id)}></div>
+                                    onClick={() => updateSelectedTrack(track.id)}>
+                                    {track.events.map(event => (
+                                        <div style={{width: '100%'}}>
+                                            {(event.event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') && (
+                                                <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.noteOn.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.noteOn.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.noteOn.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
+                                                    onClick={() => noteEditCurrentPosition(event.id)}>
+                                                    <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
+                                                    <input className={'stepSequencerEventMidiChannelInput' + stepSequenceMonth} 
+                                                        max="15"
+                                                        min="0"
+                                                        onChange={(e) => {updateTrackEventMIDIChannel(e.target.value, event.id)}}
+                                                        type="number"
+                                                        value={event.midiChannel}/>
+                                                    <input className={'stepSequencerEventBarInput' + stepSequenceMonth}
+                                                        max={sequence.duration.bar - 1}
+                                                        min="1"
+                                                        onChange={(e) => updateNoteEventBarOnset(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.noteOn.time.bar}/>
+                                                    <p className={'stepSequencerBarDivider' + stepSequenceMonth}>.</p>
+                                                    <input className={'stepSequencerEventBeatInput' + stepSequenceMonth} 
+                                                        onChange={(e) => updateNoteEventBeatOnset(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.noteOn.time.beat}/>
+                                                    <p className={'stepSequencerBeatDivider' + stepSequenceMonth}>.</p>
+                                                    <input className={'stepSequencerEventTicksInput' + stepSequenceMonth} 
+                                                        onChange={(e) => updateNoteEventTickOnset(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.noteOn.time.ticks}/>
+                                                    <p className={'stepSequencerEventValue' + stepSequenceMonth}>{convertPitchValue(event.noteOn.note)}</p>
+                                                    <input className={'stepSequencerEventNoteInput' + stepSequenceMonth}
+                                                        max="127"
+                                                        min="0"
+                                                        onChange={(e) => updateEventNoteOnNote(e.target.value, event.id)}
+                                                        type="number" 
+                                                        value={event.noteOn.note} />
+                                                    <input className={'stepSequencerEventNoteVelocityInput' + stepSequenceMonth}
+                                                        max="127"
+                                                        min="0"
+                                                        onChange={(e) => updateEventNoteVelocity(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.noteOn.velocity} />
+                                                    <input className={'stepSequencerEventNoteOffBarInput' + stepSequenceMonth}
+                                                        min={event.noteOn.time.bar}
+                                                        onChange={(e) => updateEventNoteOffBar(e.target.value, event.id)}
+                                                        type="number" 
+                                                        value={event.noteOff.time.bar} />
+                                                    <p className={'stepSequencerNoteOffBarDivider' + stepSequenceMonth}>.</p>
+                                                    <input className={'stepSequencerEventNoteOffBeatInput' + stepSequenceMonth}
+                                                        onChange={(e) => updateEventNoteOffBeat(e.target.value, event.id)}
+                                                        type="number" 
+                                                        value={event.noteOff.time.beat} />
+                                                    <p className={'stepSequencerNoteOffBeatDivider' + stepSequenceMonth}>.</p>
+                                                    <input className={'stepSequencerEventNoteOffTicksInput' + stepSequenceMonth}
+                                                        onChange={(e) => updateEventNoteOffTicks(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.noteOff.time.ticks} />
+                                                    <p className={'stepSequencerEventDeleteEvent' + stepSequenceMonth}
+                                                        onClick={() => deleteEventAt(event.id)} >&#127303;</p>
+                                                </div>
+                                         )}
+                                        </div>
+                                    ))}
+                                </div>
                             ))}
+                        </div>
+                        <div className={'stepSequencerTracksNameAndControlledChangesStrip' + stepSequenceMonth}>
+                            <input className={'stepSequencerTrackNameInput' + stepSequenceMonth}
+                                onChange={(e) => updateTrackName(e.target.value)}
+                                type="text"
+                                value={sequence.tracks[activeTrack].name} />
+                            <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>continuous</button>
+                            <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>duplicate</button>
+                            <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>filter</button>
+                            <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>quantize</button>
                         </div>
                     </div>
                     <div className={'stepSequencerInputsControl' + stepSequenceMonth}>
@@ -2796,12 +4038,34 @@ function StepSequencer(user, seq) {
                         <p className={'stepSequencerPatchSelectLabel' + stepSequenceMonth}>patch:</p>
                         <select className={'stepSequencerPatchSelector' + stepSequenceMonth}></select>
                         <p className={'stepSequencerEventSelectLabel' + stepSequenceMonth}>event:</p>
-                        <select className={'stepSequencerEventSelector' + stepSequenceMonth}></select>
-                        <button className={'stepSequencerAddEventButton' + stepSequenceMonth}>add</button>
+                        <select className={'stepSequencerEventSelector' + stepSequenceMonth}
+                            onChange={(e) => updateCurrentMidiEvent(e.target.value)}
+                            value={currentMidiEvent}>
+                            {midiEvents.map(event => (
+                                <option key={event.uuid} value={event.uuid}>{event.name}</option>
+                            ))}
+                        </select>
+                        <button className={'stepSequencerAddEventButton' + stepSequenceMonth}
+                            onClick={() => addSelectedEvent()}>add</button>
                         <button className={'stepSequencerRepeatButton' + stepSequenceMonth}>repeat</button>
                     </div>
-                    <div className={'stepSequencerPluginsPanel' + stepSequenceMonth}
-                        onClick={() => console.log(user)}></div>
+                    <div className={'stepSequencerPluginsPanel' + stepSequenceMonth}>
+                        <p className={'stepSequencerMidiFXPanelLabel' + stepSequenceMonth}>MIDI FX</p>
+                        <p className={'stepSequencerMidiFXSelectorLabel' + stepSequenceMonth}>fx:</p>
+                        <select className={'stepSequencerMidiFXSelector' + stepSequenceMonth}>
+                            <option>midi delay</option>
+                            <option>midi smear</option>
+                            <option>midi gliss</option>
+                            <option>midi glitch</option>
+                        </select>
+                        <p className={'stepSequencerMidiFXPresetSelectorLabel' + stepSequenceMonth}>preset:</p>
+                        <select className={'stepSequencerMidiFXPresetSelector' + stepSequenceMonth}>
+                            <option>hard quantize verb</option>
+                            <option>feedback delay</option>
+                            <option>reverse delay</option>
+                        </select>
+                        <button className={'stepSequencerMidiFXAddButton' + stepSequenceMonth}>add</button>
+                    </div>
                 </div>
             </div>
             
