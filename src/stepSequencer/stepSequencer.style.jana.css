@@ -1094,6 +1094,7 @@
     font-size: 18px;
     margin: 2px 0;
     width: 100%;
+    z-index: 155;
 }
 
 .stepSequencerEventContainertruefalse_JanuaryA {
@@ -1107,6 +1108,7 @@
     font-size: 18px;
     margin: 2px 0;
     width: 100%;
+    z-index: 155;
 }
 
 .stepSequencerEventContainerfalsetrue_JanuaryA {
@@ -1513,4 +1515,89 @@
 
 .stepSequencerRevertButton_JanuaryA:active {
     filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #868ea3);
+}
+
+.stepSequencerInitialPatchSelect_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #9299ac;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: bar / col8;
+    grid-row: row1 / rowEnd;
+    outline-color: #8f9193;
+}
+
+.stepSequencerPitchBendValueInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #9299ac;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: valueDisplay / col8;
+    grid-row: row1 / rowEnd;
+    outline-color: #8f9193;
+    text-align: right;
+}
+
+.stepSequencerEventNoteParameterValue_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #9299ac;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: secondData / col8;
+    grid-row: row1 / rowEnd;
+    outline-color: #8f9193;
+    text-align: right;
+}
+
+.stepSequencerEventControllerInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #9299ac;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: valueDisplay / secondData;
+    grid-row: row1 / rowEnd;
+    outline-color: #8f9193;
+    text-align: right;
+}
+
+.stepSequencerEventSwitchtrue_JanuaryA {
+    background: #6b7380;
+    border: 1px solid #253358;
+    box-sizing: border-box;
+    color: #010204;
+    cursor: pointer;
+    grid-column: secondData / col8;
+    grid-row: row1 / rowEnd;
+    text-align: left;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerEventSwitchtrue_JanuaryA:hover {
+    filter: brightness(150%) hue-rotate(45deg) saturate(200%);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerEventSwitchfalse_JanuaryA {
+    background: transparent;
+    border: 1px solid #d2d6df;
+    box-sizing: border-box;
+    color: #d2d6df;
+    cursor: pointer;
+    grid-column: secondData / col8;
+    grid-row: row1 / rowEnd;
+    text-align: right;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerEventSwitchfalse_JanuaryA:hover {
+    filter: brightness(90%) hue-rotate(-45deg) saturate(100%);
+    transition: all 0.2s linear;
 }
