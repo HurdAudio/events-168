@@ -538,6 +538,10 @@
     max-width: 10%;
 }
 
+.stepSequencerShuttleHome_JanuaryA:hover {
+    filter: invert(100%);
+}
+
 .stepSequencerHomePositionBarInput_JanuaryA {
     background: transparent;
     border: none;
@@ -588,6 +592,10 @@
     margin-left: 10px;
     max-width: 70px;
     transform: translateY(-3px);
+}
+
+.stepSequencerStepNote_JanuaryA:hover {
+    filter: invert(100%);
 }
 
 .stepSequencerStepNoteWhole_JanuaryA {

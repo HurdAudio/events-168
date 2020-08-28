@@ -30,6 +30,8 @@ import forward from '../img/forward.png';
 import axios from 'axios';
 import AvailableDevices from '../midiManager/availableDevices';
 
+const sequencePlaying = false;
+
 
 function StepSequencer(user, seq) {
     
@@ -908,12 +910,189 @@ function StepSequencer(user, seq) {
     });
     const [currentClockPosition, setCurrentClockPosition] = useState('0:00.000');
     
+    const timePosition = (position) => {
+        let index = 0;
+        let cumulative = 0;
+        let exitCondition = false;
+        let meterNumerator = tempoTrack.tick[0].meterNumerator;
+        let meterDenominator = tempoTrack.tick[0].meterDenominator;
+        let tempo = tempoTrack.tick[0].tempo;
+        let tempoBase = tempoTrack.tick[0].tempoBase;
+        let calcTicks = 0;
+        
+        while(!exitCondition) {
+            if (index > 0) {
+                if (tempoTrack.tick[index].meterChange) {
+                    meterNumerator = tempoTrack.tick[index].meterNumerator;
+                    meterDenominator = tempoTrack.tick[index].meterDenominator
+                }
+                if (tempoTrack.tick[index].tempoChange) {
+                    tempo = tempoTrack.tick[index].tempo;
+                    tempoBase = tempoTrack.tick[index].tempoBase;
+                }
+            }
+            if (tempoTrack.tick.length === index) {
+                exitCondition = true;
+                cumulative = tempoTrack.tick[index - 1].cumulativeTime;
+            } else {
+                if (positionEqualTo(position, tempoTrack.tick[index])) {
+                    exitCondition = true;
+                    cumulative = tempoTrack.tick[index].cumulativeTime;
+                } else if (positionGreaterThan(position, tempoTrack.tick[index + 1])) {
+                    exitCondition = true;
+                    cumulative = tempoTrack.tick[index].cumulativeTime;
+                } else {
+                    ++index;
+                }
+            }
+        }
+        if (positionEqualTo(position, tempoTrack.tick[index])) {
+            return cumulative;
+        } else {
+            calcTicks = convertDurationToMilliseconds(position, tempoTrack.tick[index]);
+            cumulative += calcTicks;
+            return cumulative;
+        }
+    }
+    
+    const indexPositionPreToPoint = (position, toPoint) => {
+        if (position === undefined) {
+            return true;
+        }
+
+        if (position.event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') {
+            if (position.noteOn.time.bar < toPoint.bar) {
+                return true;
+            } else if (position.noteOn.time.bar === toPoint.bar) {
+                if (position.noteOn.time.beat < toPoint.beat) {
+                    return true;
+                } else if (position.noteOn.time.beat === toPoint.beat) {
+                    if (position.noteOn.time.ticks < toPoint.ticks) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            if (position.time.bar < toPoint.bar) {
+                return true;
+            } else if (position.time.bar === toPoint.bar) {
+                if (position.time.beat < toPoint.beat) {
+                    return true;
+                } else if (position.time.beat === toPoint.beat) {
+                    if (position.time.ticks < toPoint.ticks) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+    }
+    
+    const playTrackEvents = (track, timeStart) => {
+        console.log(user.midi_connections.outputs);
+        let output = 0;
+        for (let o = 0; o < user.midi_connections.outputs.length; o++) {
+            if (user.midi_connections.outputs[o].id === track.output) {
+                output = o;
+            }
+        }
+        
+        function holdForContinue(index, toPoint) {
+            let pause;
+            let aTime, bTime;
+            if ((track.events[index] === undefined) || (track.events.length === 0)) {
+                return;
+            }
+            if (toPoint.bar === 1) {
+                aTime = 0;
+            } else {
+                aTime = timePosition({ bar: (toPoint.bar - 1), beat: 0, ticks: 0});
+            }
+            bTime = timePosition({ bar: toPoint.bar, beat: toPoint.beat, ticks: toPoint.ticks});
+            pause = (bTime - aTime) * 0.7;
+            setTimeout(() => {
+                trackPlayer(index, { bar: (toPoint.bar + 1), beat: 1, ticks: 0});
+            }, pause);
+        }
+        
+        function trackPlayer(playPosition, toPoint) {
+            let index = playPosition;
+            if (track.events.length === 0) {
+                return;
+            }
+            if (index === track.events.length) {
+                return;
+            }
+            if (parseInt(toPoint.bar) === parseInt(sequence.duration.bar)) {
+                return;
+            }
+            if (sequencePlaying && (track.events.length > 0) && (index < track.events.length)) {
+                if (!track.mute || (rudeSolo && track.solo && !track.mute)) {
+                    while(indexPositionPreToPoint((track.events[index]), toPoint) && (index < track.events.length)) {
+                        switch(track.events[index].event) {
+                            case('439da322-bd74-4dc5-8e4b-b4ca664657a9'):
+                                // NOTE event
+                                // outputs[index].send([0x90 | currentMidiChannel, rootNote, 0x7f]);
+                                user.midi_connections.outputs[output].send([0x90 | track.events[index].midiChannel, track.events[index].noteOn.note, track.events[index].noteOn.velocity], timeStart + timePosition({ bar: track.events[index].noteOn.time.bar, beat: track.events[index].noteOn.time.beat, ticks: track.events[index].noteOn.time.ticks}));
+                                user.midi_connections.outputs[output].send([0x80 | track.events[index].midiChannel, track.events[index].noteOff.note, track.events[index].noteOff.velocity], timeStart + timePosition({ bar: track.events[index].noteOff.time.bar, beat: track.events[index].noteOff.time.beat, ticks: track.events[index].noteOff.time.ticks}));
+                                console.log(track.events[index].noteOn.note);
+                                break;
+                            default:
+                                console.log('unsupported event');
+                        }
+                        ++index;
+                    }
+                    holdForContinue(index, toPoint);
+                }
+            } 
+        }
+        
+        trackPlayer(0, { bar: 2, beat: 1, ticks: 0});
+        
+        
+    }
+    
     const playSequence = () => {
+        if ((midiOutputs.length === 0) && (user.midi_connections)) {
+            setMidiOutputs(user.midi_connections.outputs);
+        }
         setPlayState(true);
+        sequencePlaying = true;
+        let timeStart = window.performance.now() + 900.0;
+        for (let i = 0; i < sequence.tracks.length; i++) {
+            playTrackEvents(sequence.tracks[i], timeStart);
+        }
     }
     
     const stopSequence = () => {
+        let connections
         setPlayState(false);
+        sequencePlaying = false;
+        for (let i = 0; i < user.midi_connections.outputs; i++) {
+            user.midi_connections.outputs[i].clear();
+        }
+//        user.midiconnections = null;
+//        setTimeout(() => {
+//            navigator.requestMIDIAccess({ sysex: true })
+//            .then((midiAccess) => {               
+//                connections = midiConnection(midiAccess);
+//                user.midi_connections = connections;
+//            }, () => {
+//                alert('No MIDI ports accessible');
+//            });
+//        }, 2000);
+        
     }
     
     const sendToHomePosition = () => {
