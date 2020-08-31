@@ -162,6 +162,10 @@ function StepSequencer(user, seq) {
             uuid: 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0'
         },
         {
+            name: 'portamento on/off',
+            uuid: 'c3543d3c-ccc5-45e2-ac42-c62c8b364690'
+        },
+        {
             name: 'sostenuto on/off',
             uuid: '26a0ab85-b2cc-4442-84c0-bd30fb239869'
         },
@@ -1048,6 +1052,258 @@ function StepSequencer(user, seq) {
                                 user.midi_connections.outputs[output].send([0x80 | track.events[index].midiChannel, track.events[index].noteOff.note, track.events[index].noteOff.velocity], timeStart + timePosition({ bar: track.events[index].noteOff.time.bar, beat: track.events[index].noteOff.time.beat, ticks: track.events[index].noteOff.time.ticks}));
                                 console.log(track.events[index].noteOn.note);
                                 break;
+                            case('d1595e03-bcd9-4ca7-9247-4d54723c5a05'):
+                                // PITCH BEND event
+                                // outputs[index].send([0xE0 | currentMidiChannel, mostSignificantByte, leastSignificantByte]);
+                                let msb = parseInt(track.events[index].bend) << 1;
+                                let lsb = msb >> 1;
+                                user.midi_connections.outputs[output].send([0xE0 | track.events[index].midiChannel, msb, lsb], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('2fdb9151-68ad-46f7-b11e-adbb15d12a09'):
+                                // PROGRAM CHANGE event
+                                // outputs[index].send([0xC0 | currentMidiChannel, patchNumber]);
+                                user.midi_connections.outputs[output].send([0xC0 | track.events[index].midiChannel, track.events[index].program], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('9a141aff-eea8-46c4-8650-679d9218fb08'):
+                                // AFTERTOUCH POLY event
+                                // outputs[index].send([0xA0 | currentMidiChannel, note, pressure]);
+                                user.midi_connections.outputs[output].send([0xA0 | track.events[index].midiChannel, track.events[index].note, track.events[index].pressure], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('d1c6b635-d413-40aa-97dd-7d795230d5f4'):
+                                // AFTERTOUCH CHANNEL event
+                                // outputs[index].send([0xD0 | currentMidiChannel, note, pressure]);
+                                user.midi_connections.outputs[output].send([0xD0 | track.events[index].midiChannel, track.events[index].note, track.events[index].pressure], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('884e57d3-f5a5-4192-b640-78891802867b'):
+                                // CONTROLLER CHANGE event
+                                // outputs[index].send([0xB0 | currentMidiChannel, controller, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, track.events[index].controller, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('042b257f-f1de-488d-900b-6d7c49361748'):
+                                // BANK SELECT event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x00, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x00, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('89265cc9-9ce5-4219-bfb6-371b18ed42b1'):
+                                // MODULATION WHEEL event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x01, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x01, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e'):
+                                // BREATH CONTROLLER event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x02, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x02, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('2a3b9983-d175-4bde-aca9-63b70944ec7e'):
+                                // FOOT CONTROLLER event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x04, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x04, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('96a94fa3-cf34-4ab5-8cb4-586b25e8b40c'):
+                                // PORTAMENTO TIME event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x05, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x05, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb'):
+                                // DATA ENTRY MSB event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x06, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x06, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('5138de25-1d5c-473e-8a68-ddbeadc32bd4'):
+                                // CHANNEL VOLUME event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x07, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x07, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('598a5aaa-346c-4e2c-80ce-08cbcb1e7c24'):
+                                // BALANCE event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x08, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x08, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb'):
+                                // PAN event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x0A, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x0A, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('15a9c413-3dbe-4890-bd52-287c2a48f615'):
+                                // EXPRESSION CONTROLLER event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x0B, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x0B, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('9434ea7e-6a63-423c-9be5-77584bd587e4'):
+                                // EFFECT CONTROL 1 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x0C, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x0C, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('a97eee86-2a5e-47db-99b1-74b61bc994c1'):
+                                // EFFECT CONTROL 2 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x0D, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x0D, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('6eaceab3-35bb-49e2-ad82-5bd4c3a32679'):
+                                // GENERAL PURPOSE CONTROLLER 1 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x10, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x10, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('cdd20c5c-f942-4f8f-a15f-a750ecfd957c'):
+                                // GENERAL PURPOSE CONTROLLER 2 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x11, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x11, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('3474f1bf-5aae-434e-ba95-102114de0dd2'):
+                                // GENERAL PURPOSE CONTROLLER 3 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x12, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x12, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('221e9b45-0ec8-421e-adb6-cfaf19b69610'):
+                                // GENERAL PURPOSE CONTROLLER 4 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x13, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x13, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('a889cf3f-3986-46ef-9bb3-d4b42fc41fb0'):
+                                // DAMPER PEDAL event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x40, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x40, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('c3543d3c-ccc5-45e2-ac42-c62c8b364690'):
+                                // PORTAMENTO ON/OFF event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x41, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x41, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('26a0ab85-b2cc-4442-84c0-bd30fb239869'):
+                                // SOSTENUTO ON/OFF event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x42, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x42, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('890d5a31-859b-4958-8eca-dd0b52f1fbec'):
+                                // SOFT PEDAL ON/OFF event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x43, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x43, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('f31779f1-2599-487b-8e96-5b0abd35394e'):
+                                // LEGATO FOOTSWITCH ON/OFF event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x44, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x44, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('75cf0bca-6196-4219-9eef-54272e8020a8'):
+                                // HOLD 2 ON/OFF event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x45, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x45, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('eaf504e8-217f-4e76-b6cc-ba78ff99aba3'):
+                                // SOUND VARIATION event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x46, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x46, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('5531a226-bc2c-4c60-9505-9b8da30b86c2'):
+                                // TIMBRE/HARMONIC INTENSITY event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x47, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x47, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('cb30f654-a1c1-4e76-b479-d41821ede969'):
+                                // RELEASE TIME event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x48, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x48, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('9390dbb8-efe9-4b41-adf3-47c6531f7aa1'):
+                                // ATTACK TIME event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x49, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x49, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('f61546fe-fd2a-4c89-813c-44dde15e6aa2'):
+                                // BRIGHTNESS event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x4A, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x4A, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('79d3c79f-6d9b-4eb1-ae78-51dd9362e21b'):
+                                // DECAY TIME event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x4B, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x4B, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('752a2e67-911e-45b5-801d-0841c38cf8c2'):
+                                // VIBRATO RATE event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x4C, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x4C, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('97fb8e80-b937-464d-8830-212dcac90675'):
+                                // VIBRATO DEPTH event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x4D, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x4D, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c'):
+                                // VIBRATO DELAY event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x4E, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x4E, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('1ab83a91-21b1-4d56-b333-3a59c4ade431'):
+                                // UNDEFINED event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x4F, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x4F, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('b64c45f7-cf57-4864-a07f-e8f82dbf63b1'):
+                                // GENERAL PURPOSE CONTROLLER 5 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x50, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x50, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('faf99fca-87c1-4e8e-81f5-b0f14251db08'):
+                                // GENERAL PURPOSE CONTROLLER 6 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x51, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x51, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('4c64d103-e813-4c4a-80b5-01cd8186635c'):
+                                // GENERAL PURPOSE CONTROLLER 7 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x52, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x52, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('e181eaf9-1b61-4e5b-8982-833fb9594529'):
+                                // GENERAL PURPOSE CONTROLLER 8 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x53, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x53, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('246e9232-3d6a-4352-8957-d0ff9c1c834e'):
+                                // PORTAMENTO CONTROL event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x54, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x54, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('80e77d4b-c523-4393-a279-6d7b15e65d8a'):
+                                // HIGH RESOLUTION VELOCITY PREFIX event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x58, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x58, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('c3b8b079-4994-480e-9b0a-8cbce11fba46'):
+                                // EFFECTS DEPTH 1 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x5B, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x5B, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('206ff86e-6894-4b56-9f5b-f5387d18f2ea'):
+                                // EFFECTS DEPTH 2 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x5C, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x5C, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('2517d341-7ae3-4dae-b866-49bd2fc9b21c'):
+                                // EFFECTS DEPTH 3 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x5D, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x5D, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('269524b5-a240-42e5-abfe-bf074ab7cb11'):
+                                // EFFECTS DEPTH 4 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x5E, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x5E, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('e1568b69-6246-469f-9654-a398a1606ef9'):
+                                // EFFECTS DEPTH 5 event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x5F, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x5F, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('44feabcb-b735-4980-a3fc-1e229b4bd115'):
+                                // MONO MODE event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x7E, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x7E, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('40fc271b-2b22-40ff-a43d-90404ff07c69'):
+                                // POLY MODE event
+                                // outputs[index].send([0xB0 | currentMidiChannel, 0x7F, value]);
+                                user.midi_connections.outputs[output].send([0xB0 | track.events[index].midiChannel, 0x7F, track.events[index].value], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
                             default:
                                 console.log('unsupported event');
                         }
@@ -1063,6 +1319,21 @@ function StepSequencer(user, seq) {
         
     }
     
+    const visualTracker = (timeStart) => {
+        console.log(timeStart);
+        updateTickPosition(1);
+//        let now = new Date();
+//        if (!sequencePlaying || (parseInt(currentPosition.measure.bar) === parseInt(sequence.duration.bar))) {
+//            return;
+//        }
+//        while (timePosition(currentPosition.measure) < ((now.getTime()) - timeStart)) {
+//            updateTickPosition(parseInt(currentPosition.measure.ticks) + 10);
+//        }
+//        setTimeout(() => {
+//            visualTracker(timeStart);
+//        }, 100);
+    }
+    
     const playSequence = () => {
         if ((midiOutputs.length === 0) && (user.midi_connections)) {
             setMidiOutputs(user.midi_connections.outputs);
@@ -1073,25 +1344,21 @@ function StepSequencer(user, seq) {
         for (let i = 0; i < sequence.tracks.length; i++) {
             playTrackEvents(sequence.tracks[i], timeStart);
         }
+        setTimeout(() => {
+            let now = new Date();
+            if (sequencePlaying) {
+                visualTracker(now.getTime());
+            }
+        }, 900);
     }
     
     const stopSequence = () => {
         let connections
         setPlayState(false);
         sequencePlaying = false;
-        for (let i = 0; i < user.midi_connections.outputs; i++) {
-            user.midi_connections.outputs[i].clear();
-        }
-//        user.midiconnections = null;
-//        setTimeout(() => {
-//            navigator.requestMIDIAccess({ sysex: true })
-//            .then((midiAccess) => {               
-//                connections = midiConnection(midiAccess);
-//                user.midi_connections = connections;
-//            }, () => {
-//                alert('No MIDI ports accessible');
-//            });
-//        }, 2000);
+//        for (let i = 0; i < user.midi_connections.outputs; i++) {
+//            user.midi_connections.outputs[i].clear();
+//        } // .clear() not yet supported in current browsers.
         
     }
     
@@ -4307,6 +4574,19 @@ function StepSequencer(user, seq) {
                     value: 64
                 });
                 break;
+            case('c3543d3c-ccc5-45e2-ac42-c62c8b364690'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: 'c3543d3c-ccc5-45e2-ac42-c62c8b364690',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'portamento',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 64
+                });
+                break;
             default:
                 console.log('Unsupported MIDI event');
         }
@@ -5064,7 +5344,8 @@ function StepSequencer(user, seq) {
                                 <div className={'stepSequencerIndividualTrack' + track.active + stepSequenceMonth}
                                     onClick={() => updateSelectedTrack(track.id)}>
                                     {track.events.map(event => (
-                                        <div style={{width: '100%'}}>
+                                        <div key={event.id}
+                                            style={{width: '100%'}}>
                                             {(event.event === '9f4db083-23fa-4c1c-b7a5-ee3f57288aa7') && (
                                                 <div className={'stepSequencerEventContainer' + track.active + 'false' + stepSequenceMonth}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
@@ -5334,7 +5615,7 @@ function StepSequencer(user, seq) {
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
                                             )}
-                                            {((event.event === 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0') || (event.event === '26a0ab85-b2cc-4442-84c0-bd30fb239869') || (event.event === '890d5a31-859b-4958-8eca-dd0b52f1fbec') || (event.event === 'f31779f1-2599-487b-8e96-5b0abd35394e') || (event.event === '75cf0bca-6196-4219-9eef-54272e8020a8') || (event.event === '44feabcb-b735-4980-a3fc-1e229b4bd115') || (event.event === '40fc271b-2b22-40ff-a43d-90404ff07c69')) && (
+                                            {((event.event === 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0') || (event.event === '26a0ab85-b2cc-4442-84c0-bd30fb239869') || (event.event === '890d5a31-859b-4958-8eca-dd0b52f1fbec') || (event.event === 'f31779f1-2599-487b-8e96-5b0abd35394e') || (event.event === '75cf0bca-6196-4219-9eef-54272e8020a8') || (event.event === '44feabcb-b735-4980-a3fc-1e229b4bd115') || (event.event === '40fc271b-2b22-40ff-a43d-90404ff07c69') || (event.event === 'c3543d3c-ccc5-45e2-ac42-c62c8b364690')) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
                                                     onClick={() => noteEditEventCurrentPosition(event.id)}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
