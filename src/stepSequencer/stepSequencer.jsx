@@ -62,8 +62,12 @@ function StepSequencer(user, seq) {
     const [availableDevices, setAvailableDevices] = useState(AvailableDevices());
     const [stepSequenceMonth, setStepSequenceMonth] = useState('_JanuaryA');
     const [stepSequencerState, setStepSequencerState] = useState('_Active');
+    const [stepSequencerLoadModalState, setStepSequencerLoadModalState] = useState('_Inactive');
+    const [trackGuardrailState, setTrackGuardrailState] = useState('_Inactive');
+    const [repeatModalState, setRepeatModalState] = useState('_Inactive');
     const [rudeSolo, setRudeSolo] = useState(false);
     const [midiOutputs, setMidiOutputs] = useState(userOutputs);
+    const [saveAsName, setSaveAsName] = useState('');
     const [midiEvents, setMidiEvents] = useState([
         {
             name: 'initial patch',
@@ -274,6 +278,24 @@ function StepSequencer(user, seq) {
             uuid: '40fc271b-2b22-40ff-a43d-90404ff07c69'
         }
     ]);
+    const [repeaterSettings, setRepeaterSettings] = useState({
+        from: {
+            bar: 1,
+            beat: 1,
+            ticks: 0
+        },
+        numberOfTimes: 1,
+        start: {
+            bar: 3,
+            beat: 1,
+            ticks: 0
+        },
+        to: {
+            bar: 2,
+            beat: 1,
+            ticks: 0
+        }
+    });
     const [currentMidiEvent, setCurrentMidiEvent] = useState('439da322-bd74-4dc5-8e4b-b4ca664657a9');
     const [stepInterval, setStepInterval] = useState({
         intervalTicks: 960,
@@ -284,6 +306,7 @@ function StepSequencer(user, seq) {
     const [currentVelocityInput, setCurrentVelocityInput] = useState(64);
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [playState, setPlayState] = useState(false);
+    const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('_Inactive');
     const [sequence, setSequence] = useState({
         duration: {
             bar: 25,
@@ -913,6 +936,45 @@ function StepSequencer(user, seq) {
         tempoBase: 'quarter'
     });
     const [currentClockPosition, setCurrentClockPosition] = useState('0:00.000');
+    
+    const cancelRepeaterModal = () => {
+        setRepeatModalState('_Inactive');
+        setStepSequencerState('_Active');
+    }
+    
+    const openRepeatEventsModal = () => {
+        setRepeatModalState('_Active');
+        setStepSequencerState('_Inactive');
+    }
+    
+    const cancelPatchLoad = () => {
+        setStepSequencerLoadModalState('_Inactive');
+        setStepSequencerState('_Active');
+    }
+    
+    const loadModalOn = () => {
+        setStepSequencerLoadModalState('_Active');
+        setStepSequencerState('_Inactive');
+    }
+    
+    const updateChangeAsName = (val) => {
+        setSaveAsName(val);
+    }
+    
+    const submitSaveAsDialog = (name) => {
+        console.log(name);
+    }
+    
+    const cancelSaveAsDialog = () => {
+        setSaveAsDialogStatus('_Inactive'); 
+        setStepSequencerState('_Active');
+    }
+    
+    const executeSaveAsDialog = () => {
+        setSaveAsDialogStatus('_Active');
+        setStepSequencerState('_Inactive');
+        document.getElementById('saveAsInput').focus();
+    }
     
     const timePosition = (position) => {
         let index = 0;
@@ -3348,6 +3410,21 @@ function StepSequencer(user, seq) {
         setActiveTrack(deepSequence.tracks.length - 1);
     }
     
+    const cancelTrackDelete = () => {
+         setTrackGuardrailState('_Inactive');
+        setStepSequencerState('_Active');
+    }
+    
+    const postGuardrailTrackDelete = () => {
+        let deepSequence = {...sequence};
+        
+        deepSequence.tracks.splice(activeTrack, 1);
+        
+        setSequence(deepSequence);
+        setActiveTrack(0);
+        cancelTrackDelete();
+    }
+    
     const deleteTrack = () => {
         let deepSequence = {...sequence};
         
@@ -3355,6 +3432,8 @@ function StepSequencer(user, seq) {
             deepSequence.tracks.splice(activeTrack, 1);
         } else {
             // TODO guardrail for delete
+            setTrackGuardrailState('_Active');
+            setStepSequencerState('_Inactive');
         }
         
         for (let i = 0; i < deepSequence.tracks.length; i++) {
@@ -4801,6 +4880,563 @@ function StepSequencer(user, seq) {
         setSequence(deepSequence);
     }
     
+    const updateRepeaterFromBar = (val) => {
+        let deepCopy = {...repeaterSettings};
+        
+        deepCopy.from.bar = parseInt(val);
+        if (parseInt(deepCopy.from.bar) === parseInt(deepCopy.to.bar)) {
+            if (parseInt(deepCopy.from.beat) > parseInt(deepCopy.to.beat)) {
+                deepCopy.from.beat = 1;
+            }
+            if (parseInt(deepCopy.from.beat) === parseInt(deepCopy.to.beat)) {
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.from.ticks = 0;
+                }
+            }
+        }
+        
+        setRepeaterSettings(deepCopy);
+    }
+    
+    const updateRepeaterToBar = (val) => {
+        let deepCopy = {...repeaterSettings};
+        
+        deepCopy.to.bar = parseInt(val);
+        if (parseInt(deepCopy.from.bar) === parseInt(deepCopy.to.bar)) {
+            if (parseInt(deepCopy.from.beat) > parseInt(deepCopy.to.beat)) {
+                deepCopy.from.beat = 1;
+            }
+            if (parseInt(deepCopy.from.beat) === parseInt(deepCopy.to.beat)) {
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.from.ticks = 0;
+                }
+            }
+        }
+        
+        setRepeaterSettings(deepCopy);
+    }
+    
+    const updateStartingAtBar = (val) => {
+        let deepCopy = {...repeaterSettings};
+        
+        deepCopy.start.bar = parseInt(val);
+        
+        setRepeaterSettings(deepCopy);
+    }
+    
+    const updateRepeaterNumberOfTimes = (val) => {
+        let deepCopy = {...repeaterSettings};
+        
+        deepCopy.numberOfTimes = parseInt(val);
+        
+        setRepeaterSettings(deepCopy);
+    }
+    
+    const updateRepeaterFromBeat = (val) => {
+        let deepCopy = {...repeaterSettings};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.from.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.from.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.from.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 1) {
+            if (parseInt(deepCopy.from.bar) === 1) {
+                return;
+            }
+            deepCopy.from.bar = parseInt(deepCopy.from.bar) - 1;
+            deepCopy.from.beat = parseInt(meter2.meterNumerator);
+            deepCopy.from.ticks = 0;
+        } else if (parseInt(val) > parseInt(meter.meterNumerator)) {
+            if (parseInt(deepCopy.from.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                return;
+            }
+            deepCopy.from.bar = parseInt(deepCopy.from.bar) + 1;
+            deepCopy.from.beat = 1;
+            deepCopy.from.ticks = 0;
+        } else {
+            deepCopy.from.beat = parseInt(val);
+            deepCopy.from.ticks = 0;
+        }
+        if (parseInt(deepCopy.from.bar) > parseInt(deepCopy.to.bar)) {
+            deepCopy.to.bar = deepCopy.from.bar;
+            deepCopy.to.beat = 1;
+            deepCopy.to.ticks = 0;
+        } else if (parseInt(deepCopy.from.bar) === parseInt(deepCopy.to.bar)) {
+            if (parseInt(deepCopy.from.beat) > parseInt(deepCopy.to.beat)) {
+                deepCopy.to.beat = deepCopy.from.beat;
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.to.ticks = deepCopy.from.ticks;
+                }
+            } else if (parseInt(deepCopy.from.beat) === parseInt(deepCopy.to.beat)) {
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.to.ticks = deepCopy.from.ticks;
+                }
+            }
+        }
+        
+        setRepeaterSettings(deepCopy);
+    }
+    
+    const updateRepeaterToBeat = (val) => {
+        let deepCopy = {...repeaterSettings};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.to.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.to.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.to.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 1) {
+            if (parseInt(deepCopy.to.beat) === 1) {
+                if (parseInt(deepCopy.to.bar) === 1) {
+                    return;
+                }
+                deepCopy.to.bar = parseInt(deepCopy.to.bar) - 1;
+                deepCopy.to.beat = parseInt(meter2.meterNumerator);
+                deepCopy.to.ticks = 0;
+            } else {
+                deepCopy.to.beat = parseInt(deepCopy.to.beat) - 1;
+                deepCopy.to.ticks = parseInt(meter.meterDenominator);
+            }
+        } else if (parseInt(val) > parseInt(meter.meterNumerator)) {
+            if (parseInt(deepCopy.to.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                return;
+            }
+            deepCopy.to.bar = parseInt(deepCopy.to.bar) + 1;
+            deepCopy.to.beat = 1;
+            deepCopy.to.ticks = 0;
+        } else {
+            deepCopy.to.beat = parseInt(val);
+        }
+        if (parseInt(deepCopy.from.bar) > parseInt(deepCopy.to.bar)) {
+            deepCopy.from.bar = deepCopy.to.bar;
+            deepCopy.from.beat = 1;
+            deepCopy.from.ticks = 0;
+        } else if (parseInt(deepCopy.from.bar) === parseInt(deepCopy.to.bar)) {
+            if (parseInt(deepCopy.from.beat) > parseInt(deepCopy.to.beat)) {
+                deepCopy.from.beat = deepCopy.to.beat;
+                deepCopy.from.ticks = 0;
+            } else if (parseInt(deepCopy.from.beat) === parseInt(deepCopy.to.beat)) {
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.from.ticks = deepCopy.to.ticks;
+                }
+            }
+        }
+        
+        setRepeaterSettings(deepCopy);
+    }
+    
+    const updateStartingAtBeat = (val) => {
+        let deepCopy = {...repeaterSettings};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.start.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.start.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.start.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 1) {
+            if (parseInt(deepCopy.start.bar) === 1) {
+                return;
+            }
+            deepCopy.start.bar = parseInt(deepCopy.start.bar) - 1;
+            deepCopy.start.beat = parseInt(meter2.meterNumerator);
+            deepCopy.start.ticks = 0;
+        } else if (parseInt(val) > parseInt(meter.meterNumerator)) {
+            if (parseInt(deepCopy.start.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                return;
+            }
+            deepCopy.start.bar = parseInt(deepCopy.start.bar) + 1;
+            deepCopy.start.beat = 1;
+            deepCopy.start.ticks = 0;
+        } else {
+            deepCopy.start.beat = parseInt(val);
+        }
+        
+        setRepeaterSettings(deepCopy);
+    }
+    
+    const updateRepeaterFromTicks = (val) => {
+        let deepCopy = {...repeaterSettings};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.from.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.from.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.from.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 0) {
+            if (parseInt(deepCopy.from.beat) === 1) {
+                if (parseInt(deepCopy.from.bar) === 1) {
+                    return;
+                }
+                deepCopy.from.bar = parseInt(deepCopy.from.bar) - 1;
+                deepCopy.from.beat = parseInt(meter2.meterNumerator);
+                deepCopy.from.ticks = parseInt(getTickMax(parseInt(meter2.meterDenominator))) - 1;
+            } else {
+                deepCopy.from.beat = parseInt(deepCopy.from.beat) - 1;
+                deepCopy.from.ticks = parseInt(getTickMax(parseInt(meter.meterDenominator))) - 1;
+            }
+        } else if (parseInt(val) > (parseInt(getTickMax(parseInt(meter.meterDenominator))) - 1)) {
+            if (parseInt(deepCopy.from.beat) === parseInt(meter.meterNumerator)) {
+                if (parseInt(deepCopy.from.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                    return;
+                }
+                deepCopy.from.bar = parseInt(deepCopy.from.bar) + 1;
+                deepCopy.from.beat = 1;
+                deepCopy.from.ticks = 0;
+            } else {
+                deepCopy.from.beat = parseInt(deepCopy.from.beat) + 1;
+                deepCopy.from.ticks = 0;
+            }
+        } else {
+            deepCopy.from.ticks = parseInt(val);
+        }
+        if (parseInt(deepCopy.from.bar) > parseInt(deepCopy.to.bar)) {
+            deepCopy.to.bar = parseInt(deepCopy.from.bar);
+            if (parseInt(deepCopy.from.beat) > parseInt(deepCopy.to.beat)) {
+                deepCopy.to.beat = parseInt(deepCopy.from.beat);
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.to.ticks = parseInt(deepCopy.from.ticks);
+                }
+            } else if (parseInt(deepCopy.from.beat) === parseInt(deepCopy.to.beat)) {
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.to.ticks = parseInt(deepCopy.from.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.bar) === parseInt(deepCopy.to.bar)) {
+            if (parseInt(deepCopy.from.beat) > parseInt(deepCopy.to.beat)) {
+                deepCopy.to.beat = parseInt(deepCopy.from.beat);
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.to.ticks = parseInt(deepCopy.from.ticks);
+                }
+            } else if (parseInt(deepCopy.from.beat) === parseInt(deepCopy.to.beat)) {
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.to.ticks = parseInt(deepCopy.from.ticks);
+                }
+            }
+        }
+        
+        setRepeaterSettings(deepCopy);
+    }
+    
+    const updateRepeaterToTicks = (val) => {
+        let deepCopy = {...repeaterSettings};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.to.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.to.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.to.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 0) {
+            if (parseInt(deepCopy.to.beat) === 1) {
+                if (parseInt(deepCopy.to.bar) === 1) {
+                    return;
+                }
+                deepCopy.to.bar = parseInt(deepCopy.to.bar) - 1;
+                deepCopy.to.beat = parseInt(meter2.meterNumerator);
+                deepCopy.to.ticks = parseInt(getTickMax(parseInt(meter2.meterDenominator))) - 1;
+            } else {
+                deepCopy.to.beat = parseInt(deepCopy.to.beat) - 1;
+                deepCopy.to.ticks = parseInt(getTickMax(parseInt(meter.meterDenominator))) - 1;
+            }
+        } else if (parseInt(val) > (parseInt(getTickMax(parseInt(meter.meterDenominator))) - 1)) {
+            if (parseInt(deepCopy.to.beat) === parseInt(meter.meterNumerator)) {
+                if (parseInt(deepCopy.to.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                    return;
+                }
+                deepCopy.to.bar = parseInt(deepCopy.to.bar) + 1;
+                deepCopy.to.beat = 1;
+                deepCopy.to.ticks = 0;
+            } else {
+                deepCopy.to.beat = parseInt(deepCopy.to.beat) + 1;
+                deepCopy.to.ticks = 0;
+            }
+        } else {
+            deepCopy.to.ticks = parseInt(val);
+        }
+        if (parseInt(deepCopy.from.bar) > parseInt(deepCopy.to.bar)) {
+            deepCopy.from.bar = parseInt(deepCopy.to.bar);
+            if (parseInt(deepCopy.from.beat) > parseInt(deepCopy.to.beat)) {
+                deepCopy.from.beat = parseInt(deepCopy.to.beat);
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.from.ticks = parseInt(deepCopy.to.ticks);
+                }
+            } else if (parseInt(deepCopy.from.beat) === parseInt(deepCopy.to.beat)) {
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.from.ticks = parseInt(deepCopy.to.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.bar) === parseInt(deepCopy.to.bar)) {
+            if (parseInt(deepCopy.from.beat) > parseInt(deepCopy.to.beat)) {
+                deepCopy.from.beat = parseInt(deepCopy.to.beat);
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.from.ticks = parseInt(deepCopy.to.ticks);
+                }
+            } else if (parseInt(deepCopy.from.beat) === parseInt(deepCopy.to.beat)) {
+                if (parseInt(deepCopy.from.ticks) > parseInt(deepCopy.to.ticks)) {
+                    deepCopy.from.ticks = parseInt(deepCopy.to.ticks);
+                }
+            }
+        }
+        
+        setRepeaterSettings(deepCopy);
+    }
+    
+    const updateStartAtTicks = (val) => {
+        let deepCopy = {...repeaterSettings};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.start.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.start.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.start.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 0) {
+            if (parseInt(deepCopy.start.beat) === 1) {
+                if (parseInt(deepCopy.start.bar) === 1) {
+                    return;
+                }
+                deepCopy.start.bar = parseInt(deepCopy.start.bar) - 1;
+                deepCopy.start.beat = parseInt(meter2.meterNumerator);
+                deepCopy.start.ticks = parseInt(getTickMax(parseInt(meter2.meterDenominator))) - 1;
+            } else {
+                deepCopy.start.beat = parseInt(deepCopy.start.beat) - 1;
+                deepCopy.start.ticks = parseInt(getTickMax(parseInt(meter.meterDenominator))) - 1;
+            }
+        } else if (parseInt(val) > (parseInt(getTickMax(parseInt(meter.meterDenominator))) - 1)) {
+            if (parseInt(deepCopy.start.beat) === parseInt(meter.meterNumerator)) {
+                if (parseInt(deepCopy.start.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                    return;
+                }
+                deepCopy.start.bar = parseInt(deepCopy.start.bar) + 1;
+                deepCopy.start.beat = 1;
+                deepCopy.start.ticks = 0;
+            } else {
+                deepCopy.start.beat = parseInt(deepCopy.start.beat) + 1;
+                deepCopy.start.ticks = 0;
+            }
+        } else {
+            deepCopy.start.ticks = parseInt(val);
+        }
+        
+        setRepeaterSettings(deepCopy);
+    }
+    
+    const extractFragment = () => {
+        let arr = [];
+        
+        for (let i = 0; i < sequence.tracks[activeTrack].events.length; i++) {
+            if (sequence.tracks[activeTrack].events[i].event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') {
+                if (positionEqualTo(repeaterSettings.from, sequence.tracks[activeTrack].events[i].noteOn.time) || positionGreaterThan(repeaterSettings.from, sequence.tracks[activeTrack].events[i].noteOn.time)) {
+                    if (positionGreaterThan(sequence.tracks[activeTrack].events[i].noteOn.time, repeaterSettings.to)) {
+                        arr.push(sequence.tracks[activeTrack].events[i]);
+                    }
+                }
+            } else {
+                if (positionEqualTo(repeaterSettings.from, sequence.tracks[activeTrack].events[i].time) || positionGreaterThan(repeaterSettings.from, sequence.tracks[activeTrack].events[i].time)) {
+                    if (positionGreaterThan(sequence.tracks[activeTrack].events[i].time, repeaterSettings.to)) {
+                        arr.push(sequence.tracks[activeTrack].events[i]);
+                    }
+                }
+            }
+        }
+        return arr;
+    }
+    
+    const addTick = (position) => {
+        let meter = meterAtPosition({bar: parseInt(position.bar), beat: 1, ticks: 0});
+        let temp = {
+            bar: parseInt(position.bar),
+            beat: parseInt(position.beat),
+            ticks: parseInt(position.ticks)
+        };
+        
+        temp.ticks = temp.ticks + 1;
+        if (parseInt(temp.ticks) === parseInt(getTickMax(parseInt(meter.meterDenominator)))) {
+            if (parseInt(temp.beat) === parseInt(meter.meterNumerator)) {
+                temp.bar = temp.bar + 1;
+                temp.beat = 1;
+                temp.ticks = 0;
+            } else {
+                temp.beat = temp.beat + 1;
+                temp.ticks = 0;
+            }
+        }
+        
+        return temp;
+    }
+    
+    const calculateDurationInTicks = (from, to) => {
+        let total = 0;
+        let position = {
+            bar: from.bar,
+            beat: from.beat,
+            ticks: from.ticks
+        }
+        
+        while ((!positionEqualTo(position, to)) && (positionGreaterThan(position, to))) {
+            position = addTick(position);
+            ++total;
+        }
+        
+        return total;
+    }
+    
+    const calculateStartingPoints = () => {
+        let arr = [];
+        let repeatDuration = 0;
+        
+        arr.push({
+            bar: repeaterSettings.start.bar,
+            beat: repeaterSettings.start.beat,
+            ticks: repeaterSettings.start.ticks
+        });
+        
+        if (parseInt(repeaterSettings.numberOfTimes) > 1) {
+            repeatDuration = calculateDurationInTicks(repeaterSettings.from, repeaterSettings.to);
+            let track = {
+                bar: repeaterSettings.start.bar,
+                beat: repeaterSettings.start.beat,
+                ticks: repeaterSettings.start.ticks
+            };
+            for (let i = 1; i < parseInt(repeaterSettings.numberOfTimes); i++) {
+                for (let j = 0; j < repeatDuration; j++) {
+                    track = addTick(track);
+                }
+                arr.push({
+                    bar: track.bar,
+                    beat: track.beat,
+                    ticks: track.ticks
+                });
+            }
+        }
+        console.log(arr);
+        
+        return arr;
+    }
+    
+    const copySelectionTo = () => {
+        let deepCopy = {...sequence};
+        const selectedFragment = extractFragment();
+        const startingPoints = calculateStartingPoints();
+        let placePosition, eventAdd;
+        let time1, time2, time3, time4;
+        
+        for (let i = 0; i < startingPoints.length; i++) {
+            for (let j = 0; j < selectedFragment.length; j++) {
+                if (selectedFragment[j].event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') {
+                    time1 = calculateDurationInTicks(repeaterSettings.from, selectedFragment[j].noteOn.time);
+                    time2 = startingPoints[i];
+                    for (let k = 0; k < time1; k++) {
+                        time2 = addTick(time2);
+                    }
+                    time3 = calculateDurationInTicks(repeaterSettings.from, selectedFragment[j].noteOff.time);
+                    time4 = startingPoints[i];
+                    for (let l = 0; l < time3; l++) {
+                        time4 = addTick(time4);
+                    }
+                    eventAdd = {
+                        event: selectedFragment[j].event,
+                        midiChannel: selectedFragment[j].midiChannel,
+                        name: selectedFragment[j].name,
+                        noteOn: {
+                            note: selectedFragment[j].noteOn.note,
+                            time: {
+                                bar: time2.bar,
+                                beat: time2.beat,
+                                ticks: time2.ticks
+                            },
+                            velocity: selectedFragment[j].noteOn.velocity
+                        },
+                        noteOff: {
+                            note: selectedFragment[j].noteOff.note,
+                            time: {
+                                bar: time4.bar,
+                                beat: time4.beat,
+                                ticks: time4.ticks
+                            },
+                            velocity: selectedFragment[j].noteOff.velocity
+                        }
+                    };
+                    if (parseInt(time4.bar) > parseInt(deepCopy.duration.bar)) {
+                        deepCopy.duration.bar = parseInt(time4.bar) + 1;
+                    }
+                } else {
+                    time1 = calculateDurationInTicks(repeaterSettings.from, selectedFragment[j].time);
+                    time2 = startingPoints[i];
+                    for (let m = 0; m < time1; m++) {
+                        time2 = addTick(time2);
+                    }
+                    switch(selectedFragment[j].event) {
+                        case('d1595e03-bcd9-4ca7-9247-4d54723c5a05'):
+                            eventAdd = {
+                                bend: selectedFragment[j].bend,
+                                event: selectedFragment[j].event,
+                                midiChannel: selectedFragment[j].midiChannel,
+                                name: selectedFragment[j].name,
+                                time: {
+                                    bar: time2.bar,
+                                    beat: time2.beat,
+                                    ticks: time2.ticks
+                                }
+                            }
+                            break;
+                        case('2fdb9151-68ad-46f7-b11e-adbb15d12a09'):
+                            eventAdd = {
+                                event: selectedFragment[j].event,
+                                midiChannel: selectedFragment[j].midiChannel,
+                                name: selectedFragment[j].name,
+                                program: selectedFragment[j].program,
+                                time: {
+                                    bar: time2.bar,
+                                    beat: time2.beat,
+                                    ticks: time2.ticks
+                                }
+                            }
+                            break;
+                        case('9a141aff-eea8-46c4-8650-679d9218fb08' || 'd1c6b635-d413-40aa-97dd-7d795230d5f4'):
+                            eventAdd = {
+                                event: selectedFragment[j].event,
+                                midiChannel: selectedFragment[j].midiChannel,
+                                name: selectedFragment[j].name,
+                                note: selectedFragment[j].note,
+                                pressure: selectedFragment[j].pressure,
+                                time: {
+                                    bar: time2.bar,
+                                    beat: time2.beat,
+                                    ticks: time2.ticks
+                                }
+                            }
+                            break;
+                        case('884e57d3-f5a5-4192-b640-78891802867b'):
+                            eventAdd = {
+                                controller: selectedFragment[j].controller,
+                                event: selectedFragment[j].event,
+                                midiChannel: selectedFragment[j].midiChannel,
+                                name: selectedFragment[j].name,
+                                time: {
+                                    bar: time2.bar,
+                                    beat: time2.beat,
+                                    ticks: time2.ticks
+                                },
+                                value: selectedFragment[j].value
+                            }
+                            break;
+                        case('042b257f-f1de-488d-900b-6d7c49361748' || '89265cc9-9ce5-4219-bfb6-371b18ed42b1' || '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e' || '2a3b9983-d175-4bde-aca9-63b70944ec7e' || '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c' || 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb' || '5138de25-1d5c-473e-8a68-ddbeadc32bd4' || '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24' || 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb' || '15a9c413-3dbe-4890-bd52-287c2a48f615' || '9434ea7e-6a63-423c-9be5-77584bd587e4' || 'a97eee86-2a5e-47db-99b1-74b61bc994c1' || '6eaceab3-35bb-49e2-ad82-5bd4c3a32679' || 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c' || '3474f1bf-5aae-434e-ba95-102114de0dd2' || '221e9b45-0ec8-421e-adb6-cfaf19b69610' || 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0' || 'c3543d3c-ccc5-45e2-ac42-c62c8b364690' || '26a0ab85-b2cc-4442-84c0-bd30fb239869' || '890d5a31-859b-4958-8eca-dd0b52f1fbec' || 'f31779f1-2599-487b-8e96-5b0abd35394e' || '75cf0bca-6196-4219-9eef-54272e8020a8' || 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3' || '5531a226-bc2c-4c60-9505-9b8da30b86c2' || 'cb30f654-a1c1-4e76-b479-d41821ede969' || '9390dbb8-efe9-4b41-adf3-47c6531f7aa1' || 'f61546fe-fd2a-4c89-813c-44dde15e6aa2' || '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b' || '752a2e67-911e-45b5-801d-0841c38cf8c2' || '97fb8e80-b937-464d-8830-212dcac90675' || '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c' || '1ab83a91-21b1-4d56-b333-3a59c4ade431' || 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1' || 'faf99fca-87c1-4e8e-81f5-b0f14251db08' || '4c64d103-e813-4c4a-80b5-01cd8186635c' || 'e181eaf9-1b61-4e5b-8982-833fb9594529' || '246e9232-3d6a-4352-8957-d0ff9c1c834e' || '80e77d4b-c523-4393-a279-6d7b15e65d8a' || 'c3b8b079-4994-480e-9b0a-8cbce11fba46' || '206ff86e-6894-4b56-9f5b-f5387d18f2ea' || '2517d341-7ae3-4dae-b866-49bd2fc9b21c' || '269524b5-a240-42e5-abfe-bf074ab7cb11' || 'e1568b69-6246-469f-9654-a398a1606ef9' || '44feabcb-b735-4980-a3fc-1e229b4bd115' || '40fc271b-2b22-40ff-a43d-90404ff07c69'):
+                            eventAdd = {
+                                event: selectedFragment[j].event,
+                                midiChannel: selectedFragment[j].midiChannel,
+                                name: selectedFragment[j].name,
+                                time: {
+                                    bar: time2.bar,
+                                    beat: time2.beat,
+                                    ticks: time2.ticks
+                                },
+                                value: selectedFragment[j].value
+                            }
+                            break;
+                        default:
+                            console.log('unsupported');
+                    }   
+                    if (parseInt(time2.bar) > parseInt(deepCopy.duration.bar)) {
+                        deepCopy.duration.bar = parseInt(time2.bar) + 1;
+                    }
+                }
+                deepCopy.tracks[activeTrack].events.push(eventAdd);
+            }
+        }
+        setSequence(deepCopy);
+        
+        reOrderEvents();
+        cancelRepeaterModal();
+    }
+    
     return(
         <div>
             <div className={'stepSequencerContainer' + stepSequencerState + stepSequenceMonth}
@@ -4812,7 +5448,8 @@ function StepSequencer(user, seq) {
                         </NavLink>
                     </div>
                     <h3 className={'stepSequencerTitle' + stepSequenceMonth}>Step Sequencer</h3>
-                    <button className={'stepSequencerLoadButton' + stepSequenceMonth}>load</button>
+                    <button className={'stepSequencerLoadButton' + stepSequenceMonth}
+                        onClick={() => loadModalOn()}>load</button>
                     <input className={'stepSequencerNameInput' + stepSequenceMonth}
                         onChange={(e) => seqNameUpdate(e.target.value)}
                         type="text"
@@ -4821,7 +5458,8 @@ function StepSequencer(user, seq) {
                     <div className={'stepSequencerSidebarManager' + stepSequenceMonth}>
                         <div className={'stepSequencerSidebarContainer' + stepSequenceMonth}>
                             <button className={'stepSequencerSaveButton' + stepSequenceMonth}>save</button>
-                            <button className={'stepSequencerSaveAsButton' + stepSequenceMonth}>save as...</button>
+                            <button className={'stepSequencerSaveAsButton' + stepSequenceMonth}
+                                onClick={() => executeSaveAsDialog()}>save as...</button>
                             <button className={'stepSequencerRevertButton' + stepSequenceMonth}>revert</button>
                         </div>
                     </div>
@@ -5697,7 +6335,8 @@ function StepSequencer(user, seq) {
                         </select>
                         <button className={'stepSequencerAddEventButton' + stepSequenceMonth}
                             onClick={() => addSelectedEvent()}>add</button>
-                        <button className={'stepSequencerRepeatButton' + stepSequenceMonth}>repeat</button>
+                        <button className={'stepSequencerRepeatButton' + stepSequenceMonth}
+                            onClick={() => openRepeatEventsModal()}>repeat</button>
                     </div>
                     <div className={'stepSequencerPluginsPanel' + stepSequenceMonth}>
                         <p className={'stepSequencerMidiFXPanelLabel' + stepSequenceMonth}>MIDI FX</p>
@@ -5718,7 +6357,106 @@ function StepSequencer(user, seq) {
                     </div>
                 </div>
             </div>
-            
+           <div className={'stepSequencerSaveAsDialogDiv' + saveAsDialogStatus + stepSequenceMonth}>
+                <p>save as</p>
+                <input className={'stepSequencerSaveAsInput' + stepSequenceMonth}
+                    id="saveAsInput"
+                    onChange={(e) => updateChangeAsName(e.target.value)}
+                    placeholder={'copy of ' + sequence.header.name}
+                    value={saveAsName} />
+                <div className={'stepSequencerSaveAsButtonsDiv' + stepSequenceMonth}>
+                    <button className={'stepSequencerSaveAsButtons' + stepSequenceMonth}
+                        onClick={() => submitSaveAsDialog(saveAsName)}>submit</button>
+                    <button className={'stepSequencerSaveAsButtons' + stepSequenceMonth}
+                        onClick={() => cancelSaveAsDialog()}>cancel</button>
+                </div>
+            </div>
+            <div className={'stepSequencerLoadModal' + stepSequencerLoadModalState + stepSequenceMonth}>
+                <div className={'stepSequencerLoadContainer' + stepSequenceMonth}>
+                    <p className={'stepSequencerLoadTitle' + stepSequenceMonth}>Load Sequence</p>
+                    <select className={'stepSequencerLoadSelector' + stepSequenceMonth}>
+                    </select>
+                    <button className={'stepSequencerLoadLoadButton' + stepSequenceMonth}>load</button>
+                    <button className={'stepSequencerLoadCancelButton' + stepSequenceMonth}
+                        onClick={() => cancelPatchLoad()}>cancel</button>
+                </div>
+            </div>
+            <div className={'stepSequencerSaveAsDialogDiv' + trackGuardrailState + stepSequenceMonth}>
+                <p>permanently delete track: {sequence.tracks[activeTrack].name}?</p>
+                <br></br>
+                <br></br>
+                <div className={'stepSequencerSaveAsButtonsDiv' + stepSequenceMonth}>
+                    <button className={'stepSequencerSaveAsButtons' + stepSequenceMonth}
+                        onClick={() => postGuardrailTrackDelete()}>delete</button>
+                    <button className={'stepSequencerSaveAsButtons' + stepSequenceMonth}
+                        onClick={() => cancelTrackDelete()}>cancel</button>
+                </div>
+            </div>
+            <div className={'stepSequencerEventRepeatModal' + repeatModalState + stepSequenceMonth}>
+                <p className={'stepSequencerEventRepeaterTrackLabel' + stepSequenceMonth}>Copy Events - track: {sequence.tracks[activeTrack].name}</p>
+                <p className={'stepSequencerEventRepeaterFromLabel' + stepSequenceMonth}>from</p>
+                <input className={'stepSequencerEventRepeaterFromBarInput' + stepSequenceMonth}
+                    max={repeaterSettings.to.bar}
+                    min="1"
+                    onChange={(e) => updateRepeaterFromBar(e.target.value)}
+                    type="number"
+                    value={repeaterSettings.from.bar} />
+                <p className={'stepSequencerEventRepeaterBarDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerEventRepeaterFromBeatInput' + stepSequenceMonth}
+                    onChange={(e) => updateRepeaterFromBeat(e.target.value)}
+                    type="number"
+                    value={repeaterSettings.from.beat} />
+                <p className={'stepSequencerEventRepeaterBeatDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerEventRepeaterFromTicksInput' + stepSequenceMonth}
+                    onChange={(e) => updateRepeaterFromTicks(e.target.value)}
+                    type="number"
+                    value={repeaterSettings.from.ticks} />
+                <p className={'stepSequencerEventRepeaterToLabel' + stepSequenceMonth}>to</p>
+                <input className={'stepSequencerEventRepeaterToBarInput' + stepSequenceMonth}
+                    max={sequence.duration.bar}
+                    min={repeaterSettings.from.bar}
+                    onChange={(e) => updateRepeaterToBar(e.target.value)}
+                    type="number"
+                    value={repeaterSettings.to.bar} />
+                <p className={'stepSequencerEventRepeaterToBarDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerEventRepeaterToBeatInput' + stepSequenceMonth}
+                    onChange={(e) => updateRepeaterToBeat(e.target.value)}
+                    type="number"
+                    value={repeaterSettings.to.beat} />
+                <p className={'stepSequencerEventRepeaterToBeatDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerEventRepeaterToTicksInput' + stepSequenceMonth}
+                    onChange={(e) => updateRepeaterToTicks(e.target.value)}
+                    type="number"
+                    value={repeaterSettings.to.ticks} />
+                <p className={'stepSequencerEventRepeaterStartingAtLabel' + stepSequenceMonth}>starting at</p>
+                <input className={'stepSequencerEventRepeaterStartBarInput' + stepSequenceMonth}
+                    max={(sequence.duration.bar - 1)}
+                    min="1"
+                    onChange={(e) => updateStartingAtBar(e.target.value)}
+                    type="number"
+                    value={repeaterSettings.start.bar} />
+                <p className={'stepSequencerEventRepeaterStartBarDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerEventRepeaterStartBeatInput' + stepSequenceMonth}
+                    onChange={(e) => updateStartingAtBeat(e.target.value)}
+                    type="number"
+                    value={repeaterSettings.start.beat} />
+                <p className={'stepSequencerEventRepeaterStartBeatDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerEventRepeaterStartTicksInput' + stepSequenceMonth}
+                    onChange={(e) => updateStartAtTicks(e.target.value)}
+                    type="number"
+                    value={repeaterSettings.start.ticks} />
+                <p className={'stepSequencerEventRepeaterNumberOfLabel' + stepSequenceMonth}>number of times</p>
+                <input className={'stepSequencerEventRepeaterNumberOfInput' + stepSequenceMonth}
+                    min="1"
+                    onChange={(e) => updateRepeaterNumberOfTimes(e.target.value)}
+                    type="number"
+                    value={repeaterSettings.numberOfTimes} />
+                <p className={'stepSequencerEventRepeaterNumberOfTimeTimes' + stepSequenceMonth}>x</p>
+                <button className={'stepSequencerRepeaterSubmitButton' + stepSequenceMonth}
+                    onClick={() => copySelectionTo()}>submit</button>
+                <button className={'stepSequencerRepeaterCancelButton' + stepSequenceMonth}
+                    onClick={() => cancelRepeaterModal()}>cancel</button>
+            </div>
         </div>
     )
 }
