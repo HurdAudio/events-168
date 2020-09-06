@@ -31,6 +31,8 @@ import axios from 'axios';
 import AvailableDevices from '../midiManager/availableDevices';
 
 const sequencePlaying = false;
+const svgHeight = 260;
+const svgWidth = 350;
 
 
 function StepSequencer(user, seq) {
@@ -65,6 +67,8 @@ function StepSequencer(user, seq) {
     const [stepSequencerLoadModalState, setStepSequencerLoadModalState] = useState('_Inactive');
     const [trackGuardrailState, setTrackGuardrailState] = useState('_Inactive');
     const [repeatModalState, setRepeatModalState] = useState('_Inactive');
+    const [addFxModalState, setAddFxModalState] = useState('_Inactive');
+    const [ritAccelModalState, setRitAccelModalState] = useState('_Inactive');
     const [rudeSolo, setRudeSolo] = useState(false);
     const [midiOutputs, setMidiOutputs] = useState(userOutputs);
     const [saveAsName, setSaveAsName] = useState('');
@@ -300,6 +304,27 @@ function StepSequencer(user, seq) {
     const [stepInterval, setStepInterval] = useState({
         intervalTicks: 960,
         note: 'quarter'
+    });
+    const [ritAccelParams, setRitAccelParams] = useState({
+        curve: [0, 0],
+        from: {
+            note: 'quarter',
+            tempo: 120,
+            time: {
+                bar: 1,
+                beat: 1,
+                ticks: 0
+            }
+        },
+        to: {
+            note: 'quarter',
+            tempo: 190,
+            time: {
+                bar: 2,
+                beat: 1, 
+                ticks: 0
+            }
+        }
     });
     const [currentPitchInput, setCurrentPitchInput] = useState(60);
     const [currentMidiChannelInput, setCurrentMidiChannelInput] = useState(0);
@@ -5437,6 +5462,1023 @@ function StepSequencer(user, seq) {
         cancelRepeaterModal();
     }
     
+    const openMIDIFxModal = () => {
+        setAddFxModalState('_Active');
+        setStepSequencerState('_Inactive');
+    }
+    
+    const cancelMidiFXModal = () => {
+        setAddFxModalState('_Inactive');
+        setStepSequencerState('_Active');
+    }
+    
+    const openRitAccelModal = () => {
+        setRitAccelModalState('_Active');
+        setStepSequencerState('_Inactive');
+    }
+    
+    const cancelRitAccelModal = () => {
+        setRitAccelModalState('_Inactive');
+        setStepSequencerState('_Active');
+    }
+    
+    const cycleRitAccelNoteheadFrom = (val) => {
+        let deepCopy = {...ritAccelParams};
+        
+        switch(val) {
+            case('dottedEighthNote'):
+                deepCopy.from.note = 'quarter';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) / 4) * 3;
+                break;
+            case('dottedHalf'):
+                deepCopy.from.note = 'wholeNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) / 4) * 3;
+                break;
+            case('dottedOneHundredTwentyEighthNote'):
+                deepCopy.from.note = 'sixtyFourthNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) / 4) * 3;
+                break;
+            case('dottedQuarter'):
+                deepCopy.from.note = 'halfNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) / 4) * 3;
+                break;
+            case('dottedSixteenthNote'):
+                deepCopy.from.note = 'eighthNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) / 4) * 3;
+                break;
+            case('dottedSixtyFourthNote'):
+                deepCopy.from.note = 'thirtySecondNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) / 4) * 3;
+                break;
+            case('dottedThirtySecondNote'):
+                deepCopy.from.note = 'sixteenthNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) / 4) * 3;
+                break;
+            case('dottedWhole'):
+                deepCopy.from.note = 'doubleWholeNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) / 4) * 3;
+                break;
+            case('doubleWholeNote'):
+                deepCopy.from.note = 'oneHundredTwentyEighthNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) * 256);
+                break;
+            case('eighthNote'):
+                deepCopy.from.note = 'dottedEighthNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) * 2) /3;
+                break;
+            case('halfNote'):
+                deepCopy.from.note = 'dottedHalf';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) / 3) * 2;
+                break;
+            case('oneHundredTwentyEighthNote'):
+                deepCopy.from.note = 'dottedOneHundredTwentyEighthNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) / 3) * 2;
+                break;
+            case('quarter'):
+                deepCopy.from.note = 'dottedQuarter';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) * 2) /3;
+                break;
+            case('sixteenthNote'):
+                deepCopy.from.note = 'dottedSixteenthNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) * 2) /3;
+                break;
+            case('sixtyFourthNote'):
+                deepCopy.from.note = 'dottedSixtyFourthNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) * 2) /3;
+                break;
+            case('thirtySecondNote'):
+                deepCopy.from.note = 'dottedThirtySecondNote';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) * 2) /3;
+                break;
+            case('wholeNote'):
+                deepCopy.from.note = 'dottedWhole';
+                deepCopy.from.tempo = (parseFloat(deepCopy.from.tempo) / 3) * 2;
+                break;
+            default:
+                alert('unsupported tempo base');
+        }
+        
+        setRitAccelParams(deepCopy);
+    }
+    
+    const updateRitAccelTempoFrom = (val) => {
+        let deepCopy = {...ritAccelParams};
+        
+        deepCopy.from.tempo = val;
+        
+        setRitAccelParams(deepCopy);
+    }
+    
+    const updateRitAccelTempoTo = (val) => {
+        let deepCopy = {...ritAccelParams};
+        
+        deepCopy.to.tempo = val;
+        
+        setRitAccelParams(deepCopy);
+    }
+    
+    const updateRitAccelFromBar = (val) => {
+        let deepCopy = {...ritAccelParams};
+        
+        deepCopy.from.time.bar = parseInt(val);
+        
+        if (parseInt(deepCopy.from.time.bar) === parseInt(deepCopy.to.time.bar)) {
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.to.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            }
+        }
+        
+        setRitAccelParams(deepCopy);
+    }
+    
+    const updateRitAccelFromBeat = (val) => {
+        let deepCopy = {...ritAccelParams};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.from.time.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 1) {
+            if (parseInt(deepCopy.from.time.bar) === 1) {
+                return;
+            }
+            deepCopy.from.time.bar = parseInt(deepCopy.from.time.bar) - 1;
+            deepCopy.from.time.beat = parseInt(meter2.meterNumerator);
+            deepCopy.from.time.ticks = 0;
+        } else if (parseInt(val) > parseInt(meter.meterNumerator)) {
+            if (parseInt(deepCopy.from.time.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                return;
+            }
+            deepCopy.from.time.bar = parseInt(deepCopy.from.time.bar) + 1;
+            deepCopy.from.time.beat = 1;
+            deepCopy.from.time.ticks = 0;
+        } else {
+            deepCopy.from.time.beat = parseInt(val);
+        }
+        if (parseInt(deepCopy.from.time.bar) > parseInt(deepCopy.to.time.bar)) {
+            deepCopy.to.time.bar = parseInt(deepCopy.from.time.bar);
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.to.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.time.bar) === parseInt(deepCopy.to.time.bar)) {
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.to.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            }
+        }
+        
+        setRitAccelParams(deepCopy);
+    }
+    
+    const updateRitAccelFromTicks = (val) => {
+        let deepCopy = {...ritAccelParams};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.from.time.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 0) {
+            if (parseInt(deepCopy.from.time.beat) === 1) {
+                if (parseInt(deepCopy.from.time.bar) === 1) {
+                    return;
+                }
+                deepCopy.from.time.bar = parseInt(deepCopy.from.time.bar) - 1;
+                deepCopy.from.time.beat = parseInt(meter2.meterNumerator);
+                deepCopy.from.time.ticks = parseInt(getTickMax(parseInt(meter2.meterDenominator))) - 1;
+            } else {
+                deepCopy.from.time.beat = parseInt(deepCopy.from.time.beat) - 1;
+                deepCopy.from.time.ticks = parseInt(getTickMax(parseInt(meter2.meterDenominator))) - 1;
+            }
+        } else if (parseInt(val) > (parseInt(getTickMax(parseInt(meter.meterDenominator))) - 1)) {
+            if (parseInt(deepCopy.from.time.beat) === parseInt(meter.meterNumerator)) {
+                if (parseInt(deepCopy.from.time.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                    return;
+                }
+                deepCopy.from.time.bar = parseInt(deepCopy.from.time.bar) + 1;
+                deepCopy.from.time.beat = 1;
+                deepCopy.from.time.ticks = 0;
+            } else {
+                deepCopy.from.time.beat = parseInt(deepCopy.from.time.beat) + 1;
+                deepCopy.from.time.ticks = 0;
+            }
+        } else {
+            deepCopy.from.time.ticks = parseInt(val);
+        }
+        if (parseInt(deepCopy.from.time.bar) > parseInt(deepCopy.to.time.bar)) {
+            deepCopy.to.time.bar = parseInt(deepCopy.from.time.bar);
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.to.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.time.bar) === parseInt(deepCopy.to.time.bar)) {
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.to.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            }
+        }
+        
+        setRitAccelParams(deepCopy);
+    }
+    
+    const cycleRitAccelNoteheadTo = (val) => {
+        let deepCopy = {...ritAccelParams};
+        
+        switch(val) {
+            case('dottedEighthNote'):
+                deepCopy.to.note = 'quarter';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) / 4) * 3;
+                break;
+            case('dottedHalf'):
+                deepCopy.to.note = 'wholeNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) / 4) * 3;
+                break;
+            case('dottedOneHundredTwentyEighthNote'):
+                deepCopy.to.note = 'sixtyFourthNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) / 4) * 3;
+                break;
+            case('dottedQuarter'):
+                deepCopy.to.note = 'halfNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) / 4) * 3;
+                break;
+            case('dottedSixteenthNote'):
+                deepCopy.to.note = 'eighthNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) / 4) * 3;
+                break;
+            case('dottedSixtyFourthNote'):
+                deepCopy.to.note = 'thirtySecondNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) / 4) * 3;
+                break;
+            case('dottedThirtySecondNote'):
+                deepCopy.to.note = 'sixteenthNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) / 4) * 3;
+                break;
+            case('dottedWhole'):
+                deepCopy.to.note = 'doubleWholeNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) / 4) * 3;
+                break;
+            case('doubleWholeNote'):
+                deepCopy.to.note = 'oneHundredTwentyEighthNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) * 256);
+                break;
+            case('eighthNote'):
+                deepCopy.to.note = 'dottedEighthNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) * 2) /3;
+                break;
+            case('halfNote'):
+                deepCopy.to.note = 'dottedHalf';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) / 3) * 2;
+                break;
+            case('oneHundredTwentyEighthNote'):
+                deepCopy.to.note = 'dottedOneHundredTwentyEighthNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) / 3) * 2;
+                break;
+            case('quarter'):
+                deepCopy.to.note = 'dottedQuarter';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) * 2) /3;
+                break;
+            case('sixteenthNote'):
+                deepCopy.to.note = 'dottedSixteenthNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) * 2) /3;
+                break;
+            case('sixtyFourthNote'):
+                deepCopy.to.note = 'dottedSixtyFourthNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) * 2) /3;
+                break;
+            case('thirtySecondNote'):
+                deepCopy.to.note = 'dottedThirtySecondNote';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) * 2) /3;
+                break;
+            case('wholeNote'):
+                deepCopy.to.note = 'dottedWhole';
+                deepCopy.to.tempo = (parseFloat(deepCopy.to.tempo) / 3) * 2;
+                break;
+            default:
+                alert('unsupported tempo base');
+        }
+        
+        setRitAccelParams(deepCopy);
+    }
+    
+    const updateRitAccelToBar = (val) => {
+        let deepCopy = {...ritAccelParams};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.from.time.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) + 1, beat: 1, ticks: 0});
+        
+        deepCopy.to.time.bar = parseInt(val);
+        if (parseInt(deepCopy.from.time.bar) > parseInt(deepCopy.to.time.bar)) {
+            deepCopy.from.time.bar = parseInt(deepCopy.to.time.bar);
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.from.time.beat = parseInt(deepCopy.to.time.beat);
+                if (parseInt(deepCopy.from.time.ticks > parseInt(deepCopy.to.time.ticks))) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks > parseInt(deepCopy.to.time.ticks))) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.time.bar) === parseInt(deepCopy.to.time.bar)) {
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.from.time.beat = parseInt(deepCopy.to.time.beat);
+                if (parseInt(deepCopy.from.time.ticks > parseInt(deepCopy.to.time.ticks))) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks > parseInt(deepCopy.to.time.ticks))) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            }
+        }
+        
+        setRitAccelParams(deepCopy);
+    }
+    
+    const updateRitAccelToBeat = (val) => {
+        let deepCopy = {...ritAccelParams};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.from.time.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 1) {
+            if (parseInt(deepCopy.to.time.bar) === 1) {
+                return;
+            }
+            deepCopy.to.time.bar = parseInt(deepCopy.to.time.bar) - 1;
+            deepCopy.to.time.beat = parseInt(meter2.meterNumerator);
+            deepCopy.to.time.ticks = 0;
+        } else if (parseInt(val) > parseInt(meter.meterNumerator)) {
+            if (parseInt(deepCopy.to.time.bar) === parseInt(sequence.duration.bar)) {
+                return;
+            }
+            deepCopy.to.time.bar = parseInt(deepCopy.to.time.bar) + 1;
+            deepCopy.to.time.beat = 1;
+            deepCopy.to.time.ticks = 0;
+        } else {
+            deepCopy.to.time.beat = parseInt(val);
+        }
+        if (parseInt(deepCopy.from.time.bar) > parseInt(deepCopy.to.time.bar)) {
+            deepCopy.from.time.bar = parseInt(deepCopy.to.time.bar);
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.from.time.beat = parseInt(deepCopy.to.time.beat);
+                if (parseInt(deepCopy.from.time.ticks > parseInt(deepCopy.to.time.ticks))) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks > parseInt(deepCopy.to.time.ticks))) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.time.bar) === parseInt(deepCopy.to.time.bar)) {
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.from.time.beat = parseInt(deepCopy.to.time.beat);
+                if (parseInt(deepCopy.from.time.ticks > parseInt(deepCopy.to.time.ticks))) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks > parseInt(deepCopy.to.time.ticks))) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            }
+        }
+        
+        setRitAccelParams(deepCopy);
+    }
+    
+    const updateRitAccelToTicks = (val) => {
+        let deepCopy = {...ritAccelParams};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.from.time.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 0) {
+            if (parseInt(deepCopy.to.time.beat) === 1) {
+                if (parseInt(deepCopy.to.time.bar) === 1) {
+                    return;
+                }
+                deepCopy.to.time.bar = parseInt(deepCopy.to.time.bar) - 1;
+                deepCopy.to.time.beat = parseInt(meter2.meterNumerator);
+                deepCopy.to.time.ticks = parseInt(getMaxTick(parseInt(meter2.meterDenominator))) - 1;
+            } else {
+                deepCopy.to.time.beat = parseInt(deepCopy.to.time.beat) - 1;
+                deepCopy.to.time.ticks = parseInt(getMaxTick(parseInt(meter.meterDenominator))) - 1;
+            }
+        } else if (parseInt(val) > (parseInt(getMaxTick(parseInt(meter.meterDenominator))) - 1)) {
+            if (parseInt(deepCopy.to.time.beat) === parseInt(meter.meterNumerator)) {
+                if (parseInt(deepCopy.to.time.bar) === parseInt(sequence.duration.bar)) {
+                    return;
+                }
+                deepCopy.to.time.bar = parseInt(deepCopy.to.time.bar) + 1;
+                deepCopy.to.time.beat = 1;
+                deepCopy.to.time.ticks = 0;
+            } else {
+                deepCopy.to.time.beat = parseInt(deepCopy.to.time.beat) + 1;
+                deepCopy.to.time.ticks = 0;
+            }
+        } else {
+            deepCopy.to.time.ticks = parseInt(val);
+        }
+        if (parseInt(deepCopy.from.time.bar) > parseInt(deepCopy.to.time.bar)) {
+            deepCopy.from.time.bar = parseInt(deepCopy.to.time.bar);
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.from.time.beat = parseInt(deepCopy.to.time.beat);
+                if (parseInt(deepCopy.from.time.ticks > parseInt(deepCopy.to.time.ticks))) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks > parseInt(deepCopy.to.time.ticks))) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.time.bar) === parseInt(deepCopy.to.time.bar)) {
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.from.time.beat = parseInt(deepCopy.to.time.beat);
+                if (parseInt(deepCopy.from.time.ticks > parseInt(deepCopy.to.time.ticks))) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks > parseInt(deepCopy.to.time.ticks))) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            }
+        }
+        
+        setRitAccelParams(deepCopy);
+    }
+    
+    const absoluteTempoPosition = (note, tempo) => {
+        let val = 0;
+        let absoluteTempo = tempo;
+        
+        switch(note) {
+            case('dottedEighthNote'):
+                absoluteTempo = (tempo * 3) / 4;
+                break;
+            case('dottedHalf'):
+                absoluteTempo = tempo * 3;
+                break;
+            case('dottedOneHundredTwentyEighthNote'):
+                absoluteTempo = (tempo * 3) / 64;
+                break;
+            case('dottedQuarter'):
+                absoluteTempo = (tempo * 3) / 2;
+                break;
+            case('dottedSixteenthNote'):
+                absoluteTempo = (tempo * 3) / 8;
+                break;
+            case('dottedSixtyFourthNote'):
+                absoluteTempo = (tempo * 3) / 32;
+                break;
+            case('dottedThirtySecondNote'):
+                absoluteTempo = (tempo * 3) / 16;
+                break;
+            case('dottedWhole'):
+                absoluteTempo = tempo * 6;
+                break;
+            case('doubleWholeNote'):
+                absoluteTempo = tempo * 8;
+                break;
+            case('eighthNote'):
+                absoluteTempo = tempo / 2;
+                break;
+            case('halfNote'):
+                absoluteTempo = tempo * 2;
+                break;
+            case('oneHundredTwentyEighthNote'):
+                absoluteTempo = tempo / 32;
+                break;
+            case('quarter'):
+                absoluteTempo = tempo;
+                break;
+            case('sixteenthNote'):
+                absoluteTempo = tempo / 4;
+                break;
+            case('sixtyFourthNote'):
+                absoluteTempo = tempo / 16;
+                break;
+            case('thirtySecondNote'):
+                absoluteTempo = tempo / 8;
+                break;
+            case('wholeNote'):
+                absoluteTempo = tempo * 4;
+                break;
+            default:
+                alert('unsupported tempo base');
+        }
+        
+        val = Math.floor(svgHeight - (svgHeight * (absoluteTempo/1000)));
+        
+        return val.toString();
+    }
+    
+    const updateRitAccelCurveX = (val) => {
+        let deepCopy = {...ritAccelParams};
+        
+        deepCopy.curve[0] = val;
+        
+        setRitAccelParams(deepCopy);
+    }
+    
+    const updateRitAccelCurveY = (val) => {
+        let deepCopy = {...ritAccelParams};
+        
+        deepCopy.curve[1] = val;
+        
+        setRitAccelParams(deepCopy);
+    }
+    
+    const curveX1Position = (val) => {
+        let position = (svgWidth / 3);
+        let diff = (svgWidth / 3);
+        
+        if (val < 0) {
+            diff = 10 * (diff * ((val * -1)/100));
+            position = position - diff;
+        } else if (val > 0) {
+            diff = 10 * (diff * (val/100));
+            position = position + diff;
+        }
+        
+        if (position < 0) {
+            position = 0;
+        } else if (position > svgWidth) {
+            position = svgWidth;
+        }
+        
+        return Math.floor(position).toString();
+    }
+    
+    const curveX2Position = (val) => {
+        let position = ((svgWidth * 2) / 3);
+        let diff = (svgWidth / 3);
+        
+        if (val < 0) {
+            diff = 10 * (diff * ((val * -1)/100));
+            position = position + diff;
+        } else if (val > 0) {
+            diff = 10 * (diff * (val/100));
+            position = position - diff;
+        }
+        
+        if (position > (svgWidth * 2)) {
+            position = svgWidth * 2;
+        } else if (position < (-1 * svgWidth)) {
+            position = (-1 * svgWidth);
+        }
+        
+        return Math.floor(position).toString();
+    }
+    
+    const curveY1Position = (val) => {
+        let position = 0;
+        let tempo1 = parseInt(absoluteTempoPosition(ritAccelParams.from.note, ritAccelParams.from.tempo));
+        let tempo2 = parseInt(absoluteTempoPosition(ritAccelParams.to.note, ritAccelParams.to.tempo));
+        let diff = 0;
+        let offset = 0;
+        
+        if (tempo1 < tempo2) {
+            diff = tempo2 - tempo1;
+            position = tempo1 + (diff/3);
+        } else {
+            diff = tempo1 - tempo2;
+            position = tempo2 + ((diff / 3) * 2);
+        }
+        
+        if (val < 0) {
+            offset = ((val * -1)/diff);
+            position = position - (16 * (diff * offset));
+        } else if (val > 0) {
+            offset = (val/diff);
+            position = position + (16 * (diff * offset));
+        }
+        
+        if (tempo1 < tempo2) {
+            if (position < (tempo1)) {
+                position = tempo1;
+            } else if (position > tempo2) {
+                position = tempo2;
+            }
+        } else {
+            if (position < (tempo2)) {
+                position = tempo2;
+            } else if (position > (tempo1)) {
+                position = tempo1;
+            }
+        }
+        
+        return Math.floor(position).toString();
+    }
+    
+    const curveY2Position = (val) => {
+        let position = 0;
+        let tempo1 = parseInt(absoluteTempoPosition(ritAccelParams.from.note, ritAccelParams.from.tempo));
+        let tempo2 = parseInt(absoluteTempoPosition(ritAccelParams.to.note, ritAccelParams.to.tempo));
+        let diff = 0;
+        let offset = 0;
+        
+        if (tempo1 < tempo2) {
+            diff = tempo2 - tempo1;
+            position = tempo1 + ((diff / 3) * 2);
+        } else {
+            diff = tempo1 - tempo2;
+            position = tempo2 + (diff / 3);
+        }
+        
+        if (val < 0) {
+            offset = ((val * -1)/diff);
+            position = position + (16 * (diff * offset));
+        } else if (val > 0) {
+            offset = (val/diff);
+            position = position - (16 * (diff * offset));
+        }
+        
+        if (tempo1 < tempo2) {
+            if (position < (tempo1)) {
+                position = tempo1;
+            } else if (position > tempo2) {
+                position = tempo2;
+            }
+        } else {
+            if (position < (tempo2)) {
+                position = tempo2;
+            } else if (position > (tempo1)) {
+                position = tempo1;
+            }
+        }
+        
+        return Math.floor(position).toString();
+    }
+    
+    const convertToQuarter = (time) => {
+        let copyTime = {...time};
+        copyTime.tempoBase = 'quarter';
+        
+        switch(time.tempoBase) {
+            case('dottedEighthNote'):
+                copyTime.tempo = (copyTime.tempo * 3) / 4;
+                break;
+            case('dottedHalf'):
+                copyTime.tempo = copyTime * 3;
+                break;
+            case('dottedOneHundredTwentyEighthNote'):
+                copyTime.tempo = (copyTime.tempo * 3) / 64;
+                break;
+            case('dottedQuarter'):
+                copyTime.tempo = (copyTime.tempo * 3) / 2;
+                break;
+            case('dottedSixteenthNote'):
+                copyTime.tempo = (copyTime.tempo * 3) / 8;
+                break;
+            case('dottedSixtyFourthNote'):
+                copyTime.tempo = (copyTime.tempo * 3) / 32;
+                break;
+            case('dottedThirtySecondNote'):
+                copyTime.tempo = (copyTime.tempo * 3) / 64;
+                break;
+            case('dottedWhole'):
+                copyTime.tempo = copyTime.tempo * 6;
+                break;
+            case('doubleWholeNote'):
+                copyTime.tempo = copyTime.tempo * 8;
+                break;
+            case('eighthNote'):
+                copyTime.tempo = copyTime.tempo / 2;
+                break;
+            case('halfNote'):
+                copyTime.tempo = copyTime.tempo * 2;
+                break;
+            case('oneHundredTwentyEighthNote'):
+                copyTime.tempo = copyTime.tempo / 32;
+                break;
+            case('quarter'):
+                copyTime.tempo = copyTime.tempo;
+                break;
+            case('sixteenthNote'):
+                copyTime.tempo = copyTime.tempo / 4;
+                break;
+            case('sixtyFourthNote'):
+                copyTime.tempo = copyTime.tempo / 16;
+                break;
+            case('thirtySecondNote'):
+                copyTime.tempo = copyTime.tempo / 8;
+                break;
+            case('wholeNote'):
+                copyTime.tempo = copyTime.tempo * 4;
+                break;
+            default:
+                alert('ERROR');
+                console.log('error');
+        }
+        return copyTime;
+    }
+    
+    const syncTempoBase = (start, end) => {
+        let startTempo = convertToQuarter(start);
+        switch(end.tempoBase) {
+            case('dottedEighthNote'):
+                startTempo.tempoBase = 'dottedEighthNote';
+                startTempo.tempo = (startTempo.tempo * 4) / 3;
+                break;
+            case('dottedHalf'):
+                startTempo.tempoBase = 'dottedHalf';
+                startTempo.tempo = startTempo.tempo / 3;
+                break;
+            case('dottedOneHundredTwentyEighthNote'):
+                startTempo.tempoBase = 'dottedOneHundredTwentyEighthNote';
+                startTempo.tempo = (startTempo.tempo * 64) / 3;
+                break;
+            case('dottedQuarter'):
+                startTempo.tempoBase = 'dottedQuarter';
+                startTempo.tempo = (startTempo.tempo * 2) / 3;
+                break;
+            case('dottedSixteenthNote'):
+                startTempo.tempoBase = 'dottedSixteenthNote';
+                startTempo.tempo = (startTempo.tempo * 8) / 3;
+                break;
+            case('dottedSixtyFourthNote'):
+                startTempo.tempoBase = 'dottedSixtyFourthNote';
+                startTempo.tempo = (startTempo.tempo * 32) / 3;
+                break;
+            case('dottedThirtySecondNote'):
+                startTempo.tempoBase = 'dottedThirtySecondNote';
+                startTempo.tempo = (startTempo.tempo * 16) / 3;
+                break;
+            case('dottedWhole'):
+                startTempo.tempoBase = 'dottedWhole';
+                startTempo.tempo = startTempo.tempo / 6;
+                break;
+            case('doubleWholeNote'):
+                startTempo.tempoBase = 'doubleWholeNote';
+                startTempo.tempo = startTempo.tempo / 8;
+                break;
+            case('eighthNote'):
+                startTempo.tempoBase = 'eighthNote';
+                startTempo.tempo = startTempo.tempo * 2;
+                break;
+            case('halfNote'):
+                startTempo.tempoBase = 'halfNote';
+                startTempo.tempo = startTempo.tempo / 2;
+                break;
+            case('oneHundredTwentyEighthNote'):
+                startTempo.tempoBase = 'oneHundredTwentyEighthNote';
+                startTempo.tempo = startTempo.tempo * 32;
+                break;
+            case('quarter'):
+                startTempo.tempoBase = 'quarter';
+                startTempo.tempo = startTempo.tempo;
+                break;
+            case('sixteenthNote'):
+                startTempo.tempoBase = 'sixteenthNote';
+                startTempo.tempo = startTempo.tempo * 4;
+                break;
+            case('sixtyFourthNote'):
+                startTempo.tempoBase = 'sixtyFourthNote';
+                startTempo.tempo = startTempo.tempo * 16;
+                break;
+            case('thirtySecondNote'):
+                startTempo.tempoBase = 'thirtySecondNote';
+                startTempo.tempo = startTempo.tempo * 32;
+                break;
+            case('wholeNote'):
+                startTempo.tempoBase = 'wholeNote';
+                startTempo.tempo = startTempo.tempo / 4;
+                break;
+            default:
+                alert('ERROR');
+                console.log('error');
+        }
+        return startTempo;
+    }
+    
+    const calculateMidpoint1 = (start, end, accel) => {
+        let ticksDuration = calculateDurationInTicks(start, end);
+        let position = {
+            bar: start.bar,
+            beat: start.beat,
+            ticks: start.ticks
+        };
+        let neutralTicks = Math.floor(ticksDuration/3);
+        let delta = 0;
+        let tempoDelta;
+        let neutralTempo;
+        let tempoVariance;
+        
+        if (ritAccelParams.curve[0] === 0) {
+            delta = neutralTicks;
+        } else if (ritAccelParams.curve[0] < 0) {
+            delta = neutralTicks - (neutralTicks * ((-1 * ritAccelParams.curve[0])/11));
+        } else {
+            delta = neutralTicks + (neutralTicks * (ritAccelParams.curve[0]/11));
+        }
+        for (let i = 0; i < delta; i++) {
+            position = addTick(position);
+        }
+        if (accel) {
+            tempoVariance = end.tempo - start.tempo;
+            neutralTempo = (tempoVariance/3) * 2;
+            if (ritAccelParams.curve[1] === 0) {
+                tempoDelta = neutralTempo;
+            } else if (ritAccelParams.curve[1] < 0) {
+                tempoDelta = neutralTempo - (neutralTempo * ((-1 * ritAccelParams.curve[1])/11));
+            } else {
+                tempoDelta = neutralTempo + (neutralTempo * (ritAccelParams.curve[1]/11));
+            }
+            position.tempo = start.tempo + tempoDelta;
+        } else {
+            tempoVariance = start.tempo - end.tempo;
+            neutralTempo = (tempoVariance/3);
+            if (ritAccelParams.curve[1] === 0) {
+                tempoDelta = neutralTempo;
+            } else if (ritAccelParams.curve[1] < 0) {
+                tempoDelta = neutralTempo + ((neutralTempo/2) * ((-1 * ritAccelParams.curve[1])/11));
+            } else {
+                tempoDelta = neutralTempo - ((neutralTempo/2) * (ritAccelParams.curve[1]/11));
+            }
+            position.tempo = start.tempo - tempoDelta;
+        }
+        position.meterChange = false;
+        position.tempoBase = start.tempoBase;
+        position.tempoChange = true;
+        
+        return position;
+    }
+    
+    const calculateMidpoint2 = (start, end, accel) => {
+        let ticksDuration = calculateDurationInTicks(start, end);
+        let position = {
+            bar: start.bar,
+            beat: start.beat,
+            ticks: start.ticks
+        };
+        let neutralTicks = Math.floor(ticksDuration/3) * 2;
+        let delta = 0;
+        let tempoDelta;
+        let neutralTempo;
+        let tempoVariance;
+        
+        if (ritAccelParams.curve[0] === 0) {
+            delta = neutralTicks;
+        } else if (ritAccelParams.curve[0] < 0) {
+            delta = neutralTicks + ((neutralTicks/2) * ((-1 * ritAccelParams.curve[0])/11));
+        } else {
+            delta = neutralTicks - ((neutralTicks/2) * (ritAccelParams.curve[0]/11));
+        }
+        for (let i = 0; i < delta; i++) {
+            position = addTick(position);
+        }
+        if (accel) {
+            tempoVariance = end.tempo - start.tempo;
+            neutralTempo = (tempoVariance/3);
+            if (ritAccelParams.curve[1] === 0) {
+                tempoDelta = neutralTempo;
+            } else if (ritAccelParams.curve[1] < 0) {
+                tempoDelta = neutralTempo - (neutralTempo * ((-1 * ritAccelParams.curve[1])/11));
+            } else {
+                tempoDelta = neutralTempo + (neutralTempo * (ritAccelParams.curve[1]/11));
+            }
+            position.tempo = start.tempo + tempoDelta;
+        } else {
+            tempoVariance = start.tempo - end.tempo;
+            neutralTempo = (tempoVariance/3) * 2;
+            if (ritAccelParams.curve[1] === 0) {
+                tempoDelta = neutralTempo;
+            } else if (ritAccelParams.curve[1] < 0) {
+                tempoDelta = neutralTempo + ((neutralTempo/2) * ((-1 * ritAccelParams.curve[1])/11));
+            } else {
+                tempoDelta = neutralTempo - ((neutralTempo/2) * (ritAccelParams.curve[1]/11));
+            }
+            position.tempo = start.tempo - tempoDelta;
+        }
+        position.meterChange = false;
+        position.tempoBase = start.tempoBase;
+        position.tempoChange = true;
+        
+        return position;
+    }
+    
+    const calculateTempoChanges = (start, end, accel) => {
+        let totalTicks = calculateDurationInTicks(start, end);
+        let totalTempoChange = 0;
+        let totalSteps = 0;
+        let stepSize;
+        let tempoSize;
+        let position = {
+            bar: start.bar,
+            beat: start.beat,
+            ticks: start.ticks
+        };
+        let tempoMark = start.tempo;
+        let arr = [];
+        if (!accel) {
+            totalTempoChange = end.tempo - start.tempo;
+        } else {
+            totalTempoChange = start.tempo - end.tempo;
+        }
+        if (totalTicks < totalTempoChange) {
+            totalSteps = Math.floor(totalTicks);
+        } else {
+            totalSteps = Math.floor(totalTempoChange);
+        }
+        stepSize = Math.floor(totalTicks/totalSteps);
+        tempoSize = totalTempoChange/totalSteps;
+        for (let i = 0; i < totalSteps; i++) {
+            arr.push({
+                bar: position.bar,
+                beat: position.beat,
+                ticks: position.ticks,
+                tempo: tempoMark,
+                tempoBase: start.tempoBase,
+                tempoChange: true,
+                meterChange: false
+            });
+            for (let j = 0; j < stepSize; j++) {
+                position = addTick(position);
+            }
+            if (!accel) {
+                tempoMark = tempoMark + tempoSize;
+            } else {
+                tempoMark = tempoMark - tempoSize;
+            }
+        }
+        return arr;
+    }
+    
+    const executeTempoRitAccel = () => {
+        let deepCopy = {...tempoTrack};
+        let accel = (absoluteTempoPosition(ritAccelParams.from.note, ritAccelParams.from.tempo) < absoluteTempoPosition(ritAccelParams.to.note, ritAccelParams.to.tempo));
+        let startTempo = {
+            bar: ritAccelParams.from.time.bar,
+            beat: ritAccelParams.from.time.beat,
+            meterChange: false,
+            ticks: ritAccelParams.from.time.ticks,
+            tempo: ritAccelParams.from.tempo,
+            tempoBase: ritAccelParams.from.note,
+            tempoChange: true
+            
+        };
+        let endTempo = {
+            bar: ritAccelParams.to.time.bar,
+            beat: ritAccelParams.to.time.beat,
+            meterChange: false,
+            ticks: ritAccelParams.to.time.ticks,
+            tempo: ritAccelParams.to.tempo,
+            tempoBase: ritAccelParams.to.note,
+            tempoChange: true
+        };
+        if (startTempo.tempoBase !== endTempo.tempoBase) {
+            startTempo = syncTempoBase(startTempo, endTempo);
+        }
+        let midpoint1 = calculateMidpoint1(startTempo, endTempo, accel);
+        let midpoint2 = calculateMidpoint2(startTempo, endTempo, accel);        
+        let segment1 = calculateTempoChanges(startTempo, midpoint1, accel);
+        let segment2 = calculateTempoChanges(midpoint1, midpoint2, accel);
+        let segment3 = calculateTempoChanges(midpoint2, endTempo, accel);
+        for (let i = 0; i < segment1.length; i++) {
+            deepCopy.tick.push(segment1[i]);
+        }
+        for (let j = 0; j < segment2.length; j++) {
+            deepCopy.tick.push(segment2[j]);
+        }
+        for (let k = 0; k < segment3.length; k++) {
+            deepCopy.tick.push(segment3[k]);
+        };
+        deepCopy.tick.push(endTempo);
+        setTempoTrack(deepCopy);
+        sortTempoTrack();
+        recalculateTempoTrack();
+        cancelRitAccelModal();
+    }
+    
     return(
         <div>
             <div className={'stepSequencerContainer' + stepSequencerState + stepSequenceMonth}
@@ -5950,7 +6992,8 @@ function StepSequencer(user, seq) {
                         <button className={'stepSequencerTempoTrackAddTempoButton' + stepSequenceMonth}
                             onClick={() => addTempoChangeEvent()}
                             >tempo</button>
-                        <button className={'stepSequencerTempoTrackRitAccelButton' + stepSequenceMonth}>rit/accel</button>
+                        <button className={'stepSequencerTempoTrackRitAccelButton' + stepSequenceMonth}
+                            onClick={() => openRitAccelModal()}>rit/accel</button>
                     </div>
                     <div className={'stepSequencerTracking' + stepSequenceMonth}>
                         <div className={'stepSequencerDisplaySequenceTrackDatas' + stepSequenceMonth }>
@@ -6353,7 +7396,8 @@ function StepSequencer(user, seq) {
                             <option>feedback delay</option>
                             <option>reverse delay</option>
                         </select>
-                        <button className={'stepSequencerMidiFXAddButton' + stepSequenceMonth}>add</button>
+                        <button className={'stepSequencerMidiFXAddButton' + stepSequenceMonth}
+                            onClick={() => openMIDIFxModal()}>add</button>
                     </div>
                 </div>
             </div>
@@ -6456,6 +7500,333 @@ function StepSequencer(user, seq) {
                     onClick={() => copySelectionTo()}>submit</button>
                 <button className={'stepSequencerRepeaterCancelButton' + stepSequenceMonth}
                     onClick={() => cancelRepeaterModal()}>cancel</button>
+            </div>
+            <div className={'stepSequencerAddMIDIFxModal' + addFxModalState + stepSequenceMonth}>
+                <p className={'stepSequencerAddMIDIFXModalTitle' + stepSequenceMonth}>Add MIDI FX Track for {sequence.tracks[activeTrack].name}</p>
+                <p className={'stepSequencerAddMIDIFXTypeIdentifier' + stepSequenceMonth}>MIDI FX: MIDI Delay</p>
+                <p className={'stepSequencerAddMIDIFXPresetIdentifier' + stepSequenceMonth}>Preset: hard quantize verb</p>
+                <p className={'stepSequencerFXTrackNameLabel' + stepSequenceMonth}>Auto-generated FX track:</p>
+                <input className={'stepSequencerFXTrackNameInput' + stepSequenceMonth}
+                    placeholder={sequence.tracks[activeTrack].name + ' hard quantize verb'}
+                    type="text" />
+                <button className={'stepSequencerRepeaterSubmitButton' + stepSequenceMonth}>submit</button>
+                <button className={'stepSequencerRepeaterCancelButton' + stepSequenceMonth}
+                    onClick={() => cancelMidiFXModal()}>cancel</button>
+            </div>
+            <div className={'stepSequencerRitAccelModal' + ritAccelModalState + stepSequenceMonth}>
+                <p className={'stepSequencerRitAccelTitle' + stepSequenceMonth}>tempo rit./accel.</p>
+                <p className={'stepSequencerRitAccelStartingTempoLabel' + stepSequenceMonth}>starting tempo:</p>
+                {(ritAccelParams.from.note === 'quarter') && (
+                    <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth}
+                        onClick={() => cycleRitAccelNoteheadFrom('quarter')}
+                                    src={quarterNote} />
+                )}
+                {(ritAccelParams.from.note === 'dottedQuarter') && (
+                    <div className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth}
+                        style={{display: "flex"}}>
+                        <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth}
+                            onClick={() => cycleRitAccelNoteheadFrom('dottedQuarter')} 
+                            src={quarterNote} />
+                            <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.from.note === 'halfNote') && (
+                    <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth}
+                        onClick={() => cycleRitAccelNoteheadFrom('halfNote')}
+                        src={halfNote} />
+                )}
+                {(ritAccelParams.from.note === 'dottedHalf') && (
+                    <div className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth}
+                        style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadFrom('dottedHalf')}
+                            src={halfNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.from.note === 'wholeNote') && (
+                    <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadFrom('wholeNote')}
+                        src={wholeNote} />
+                )}
+                {(ritAccelParams.from.note === 'dottedWhole') && (
+                    <div className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth}
+                        style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadFrom('dottedWhole')}
+                            src={wholeNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.from.note === 'doubleWholeNote') && (
+                    <img className={'stepSequencerRitAccelNoteFrom2' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadFrom('doubleWholeNote')}
+                        src={doubleWholeNote} />
+                )}
+                {(ritAccelParams.from.note === 'oneHundredTwentyEighthNote') && (
+                    <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadFrom('oneHundredTwentyEighthNote')}
+                        src={oneHundredTwentyEighthNote} />
+                )}
+                {(ritAccelParams.from.note === 'dottedOneHundredTwentyEighthNote') && (
+                    <div className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadFrom('dottedOneHundredTwentyEighthNote')}
+                            src={oneHundredTwentyEighthNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.from.note === 'sixtyFourthNote') && (
+                    <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadFrom('sixtyFourthNote')}
+                        src={sixtyfourthNote} />
+                )}
+                {(ritAccelParams.from.note === 'dottedSixtyFourthNote') && (
+                    <div className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                        style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadFrom('dottedSixtyFourthNote')}
+                            src={sixtyfourthNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.from.note === 'thirtySecondNote') && (
+                    <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadFrom('thirtySecondNote')}
+                        src={thirtySecondNote} />
+                )}
+                {(ritAccelParams.from.note === 'dottedThirtySecondNote') && (
+                    <div className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                        style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadFrom('dottedThirtySecondNote')}
+                            src={thirtySecondNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.from.note === 'sixteenthNote') && (
+                    <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadFrom('sixteenthNote')}
+                        src={sixteenthNote} />
+                )}
+                {(ritAccelParams.from.note === 'dottedSixteenthNote') && (
+                    <div className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth}
+                        style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadFrom('dottedSixteenthNote')}
+                            src={sixteenthNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.from.note === 'eighthNote') && (
+                    <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadFrom('eighthNote')}
+                        src={eighthNote} />
+                )}
+                {(ritAccelParams.from.note === 'dottedEighthNote') && (
+                    <div className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth}
+                        style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteFrom' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadFrom('dottedEighthNote')}
+                            src={eighthNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                <p className={'stepSequencerTempoEqualsFrom' + stepSequenceMonth}>=</p>
+                <input className={'stepSequencerTempoFromInput' + stepSequenceMonth} 
+                    max="1000.000"
+                    min="0.001"
+                    onChange={(e) => updateRitAccelTempoFrom(e.target.value)}
+                    step="0.001"
+                    type="number"
+                    value={(Math.round(ritAccelParams.from.tempo * 1000) / 1000)}
+                    />
+                <input className={'stepSequencerRitAccelFromBarInput' + stepSequenceMonth}
+                    max={ritAccelParams.to.time.bar}
+                    min="1"
+                    onChange={(e) => updateRitAccelFromBar(e.target.value)}
+                    type="number"
+                    value={ritAccelParams.from.time.bar} />
+                <p className={'stepSequencerRitAccelFromBarDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerRitAccelFromBeatInput' + stepSequenceMonth}
+                    onChange={(e) => updateRitAccelFromBeat(e.target.value)}
+                    type="number"
+                    value={ritAccelParams.from.time.beat} />
+                <p className={'stepSequencerRitAccelFromBeatDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerRitAccelFromTicksInput' + stepSequenceMonth}
+                    onChange={(e) => updateRitAccelFromTicks(e.target.value)}
+                    type="number"
+                    value={ritAccelParams.from.time.ticks} />
+                <p className={'stepSequencerRitAccelEndingingTempoLabel' + stepSequenceMonth}>ending tempo:</p>
+                {(ritAccelParams.to.note === 'quarter') && (
+                    <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth}
+                        onClick={() => cycleRitAccelNoteheadTo('quarter')}
+                                    src={quarterNote} />
+                )}
+                {(ritAccelParams.to.note === 'dottedQuarter') && (
+                    <div className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth}
+                        style={{display: "flex"}}>
+                        <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth}
+                            onClick={() => cycleRitAccelNoteheadTo('dottedQuarter')} 
+                            src={quarterNote} />
+                            <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.to.note === 'halfNote') && (
+                    <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth}
+                        onClick={() => cycleRitAccelNoteheadTo('halfNote')}
+                        src={halfNote} />
+                )}
+                {(ritAccelParams.to.note === 'dottedHalf') && (
+                    <div className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth}
+                        style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadTo('dottedHalf')}
+                            src={halfNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.to.note === 'wholeNote') && (
+                    <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadTo('wholeNote')}
+                        src={wholeNote} />
+                )}
+                {(ritAccelParams.to.note === 'dottedWhole') && (
+                    <div className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth}
+                        style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadTo('dottedWhole')}
+                            src={wholeNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.to.note === 'doubleWholeNote') && (
+                    <img className={'stepSequencerRitAccelNoteTo2' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadTo('doubleWholeNote')}
+                        src={doubleWholeNote} />
+                )}
+                {(ritAccelParams.to.note === 'oneHundredTwentyEighthNote') && (
+                    <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadTo('oneHundredTwentyEighthNote')}
+                        src={oneHundredTwentyEighthNote} />
+                )}
+                {(ritAccelParams.to.note === 'dottedOneHundredTwentyEighthNote') && (
+                    <div className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadTo('dottedOneHundredTwentyEighthNote')}
+                            src={oneHundredTwentyEighthNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.to.note === 'sixtyFourthNote') && (
+                    <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadTo('sixtyFourthNote')}
+                        src={sixtyfourthNote} />
+                )}
+                {(ritAccelParams.to.note === 'dottedSixtyFourthNote') && (
+                    <div className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                        style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadTo('dottedSixtyFourthNote')}
+                            src={sixtyfourthNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.to.note === 'thirtySecondNote') && (
+                    <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadTo('thirtySecondNote')}
+                        src={thirtySecondNote} />
+                )}
+                {(ritAccelParams.to.note === 'dottedThirtySecondNote') && (
+                    <div className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                        style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadTo('dottedThirtySecondNote')}
+                            src={thirtySecondNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.to.note === 'sixteenthNote') && (
+                    <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadTo('sixteenthNote')}
+                        src={sixteenthNote} />
+                )}
+                {(ritAccelParams.to.note === 'dottedSixteenthNote') && (
+                    <div className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth}
+                        style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadTo('dottedSixteenthNote')}
+                            src={sixteenthNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                {(ritAccelParams.to.note === 'eighthNote') && (
+                    <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                        onClick={() => cycleRitAccelNoteheadTo('eighthNote')}
+                        src={eighthNote} />
+                )}
+                {(ritAccelParams.to.note === 'dottedEighthNote') && (
+                    <div className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth}
+                        style={{display: 'flex'}}>
+                        <img className={'stepSequencerRitAccelNoteTo' + stepSequenceMonth} 
+                            onClick={() => cycleRitAccelNoteheadTo('dottedEighthNote')}
+                            src={eighthNote} />
+                        <p style={{color: '#000', fontSize: '48px', transform: 'translateX(-35px) translateY(40px)'}}>.</p>
+                    </div>
+                )}
+                <p className={'stepSequencerTempoEqualsTo' + stepSequenceMonth}>=</p>
+                <input className={'stepSequencerTempoToInput' + stepSequenceMonth} 
+                    max="1000.000"
+                    min="0.001"
+                    onChange={(e) => updateRitAccelTempoTo(e.target.value)}
+                    step="0.001"
+                    type="number"
+                    value={(Math.round(ritAccelParams.to.tempo * 1000) / 1000)}
+                    />
+                <input className={'stepSequencerRitAccelToBarInput' + stepSequenceMonth}
+                    max={sequence.duration.bar}
+                    min="1"
+                    onChange={(e) => updateRitAccelToBar(e.target.value)}
+                    type="number"
+                    value={ritAccelParams.to.time.bar} />
+                <p className={'stepSequencerRitAccelToBarDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerRitAccelToBeatInput' + stepSequenceMonth}
+                    onChange={(e) => updateRitAccelToBeat(e.target.value)}
+                    type="number"
+                    value={ritAccelParams.to.time.beat} />
+                <p className={'stepSequencerRitAccelToBeatDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerRitAccelToTicksInput' + stepSequenceMonth}
+                    onChange={(e) => updateRitAccelToTicks(e.target.value)}
+                    type="number"
+                    value={ritAccelParams.to.time.ticks} />
+                <div className={'stepSequencerRitAccelCurveDisplayDiv' + stepSequenceMonth}>
+                    <svg height="100%"
+                        width="100%">
+                        <path className={'stepSequencerTempoCurvePath' + stepSequenceMonth}
+                            d={"M 0 " + absoluteTempoPosition(ritAccelParams.from.note, ritAccelParams.from.tempo) + "  C " + curveX1Position(ritAccelParams.curve[0]) + " " + curveY1Position(ritAccelParams.curve[1]) + " " + curveX2Position(ritAccelParams.curve[0]) + " " + curveY2Position(ritAccelParams.curve[1]) + " 350 " + absoluteTempoPosition(ritAccelParams.to.note, ritAccelParams.to.tempo)}>
+                        </path>
+                    </svg>
+                </div>
+                <p className={'stepSequencerRitAccelXValLabel' + stepSequenceMonth}>X:</p>
+                <input className={'stepSequencerRitAccelCurveXInput' + stepSequenceMonth}
+                    max="10"
+                    min="-10"
+                    onChange={(e) => updateRitAccelCurveX(e.target.value)}
+                    step="0.1"
+                    type="number"
+                    value={ritAccelParams.curve[0]}/>
+                <p className={'stepSequencerRitAccelYValLabel' + stepSequenceMonth}>Y:</p>
+                <input className={'stepSequencerRitAccelCurveYInput' + stepSequenceMonth}
+                    max="10"
+                    min="-10"
+                    onChange={(e) => updateRitAccelCurveY(e.target.value)}
+                    step="0.1"
+                    type="number"
+                    value={ritAccelParams.curve[1]}/>
+                <button className={'stepSequencerRepeaterSubmitButton' + stepSequenceMonth}
+                    onClick={() => executeTempoRitAccel()}>submit</button>
+                <button className={'stepSequencerRepeaterCancelButton' + stepSequenceMonth}
+                    onClick={() => cancelRitAccelModal()}>cancel</button>
             </div>
         </div>
     )

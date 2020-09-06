@@ -2071,7 +2071,7 @@
     filter: brightness(150%) drop-shadow(8px 8px 5px #868ea3);
     font-family: 'Epilogue', sans-serif;
     font-size: 18px;
-    grid-column: col8 / col11;
+    grid-column: col7 / col10;
     grid-row: row11 / row12;
     outline-color: #8f9193;
     z-index: 155;
@@ -2112,4 +2112,383 @@
 
 .stepSequencerRepeaterCancelButton_JanuaryA:active {
     filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #868ea3);
+}
+
+.stepSequencerAddMIDIFxModal_Active_JanuaryA {
+    background: #a4acbf;
+    border: 4px solid #20222a;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 65vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerAddMIDIFxModal_Inactive_JanuaryA {
+    background: #a4acbf;
+    border: 4px solid #20222a;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 65vh;
+    left: 190%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerAddMIDIFXModalTitle_JanuaryA {
+    color: #010204;
+    grid-column: col2 / col23;
+    grid-row: row1 / row2;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.stepSequencerAddMIDIFXTypeIdentifier_JanuaryA {
+    color: #010204;
+    grid-column: col7 / col20;
+    grid-row: row3 / row4;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.stepSequencerAddMIDIFXPresetIdentifier_JanuaryA {
+    color: #010204;
+    grid-column: col7 / col20;
+    grid-row: row4 / row5;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.stepSequencerFXTrackNameLabel_JanuaryA {
+    color: #010204;
+    grid-column: col7 / col20;
+    grid-row: row6 / row7;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.stepSequencerFXTrackNameInput_JanuaryA {
+    background: #b5b9c0;
+    border: none;
+    color: #010204;
+    grid-column: col7 / col17;
+    grid-row: row7 / row8;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    outline-color: #8f9193;
+}
+
+.stepSequencerRitAccelModal_Active_JanuaryA {
+    background: #d2d6df;
+    border: 4px solid #6b7380;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 65vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerRitAccelModal_Inactive_JanuaryA {
+    background: #d2d6df;
+    border: 4px solid #6b7380;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 65vh;
+    left: -190%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerRitAccelTitle_JanuaryA {
+    color: #010204;
+    grid-column: col2 / col23;
+    grid-row: row1 / row2;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.stepSequencerRitAccelStartingTempoLabel_JanuaryA {
+    color: #010204;
+    grid-column: col2 / col4;
+    grid-row: row3 / row4;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.stepSequencerRitAccelNoteFrom_JanuaryA {
+    cursor: pointer;
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    max-width: 100px;
+}
+
+.stepSequencerRitAccelNoteFrom2_JanuaryA {
+    cursor: pointer;
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    max-width: 30px;
+    transform: translateX(25px) translateY(50px);
+}
+
+.stepSequencerTempoEqualsFrom_JanuaryA {
+    color: #010204;
+    grid-column: col4 / col5;
+    grid-row: row4 / row5;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 36px;
+    margin-top: 15px;
+    transform: translateY(25px);
+}
+
+.stepSequencerTempoFromInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    grid-column: col5 / col8;
+    grid-row: row4 / row5;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    height: 30px;
+    margin-top: 45px;
+    outline-color: #8f9193;
+}
+
+.stepSequencerRitAccelFromBarInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col3;
+    grid-row: row5 / row6;
+    outline-color: #8f9193;
+    text-align: right;
+}
+
+.stepSequencerRitAccelFromBarDivider_JanuaryA {
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col4;
+    grid-row: row5 / row6;
+    margin-top: 8px;
+}
+
+.stepSequencerRitAccelFromBeatInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col4 / col5;
+    grid-row: row5 / row6;
+    outline-color: #8f9193;
+    text-align: right;
+}
+
+.stepSequencerRitAccelFromBeatDivider_JanuaryA {
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col5 / col6;
+    grid-row: row5 / row6;
+    margin-top: 8px;
+}
+
+.stepSequencerRitAccelFromTicksInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col6 / col8;
+    grid-row: row5 / row6;
+    outline-color: #8f9193;
+    text-align: left;
+}
+
+.stepSequencerRitAccelEndingingTempoLabel_JanuaryA {
+    color: #010204;
+    grid-column: col17 / col19;
+    grid-row: row3 / row4;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.stepSequencerRitAccelNoteTo_JanuaryA {
+    cursor: pointer;
+    grid-column: col16 / col17;
+    grid-row: row4 / row5;
+    max-width: 100px;
+}
+
+.stepSequencerRitAccelNoteTo2_JanuaryA {
+    cursor: pointer;
+    grid-column: col16 / col17;
+    grid-row: row4 / row5;
+    max-width: 30px;
+    transform: translateX(25px) translateY(50px);
+}
+
+.stepSequencerTempoEqualsTo_JanuaryA {
+    color: #010204;
+    grid-column: col18 / col19;
+    grid-row: row4 / row5;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 36px;
+    margin-top: 15px;
+    transform: translateY(25px);
+}
+
+.stepSequencerTempoToInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    grid-column: col19 / col22;
+    grid-row: row4 / row5;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    height: 30px;
+    margin-top: 45px;
+    outline-color: #8f9193;
+}
+
+.stepSequencerRitAccelToBarInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col16 / col17;
+    grid-row: row5 / row6;
+    outline-color: #8f9193;
+    text-align: right;
+}
+
+.stepSequencerRitAccelToBarDivider_JanuaryA {
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col17 / col18;
+    grid-row: row5 / row6;
+    margin-top: 8px;
+}
+
+.stepSequencerRitAccelToBeatInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col18 / col19;
+    grid-row: row5 / row6;
+    outline-color: #8f9193;
+    text-align: right;
+}
+
+.stepSequencerRitAccelToBeatDivider_JanuaryA {
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col19 / col20;
+    grid-row: row5 / row6;
+    margin-top: 8px;
+}
+
+.stepSequencerRitAccelToTicksInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col20 / col22;
+    grid-row: row5 / row6;
+    outline-color: #8f9193;
+    text-align: left;
+}
+
+.stepSequencerRitAccelCurveDisplayDiv_JanuaryA {
+    background: #c3c7d1;
+    border: 2px solid #0c0e0f;
+    box-sizing: border-box;
+    grid-column: col7 / col16;
+    grid-row: row3 / row8;
+    height: 260px;
+    width: 350px;
+}
+
+.stepSequencerTempoCurvePath_JanuaryA {
+    fill: none;
+    stroke: #253358;
+    stroke-linecap: round;
+    stroke-width: 6;
+}
+
+.stepSequencerRitAccelXValLabel_JanuaryA {
+    color: #010204;
+    grid-column: col8 / col9;
+    grid-row: row8 / row9;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin-top: 18px;
+}
+
+.stepSequencerRitAccelCurveXInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col9 / col11;
+    grid-row: row8 / row9;
+    margin-top: 15px;
+    outline-color: #8f9193;
+    text-align: center;
+}
+
+.stepSequencerRitAccelYValLabel_JanuaryA {
+    color: #010204;
+    grid-column: col12 / col13;
+    grid-row: row8 / row9;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin-top: 18px;
+}
+
+.stepSequencerRitAccelCurveYInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col13 / col15;
+    grid-row: row8 / row9;
+    margin-top: 15px;
+    outline-color: #8f9193;
+    text-align: center;
 }
