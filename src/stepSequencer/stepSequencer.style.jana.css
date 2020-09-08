@@ -374,7 +374,7 @@
     font-size: 24px;
     margin: 2px 0 0 0;
     text-align: right;
-    width: 5vmin;
+    width: 5.5vmin;
 }
 
 .stepSequencerTrackingMeterChangeInputsDiv_JanuaryA {
@@ -2488,6 +2488,88 @@
     font-size: 24px;
     grid-column: col13 / col15;
     grid-row: row8 / row9;
+    margin-top: 15px;
+    outline-color: #8f9193;
+    text-align: center;
+}
+
+.stepSequencerContinuousParamSelect_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: col13 / col22;
+    grid-row: row1 / row2;
+    margin-top: 15px;
+    outline-color: #8f9193;
+}
+
+.stepSequencerContinuousFromInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    grid-column: col2 / col6;
+    grid-row: row4 / row5;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    height: 30px;
+    margin-top: 5px;
+    outline-color: #8f9193;
+}
+
+.stepSequencerContinuousToInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    grid-column: col17 / col20;
+    grid-row: row4 / row5;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    height: 30px;
+    margin-top: 5px;
+    outline-color: #8f9193;
+}
+
+.stepSequencerContinuousXValLabel_JanuaryA {
+    color: #010204;
+    grid-column: col8 / col9;
+    grid-row: row9 / row10;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin-top: 18px;
+}
+
+.stepSequencerContinuousCurveXInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col9 / col11;
+    grid-row: row9 / row10;
+    margin-top: 15px;
+    outline-color: #8f9193;
+    text-align: center;
+}
+
+.stepSequencerContinuousYValLabel_JanuaryA {
+    color: #010204;
+    grid-column: col12 / col13;
+    grid-row: row9 / row10;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin-top: 18px;
+}
+
+.stepSequencerContinuousCurveYInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col13 / col15;
+    grid-row: row9 / row10;
     margin-top: 15px;
     outline-color: #8f9193;
     text-align: center;

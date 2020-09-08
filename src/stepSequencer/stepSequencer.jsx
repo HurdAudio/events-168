@@ -69,215 +69,269 @@ function StepSequencer(user, seq) {
     const [repeatModalState, setRepeatModalState] = useState('_Inactive');
     const [addFxModalState, setAddFxModalState] = useState('_Inactive');
     const [ritAccelModalState, setRitAccelModalState] = useState('_Inactive');
+    const [continuousModalState, setContinuousModalState] = useState('_Inactive');
     const [rudeSolo, setRudeSolo] = useState(false);
     const [midiOutputs, setMidiOutputs] = useState(userOutputs);
     const [saveAsName, setSaveAsName] = useState('');
     const [midiEvents, setMidiEvents] = useState([
         {
+            continuous: false,
             name: 'initial patch',
             uuid: '9f4db083-23fa-4c1c-b7a5-ee3f57288aa7'
         },
         {
+            continuous: false,
+            
             name: 'note event',
             uuid: '439da322-bd74-4dc5-8e4b-b4ca664657a9'
         },
         {
+            continuous: true,
             name: 'pitch bend',
             uuid: 'd1595e03-bcd9-4ca7-9247-4d54723c5a05'
         },
         {
+            continuous: false,
             name: 'program change',
             uuid: '2fdb9151-68ad-46f7-b11e-adbb15d12a09'
         },
         {
+            continuous: true,
             name: 'aftertouch poly',
             uuid: '9a141aff-eea8-46c4-8650-679d9218fb08'
         },
         {
+            continuous: true,
             name: 'aftertouch channel',
             uuid: 'd1c6b635-d413-40aa-97dd-7d795230d5f4'
         },
         {
+            continuous: true,
             name: 'controller change',
             uuid: '884e57d3-f5a5-4192-b640-78891802867b'
         },
         {
+            continuous: false,
             name: 'bank select',
             uuid: '042b257f-f1de-488d-900b-6d7c49361748'
         },
         {   
+            continuous: true,
             name: 'modulation wheel',
             uuid: '89265cc9-9ce5-4219-bfb6-371b18ed42b1'
         },
         {
+            continuous: true,
             name: 'breath controller',
             uuid: '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e'
         },
         {
+            continuous: true,
             name: 'foot controller',
             uuid: '2a3b9983-d175-4bde-aca9-63b70944ec7e'
         },
         {
+            continuous: true,
             name: 'portamento time',
             uuid: '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c'
         },
         {
+            continuous: false,
             name: 'data entry msb',
             uuid: 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb'
         },
         {
+            continuous: true,
             name: 'channel volume',
             uuid: '5138de25-1d5c-473e-8a68-ddbeadc32bd4'
         },
         {
+            continuous: true,
             name: 'balance',
             uuid: '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24'
         },
         {
+            continuous: true,
             name: 'pan',
             uuid: 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb'
         },
         {
+            continuous: true,
             name: 'expression controller',
             uuid: '15a9c413-3dbe-4890-bd52-287c2a48f615'
         },
         {
+            continuous: true,
             name: 'effect control 1',
             uuid: '9434ea7e-6a63-423c-9be5-77584bd587e4'
         },
         {
+            continuous: true,
             name: 'effect control 2',
             uuid: 'a97eee86-2a5e-47db-99b1-74b61bc994c1'
         },
         {
+            continuous: true,
             name: 'general purpose controller 1',
             uuid: '6eaceab3-35bb-49e2-ad82-5bd4c3a32679'
         },
         {
+            continuous: true,
             name: 'general purpose controller 2',
             uuid: 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c'
         },
         {
+            continuous: true,
             name: 'general purpose controller 3',
             uuid: '3474f1bf-5aae-434e-ba95-102114de0dd2'
         },
         {
+            continuous: true,
             name: 'general purpose controller 4',
             uuid: '221e9b45-0ec8-421e-adb6-cfaf19b69610'
         },
         {
+            continuous: false,
             name: 'damper pedal on/off',
             uuid: 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0'
         },
         {
+            continuous: false,
             name: 'portamento on/off',
             uuid: 'c3543d3c-ccc5-45e2-ac42-c62c8b364690'
         },
         {
+            continuous: false,
             name: 'sostenuto on/off',
             uuid: '26a0ab85-b2cc-4442-84c0-bd30fb239869'
         },
         {
+            continuous: false,
             name: 'soft pedal on/off',
             uuid: '890d5a31-859b-4958-8eca-dd0b52f1fbec'
         },
         {
+            continuous: false,
             name: 'legato footswitch',
             uuid: 'f31779f1-2599-487b-8e96-5b0abd35394e'
         },
         {
+            continuous: false,
             name: 'hold 2',
             uuid: '75cf0bca-6196-4219-9eef-54272e8020a8'
         },
         {
+            continuous: false,
             name: 'sound variation',
             uuid: 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3'
         },
         {
+            continuous: true,
             name: 'timbre/harmonic intensity',
             uuid: '5531a226-bc2c-4c60-9505-9b8da30b86c2'
         },
         {
+            continuous: true,
             name: 'release time',
             uuid: 'cb30f654-a1c1-4e76-b479-d41821ede969'
         },
         {
+            continuous: true,
             name: 'attack time',
             uuid: '9390dbb8-efe9-4b41-adf3-47c6531f7aa1'
         },
         {
+            continuous: true,
             name: 'brightness',
             uuid: 'f61546fe-fd2a-4c89-813c-44dde15e6aa2'
         },
         {
+            continuous: true,
             name: 'decay time',
             uuid: '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b'
         },
         {
+            continuous: true,
             name: 'vibrato rate',
             uuid: '752a2e67-911e-45b5-801d-0841c38cf8c2'
         },
         {
+            continuous: true,
             name: 'vibrato depth',
             uuid: '97fb8e80-b937-464d-8830-212dcac90675'
         },
         {
+            continuous: true,
             name: 'vibrato delay',
             uuid: '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c'
         },
         {
+            continuous: true,
             name: 'undefined',
             uuid: '1ab83a91-21b1-4d56-b333-3a59c4ade431'
         },
         {
+            continuous: true,
             name: 'general purpose controller 5',
             uuid: 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1'
         },
         {
+            continuous: true,
             name: 'general purpose controller 6',
             uuid: 'faf99fca-87c1-4e8e-81f5-b0f14251db08'
         },
         {
+            continuous: true,
             name: 'general purpose controller 7',
             uuid: '4c64d103-e813-4c4a-80b5-01cd8186635c'
         },
         {
+            continuous: true,
             name: 'general purpose controller 8',
             uuid: 'e181eaf9-1b61-4e5b-8982-833fb9594529'
         },
         {
+            continuous: true,
             name: 'portamento control',
             uuid: '246e9232-3d6a-4352-8957-d0ff9c1c834e'
         },
         {
+            continuous: false,
             name: 'high resolution velocity prefix',
             uuid: '80e77d4b-c523-4393-a279-6d7b15e65d8a'
         },
         {
+            continuous: true,
             name: 'effects 1 depth',
             uuid: 'c3b8b079-4994-480e-9b0a-8cbce11fba46'
         },
         {
+            continuous: true,
             name: 'effects 2 depth',
             uuid: '206ff86e-6894-4b56-9f5b-f5387d18f2ea'
         },
         {
+            continuous: true,
             name: 'effects 3 depth',
             uuid: '2517d341-7ae3-4dae-b866-49bd2fc9b21c'
         },
         {
+            continuous: true,
             name: 'effects 4 depth',
             uuid: '269524b5-a240-42e5-abfe-bf074ab7cb11'
         },
         {
+            continuous: true,
             name: 'effects 5 depth',
             uuid: 'e1568b69-6246-469f-9654-a398a1606ef9'
         },
         {
+            continuous: false,
             name: 'mono mode',
             uuid: '44feabcb-b735-4980-a3fc-1e229b4bd115'
         },
         {
+            continuous: false,
             name: 'poly mode',
             uuid: '40fc271b-2b22-40ff-a43d-90404ff07c69'
         }
@@ -324,6 +378,29 @@ function StepSequencer(user, seq) {
                 beat: 1, 
                 ticks: 0
             }
+        }
+    });
+    const [continuousParams, setContinuousParams] = useState({
+        curve: [0, 0],
+        from: {
+            time: {
+                bar: 1,
+                beat: 1,
+                ticks: 0
+            },
+            value: 0
+        },
+        max: 16383,
+        min: 0,
+        parameter: 'd1595e03-bcd9-4ca7-9247-4d54723c5a05',
+        parameterName: 'pitch bend',
+        to: {
+            time: {
+                bar: 2,
+                beat: 1,
+                ticks: 0
+            },
+            value: 16383
         }
     });
     const [currentPitchInput, setCurrentPitchInput] = useState(60);
@@ -6479,6 +6556,503 @@ function StepSequencer(user, seq) {
         cancelRitAccelModal();
     }
     
+    const openContinuousModal = () => {
+        setContinuousModalState('_Active');
+        setStepSequencerState('_Inactive');
+    }
+    
+    const cancelContinuousModal = () => {
+        setContinuousModalState('_Inactive');
+        setStepSequencerState('_Active');
+    }
+    
+    const updateContinuousParameter = (val) => {
+        let deepCopy = {...continuousParams};
+        let namer = midiEvents.filter(event => {
+            return(event.uuid === val);
+        });
+        
+        deepCopy.parameter = val;
+        deepCopy.parameterName = namer[0].name;
+        
+        if (val === 'd1595e03-bcd9-4ca7-9247-4d54723c5a05') {
+            deepCopy.max = 16383;
+            deepCopy.min = 0;
+            if (deepCopy.to.value === 127) {
+                deepCopy.to.value = 16383;
+            }
+            if (deepCopy.from.value === 127) {
+                deepCopy.from.value = 16383;
+            }
+        } else {
+            deepCopy.max = 127;
+            deepCopy.min = 0;
+            if (deepCopy.to.value > 127) {
+                deepCopy.to.value = 127;
+            }
+            if (deepCopy.from.value > 127) {
+                deepCopy.from.value = 127;
+            }
+        }
+        
+        setContinuousParams(deepCopy);
+    }
+    
+    const updateContinuousFromValue = (val) => {
+        let deepCopy = {...continuousParams};
+        
+        deepCopy.from.value = parseInt(val);
+        
+        setContinuousParams(deepCopy);
+    }
+    
+    const updateContinuousToValue = (val) => {
+        let deepCopy = {...continuousParams};
+        
+        deepCopy.to.value = parseInt(val);
+        
+        setContinuousParams(deepCopy);
+    }
+    
+    const updateContinuousFromBar = (val) => {
+        let deepCopy = {...continuousParams};
+        
+        deepCopy.from.time.bar = parseInt(val);
+        
+        if (parseInt(deepCopy.from.time.bar) > parseInt(deepCopy.to.time.bar)) {
+            deepCopy.to.time.bar = parseInt(deepCopy.from.time.bar);
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.to.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.time.bar) === parseInt(deepCopy.to.time.bar)) {
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.to.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            }
+        }
+        
+        setContinuousParams(deepCopy);
+    }
+    
+    const updateContinuousFromBeat = (val) => {
+        let deepCopy = {...continuousParams};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.from.time.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 1) {
+            if (parseInt(deepCopy.from.time.bar) === 1) {
+                return
+            }
+            deepCopy.from.time.bar = parseInt(deepCopy.from.time.bar) - 1;
+            deepCopy.from.time.beat = parseInt(meter2.meterNumerator);
+            deepCopy.from.time.ticks = 0;
+        } else if (parseInt(val) > parseInt(meter.meterNumerator)) {
+            if (parseInt(deepCopy.from.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                return;
+            }
+            deepCopy.from.time.bar = parseInt(deepCopy.from.time.bar) + 1;
+            deepCopy.from.time.beat = 1;
+            deepCopy.from.time.ticks = 0;
+        } else {
+            deepCopy.from.time.beat = parseInt(val);
+        }
+        if (parseInt(deepCopy.from.time.bar) > parseInt(deepCopy.to.time.bar)) {
+            deepCopy.to.time.bar = parseInt(deepCopy.from.time.bar);
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.to.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.time.bar) === parseInt(deepCopy.to.time.bar)) {
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.to.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            }
+        }
+        
+        setContinuousParams(deepCopy);
+    }
+    
+    const updateContinuousFromTicks = (val) => {
+        let deepCopy = {...continuousParams};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.from.time.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 0) {
+            if (parseInt(deepCopy.from.time.beat) === 1) {
+                if (parseInt(deepCopy.from.time.bar) === 1) {
+                    return;
+                }
+                deepCopy.from.time.bar = parseInt(deepCopy.from.time.bar) - 1;
+                deepCopy.from.time.beat = parseInt(meter2.meterNumerator);
+                deepCopy.from.time.ticks = parseInt(getMaxTick(parseInt(meter2.meterDenominator))) - 1;
+            } else {
+                deepCopy.from.time.beat = parseInt(deepCopy.from.time.beat) - 1;
+                deepCopy.from.time.ticks = parseInt(getMaxTick(parseInt(meter2.meterDenominator))) - 1;
+            }
+        } else if (parseInt(val) > (parseInt(getMaxTick(parseInt(meter.meterDenominator))) - 1)) {
+            if (parseInt(deepCopy.from.time.beat) === parseInt(meter.meterNumerator)) {
+                if (parseInt(deepCopy.from.time.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                    return;
+                }
+                deepCopy.from.time.bar = parseInt(deepCopy.from.time.bar) + 1;
+                deepCopy.from.time.beat = 1;
+                deepCopy.from.time.ticks = 0;
+            } else {
+                deepCopy.from.time.beat = parseInt(deepCopy.from.time.beat) + 1;
+                deepCopy.from.time.ticks = 0;
+            }
+        } else {
+            deepCopy.from.time.ticks = parseInt(val);
+        }
+        if (parseInt(deepCopy.from.time.bar) > parseInt(deepCopy.to.time.bar)) {
+            deepCopy.to.time.bar = parseInt(deepCopy.from.time.bar);
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.to.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.time.bar) === parseInt(deepCopy.to.time.bar)) {
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.to.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.to.time.ticks = parseInt(deepCopy.from.time.ticks);
+                }
+            }
+        }
+        
+        setContinuousParams(deepCopy);
+    }
+    
+    const updateContinuousToBar = (val) => {
+        let deepCopy = {...continuousParams};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.from.time.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) + 1, beat: 1, ticks: 0});
+        
+        deepCopy.to.time.bar = parseInt(val);
+        
+        if (parseInt(deepCopy.from.time.bar) > parseInt(deepCopy.to.time.bar)) {
+            deepCopy.from.time.bar = parseInt(deepCopy.to.time.bar);
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.from.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.time.bar) === parseInt(deepCopy.to.time.bar)) {
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.from.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            }
+        }
+        
+        setContinuousParams(deepCopy);
+    }
+    
+    const updateContinuousToBeat = (val) => {
+        let deepCopy = {...continuousParams};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.from.time.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 1) {
+            if (parseInt(deepCopy.to.time.bar) === 1) {
+                return;
+            }
+            deepCopy.to.time.bar = parseInt(deepCopy.to.time.bar) - 1;
+            deepCopy.to.time.beat = parseInt(meter2.meterNumerator);
+            deepCopy.to.time.ticks = 0;
+        } else if (parseInt(val) > parseInt(meter.meterNumerator)) {
+            if (parseInt(deepCopy.to.time.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                return;
+            }
+            deepCopy.to.time.bar = parseInt(deepCopy.to.time.bar) + 1;
+            deepCopy.to.time.beat = 1;
+            deepCopy.to.time.ticks = 0;
+        } else {
+            deepCopy.to.time.beat = parseInt(val);
+        }
+        
+        if (parseInt(deepCopy.from.time.bar) > parseInt(deepCopy.to.time.bar)) {
+            deepCopy.from.time.bar = parseInt(deepCopy.to.time.bar);
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.from.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.time.bar) === parseInt(deepCopy.to.time.bar)) {
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.from.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            }
+        }
+        
+        setContinuousParams(deepCopy);
+    }
+    
+    const updateContinuousTicks = (val) => {
+        let deepCopy = {...continuousParams};
+        let meter = meterAtPosition({bar: parseInt(deepCopy.from.time.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) - 1, beat: 1, ticks: 0});
+        let meter3 = meterAtPosition({bar: parseInt(deepCopy.from.time.bar) + 1, beat: 1, ticks: 0});
+        
+        if (parseInt(val) < 0) {
+            if (parseInt(deepCopy.to.time.beat) === 1) {
+                if (parseInt(deepCopy.to.time.bar) === 1) {
+                    return;
+                }
+                deepCopy.to.time.bar = parseInt(deepCopy.to.time.bar) - 1;
+                deepCopy.to.time.beat = parseInt(meter2.meterNumerator);
+                deepCopy.to.time.ticks = parseInt(getMaxTick(parseInt(meter2.meterDenominator))) - 1;
+            } else {
+                deepCopy.to.time.beat = parseInt(deepCopy.to.time.beat) - 1;
+                deepCopy.to.time.ticks = parseInt(getMaxTick(parseInt(meter.meterDenominator))) - 1;
+            }
+        } else if (parseInt(val) > (parseInt(getMaxTick(parseInt(meter.meterDenominator))) - 1)) {
+            if (parseInt(deepCopy.to.time.beat) === parseInt(meter.meterNumerator)) {
+                if (parseInt(deepCopy.to.time.bar) === (parseInt(sequence.duration.bar) - 1)) {
+                    return;
+                }
+                deepCopy.to.time.bar = parseInt(deepCopy.to.time.bar) + 1;
+                deepCopy.to.time.beat = 1;
+                deepCopy.to.time.ticks = 0;
+            } else {
+                deepCopy.to.time.beat = parseInt(deepCopy.to.time.beat) + 1;
+                deepCopy.to.time.ticks = 0;
+            }
+        } else {
+            deepCopy.to.time.ticks = parseInt(val);
+        }
+        
+        if (parseInt(deepCopy.from.time.bar) > parseInt(deepCopy.to.time.bar)) {
+            deepCopy.from.time.bar = parseInt(deepCopy.to.time.bar);
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.from.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            }
+        } else if (parseInt(deepCopy.from.time.bar) === parseInt(deepCopy.to.time.bar)) {
+            if (parseInt(deepCopy.from.time.beat) > parseInt(deepCopy.to.time.beat)) {
+                deepCopy.from.time.beat = parseInt(deepCopy.from.time.beat);
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            } else if (parseInt(deepCopy.from.time.beat) === parseInt(deepCopy.to.time.beat)) {
+                if (parseInt(deepCopy.from.time.ticks) > parseInt(deepCopy.to.time.ticks)) {
+                    deepCopy.from.time.ticks = parseInt(deepCopy.to.time.ticks);
+                }
+            }
+        }
+        
+        setContinuousParams(deepCopy);
+    }
+    
+    const absoluteContinuousPosition = (val) => {
+        let position = svgHeight - (Math.floor((val/continuousParams.max) * svgHeight));
+        
+        return position.toString();
+    }
+    
+    const curveX1PositionContinuous = (val) => {
+        let position = svgWidth / 3;
+        let diff = position;
+        
+        if (val < 0) {
+            diff = 10 * (diff * ((val * -1)/100));
+            position = position - diff;
+        } else if (val > 0) {
+            diff = 10 * (diff * (val/100));
+            position = position + diff;
+        }
+        
+        if (position < 0) {
+            position = 0;
+        } else if (position > svgWidth) {
+            position = svgWidth;
+        }
+        
+        return (Math.floor(position)).toString();
+    }
+    
+    const curveY1PositionContinuous = (val) => {
+        let position = 0;
+        let tempo1 = parseInt(absoluteContinuousPosition(continuousParams.from.value));
+        let tempo2 = parseInt(absoluteContinuousPosition(continuousParams.to.value));
+        let diff = 0;
+        let offset = 0;
+        
+        if (tempo1 < tempo2) {
+            diff = tempo2 - tempo1;
+            position = tempo1 + (diff/3);
+        } else {
+            diff = tempo1 - tempo2;
+            position = tempo2 + ((diff / 3) * 2);
+        }
+        
+        if (val < 0) {
+            offset = ((val * -1)/diff);
+            position = position - (16 * (diff * offset));
+        } else if (val > 0) {
+            offset = (val/diff);
+            position = position + (16 * (diff * offset));
+        }
+        
+        if (tempo1 < tempo2) {
+            if (position < (tempo1)) {
+                position = tempo1;
+            } else if (position > tempo2) {
+                position = tempo2;
+            }
+        } else {
+            if (position < (tempo2)) {
+                position = tempo2;
+            } else if (position > (tempo1)) {
+                position = tempo1;
+            }
+        }
+        
+        return Math.floor(position).toString();
+    }
+    
+    const curveX2PositionContinuous = (val) => {
+        let position = ((svgWidth * 2) / 3);
+        let diff = (svgWidth / 3);
+        
+        if (val < 0) {
+            diff = 10 * (diff * ((val * -1)/100));
+            position = position + diff;
+        } else if (val > 0) {
+            diff = 10 * (diff * (val/100));
+            position = position - diff;
+        }
+        
+        if (position > (svgWidth * 2)) {
+            position = svgWidth * 2;
+        } else if (position < (-1 * svgWidth)) {
+            position = (-1 * svgWidth);
+        }
+        
+        return Math.floor(position).toString();
+    }
+    
+    const curveY2PositionContinuous = (val) => {
+        let position = 0;
+        let tempo1 = parseInt(absoluteContinuousPosition(continuousParams.from.value));
+        let tempo2 = parseInt(absoluteContinuousPosition(continuousParams.to.value));
+        let diff = 0;
+        let offset = 0;
+        
+        if (tempo1 < tempo2) {
+            diff = tempo2 - tempo1;
+            position = tempo1 + ((diff / 3) * 2);
+        } else {
+            diff = tempo1 - tempo2;
+            position = tempo2 + (diff / 3);
+        }
+        
+        if (val < 0) {
+            offset = ((val * -1)/diff);
+            position = position + (16 * (diff * offset));
+        } else if (val > 0) {
+            offset = (val/diff);
+            position = position - (16 * (diff * offset));
+        }
+        
+        if (tempo1 < tempo2) {
+            if (position < (tempo1)) {
+                position = tempo1;
+            } else if (position > tempo2) {
+                position = tempo2;
+            }
+        } else {
+            if (position < (tempo2)) {
+                position = tempo2;
+            } else if (position > (tempo1)) {
+                position = tempo1;
+            }
+        }
+        
+        return Math.floor(position).toString();
+    }
+    
+    const updateContinuousCurveX = (val) => {
+        let deepCopy = {...continuousParams};
+        
+        deepCopy.curve[0] = parseFloat(val);
+        
+        setContinuousParams(deepCopy);
+    }
+    
+    const updateContinuousCurveY = (val) => {
+        let deepCopy = {...continuousParams};
+        
+        deepCopy.curve[1] = parseFloat(val);
+        
+        setContinuousParams(deepCopy);
+    }
+            
     return(
         <div>
             <div className={'stepSequencerContainer' + stepSequencerState + stepSequenceMonth}
@@ -7260,7 +7834,7 @@ function StepSequencer(user, seq) {
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
                                             )}
-                                            {((event.event === '042b257f-f1de-488d-900b-6d7c49361748') || (event.event === '89265cc9-9ce5-4219-bfb6-371b18ed42b1') || (event.event === '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e') || (event.event === '2a3b9983-d175-4bde-aca9-63b70944ec7e') || (event.event === '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c') || (event.event === 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb') || (event.event === '5138de25-1d5c-473e-8a68-ddbeadc32bd4') || (event.event === '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24') || (event.event === 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb') || (event.event === '15a9c413-3dbe-4890-bd52-287c2a48f615') || (event.event == '9434ea7e-6a63-423c-9be5-77584bd587e4') || (event.event === 'a97eee86-2a5e-47db-99b1-74b61bc994c1') || (event.event === '6eaceab3-35bb-49e2-ad82-5bd4c3a32679') || (event.event === 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c') || (event.event === '3474f1bf-5aae-434e-ba95-102114de0dd2') || (event.event === '221e9b45-0ec8-421e-adb6-cfaf19b69610') || (event.event === 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3') || (event.event === '5531a226-bc2c-4c60-9505-9b8da30b86c2') || (event.event === 'cb30f654-a1c1-4e76-b479-d41821ede969') || (event.event === '9390dbb8-efe9-4b41-adf3-47c6531f7aa1') || (event.event === 'f61546fe-fd2a-4c89-813c-44dde15e6aa2') || (event.event === '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b') || (event.event === '752a2e67-911e-45b5-801d-0841c38cf8c2') || (event.event === '97fb8e80-b937-464d-8830-212dcac90675') || (event.event === '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c') || (event.event === '1ab83a91-21b1-4d56-b333-3a59c4ade431') || (event.event === 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1') || (event.event === 'faf99fca-87c1-4e8e-81f5-b0f14251db08') || (event.event === '4c64d103-e813-4c4a-80b5-01cd8186635c') || (event.event === 'e181eaf9-1b61-4e5b-8982-833fb9594529') || (event.event === '246e9232-3d6a-4352-8957-d0ff9c1c834e') || (event.event === '80e77d4b-c523-4393-a279-6d7b15e65d8a') || (event.event === 'c3b8b079-4994-480e-9b0a-8cbce11fba46') || (event.event === '206ff86e-6894-4b56-9f5b-f5387d18f2ea') || (event.event === '2517d341-7ae3-4dae-b866-49bd2fc9b21c') || (event.event === '269524b5-a240-42e5-abfe-bf074ab7cb11') || (event.event === 'e1568b69-6246-469f-9654-a398a1606ef9')) && (
+                                            {((event.event === '042b257f-f1de-488d-900b-6d7c49361748') || (event.event === '89265cc9-9ce5-4219-bfb6-371b18ed42b1') || (event.event === '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e') || (event.event === '2a3b9983-d175-4bde-aca9-63b70944ec7e') || (event.event === '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c') || (event.event === 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb') || (event.event === '5138de25-1d5c-473e-8a68-ddbeadc32bd4') || (event.event === '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24') || (event.event === 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb') || (event.event === '15a9c413-3dbe-4890-bd52-287c2a48f615') || (event.event === '9434ea7e-6a63-423c-9be5-77584bd587e4') || (event.event === 'a97eee86-2a5e-47db-99b1-74b61bc994c1') || (event.event === '6eaceab3-35bb-49e2-ad82-5bd4c3a32679') || (event.event === 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c') || (event.event === '3474f1bf-5aae-434e-ba95-102114de0dd2') || (event.event === '221e9b45-0ec8-421e-adb6-cfaf19b69610') || (event.event === 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3') || (event.event === '5531a226-bc2c-4c60-9505-9b8da30b86c2') || (event.event === 'cb30f654-a1c1-4e76-b479-d41821ede969') || (event.event === '9390dbb8-efe9-4b41-adf3-47c6531f7aa1') || (event.event === 'f61546fe-fd2a-4c89-813c-44dde15e6aa2') || (event.event === '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b') || (event.event === '752a2e67-911e-45b5-801d-0841c38cf8c2') || (event.event === '97fb8e80-b937-464d-8830-212dcac90675') || (event.event === '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c') || (event.event === '1ab83a91-21b1-4d56-b333-3a59c4ade431') || (event.event === 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1') || (event.event === 'faf99fca-87c1-4e8e-81f5-b0f14251db08') || (event.event === '4c64d103-e813-4c4a-80b5-01cd8186635c') || (event.event === 'e181eaf9-1b61-4e5b-8982-833fb9594529') || (event.event === '246e9232-3d6a-4352-8957-d0ff9c1c834e') || (event.event === '80e77d4b-c523-4393-a279-6d7b15e65d8a') || (event.event === 'c3b8b079-4994-480e-9b0a-8cbce11fba46') || (event.event === '206ff86e-6894-4b56-9f5b-f5387d18f2ea') || (event.event === '2517d341-7ae3-4dae-b866-49bd2fc9b21c') || (event.event === '269524b5-a240-42e5-abfe-bf074ab7cb11') || (event.event === 'e1568b69-6246-469f-9654-a398a1606ef9')) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
                                                     onClick={() => noteEditEventCurrentPosition(event.id)}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
@@ -7345,7 +7919,8 @@ function StepSequencer(user, seq) {
                                 onChange={(e) => updateTrackName(e.target.value)}
                                 type="text"
                                 value={sequence.tracks[activeTrack].name} />
-                            <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>continuous</button>
+                            <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}
+                                onClick={() => openContinuousModal()}>continuous</button>
                             <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>duplicate</button>
                             <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>filter</button>
                             <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>quantize</button>
@@ -7827,6 +8402,93 @@ function StepSequencer(user, seq) {
                     onClick={() => executeTempoRitAccel()}>submit</button>
                 <button className={'stepSequencerRepeaterCancelButton' + stepSequenceMonth}
                     onClick={() => cancelRitAccelModal()}>cancel</button>
+            </div>
+            <div className={'stepSequencerRitAccelModal' + continuousModalState + stepSequenceMonth}>
+                <p className={'stepSequencerRitAccelTitle' + stepSequenceMonth}>continuous parameter change</p>
+                <select className={'stepSequencerContinuousParamSelect' + stepSequenceMonth}
+                    onChange={(e) => updateContinuousParameter(e.target.value)}
+                    value={continuousParams.parameter}>
+                    {midiEvents.filter(parameter => {
+                        return(parameter.continuous)
+                        }).map(p => (
+                            <option key={p.uuid} value={p.uuid}>{p.name}</option>
+                    ))}                        
+                </select>
+                <p className={'stepSequencerRitAccelStartingTempoLabel' + stepSequenceMonth}>starting value:</p>
+                <input className={'stepSequencerContinuousFromInput' + stepSequenceMonth} 
+                    max={continuousParams.max}
+                    min={continuousParams.min}
+                    onChange={(e) => updateContinuousFromValue(e.target.value)}
+                    type="number"
+                    value={continuousParams.from.value}
+                    />
+                <input className={'stepSequencerRitAccelFromBarInput' + stepSequenceMonth}
+                    max={continuousParams.to.time.bar}
+                    min="1"
+                    onChange={(e) => updateContinuousFromBar(e.target.value)}
+                    type="number"
+                    value={continuousParams.from.time.bar} />
+                <p className={'stepSequencerRitAccelFromBarDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerRitAccelFromBeatInput' + stepSequenceMonth}
+                    onChange={(e) => updateContinuousFromBeat(e.target.value)}
+                    type="number"
+                    value={continuousParams.from.time.beat} />
+                <p className={'stepSequencerRitAccelFromBeatDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerRitAccelFromTicksInput' + stepSequenceMonth}
+                    onChange={(e) => updateContinuousFromTicks(e.target.value)}
+                    type="number"
+                    value={continuousParams.from.time.ticks} />
+                <p className={'stepSequencerRitAccelEndingingTempoLabel' + stepSequenceMonth}>ending value:</p>
+                <input className={'stepSequencerContinuousToInput' + stepSequenceMonth} 
+                    max={continuousParams.max}
+                    min={continuousParams.min}
+                    onChange={(e) => updateContinuousToValue(e.target.value)}
+                    type="number"
+                    value={continuousParams.to.value}
+                    />
+                <input className={'stepSequencerRitAccelToBarInput' + stepSequenceMonth}
+                    max={sequence.duration.bar}
+                    min="1"
+                    onChange={(e) => updateContinuousToBar(e.target.value)}
+                    type="number"
+                    value={continuousParams.to.time.bar} />
+                <p className={'stepSequencerRitAccelToBarDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerRitAccelToBeatInput' + stepSequenceMonth}
+                    onChange={(e) => updateContinuousToBeat(e.target.value)}
+                    type="number"
+                    value={continuousParams.to.time.beat} />
+                <p className={'stepSequencerRitAccelToBeatDivider' + stepSequenceMonth}>.</p>
+                <input className={'stepSequencerRitAccelToTicksInput' + stepSequenceMonth}
+                    onChange={(e) => updateContinuousTicks(e.target.value)}
+                    type="number"
+                    value={continuousParams.to.time.ticks} />
+                <div className={'stepSequencerRitAccelCurveDisplayDiv' + stepSequenceMonth}>
+                    <svg height="100%"
+                        width="100%">
+                        <path className={'stepSequencerTempoCurvePath' + stepSequenceMonth}
+                            d={"M 0 " + absoluteContinuousPosition(continuousParams.from.value) + "  C " + curveX1PositionContinuous(continuousParams.curve[0]) + " " + curveY1PositionContinuous(continuousParams.curve[1]) + " " + curveX2PositionContinuous(continuousParams.curve[0]) + " " + curveY2PositionContinuous(continuousParams.curve[1]) + " 350 " + absoluteContinuousPosition(continuousParams.to.value)}>
+                        </path>
+                    </svg>
+                </div>
+                <p className={'stepSequencerContinuousXValLabel' + stepSequenceMonth}>X:</p>
+                <input className={'stepSequencerContinuousCurveXInput' + stepSequenceMonth}
+                    max="10"
+                    min="-10"
+                    onChange={(e) => updateContinuousCurveX(e.target.value)}
+                    step="0.1"
+                    type="number"
+                    value={continuousParams.curve[0]}/>
+                <p className={'stepSequencerContinuousYValLabel' + stepSequenceMonth}>Y:</p>
+                <input className={'stepSequencerContinuousCurveYInput' + stepSequenceMonth}
+                    max="10"
+                    min="-10"
+                    onChange={(e) => updateContinuousCurveY(e.target.value)}
+                    step="0.1"
+                    type="number"
+                    value={continuousParams.curve[1]}/>
+                <button className={'stepSequencerRepeaterSubmitButton' + stepSequenceMonth}>submit</button>
+                <button className={'stepSequencerRepeaterCancelButton' + stepSequenceMonth}
+                    onClick={() => cancelContinuousModal()}>cancel</button>
             </div>
         </div>
     )
