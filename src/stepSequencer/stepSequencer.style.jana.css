@@ -2574,3 +2574,25 @@
     outline-color: #8f9193;
     text-align: center;
 }
+
+.stepSequencerContinuousMidiChannelLabel_JanuaryA {
+    color: #010204;
+    grid-column: col2 / col4;
+    grid-row: row7 / row8;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin-top: 18px;
+}
+
+.stepSequencerContinuousMidiChannelInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col4;
+    grid-row: row8 / row9;
+    margin-top: 15px;
+    outline-color: #8f9193;
+    text-align: center;
+}

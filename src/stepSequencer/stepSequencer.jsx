@@ -391,6 +391,7 @@ function StepSequencer(user, seq) {
             value: 0
         },
         max: 16383,
+        midiChannel: 0,
         min: 0,
         parameter: 'd1595e03-bcd9-4ca7-9247-4d54723c5a05',
         parameterName: 'pitch bend',
@@ -6912,7 +6913,7 @@ function StepSequencer(user, seq) {
     const absoluteContinuousPosition = (val) => {
         let position = svgHeight - (Math.floor((val/continuousParams.max) * svgHeight));
         
-        return position.toString();
+        return position;
     }
     
     const curveX1PositionContinuous = (val) => {
@@ -7049,6 +7050,369 @@ function StepSequencer(user, seq) {
         let deepCopy = {...continuousParams};
         
         deepCopy.curve[1] = parseFloat(val);
+        
+        setContinuousParams(deepCopy);
+    }
+    
+    const calculateContinueMidpoint1 = (start, end, increase) => {
+        let ticksDuration = calculateDurationInTicks(start, end);
+        let position = {
+            bar: start.bar,
+            beat: start.beat,
+            ticks: start.ticks
+        };
+        let neutralTicks = Math.floor(ticksDuration/3);
+        let delta = 0;
+        let tempoDelta;
+        let neutralTempo;
+        let tempoVariance;
+        
+        if (continuousParams.curve[0] === 0) {
+            delta = neutralTicks;
+        } else if (continuousParams.curve[0] < 0) {
+            delta = neutralTicks - (neutralTicks * ((-1 * continuousParams.curve[0])/11));
+        } else {
+            delta = neutralTicks + (neutralTicks * (continuousParams.curve[0]/11));
+        }
+        for (let i = 0; i < delta; i++) {
+            position = addTick(position);
+        }
+        if (increase) {
+            tempoVariance = end.value - start.value;
+            neutralTempo = (tempoVariance/3) * 2;
+            if (continuousParams.curve[1] === 0) {
+                tempoDelta = neutralTempo;
+            } else if (continuousParams.curve[1] < 0) {
+                tempoDelta = neutralTempo - (neutralTempo * ((-1 * continuousParams.curve[1])/11));
+            } else {
+                tempoDelta = neutralTempo + (neutralTempo * (continuousParams.curve[1]/11));
+            }
+            position.value = start.value + tempoDelta;
+        } else {
+            tempoVariance = start.value - end.value;
+            neutralTempo = (tempoVariance/3);
+            if (continuousParams.curve[1] === 0) {
+                tempoDelta = neutralTempo;
+            } else if (continuousParams.curve[1] < 0) {
+                tempoDelta = neutralTempo + ((neutralTempo/2) * ((-1 * continuousParams.curve[1])/11));
+            } else {
+                tempoDelta = neutralTempo - ((neutralTempo/2) * (continuousParams.curve[1]/11));
+            }
+            position.value = start.value - tempoDelta;
+        }
+        
+        return position;
+    }
+    
+    const calculateContinueMidpoint2 = (start, end, increase) => {
+        let ticksDuration = calculateDurationInTicks(start, end);
+        let position = {
+            bar: start.bar,
+            beat: start.beat,
+            ticks: start.ticks
+        };
+        let neutralTicks = Math.floor(ticksDuration/3) * 2;
+        let delta = 0;
+        let tempoDelta;
+        let neutralTempo;
+        let tempoVariance;
+        
+        if (continuousParams.curve[0] === 0) {
+            delta = neutralTicks;
+        } else if (continuousParams.curve[0] < 0) {
+            delta = neutralTicks + ((neutralTicks/2) * ((-1 * continuousParams.curve[0])/11));
+        } else {
+            delta = neutralTicks - ((neutralTicks/2) * (continuousParams.curve[0]/11));
+        }
+        for (let i = 0; i < delta; i++) {
+            position = addTick(position);
+        }
+        if (increase) {
+            tempoVariance = end.value - start.value;
+            neutralTempo = (tempoVariance/3);
+            if (continuousParams.curve[1] === 0) {
+                tempoDelta = neutralTempo;
+            } else if (continuousParams.curve[1] < 0) {
+                tempoDelta = neutralTempo - (neutralTempo * ((-1 * continuousParams.curve[1])/11));
+            } else {
+                tempoDelta = neutralTempo + (neutralTempo * (continuousParams.curve[1]/11));
+            }
+            position.value = start.value + tempoDelta;
+        } else {
+            tempoVariance = start.value - end.value;
+            neutralTempo = (tempoVariance/3) * 2;
+            if (continuousParams.curve[1] === 0) {
+                tempoDelta = neutralTempo;
+            } else if (continuousParams.curve[1] < 0) {
+                tempoDelta = neutralTempo + ((neutralTempo/2) * ((-1 * continuousParams.curve[1])/11));
+            } else {
+                tempoDelta = neutralTempo - ((neutralTempo/2) * (continuousParams.curve[1]/11));
+            }
+            position.value = start.value - tempoDelta;
+        }
+        
+        return position;
+    }
+    
+    const calculateParamChanges = (start, end, increase) => {
+        let totalTicks = calculateDurationInTicks(start, end);
+        let totalParamChange = 0;
+        let totalSteps = 0;
+        let stepSize;
+        let paramSize;
+        let position = {
+            bar: start.bar,
+            beat: start.beat,
+            ticks: start.ticks
+        };
+        let valueMark = start.value;
+        let arr = [];
+        if (start.value < end.value) {
+            totalParamChange = end.value - start.value;
+        } else {
+            totalParamChange = start.value - end.value;
+        }
+        if (totalTicks < totalParamChange) {
+            totalSteps = Math.floor(totalTicks);
+        } else {
+            totalSteps = Math.floor(totalParamChange);
+        }
+        stepSize = Math.floor(totalTicks/totalSteps);
+        paramSize = totalParamChange/totalSteps;
+        for (let i = 0; i < totalSteps; i++) {
+            arr.push({
+                bar: position.bar,
+                beat: position.beat,
+                ticks: position.ticks,
+                value: Math.floor(valueMark),
+            });
+            for (let j = 0; j < stepSize; j++) {
+                position = addTick(position);
+            }
+            if (start.value < end.value) {
+                valueMark = valueMark + paramSize;
+            } else {
+                valueMark = valueMark - paramSize;
+            }
+        }
+        return arr;
+    }
+    
+    const eventFromContinuous = (eventer) => {
+        let vent = {
+            event: continuousParams.parameter,
+            midiChannel: continuousParams.midiChannel,
+            time: {
+                bar: eventer.bar,
+                beat: eventer.beat,
+                ticks: eventer.ticks
+            }
+        };
+        
+        switch(continuousParams.parameter) {
+            case('d1595e03-bcd9-4ca7-9247-4d54723c5a05'):
+                vent.bend = eventer.value;
+                vent.name = 'pitch bend';
+                break;
+            case('9a141aff-eea8-46c4-8650-679d9218fb08'):
+                vent.name = 'after(poly)';
+                vent.pressure = eventer.value;
+                break;
+            case('d1c6b635-d413-40aa-97dd-7d795230d5f4'):
+                vent.name = 'after(chan)';
+                vent.pressure = eventer.value
+                break;
+            case('884e57d3-f5a5-4192-b640-78891802867b'):
+                vent.name = 'controller';
+                vent.value = eventer.value;
+                break;
+            case('89265cc9-9ce5-4219-bfb6-371b18ed42b1'):
+                vent.name = 'mod. wheel';
+                vent.value = eventer.value;
+                break;
+            case('4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e'):
+                vent.name = 'breath';
+                vent.value = eventer.value;
+                break;
+            case('2a3b9983-d175-4bde-aca9-63b70944ec7e'):
+                vent.name = 'foot';
+                vent.value = eventer.value;
+                break;
+            case('96a94fa3-cf34-4ab5-8cb4-586b25e8b40c'):
+                vent.name = 'port. time';
+                vent.value = eventer.value;
+                break;
+            case('5138de25-1d5c-473e-8a68-ddbeadc32bd4'):
+                vent.name = 'volume';
+                vent.value = eventer.value;
+                break;
+            case('598a5aaa-346c-4e2c-80ce-08cbcb1e7c24'):
+                vent.name = 'balance';
+                vent.value = eventer.value;
+                break;
+            case('ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb'):
+                vent.name = 'pan';
+                vent.value = eventer.value;
+                break;
+            case('15a9c413-3dbe-4890-bd52-287c2a48f615'):
+                vent.name = 'expression';
+                vent.value = eventer.value;
+                break;
+            case('9434ea7e-6a63-423c-9be5-77584bd587e4'):
+                vent.name = 'effect 1';
+                vent.value = eventer.value;
+                break;
+            case('a97eee86-2a5e-47db-99b1-74b61bc994c1'):
+                vent.name = 'effect 2';
+                vent.value = eventer.value;
+                break;
+            case('6eaceab3-35bb-49e2-ad82-5bd4c3a32679'):
+                vent.name = 'general 1';
+                vent.value = eventer.value;
+                break;
+            case('cdd20c5c-f942-4f8f-a15f-a750ecfd957c'):
+                vent.name = 'general 2';
+                vent.value = eventer.value;
+                break;
+            case('3474f1bf-5aae-434e-ba95-102114de0dd2'):
+                vent.name = 'general 3';
+                vent.value = eventer.value;
+                break;
+            case('221e9b45-0ec8-421e-adb6-cfaf19b69610'):
+                vent.name = 'general 4';
+                vent.value = eventer.value;
+                break;
+            case('5531a226-bc2c-4c60-9505-9b8da30b86c2'):
+                vent.name = 'timbre';
+                vent.value = eventer.value;
+                break;
+            case('cb30f654-a1c1-4e76-b479-d41821ede969'):
+                vent.name = 'release time';
+                vent.value = eventer.valu;
+                break;
+            case('9390dbb8-efe9-4b41-adf3-47c6531f7aa1'):
+                vent.name = 'attack time';
+                vent.value = eventer.value;
+                break;
+            case('f61546fe-fd2a-4c89-813c-44dde15e6aa2'):
+                vent.name = 'brightness';
+                vent.value = eventer.value;
+                break;
+            case('79d3c79f-6d9b-4eb1-ae78-51dd9362e21b'):
+                vent.name = 'decay time';
+                vent.value = eventer.value;
+                break;
+            case('752a2e67-911e-45b5-801d-0841c38cf8c2'):
+                vent.name = 'vibrato rate';
+                vent.value = eventer.value;
+                break;
+            case('97fb8e80-b937-464d-8830-212dcac90675'):
+                vent.name = 'vibrato depth';
+                vent.value = eventer.value;
+                break;
+            case('5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c'):
+                vent.name = 'vibrato delay';
+                vent.value = eventer.value;
+                break;
+            case('1ab83a91-21b1-4d56-b333-3a59c4ade431'):
+                vent.name = 'undefined';
+                vent.value = eventer.value;
+                break;
+            case('b64c45f7-cf57-4864-a07f-e8f82dbf63b1'):
+                vent.name = 'general 5';
+                vent.value = eventer.value;
+                break;
+            case('faf99fca-87c1-4e8e-81f5-b0f14251db08'):
+                vent.name = 'general 6';
+                vent.value = eventer.value;
+                break;
+            case('4c64d103-e813-4c4a-80b5-01cd8186635c'):
+                vent.name = 'general 7';
+                vent.value = eventer.value;
+                break;
+            case('e181eaf9-1b61-4e5b-8982-833fb9594529'):
+                vent.name = 'general 8';
+                vent.value = eventer.value;
+                break;
+            case('246e9232-3d6a-4352-8957-d0ff9c1c834e'):
+                vent.name = 'portamento';
+                break;
+            case('80e77d4b-c523-4393-a279-6d7b15e65d8a'):
+                vent.name = 'hrvp';
+                vent.value = eventer.value;
+                break;
+            case('c3b8b079-4994-480e-9b0a-8cbce11fba46'):
+                vent.name = 'fx 1 depth';
+                vent.value = eventer.value;
+                break;
+            case('206ff86e-6894-4b56-9f5b-f5387d18f2ea'):
+                vent.name = 'fx 2 depth';
+                vent.value = eventer.value;
+                break;
+            case('2517d341-7ae3-4dae-b866-49bd2fc9b21c'):
+                vent.name = 'fx 3 depth';
+                vent.value = eventer.value;
+                break;
+            case('269524b5-a240-42e5-abfe-bf074ab7cb11'):
+                vent.name = 'fx 4 depth';
+                vent.value = eventer.value;
+                break;
+            case('e1568b69-6246-469f-9654-a398a1606ef9'):
+                vent.name = 'fx 5 depth';
+                vent.value = eventer.value;
+                break;
+            case('c3543d3c-ccc5-45e2-ac42-c62c8b364690'):
+                vent.name = 'portamento';
+                vent.value = eventer.value;
+                break;
+            default:
+                console.log('error - unsupported event');
+        }
+        
+        return vent;
+    }
+    
+    const executeContinuousControl = () => {
+        let deepCopy = {...sequence};
+        let increase = (continuousParams.from.value < continuousParams.to.value);
+        let startPosition = {
+            bar: continuousParams.from.time.bar,
+            beat: continuousParams.from.time.beat,
+            ticks: continuousParams.from.time.ticks,
+            value: continuousParams.from.value
+        };
+        let endPosition = {
+            bar: continuousParams.to.time.bar,
+            beat: continuousParams.to.time.beat,
+            ticks: continuousParams.from.time.ticks,
+            value: continuousParams.to.value
+        };
+        
+        let midpoint1 = calculateContinueMidpoint1(startPosition, endPosition, !increase);
+        let midpoint2 = calculateContinueMidpoint2(startPosition, endPosition, !increase);
+        let segment1 = calculateParamChanges(startPosition, midpoint1, !increase);
+        let segment2 = calculateParamChanges(midpoint1, midpoint2, !increase);
+        let segment3 = calculateParamChanges(midpoint2, endPosition, !increase);
+        for (let i = 0; i < segment1.length; i++) {
+            deepCopy.tracks[activeTrack].events.push(eventFromContinuous(segment1[i]));
+        }
+        for (let j = 0; j < segment2.length; j++) {
+            deepCopy.tracks[activeTrack].events.push(eventFromContinuous(segment2[j]));
+        }
+        for (let k = 0; k < segment3.length; k++) {
+            deepCopy.tracks[activeTrack].events.push(eventFromContinuous(segment3[k]));
+        };
+        deepCopy.tracks[activeTrack].events.push(eventFromContinuous(endPosition));
+        setSequence(deepCopy);
+        reOrderEvents();
+        cancelContinuousModal();
+        
+    }
+    
+    const updateContinuousMidiChannel = (val) => {
+        let deepCopy = {...continuousParams};
+        
+        deepCopy.midiChannel = parseInt(val);
         
         setContinuousParams(deepCopy);
     }
@@ -8462,6 +8826,13 @@ function StepSequencer(user, seq) {
                     onChange={(e) => updateContinuousTicks(e.target.value)}
                     type="number"
                     value={continuousParams.to.time.ticks} />
+                <p className={'stepSequencerContinuousMidiChannelLabel' + stepSequenceMonth}>midi channel:</p>
+                <input className={'stepSequencerContinuousMidiChannelInput' + stepSequenceMonth}
+                    max="15"
+                    min="0"
+                    onChange={(e) => updateContinuousMidiChannel(e.target.value)}
+                    type="number"
+                    value={continuousParams.midiChannel} />
                 <div className={'stepSequencerRitAccelCurveDisplayDiv' + stepSequenceMonth}>
                     <svg height="100%"
                         width="100%">
@@ -8486,7 +8857,8 @@ function StepSequencer(user, seq) {
                     step="0.1"
                     type="number"
                     value={continuousParams.curve[1]}/>
-                <button className={'stepSequencerRepeaterSubmitButton' + stepSequenceMonth}>submit</button>
+                <button className={'stepSequencerRepeaterSubmitButton' + stepSequenceMonth}
+                    onClick={() => executeContinuousControl()}>submit</button>
                 <button className={'stepSequencerRepeaterCancelButton' + stepSequenceMonth}
                     onClick={() => cancelContinuousModal()}>cancel</button>
             </div>
