@@ -70,6 +70,8 @@ function StepSequencer(user, seq) {
     const [addFxModalState, setAddFxModalState] = useState('_Inactive');
     const [ritAccelModalState, setRitAccelModalState] = useState('_Inactive');
     const [continuousModalState, setContinuousModalState] = useState('_Inactive');
+    const [duplicateTrackModalStatus, setDuplicateTrackModalStatus] = useState('_Inactive');
+    const [duplicateTrackMidiChannel, setDuplicateTrackMidiChannel] = useState(0);
     const [rudeSolo, setRudeSolo] = useState(false);
     const [midiOutputs, setMidiOutputs] = useState(userOutputs);
     const [saveAsName, setSaveAsName] = useState('');
@@ -3522,6 +3524,7 @@ function StepSequencer(user, seq) {
         let deepSequence = {...sequence};
         
         deepSequence.tracks.splice(activeTrack, 1);
+        deepSequence.tracks[0].active = true;
         
         setSequence(deepSequence);
         setActiveTrack(0);
@@ -3533,13 +3536,7 @@ function StepSequencer(user, seq) {
         
         if (sequence.tracks[activeTrack].events.length === 0) {
             deepSequence.tracks.splice(activeTrack, 1);
-        } else {
-            // TODO guardrail for delete
-            setTrackGuardrailState('_Active');
-            setStepSequencerState('_Inactive');
-        }
-        
-        for (let i = 0; i < deepSequence.tracks.length; i++) {
+            for (let i = 0; i < deepSequence.tracks.length; i++) {
             deepSequence.tracks[i].active = false;
             deepSequence.tracks[i].id = i;
         }
@@ -3547,6 +3544,12 @@ function StepSequencer(user, seq) {
         
         setSequence(deepSequence);
         setActiveTrack(0);
+        } else {
+            setTrackGuardrailState('_Active');
+            setStepSequencerState('_Inactive');
+        }
+        
+        
     }
     
     const updateTrackDevice = (val) => {
@@ -7416,6 +7419,56 @@ function StepSequencer(user, seq) {
         
         setContinuousParams(deepCopy);
     }
+    
+    const openDuplicateTrackModal = () => {
+        setDuplicateTrackModalStatus('_Active');
+        setStepSequencerState('_Inactive');
+    }
+    
+    const cancelDuplicateTrackModal = () => {
+        setDuplicateTrackModalStatus('_Inactive');
+        setStepSequencerState('_Active');
+    }
+    
+    const updateDuplicateTrackMidiChannel = (val) => {
+        setDuplicateTrackMidiChannel(parseInt(val));
+    }
+    
+    const duplicateActiveTrack = () => {
+        let deepCopy = {...sequence};
+        let dupe = {
+            active: true,
+            collection: deepCopy.tracks[activeTrack].collection,
+            device: deepCopy.tracks[activeTrack].device,
+            events: [],
+            id: null,
+            image: deepCopy.tracks[activeTrack].image,
+            initialPatch: deepCopy.tracks[activeTrack].initialPatch,
+            instrument: {...deepCopy.tracks[activeTrack].instrument},
+            mute: false,
+            name: deepCopy.tracks[activeTrack].name + ' copy',
+            output: deepCopy.tracks[activeTrack].output,
+            solo: false
+        };
+                
+        for (let e = 0; e < deepCopy.tracks[activeTrack].events.length; e++) {
+            dupe.events[e] = {...deepCopy.tracks[activeTrack].events[e]};
+        }
+        
+        for (let i = 0; i < dupe.events.length; i++) {
+            dupe.events[i].midiChannel = duplicateTrackMidiChannel;
+        }
+        
+        deepCopy.tracks.push(dupe);
+        for (let j = 0; j < deepCopy.tracks.length; j++) {
+            deepCopy.tracks[j].active = false;
+            deepCopy.tracks[j].id = j;
+        }
+        deepCopy.tracks[deepCopy.tracks.length - 1].active = true;
+        setActiveTrack(deepCopy.tracks.length - 1);
+        setSequence(deepCopy);
+        cancelDuplicateTrackModal();
+    }
             
     return(
         <div>
@@ -8285,7 +8338,8 @@ function StepSequencer(user, seq) {
                                 value={sequence.tracks[activeTrack].name} />
                             <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}
                                 onClick={() => openContinuousModal()}>continuous</button>
-                            <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>duplicate</button>
+                            <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}
+                                onClick={() => openDuplicateTrackModal()}>duplicate</button>
                             <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>filter</button>
                             <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>quantize</button>
                         </div>
@@ -8861,6 +8915,25 @@ function StepSequencer(user, seq) {
                     onClick={() => executeContinuousControl()}>submit</button>
                 <button className={'stepSequencerRepeaterCancelButton' + stepSequenceMonth}
                     onClick={() => cancelContinuousModal()}>cancel</button>
+            </div>
+            <div className={'stepSequencerSaveAsDialogDiv' + duplicateTrackModalStatus + stepSequenceMonth}>
+                <p>duplicate current track</p>
+                <div style={{ display: 'flex' }}>
+                    <p className={'stepSequencerDuplicateTrackMidiChannelLabel' + stepSequenceMonth}>midi channel:</p>
+                    <input className={'stepSequencerDuplicateTrackMidiChannelInput' + stepSequenceMonth}
+                        max="15"
+                        min="0"
+                        onChange={(e) => updateDuplicateTrackMidiChannel(e.target.value)}
+                        type="number"
+                        value={duplicateTrackMidiChannel}
+                        />
+                </div>
+                <div className={'stepSequencerSaveAsButtonsDiv' + stepSequenceMonth}>
+                    <button className={'stepSequencerSaveAsButtons' + stepSequenceMonth}
+                        onClick={() => duplicateActiveTrack()}>submit</button>
+                    <button className={'stepSequencerSaveAsButtons' + stepSequenceMonth}
+                        onClick={() => cancelDuplicateTrackModal()}>cancel</button>
+                </div>
             </div>
         </div>
     )
