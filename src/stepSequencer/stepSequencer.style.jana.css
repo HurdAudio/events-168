@@ -2619,3 +2619,154 @@
     text-align: center;
     width: 50px;
 }
+
+.stepSequencerFilterDialogDiv_Active_JanuaryA {
+    background: #d2d6df;
+    border: 4px solid #6b7380;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [row16] 1fr [row17] 1fr [row18] 1fr [row19] 1fr [row20] 1fr [rowEnd];
+    height: 95vh;
+    left: 20%;
+    position: absolute;
+    top: 2%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerFilterDialogDiv_Inactive_JanuaryA {
+    background: #d2d6df;
+    border: 4px solid #6b7380;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [row16] 1fr [row17] 1fr [row18] 1fr [row19] 1fr [row20] 1fr [rowEnd];
+    height: 95vh;
+    left: 20%;
+    position: absolute;
+    top: -122%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerFilterLabel_JanuaryA {
+    color: #010204;
+    grid-column: col2 / col23;
+    grid-row: row1 / row2;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.stepSequencerFilterCloseDialogButton_JanuaryA {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #010204;
+    color: #010204;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #868ea3);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    grid-column: col11 / col13;
+    grid-row: row19 / row20;
+    outline-color: #8f9193;
+    z-index: 155;
+}
+
+.stepSequencerFilterCloseDialogButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #253358;
+    color: #253358;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #868ea3);
+}
+
+.stepSequencerFilterCloseDialogButton_JanuaryA:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #868ea3);
+}
+
+.stepSequencerFilterDiv_JanuaryA {
+    background: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    grid-column: col2 / col22;
+    grid-row: row2 / row18;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.stepSequencerFilterDiv_JanuaryA::-webkit-scrollbar {
+    background: transparent;
+}
+
+.stepSequencerGlobalEventFilterDiv_JanuaryA {
+    box-sizing: border-box;
+    display: inline-flex;
+    height: 40px;
+    margin-bottom: 10px;
+    min-width: 100%;
+    padding: 12px 5px 12px 10px;
+    width: 100%;
+}
+
+.stepSequencerFilterBlockfalse_JanuaryA {
+    background: #253358;
+    border-radius: 10px;
+    cursor: pointer;
+    filter: brightness(50%) saturate(60%);
+    height: 15px;
+    transition: all 0.4s linear;
+    width: 30px;
+}
+
+.stepSequencerFilterBlocktrue_JanuaryA {
+    background: #253358;
+    border-radius: 10px;
+    cursor: pointer;
+    filter: brightness(150%) saturate(160%);
+    height: 15px;
+    transition: all 0.4s linear;
+    width: 30px;
+}
+
+.stepSequencerFilterSwitchfalse_JanuaryA {
+    background: #d2d6df;
+    border-radius: 100%;
+    height: 15px;
+    left: 0;
+    position: relative;
+    transition: all 0.4s linear;
+    width: 15px;
+}
+
+.stepSequencerFilterSwitchtrue_JanuaryA {
+    background: #d2d6df;
+    border-radius: 100%;
+    height: 15px;
+    left: 15px;
+    position: relative;
+    transition: all 0.4s linear;
+    width: 15px;
+}
+
+.stepSequencerGlobalEventFilterDiv_JanuaryA p {
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.stepSequencerFilterEventDiv_JanuaryA {
+    box-sizing: border-box;
+    display: inline-flex;
+    height: 40px;
+    min-width: 50%;
+    padding: 12px 5px 12px 10px;
+}
+
+.stepSequencerFilterEventDiv_JanuaryA p {
+    color: #010204;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px;
+    margin-left: 10px; 
+}

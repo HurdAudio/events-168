@@ -71,269 +71,322 @@ function StepSequencer(user, seq) {
     const [ritAccelModalState, setRitAccelModalState] = useState('_Inactive');
     const [continuousModalState, setContinuousModalState] = useState('_Inactive');
     const [duplicateTrackModalStatus, setDuplicateTrackModalStatus] = useState('_Inactive');
+    const [eventFilterDialogState, setEventFilterDialogState] = useState('_Inactive');
     const [duplicateTrackMidiChannel, setDuplicateTrackMidiChannel] = useState(0);
     const [rudeSolo, setRudeSolo] = useState(false);
     const [midiOutputs, setMidiOutputs] = useState(userOutputs);
     const [saveAsName, setSaveAsName] = useState('');
+    const [globalEventFilter, setGlobalEventFilter] = useState(false);
     const [midiEvents, setMidiEvents] = useState([
         {
             continuous: false,
+            filter: false,
             name: 'initial patch',
             uuid: '9f4db083-23fa-4c1c-b7a5-ee3f57288aa7'
         },
         {
             continuous: false,
-            
+            filter: false,
             name: 'note event',
             uuid: '439da322-bd74-4dc5-8e4b-b4ca664657a9'
         },
         {
             continuous: true,
+            filter: false,
             name: 'pitch bend',
             uuid: 'd1595e03-bcd9-4ca7-9247-4d54723c5a05'
         },
         {
             continuous: false,
+            filter: false,
             name: 'program change',
             uuid: '2fdb9151-68ad-46f7-b11e-adbb15d12a09'
         },
         {
             continuous: true,
+            filter: false,
             name: 'aftertouch poly',
             uuid: '9a141aff-eea8-46c4-8650-679d9218fb08'
         },
         {
             continuous: true,
+            filter: false,
             name: 'aftertouch channel',
             uuid: 'd1c6b635-d413-40aa-97dd-7d795230d5f4'
         },
         {
             continuous: true,
+            filter: false,
             name: 'controller change',
             uuid: '884e57d3-f5a5-4192-b640-78891802867b'
         },
         {
             continuous: false,
+            filter: false,
             name: 'bank select',
             uuid: '042b257f-f1de-488d-900b-6d7c49361748'
         },
         {   
             continuous: true,
+            filter: false,
             name: 'modulation wheel',
             uuid: '89265cc9-9ce5-4219-bfb6-371b18ed42b1'
         },
         {
             continuous: true,
+            filter: false,
             name: 'breath controller',
             uuid: '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e'
         },
         {
             continuous: true,
+            filter: false,
             name: 'foot controller',
             uuid: '2a3b9983-d175-4bde-aca9-63b70944ec7e'
         },
         {
             continuous: true,
+            filter: false,
             name: 'portamento time',
             uuid: '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c'
         },
         {
             continuous: false,
+            filter: false,
             name: 'data entry msb',
             uuid: 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb'
         },
         {
             continuous: true,
+            filter: false,
             name: 'channel volume',
             uuid: '5138de25-1d5c-473e-8a68-ddbeadc32bd4'
         },
         {
             continuous: true,
+            filter: false,
             name: 'balance',
             uuid: '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24'
         },
         {
             continuous: true,
+            filter: false,
             name: 'pan',
             uuid: 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb'
         },
         {
             continuous: true,
+            filter: false,
             name: 'expression controller',
             uuid: '15a9c413-3dbe-4890-bd52-287c2a48f615'
         },
         {
             continuous: true,
+            filter: false,
             name: 'effect control 1',
             uuid: '9434ea7e-6a63-423c-9be5-77584bd587e4'
         },
         {
             continuous: true,
+            filter: false,
             name: 'effect control 2',
             uuid: 'a97eee86-2a5e-47db-99b1-74b61bc994c1'
         },
         {
             continuous: true,
+            filter: false,
             name: 'general purpose controller 1',
             uuid: '6eaceab3-35bb-49e2-ad82-5bd4c3a32679'
         },
         {
             continuous: true,
+            filter: false,
             name: 'general purpose controller 2',
             uuid: 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c'
         },
         {
             continuous: true,
+            filter: false,
             name: 'general purpose controller 3',
             uuid: '3474f1bf-5aae-434e-ba95-102114de0dd2'
         },
         {
             continuous: true,
+            filter: false,
             name: 'general purpose controller 4',
             uuid: '221e9b45-0ec8-421e-adb6-cfaf19b69610'
         },
         {
             continuous: false,
+            filter: false,
             name: 'damper pedal on/off',
             uuid: 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0'
         },
         {
             continuous: false,
+            filter: false,
             name: 'portamento on/off',
             uuid: 'c3543d3c-ccc5-45e2-ac42-c62c8b364690'
         },
         {
             continuous: false,
+            filter: false,
             name: 'sostenuto on/off',
             uuid: '26a0ab85-b2cc-4442-84c0-bd30fb239869'
         },
         {
             continuous: false,
+            filter: false,
             name: 'soft pedal on/off',
             uuid: '890d5a31-859b-4958-8eca-dd0b52f1fbec'
         },
         {
             continuous: false,
+            filter: false,
             name: 'legato footswitch',
             uuid: 'f31779f1-2599-487b-8e96-5b0abd35394e'
         },
         {
             continuous: false,
+            filter: false,
             name: 'hold 2',
             uuid: '75cf0bca-6196-4219-9eef-54272e8020a8'
         },
         {
             continuous: false,
+            filter: false,
             name: 'sound variation',
             uuid: 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3'
         },
         {
             continuous: true,
+            filter: false,
             name: 'timbre/harmonic intensity',
             uuid: '5531a226-bc2c-4c60-9505-9b8da30b86c2'
         },
         {
             continuous: true,
+            filter: false,
             name: 'release time',
             uuid: 'cb30f654-a1c1-4e76-b479-d41821ede969'
         },
         {
             continuous: true,
+            filter: false,
             name: 'attack time',
             uuid: '9390dbb8-efe9-4b41-adf3-47c6531f7aa1'
         },
         {
             continuous: true,
+            filter: false,
             name: 'brightness',
             uuid: 'f61546fe-fd2a-4c89-813c-44dde15e6aa2'
         },
         {
             continuous: true,
+            filter: false,
             name: 'decay time',
             uuid: '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b'
         },
         {
             continuous: true,
+            filter: false,
             name: 'vibrato rate',
             uuid: '752a2e67-911e-45b5-801d-0841c38cf8c2'
         },
         {
             continuous: true,
+            filter: false,
             name: 'vibrato depth',
             uuid: '97fb8e80-b937-464d-8830-212dcac90675'
         },
         {
             continuous: true,
+            filter: false,
             name: 'vibrato delay',
             uuid: '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c'
         },
         {
             continuous: true,
+            filter: false,
             name: 'undefined',
             uuid: '1ab83a91-21b1-4d56-b333-3a59c4ade431'
         },
         {
             continuous: true,
+            filter: false,
             name: 'general purpose controller 5',
             uuid: 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1'
         },
         {
             continuous: true,
+            filter: false,
             name: 'general purpose controller 6',
             uuid: 'faf99fca-87c1-4e8e-81f5-b0f14251db08'
         },
         {
             continuous: true,
+            filter: false,
             name: 'general purpose controller 7',
             uuid: '4c64d103-e813-4c4a-80b5-01cd8186635c'
         },
         {
             continuous: true,
+            filter: false,
             name: 'general purpose controller 8',
             uuid: 'e181eaf9-1b61-4e5b-8982-833fb9594529'
         },
         {
             continuous: true,
+            filter: false,
             name: 'portamento control',
             uuid: '246e9232-3d6a-4352-8957-d0ff9c1c834e'
         },
         {
             continuous: false,
+            filter: false,
             name: 'high resolution velocity prefix',
             uuid: '80e77d4b-c523-4393-a279-6d7b15e65d8a'
         },
         {
             continuous: true,
+            filter: false,
             name: 'effects 1 depth',
             uuid: 'c3b8b079-4994-480e-9b0a-8cbce11fba46'
         },
         {
             continuous: true,
+            filter: false,
             name: 'effects 2 depth',
             uuid: '206ff86e-6894-4b56-9f5b-f5387d18f2ea'
         },
         {
             continuous: true,
+            filter: false,
             name: 'effects 3 depth',
             uuid: '2517d341-7ae3-4dae-b866-49bd2fc9b21c'
         },
         {
             continuous: true,
+            filter: false,
             name: 'effects 4 depth',
             uuid: '269524b5-a240-42e5-abfe-bf074ab7cb11'
         },
         {
             continuous: true,
+            filter: false,
             name: 'effects 5 depth',
             uuid: 'e1568b69-6246-469f-9654-a398a1606ef9'
         },
         {
             continuous: false,
+            filter: false,
             name: 'mono mode',
             uuid: '44feabcb-b735-4980-a3fc-1e229b4bd115'
         },
         {
             continuous: false,
+            filter: false,
             name: 'poly mode',
             uuid: '40fc271b-2b22-40ff-a43d-90404ff07c69'
         }
@@ -7469,6 +7522,49 @@ function StepSequencer(user, seq) {
         setSequence(deepCopy);
         cancelDuplicateTrackModal();
     }
+    
+    const openEventFilterModal = () => {
+        setEventFilterDialogState('_Active');
+        setStepSequencerState('_Inactive');
+    }
+    
+    const closeEventFilterModal = () => {
+        setEventFilterDialogState('_Inactive');
+        setStepSequencerState('_Active');
+    }
+    
+    const updateGlobalFilter = (val) => {
+        let deepCopy = [...midiEvents];
+        
+        for (let i = 0; i < deepCopy.length; i++) {
+            deepCopy[i].filter = val;
+        }
+        
+        setGlobalEventFilter(val);
+        setMidiEvents(deepCopy);
+    }
+    
+    const toggleEventFilter = (uuid) => {
+        let deepCopy = [...midiEvents];
+        
+        for (let i = 0; i < deepCopy.length; i++) {
+            if (deepCopy[i].uuid === uuid) {
+                deepCopy[i].filter = !deepCopy[i].filter;
+            }
+        }
+        
+        setMidiEvents(deepCopy);
+    }
+    
+    const isFiltered = (uuid) => {
+        let deepCopy = [...midiEvents];
+        
+        let deepFilter = deepCopy.filter(event => {
+            return(event.uuid === uuid);
+        });
+        
+        return deepFilter[0].filter;
+    }
             
     return(
         <div>
@@ -8018,7 +8114,7 @@ function StepSequencer(user, seq) {
                                     {track.events.map(event => (
                                         <div key={event.id}
                                             style={{width: '100%'}}>
-                                            {(event.event === '9f4db083-23fa-4c1c-b7a5-ee3f57288aa7') && (
+                                            {((event.event === '9f4db083-23fa-4c1c-b7a5-ee3f57288aa7') && (!isFiltered('9f4db083-23fa-4c1c-b7a5-ee3f57288aa7'))) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + 'false' + stepSequenceMonth}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
                                                      <input className={'stepSequencerEventMidiChannelInput' + stepSequenceMonth} 
@@ -8036,7 +8132,7 @@ function StepSequencer(user, seq) {
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
                                             )}
-                                            {(event.event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') && (
+                                            {((event.event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') && (!isFiltered(event.event))) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.noteOn.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.noteOn.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.noteOn.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
                                                     onClick={() => noteEditCurrentPosition(event.id)}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
@@ -8094,7 +8190,7 @@ function StepSequencer(user, seq) {
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
                                             )}
-                                            {(event.event === 'd1595e03-bcd9-4ca7-9247-4d54723c5a05') && (
+                                            {((event.event === 'd1595e03-bcd9-4ca7-9247-4d54723c5a05') && (!isFiltered(event.event))) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
                                                     onClick={() => noteEditEventCurrentPosition(event.id)}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
@@ -8130,7 +8226,7 @@ function StepSequencer(user, seq) {
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
                                             )}
-                                            {(event.event === '2fdb9151-68ad-46f7-b11e-adbb15d12a09') && (
+                                            {((event.event === '2fdb9151-68ad-46f7-b11e-adbb15d12a09') && (!isFiltered(event.event))) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
                                                     onClick={() => noteEditEventCurrentPosition(event.id)}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
@@ -8166,7 +8262,7 @@ function StepSequencer(user, seq) {
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
                                             )}
-                                            {((event.event === '9a141aff-eea8-46c4-8650-679d9218fb08') || (event.event === 'd1c6b635-d413-40aa-97dd-7d795230d5f4')) && (
+                                            {(((event.event === '9a141aff-eea8-46c4-8650-679d9218fb08') || (event.event === 'd1c6b635-d413-40aa-97dd-7d795230d5f4')) && (!isFiltered(event.event))) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
                                                     onClick={() => noteEditEventCurrentPosition(event.id)}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
@@ -8209,7 +8305,7 @@ function StepSequencer(user, seq) {
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
                                             )}
-                                            {(event.event === '884e57d3-f5a5-4192-b640-78891802867b') && (
+                                            {((event.event === '884e57d3-f5a5-4192-b640-78891802867b') && (!isFiltered(event.event))) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
                                                     onClick={() => noteEditEventCurrentPosition(event.id)}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
@@ -8251,7 +8347,7 @@ function StepSequencer(user, seq) {
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
                                             )}
-                                            {((event.event === '042b257f-f1de-488d-900b-6d7c49361748') || (event.event === '89265cc9-9ce5-4219-bfb6-371b18ed42b1') || (event.event === '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e') || (event.event === '2a3b9983-d175-4bde-aca9-63b70944ec7e') || (event.event === '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c') || (event.event === 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb') || (event.event === '5138de25-1d5c-473e-8a68-ddbeadc32bd4') || (event.event === '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24') || (event.event === 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb') || (event.event === '15a9c413-3dbe-4890-bd52-287c2a48f615') || (event.event === '9434ea7e-6a63-423c-9be5-77584bd587e4') || (event.event === 'a97eee86-2a5e-47db-99b1-74b61bc994c1') || (event.event === '6eaceab3-35bb-49e2-ad82-5bd4c3a32679') || (event.event === 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c') || (event.event === '3474f1bf-5aae-434e-ba95-102114de0dd2') || (event.event === '221e9b45-0ec8-421e-adb6-cfaf19b69610') || (event.event === 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3') || (event.event === '5531a226-bc2c-4c60-9505-9b8da30b86c2') || (event.event === 'cb30f654-a1c1-4e76-b479-d41821ede969') || (event.event === '9390dbb8-efe9-4b41-adf3-47c6531f7aa1') || (event.event === 'f61546fe-fd2a-4c89-813c-44dde15e6aa2') || (event.event === '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b') || (event.event === '752a2e67-911e-45b5-801d-0841c38cf8c2') || (event.event === '97fb8e80-b937-464d-8830-212dcac90675') || (event.event === '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c') || (event.event === '1ab83a91-21b1-4d56-b333-3a59c4ade431') || (event.event === 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1') || (event.event === 'faf99fca-87c1-4e8e-81f5-b0f14251db08') || (event.event === '4c64d103-e813-4c4a-80b5-01cd8186635c') || (event.event === 'e181eaf9-1b61-4e5b-8982-833fb9594529') || (event.event === '246e9232-3d6a-4352-8957-d0ff9c1c834e') || (event.event === '80e77d4b-c523-4393-a279-6d7b15e65d8a') || (event.event === 'c3b8b079-4994-480e-9b0a-8cbce11fba46') || (event.event === '206ff86e-6894-4b56-9f5b-f5387d18f2ea') || (event.event === '2517d341-7ae3-4dae-b866-49bd2fc9b21c') || (event.event === '269524b5-a240-42e5-abfe-bf074ab7cb11') || (event.event === 'e1568b69-6246-469f-9654-a398a1606ef9')) && (
+                                            {(((event.event === '042b257f-f1de-488d-900b-6d7c49361748') || (event.event === '89265cc9-9ce5-4219-bfb6-371b18ed42b1') || (event.event === '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e') || (event.event === '2a3b9983-d175-4bde-aca9-63b70944ec7e') || (event.event === '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c') || (event.event === 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb') || (event.event === '5138de25-1d5c-473e-8a68-ddbeadc32bd4') || (event.event === '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24') || (event.event === 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb') || (event.event === '15a9c413-3dbe-4890-bd52-287c2a48f615') || (event.event === '9434ea7e-6a63-423c-9be5-77584bd587e4') || (event.event === 'a97eee86-2a5e-47db-99b1-74b61bc994c1') || (event.event === '6eaceab3-35bb-49e2-ad82-5bd4c3a32679') || (event.event === 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c') || (event.event === '3474f1bf-5aae-434e-ba95-102114de0dd2') || (event.event === '221e9b45-0ec8-421e-adb6-cfaf19b69610') || (event.event === 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3') || (event.event === '5531a226-bc2c-4c60-9505-9b8da30b86c2') || (event.event === 'cb30f654-a1c1-4e76-b479-d41821ede969') || (event.event === '9390dbb8-efe9-4b41-adf3-47c6531f7aa1') || (event.event === 'f61546fe-fd2a-4c89-813c-44dde15e6aa2') || (event.event === '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b') || (event.event === '752a2e67-911e-45b5-801d-0841c38cf8c2') || (event.event === '97fb8e80-b937-464d-8830-212dcac90675') || (event.event === '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c') || (event.event === '1ab83a91-21b1-4d56-b333-3a59c4ade431') || (event.event === 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1') || (event.event === 'faf99fca-87c1-4e8e-81f5-b0f14251db08') || (event.event === '4c64d103-e813-4c4a-80b5-01cd8186635c') || (event.event === 'e181eaf9-1b61-4e5b-8982-833fb9594529') || (event.event === '246e9232-3d6a-4352-8957-d0ff9c1c834e') || (event.event === '80e77d4b-c523-4393-a279-6d7b15e65d8a') || (event.event === 'c3b8b079-4994-480e-9b0a-8cbce11fba46') || (event.event === '206ff86e-6894-4b56-9f5b-f5387d18f2ea') || (event.event === '2517d341-7ae3-4dae-b866-49bd2fc9b21c') || (event.event === '269524b5-a240-42e5-abfe-bf074ab7cb11') || (event.event === 'e1568b69-6246-469f-9654-a398a1606ef9')) && (!isFiltered(event.event))) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
                                                     onClick={() => noteEditEventCurrentPosition(event.id)}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
@@ -8287,7 +8383,7 @@ function StepSequencer(user, seq) {
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
                                             )}
-                                            {((event.event === 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0') || (event.event === '26a0ab85-b2cc-4442-84c0-bd30fb239869') || (event.event === '890d5a31-859b-4958-8eca-dd0b52f1fbec') || (event.event === 'f31779f1-2599-487b-8e96-5b0abd35394e') || (event.event === '75cf0bca-6196-4219-9eef-54272e8020a8') || (event.event === '44feabcb-b735-4980-a3fc-1e229b4bd115') || (event.event === '40fc271b-2b22-40ff-a43d-90404ff07c69') || (event.event === 'c3543d3c-ccc5-45e2-ac42-c62c8b364690')) && (
+                                            {(((event.event === 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0') || (event.event === '26a0ab85-b2cc-4442-84c0-bd30fb239869') || (event.event === '890d5a31-859b-4958-8eca-dd0b52f1fbec') || (event.event === 'f31779f1-2599-487b-8e96-5b0abd35394e') || (event.event === '75cf0bca-6196-4219-9eef-54272e8020a8') || (event.event === '44feabcb-b735-4980-a3fc-1e229b4bd115') || (event.event === '40fc271b-2b22-40ff-a43d-90404ff07c69') || (event.event === 'c3543d3c-ccc5-45e2-ac42-c62c8b364690')) && (!isFiltered(event.event))) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
                                                     onClick={() => noteEditEventCurrentPosition(event.id)}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
@@ -8340,7 +8436,8 @@ function StepSequencer(user, seq) {
                                 onClick={() => openContinuousModal()}>continuous</button>
                             <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}
                                 onClick={() => openDuplicateTrackModal()}>duplicate</button>
-                            <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>filter</button>
+                            <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}
+                                onClick={() => openEventFilterModal()}>filter</button>
                             <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>quantize</button>
                         </div>
                     </div>
@@ -8934,6 +9031,30 @@ function StepSequencer(user, seq) {
                     <button className={'stepSequencerSaveAsButtons' + stepSequenceMonth}
                         onClick={() => cancelDuplicateTrackModal()}>cancel</button>
                 </div>
+            </div>
+            <div className={'stepSequencerFilterDialogDiv' + eventFilterDialogState + stepSequenceMonth}>
+                <p className={'stepSequencerFilterLabel' + stepSequenceMonth}>event filter:</p>
+                <div className={'stepSequencerFilterDiv' + stepSequenceMonth}>
+                    <div className={'stepSequencerGlobalEventFilterDiv' + stepSequenceMonth}>
+                        <div className={'stepSequencerFilterBlock' + globalEventFilter + stepSequenceMonth}
+                            onClick={() => updateGlobalFilter(!globalEventFilter)}>
+                            <div className={'stepSequencerFilterSwitch' + globalEventFilter + stepSequenceMonth}></div>
+                        </div>
+                        <p>unfilter/filter all events</p>
+                    </div>
+                    {midiEvents.map(event => (
+                        <div className={'stepSequencerFilterEventDiv' + stepSequenceMonth}
+                            key={event.uuid}>
+                            <div className={'stepSequencerFilterBlock' + event.filter + stepSequenceMonth}
+                                onClick={() => toggleEventFilter(event.uuid)}>
+                                <div className={'stepSequencerFilterSwitch' + event.filter + stepSequenceMonth}></div>
+                            </div>
+                            <p>{event.name}</p>
+                        </div>
+                    ))}
+                </div>
+                <button className={'stepSequencerFilterCloseDialogButton' + stepSequenceMonth}
+                    onClick={() => closeEventFilterModal()}>close</button>
             </div>
         </div>
     )
