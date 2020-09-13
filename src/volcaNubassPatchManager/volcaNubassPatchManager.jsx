@@ -12,6 +12,7 @@ import {
 import midi5pin from '../img/midi5pin.svg';
 import VolcaNubass from '../volcaNubass/volcaNubass';
 import './volcaNubassPatchManager.style.jana.css';
+import './volcaNubassPatchManager.style.janb.css';
 import VolcaNubassPatchTransmitter from './volcaNubassPatchTransmitter';
 import axios from 'axios';
 import uuid4 from 'uuid4';
@@ -26,7 +27,7 @@ function VolcaNubassPatchManager(user, banks) {
     const breakpointOffset = 4;
     const scaleScaler = 1.12;
     const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassPatchManager/january/spinner/27947ac14af627677a43510cf7ccfe70.gif';
-    const janbSpinner = '';
+    const janbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassPatchManager/january/spinner/q9bLT0l.gif';
     const jancSpinner = '';
     const febaSpinner = '';
 
@@ -45,12 +46,12 @@ function VolcaNubassPatchManager(user, banks) {
     const [deleteCollectionModalState, setDeleteCollectionModalState] = useState('_Inactive');
     const [aboutModalState, setAboutModalState] = useState('_Inactive');
     const [collectionLoadModalState, setCollectionLoadModalState] = useState('_Inactive');
-    const [volcaNubassPatchManagerMonth, setVolcaNubassPatchManagerMonth] = useState('_JanuaryA');
+    const [volcaNubassPatchManagerMonth, setVolcaNubassPatchManagerMonth] = useState('_JanuaryB');
     const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
     const [dragData, setDragData] = useState(null);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
     const [userPatches, setUserPatches] = useState([]);
-    const [currentSpinner, setCurrentSpinner] = useState(janaSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(janbSpinner);
     const [selectedPatchPatch, setSelectedPatchPatch] = useState('');
     const [selectedBankPatch, setSelectedBankPatch] = useState('');
     const [availableInputs, setAvailableInputs] = useState([]);
@@ -748,17 +749,21 @@ function VolcaNubassPatchManager(user, banks) {
     const panic = () => {
         setPanicState('volcaNubassPatchManagerPanicOn');
         setVolcaNubassPatchManagerContainerState('_Inactive');
-        for (let i = 0; i < availableOutputs.length; i++) {
-            for (let channel = 0; channel < 16; channel++) {
-                for (let note = 0; note < 128; note++) {
-                    availableOutputs[i].send([0x80 | channel, note, 0x7f]);
-                }
-            }
-        }
+//        for (let i = 0; i < availableOutputs.length; i++) {
+//            for (let channel = 0; channel < 16; channel++) {
+//                for (let note = 0; note < 128; note++) {
+//                    availableOutputs[i].send([0x80 | channel, note, 0x7f]);
+//                }
+//            }
+//        }
+//        setTimeout(() => {
+//            setPanicState('volcaNubassPatchManagerPanicOff');
+//            setVolcaNubassPatchManagerContainerState('_Active');
+//        }, availableOutputs.length * 2000);
         setTimeout(() => {
             setPanicState('volcaNubassPatchManagerPanicOff');
             setVolcaNubassPatchManagerContainerState('_Active');
-        }, availableOutputs.length * 2000);
+        }, 6000);
     }
     
     function initInputs() {

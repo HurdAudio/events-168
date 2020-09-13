@@ -1,0 +1,1385 @@
+.volcaNubassPatchManagerContainer_Active_JanuaryB {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaNubassPatchManagerContainer_Inactive_JanuaryB {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.volcaNubassPatchManagerImageDiv_JanuaryB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassPatchManager/january/the_last_ice_age_by_berg77_d76fauk-fullview.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [row9] 12.5%[rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.volcaNubassPatchManagerTopBar_JanuaryB {
+    background: linear-gradient(90deg, #161825, #373051);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.volcaNubassNavImage_JanuaryB {
+    cursor: pointer;
+    filter: contrast(110%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.volcaNubassNavImage_JanuaryB:hover {
+    filter: contrast(130%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerTitle_JanuaryB {
+    color: #8e88a4;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 30px;
+    grid-column: col2 / col6;
+    grid-row: row1 / row2;
+    margin: 12px 5px 0 5px;
+    z-index: 55;
+}
+
+.volcaNubassPatchManagerLoadButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+    margin: 6px 65px 0 35px;
+    outline-color: #8b8c92;
+    padding: 3px 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerLoadButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerLoadButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerNameInput_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #dfbeb1;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #8b8c92;
+    position: absolute;
+    top: 1%;
+}
+
+.volcaNubassPatchManagerPanicButton_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    grid-column: col10 / rightEdge;
+    grid-row: row1 / row2;
+    z-index: 56;
+}
+
+.volcaNubassPatchManagerSidebarManager_JanuaryB {
+    backdrop-filter: blur(14px) brightness(140%) hue-rotate(-25deg) grayscale(50%);
+    box-sizing: border-box;
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 1;
+}
+
+.volcaNubassPatchManagerUserPatchesListDiv_JanuaryB {
+    backdrop-filter: blur(10px) sepia(40%) saturate(10%);
+    grid-column: col3 / col6;
+    grid-row: row2 / row7;
+}
+
+.volcaNubassPatchManagerPatchActionsDiv_JanuaryB {
+    backdrop-filter: blur(5px) hue-rotate(-135deg);
+    grid-column: col6 / col7;
+    grid-row: row2 / row7;
+}
+
+.volcaNubassPatchManagerBanksDiv_JanuaryB {
+    backdrop-filter: brightness(50%) contrast(160%) sepia(65%);
+    grid-column: col7 / rightEdge;
+    grid-row: row2 / row7;
+}
+
+.volcaNubassPatchManagerDeviceDiv_JanuaryB {
+    backdrop-filter: blur(11px) saturate(150%);
+    grid-column: col3 / col7;
+    grid-row: row7 / rowEnd;
+}
+
+.volcaNubassPatchManagerUserNotesDiv_JanuaryB {
+    backdrop-filter: blur(3px) hue-rotate(-15deg);
+    grid-column: col7 / rightEdge;
+    grid-row: row7 / rowEnd;
+}
+
+.volcaNubassPatchManagerBanksContainer_JanuaryB {
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaNubassPatchManagerBanksBar_JanuaryB {
+    background: linear-gradient(90deg, #161825, #4a4e73, #4a4e73, #1d1f2e, transparent);
+    display: flex;
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.volcaNubassPatchManagerBanksLabel_JanuaryB {
+    color: #c7c4d2;
+    filter: brightness(120%) contrast(300%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 30px;
+    margin-top: 4px;
+    transform: translateX(5px) translateY(3px);
+}
+
+.volcaNubassPatchManagerBanksSelect_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #c7c4d2;
+    filter: brightness(120%) contrast(300%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    margin-left: 15px;
+    outline-color: #8b8c92;
+    width: 34%;
+}
+
+.volcaNubassPatchManagerAddBankButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+    height: 100%;
+    margin-left: 5%;
+    outline-color: #8b8c92;
+    padding: 6px 15px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerAddBankButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerAddBankButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerBankDisplayContainer_JanuaryB {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / row12;
+    transform: translateY(6px);
+    
+}
+
+.volcaNubassPatchManagerBankDisplayertrue_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    border: 2px solid #161825;
+    box-sizing: border-box;
+    filter: brightness(75%);
+    height: 94%;
+    opacity: 0.9;
+    transition: all 0.8s linear;
+    width: 100%;
+}
+
+.volcaNubassPatchManagerBankDisplayerfalse_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    border: 2px solid #161825;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 1vmin;
+    opacity: 0.5;
+    transition: all 0.8s linear;
+    width: 100%;
+}
+
+.volcaNubassPatchManagerBankNameInput_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #c7c4d2;
+    filter: brightness(120%) contrast(300%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    grid-column: col6 / col15;
+    grid-row: row12 / rowEnd;
+    height: 75%;
+    outline-color: #8b8c92;
+    transform: translateY(6px);
+}
+
+.volcaNubassPatchManagerUserPatchesListContainer_JanuaryB {
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaNubassPatchManagerUserPatchesList_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    border: 2px solid #161825;
+    box-sizing: border-box;
+    filter: brightness(75%);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row12;
+    opacity: 0.8;
+}
+
+.volcaNubassPatchManagerUpdateButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col4 / col11;
+    grid-row: row12 / rowEnd;
+    height: 35px;
+    margin: 2px 65px 0 35px;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerUpdateButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerUpdateButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerPatchNameDisplaytrue_JanuaryB {
+    background: #b4b5c3;
+    color: #020307;
+    cursor: grab;
+    filter: brightness(110%) hue-rotate(-90deg);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    margin: 4px 0;
+}
+
+.volcaNubassPatchManagerPatchNameDisplaytrue_JanuaryB:active {
+    cursor: grabbing;
+}
+
+.volcaNubassPatchManagerPatchNameDisplayfalse_JanuaryB {
+    color: #000102;
+    cursor: grab;
+    filter: brightness(110%) contrast(150%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    margin: 4px 0; 
+}
+
+.volcaNubassPatchManagerPatchNameDisplayfalse_JanuaryB:active {
+    cursor: grabbing;
+}
+
+.volcaNubassPatchManagerPatchNameDisplayfalse_JanuaryB:hover {
+    filter: brightness(150%) contrast(200%);
+}
+
+.volcaNubassPatchManagerUserPatchListRealDiv_JanuaryB {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    grid-column: col3 / rightEdge;
+    grid-row: row2 / row11; 
+}
+
+.volcaNubassPatchManagerUserPatchListRealDiv_JanuaryB::-webkit-scrollbar {
+    background: transparent;
+}
+
+.volcaNubassPatchManagerBankDisplayReal_JanuaryB {
+    height: 40.5vh;
+    margin-left: 5%;
+    margin-top: 4vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 95%;
+}
+
+.volcaNubassPatchManagerBankDisplayReal_JanuaryB::-webkit-scrollbar {
+    background: transparent;
+}
+
+.volcaNubassPatchManagerBankItemDiv_JanuaryB {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+.volcaNubassPatchManagerBankPatchNametrue_JanuaryB {
+    background: #a5a7b9;
+    color: #000102;
+    cursor: none;
+    filter: brightness(220%) contrast(150%) hue-rotate(-45deg) saturate(100%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    opacity: 0.9;
+    padding: 4px 3px;
+    width: 75%;
+}
+
+.volcaNubassPatchManagerBankPatchNamefalse_JanuaryB {
+    background: transparent;
+    color: #000102;
+    cursor: pointer;
+    filter: brightness(100%) contrast(150%) saturate(100%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    opacity: 0.9;
+    padding: 4px 3px;
+    width: 75%;
+}
+
+.volcaNubassPatchManagerBankPatchNamefalse_JanuaryB:hover {
+    filter: brightness(100%) contrast(250%) saturate(300%);
+}
+
+.volcaNubassPatchManakerDeleteChar_JanuaryB {
+    color: #000102;
+    cursor: pointer;
+    filter: brightness(120%) contrast(150%) saturate(100%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    opacity: 0.9;
+    padding: 4px 3px;
+    width: 25px;
+}
+
+.volcaNubassPatchManakerDeleteChar_JanuaryB:hover {
+    filter: invert(100%);
+}
+
+.volcaNubassPatchManagerPatchActionsContainer_JanuaryB {
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 2fr [col3] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaNubassPatchManagerEditLocator_JanuaryB {
+    grid-column: col2 / col3;
+    grid-row: row3 / row4;
+}
+
+.volcaNubassPatchManagerEditActivePatchButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    margin: 6px 65px 0 35px;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 50%;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerEditActivePatchButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerEditActivePatchButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerDeleteActivePatchButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row5 / row6;
+    height: 35px;
+    margin: 6px 65px 0 35px;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 50%;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerDeleteActivePatchButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerDeleteActivePatchButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerMoveActivePatchButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    height: 35px;
+    margin: 6px 65px 0 35px;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 50%;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerMoveActivePatchButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerMoveActivePatchButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerDeletePatchGuardrail_Active_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    height: 20%;
+    left: 35%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.volcaNubassPatchManagerDeletePatchGuardrail_Inactive_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    height: 20%;
+    left: -55%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.volcaNubassPatchManagerDeletePatchGuardrailLabel_JanuaryB {
+    color: #000102;
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    margin: 15px 25px;
+}
+
+.volcaNubassPatchManagerDeletePatchGuardrailFinePrint_JanuaryB {
+    color: #000102;
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    margin: 15px;
+}
+
+.volcaNubassPatchManagerDeleteGuardrailButtonsDiv_JanuaryB {
+    display: flex;
+    width: 100%;
+}
+
+.volcaNubassPatchManagerDeleteGuardrailButtonsDiv_JanuaryB button {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    height: 100%;
+    margin: 0 10%;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 80%;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerDeleteGuardrailButtonsDiv_JanuaryB button:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerDeleteGuardrailButtonsDiv_JanuaryB button:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerUserNotesContainer_JanuaryB {
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaNubassPatchManagerUserNotesLabel_JanuaryB {
+    color: #161320;
+    filter: brightness(80%) contrast(300%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col9;
+    grid-row: row1 / row2;
+}
+
+.volcaNubassPatchManagerUserNotesAreatrue_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    border: none;
+    color: #000102;
+    filter: brightness(90%) contrast(100%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col16;
+    grid-row: row2 / rowEnd;
+    margin: 5px 0;
+    opacity: 0.9;
+    outline-color: #8c9498;
+    padding: 3px 9px;
+}
+
+.volcaNubassPatchManagerUserNotesAreafalse_JanuaryB {
+    display: none;
+}
+
+.volcaNubassPatchManagerDeviceContainer_JanuaryB {
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaNubassPatchManagerCurrentPatchDisplay_JanuaryB {
+    color: #c7c4d2;
+    filter: brightness(100%) contrast(300%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    grid-column: col8 / col15;
+    grid-row: row2 / row3;
+}
+
+.volcaNubassPatchManagerDeviceImage_JanuaryB {
+    filter: drop-shadow(5px 5px 15px #383641);
+    grid-column: col3 / col13;
+    grid-row: row3 / rowEnd;
+}
+
+.volcaNubassPatchManagerSidebarContainer_JanuaryB {
+    display: grid;
+    grid-template-columns: [sideCol1] 1fr [sideCol2] 1fr [sideCol3] 1fr [sideCol4] 1fr [sideCol5] 1fr [sideColEnd];
+    grid-template-rows: [sideRow1] 1fr [sideRow2] 1fr [sideRow3] 1fr [sideRow4] 1fr [sideRow5] 1fr [sideRow6] 1fr [sideRow7] 1fr [sideRow8] 1fr [sideRow9] 1fr [sideRow10] 1fr [sideRow11] 1fr [sideRow12] 1fr [sideRow13] 1fr [sideRow14] 1fr [sideRow15] 1fr [sideRow16] 1fr [sideRow17] 1fr [sideRow18] 1fr [sideRow19] 1fr [sideRow20] 1fr [sideRow21] 1fr [sideRow22] 1fr [sideRow23] 1fr [sideRow24] 1fr [sideRowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaNubassPatchManagerSaveButtonfalse_JanuaryB {
+    display: none;
+}
+
+.volcaNubassPatchManagerSaveButtontrue_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow3 / sideRow4;
+    height: 100%;
+    margin-left: 5%;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerSaveButtontrue_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerSaveButtontrue_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerSaveAsButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 15px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow5 / sideRow6;
+    height: 100%;
+    margin-left: 5%;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerSaveAsButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerSaveAsButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerSaveAsModal_Inactive_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    height: 20%;
+    left: 185%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.volcaNubassPatchManagerSaveAsModal_Active_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    height: 20%;
+    left: 35%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.volcaNubassPatchManagerSaveAsLabel_JanuaryB {
+    color: #000102;
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    margin: 15px 25px;
+}
+
+.volcaNubassPatchManagerSaveAsInput_JanuaryB {
+    background: #b4b5c3;
+    border: none;
+    color: #000102;
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    margin: 5px 0 20px 15%;
+    outline-color: #8b8c92;
+    width: 70%;
+}
+
+.volcaNubassPatchManagerRevertButtonfalse_JanuaryB {
+    display: none;
+}
+
+.volcaNubassPatchManagerRevertButtontrue_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow7 / sideRow8;
+    height: 100%;
+    margin-left: 5%;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerRevertButtontrue_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerRevertButtontrue_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerMidiOutputLabel_JanuaryB {
+    color: #dfbeb1;
+    filter: brightness(150%) contrast(300%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 15px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow10 / sideRow11;
+}
+
+.volcaNubassPatchManagerMidiOutputSelect_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #dfbeb1;
+    filter: brightness(150%) contrast(300%);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow11 / sideRow12;
+    font-family: 'Overpass', sans-serif;
+    font-size: 15px;
+    outline-color: #8b8c92;
+}
+
+.volcaNubassPatchManagerMidiChannelLabel_JanuaryB {
+    color: #dfbeb1;
+    filter: brightness(150%) contrast(300%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 15px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow13 / sideRow14;
+}
+
+.volcaNubassPatchManagerMidiChannelInput_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #dfbeb1;
+    filter: brightness(150%) contrast(300%);
+    grid-column: sideCol3 / sideCol4;
+    grid-row: sideRow14 / sideRow15;
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    outline-color: #8b8c92;
+}
+
+.volcaNubassPatchManagerShareButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow17 / sideRow18;
+    height: 100%;
+    margin-left: 5%;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerShareButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerShareButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerShareModal_Inactive_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    height: 60%;
+    left: 25%;
+    opacity: 0;
+    position: absolute;
+    top: 15%;
+    transform: rotateY(90deg);
+    transition: all 0.5s linear;
+    width: 50%;
+    z-index: 200;
+}
+
+.volcaNubassPatchManagerShareModal_Active_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    height: 60%;
+    left: 25%;
+    opacity: 1;
+    position: absolute;
+    top: 15%;
+    transform: rotateY(0deg);
+    transition: all 0.5s linear;
+    width: 50%;
+    z-index: 200;
+}
+
+.volcaNubassPatchManagerShareLabel_JanuaryB {
+    color: #000102;
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    margin: 15px 25px;
+}
+
+.volcaNubassPatchManagerShareForm_JanuaryB {
+    border-top: 2px solid #000102;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [colEnd];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaNubassPatchManagerCollectionNameLabel_JanuaryB {
+    color: #000102;
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col7;
+    grid-row: row2 / row3;
+}
+
+.volcaNubassPatchManagerCollectionName_JanuaryB {
+    color: #000102;
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col8;
+    grid-row: row3 / row4;
+}
+
+.volcaNubassPatchManagerSubmittedByLabel_JanuaryB {
+    color: #000102;
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col10 / col15;
+    grid-row: row2 / row3;
+}
+
+.volcaNubassPatchManagerSubmittedBy_JanuaryB {
+    color: #000102;
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col11 / col16;
+    grid-row: row3 / row4;
+}
+
+.volcaNubassPatchManagerPublicDescriptionLabel_JanuaryB {
+    color: #000102;
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col9;
+    grid-row: row5 / row6;
+}
+
+.volcaNubassPatchManagerPublicDescription_JanuaryB {
+    background: #c7c4d2;
+    border: none;
+    color: #000102;
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col16;
+    grid-row: row6 / row9;
+    outline-color: #8b8c92;
+}
+
+.volcaNubassPatchManagerShareSubmitButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col6 / col8;
+    grid-row: row10 / row11;
+    height: 100%;
+    margin-left: 5%;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerShareSubmitButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerShareSubmitButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerShareCancelButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col9 / col11;
+    grid-row: row10 / row11;
+    height: 100%;
+    margin-left: 5%;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerShareCancelButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerShareCancelButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerInitButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow19 / sideRow20;
+    height: 100%;
+    margin-left: 5%;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerInitButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerInitButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerDeleteCollectionButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow21 / sideRow22;
+    height: 100%;
+    margin-left: 5%;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerDeleteCollectionButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerDeleteCollectionButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerDeleteCollectionModal_Inactive_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    height: 20%;
+    left: 35%;
+    position: absolute;
+    top: -120%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.volcaNubassPatchManagerDeleteCollectionModal_Active_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    height: 20%;
+    left: 35%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.volcaNubassPatchManagerAboutNubassManagement_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    height: 100%;
+    margin-left: 5%;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerAboutNubassManagement_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerAboutNubassManagement_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerAboutModal_Inactive_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    border-radius: 0 0 15px 0;
+    filter: invert(0%);
+    height: 90%;
+    left: 5%;
+    position: absolute;
+    top: 115%;
+    transition: all 0.5s linear;
+    width: 90%;
+    z-index: 200;
+}
+
+.volcaNubassPatchManagerAboutModal_Active_JanuaryB {
+    background: linear-gradient(180deg, #9b98a8, #9b98a8, #9b98a8, #9b98a8, #373051, #161320);
+    filter: invert(100%);
+    height: 90%;
+    left: 5%;
+    position: absolute;
+    top: 5%;
+    transition: all 0.5s linear;
+    width: 90%;
+    z-index: 200;
+}
+
+.volcaNubassPatchManagerAboutContentDiv_JanuaryB {
+    background: #161320;
+    height: 85%;
+    left: 5%;
+    position: relative;
+    top: 5%;
+    width: 90%;
+}
+
+.volcaNubassPatchManagerAboutContentDiv_JanuaryB h2 {
+    color: #c7c4d2;
+    font-family: 'Alata', serif;
+    font-size: 36px;
+    margin: 5px 0 30px 30px;
+}
+
+.volcaNubassPatchManagerAboutContentDiv_JanuaryB h3 {
+    color: #c7c4d2;
+    font-family: 'Alata', serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 10px 25px 10px 45px;
+    max-width: 950px;
+}
+
+.volcaNubassPatchManagerAboutContentDiv_JanuaryB p {
+    color: #c7c4d2;
+    font-family: 'Alata', serif;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 5px 25px 30px 25px;
+    max-width: 950px;
+}
+
+.volcaNubassPatchManagerAboutCloseButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    margin-left: 45%;
+    margin-top: 4.5%;
+    outline-color: #8b8c92;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerAboutCloseButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerAboutCloseButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerCollectionLoadModal_Inactive_JanuaryB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassPatchManager/january/the_last_ice_age_by_berg77_d76fauk-fullview.jpg);
+    background-size: cover;
+    border: 2px solid #161320;
+    box-shadow: 5px 5px 5px #2a2a35;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: -170%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.volcaNubassPatchManagerCollectionLoadModal_Active_JanuaryB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassPatchManager/january/the_last_ice_age_by_berg77_d76fauk-fullview.jpg);
+    background-size: cover;
+    border: 2px solid #161320;
+    box-shadow: 5px 5px 5px #2a2a35;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.volcaNubassPatchManagerCollectionLoadContainer_JanuaryB {
+    backdrop-filter: blur(5px) brightness(70%) hue-rotate(30deg) grayscale(50%);
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.volcaNubassPatchManagerLoadTitle_JanuaryB {
+    color: #c7c4d2;
+    filter: brightness(350%) drop-shadow(8px 8px 5px #2a2a35);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col11;
+    grid-row: row2 / row3;
+}
+
+.volcaNubassPatchManagerLoadSelector_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #c7c4d2;
+    filter: brightness(350%) drop-shadow(8px 8px 5px #2a2a35);
+    font-family: 'Overpass', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col10;
+    grid-row: row4 / row5;
+    outline-color: #8b8c92;
+}
+
+.volcaNubassPatchManagerLoadLoadButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    outline-color: #8b8c92;
+    padding-top: 4px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerLoadLoadButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerLoadLoadButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerLoadCancelButton_JanuaryB {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #dfbeb1;
+    color: #dfbeb1;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383641) saturate(200%);
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    grid-column: col7 / col9;
+    grid-row: row7 / row8;
+    outline-color: #8b8c92;
+    padding-top: 4px;
+    transition: all 0.2s linear;
+    width: 100px;
+    z-index: 155;
+}
+
+.volcaNubassPatchManagerLoadCancelButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(180deg);
+    filter: brightness(115%) drop-shadow(4px 4px 5px #383641) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.volcaNubassPatchManagerLoadCancelButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383641) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.volcaNubassPatchManagerPanicOff_JanuaryB {
+    display: none;
+}
+
+.volcaNubassPatchManagerPanicOn_JanuaryB {
+    border-radius: 0 0 15px 0;
+    height: 80%;
+    left: 25%;
+    opacity: 0.8;
+    position: absolute;
+    top: 10%;
+    width: 80%;
+    z-index: 400;
+}
