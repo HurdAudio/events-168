@@ -787,7 +787,6 @@ function VolcaFmPatchManager(user, banks) {
     }
 
     function onMIDISuccess(midiAccess) {
-        console.log(midiAccess);
 
         inputs = Array.from(midiAccess.inputs.values());
         outputs = Array.from(midiAccess.outputs.values());

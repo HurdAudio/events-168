@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
 function midiConnection(midiAccess) {
     
     let outputs, inputs, currentOutput, currentMidiChannel;
     let midiConnections = {};
-    console.log(midiAccess);
     
     let inputArray = [];
     let outputArray = [];
@@ -19,8 +18,6 @@ function midiConnection(midiAccess) {
     for (const input of inputs) {
         inputArray.push(input);
     }
-
-    console.log(inputArray);
 
     currentMidiChannel = 0;
     currentOutput = outputArray[0];

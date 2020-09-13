@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import StepSequencer from '../stepSequencer/stepSequencer';
 import './userhub.style.jana.css';
 import './userhub.style.janb.css';
 import './userhub.style.janc.css';
@@ -44,7 +45,9 @@ function Sequencer(skin) {
                             <option key={item.uuid} value={item.uuid}>{item.name}</option>
                         )}
                     </select>
-                    <button className={'homeButtons' + sequenceMonth}>step edit</button>
+                    <Link to="/step-sequencer">
+                        <button className={'homeButtons' + sequenceMonth}>step edit</button>
+                    </Link>
                     <button className={'homeButtons' + sequenceMonth}>playback</button>
                     <button className={'homeButtons' + sequenceMonth}>recorder</button>
                 </div>

@@ -17,6 +17,9 @@ import './volcaNubass.style.febb.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaNubassImg1 from '../img/volcaNubassImg1.png';
 import axios from 'axios';
+import midiConnection from '../midiManager/midiConnection';
+
+let connections;
 
 function VolcaNubass(user, patch) {
     
@@ -40,6 +43,7 @@ function VolcaNubass(user, patch) {
     let rootNote = 36;
     let keyEngaged = {};
 
+    const [midiConnections, setMidiConnections] = useState(undefined);
     const [panicState, setPanicState] = useState('volcaNubassPanicOff');
     const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
     const [nubassContainerState, setNubassContainerState] = useState('Active');
@@ -567,17 +571,32 @@ function VolcaNubass(user, patch) {
     }
 
     const noteOnEvent = (key) => {
-        let index = 0;
-        for (let i = 0; i < outputs.length; i++) {
-            if (outputs[i].id === currentOutput.id) {
-                index = i;
-            }
+//        let index = 0;
+//        for (let i = 0; i < outputs.length; i++) {
+//            if (outputs[i].id === currentOutput.id) {
+//                index = i;
+//            }
+//        }
+        if (midiConnections === undefined) {
+            navigator.requestMIDIAccess({ sysex: true })
+            .then((midiAccess) => {               
+                connections = midiConnection(midiAccess);
+                setMidiConnections(connections);
+                console.log(connections);
+                setCurrentOutput(connections.currentOutput);
+                setCurrentMidiChannel(connections.currentMidiChannel);
+                setAvailableOutputs(connections.outputs);
+                setAvailableInputs(connections.inputs);
+                return;
+            }, () => {
+                alert('No MIDI ports accessible');
+            });
         }
         switch (key.toLowerCase()) {
             case ('q'):
                 if (!keyEngaged.q) {
                     keyEngaged.q = true;
-                    outputs[index].send([0x90 | currentMidiChannel, rootNote, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote, 0x7f]);
                 }
                 break;
             case ('2'):

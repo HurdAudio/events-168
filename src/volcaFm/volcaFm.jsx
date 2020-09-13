@@ -18,6 +18,9 @@ import './volcaFm.style.febc.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaFmImg1 from '../img/volcaFmImg1.png';
 import axios from 'axios';
+import midiConnection from '../midiManager/midiConnection';
+
+let connections;
 
 function VolcaFm(user, patch) {
     
@@ -42,6 +45,7 @@ function VolcaFm(user, patch) {
     let rootNote = 60;
     let keyEngaged = {};
 
+    const [midiConnections, setMidiConnections] = useState(undefined);
     const [panicState, setPanicState] = useState('panicOff');
     const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
@@ -2901,17 +2905,32 @@ function VolcaFm(user, patch) {
     }
 
     const noteOnEvent = (key) => {
-        let index = 0;
-        for (let i = 0; i < outputs.length; i++) {
-            if (outputs[i].id === currentOutput.id) {
-                index = i;
-            }
+//        let index = 0;
+//        for (let i = 0; i < outputs.length; i++) {
+//            if (outputs[i].id === currentOutput.id) {
+//                index = i;
+//            }
+//        }
+        if (midiConnections === undefined) {
+            navigator.requestMIDIAccess({ sysex: true })
+            .then((midiAccess) => {               
+                connections = midiConnection(midiAccess);
+                setMidiConnections(connections);
+                console.log(connections);
+                setCurrentOutput(connections.currentOutput);
+                setCurrentMidiChannel(connections.currentMidiChannel);
+                setAvailableOutputs(connections.outputs);
+                setAvailableInputs(connections.inputs);
+                return;
+            }, () => {
+                alert('No MIDI ports accessible');
+            });
         }
         switch (key.toLowerCase()) {
             case ('q'):
                 if (!keyEngaged.q) {
                     keyEngaged.q = true;
-                    outputs[index].send([0x90 | currentMidiChannel, rootNote, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote, 0x7f]);
                 }
                 break;
             case ('2'):
@@ -3034,6 +3053,7 @@ function VolcaFm(user, patch) {
     }
 
     const noteOffEvent = (key) => {
+        
         switch (key.toLowerCase()) {
             case ('q'):
                 currentOutput.send([0x80 | currentMidiChannel, rootNote, 0x7f]);
