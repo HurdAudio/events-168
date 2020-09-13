@@ -72,6 +72,9 @@ function StepSequencer(user, seq) {
     const [continuousModalState, setContinuousModalState] = useState('_Inactive');
     const [duplicateTrackModalStatus, setDuplicateTrackModalStatus] = useState('_Inactive');
     const [eventFilterDialogState, setEventFilterDialogState] = useState('_Inactive');
+    const [quantizeModalState, setQuantizeModalState] = useState('_Inactive');
+    const [panicState, setPanicState] = useState('_Inactive');
+    const [currentSpinner, setCurrentSpinner] = useState('https://events-168-hurdaudio.s3.amazonaws.com/stepSequencer/january/spinners/3ab12a52650948660ba935ddf3d202e1.gif');
     const [duplicateTrackMidiChannel, setDuplicateTrackMidiChannel] = useState(0);
     const [rudeSolo, setRudeSolo] = useState(false);
     const [midiOutputs, setMidiOutputs] = useState(userOutputs);
@@ -391,6 +394,10 @@ function StepSequencer(user, seq) {
             uuid: '40fc271b-2b22-40ff-a43d-90404ff07c69'
         }
     ]);
+    const [quantizeParams, setQuantizeParams] = useState({
+        event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
+        value: 240
+    });
     const [repeaterSettings, setRepeaterSettings] = useState({
         from: {
             bar: 1,
@@ -1224,7 +1231,6 @@ function StepSequencer(user, seq) {
     }
     
     const playTrackEvents = (track, timeStart) => {
-        console.log(user.midi_connections.outputs);
         let output = 0;
         for (let o = 0; o < user.midi_connections.outputs.length; o++) {
             if (user.midi_connections.outputs[o].id === track.output) {
@@ -1275,8 +1281,8 @@ function StepSequencer(user, seq) {
                             case('d1595e03-bcd9-4ca7-9247-4d54723c5a05'):
                                 // PITCH BEND event
                                 // outputs[index].send([0xE0 | currentMidiChannel, mostSignificantByte, leastSignificantByte]);
-                                let msb = parseInt(track.events[index].bend) << 1;
-                                let lsb = msb >> 1;
+                                let msb = Math.floor(parseInt(track.events[index].bend) / 128);
+                                let lsb = parseInt(track.events[index].bend) - (msb * 128);
                                 user.midi_connections.outputs[output].send([0xE0 | track.events[index].midiChannel, msb, lsb], timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
                                 break;
                             case('2fdb9151-68ad-46f7-b11e-adbb15d12a09'):
@@ -1533,8 +1539,14 @@ function StepSequencer(user, seq) {
                 }
             } 
         }
+        let beginIndex = 0;
+        if (indexPositionPreToPoint(track.events[beginIndex], homePosition.measure)) {
+            while((indexPositionPreToPoint(track.events[beginIndex], homePosition.measure)) && (beginIndex < track.length)) {
+                ++beginIndex;
+            }
+        }
         
-        trackPlayer(0, { bar: 2, beat: 1, ticks: 0});
+        trackPlayer(0, { bar: homePosition.measure.bar + 1, beat: 1, ticks: 0});
         
         
     }
@@ -5411,6 +5423,33 @@ function StepSequencer(user, seq) {
         return temp;
     }
     
+    const subtractTick = (position) => {
+        let meter = meterAtPosition({bar: parseInt(position.bar), beat: 1, ticks: 0});
+        let meter2 = meterAtPosition({bar: parseInt(position.bar) - 1, beat: 1, ticks: 0});
+        let temp = {
+            bar: parseInt(position.bar),
+            beat: parseInt(position.beat),
+            ticks: parseInt(position.ticks)
+        };
+        
+        temp.ticks = temp.ticks - 1;
+        if (parseInt(temp.ticks) === -1) {
+            if (parseInt(temp.beat) === 1) {
+                if (parseInt(temp.bar) === 1) {
+                    return temp;
+                }
+                temp.bar = temp.bar - 1;
+                temp.beat = parseInt(meter2.meterNumerator);
+                temp.ticks = parseInt(getTickMax(parseInt(meter2.meterDenominator))) - 1;
+            } else {
+                temp.beat = temp.beat - 1;
+                temp.ticks = parseInt(getTickMax(parseInt(meter.meterDenominator))) - 1;
+            }
+        }
+        
+        return temp;
+    }
+    
     const calculateDurationInTicks = (from, to) => {
         let total = 0;
         let position = {
@@ -7565,10 +7604,148 @@ function StepSequencer(user, seq) {
         
         return deepFilter[0].filter;
     }
+    
+    const openQuantizeModal = () => {
+        setQuantizeModalState('_Active');
+        setStepSequencerState('_Inactive');
+    }
+    
+    const closeQuantizeModal = () => {
+        setQuantizeModalState('_Inactive');
+        setStepSequencerState('_Active');
+    }
+    
+    const updateQuantizeEventParam = (val) => {
+        let deepCopy = {...quantizeParams};
+        
+        deepCopy.event = val;
+        
+        setQuantizeParams(deepCopy);
+    }
+    
+    const updateEventQuantizeValue = (val) => {
+        let deepCopy = {...quantizeParams};
+        
+        deepCopy.value = parseInt(val);
+        
+        setQuantizeParams(deepCopy);
+    }
+    
+    const quantizeTrack = () => {
+        let deepCopy = {...sequence};
+        let position1 = {};
+        let position2 = {};
+        let difference = 0;
+        
+        if (quantizeParams.event === '9f4db083-23fa-4c1c-b7a5-ee3f57288aa7') {
+            return;
+        }
+        
+        if (quantizeParams.event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') {
+            for (let i = 0; i < deepCopy.tracks[activeTrack].events.length; i++) {
+                if (deepCopy.tracks[activeTrack].events[i].event === quantizeParams.event) {
+                    position1 = {
+                        bar: deepCopy.tracks[activeTrack].events[i].noteOn.time.bar,
+                        beat: deepCopy.tracks[activeTrack].events[i].noteOn.time.beat,
+                        ticks: deepCopy.tracks[activeTrack].events[i].noteOn.time.ticks
+                    };
+                    position2 = {
+                        bar: deepCopy.tracks[activeTrack].events[i].noteOff.time.bar,
+                        beat: deepCopy.tracks[activeTrack].events[i].noteOff.time.beat,
+                        ticks: deepCopy.tracks[activeTrack].events[i].noteOff.time.ticks
+                    };
+                    if ((parseInt(position1.ticks) % parseInt(quantizeParams.value)) !== 0) {
+                        difference = (parseInt(position1.ticks) % parseInt(quantizeParams.value));
+                        if (difference < (parseInt(quantizeParams.value)/2)) {
+                            for (let decre = 0; decre < difference; decre++) {
+                                position1 = subtractTick(position1);
+                                position2 = subtractTick(position2);
+                            }
+                        } else {
+                            for (let incre = 0; incre < difference; incre++) {
+                                position1 = addTick(position1);
+                                position2 = addTick(position2);
+                            }
+                        }
+                        deepCopy.tracks[activeTrack].events[i].noteOn.time = {
+                            bar: position1.bar,
+                            beat: position1.beat,
+                            ticks: position1.ticks
+                        };
+                        deepCopy.tracks[activeTrack].events[i].noteOff.time = {
+                            bar: position2.bar,
+                            beat: position2.beat,
+                            ticks: position2.ticks
+                        }
+                    }
+                }
+            }
+        } else {
+            for (let j = 0; j < deepCopy.tracks[activeTrack].events.length; j++) {
+                if (deepCopy.tracks[activeTrack].events[j].event === quantizeParams.event) {
+                    position1 = {
+                        bar: deepCopy.tracks[activeTrack].events[j].time.bar,
+                        beat: deepCopy.tracks[activeTrack].events[j].time.beat,
+                        ticks: deepCopy.tracks[activeTrack].events[j].time.ticks
+                    };
+                    if ((parseInt(position1.ticks) % parseInt(quantizeParams.value)) !== 0) {
+                        difference = (parseInt(position1.ticks) % parseInt(quantizeParams.value));
+                        if (difference < (parseInt(quantizeParams.value)/2)) {
+                            for (let decre = 0; decre < difference; decre++) {
+                                position1 = subtractTick(position1);
+                            }
+                        } else {
+                            for (let incre = 0; incre < difference; incre++) {
+                                position1 = addTick(position1);
+                            }
+                        }
+                        deepCopy.tracks[activeTrack].events[j].time = {
+                            bar: position1.bar,
+                            beat: position1.beat,
+                            ticks: position1.ticks
+                        }
+                    }
+                }
+            }
+        }
+        
+        setSequence(deepCopy);
+        closeQuantizeModal();
+    }
+    
+    const spaceStartStop = (val) => {
+        if (val === ' ') {
+            if (sequencePlaying) {
+                stopSequence();
+            } else {
+                playSequence();
+            }
+        }
+        if (val === 'Enter') {
+            stopSequence();
+        }
+    }
+    
+    const panic = () => {
+        setPanicState('_Active');
+        setStepSequencerState('_Inactive');
+        for (let i = 0; i < user.midi_connections.outputs.length; i++) {
+            for (let channel = 0; channel < 16; channel++) {
+                for (let note = 0; note < 128; note++) {
+                    user.midi_connections.outputs[i].send([0x80 | channel, note, 0x7f]);
+                }
+            }
+        }
+        setTimeout(() => {
+            setPanicState('_Inactive');
+            setStepSequencerState('_Active');
+        }, user.midi_connections.outputs.length * 2000);
+    }
             
     return(
         <div>
             <div className={'stepSequencerContainer' + stepSequencerState + stepSequenceMonth}
+                onKeyDown={(e) => spaceStartStop(e.key)}
                 tabIndex="1">
                 <div className={'stepSequencerImageDiv' + stepSequenceMonth}>
                     <div className={'stepSequencerEditorTopBar' + stepSequenceMonth}>
@@ -7583,7 +7760,8 @@ function StepSequencer(user, seq) {
                         onChange={(e) => seqNameUpdate(e.target.value)}
                         type="text"
                         value={sequence.header.name}/>
-                    <button className={'stepSequencerPanicButton' + stepSequenceMonth}>panic!</button>
+                    <button className={'stepSequencerPanicButton' + stepSequenceMonth}
+                        onClick={() => panic()}>panic!</button>
                     <div className={'stepSequencerSidebarManager' + stepSequenceMonth}>
                         <div className={'stepSequencerSidebarContainer' + stepSequenceMonth}>
                             <button className={'stepSequencerSaveButton' + stepSequenceMonth}>save</button>
@@ -8438,7 +8616,8 @@ function StepSequencer(user, seq) {
                                 onClick={() => openDuplicateTrackModal()}>duplicate</button>
                             <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}
                                 onClick={() => openEventFilterModal()}>filter</button>
-                            <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}>quantize</button>
+                            <button className={'stepSequencerTrackOperatorsButton' + stepSequenceMonth}
+                                onClick={() => openQuantizeModal()}>quantize</button>
                         </div>
                     </div>
                     <div className={'stepSequencerInputsControl' + stepSequenceMonth}>
@@ -9055,6 +9234,30 @@ function StepSequencer(user, seq) {
                 </div>
                 <button className={'stepSequencerFilterCloseDialogButton' + stepSequenceMonth}
                     onClick={() => closeEventFilterModal()}>close</button>
+            </div>
+            <div className={'stepSequencerQuantizeModalDiv' + quantizeModalState + stepSequenceMonth}>
+                <p className={'stepSequencerFilterLabel' + stepSequenceMonth}>quantize:</p>
+                <select className={'stepSequencerQuantizeEventSelect' + stepSequenceMonth}
+                    onChange={(e) => updateQuantizeEventParam(e.target.value)}
+                    value={quantizeParams.event}>
+                    {midiEvents.map(event => (
+                        <option key={event.uuid} value={event.uuid}>{event.name}</option>
+                    ))}
+                </select>
+                <p className={'stepSequencerQuantizeToTheNearest' + stepSequenceMonth}>to the nearest </p>
+                <input className={'stepSequencerQuantizeValueInput' + stepSequenceMonth}
+                    max={beatResolution}
+                    min="1"
+                    onChange={(e) => updateEventQuantizeValue(e.target.value)}
+                    type="number"
+                    value={quantizeParams.value} />
+                <button className={'stepSequencerRepeaterSubmitButton' + stepSequenceMonth}
+                    onClick={() => quantizeTrack()}>submit</button>
+                <button className={'stepSequencerRepeaterCancelButton' + stepSequenceMonth}
+                    onClick={() => closeQuantizeModal()}>cancel</button>
+            </div>
+            <div className={'stepSequencerPanicDiv' + panicState + stepSequenceMonth}>
+                <img src={currentSpinner} />
             </div>
         </div>
     )
