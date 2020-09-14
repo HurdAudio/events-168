@@ -14,6 +14,7 @@ import VolcaFmPatchTransmitter from './volcaFmPatchTransmitter';
 import midi5pin from '../img/midi5pin.svg';
 import './volcaFmPatchManager.style.jana.css';
 import './volcaFmPatchManager.style.janb.css';
+import './volcaFmPatchManager.style.janc.css';
 import axios from 'axios';
 import uuid4 from 'uuid4';
 
@@ -28,7 +29,7 @@ function VolcaFmPatchManager(user, banks) {
     const scaleScaler = 1.12;
     const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/january/spinners/e07f6af981d70eb773e6b7d7f1899936.gif';
     const janbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/january/spinners/b2f1177cea910d95dca3048224b419d6.gif';
-    const jancSpinner = '';
+    const jancSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/january/spinners/cj3rpvd3ai3z.gif';
     const febaSpinner = '';
 
     let midiOutput = null;
@@ -46,12 +47,12 @@ function VolcaFmPatchManager(user, banks) {
     const [deleteCollectionModalState, setDeleteCollectionModalState] = useState('_Inactive');
     const [aboutModalState, setAboutModalState] = useState('_Inactive');
     const [collectionLoadModalState, setCollectionLoadModalState] = useState('_Inactive');
-    const [volcaFmPatchManagerMonth, setVolcaFmPatchManagerMonth] = useState('_JanuaryB');
+    const [volcaFmPatchManagerMonth, setVolcaFmPatchManagerMonth] = useState('_JanuaryC');
     const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
     const [dragData, setDragData] = useState(null);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
     const [userPatches, setUserPatches] = useState([]);
-    const [currentSpinner, setCurrentSpinner] = useState(janbSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(jancSpinner);
     const [selectedPatchPatch, setSelectedPatchPatch] = useState('');
     const [selectedBankPatch, setSelectedBankPatch] = useState('');
     const [availableInputs, setAvailableInputs] = useState([]);
@@ -747,21 +748,25 @@ function VolcaFmPatchManager(user, banks) {
     }
     
     const panic = () => {
-        if(availableOutputs[0]) {
+//        if(availableOutputs[0]) {
             setPanicState('volcaFmPatchManagerPanicOn');
             setVolcaFmPatchManagerContainerState('_Inactive');
-            for (let i = 0; i < availableOutputs.length; i++) {
-                for (let channel = 0; channel < 16; channel++) {
-                    for (let note = 0; note < 128; note++) {
-                        availableOutputs[i].send([0x80 | channel, note, 0x7f]);
-                    }
-                }
-            }
+//            for (let i = 0; i < availableOutputs.length; i++) {
+//                for (let channel = 0; channel < 16; channel++) {
+//                    for (let note = 0; note < 128; note++) {
+//                        availableOutputs[i].send([0x80 | channel, note, 0x7f]);
+//                    }
+//                }
+//            }
+//            setTimeout(() => {
+//                setPanicState('volcaFmPatchManagerPanicOff');
+//                setVolcaFmPatchManagerContainerState('_Active');
+//            }, availableOutputs.length * 2000);
             setTimeout(() => {
                 setPanicState('volcaFmPatchManagerPanicOff');
                 setVolcaFmPatchManagerContainerState('_Active');
-            }, availableOutputs.length * 2000);
-        }
+            }, 7000);
+//        }
     }
     
     function initInputs() {
