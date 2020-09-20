@@ -13,6 +13,7 @@ import sampleImage from '../img/sampleImage.png';
 import './gr1Editor.style.jana.css';
 import './gr1Editor.style.janb.css';
 import './gr1Editor.style.janc.css';
+import axios from 'axios';
 import midi5pin from '../img/midi5pin.svg';
 import midiConnection from '../midiManager/midiConnection';
 
@@ -22,7 +23,7 @@ const januaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1-edito
 const januaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/spinners/loading51.gif';
 const januaryCSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/spinners/JVQ25yB.gif';
 
-function Gr1Editor(user, patch) {
+function Gr1Editor(user, incomingPatch) {
         
     let midiOutput = null;
     let inputs = null;
@@ -41,11 +42,15 @@ function Gr1Editor(user, patch) {
     const scaleScaler = 1.12;
 
     const [gr1ContainerState, setGr1ContainerState] = useState('_Active');
+    const [gr1LoadModalState, setGr1LoadModalState] = useState('_Inactive');
+    const [loadPatchUuid, setLoadPatchUuid] = useState('');
+    const [currentPatchUuid, setCurrentPatchUuid] = useState('');
+    const [userPatches, setUserPatches] = useState([]);
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('_Inactive');
     const [aboutGR1DivState, setAboutGR1DivState] = useState('_Inactive');
     const [currentSpinner, setCurrentSpinner] = useState(januaryCSpinner);
     const [saveAsName, setSaveAsName] = useState('');
-    const [currentOutput, setCurrentOutput] = useState([]);
+    const [currentOutput, setCurrentOutput] = useState(null);
     const [midiConnections, setMidiConnections] = useState(undefined);
     const [panicState, setPanicState] = useState('gr1PanicOff');
     const [availableInputs, setAvailableInputs] = useState([]);
@@ -1672,6 +1677,7 @@ function Gr1Editor(user, patch) {
         setPatchAltered(true);
         currentOutput.send([0xC0 | currentMidiChannel, globalParams.currentPatch]);
         bulkPatchSend();
+        setCurrentPatchUuid('');
     }
     
     const makeRandomPatch = () => {
@@ -1738,6 +1744,7 @@ function Gr1Editor(user, patch) {
         setPatchAltered(true);
         currentOutput.send([0xC0 | currentMidiChannel, globalParams.currentPatch]);
         bulkPatchSend();
+        setCurrentPatchUuid('');
     }
     
     const getVisualOutput = (val) => {
@@ -1755,9 +1762,24 @@ function Gr1Editor(user, patch) {
     }
     
     const submitSaveAsDialog = () => {
-        setSaveAsName('');
-        setSaveAsDialogStatus('_Inactive');
-        setGr1ContainerState('_Active');
+        if (saveAsName === '') {
+            return;
+        } else {
+            const patch = {
+                user_uuid: user.uuid,
+                globalParams: globalParams,
+                gr1Parameters: {
+                    patch: gr1Parameters
+                }
+            }
+            patch.globalParams.name = saveAsName;
+            axios.post(`/gr1_patches/patch`, patch)
+            .then(() => {
+                setSaveAsName('');
+                setSaveAsDialogStatus('_Inactive'); 
+                setGr1ContainerState('_Active');
+            });
+        }
     }
     
     const cancelSaveAsDialog = () => {
@@ -1779,25 +1801,25 @@ function Gr1Editor(user, patch) {
     const [currentGrains, setCurrentGrains] = useState([
         {
             key: 1,
-            size: Math.ceil(gr1Parameters[globalParams.currentPatch].params.grainsize/20),
+            size: Math.ceil(gr1Parameters[0].params.grainsize/20),
             x: -5,
             y: -5
         },
         {
             key: 2,
-            size: Math.ceil(gr1Parameters[globalParams.currentPatch].params.grainsize/20),
+            size: Math.ceil(gr1Parameters[0].params.grainsize/20),
             x: -5,
             y: -5
         },
         {
             key: 3,
-            size: Math.ceil(gr1Parameters[globalParams.currentPatch].params.grainsize/20),
+            size: Math.ceil(gr1Parameters[0].params.grainsize/20),
             x: -5,
             y: -5
         },
         {
             key: 4,
-            size: Math.ceil(gr1Parameters[globalParams.currentPatch].params.grainsize/20),
+            size: Math.ceil(gr1Parameters[0].params.grainsize/20),
             x: -5,
             y: -5
         }
@@ -1808,10 +1830,44 @@ function Gr1Editor(user, patch) {
     }
     
     const savePatch = () => {
-        setPatchAltered(false);
+        const patch = {
+            user_uuid: user.uuid,
+            globalParams: globalParams,
+            gr1Parameters: {
+                patch: gr1Parameters
+            }
+        }
+        
+        if (currentPatchUuid === '') {
+            axios.post(`/gr1_patches/patch`, patch)
+            .then(responseData => {
+                setCurrentPatchUuid(responseData.data[0].uuid);
+                setPatchAltered(false);
+            });
+        } else {
+            axios.patch(`/gr1_patches/patch/${currentPatchUuid}`, patch)
+            .then(() => {
+                setPatchAltered(false);
+            });
+        }
+        
     }
     
     const revertPatch = () => {
+        if (currentPatchUuid !== '') {
+            axios.get(`/gr1_patches/patch/${currentPatchUuid}`)
+            .then(patchData => {
+                const patch = patchData.data;
+                setGlobalParams(patch.globalParams);
+                setGr1Parameters(patch.gr1Parameters.patch);
+                if (currentOutput) {
+                    currentOutput.send([0xC0 | currentMidiChannel, globalParams.currentPatch]);
+                    bulkPatchSend();
+                }
+                setPatchAltered(false);
+            });
+        }
+        
         setPatchAltered(false);
     }
     
@@ -2400,8 +2456,8 @@ function Gr1Editor(user, patch) {
     } 
     
     const patchNameUpdate = (val) => {
-        let deepCopy = [...globalParams];
-        
+        let deepCopy = {...globalParams};
+
         deepCopy.name = val;
         
         setGlobalParams(deepCopy);
@@ -2813,6 +2869,54 @@ function Gr1Editor(user, patch) {
         
         return anim;
     }
+    
+    const loadModalOn = () => {
+        setGr1LoadModalState('_Active');
+        setGr1ContainerState('_Inactive');
+        axios.get(`/gr1_patches/byuser/${user.uuid}`)
+        .then(patchesData => {
+            const patches = patchesData.data.sort((a, b) => {
+                if (a.globalParams.name.toLowerCase() > b.globalParams.name.toLowerCase()) {
+                    return 1;
+                } else if (a.globalParams.name.toLowerCase() < b.globalParams.name.toLowerCase()) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+            setUserPatches(patches);
+            let loadUuid = null;
+            if (patchesData.data.length > 0) {
+                loadUuid = patchesData.data[0].uuid;
+            }
+            setLoadPatchUuid(loadUuid);
+        });
+    }
+    
+    const resetLoadPatchUuid = (val) => {
+        setLoadPatchUuid(val);
+    }
+    
+    const cancelPatchLoad = () => {
+        setGr1LoadModalState('_Inactive');
+        setGr1ContainerState('_Active');
+    }
+    
+    const loadSelectedPatch = () => {
+        axios.get(`/gr1_patches/patch/${loadPatchUuid}`)
+        .then(patchData => {
+            const patch = patchData.data;
+            setGlobalParams(patch.globalParams);
+            setGr1Parameters(patch.gr1Parameters.patch);
+            if (currentOutput) {
+                currentOutput.send([0xC0 | currentMidiChannel, globalParams.currentPatch]);
+                bulkPatchSend();
+            }
+            setCurrentPatchUuid(loadPatchUuid);
+            setPatchAltered(false);
+            cancelPatchLoad();
+        });
+    }
 
 
 //    initiateMidiAccess();
@@ -2829,6 +2933,8 @@ function Gr1Editor(user, patch) {
                             src={midiImage}></img></NavLink>
                     </div>
                     <h3 className={'gr1EditorTitle' + gr1Month}>GR-1 Editor</h3>
+                    <button className={'gr1LoadButton' + gr1Month}
+                        onClick={() => loadModalOn()}>load</button>
                     <input className={'gr1PatchNameInput' + gr1Month}
                         onChange={(e) => patchNameUpdate(e.target.value)}
                         type="text"
@@ -3748,6 +3854,21 @@ function Gr1Editor(user, patch) {
             </div>
             <div className={panicState + gr1Month}>
                 <img src={currentSpinner} />
+            </div>
+            <div className={'gr1LoadModal' + gr1LoadModalState + gr1Month}>
+                <div className={'gr1LoadContainer' + gr1Month}>
+                    <p className={'gr1LoadTitle' + gr1Month}>Load GR-1 Patch</p>
+                    <select className={'gr1LoadSelector' + gr1Month}
+                        onChange={(e) => resetLoadPatchUuid(e.target.value)}
+                        value={loadPatchUuid}>
+                        {userPatches.map(patch => (
+                            <option key={patch.uuid} value={patch.uuid}>{patch.globalParams.name}</option>))}
+                    </select>
+                    <button className={'gr1LoadLoadButton' + gr1Month}
+                        onClick={() => loadSelectedPatch()}>load</button>
+                    <button className={'gr1LoadCancelButton' + gr1Month}
+                        onClick={() => cancelPatchLoad()}>cancel</button>
+                </div>
             </div>
         </div>
         );

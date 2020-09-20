@@ -2641,7 +2641,7 @@ function VolcaDrum(user, patch) {
                     <button className={'volcaDrumLoadButton' + volcaDrumMonth}
                         onClick={() => loadModalOn()}>load</button>
                     <input className={'volcaPatchNameInput' + volcaDrumMonth}
-                        onChange={(e) => patchNameUpdate(e.target.value)}
+                        onChange={(e) => {e.stopPropagation(); patchNameUpdate(e.target.value);}}
                         type="text"
                         value={globalParams.name}/>
                     <button className={'volcaDrumPanicButton' + volcaDrumMonth}

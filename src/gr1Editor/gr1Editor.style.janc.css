@@ -2630,3 +2630,161 @@
     opacity: 0.9;
     width: 50%;
 }
+
+.gr1LoadButton_JanuaryC {
+    backdrop-filter: hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #d9dbe3;
+    color: #d9dbe3;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #47484f);
+    font-family: 'B612', sans-serif;
+    font-size: 18px;
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+    height: 35px;
+    margin: 6px 65px 0 35px;
+    outline-color: #80b2c3;
+    transition: all 0.4s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.gr1LoadButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #101e26;
+    color: #101e26;
+    filter: brightness(115%) drop-shadow(4px 4px 5px #47484f);
+    transition: all 0.4s linear;
+}
+
+.gr1Button_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #47484f);
+    transition: all 0.1s linear;
+}
+
+.gr1LoadModal_Active_JanuaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/january/composition_in_pink_and_blue_by_thrumyeye_d4t5gxb-fullview.jpg);
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #284b5f;
+    box-shadow: 5px 5px 5px #324653;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.gr1LoadModal_Inactive_JanuaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/january/composition_in_pink_and_blue_by_thrumyeye_d4t5gxb-fullview.jpg);
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #284b5f;
+    box-shadow: 5px 5px 5px #324653;
+    box-sizing: border-box;
+    filter: invert(100%);
+    height: 40vh;
+    left: 120%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.gr1LoadContainer_JanuaryC {
+    backdrop-filter: blur(5px) brightness(60%) grayscale(20%) saturate(30%);
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1LoadTitle_JanuaryC {
+    color: #f7e0ee;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #324653);
+    font-family: 'B612', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col9;
+    grid-row: row2 / row3;
+}
+
+.gr1LoadSelector_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #f7e0ee;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #324653);
+    font-family: 'B612', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col10;
+    grid-row: row4 / row5;
+    outline-color: #80b2c3;
+}
+
+.gr1LoadLoadButton_JanuaryC {
+    backdrop-filter: hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #d9dbe3;
+    color: #d9dbe3;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #47484f);
+    font-family: 'B612', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    height: 35px;
+    outline-color: #80b2c3;
+    transition: all 0.4s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.gr1LoadLoadButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #eec0dd;
+    color: #eec0dd;
+    filter: brightness(115%) drop-shadow(4px 4px 5px #47484f);
+    transition: all 0.4s linear;
+}
+
+.gr1LoadLoadButton_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #47484f);
+    transition: all 0.1s linear;
+}
+
+.gr1LoadCancelButton_JanuaryC {
+    backdrop-filter: hue-rotate(135deg);
+    background: transparent;
+    border: 2px solid #d9dbe3;
+    color: #d9dbe3;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #47484f);
+    font-family: 'B612', sans-serif;
+    font-size: 18px;
+    grid-column: col7 / col9;
+    grid-row: row7 / row8;
+    height: 35px;
+    outline-color: #80b2c3;
+    transition: all 0.4s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.gr1LoadCancelButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(-135deg);
+    border: 2px solid #eec0dd;
+    color: #eec0dd;
+    filter: brightness(115%) drop-shadow(4px 4px 5px #47484f);
+    transition: all 0.4s linear;
+}
+
+.gr1LoadCancelButton_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #47484f);
+    transition: all 0.1s linear;
+}
