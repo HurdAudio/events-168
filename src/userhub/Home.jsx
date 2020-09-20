@@ -25,7 +25,7 @@ function Home(user, skin) {
     const [homeMonth, setHomeMonth] = useState(skin);
     const [userClockResolution, setUserClockResolution] = useState(user.clock_resolution);
     const [midiConfigurations, setMidiConfigurations] = useState([]);
-    const [midiPatchValue, setMidiPatchValue] = useState(null);
+    const [midiPatchValue, setMidiPatchValue] = useState('');
     const [midiConnections, setMidiConnections] = useState(undefined);
     const [currentOutput, setCurrentOutput] = useState([]);
     const [currentMidiChannel, setCurrentMidiChannel] = useState(0);

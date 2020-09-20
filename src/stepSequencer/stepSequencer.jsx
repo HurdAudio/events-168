@@ -8288,6 +8288,7 @@ function StepSequencer(user, seq) {
                         <div className={'stepSequencerTracksContainer' + stepSequenceMonth}>
                             {sequence.tracks.map(track => (
                                 <div className={'stepSequencerIndividualTrack' + track.active + stepSequenceMonth}
+                                    key={track.id}
                                     onClick={() => updateSelectedTrack(track.id)}>
                                     {track.events.map(event => (
                                         <div key={event.id}
