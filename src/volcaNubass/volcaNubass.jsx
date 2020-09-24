@@ -14,6 +14,7 @@ import './volcaNubass.style.janb.css';
 import './volcaNubass.style.janc.css';
 import './volcaNubass.style.feba.css';
 import './volcaNubass.style.febb.css';
+import './volcaNubass.style.febc.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaNubassImg1 from '../img/volcaNubassImg1.png';
 import axios from 'axios';
@@ -35,6 +36,7 @@ function VolcaNubass(user, patch) {
     const januaryCSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif';
     const februaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif';
     const februaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif';
+    const februaryCSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif';
 
     let midiOutput = null;
     let inputs = null;
@@ -50,8 +52,8 @@ function VolcaNubass(user, patch) {
     const [volcaNubassLoadModalState, setVolcaNubassLoadModalState] = useState('_Inactive');
     const [userPatches, setUserPatches] = useState([]);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
-    const [currentSpinner, setCurrentSpinner] = useState(februaryBSpinner);
-    const [volcaNubassEditMonth, setVolcaNubassEditMonth] = useState('_FebruaryB');
+    const [currentSpinner, setCurrentSpinner] = useState(februaryCSpinner);
+    const [volcaNubassEditMonth, setVolcaNubassEditMonth] = useState('_FebruaryC');
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState(0);
@@ -1163,10 +1165,10 @@ function VolcaNubass(user, patch) {
                     onChange={(e) => updateChangeAsName(e.target.value)}
                     placeholder={'copy of ' + nubassGlobalParams.name}
                     value={saveAsName} />
-                <div className={'saveAsButtonsDiv' + volcaNubassEditMonth}>
-                    <button className={'saveAsButtons' + volcaNubassEditMonth}
+                <div className={'saveAsButtonsVolcaNubassDiv' + volcaNubassEditMonth}>
+                    <button className={'saveAsButtonsVolcaNubass' + volcaNubassEditMonth}
                         onClick={() => submitSaveAsDialog(saveAsName)}>submit</button>
-                    <button className={'saveAsButtons' + volcaNubassEditMonth}
+                    <button className={'saveAsButtonsVolcaNubass' + volcaNubassEditMonth}
                         onClick={() => cancelSaveAsDialog()}>cancel</button>
                 </div>
             </div>
