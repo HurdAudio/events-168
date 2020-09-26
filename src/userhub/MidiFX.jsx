@@ -12,6 +12,7 @@ import './userhub.style.janc.css';
 import './userhub.style.feba.css';
 import './userhub.style.febb.css';
 import './userhub.style.febc.css';
+import './userhub.style.mara.css';
 import midi5pin from '../img/midi5pin.svg';
 import axis from '../img/axis.svg';
 
