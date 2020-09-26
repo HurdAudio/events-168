@@ -19,8 +19,9 @@ import midi5pin from '../img/midi5pin.svg';
 import volcaFmImg1 from '../img/volcaFmImg1.png';
 import axios from 'axios';
 import midiConnection from '../midiManager/midiConnection';
+import SkinsTable from '../skins/skins';
 
-let connections;
+let connections = null;
 
 function VolcaFm(user, patch) {
     
@@ -44,14 +45,16 @@ function VolcaFm(user, patch) {
     let midiChannel = 0;
     let rootNote = 60;
     let keyEngaged = {};
+    const skins = SkinsTable('fmVolcaEditor');
 
     const [midiConnections, setMidiConnections] = useState(undefined);
+    const [userMidiPatch, setUserMidiPatch] = useState(null);
     const [panicState, setPanicState] = useState('panicOff');
     const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
     const [userPatches, setUserPatches] = useState([]);
     const [volcaFmLoadModalState, setVolcaFmLoadModalState] = useState('_Inactive');
-    const [currentSpinner, setCurrentSpinner] = useState(febcSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(skins.fmVolcaEditor.spinner);
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState(0);
@@ -63,7 +66,7 @@ function VolcaFm(user, patch) {
     const [volcaFmContainerState, setVolcaFmContainerState] = useState('Active');
     const [saveAsName, setSaveAsName] = useState('');
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('Inactive');
-    const [volcaFmMonth, setVolcaFmMonth] = useState('_FebruaryC');
+    const [volcaFmMonth, setVolcaFmMonth] = useState(skins.fmVolcaEditor.skin);
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [patchAltered, setPatchAltered] = useState(false);
     const [currentAlgorithm, setCurrentAlgorithm] = useState('_algorithm1');
@@ -2905,26 +2908,61 @@ function VolcaFm(user, patch) {
     }
 
     const noteOnEvent = (key) => {
-//        let index = 0;
-//        for (let i = 0; i < outputs.length; i++) {
-//            if (outputs[i].id === currentOutput.id) {
-//                index = i;
-//            }
-//        }
-        if (midiConnections === undefined) {
-            navigator.requestMIDIAccess({ sysex: true })
-            .then((midiAccess) => {               
-                connections = midiConnection(midiAccess);
+        console.log(user);
+        if (connections === null) {
+            let indexOut = null;
+            if (user.midi_connections) {
+                connections = user.midi_connections;
                 setMidiConnections(connections);
-                console.log(connections);
                 setCurrentOutput(connections.currentOutput);
                 setCurrentMidiChannel(connections.currentMidiChannel);
+                for (let i = 0; i < connections.outputs.length; i++) {
+                    connections.outputs[i].label = connections.outputs[i].name;
+                }
                 setAvailableOutputs(connections.outputs);
                 setAvailableInputs(connections.inputs);
-                return;
-            }, () => {
-                alert('No MIDI ports accessible');
-            });
+                if (user.midi_patch) {
+                    axios.get(`/midi_manager_patches/patch/${user.midi_patch}`)
+                    .then(midiPatchData => {
+                        const midiPatch = midiPatchData.data.user_preset.outputs;
+                        let outputsArr = [];
+                        for (let i = 0; i < user.midi_connections.outputs.length; i++) {
+                            outputsArr[i] = {...midiPatch[i]};
+                            connections.outputs[i].label = midiPatch[i].label;
+                        }
+                        setUserMidiPatch(outputsArr);
+                        setAvailableOutputs(connections.outputs);
+                        let volcaFmsList = midiPatch.filter(entry => {
+                            return(entry.deviceUuid === 'e3bfacf5-499a-4247-b512-2c4bd15861ad')
+                        });
+                        for (let j = 0; j < midiPatch.lenth; j++) {
+                           if (indexOut === null) {
+                               if (midiPatch[j].deviceUuid === 'e3bfacf5-499a-4247-b512-2c4bd15861ad') {
+                                   indexOut = j;
+                               }
+                           }
+                        }
+                        if (indexOut === null) {
+                            indexOut = 0;
+                        }
+                        setCurrentOutput(connections.outputs[indexOut]);
+                    });
+                }
+            } else {
+                navigator.requestMIDIAccess({ sysex: true })
+                .then((midiAccess) => {               
+                    connections = midiConnection(midiAccess);
+                    setMidiConnections(connections);
+                    setCurrentOutput(connections.currentOutput);
+                    setCurrentMidiChannel(connections.currentMidiChannel);
+                    setAvailableOutputs(connections.outputs);
+                    setAvailableInputs(connections.inputs);
+                    return;
+                }, () => {
+                    alert('No MIDI ports accessible');
+                });
+            }
+            return;
         }
         switch (key.toLowerCase()) {
             case ('q'):
@@ -3300,7 +3338,7 @@ function VolcaFm(user, patch) {
                                 onChange={(e) => updateCurrentOutput(e.target.value)}
                                 value={getVisualOutput(currentOutput)}>
                                 {availableOutputs.map(out => (
-                                <option key={out.id} value={out.id}>{out.name}</option>))}
+                                <option key={out.id} value={out.id}>{out.label}</option>))}
                             </select>
                             <p className={'midiChannelLabel' + volcaFmMonth}>channel:</p>
                             <input className={'midiChannelInput' + volcaFmMonth}

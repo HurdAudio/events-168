@@ -46,6 +46,7 @@ function Home(user, skin) {
             setMidiConfigurations(patchesData.data);
             if (user.midi_patch !== null) {
                 patchValue = user.midi_patch;
+                console.log(user);
             } else if (midiConfigurations.length > 0) {
                 patchValue = midiConfigurations[0].uuid;
             }
@@ -70,6 +71,7 @@ function Home(user, skin) {
     
     const changeMidiPatch = (val) => {
         setMidiPatchValue(val);
+        user.midi_patch = val;
         axios.patch(`/users/${user.uuid}`, { midi_patch: val });
         if (midiConnections === undefined) {
             navigator.requestMIDIAccess({ sysex: true })

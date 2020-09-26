@@ -25,9 +25,9 @@ function randomizeArray(arr, days) {
 //let arr = [{ skin: '_JanuaryA'}];
 //
 //for (let i = 0; i < 10; i++) {
-//    arr.push({ skin: '_JanuaryC' });
-//    arr.push({ skin: '_JanuaryB' });
-//    arr.push({ skin: '_JanuaryA' });
+//    arr.push({ skin: '_JanuaryC', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/january/spinner/smile_loader_by_gleb.gif' });
+//    arr.push({ skin: '_JanuaryB', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/january/spinner/material-preloader.gif' });
+//    arr.push({ skin: '_JanuaryA', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/giphy-janb.gif' });
 //}
 
 const days = 29
@@ -35,11 +35,11 @@ const days = 29
 let arr = [];
 
 for (let i = 0; i < 9; i++) {
-    arr.push({ skin: '_FebruaryA' });
+    arr.push({ skin: '_FebruaryA', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/february/spinner/Snake_04.gif' });
 }
 for (let i = 0; i < 10; i++) {
-    arr.push({ skin: '_FebruaryB' });
-    arr.push({ skin: '_FebruaryC' });
+    arr.push({ skin: '_FebruaryB', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/february/spinner/Animated-Loading-%C3%97-1.gif' });
+    arr.push({ skin: '_FebruaryC', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/february/spinner/hexwave.gif' });
 }
 
 //const days = 31;
