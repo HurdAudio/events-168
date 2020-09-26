@@ -10,6 +10,13 @@ function SkinsTable(access) {
     let skins = {};
     
     switch(access) {
+        case('fmVolcaEditor'):
+            if (table.fmVolcaEditor[months[now.getMonth()]].length === 1) {
+                skins.fmVolcaEditor = table.fmVolcaEditor.available[Math.floor(Math.random() * (table.fmVolcaEditor.available.length))];
+            } else {
+                skins.fmVolcaEditor = table.fmVolcaEditor[months[now.getMonth()]][now.getDate()];
+            }
+            break;
         case('landing'):
             if (table.landing[months[now.getMonth()]].length === 1) {
                 skins.landing = table.landing.available[Math.floor(Math.random() * (table.landing.available.length))];

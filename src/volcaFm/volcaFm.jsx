@@ -19,6 +19,7 @@ import midi5pin from '../img/midi5pin.svg';
 import volcaFmImg1 from '../img/volcaFmImg1.png';
 import axios from 'axios';
 import midiConnection from '../midiManager/midiConnection';
+import SkinsTable from '../skins/skins';
 
 let connections;
 
@@ -44,6 +45,7 @@ function VolcaFm(user, patch) {
     let midiChannel = 0;
     let rootNote = 60;
     let keyEngaged = {};
+    const skins = SkinsTable('fmVolcaEditor');
 
     const [midiConnections, setMidiConnections] = useState(undefined);
     const [panicState, setPanicState] = useState('panicOff');
@@ -51,7 +53,7 @@ function VolcaFm(user, patch) {
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
     const [userPatches, setUserPatches] = useState([]);
     const [volcaFmLoadModalState, setVolcaFmLoadModalState] = useState('_Inactive');
-    const [currentSpinner, setCurrentSpinner] = useState(febcSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(skins.fmVolcaEditor.spinner);
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState(0);
@@ -63,7 +65,7 @@ function VolcaFm(user, patch) {
     const [volcaFmContainerState, setVolcaFmContainerState] = useState('Active');
     const [saveAsName, setSaveAsName] = useState('');
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('Inactive');
-    const [volcaFmMonth, setVolcaFmMonth] = useState('_FebruaryC');
+    const [volcaFmMonth, setVolcaFmMonth] = useState(skins.fmVolcaEditor.skin);
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [patchAltered, setPatchAltered] = useState(false);
     const [currentAlgorithm, setCurrentAlgorithm] = useState('_algorithm1');
