@@ -19,7 +19,6 @@ import axios from 'axios';
 function Login() {
     
     const skins = SkinsTable('login');
-    skins.login.skin = '_MarchB'
     
     const [loginMonth, setLoginMonth] = useState(skins.login.skin);
     const [errorMessage, setErrorMessage] = useState('');
