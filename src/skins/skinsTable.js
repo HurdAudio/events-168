@@ -7,6 +7,7 @@ import midiKeys from '../img/midiKeys.png';
 import bleu_midi_icon from '../img/bleu_midi_icon.png';
 import midiPortCropped1 from '../img/midiPortCropped1.jpg';
 import keyboard2779734960720 from '../img/keyboard2779734960720.png';
+import akaiProIcon from '../img/akaiProIcon.png';
 
 
 function Table(access) {
@@ -326,6 +327,10 @@ function Table(access) {
                         {
                     logo: keyboard2779734960720,
                     skin: '_MarchB'
+                },
+                        {
+                    logo: akaiProIcon,
+                    skin: '_MarchC'
                 }
                        ],
             january: [ 31,      
@@ -452,7 +457,7 @@ function Table(access) {
                         {
                     logo: vectorMidiPng,
                     skin: '_JanuaryC'           
-                } 
+                }
             ],
             february: [ 29,
                         {

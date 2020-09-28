@@ -14,6 +14,7 @@ import midiKeys from '../img/midiKeys.png';
 import bleu_midi_icon from '../img/bleu_midi_icon.png';
 import midiPortCropped1 from '../img/midiPortCropped1.jpg';
 import keyboard2779734960720 from '../img/keyboard2779734960720.png';
+import akaiProIcon from '../img/akaiProIcon.png';
 import './landing.style.jana.css';
 import './landing.style.janb.css';
 import './landing.style.janc.css';
@@ -22,6 +23,7 @@ import './landing.style.febb.css';
 import './landing.style.febc.css';
 import './landing.style.mara.css';
 import './landing.style.marb.css';
+import './landing.style.marc.css';
 import Login from '../login/login';
 import SkinsTable from '../skins/skins';
 
