@@ -605,6 +605,9 @@ function Table(access) {
                 },
                         {
                     skin: '_MarchA'
+                },
+                        {
+                    skin: '_MarchB'
                 }
                        ],
             january: [ 31, 

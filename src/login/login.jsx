@@ -8,6 +8,7 @@ import './login.style.feba.css';
 import './login.style.febb.css';
 import './login.style.febc.css';
 import './login.style.mara.css';
+import './login.style.marb.css';
 import CheckStatus from './checkLoginStatus';
 import EncryptPassword from './encryptPassword';
 import SetStatus from './setLoginStatus';
@@ -18,6 +19,7 @@ import axios from 'axios';
 function Login() {
     
     const skins = SkinsTable('login');
+    skins.login.skin = '_MarchB'
     
     const [loginMonth, setLoginMonth] = useState(skins.login.skin);
     const [errorMessage, setErrorMessage] = useState('');
