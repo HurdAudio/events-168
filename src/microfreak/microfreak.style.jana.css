@@ -1,0 +1,1170 @@
+.microfreakEditorContainer_Active_JanuaryA {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.microfreakEditorContainer_Inactive_JanuaryA {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.microfreakEditorImageDiv_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/cataclysm_by_seerlight_dbnw9cx-fullview.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 16.5% [row9] 8.5%[rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.microfreakEditorTopBar_JanuaryA {
+    backdrop-filter: blur(15px) brightness(150%) hue-rotate(90deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.microfreakNavImage_JanuaryA {
+    cursor: pointer;
+    filter: contrast(80%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.microfreakNavImage_JanuaryA:hover {
+    filter: contrast(110%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.microfreakEditorTitle_JanuaryA {
+    color: #020b1a;
+    filter: brightness(50%) saturate(400%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 42px;
+    grid-column: col2 / col6;
+    grid-row: row1 / row2;
+    margin: 5px;
+    z-index: 55;
+}
+
+.microfreakLoadButton_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #020b1a;
+    color: #020b1a;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+    margin: 6px 65px 0 35px;
+    outline-color: #8d90a2;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakLoadButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(25deg);
+    color: #612a54;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #261021);
+}
+
+.microfreakLoadButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #261021);
+}
+
+.microfreakPatchNameInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #020b1a;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #8d90a2;
+    position: absolute;
+    top: 1%;
+}
+
+.microfreakPanicButton_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #020b1a;
+    cursor: pointer;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col10 / rightEdge;
+    grid-row: row1 / row2;
+    z-index: 56;
+}
+
+.microfreakSidebarManager_JanuaryA {
+    backdrop-filter: hue-rotate(180deg);
+    background: linear-gradient(180deg, transparent, #2365a1, #612a54);
+    border-right: 1px groove #0a0c1b;
+    box-sizing: border-box;
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 0.97;
+}
+
+.microfreakGlideControl_JanuaryA {
+    backdrop-filter: blur(25px) hue-rotate(-75deg);
+    border-bottom: 1px groove #0a0c1b;
+    border-right: 1px groove #0a0c1b;
+    display: grid;
+    grid-column: col3 / col4;
+    grid-row: row2 / row6;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakGlideLabel_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col1 / col4;
+    grid-row: row1 / row2;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakGlideDisplayInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / row4;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakGlideRangeInput_JanuaryA {
+    -webkit-appearance: none;
+    appearance: none;
+    grid-column: col1 / rightEdge;
+    grid-row: row4 / row12;
+    height: 5px;
+    outline-color: #8d90a2;
+    transform: rotateZ(-90deg) translateX(-15vh) translateY(-68px);
+    width: 210px;
+}
+
+.microfreakGlideRangeInput_JanuaryA::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #0a0c1b;
+    border-left: 1px groove #809eb2;
+    border-right: 1px groove #809eb2;
+    filter: drop-shadow(-3px 3px 2px #001828);
+    height: 5px;
+}
+
+.microfreakGlideRangeInput_JanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/cataclysm_by_seerlight_dbnw9cx-fullview.jpg);
+    background-size: cover;
+    box-sizing: border-box;
+    border-left: 1px outset #0a0c1b;
+    border-radius: 5px;
+    border-right: 2px outset #0a0c1b;
+    cursor: pointer;
+    height: 40px;
+    transform: translateY(-16px);
+    width: 15px;
+}
+
+.microfreakDigitalOscillatorDiv_JanuaryA {
+    backdrop-filter: blur(9px) brightness(50%) grayscale(50%) hue-rotate(-150deg);
+    border-bottom: 1px groove #0a0c1b;
+    border-right: 1px groove #0a0c1b;
+    display: grid;
+    grid-column: col4 / col8;
+    grid-row: row2 / row6;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakDigitalOscillatorLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col1 / col8;
+    grid-row: row1 / row2;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakDigitalOscilatorTypeLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col2;
+    grid-row: row5 / rowEnd;
+    transform: translateX(110px) translateY(-30px) rotateZ(-90deg);
+}
+
+.microfreakWaveTypeDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col2 / col4;
+    grid-row: row2 / row4;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakOscillatorTypeInputContainer_JanuaryA {
+    grid-column: col2 / col5;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakDigitalOscilatorWaveLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col5 / col6;
+    grid-row: row5 / rowEnd;
+    transform: translateX(110px) translateY(-30px) rotateZ(-90deg);
+}
+
+.microfreakOscillatorWaveInputContainer_JanuaryA {
+    grid-column: col6 / col10;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakWaveWaveDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col7 / col9;
+    grid-row: row2 / row4;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakDigitalOscilatorTimbreLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col10 / col11;
+    grid-row: row5 / rowEnd;
+    transform: translateX(110px) translateY(-30px) rotateZ(-90deg);
+}
+
+.microfreakOscillatorTimbreInputContainer_JanuaryA {
+    grid-column: col11 / col15;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakWaveTimbreDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col12 / col14;
+    grid-row: row2 / row4;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakDigitalOscilatorShapeLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col15 / col16;
+    grid-row: row5 / rowEnd;
+    transform: translateX(110px) translateY(-30px) rotateZ(-90deg);
+}
+
+.microfreakOscillatorShapeInputContainer_JanuaryA {
+    grid-column: col16 / col20;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakWaveShapeDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col17 / col19;
+    grid-row: row2 / row4;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakAnalogFilterDiv_JanuaryA {
+    backdrop-filter: blur(11px) brightness(110%) contrast(150%) grayscale(50%) saturate(50%);
+    border-bottom: 1px groove #0a0c1b;
+    border-right: 1px groove #0a0c1b;
+    display: grid;
+    grid-column: col8 / rightEdge;
+    grid-row: row2 / row6;
+    grid-template-columns: [col1] 6.66% [col2] 6.66% [col3] 6.66% [col4] 6.66% [col5] 6.66% [col6] 6.66% [col7] 6.66% [col8] 6.66% [col9] 6.66% [col10] 6.66% [col11] 6.66% [col12] 6.66% [col13] 6.66% [col14] 6.66% [col15] 6.66% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakAnalogFilterLabel_JanuaryA {
+    color: #020b1a;
+    filter: brightness(50%) saturate(60%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col1 / col8;
+    grid-row: row1 / row2;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakAnalogFilterTypeLPFLighttrue_JanuaryA {
+    background: radial-gradient(#c79aa5, #8e354b, #c79aa5, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    transition: all 0.5s linear;
+}
+
+.microfreakAnalogFilterTypeLPFLightfalse_JanuaryA {
+    background: radial-gradient(#38151e, #8e354b, #38151e, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    transition: all 0.5s linear;
+}
+
+.microfreakAnalogFilterTypebPFLighttrue_JanuaryA {
+    background: radial-gradient(#c79aa5, #8e354b, #c79aa5, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    transition: all 0.5s linear;
+} 
+
+.microfreakAnalogFilterTypebPFLightfalse_JanuaryA {
+    background: radial-gradient(#38151e, #8e354b, #38151e, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    transition: all 0.5s linear;
+}
+
+.microfreakAnalogFilterTypehPFLighttrue_JanuaryA {
+    background: radial-gradient(#c79aa5, #8e354b, #c79aa5, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    transition: all 0.5s linear;
+} 
+
+.microfreakAnalogFilterTypehPFLightfalse_JanuaryA {
+    background: radial-gradient(#38151e, #8e354b, #38151e, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    transition: all 0.5s linear;
+}
+
+.microfreakLPFLabeltrue_JanuaryA {
+    color: #d5a469;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    grid-column: col3 / col7;
+    grid-row: row4 / row5;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLPFLabelfalse_JanuaryA {
+    color: #9f3251;
+    cursor: pointer;
+    filter: brightness(100%) saturate(100%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    grid-column: col3 / col7;
+    grid-row: row4 / row5;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakBPFLabeltrue_JanuaryA {
+    color: #d5a469;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    grid-column: col3 / col7;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakBPFLabelfalse_JanuaryA {
+    color: #9f3251;
+    cursor: pointer;
+    filter: brightness(100%) saturate(100%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    grid-column: col3 / col7;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakHPFLabeltrue_JanuaryA {
+    color: #d5a469;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    grid-column: col3 / col7;
+    grid-row: row10 / row11;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakHPFLabelfalse_JanuaryA {
+    color: #9f3251;
+    cursor: pointer;
+    filter: brightness(100%) saturate(100%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    grid-column: col3 / col7;
+    grid-row: row10 / row11;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakAnalogFilterCutoffLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col7 / col8;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakFilterCutoffDisplay_JanuaryA {
+    color: #020b1a;
+    filter: brightness(100%) saturate(100%);
+    grid-column: col8 / col10;
+    grid-row: row2 / row4;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakAnalogFilterCutoffInputContainer_JanuaryA {
+    grid-column: col8 / col11;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakAnalogFilterResonanceLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col11 / col12;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakFilterResonanceDisplay_JanuaryA {
+    color: #020b1a;
+    filter: brightness(100%) saturate(100%);
+    grid-column: col12 / col15;
+    grid-row: row2 / row4;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakAnalogFilterResonanceInputContainer_JanuaryA {
+    grid-column: col12 / col15;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakEnvelopesDiv_JanuaryA {
+    backdrop-filter: blur(6px) brightness(65%) sepia(100%);
+    border-bottom: 1px groove #0a0c1b;
+    border-right: 1px groove #0a0c1b;
+    display: grid;
+    grid-column: col3 / col8;
+    grid-row: row6 / row9;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakEnvelopesTabStrip_JanuaryA {
+    background: transparent;
+    display: flex;
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.microfreakEnvelopeGeneratorTabtrue_JanuaryA {
+    background: linear-gradient(90deg, #91b2d0, #b095aa, #fdf6bf, #b095aa, #91b2d0);
+    text-align: center;
+    transition: all 0.5s linear;
+    width: 50%;
+}
+
+.microfreakEnvelopeGeneratorTabtrue_JanuaryA p {
+    color: #00040a;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    transition: all 0.5s linear;
+}
+
+.microfreakEnvelopeGeneratorTabfalse_JanuaryA {
+    background: linear-gradient(90deg, #91b2d0, #b095aa, transparent, #b095aa, #91b2d0);
+    cursor: pointer;
+    filter: invert(100%) opacity(0.5);
+    text-align: center;
+    transition: all 0.5s linear;
+    width: 50%;
+}
+
+.microfreakEnvelopeGeneratorTabfalse_JanuaryA p {
+    color: #00040a;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    transition: all 0.5s linear;
+}
+
+.microfreakEnvelopeContainer_JanuaryA {
+    display: grid;
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakCyclingEnvelopeModeSettingLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col1 / col3;
+    grid-row: row1 / row2;
+    margin-top: 10px;
+    margin-left: 24px;
+}
+
+.microfreakCyclingEnvelopeModeLighttrue_JanuaryA {
+    background: radial-gradient(#c79aa5, #8e354b, #c79aa5, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row4 / row5;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeLightfalse_JanuaryA {
+    background: radial-gradient(#38151e, #8e354b, #38151e, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row4 / row5;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeEnvelopeLabeltrue_JanuaryA {
+    color: #d5a469;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeEnvelopeLabelfalse_JanuaryA {
+    color: #9f3251;
+    cursor: pointer;
+    filter: brightness(100%) saturate(100%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingRunModeLighttrue_JanuaryA {
+    background: radial-gradient(#c79aa5, #8e354b, #c79aa5, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row7 / row8;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingRunModeLightfalse_JanuaryA {
+    background: radial-gradient(#38151e, #8e354b, #38151e, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row7 / row8;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeRunLabeltrue_JanuaryA {
+    color: #d5a469;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeRunLabelfalse_JanuaryA {
+    color: #9f3251;
+    cursor: pointer;
+    filter: brightness(100%) saturate(100%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingLoopModeLighttrue_JanuaryA {
+    background: radial-gradient(#c79aa5, #8e354b, #c79aa5, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row10 / row11;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingLoopModeLightfalse_JanuaryA {
+    background: radial-gradient(#38151e, #8e354b, #38151e, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row10 / row11;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeLoopLabeltrue_JanuaryA {
+    color: #d5a469;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeLoopLabelfalse_JanuaryA {
+    color: #9f3251;
+    cursor: pointer;
+    filter: brightness(100%) saturate(100%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeRiseLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeRiseDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col4 / col6;
+    grid-row: row1 / row3;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeRiseInputContainer_JanuaryA {
+    grid-column: col4 / col6;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeRiseShapeLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col5 / col6;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeRiseShapeDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col7 / col9;
+    grid-row: row1 / row3;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeRiseShapeInputContainer_JanuaryA {
+    grid-column: col7 / col9;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeFallLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col8 / col9;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeFallDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col10 / col12;
+    grid-row: row1 / row3;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeFallInputContainer_JanuaryA {
+    grid-column: col10 / col12;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeFallShapeLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col11 / col12;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeFallShapeDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col13 / col15;
+    grid-row: row1 / row3;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeFallShapeInputContainer_JanuaryA {
+    grid-column: col13 / col15;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeHoldSustainLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col14 / col15;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeHoldSustainDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col16 / col18;
+    grid-row: row1 / row3;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeHoldSustainInputContainer_JanuaryA {
+    grid-column: col16 / col18;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeAmountLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col17 / col18;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeAmountDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col19 / rightEdge;
+    grid-row: row1 / row3;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeAmountInputContainer_JanuaryA {
+    grid-column: col19 / rightEdge;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakAmplitudeModulationLighttrue_JanuaryA {
+    background: radial-gradient(#c79aa5, #8e354b, #c79aa5, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    grid-column: col3 / col4;
+    grid-row: row6 / row7;
+    transition: all 0.5s linear;
+}
+
+.microfreakAmplitudeModulationLightfalse_JanuaryA {
+    background: radial-gradient(#38151e, #8e354b, #38151e, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col3 / col4;
+    grid-row: row6 / row7;
+    transition: all 0.5s linear;
+}
+
+.microfreakAmplitudeModulationLabeltrue_JanuaryA {
+    color: #d5a469;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col6;
+    grid-row: row7 / row9;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakAmplitudeModulationLabelfalse_JanuaryA {
+    color: #9f3251;
+    cursor: pointer;
+    filter: brightness(100%) saturate(100%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col6;
+    grid-row: row7 / row9;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakEnvelopeGeneratorAttackLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col4 / col5;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakEnvelopeGeneratorAttackDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col6 / col8;
+    grid-row: row2 / row4;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakEnvelopeGeneratorAttackInputContainer_JanuaryA {
+    grid-column: col6 / col9;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakEnvelopeGeneratorDecayReleaseLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col8 / col9;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakEnvelopeGeneratorDecayReleaseDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col10 / col12;
+    grid-row: row2 / row4;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakEnvelopeGeneratorDecayReleaseInputContainer_JanuaryA {
+    grid-column: col10 / col13;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakEnvelopeGeneratorSustainLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col12 / col13;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakEnvelopeGeneratorSustainDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col14 / col16;
+    grid-row: row2 / row4;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakEnvelopeGeneratorSustainInputContainer_JanuaryA {
+    grid-column: col14 / col17;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakEnvelopeGeneratorFilterAmountLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    grid-column: col16 / col17;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakEnvelopeGeneratorFilterAmountDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col18 / col19;
+    grid-row: row2 / row4;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakEnvelopeGeneratorFilterAmountInputContainer_JanuaryA {
+    grid-column: col18 / rightEdge;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakLFODiv_JanuaryA {
+    backdrop-filter: blur(4px) contrast(140%) hue-rotate(135deg) saturate(50%);
+    border-bottom: 1px groove #0a0c1b;
+    border-right: 1px groove #0a0c1b;
+    display: grid;
+    grid-column: col8 / rightEdge;
+    grid-row: row6 / row9;
+    grid-template-columns: [col1] 6.66% [col2] 6.66% [col3] 6.66% [col4] 6.66% [col5] 6.66% [col6] 6.66% [col7] 6.66% [col8] 6.66% [col9] 6.66% [col10] 6.66% [col11] 6.66% [col12] 6.66% [col13] 6.66% [col14] 6.66% [col15] 6.66% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakArpeggiatorDiv_JanuaryA {
+    backdrop-filter: blur(8px) brightness(100%) contrast(100%) saturate(250%);
+    border-right: 1px groove #0a0c1b;
+    display: grid;
+    grid-column: col3 / col8;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [rowEnd];
+}
+
+.microfreakSpiceDiv_JanuaryA {
+    backdrop-filter: blur(4px) brightness(500%) hue-rotate(180deg) invert(100%);
+    border-right: 1px groove #0a0c1b;
+    display: grid;
+    grid-column: col8 / col9;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [rowEnd];
+}
+
+.microfreakParaphonicDiv_JanuaryA {
+    backdrop-filter: blur(20px) contrast(400%) hue-rotate(-90deg);
+    border-right: 1px groove #0a0c1b;
+    display: grid;
+    grid-column: col9 / col10;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [rowEnd];
+}
+
+.microfreakMatrixButtonDiv_JanuaryA {
+    backdrop-filter: blur(10px) hue-rotate(90deg);
+    border-right: 1px groove #0a0c1b;
+    display: grid;
+    grid-column: col10 / rightEdge;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [rowEnd];
+}
+
+
+
+
