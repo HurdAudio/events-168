@@ -40,6 +40,14 @@ function Microfreak(user, patch) {
             filterType: 'lpf',
             resonance: 0
         },
+        arpeggiator: {
+            hold: false,
+            oct: 1,
+            on: false,
+            pattern: 'up',
+            rate: 0,
+            sync: false,
+        },
         cyclingEnvelope: {
             amount: 0,
             fall: 0,
@@ -68,12 +76,123 @@ function Microfreak(user, patch) {
         },
         glide: {
             glide: 0
+        },
+        lfo: {
+            rate: 0,
+            shape: 'sine',
+            sync: false
+        },
+        paraphonic: false,
+        spice: {
+            dice: false,
+            spice: true
         }
     });
+    
     const [envelopeTabs, setEnvelopeTabs] = useState({
         cyclingEnvelope: false,
         envelopeGenerator: true
     });
+    
+    const updateParaphonicState = () => {
+        let deepCopy = {...patchParams};
+        
+        deepCopy.paraphonic = !deepCopy.paraphonic;
+        
+        setPatchParams(deepCopy);
+    }
+    
+    const updateSpiceDiceState = () => {
+        if (!patchParams.arpeggiator.on) {
+            return;
+        }
+        let deepCopy = {...patchParams};
+        
+        deepCopy.spice.dice = !deepCopy.spice.dice;
+        if (deepCopy.spice.dice) {
+            deepCopy.spice.spice = false;
+        }
+        
+        setPatchParams(deepCopy);
+    }
+    
+    const updateSpiceSpiceState = () => {
+        if (!patchParams.arpeggiator.on) {
+            return;
+        }
+        let deepCopy = {...patchParams};
+        
+        deepCopy.spice.spice = !deepCopy.spice.spice;
+        if (deepCopy.spice.spice) {
+            deepCopy.spice.dice = false;
+        }
+        
+        setPatchParams(deepCopy);
+    }
+    
+    const updateArpeggiatorPattern = (val) => {
+        let deepCopy = {...patchParams};
+        
+        deepCopy.arpeggiator.pattern = val;
+        
+        setPatchParams(deepCopy);
+    }
+    
+    const updateArpeggiateOct = (val) => {
+        let deepCopy = {...patchParams};
+        
+        deepCopy.arpeggiator.oct = val;
+        
+        setPatchParams(deepCopy);
+    }
+    
+    const updateLFORateValue = (val) => {
+        let deepCopy = {...patchParams};
+        
+        deepCopy.lfo.rate = val;
+        
+        setPatchParams(deepCopy);
+    }
+    
+    const updateArpeggiateSyncState = () => {
+        let deepCopy = {...patchParams};
+        
+        deepCopy.arpeggiator.sync = !deepCopy.arpeggiator.sync;
+        
+        setPatchParams(deepCopy);
+    }
+    
+    const updateArpeggiateOnState = () => {
+        let deepCopy = {...patchParams};
+        
+        deepCopy.arpeggiator.on = !deepCopy.arpeggiator.on;
+        
+        setPatchParams(deepCopy);
+    }
+    
+    const updateArpeggiateHoldState = () => {
+        let deepCopy = {...patchParams};
+        
+        deepCopy.arpeggiator.hold = !deepCopy.arpeggiator.hold;
+        
+        setPatchParams(deepCopy);
+    }
+    
+    const updateLFOSyncState = () => {
+        let deepCopy = {...patchParams};
+        
+        deepCopy.lfo.sync = !deepCopy.lfo.sync;
+        
+        setPatchParams(deepCopy);
+    }
+    
+    const updateARPRateValue = (val) => {
+        let deepCopy = {...patchParams};
+        
+        deepCopy.arpeggiator.rate = val;
+        
+        setPatchParams(deepCopy);
+    }
     
     const updateCyclingEnvelopeAmountValue = (val) => {
         let deepCopy = {...patchParams};
@@ -123,6 +242,17 @@ function Microfreak(user, patch) {
         setPatchParams(deepCopy);
     }
     
+    const updateLFOShapeState = (val) => {
+        if (patchParams.lfo.shape === val) {
+            return;
+        }
+        let deepCopy = {...patchParams};
+        
+        deepCopy.lfo.shape = val;
+        
+        setPatchParams(deepCopy);
+    }
+    
     const updateCyclingEnvelopeModeState = (val) => {
         if (patchParams.cyclingEnvelope.mode === val) {
             return;
@@ -164,6 +294,40 @@ function Microfreak(user, patch) {
         }
     }
     
+    const calculateLFORateDisplay = (val) => {
+        if (patchParams.lfo.sync) {
+            if (val < 10) {
+                return '8/1';
+            } else if (val < 20) {
+                return '4/1';
+            } else if (val < 29) {
+                return '2/1';
+            } else if (val < 39) {
+                return '1/1';
+            } else if (val < 49) {
+                return '1/2';
+            } else if (val < 59) {
+                return '1/2T';
+            } else if (val < 68) {
+                return '1/4';
+            } else if (val < 78) {
+                return '1/4T';
+            } else if (val < 88) {
+                return '1/8';
+            } else if (val < 98) {
+                return '1/8T';
+            } else if (val < 107) {
+                return '1/16';
+            } else if (val < 117) {
+                return '1/16T';
+            } else {
+                return '1/32';
+            }
+        } else {
+            return((Math.round((val/127) * 994) + 6) / 10).toFixed(2).toString() + 'Hz';
+        }
+    }
+    
     const calculateEGDecayReleaseDisplay = (val) => {
         const milliseconds = ((25000/127) * val);
         
@@ -171,6 +335,36 @@ function Microfreak(user, patch) {
             return(Math.round(milliseconds).toString() + 'ms');
         } else {
             return((milliseconds/1000).toFixed(2).toString() + 's');
+        }
+    }
+    
+    const calculateARPRateDisplay = (val) => {
+        if (patchParams.arpeggiator.sync) {
+            if (val < 12) {
+                return '1/1';
+            } else if (val < 23) {
+                return '1/2';
+            } else if (val < 35) {
+                return '1/2T';
+            } else if (val < 46) {
+                return '1/4';
+            } else if (val < 58) {
+                return '1/4T';
+            } else if (val < 69) {
+                return '1/8';
+            } else if (val < 81) {
+                return '1/8T';
+            } else if (val < 92) {
+                return '1/16';
+            } else if (val < 104) {
+                return '1/16T';
+            } else if (val < 115) {
+                return '1/32';
+            } else {
+                return '1/32T';
+            }
+        } else {
+            return((Math.round(val/127 * 2100) + 300) / 10).toFixed(1).toString() + ' bpm';
         }
     }
     
@@ -1056,11 +1250,117 @@ function Microfreak(user, patch) {
                             </div>
                         )}
                     </div>
-                    <div className={'microfreakLFODiv' + microfreakMonth}></div>
-                    <div className={'microfreakArpeggiatorDiv' + microfreakMonth}></div>
-                    <div className={'microfreakSpiceDiv' + microfreakMonth}></div>
-                    <div className={'microfreakParaphonicDiv' + microfreakMonth}></div>
-                    <div className={'microfreakMatrixButtonDiv' + microfreakMonth}></div>
+                    <div className={'microfreakLFODiv' + microfreakMonth}>
+                        <p className={'microfreakLFOLabel' + microfreakMonth}>lfo</p>
+                        <p className={'microfreakLFOShapeLabel' + microfreakMonth}>shape</p>
+                        <div className={'microfreakLFOSineLight' + (patchParams.lfo.shape === 'sine') + microfreakMonth}
+                            onClick={() => updateLFOShapeState('sine')}></div>
+                        <p className={'microfreakLFOSineLabel' + (patchParams.lfo.shape === 'sine') + microfreakMonth}
+                            onClick={() => updateLFOShapeState('sine')}>sine</p>
+                        <div className={'microfreakLFOTriangleLight' + (patchParams.lfo.shape === 'trianlge') + microfreakMonth}
+                            onClick={() => updateLFOShapeState('trianlge')}></div>
+                        <p className={'microfreakLFOTriangleLabel' + (patchParams.lfo.shape === 'trianlge') + microfreakMonth}
+                            onClick={() => updateLFOShapeState('trianlge')}>triangle</p>
+                        <div className={'microfreakLFOSawtoothLight' + (patchParams.lfo.shape === 'sawtooth') + microfreakMonth}
+                            onClick={() => updateLFOShapeState('sawtooth')}></div>
+                        <p className={'microfreakLFOSawtoothLabel' + (patchParams.lfo.shape === 'sawtooth') + microfreakMonth}
+                            onClick={() => updateLFOShapeState('sawtooth')}>sawtooth</p>
+                        <div className={'microfreakLFOSquareLight' + (patchParams.lfo.shape === 'square') + microfreakMonth}
+                            onClick={() => updateLFOShapeState('square')}></div>
+                        <p className={'microfreakLFOSquareLabel' + (patchParams.lfo.shape === 'square') + microfreakMonth}
+                            onClick={() => updateLFOShapeState('square')}>square</p>
+                        <div className={'microfreakLFOSampleHoldLight' + (patchParams.lfo.shape === 'sample&hold') + microfreakMonth}
+                            onClick={() => updateLFOShapeState('sample&hold')}></div>
+                        <p className={'microfreakLFOSampleHoldLabel' + (patchParams.lfo.shape === 'sample&hold') + microfreakMonth}
+                            onClick={() => updateLFOShapeState('sample&hold')}>sample & hold</p>
+                        <div className={'microfreakLFOGlidingLight' + (patchParams.lfo.shape === 'gliding') + microfreakMonth}
+                            onClick={() => updateLFOShapeState('gliding')}></div>
+                        <p className={'microfreakLFOGlidingLabel' + (patchParams.lfo.shape === 'gliding') + microfreakMonth}
+                            onClick={() => updateLFOShapeState('gliding')}>gliding</p>
+                        <p className={'microfreakLFOSyncLabel' + microfreakMonth}>sync</p>
+                        <div className={'microfreakLFOSyncLight' + patchParams.lfo.sync + microfreakMonth}
+                            onClick={() => updateLFOSyncState()}></div>
+                        {(patchParams.lfo.sync) && (
+                            <p className={'microfreakLFOSyncOnLabel' + microfreakMonth}
+                                onClick={() => updateLFOSyncState()}>on</p>
+                        )}
+                        {(!patchParams.lfo.sync) && (
+                            <p className={'microfreakLFOSyncOffLabel' + microfreakMonth}
+                                onClick={() => updateLFOSyncState()}>off</p>
+                        )}
+                        <p className={'microfreakLFORateLabel' + microfreakMonth}>
+                            rate</p>
+                        <p className={'microfreakLFORateDisplay' + microfreakMonth}>{calculateLFORateDisplay(patchParams.lfo.rate)}</p>
+                        <div className={'microfreakLFORateInputContainer' + microfreakMonth}>
+                            <input className={'microfreakGlideRangeInput' + microfreakMonth}
+                                max="127"
+                                min="0"
+                                onChange={(e) => updateLFORateValue(e.target.value)}
+                                type="range"
+                                value={patchParams.lfo.rate} />
+                        </div>
+                    </div>
+                    <div className={'microfreakArpeggiatorDiv' + microfreakMonth}>
+                        <div className={'microfreakArpeggiateLight' + (patchParams.arpeggiator.on) + microfreakMonth}
+                            onClick={() => updateArpeggiateOnState()}></div>
+                        <p className={'microfreakArpeggieateOnLabel' + (patchParams.arpeggiator.on) + microfreakMonth}
+                                    onClick={() => updateArpeggiateOnState()}>arp</p>
+                        <div className={'microfreakArpeggiateSyncLight' + (patchParams.arpeggiator.sync) + microfreakMonth}
+                            onClick={() => updateArpeggiateSyncState()}></div>
+                        <p className={'microfreakArpeggieateSyncLabel' + (patchParams.arpeggiator.sync) + microfreakMonth}
+                                    onClick={() => updateArpeggiateSyncState()}>sync</p>
+                        <p className={'microfreakArpeggiateOctModeLabel' + microfreakMonth}>oct</p>
+                        <select className={'microfreakArpeggiateOctModeSelect' + microfreakMonth}
+                            onChange={(e) => updateArpeggiateOct(e.target.value)}
+                            value={patchParams.arpeggiator.oct}>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <p className={'microfreakArpeggiateRateLabel' + microfreakMonth}>rate</p>
+                        <div className={'microfreakARPRateInputContainer' + microfreakMonth}>
+                            <input className={'microfreakArpRangeInput' + microfreakMonth}
+                                max="127"
+                                min="0"
+                                onChange={(e) => updateARPRateValue(e.target.value)}
+                                type="range"
+                                value={patchParams.arpeggiator.rate} />
+                        </div>
+                        <p className={'microfreakARPRateDisplay' + microfreakMonth}>{calculateARPRateDisplay(patchParams.arpeggiator.rate)}</p>
+                        <p className={'microfreakArpeggiatePatternLabel' + microfreakMonth}>pattern</p>
+                        <select className={'microfreakArpeggieatePatternSelect' + microfreakMonth}
+                            onChange={(e) => updateArpeggiatorPattern(e.target.value)}
+                            value={patchParams.arpeggiator.pattern}>
+                            <option value="up">up</option>
+                            <option value="order">order</option>
+                            <option value="random">random</option>
+                            <option value="pattern">pattern</option>
+                        </select>
+                        <div className={'microfreakArpHoldLight' + (patchParams.arpeggiator.hold) + microfreakMonth}
+                            onClick={() => updateArpeggiateHoldState()}></div>
+                        <p className={'microfreakArpeggieateHoldLabel' + (patchParams.arpeggiator.hold) + microfreakMonth}
+                            onClick={() => updateArpeggiateHoldState()}>hold</p>
+                    </div>
+                    <div className={'microfreakSpiceDiv' + microfreakMonth}>
+                        <div className={'microfreakArpSpiceLight' + (patchParams.arpeggiator.on) + (patchParams.spice.spice) + microfreakMonth}
+                            onClick={() => updateSpiceSpiceState()}></div>
+                        <p className={'microfreakArpSpiceLabel' + (patchParams.spice.spice) + microfreakMonth}
+                            onClick={() => updateSpiceSpiceState()}>spice</p>
+                        <div className={'microfreakArpDiceLight' + (patchParams.arpeggiator.on) + (patchParams.spice.dice) + microfreakMonth}
+                            onClick={() => updateSpiceDiceState()}></div>
+                        <p className={'microfreakArpDiceLabel' + (patchParams.spice.dice) + microfreakMonth}
+                            onClick={() => updateSpiceDiceState()}>dice</p>
+                    </div>
+                    <div className={'microfreakParaphonicDiv' + microfreakMonth}>
+                        <div className={'microfreakParaphonicLight' + (patchParams.paraphonic) + microfreakMonth}
+                            onClick={() => updateParaphonicState()}></div>
+                        <p className={'microfreakParaphonicLabel' + (patchParams.paraphonic) + microfreakMonth}
+                            onClick={() => updateParaphonicState()}>paraphonic</p>
+                    </div>
+                    <div className={'microfreakMatrixButtonDiv' + microfreakMonth}>
+                        <button className={'microfreakMatrixButton' + microfreakMonth}>matrix</button>
+                    </div>
                 </div>
             </div>
         </div>
