@@ -50,7 +50,9 @@ const midiDevices = [
     },
     {
         uuid: 'cf6ece7f-cd5a-4c52-90ca-7d029da11960',
-        name: 'arturia microfreak'
+        name: 'arturia microfreak',
+        path: '/arturia-microfreak-editor',
+        component: '<microfreak />'
     },
     {
         uuid: 'f91100f1-32fe-433e-88f2-e6c93c7ca31d',

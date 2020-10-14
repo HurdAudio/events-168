@@ -31,6 +31,7 @@ import VolcaFm from '../volcaFm/volcaFm';
 import VolcaNubass from '../volcaNubass/volcaNubass';
 import VolcaDrum from '../volcaDrum/volcaDrum';
 import Gr1Editor from '../gr1Editor/gr1Editor';
+import Microfreak from '../microfreak/microfreak';
 import VolcaFmPatchManager from '../volcaFmPatchManager/volcaFmPatchManager';
 import VolcaNubassPatchManager from '../volcaNubassPatchManager/volcaNubassPatchManager';
 import MidiManager from '../midiManager/midiManager';
@@ -255,6 +256,9 @@ function UserHub() {
                     </Route>
                     <Route path="/gr1-editor">
                         {Gr1Editor(user, null)}
+                    </Route>
+                    <Route path="/arturia-microfreak-editor">
+                        {Microfreak(user, null)}
                     </Route>
                     <Route path="/volca-fm-patch-manager">
                         {VolcaFmPatchManager(user, null)}
