@@ -2035,6 +2035,1589 @@
     filter: brightness(85%) drop-shadow(0 0 0 #261021);
 }
 
+.microfreakSidebarContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [sideCol1] 1fr [sideCol2] 1fr [sideCol3] 1fr [sideCol4] 1fr [sideCol5] 1fr [sideColEnd];
+    grid-template-rows: [sideRow1] 1fr [sideRow2] 1fr [sideRow3] 1fr [sideRow4] 1fr [sideRow5] 1fr [sideRow6] 1fr [sideRow7] 1fr [sideRow8] 1fr [sideRow9] 1fr [sideRow10] 1fr [sideRow11] 1fr [sideRow12] 1fr [sideRow13] 1fr [sideRow14] 1fr [sideRow15] 1fr [sideRow16] 1fr [sideRow17] 1fr [sideRow18] 1fr [sideRow19] 1fr [sideRow20] 1fr [sideRow21] 1fr [sideRow22] 1fr [sideRow23] 1fr [sideRow24] 1fr [sideRowEnd];
+    height: 100%;
+    width: 100%;
+}
 
+.microfreakImage1_JanuaryA {
+    filter: drop-shadow(8px 8px 5px #261021);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow1 / sideRow3;
+    margin: 10px 0 0 15px;
+    max-width: 60%;
+    opacity: 0.9;
+}
 
+.microfreakSaveButtonfalse_JanuaryA {
+    display: none;
+}
 
+.microfreakSaveButtontrue_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #d79b2d;
+    color: #d79b2d;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow3 / sideRow4;
+    outline-color: #8d90a2;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakSaveButtontrue_JanuaryA:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #fdf6bf;
+    color: #fdf6bf;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #261021);
+}
+
+.microfreakSaveButtontrue_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #261021);
+}
+
+.microfreakSaveAsButton_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #d79b2d;
+    color: #d79b2d;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow5 / sideRow6;
+    outline-color: #8d90a2;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakSaveAsButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #fdf6bf;
+    color: #fdf6bf;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #261021);
+}
+
+.microfreakSaveAsButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #261021);
+}
+
+.microfreakSaveAsDialogDiv_Active_JanuaryA {
+    background: #98a6be;
+    color: #00040a;
+    border: 3px groove #aa3457;
+    box-sizing: border-box;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    margin: 0 0 0 0;
+    padding: 2%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.microfreakSaveAsDialogDiv_Inactive_JanuaryA {
+    background: #98a6be;
+    border: 3px groove #aa3457;
+    box-sizing: border-box;
+    color: #00040a;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    padding: 2%;
+    position: absolute;
+    top: -100%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.microfreakSaveAsInput_JanuaryA {
+    background: #acd0ea;
+    border: none;
+    color: #00040a;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    margin: 5% 10% 3% 10%;
+    outline-color: #8d90a2;
+    padding: 2px 5px;
+    width: 80%;
+}
+
+.microfreakSaveAsButtonsDiv_JanuaryA {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 5vh;
+    justify-content: center;
+    margin: 0 10% 1% 10%;
+    width: 82%;
+}
+
+.microfreakSaveAsButtons_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #020b1a;
+    color: #020b1a;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    margin: 0 20px;
+    outline-color: #8d90a2;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakSaveAsButtons_JanuaryA:hover {
+    backdrop-filter: hue-rotate(25deg);
+    color: #612a54;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #261021);
+}
+
+.microfreakSaveAsButtons_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #261021);
+}
+
+.microfreakRevertButtonfalse_JanuaryA {
+    display: none;
+}
+
+.microfreakRevertButtontrue_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #d79b2d;
+    color: #d79b2d;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow7 / sideRow8;
+    outline-color: #8d90a2;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakRevertButtontrue_JanuaryA:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #fdf6bf;
+    color: #fdf6bf;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #261021);
+}
+
+.microfreakRevertButtontrue_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #261021);
+}
+
+.microfreakMidiOutputLabel_JanuaryA {
+    color: #00040a;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow10 / sideRow11;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+}
+
+.microfreakMidiOutputSelect_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #00040a;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow11 / sideRow12;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    outline-color: #8d90a2;
+}
+
+.microfreakMidiChannelLabel_JanuaryA {
+    color: #00040a;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow13 / sideRow14;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+}
+
+.microfreakMidiChannelInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #00040a;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    grid-column: sideCol3 / sideCol4;
+    grid-row: sideRow14 / sideRow15;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    outline-color: #8d90a2;
+}
+
+.microfreakInitButton_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #d79b2d;
+    color: #d79b2d;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow19 / sideRow20;
+    outline-color: #8d90a2;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakInitButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #fdf6bf;
+    color: #fdf6bf;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #261021);
+}
+
+.microfreakInitButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #261021);
+}
+
+.microfreakRandomButton_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #d79b2d;
+    color: #d79b2d;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow21 / sideRow22;
+    outline-color: #8d90a2;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakRandomButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #fdf6bf;
+    color: #fdf6bf;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #261021);
+}
+
+.microfreakRandomButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #261021);
+}
+
+.aboutMicrofreakButton_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #d79b2d;
+    color: #d79b2d;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    outline-color: #8d90a2;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.aboutMicrofreakButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #fdf6bf;
+    color: #fdf6bf;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #261021);
+}
+
+.aboutMicrofreakButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #261021);
+}
+
+.aboutTheArturiaMicrofreakDiv_Active_JanuaryA {
+    background: #304c7c;
+    border: 2px groove #8e354b;
+    color: #00040a;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 5%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheArturiaMicrofreakDiv_Inactive_JanuaryA {
+    background: #304c7c;
+    border: 2px groove #8e354b;
+    color: #00040a;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 18px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 115%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutArturiaMicrofreakContent_JanuaryA {
+    background: #98a6be;
+    height: 79vh;
+    margin-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 97%;
+}
+
+.microfreakAboutImg_JanuaryA {
+    filter: drop-shadow(8px 8px 5px #261021);
+    float: left;
+    margin: 12px;
+    max-width: 40%;
+}
+
+.aboutArturiaMicrofreakContent_JanuaryA h2 {
+    color: #00040a;
+    font-family: 'Alata', serif;
+    font-size: 36px;
+    margin: 5px 0 30px 30px;
+}
+
+.aboutArturiaMicrofreakContent_JanuaryA h3 {
+    color: #00040a;
+    font-family: 'Alata', serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 10px 25px 10px 45px;
+    max-width: 950px;
+}
+
+.aboutArturiaMicrofreakContent_JanuaryA p {
+    color: #00040a;
+    font-family: 'Alata', serif;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 5px 25px 30px 25px;
+    max-width: 950px;
+}
+
+.microfreakLoadModal_Active_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/cataclysm_by_seerlight_dbnw9cx-fullview.jpg);
+    background-size: cover;
+    border: 2px groove #8e354b;
+    box-shadow: 5px 5px 5px #261021;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.microfreakLoadModal_Inactive_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/cataclysm_by_seerlight_dbnw9cx-fullview.jpg);
+    background-size: cover;
+    border: 2px groove #8e354b;
+    box-shadow: 5px 5px 5px #261021;
+    box-sizing: border-box;
+    filter: invert(100%);
+    height: 40vh;
+    left: 120%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.microfreakLoadContainer_JanuaryA {
+    backdrop-filter: blur(7px) brightness(50%);
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.microfreakLoadTitle_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col9;
+    grid-row: row2 / row3;
+}
+
+.microfreakLoadSelector_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #c79aa5;
+    filter: brightness(300%) drop-shadow(8px 8px 5px #261021);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col10;
+    grid-row: row4 / row5;
+    outline-color: #8d90a2;
+}
+
+.microfreakLoadLoadButton_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #d79b2d;
+    color: #d79b2d;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    height: 35px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    outline-color: #8d90a2;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakLoadLoadButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #fdf6bf;
+    color: #fdf6bf;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #261021);
+}
+
+.microfreakLoadLoadButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #261021);
+}
+
+.microfreakLoadCancelButton_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #d79b2d;
+    color: #d79b2d;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    height: 35px;
+    grid-column: col7 / col9;
+    grid-row: row7 / row8;
+    outline-color: #8d90a2;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakLoadCancelButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #fdf6bf;
+    color: #fdf6bf;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #261021);
+}
+
+.microfreakLoadCancelButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #261021);
+}
+
+.microfreakMatrixDiv_Active_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/cataclysm_by_seerlight_dbnw9cx-fullview.jpg);
+    background-size: cover;
+    box-shadow: 5px 5px 5px #261021;
+    height: 85.3vh;
+    left: 10%;
+    position: absolute;
+    top: 6.2%;
+    transition: all 0.6s linear;
+    width: 87.5%;
+    z-index: 200;
+}
+
+.microfreakMatrixDiv_Inactive_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/cataclysm_by_seerlight_dbnw9cx-fullview.jpg);
+    background-size: cover;
+    box-shadow: 5px 5px 5px #261021;
+    height: 0;
+    left: 120%;
+    position: absolute;
+    top: 6.2%;
+    transition: all 0.6s linear;
+    width: 87.5%;
+    z-index: 200;
+}
+
+.microfreakMatrixContainer_JanuaryA {
+    backdrop-filter: blur(12px) brightness(70%) contrast(200%) grayscale(50%) saturate(90%) sepia(50%);
+    display: grid;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [row16] 1fr [row17] 1fr [row18] 1fr [row19] 1fr [row20] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.microfreakMatrixPitchDestinationLabel_JanuaryA {
+    border-top: 2px solid #c79aa5;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col6 / col7;
+    grid-row: row4 / row5;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixWaveDestinationLabel_JanuaryA {
+    border-top: 2px solid #c79aa5;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col7 / col8;
+    grid-row: row4 / row5;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixTimbreDestinationLabel_JanuaryA {
+    border-top: 2px solid #c79aa5;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col8 / col9;
+    grid-row: row4 / row5;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixCutoffDestinationLabel_JanuaryA {
+    border-top: 2px solid #c79aa5;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col9 / col10;
+    grid-row: row4 / row5;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixAssign1Select_JanuaryA {
+    background: transparent;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid #c79aa5;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col10 / col11;
+    grid-row: row4 / row5;
+    outline-color: #8d90a2;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixAssign2Select_JanuaryA {
+    background: transparent;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid #c79aa5;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col11 / col12;
+    grid-row: row4 / row5;
+    outline-color: #8d90a2;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixAssign3Select_JanuaryA {
+    background: transparent;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid #c79aa5;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col12 / col13;
+    grid-row: row4 / row5;
+    outline-color: #8d90a2;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixCycleEnvelopeSourceLabel_JanuaryA {
+    border-bottom: 2px solid #c79aa5;
+    border-top: 2px solid #c79aa5;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row6 / row7;
+    padding: 2px 0;
+}
+
+.microfreakMatrixEnvelopeSourceLabel_JanuaryA {
+    border-bottom: 2px solid #c79aa5;
+    border-top: 2px solid #c79aa5;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    padding: 2px 0;
+}
+
+.microfreakMatrixLFOSourceLabel_JanuaryA {
+    border-bottom: 2px solid #c79aa5;
+    border-top: 2px solid #c79aa5;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row8 / row9;
+    padding: 2px 0;
+}
+
+.microfreakMatrixPressureSourceLabel_JanuaryA {
+    border-bottom: 2px solid #c79aa5;
+    border-top: 2px solid #c79aa5;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row9 / row10;
+    padding: 2px 0;
+}
+
+.microfreakMatrixKeyArpSourceLabel_JanuaryA {
+    border-bottom: 2px solid #c79aa5;
+    border-top: 2px solid #c79aa5;
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row10 / row11;
+    padding: 2px 0;
+}
+
+.microfreakCycEnvPitch_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvWave_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvTimbre_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvCutoff_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvAssign1_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvAssign2_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvAssign3_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvPitch_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakEnvWave_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakEnvTimbre_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvCutoff_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvAssign1_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvAssign2_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvAssign3_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOPitch_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakLFOWave_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOTimbre_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOCutoff_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOAssign1_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOAssign2_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOAssign3_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressurePitch_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakPressureWave_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakPressureTimbre_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressureCutoff_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressureAssign1_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressureAssign2_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressureAssign3_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpPitch_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpWave_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpTimbre_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpCutoff_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpAssign1_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpAssign2_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpAssign3_JanuaryA {
+    border: 2px solid #c79aa5;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakMatrixLighttrue_JanuaryA {
+    background: radial-gradient(#c79aa5, #8e354b, #c79aa5, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    height: 100%;
+    transition: all 0.5s linear;
+    width: 100%;
+}
+
+.microfreakMatrixLightfalse_JanuaryA {
+    background: radial-gradient(#38151e, #8e354b, #38151e, #38151e, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    height: 100%;
+    transition: all 0.5s linear;
+    width: 100%;
+}
+
+.microfreakModulationMatrixAmountLabel_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col17 / col18;
+    grid-row: row2 / rowEnd;
+    transform: translateX(170px) translateY(-40px) rotateZ(-90deg);
+}
+
+.microfreakMatrixModulatorInputContainer_JanuaryA {
+    grid-column: col16 / col19;
+    grid-row: row5 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakModulationMatrixAmountDisplay_JanuaryA {
+    color: #c79aa5;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col15 / col18;
+    grid-row: row4 / row5;
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCloseMatrixButton_JanuaryA {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #d79b2d;
+    color: #d79b2d;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #261021);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 15px;
+    height: 35px;
+    grid-column: col15 / col17;
+    grid-row: row17 / row18;
+    outline-color: #8d90a2;
+    z-index: 155;
+}
+
+.microfreakCloseMatrixButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #fdf6bf;
+    color: #fdf6bf;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #261021);
+}
+
+.microfreakCloseMatrixButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #261021);
+}
+
+.microfreakModulationThroughputDisplay_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col6 / col18;
+    grid-row: row16 / row17;
+}
+
+.microfreakModulationModulationMessage_JanuaryA {
+    color: #8d90a2;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col15;
+    grid-row: row17 / row18;
+}
+
+.microfreakModulateModulationSubModal_Active_JanuaryA {
+    background: radial-gradient(#020b1a, #1a2044, #38151e);
+    box-shadow: 5px 5px 5px #261021;
+    height: 65.3vh;
+    left: 25%;
+    position: absolute;
+    top: 15.2%;
+    transition: all 0.6s linear;
+    width: 50%;
+    z-index: 200;
+}
+
+.microfreakModulateModulationSubModal_Inactive_JanuaryA {
+    background: radial-gradient(#020b1a, #1a2044, #38151e);
+    box-shadow: 5px 5px 5px #261021;
+    height: 65.3vh;
+    left: 25%;
+    position: absolute;
+    top: 155.2%;
+    transition: all 0.6s linear;
+    width: 50%;
+    z-index: 200;
+}
+
+.microfreakModulationSubModalContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 6.25% [col6] 6.25% [col7] 6.25% [col8] 6.25% [col9] 6.25% [col10] 6.25% [col11] 6.25% [col12] 6.25% [col13] 6.25% [col14] 6.25% [col15] 6.25% [col16] 6.25% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.microfreamModulateModulationtitle_JanuaryA {
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col4 / col16;
+    grid-row: row2 / row4;
+}
+
+.microfreakSubTargetPitch_JanuaryA {
+    border-top: 2px solid #9fe1f7;
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col6 / col7;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetWave_JanuaryA {
+    border-top: 2px solid #9fe1f7;
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col7 / col8;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetTimbre_JanuaryA {
+    border-top: 2px solid #9fe1f7;
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col8 / col9;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetCutoff_JanuaryA {
+    border-top: 2px solid #9fe1f7;
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col9 / col10;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetAssign1_JanuaryA {
+    border-top: 2px solid #9fe1f7;
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col10 / col11;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetAssign2_JanuaryA {
+    border-top: 2px solid #9fe1f7;
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col11 / col12;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetAssign3_JanuaryA {
+    border-top: 2px solid #9fe1f7;
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 24px;
+    grid-column: col12 / col13;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubSourceCycEnv_JanuaryA {
+    border-bottom: 2px solid #9fe1f7;
+    border-top: 2px solid #9fe1f7;
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    padding: 5px 0;
+}
+
+.microfreakSubSourceEnv_JanuaryA {
+    border-bottom: 2px solid #9fe1f7;
+    border-top: 2px solid #9fe1f7;
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row8 / row9;
+    padding: 5px 0;
+}
+
+.microfreakSubSourceLfo_JanuaryA {
+    border-bottom: 2px solid #9fe1f7;
+    border-top: 2px solid #9fe1f7;
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row9 / row10;
+    padding: 5px 0;
+}
+
+.microfreakSubSourcePressure_JanuaryA {
+    border-bottom: 2px solid #9fe1f7;
+    border-top: 2px solid #9fe1f7;
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row10 / row11;
+    padding: 5px 0;
+}
+
+.microfreakSubSourceKeyArp_JanuaryA {
+    border-bottom: 2px solid #9fe1f7;
+    border-top: 2px solid #9fe1f7;
+    color: #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row11 / row12;
+    padding: 5px 0;
+}
+
+.microfreakSubCycEnvPitchBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvWaveBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvTimbreBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvCutoffBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvAssign1Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvAssign2Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvAssign3Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubEnvPitchBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvWaveBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvTimbreBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvCutoffBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvAssign1Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvAssign2Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvAssign3Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubLfoPitchBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoWaveBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoTimbreBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoCutoffBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoAssign1Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoAssign2Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoAssign3Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubPressurePitchBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureWaveBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureTimbreBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureCutoffBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureAssign1Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureAssign2Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureAssign3Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubKeyArpPitchBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpWaveBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpTimbreBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpCutoffBox_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpAssign1Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpAssign2Box_JanuaryA {
+    border: 1px solid #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpAssign3Box_JanuaryA {
+    border: 1px groove #9fe1f7;
+    filter: brightness(300%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubModulateSelectButton_JanuaryA {
+    background: #38151e;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    opacity: 0.1;
+    width: 100%;
+}
+
+.microfreakSubModulateSelectButton_JanuaryA:hover {
+    background: #c79aa5;
+    opacity: 1;
+}
+
+.microfreakPanic_Inactive_JanuaryA {
+    display: none;
+}
+
+.microfreakPanic_Active_JanuaryA {
+    height: 60%;
+    left: 30%;
+    opacity: 0.5;
+    position: absolute;
+    top: 15%;
+    width: 60%;
+    z-index: 200;
+}
+
+.microfreakPanic_Active_JanuaryA img {
+    opacity: 1;
+    width: 65%;
+}
