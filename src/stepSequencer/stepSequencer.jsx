@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import midiConnection from '../midiManager/midiConnection';
 import './stepSequencer.style.jana.css';
+import './stepSequencer.style.janb.css';
 import midi5pin from '../img/midi5pin.svg';
 import quarterNote from '../img/quarterNote.png';
 import dottedQuarter from '../img/dottedQuarter.png';
@@ -33,6 +34,9 @@ import AvailableDevices from '../midiManager/availableDevices';
 const sequencePlaying = false;
 const svgHeight = 260;
 const svgWidth = 350;
+
+const januaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/stepSequencer/january/spinners/3ab12a52650948660ba935ddf3d202e1.gif';
+const januaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/stepSequencer/january/spinners/loaderStepSeqb.gif';
 
 
 function StepSequencer(user, seq) {
@@ -62,7 +66,7 @@ function StepSequencer(user, seq) {
     }
     
     const [availableDevices, setAvailableDevices] = useState(AvailableDevices());
-    const [stepSequenceMonth, setStepSequenceMonth] = useState('_JanuaryA');
+    const [stepSequenceMonth, setStepSequenceMonth] = useState('_JanuaryB');
     const [stepSequencerState, setStepSequencerState] = useState('_Active');
     const [stepSequencerLoadModalState, setStepSequencerLoadModalState] = useState('_Inactive');
     const [trackGuardrailState, setTrackGuardrailState] = useState('_Inactive');
@@ -74,7 +78,7 @@ function StepSequencer(user, seq) {
     const [eventFilterDialogState, setEventFilterDialogState] = useState('_Inactive');
     const [quantizeModalState, setQuantizeModalState] = useState('_Inactive');
     const [panicState, setPanicState] = useState('_Inactive');
-    const [currentSpinner, setCurrentSpinner] = useState('https://events-168-hurdaudio.s3.amazonaws.com/stepSequencer/january/spinners/3ab12a52650948660ba935ddf3d202e1.gif');
+    const [currentSpinner, setCurrentSpinner] = useState(januaryBSpinner);
     const [duplicateTrackMidiChannel, setDuplicateTrackMidiChannel] = useState(0);
     const [rudeSolo, setRudeSolo] = useState(false);
     const [midiOutputs, setMidiOutputs] = useState(userOutputs);
