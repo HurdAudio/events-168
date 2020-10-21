@@ -13,6 +13,7 @@ import midi5pin from '../img/midi5pin.svg';
 import VolcaNubass from '../volcaNubass/volcaNubass';
 import './volcaNubassPatchManager.style.jana.css';
 import './volcaNubassPatchManager.style.janb.css';
+import './volcaNubassPatchManager.style.janc.css';
 import VolcaNubassPatchTransmitter from './volcaNubassPatchTransmitter';
 import axios from 'axios';
 import uuid4 from 'uuid4';
@@ -28,7 +29,7 @@ function VolcaNubassPatchManager(user, banks) {
     const scaleScaler = 1.12;
     const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassPatchManager/january/spinner/27947ac14af627677a43510cf7ccfe70.gif';
     const janbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassPatchManager/january/spinner/q9bLT0l.gif';
-    const jancSpinner = '';
+    const jancSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/january/spinners/tumblr_p0hpi7yj8g1r2geqjo1_540.gif';
     const febaSpinner = '';
 
     let midiOutput = null;
@@ -46,12 +47,12 @@ function VolcaNubassPatchManager(user, banks) {
     const [deleteCollectionModalState, setDeleteCollectionModalState] = useState('_Inactive');
     const [aboutModalState, setAboutModalState] = useState('_Inactive');
     const [collectionLoadModalState, setCollectionLoadModalState] = useState('_Inactive');
-    const [volcaNubassPatchManagerMonth, setVolcaNubassPatchManagerMonth] = useState('_JanuaryB');
+    const [volcaNubassPatchManagerMonth, setVolcaNubassPatchManagerMonth] = useState('_JanuaryC');
     const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
     const [dragData, setDragData] = useState(null);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
     const [userPatches, setUserPatches] = useState([]);
-    const [currentSpinner, setCurrentSpinner] = useState(janbSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(jancSpinner);
     const [selectedPatchPatch, setSelectedPatchPatch] = useState('');
     const [selectedBankPatch, setSelectedBankPatch] = useState('');
     const [availableInputs, setAvailableInputs] = useState([]);
