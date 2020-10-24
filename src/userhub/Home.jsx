@@ -50,6 +50,8 @@ function Home(user, skin) {
                 console.log(user);
             } else if (midiConfigurations.length > 0) {
                 patchValue = midiConfigurations[0].uuid;
+                user.midi_patch = patchValue;
+                changeMidiPatch(patchValue);
             }
             setMidiPatchValue(patchValue);
             if (midiConnections === undefined) {
