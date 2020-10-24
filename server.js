@@ -18,6 +18,7 @@ const volca_drum_patches = require('./routes/volca_drum_patches.js');
 const midi_manager_patches = require('./routes/midi_manager_patches.js');
 const gr1_patches = require('./routes/gr1_patches.js');
 const volca_fm_banks = require('./routes/volca_fm_banks.js');
+const volca_fm_shares = require('./routes/volca_fm_shares.js');
 
 const port = process.env.PORT || 3041;
 
@@ -35,6 +36,7 @@ app.use('/volca_drum_patches', volca_drum_patches);
 app.use('/midi_manager_patches', midi_manager_patches);
 app.use('/gr1_patches', gr1_patches);
 app.use('/volca_fm_banks', volca_fm_banks);
+app.use('/volca_fm_shares', volca_fm_shares);
 
 app.get('/test', (req, res, next) => {
     res.send({user: 'forbidden'});

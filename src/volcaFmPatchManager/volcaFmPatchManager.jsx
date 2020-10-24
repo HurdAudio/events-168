@@ -15,8 +15,11 @@ import midi5pin from '../img/midi5pin.svg';
 import './volcaFmPatchManager.style.jana.css';
 import './volcaFmPatchManager.style.janb.css';
 import './volcaFmPatchManager.style.janc.css';
+import midiConnection from '../midiManager/midiConnection';
 import axios from 'axios';
 import uuid4 from 'uuid4';
+
+let connections = null;
 
 function VolcaFmPatchManager(user, banks) {
     
@@ -39,6 +42,8 @@ function VolcaFmPatchManager(user, banks) {
     let rootNote = 60;
     let keyEngaged = {};
 
+    const [midiConnections, setMidiConnections] = useState(undefined);
+    const [userMidiPatch, setUserMidiPatch] = useState(null);
     const [panicState, setPanicState] = useState('volcaFmPatchManagerPanicOff');
     const [patchDeleteGuardrailState, setPatchDeleteGuardrailState] = useState('_Inactive');
     const [saveAsModalState, setSaveAsModalState] = useState('_Inactive');
@@ -185,8 +190,39 @@ function VolcaFmPatchManager(user, banks) {
     }
     
     const submitShareModal = () => {
-        setShareModalState('_Inactive');
-        setVolcaFmPatchManagerContainerState('_Active');
+        const volcaFmPatchManagerPublicDescription = document.getElementById('volcaFmPatchManagerPublicDescription').value;
+        axios.get(`/volca_fm_shares/byuser/${user.uuid}`)
+        .then(userSharesData => {
+            const userShares = userSharesData.data;
+            const existingShare = userShares.filter(share => {
+                return(share.initial_collection_uuid === currentCollection);
+            });
+            if (existingShare.length === 0) {
+                axios.post(`/volca_fm_shares/shares`, {
+                    initial_collection_uuid: currentCollection,
+                    user_uuid: user.uuid,
+                    banks: {
+                        banks: patchCollection.banks
+                    },
+                    name: patchCollection.name,
+                    public_description: volcaFmPatchManagerPublicDescription
+                }).then(() => {
+                    setShareModalState('_Inactive');
+                    setVolcaFmPatchManagerContainerState('_Active');
+                })
+            } else {
+                axios.patch(`/volca_fm_shares/shares/${existingShare[0].uuid}`, {
+                    banks: {
+                        banks: patchCollection.banks
+                    },
+                    name: patchCollection.name,
+                    public_description: volcaFmPatchManagerPublicDescription
+                }).then(() => {
+                    setShareModalState('_Inactive');
+                    setVolcaFmPatchManagerContainerState('_Active');
+                });
+            }
+        });
     }
     
     const closeSaveAsModal = () => {
@@ -589,17 +625,77 @@ function VolcaFmPatchManager(user, banks) {
     }
 
     const noteOnEvent = (key) => {
-        let index = 0;
-        for (let i = 0; i < outputs.length; i++) {
-            if (outputs[i].id === currentOutput.id) {
-                index = i;
+//        let index = 0;
+//        for (let i = 0; i < outputs.length; i++) {
+//            if (outputs[i].id === currentOutput.id) {
+//                index = i;
+//            }
+//        }
+        console.log(user);
+        if (connections === null) {
+            let indexOut = null;
+            if (user.midi_connections) {
+                connections = user.midi_connections;
+                setMidiConnections(connections);
+                setCurrentOutput(connections.currentOutput);
+                setCurrentMidiChannel(connections.currentMidiChannel);
+                for (let i = 0; i < connections.outputs.length; i++) {
+                    connections.outputs[i].label = connections.outputs[i].name;
+                }
+                if (!user.midi_patch) {
+                    setAvailableOutputs(connections.outputs);
+                    setAvailableInputs(connections.inputs);
+                }
+                if (user.midi_patch) {
+                    axios.get(`/midi_manager_patches/patch/${user.midi_patch}`)
+                    .then(midiPatchData => {
+                        const midiPatch = midiPatchData.data.user_preset.outputs;
+                        let outputsArr = [];
+                        for (let i = 0; i < user.midi_connections.outputs.length; i++) {
+                            outputsArr[i] = {...midiPatch[i]};
+                            connections.outputs[i].label = midiPatch[i].label;
+                        }
+                        setUserMidiPatch(outputsArr);
+                        setAvailableOutputs(connections.outputs);
+                        let volcaFmsList = midiPatch.filter(entry => {
+                            return(entry.deviceUuid === 'e3bfacf5-499a-4247-b512-2c4bd15861ad')
+                        });
+                        for (let j = 0; j < midiPatch.lenth; j++) {
+                           if (indexOut === null) {
+                               if (midiPatch[j].deviceUuid === 'e3bfacf5-499a-4247-b512-2c4bd15861ad') {
+                                   indexOut = j;
+                               }
+                           }
+                        }
+                        if (indexOut === null) {
+                            indexOut = 0;
+                        }
+                        setCurrentOutput(connections.outputs[indexOut]);
+                        setAvailableOutputs(connections.outputs);
+                        setAvailableInputs(connections.inputs);
+                    });
+                }
+            } else {
+                navigator.requestMIDIAccess({ sysex: true })
+                .then((midiAccess) => {               
+                    connections = midiConnection(midiAccess);
+                    setMidiConnections(connections);
+                    setCurrentOutput(connections.currentOutput);
+                    setCurrentMidiChannel(connections.currentMidiChannel);
+                    setAvailableOutputs(connections.outputs);
+                    setAvailableInputs(connections.inputs);
+                    return;
+                }, () => {
+                    alert('No MIDI ports accessible');
+                });
             }
+            return;
         }
         switch (key.toLowerCase()) {
             case ('q'):
                 if (!keyEngaged.q) {
                     keyEngaged.q = true;
-                    outputs[index].send([0x90 | currentMidiChannel, rootNote, 0x7f]);
+                    currentOutput.send([0x90 | currentMidiChannel, rootNote, 0x7f]);
                 }
                 break;
             case ('2'):
@@ -941,6 +1037,7 @@ function VolcaFmPatchManager(user, banks) {
         if (volcaFmPatchManagerSaveAsInput === '') {
             return;
         }
+        closeCollectionLoadModal();
         axios.post(`/volca_fm_banks/banks`, {
             user_uuid: user.uuid,
             banks: {
@@ -948,8 +1045,11 @@ function VolcaFmPatchManager(user, banks) {
             },
             name: volcaFmPatchManagerSaveAsInput
         }).then(copySetData => {
-            setCurrentCollection(copySetData.data.uuid);
-            closeCollectionLoadModal();
+            console.log(copySetData.data.uuid);
+            setTimeout(() => {
+                setSaveAsModalState('_Inactive');
+            }, 200);
+            
         });
     }
     
@@ -1007,7 +1107,7 @@ function VolcaFmPatchManager(user, banks) {
                                     onChange={(e) => updateCurrentOutput(e.target.value)}
                                     value={getVisualOutput(currentOutput)}>
                                     {availableOutputs.map(out => (
-                                    <option key={out.id} value={out.id}>{out.name}</option>))}
+                                <option key={out.id} value={out.id}>{out.label}</option>))}
                                 </select>
                                 <p className={'volcaFmPatchManagerMidiChannelLabel' + volcaFmPatchManagerMonth}>channel:</p>
                                 <input className={'volcaFmPatchManagerMidiChannelInput' + volcaFmPatchManagerMonth}
@@ -1167,6 +1267,7 @@ function VolcaFmPatchManager(user, banks) {
                     <p className={'volcaFmPatchManagerSubmittedBy' + volcaFmPatchManagerMonth}>{user.first_name} {user.last_name}</p>
                     <p className={'volcaFmPatchManagerPublicDescriptionLabel' + volcaFmPatchManagerMonth}>public description:</p>
                     <textarea className={'volcaFmPatchManagerPublicDescription' + volcaFmPatchManagerMonth}
+                        id="volcaFmPatchManagerPublicDescription"
                         placeholder="Description of this collection"
                         rows="9"></textarea>
                     <button className={'volcaFmPatchManagerShareSubmitButton' + volcaFmPatchManagerMonth}
