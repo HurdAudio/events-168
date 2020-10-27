@@ -12,6 +12,7 @@ import './midiManager.style.jana.css';
 import './midiManager.style.janb.css';
 import './midiManager.style.janc.css';
 import './midiManager.style.feba.css';
+import './midiManager.style.febb.css';
 import midiConnection from './midiConnection';
 import AvailableDevices from './availableDevices';
 import UUID from 'uuidjs';
@@ -28,12 +29,13 @@ const januaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/midi-mana
 const januaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/2316bf07d0598a9892debf49f09b4f03.gif';
 const januaryCSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/gear_plant2.gif';
 const februaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/59097644ada257296db3d19882f84ed6.gif';
+const februaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/inn-anim-560.gif';
 
 function MidiManager(user, config) {
     
     const [midiConnections, setMidiConnections] = useState(connections);
     const [midiManagerContainerState, setMidiManagerContainerState] = useState('_Active');
-    const [midiManagerMonth, setMidiManagerMonth] = useState('_FebruaryA');
+    const [midiManagerMonth, setMidiManagerMonth] = useState('_FebruaryB');
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [configAltered, setConfigAltered] = useState(false);
     const [userPresets, setUserPresets] = useState([
@@ -70,7 +72,7 @@ function MidiManager(user, config) {
     const [newPatchModalState, setNewPatchModalState] = useState('_Inactive');
     const [deleteGuardrailState, setDeleteGuardrailState] = useState('_Inactive');
     const [saveAsModalState, setSaveAsModalState] = useState('_Inactive');
-    const [currentSpinner, setCurrentSpinner] = useState(februaryASpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(februaryBSpinner);
     const [panicState, setPanicState] = useState('midiManagerPanicOff');
     
     const changePreset = (uuid) => {
