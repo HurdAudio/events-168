@@ -1,4 +1,4 @@
-.volcaDrumEditorContainerActive_JanuaryC {
+.volcaDrumEditorContainerActive_FebruaryC {
     filter: blur(0);
     height: 100%;
     left: 0;
@@ -12,7 +12,7 @@
     z-index: 100;
 }
 
-.volcaDrumEditorContainerInactive_JanuaryC {
+.volcaDrumEditorContainerInactive_FebruaryC {
     filter: blur(10px);
     height: 100%;
     left: 0;
@@ -26,8 +26,8 @@
     z-index: 100;
 }
 
-.volcaDrumEditorImageDiv_JanuaryC {
-    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/glacialis_by_joeyjazz_d20vlq6-pre.jpg);
+.volcaDrumEditorImageDiv_FebruaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/fabric_15_by_piratelotus_stock_d4ic2b8-fullview.jpg);
     background-position: center;
     background-size: cover;
     display: grid;
@@ -43,13 +43,13 @@
     z-index: 30;
 }
 
-.volcaDrumEditorTopBar_JanuaryC {
+.volcaDrumEditorTopBar_FebruaryC {
     backdrop-filter: blur(11px) contrast(400%) saturate(25%);
     grid-column: col1 / rightEdge;
     grid-row: row1 / row2;
 }
 
-.volcaDrumNavImage_JanuaryC {
+.volcaDrumNavImage_FebruaryC {
     cursor: pointer;
     filter: contrast(120%);
     grid-column: col1 / col2;
@@ -60,35 +60,33 @@
     width: 3%;
 }
 
-.volcaDrumNavImage_JanuaryC:hover {
+.volcaDrumNavImage_FebruaryC:hover {
     filter: contrast(100%);
     transform: rotateZ(210deg);
     transition: all 0.2s linear;
 }
 
-.volcaDrumEditorTitle_JanuaryC {
-    color: #1454b6;
-    filter: brightness(50%) saturate(400%);
-    font-family: 'MuseoModerno', cursive;
+.volcaDrumEditorTitle_FebruaryC {
+    color: #b9ae9e;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Faustina', serif;
     font-size: 36px;
     grid-column: col2 / col7;
     grid-row: row1 / row2;
-    margin: 5px;
+    margin: 8px 5px 5px 5px;
     z-index: 5;
 }
 
-.volcaDrumSidebarManager_JanuaryC {
+.volcaDrumSidebarManager_FebruaryC {
     backdrop-filter: hue-rotate(180deg);
-    background: radial-gradient(closest-corner, #3e7fb5, #043f6b, #001640);
-    box-sizing: border-box;
+    background: linear-gradient(180deg, transparent, #735c3c, #0e566f, #152a2d);
     grid-column: col1 / col3;
     grid-row: row2 / rowEnd;
-    opacity: 0.9;
 }
 
-.volcaDrumLayerSelectorDiv_JanuaryC {
+.volcaDrumLayerSelectorDiv_FebruaryC {
     align-content: flex-end;
-    background: linear-gradient(-45deg, #59acff, #234466);
+    background: linear-gradient(45deg, #036a93, #012a3a);
     display: flex;
     filter: contrast(200%);
     flex-direction: row;
@@ -96,52 +94,52 @@
     grid-column: col3 / col7;
     grid-row: row2 / row3;
     justify-content: flex-end;
-    opacity: 0.9;
+    opacity: 0.98;
 }
 
-.volcaDrumLayerSelectorLabel_JanuaryC {
-    color: #3e7fb5;
-    filter: brightness(200%);
-    font-family: 'MuseoModerno', cursive;
+.volcaDrumLayerSelectorLabel_FebruaryC {
+    color: #b9ae9e;
+    filter: brightness(150%);
+    font-family: 'Faustina', serif;
     font-size: 42px;
     margin: 5px 45px 0 0;
 }
 
-.volcaDrumLayerButtontrue_JanuaryC {
-    background: #001640;
-    border: 1px solid #808080;
+.volcaDrumLayerButtontrue_FebruaryC {
+    background: #152a2d;
+    border: 1px solid #b9ae9e;
     box-sizing: border-box;
-    color: #2c8be5;
+    color: #b9ae9e;
     filter: contrast(170%) saturate(100%);
-    font-family: 'MuseoModerno', cursive;
+    font-family: 'Faustina', serif;
     font-size: 33px;
     height: 90%;
     margin: 0 4px 0 1px;
-    outline-color: #808ba0;
+    outline-color: #8a9596;
     transform: translateY(3px);
     transition: all 0.8s linear;
     width: 11%;
 }
 
-.volcaDrumLayerButtonfalse_JanuaryC {
+.volcaDrumLayerButtonfalse_FebruaryC {
     background: transparent;
     border: none;
-    color: #9fbfda;
+    color: #735c3c;
     cursor: pointer;
     filter: contrast(100%) saturate(60%);
-    font-family: 'MuseoModerno', cursive;
+    font-family: 'Faustina', serif;
     font-size: 33px;
     height: 90%;
     margin: 0 4px 0 1px;
-    outline-color: #8b90af;
+    outline-color: #8a9596;
     transform: translateY(3px);
     transition: all 0.8s linear;
     width: 11%;
 }
 
-.volcaDrumPatchSelectorDiv_JanuaryC {
+.volcaDrumPatchSelectorDiv_FebruaryC {
     align-content: flex-end;
-    background: linear-gradient(135deg, #59acff, #234466);
+    background: linear-gradient(-45deg, #036a93, #012a3a);
     display: flex;
     filter: contrast(170%);
     flex-direction: row;
@@ -149,16 +147,16 @@
     grid-column: col7 / rightEdge;
     grid-row: row2 / row3;
     justify-content: flex-end;
-    opacity: 0.9;
+    opacity: 0.98;
 }
 
-.volcaDrumGeneralGlobalParamsDiv_JanuaryC {
-    backdrop-filter: brightness(66%);
+.volcaDrumGeneralGlobalParamsDiv_FebruaryC {
+    backdrop-filter: blur(10px) brightness(36%);
     grid-column: col3 / col8;
     grid-row: row7 / rowEnd;
 }
 
-.volcaDrumGeneralGlobalParamsContainer_JanuaryC {
+.volcaDrumGeneralGlobalParamsContainer_FebruaryC {
     display: grid;
     grid-template-columns: [ggcol1] 1fr [ggcol2] 1fr [ggcol3] 1fr [ggcol4] 1fr [ggcol5] 1fr [ggcol6] 1fr [ggcol7] 1fr [ggcol8] 1fr [ggcol9] 1fr [ggcol10] 1fr [ggcol11] 1fr [ggcol12] 1fr [ggcol13] 1fr [ggcol14] 1fr [ggcol15] 1fr [ggcol16] 1fr [ggcol17] 1fr [lprightEdge];
     grid-template-rows: [ggrow1] 1fr [ggrow2] 1fr [ggrow3] 1fr [ggrow4] 1fr [ggrow5] 1fr [ggrow6] 1fr [ggrow7] 1fr [ggrow8] 1fr [ggrow9] 1fr [ggrow10] 1fr [ggrow11] 1fr [ggrow12] 1fr [ggrowEnd];
@@ -166,18 +164,18 @@
     width: 100%;
 }
 
-.volcaDrumPanLabel_JanuaryC {
-    color: #9fbfda;
-    filter: brightness(130%);
-    font-family: 'MuseoModerno', cursive;
+.volcaDrumPanLabel_FebruaryC {
+    color: #b9ae9e;
+    filter: brightness(150%);
+    font-family: 'Faustina', serif;
     font-size: 24px;
     grid-column: ggcol2 / ggcol4;
     grid-row: ggrow2 / ggrow3;
 }
 
-.volcaDrumPanSliderContainer_JanuaryC {
-    background: #2c8be5;
-    border: 2px solid #082148;
+.volcaDrumPanSliderContainer_FebruaryC {
+    background: #081012;
+    border: 2px solid #152a2d;
     box-sizing: border-box;
     border-radius: 15px;
     filter: saturate(200%);
@@ -186,14 +184,14 @@
     height: 30px;
 }
 
-.globalParamsBitReductionContainer_JanuaryC {
+.globalParamsBitReductionContainer_FebruaryC {
     grid-column: ggcol2 / ggcol5;
     grid-row: ggrow4 / ggrowend;
 }
 
-.globalParamsBitReductionSliderContainer_JanuaryC {
-    background: #2c8be5;
-    border: 2px solid #082148;
+.globalParamsBitReductionSliderContainer_FebruaryC {
+    background: #081012;
+    border: 2px solid #152a2d;
     box-sizing: border-box;
     border-radius: 15px;
     filter: saturate(200%);
@@ -202,10 +200,10 @@
     width: 165%;
 }
 
-.volcaDrumBitReductionLabel_JanuaryC {
-    color: #9fbfda;
-    filter: brightness(130%);
-    font-family: 'MuseoModerno', cursive;
+.volcaDrumBitReductionLabel_FebruaryC {
+    color: #b9ae9e;
+    filter: brightness(150%);
+    font-family: 'Faustina', serif;
     font-size: 24px;
     left: 28%;
     position: relative;
@@ -213,42 +211,42 @@
     width: 74%;
 }
 
-.volcaDrumBitReductionInput_JanuaryC {
+.volcaDrumBitReductionInput_FebruaryC {
     background: transparent;
     border: none;
-    color: #9fbfda;
-    filter: brightness(130%);
-    font-family: 'MuseoModerno', cursive;
+    color: #b9ae9e;
+    filter: brightness(150%);
+    font-family: 'Faustina', serif;
     font-size: 36px;
     left: 45%;
-    outline-color: #8b90af;
+    outline-color: #8a9596;
     position: relative;
     top: 10%;
     width: 70%;
 }
 
-.globalParamsWaveFolderContainer_JanuaryC {
+.globalParamsWaveFolderContainer_FebruaryC {
     grid-column: ggcol6 / ggcol9;
     grid-row: ggrow4 / ggrowend;
 }
 
-.globalParamsOverdriveGainContainer_JanuaryC {
+.globalParamsOverdriveGainContainer_FebruaryC {
     grid-column: ggcol10 / ggcol13;
     grid-row: ggrow4 / ggrowend;
 }
 
-.globalParamsPremixGainContainer_JanuaryC {
+.globalParamsPremixGainContainer_FebruaryC {
     grid-column: ggcol14 / ggcol17;
     grid-row: ggrow4 / ggrowend;
 }
 
-.volcaDrumPartParamsDiv_JanuaryC {
-    backdrop-filter: blur(4px) brightness(80%) grayscale(30%) hue-rotate(-90deg) saturate(100%);
+.volcaDrumPartParamsDiv_FebruaryC {
+    backdrop-filter: blur(24px) brightness(90%) grayscale(60%) hue-rotate(90deg) saturate(100%);
     grid-column: col3 / col8;
     grid-row: row3 / row7;
 }
 
-.volcaDrumPartParamsContainer_JanuaryC {
+.volcaDrumPartParamsContainer_FebruaryC {
     display: grid;
     grid-template-columns: [lpcol1] 1fr [lpcol2] 1fr [lpcol3] 1fr [lpcol4] 1fr [lpcol5] 1fr [lpcol6] 1fr [lpcol7] 1fr [lpcol8] 1fr [lpcol9] 1fr [lpcol10] 1fr [lpcol11] 1fr [lpcol12] 1fr [lpcol13] 1fr [lpcol14] 1fr [lpcol15] 1fr [lpcol16] 1fr [lprightEdge];
     grid-template-rows: [lprow1] 1fr [lprow2] 1fr [lprow3] 1fr [lprow4] 1fr [lprow5] 1fr [lprow6] 1fr [lprow7] 1fr [lprow8] 1fr [lprow9] 1fr [lprow10] 1fr [lprow11] 1fr [lprow12] 1fr [lprowEnd];
@@ -256,11 +254,10 @@
     width: 100%;
 }
 
-.volcaDrumPartLayerTabStrip_JanuaryC {
+.volcaDrumPartLayerTabStrip_FebruaryC {
     align-content: center;
     background: transparent;
-    border: 1px solid transparent;
-    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/glacialis_by_joeyjazz_d20vlq6-pre.jpg) stretch 5%;
+    border: 1px solid #81b5c9;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -271,25 +268,25 @@
     margin-top: 4px;
 }
 
-.volcaDrumpartLayerTabtrue_JanuaryC {
-    background: linear-gradient(90deg, #043f6b, #59acff);
+.volcaDrumpartLayerTabtrue_FebruaryC {
+    background: linear-gradient(90deg, #abae98, #868385);
     cursor: none;
-    filter: brightness(125%);
+    filter: brightness(105%);
     height: 100%;
     opacity: 1;
     transition: all 0.4s linear;
     width: 33.3%;
 }
 
-.volcaDrumpartLayerTabtrue_JanuaryC p {
-    color: #082148;
-    filter: brightness(50%) contrast(150%);
-    font-family: 'MuseoModerno', cursive;
-    font-size: 24px;
+.volcaDrumpartLayerTabtrue_FebruaryC p {
+    color: #040204;
+    filter: brightness(100%) contrast(150%);
+    font-family: 'Faustina', serif;
+    font-size: 18px;
     margin: 1px 0 0 25%;
 }
 
-.volcaDrumpartLayerTabfalse_JanuaryC {
+.volcaDrumpartLayerTabfalse_FebruaryC {
     background: transparent;
     cursor: pointer;
     height: 100%;
@@ -298,10 +295,10 @@
     width: 33.3%;
 }
 
-.volcaDrumModulationLabel_JanuaryC {
-    color: #9fbfda;
+.volcaDrumModulationLabel_FebruaryC {
+    color: #b9ae9e;
     filter: contrast(300%) saturate(200%);
-    font-family: 'MuseoModerno', cursive;
+    font-family: 'Faustina', serif;
     font-size: 24px;
     left: 32.5%;
     position: fixed;
@@ -309,54 +306,54 @@
     transform: rotateZ(-90deg);
 }
 
-.volcaDrumEGLabel_JanuaryC {
-    color: #9fbfda;
+.volcaDrumEGLabel_FebruaryC {
+    color: #b9ae9e;
     filter: contrast(300%) saturate(200%);
-    font-family: 'MuseoModerno', cursive;
+    font-family: 'Faustina', serif;
     font-size: 24px;
-    left: 51%;
+    left: 40%;
     position: fixed;
     top: 63%;
     transform: rotateZ(-90deg);
 }
 
-.volcaDrumLayerLevelSlot_JanuaryC {
+.volcaDrumLayerLevelSlot_FebruaryC {
     grid-column: lpcol2 / lpcol4;
     grid-row: lprow3 / lprowEnd;
 }
 
-.volcaDrumLayerPitchSlot_JanuaryC {
+.volcaDrumLayerPitchSlot_FebruaryC {
     grid-column: lpcol4 / lpcol6;
     grid-row: lprow3 / lprowEnd;
 }
 
-.volcaDrumLayerModulationAmountSlot_JanuaryC {
+.volcaDrumLayerModulationAmountSlot_FebruaryC {
     grid-column: lpcol6 / lpcol8;
     grid-row: lprow3 / lprowEnd;
 }
 
-.volcaDrumLayerModulationRateSlot_JanuaryC {
+.volcaDrumLayerModulationRateSlot_FebruaryC {
     grid-column: lpcol8 / lpcol10;
     grid-row: lprow3 / lprowEnd;
 }
 
-.volcaDrumLayerEGAttackSlot_JanuaryC {
+.volcaDrumLayerEGAttackSlot_FebruaryC {
     grid-column: lpcol10 / lpcol12;
     grid-row: lprow3 / lprowEnd;
 }
 
-.volcaDrumLayerEGReleaseSlot_JanuaryC {
+.volcaDrumLayerEGReleaseSlot_FebruaryC {
     grid-column: lpcol12 / lpcol14;
     grid-row: lprow3 / lprowEnd;
 }
 
-.volcaDrumLayerSendSlot_JanuaryC {
+.volcaDrumLayerSendSlot_FebruaryC {
     grid-column: lpcol14 / lpcol16;
     grid-row: lprow3 / lprowEnd;
 }
 
-.volcaDrumVisualSendConnector_JanuaryC {
-    background: #180928;
+.volcaDrumVisualSendConnector_FebruaryC {
+    background: #6dc8da;
     border-radius: 4px;
     height: 5px;
     left: 83.2%;
@@ -366,28 +363,28 @@
     width: 210px;
 }
 
-.volcaDrumLayerLevelLabel_JanuaryC {
-    color: #9fbfda;
+.volcaDrumLayerLevelLabel_FebruaryC {
+    color: #b9ae9e;
     filter: contrast(300%) saturate(200%);
-    font-family: 'MuseoModerno', cursive;
+    font-family: 'Faustina', serif;
     font-size: 18px; 
 }
 
-.volcaDrumLayerLevelInput_JanuaryC {
+.volcaDrumLayerLevelInput_FebruaryC {
     background: transparent;
     border: none;
-    color: #9fbfda;
+    color: #b9ae9e;
     filter: contrast(300%) saturate(200%);
-    font-family: 'MuseoModerno', cursive;
+    font-family: 'Faustina', serif;
     font-size: 30px;
-    outline-color: #8080a8;
+    outline-color: #8a9596;
     margin: 10px 0;
     width: 100%;
 }
 
-.volcaDrumLayerParamSliderContainer_JanuaryC {
-    background: #2c8be5;
-    border: 2px solid #082148;
+.volcaDrumLayerParamSliderContainer_FebruaryC {
+    background: #081012;
+    border: 2px solid #152a2d;
     box-sizing: border-box;
     border-radius: 15px;
     filter: saturate(200%);
@@ -398,48 +395,48 @@
     width: 280%;
 }
 
-.volcaDrumpartLayerTabfalse_JanuaryC p {
-    color: #000819;
-    filter: brightness(100%);
-    font-family: 'MuseoModerno', cursive;
-    font-size: 24px;
-    margin: 1px 0 0 20%; 
+.volcaDrumpartLayerTabfalse_FebruaryC p {
+    color: #9ea18f;
+    filter: brightness(120%);
+    font-family: 'Faustina', serif;
+    font-size: 18px;
+    margin: 1px 0 0 25%; 
 }
 
-.volcaDrumWaveguideModel_JanuaryC {
-    backdrop-filter: brightness(60%) sepia(65%);
+.volcaDrumWaveguideModel_FebruaryC {
+    backdrop-filter: blur(30px) brightness(60%) sepia(35%);
     grid-column: col8 / rightEdge;
     grid-row: row3 / row6;
 }
 
-.volcaDrumWaveGuideParams_JanuaryC {
-    backdrop-filter: brightness(65%) hue-rotate(90deg) saturate(150%);
+.volcaDrumWaveGuideParams_FebruaryC {
+    backdrop-filter: brightness(65%) contrast(450%) hue-rotate(90deg) saturate(50%);
     grid-column: col8 / rightEdge;
     grid-row: row6 / rowEnd;
 }
 
-.volcaDrumWaveguideContainer_JanuaryC {
+.volcaDrumWaveguideContainer_FebruaryC {
     grid-template-columns: [wgucol1] 1fr [wgucol2] 1fr [wgucol3] 1fr [wgucol4] 1fr [wgucol5] 1fr [wgucol6] 1fr [wgucol7] 1fr [wgucol8] 1fr [wgucolend];
     grid-template-rows: [wgurow1] 1fr [wgurow2] 1fr [wgurow3] 1fr [wgurow4] 1fr [wgurow5] 1fr [wgurow6] 1fr [wgurow7] 1fr [wgurow8] 1fr [wgurow9] 1fr [wgurow10] 1fr [wgurow11] 1fr [wgurow12] 1fr [wgurow13] 1fr [wgurow14] 1fr [wgurow15] 1fr [wgurowend];
     height: 100%;
     width: 100%;
 }
 
-.volcaDrumWaveguideModelLabel_JanuaryC {
-    color: #9fbfda;
+.volcaDrumWaveguideModelLabel_FebruaryC {
+    color: #b9ae9e;
     filter: brightness(250%);
-    font-family: 'MuseoModerno', cursive;
+    font-family: 'Faustina', serif;
     font-size: 36px;
     grid-column: wgucol3 / wgucol8;
     grid-row: wgurow1 / wgurow2;
-    margin-left: 3%;
+    margin-left: 6px;
     margin-top: 5px;
 }
 
-.volcaDrumSoundSourceLabel_JanuaryC {
-    color: #9fbfda;
+.volcaDrumSoundSourceLabel_FebruaryC {
+    color: #b9ae9e;
     filter: brightness(250%);
-    font-family: 'MuseoModerno', cursive;
+    font-family: 'Faustina', serif;
     font-size: 18px;
     grid-column: wgucol2 / wgucol8;
     grid-row: wgurow3 / wgurow4;
@@ -447,26 +444,22 @@
     margin-top: 20px;
 }
 
-.volcaDrumSoundSourceTabStrip_JanuaryC {
+.volcaDrumSoundSourceTabStrip_FebruaryC {
     align-content: center;
     background: transparent;
-    border: 1px solid transparent;
-    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/glacialis_by_joeyjazz_d20vlq6-pre.jpg) stretch 5%;
+    border: 1px solid #81b5c9;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    grid-column: wgucol2 / wgucol8;
-    grid-row: wgurow4 / wgurow6;
+    grid-column: lpcol2 / lpcol16;
+    grid-row: lprow1 / lprow2;
     justify-content: flex-start;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 10px;
-    width: 90%;
+    margin-top: 4px;
 }
 
-.volcaDrumSoundSorceTabtrue_JanuaryC {
-    background: linear-gradient(90deg, #043f6b, #59acff);
+.volcaDrumSoundSorceTabtrue_FebruaryC {
+    background: linear-gradient(90deg, #abae98, #868385);
     cursor: none;
     filter: brightness(125%);
     height: 100%;
@@ -475,15 +468,15 @@
     width: 20%;
 }
 
-.volcaDrumSoundSorceTabtrue_JanuaryC p {
-    color: #082148;
-    filter: brightness(50%) contrast(150%);
-    font-family: 'MuseoModerno', cursive;
-    font-size: 13px;
-    margin: 10px 0 0 5px;
+.volcaDrumSoundSorceTabtrue_FebruaryC p {
+    color: #040204;
+    filter: brightness(100%) contrast(150%);
+    font-family: 'Faustina', serif;
+    font-size: 15px;
+    margin: 2px 0 2px 5px;
 }
 
-.volcaDrumSoundSorceTabfalse_JanuaryC {
+.volcaDrumSoundSorceTabfalse_FebruaryC {
     background: transparent;
     cursor: pointer;
     height: 100%;
@@ -492,18 +485,18 @@
     width: 20%;
 }
 
-.volcaDrumSoundSorceTabfalse_JanuaryC p {
-    color: #000819;
-    filter: brightness(100%);
-    font-family: 'MuseoModerno', cursive;
-    font-size: 13px;
-    margin: 10px 0 0 5px;
+.volcaDrumSoundSorceTabfalse_FebruaryC p {
+    color: #9ea18f;
+    filter: brightness(110%);
+    font-family: 'Faustina', serif;
+    font-size: 15px;
+    margin: 2px 0 2px 5px;
 }
 
-.volcaDrumPitchModulatorsLabel_JanuaryC {
-    color: #9fbfda;
+.volcaDrumPitchModulatorsLabel_FebruaryC {
+    color: #b9ae9e;
     filter: brightness(250%);
-    font-family: 'MuseoModerno', cursive;
+    font-family: 'Faustina', serif;
     font-size: 18px;
     grid-column: wgucol2 / wgucol8;
     grid-row: wgurow7 / wgurow8;
@@ -511,11 +504,10 @@
     margin-top: 20px;
 }
 
-.volcaDrumPitchModulatorTabStrip_JanuaryC {
+.volcaDrumPitchModulatorTabStrip_FebruaryC {
     align-content: center;
     background: transparent;
-    border: 1px solid transparent;
-    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/glacialis_by_joeyjazz_d20vlq6-pre.jpg) stretch 5%;
+    border: 1px solid #81b5c9;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -529,8 +521,8 @@
     width: 90%;
 }
 
-.volcaDrumPitchModulatorTabtrue_JanuaryC {
-    background: linear-gradient(90deg, #043f6b, #59acff);
+.volcaDrumPitchModulatorTabtrue_FebruaryC {
+    background: linear-gradient(90deg, #abae98, #868385);
     cursor: none;
     filter: brightness(125%);
     height: 100%;
@@ -539,16 +531,16 @@
     width: 33.3%;
 }
 
-.volcaDrumPitchModulatorTabtrue_JanuaryC p {
-    color: #082148;
-    filter: brightness(50%) contrast(150%);
-    font-family: 'MuseoModerno', cursive;
-    font-size: 13px;
-    margin: 10px 0 0 23%;
+.volcaDrumPitchModulatorTabtrue_FebruaryC p {
+    color: #040204;
+    filter: brightness(100%) contrast(150%);
+    font-family: 'Faustina', serif;
+    font-size: 15px;
+    margin: 2px 0 2px 23%;
 }
 
 
-.volcaDrumPitchModulatorTabfalse_JanuaryC {
+.volcaDrumPitchModulatorTabfalse_FebruaryC {
     background: transparent;
     cursor: pointer;
     height: 100%;
@@ -557,18 +549,18 @@
     width: 33.3%;
 }
 
-.volcaDrumPitchModulatorTabfalse_JanuaryC p {
-    color: #000819;
+.volcaDrumPitchModulatorTabfalse_FebruaryC p {
+    color: #9ea18f;
     filter: brightness(100%);
-    font-family: 'MuseoModerno', cursive;
-    font-size: 13px;
-    margin: 10px 0 0 23%;
+    font-family: 'Faustina', serif;
+    font-size: 15px;
+    margin: 2px 0 2px 23%;
 }
 
-.volcaDrumEnvelopeGeneratorsLabel_JanuaryC {
-    color: #9fbfda;
+.volcaDrumEnvelopeGeneratorsLabel_FebruaryC {
+    color: #b9ae9e;
     filter: brightness(250%);
-    font-family: 'MuseoModerno', cursive;
+    font-family: 'Faustina', serif;
     font-size: 18px;
     grid-column: wgucol2 / wgucol8;
     grid-row: wgurow11 / wgurow12;
@@ -576,11 +568,10 @@
     margin-top: 20px;
 }
 
-.volcaDrumEnevelopeGeneratorTabStrip_JanuaryC {
+.volcaDrumEnevelopeGeneratorTabStrip_FebruaryC {
     align-content: center;
     background: transparent;
-    border: 1px solid transparent;
-    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/glacialis_by_joeyjazz_d20vlq6-pre.jpg) stretch 5%;
+    border: 1px solid #81b5c9;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -594,7 +585,7 @@
     width: 90%;
 }
 
-.volcaDrumWaveguideParamsContainer_JanuaryC {
+.volcaDrumWaveguideParamsContainer_FebruaryC {
     display: grid;
     grid-template-columns: [wgcol1] 1fr [wgcol2] 1fr [wgcol3] 1fr [wgcol4] 1fr [wgcol5] 1fr [wgcol6] 1fr [wgcol7] 1fr [wgcol8] 1fr [wgcolend];
     grid-template-rows: [wgrow1] 1fr [wgrow2] 1fr [wgrow3] 1fr [wgrow4] 1fr [wgrow5] 1fr [wgrow6] 1fr [wgrow7] 1fr [wgrow8] 1fr [wgrowend];
@@ -602,29 +593,29 @@
     width: 100%;
 }
 
-.volcaDrumWaveGuideLabel_JanuaryC {
-    color: #9fbfda;
-    filter: brightness(250%);
-    font-family: 'MuseoModerno', cursive;
+.volcaDrumWaveGuideLabel_FebruaryC {
+    color: #b9ae9e;
+    filter: brightness(350%);
+    font-family: 'Faustina', serif;
     font-size: 48px;
     grid-column: wgcol4 / wgcol6;
     grid-row: wgrow4 / grow6;
     margin: 0 0 0 10px;
 }
 
-.volcaDrumDecayLabel_JanuaryC {
-    color: #9fbfda;
-    filter: brightness(250%);
-    font-family: 'MuseoModerno', cursive;
+.volcaDrumDecayLabel_FebruaryC {
+    color: #b9ae9e;
+    filter: brightness(350%);
+    font-family: 'Faustina', serif;
     font-size: 36px;
     grid-column: wgcol1 / wgcol4;
     grid-row: wgrow4 / grow5;
     margin: 5px 0 0 45px;
 }
 
-.volcaDrumDecayInputContainer_JanuaryC {
-    background: #2c8be5;
-    border: 2px solid #082148;
+.volcaDrumDecayInputContainer_FebruaryC {
+    background: #081012;
+    border: 2px solid #152a2d;
     box-sizing: border-box;
     border-radius: 15px;
     filter: saturate(200%);
@@ -634,9 +625,9 @@
     transform: rotateZ(-58deg) translateX(-20px) translateY(10px);
 }
 
-.volcaDrumWaveGuideDecaySlider_JanuaryC {
+.volcaDrumWaveGuideDecaySlider_FebruaryC {
     -webkit-appearance: none;
-    border: 2px solid #082148;
+    border: 2px solid #081012;
     border-radius: 20px;
     cursor: pointer;
     height: 20px;
@@ -646,33 +637,33 @@
     width: 98%;
 }
 
-.volcaDrumWaveGuideDecaySlider_JanuaryC::-webkit-slider-runnable-track {
-    background: #082148;
+.volcaDrumWaveGuideDecaySlider_FebruaryC::-webkit-slider-runnable-track {
+    background: #081012;
 }
 
-.volcaDrumWaveGuideDecaySlider_JanuaryC::-webkit-slider-thumb {
+.volcaDrumWaveGuideDecaySlider_FebruaryC::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: #2c8be5;
-    box-shadow: -100vw 0 0 100vw #2c8be5;
+    background: #737c39;
+    box-shadow: -100vw 0 0 100vw #737c39;
     height: 20px;
     transform-origin: bottom right;
     transform: skew(45deg);
     width: 20px;
 }
 
-.volcaDrumBodyLabel_JanuaryC {
-    color: #9fbfda;
-    filter: brightness(250%);
-    font-family: 'MuseoModerno', cursive;
+.volcaDrumBodyLabel_FebruaryC {
+    color: #b9ae9e;
+    filter: brightness(350%);
+    font-family: 'Faustina', serif;
     font-size: 36px;
     grid-column: wgcol6 / wgcol8;
     grid-row: wgrow4 / grow5;
     margin: 5px 0 0 55px;
 }
 
-.volcaDrumBodyInputContainer_JanuaryC {
-    background: #2c8be5;
-    border: 2px solid #082148;
+.volcaDrumBodyInputContainer_FebruaryC {
+    background: #081012;
+    border: 2px solid #152a2d;
     box-sizing: border-box;
     border-radius: 15px;
     filter: saturate(200%);
@@ -682,19 +673,19 @@
     transform: rotateZ(-122deg) translateX(-20px) translateY(-10px);
 }
 
-.volcaDrumTuneLabel_JanuaryC {
-    color: #9fbfda;
-    filter: brightness(250%);
-    font-family: 'MuseoModerno', cursive;
+.volcaDrumTuneLabel_FebruaryC {
+    color: #b9ae9e;
+    filter: brightness(350%);
+    font-family: 'Faustina', serif;
     font-size: 36px;
     grid-column: wgcol4 / wgcol7;
     grid-row: wgrow7 / grow8;
     margin: 10px 0 0 30px;
 }
 
-.volcaDrumTuneInputContainer_JanuaryC {
-    background: #2c8be5;
-    border: 2px solid #082148;
+.volcaDrumTuneInputContainer_FebruaryC {
+    background: #081012;
+    border: 2px solid #152a2d;
     box-sizing: border-box;
     border-radius: 15px;
     filter: saturate(200%);
@@ -703,9 +694,9 @@
     height: 30px;
 }
 
-.volcaDrumWaveGuideTuningSlider_JanuaryC {
+.volcaDrumWaveGuideTuningSlider_FebruaryC {
     -webkit-appearance: none;
-    border: 2px solid #082148;
+    border: 2px solid #081012;
     border-radius: 20px;
     cursor: pointer;
     height: 20px;
@@ -715,34 +706,35 @@
     width: 98%;
 }
 
-.volcaDrumWaveGuideTuningSlider_JanuaryC::-webkit-slider-runnable-track {
-    background: #082148;
+.volcaDrumWaveGuideTuningSlider_FebruaryC::-webkit-slider-runnable-track {
+    background: #081012;
 }
 
-.volcaDrumWaveGuideTuningSlider_JanuaryC::-webkit-slider-thumb {
+.volcaDrumWaveGuideTuningSlider_FebruaryC::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: #2c8be5;
-    box-shadow: -100vw 0 0 100vw #2c8be5;
+    background: #737c39;
+    box-shadow: -100vw 0 0 100vw #737c39;
     height: 20px;
     transform-origin: bottom right;
     transform: skew(45deg);
     width: 20px;
 }
 
-.volcaDrumPatchInput_JanuaryC {
+.volcaDrumPatchInput_FebruaryC {
     background: transparent;
     border: none;
-    color: #9fbfda;
-    font-family: 'MuseoModerno', cursive;
+    color: #b9ae9e;
+    filter: brightness(350%);
+    font-family: 'Faustina', serif;
     font-size: 36px;
-    outline-color: #869fb2;
+    outline-color: #8a9596;
     margin-top: 10px;
     width: 7%;
 }
 
-.volcaDrumPatchSliderContainer_JanuaryC {
-    background: #2c8be5;
-    border: 2px solid #082148;
+.volcaDrumPatchSliderContainer_FebruaryC {
+    background: #081012;
+    border: 2px solid #152a2d;
     box-sizing: border-box;
     border-radius: 15px;
     filter: saturate(200%);
@@ -751,9 +743,9 @@
     width: 420px;
 }
 
-.volcaDrumPatchSlider_JanuaryC {
+.volcaDrumPatchSlider_FebruaryC {
     -webkit-appearance: none;
-    border: 2px solid #082148;
+    border: 2px solid #081012;
     border-radius: 20px;
     cursor: pointer;
     height: 20px;
@@ -763,14 +755,14 @@
     width: 98%;
 }
 
-.volcaDrumPatchSlider_JanuaryC::-webkit-slider-runnable-track {
-    background: #082148;
+.volcaDrumPatchSlider_FebruaryC::-webkit-slider-runnable-track {
+    background: #081012;
 }
 
-.volcaDrumPatchSlider_JanuaryC::-webkit-slider-thumb {
+.volcaDrumPatchSlider_FebruaryC::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: #2c8be5;
-    box-shadow: -100vw 0 0 100vw #2c8be5;
+    background: #737c39;
+    box-shadow: -100vw 0 0 100vw #737c39;
     height: 20px;
     transform-origin: bottom right;
     transform: skew(45deg);
@@ -778,7 +770,7 @@
 }
 
 
-.sidebarContainer_JanuaryC {
+.sidebarContainer_FebruaryC {
     display: grid;
     grid-template-columns: [sideCol1] 1fr [sideCol2] 1fr [sideCol3] 1fr [sideCol4] 1fr [sideCol5] 1fr [sideColEnd];
     grid-template-rows: [sideRow1] 1fr [sideRow2] 1fr [sideRow3] 1fr [sideRow4] 1fr [sideRow5] 1fr [sideRow6] 1fr [sideRow7] 1fr [sideRow8] 1fr [sideRow9] 1fr [sideRow10] 1fr [sideRow11] 1fr [sideRow12] 1fr [sideRow13] 1fr [sideRow14] 1fr [sideRow15] 1fr [sideRow16] 1fr [sideRow17] 1fr [sideRow18] 1fr [sideRow19] 1fr [sideRow20] 1fr [sideRow21] 1fr [sideRow22] 1fr [sideRow23] 1fr [sideRow24] 1fr [sideRowEnd];
@@ -786,35 +778,35 @@
     width: 100%;
 }
 
-.volcaPatchNameInput_JanuaryC {
+.volcaPatchNameInput_FebruaryC {
     background: transparent;
     border: none;
-    color: #1454b6;
-    filter: brightness(30%) saturate(400%);
-    font-family: 'MuseoModerno', cursive;
+    color: #b9ae9e;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Faustina', serif;
     font-size: 24px;
     left: 50%;
-    outline-color: #808ba0;
+    outline-color: #8a9596;
     position: absolute;
     top: 1%;
 }
 
-.volcaDrumPanicButton_JanuaryC {
+.volcaDrumPanicButton_FebruaryC {
     background: transparent;
     border: none;
-    color: #1454b6;
+    color: #040204;
     cursor: pointer;
-    filter: brightness(30%) saturate(400%);
-    font-family: 'MuseoModerno', cursive;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Faustina', serif;
     font-size: 24px;
     grid-column: col10 / rightEdge;
     grid-row: row1 / row2;
-    outline-color: #8b90af;
+    outline-color: #8a9596;
     z-index: 56;
 }
 
-.volcaDrumImage1_JanuaryC {
-    filter: brightness(160%) drop-shadow(8px 8px 5px #808080);
+.volcaDrumImage1_FebruaryC {
+    filter: brightness(160%) drop-shadow(8px 8px 5px #05222c);
     grid-column: sideCol2 / sideCol5;
     grid-row: sideRow1 / sideRow3;
     margin: 10px 0 0 25px;
@@ -822,71 +814,71 @@
     opacity: 0.8;
 }
 
-.saveButtonVolcaDrumfalse_JanuaryC {
+.saveButtonVolcaDrumfalse_FebruaryC {
     display: none;
 }
 
-.saveButtonVolcaDrumtrue_JanuaryC {
+.saveButtonVolcaDrumtrue_FebruaryC {
     backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
     background: transparent;
-    border: 2px solid #000100;
-    color: #000100;
+    border: 2px solid #0c070b;
+    color: #0c070b;
     cursor: pointer;
-    filter: brightness(200%) drop-shadow(6px 6px 5px #808080);
-    font-family: 'MuseoModerno', cursive;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #05222c);
+    font-family: 'Faustina', serif;
     font-size: 18px;
     grid-column: sideCol2 / sideCol5;
     grid-row: sideRow3 / sideRow4;
-    outline-color: #8b90af;
+    outline-color: #8a9596;
     transition: all 0.4s linear;
 }
 
-.saveButtonVolcaDrumtrue_JanuaryC:hover {
-    backdrop-filter: hue-rotate(45deg);
-    border: 2px solid #96c5f2;
-    color: #96c5f2;
-    filter: brightness(115%) drop-shadow(2px 2px 5px #808080);
+.saveButtonVolcaDrumtrue_FebruaryC:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #b9ae9e;
+    color: #b9ae9e;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #05222c);
     transition: all 0.4s linear;
 }
 
-.saveButtonVolcaDrumtrue_JanuaryC:active {
-    filter: brightness(85%) drop-shadow(0 0 0 #808080);
+.saveButtonVolcaDrumtrue_FebruaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #05222c) invert(100%);
     transition: all 0.1s linear;
 }
 
-.saveAsButtonVolcaDrum_JanuaryC {
+.saveAsButtonVolcaDrum_FebruaryC {
     backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
     background: transparent;
-    border: 2px solid #000100;
-    color: #000100;
+    border: 2px solid #0c070b;
+    color: #0c070b;
     cursor: pointer;
-    filter: brightness(200%) drop-shadow(6px 6px 5px #808080);
-    font-family: 'MuseoModerno', cursive;
-    font-size: 18px;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #05222c);
+    font-family: 'Faustina', serif;
+    font-size: 15px;
     grid-column: sideCol2 / sideCol5;
     grid-row: sideRow5 / sideRow6;
-    outline-color: #8b90af;
+    outline-color: #8a9596;
     transition: all 0.4s linear;
 }
 
-.saveAsButtonVolcaDrum_JanuaryC:hover {
-    backdrop-filter: hue-rotate(45deg);
-    border: 2px solid #96c5f2;
-    color: #96c5f2;
-    filter: brightness(115%) drop-shadow(2px 2px 5px #808080);
+.saveAsButtonVolcaDrum_FebruaryC:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #b9ae9e;
+    color: #b9ae9e;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #05222c);
     transition: all 0.4s linear;
 }
 
-.saveAsButtonVolcaDrum_JanuaryC:active {
-    filter: brightness(85%) drop-shadow(0 0 0 #808080);
+.saveAsButtonVolcaDrum_FebruaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #05222c) invert(100%);
     transition: all 0.1s linear;
 }
 
-.saveAsDialogVolcaDrumDivInactive_JanuaryC {
-    background: #9fbfda;
+.saveAsDialogVolcaDrumDivInactive_FebruaryC {
+    background: #9ea18f;
     border-radius: 0;
-    color: #000000;
-    font-family: 'MuseoModerno', cursive;
+    color: #040204;
+    font-family: 'Faustina', serif;
     font-size: 24px;
     height: auto;
     left: 30%;
@@ -898,11 +890,11 @@
     z-index: 200;
 }
 
-.saveAsDialogVolcaDrumDivActive_JanuaryC {
-    background: #9fbfda;
+.saveAsDialogVolcaDrumDivActive_FebruaryC {
+    background: #9ea18f;
     border-radius: 0;
-    color: #000000;
-    font-family: 'MuseoModerno', cursive;
+    color: #040204;
+    font-family: 'Faustina', serif;
     font-size: 24px;
     height: auto;
     left: 30%;
@@ -915,19 +907,19 @@
     z-index: 200;
 }
 
-.saveAsInputVolcaDrum_JanuaryC {
-    background: #8aaadb;
+.saveAsInputVolcaDrum_FebruaryC {
+    background: #81b5c9;
     border: none;
-    color: #000000;
-    font-family: 'MuseoModerno', cursive;
+    color: #040204;
+    font-family: 'Faustina', serif;
     font-size: 24px;
     margin: 5% 10% 3% 10%;
-    outline-color: #808ba0;
+    outline-color: #8a9596;
     padding: 2px 5px;
     width: 80%;
 }
 
-.saveAsButtonsVolcaDrumDiv_JanuaryC {
+.saveAsButtonsVolcaDrumDiv_FebruaryC {
     align-content: center;
     display: flex;
     flex-direction: row;
@@ -938,177 +930,177 @@
     width: 82%;
 }
 
-.saveAsButtonsVolcaDrum_JanuaryC {
+.saveAsButtonsVolcaDrum_FebruaryC {
     backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
     background: transparent;
-    border: 2px solid #000100;
-    color: #000100;
+    border: 2px solid #0c070b;
+    color: #0c070b;
     cursor: pointer;
-    filter: brightness(200%) drop-shadow(6px 6px 5px #808080);
-    font-family: 'MuseoModerno', cursive;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #05222c);
+    font-family: 'Faustina', serif;
     font-size: 18px;
     height: 35px;
     margin: 0 30px;
-    outline-color: #8b90af;
-    transition: all 0.4s linear;
+    outline-color: #8a9596;
     padding: 0 15px;
-}
-
-.saveAsButtonsVolcaDrum_JanuaryC:hover {
-    backdrop-filter: hue-rotate(45deg);
-    border: 2px solid #000000;
-    color: #000000;
-    filter: brightness(115%) drop-shadow(2px 2px 5px #808080);
     transition: all 0.4s linear;
 }
 
-.saveAsButtonsVolcaDrum_JanuaryC:active {
-    filter: brightness(85%) drop-shadow(0 0 0 #808080);
+.saveAsButtonsVolcaDrum_FebruaryC:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #b9ae9e;
+    color: #b9ae9e;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #05222c);
+    transition: all 0.4s linear;
+}
+
+.saveAsButtonsVolcaDrum_FebruaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #05222c) invert(100%);
     transition: all 0.1s linear;
 }
 
-.revertButtonVolcaDrumfalse_JanuaryC {
+.revertButtonVolcaDrumfalse_FebruaryC {
     display: none;   
 }
 
-.revertButtonVolcaDrumtrue_JanuaryC {
+.revertButtonVolcaDrumtrue_FebruaryC {
     backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
     background: transparent;
-    border: 2px solid #000100;
-    color: #000100;
+    border: 2px solid #0c070b;
+    color: #0c070b;
     cursor: pointer;
-    filter: brightness(200%) drop-shadow(6px 6px 5px #808080);
-    font-family: 'MuseoModerno', cursive;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #05222c);
+    font-family: 'Faustina', serif;
     font-size: 18px;
     grid-column: sideCol2 / sideCol5;
     grid-row: sideRow7 / sideRow8;
-    outline-color: #8b90af;
+    outline-color: #8a9596;
     transition: all 0.4s linear;
 }
 
-.revertButtonVolcaDrumtrue_JanuaryC:hover {
-    backdrop-filter: hue-rotate(45deg);
-    border: 2px solid #96c5f2;
-    color: #96c5f2;
-    filter: brightness(115%) drop-shadow(2px 2px 5px #808080);
+.revertButtonVolcaDrumtrue_FebruaryC:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #b9ae9e;
+    color: #b9ae9e;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #05222c);
     transition: all 0.4s linear;
 }
 
-.revertButtonVolcaDrumtrue_JanuaryC:active {
-    filter: brightness(85%) drop-shadow(0 0 0 #808080);
+.revertButtonVolcaDrumtrue_FebruaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #05222c) invert(100%);
     transition: all 0.1s linear;
 }
 
-.midiOutputVolcaDrumLabel_JanuaryC {
-    color: #9fbfda;
-    filter: brightness(200%) drop-shadow(8px 8px 5px #808080);
-    font-family: 'MuseoModerno', cursive;
+.midiOutputVolcaDrumLabel_FebruaryC {
+    color: #b9ae9e;
+    filter: brightness(200%) drop-shadow(8px 8px 5px #05222c);
+    font-family: 'Faustina', serif;
     font-size: 18px;
     grid-column: sideCol2 / sideCol5;
     grid-row: sideRow10 / sideRow11;
 }
 
-.midiOutputVolcaDrumSelect_JanuaryC {
+.midiOutputVolcaDrumSelect_FebruaryC {
     background: transparent;
     border: none;
-    color: #808080;
-    filter: brightness(200%) drop-shadow(8px 8px 5px #808080);
+    color: #b9ae9e;
+    filter: brightness(200%) drop-shadow(8px 8px 5px #05222c);
     grid-column: sideCol2 / sideCol5;
     grid-row: sideRow11 / sideRow12;
-    font-family: 'MuseoModerno', cursive;
+    font-family: 'Faustina', serif;
     font-size: 15px;
-    outline-color: #808ba0;
+    outline-color: #8e91bc;
 }
 
-.initVolcaDrumButton_JanuaryC {
+.initVolcaDrumButton_FebruaryC {
     backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
     background: transparent;
-    border: 2px solid #000100;
-    color: #000100;
+    border: 2px solid #0c070b;
+    color: #0c070b;
     cursor: pointer;
-    filter: brightness(200%) drop-shadow(6px 6px 5px #808080);
-    font-family: 'MuseoModerno', cursive;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #05222c);
+    font-family: 'Faustina', serif;
     font-size: 18px;
     grid-column: sideCol2 / sideCol5;
     grid-row: sideRow19 / sideRow20;
-    outline-color: #8b90af;
+    outline-color: #8a9596;
     transition: all 0.4s linear;
 }
 
-.initVolcaDrumButton_JanuaryC:hover {
-    backdrop-filter: hue-rotate(45deg);
-    border: 2px solid #96c5f2;
-    color: #96c5f2;
-    filter: brightness(115%) drop-shadow(2px 2px 5px #808080);
+.initVolcaDrumButton_FebruaryC:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #b9ae9e;
+    color: #b9ae9e;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #05222c);
     transition: all 0.4s linear;
 }
 
-.initVolcaDrumButton_JanuaryC:active {
-    filter: brightness(85%) drop-shadow(0 0 0 #808080);
+.initVolcaDrumButton_FebruaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #05222c) invert(100%);
     transition: all 0.1s linear;
 }
 
-.randomVolcaDrumButton_JanuaryC {
+.randomVolcaDrumButton_FebruaryC {
     backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
     background: transparent;
-    border: 2px solid #000100;
-    color: #000100;
+    border: 2px solid #0c070b;
+    color: #0c070b;
     cursor: pointer;
-    filter: brightness(200%) drop-shadow(6px 6px 5px #808080);
-    font-family: 'MuseoModerno', cursive;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #05222c);
+    font-family: 'Faustina', serif;
     font-size: 18px;
     grid-column: sideCol2 / sideCol5;
     grid-row: sideRow21 / sideRow22;
-    outline-color: #8b90af;
+    outline-color: #8a9596;
     transition: all 0.4s linear;
 }
 
-.randomVolcaDrumButton_JanuaryC:hover {
-    backdrop-filter: hue-rotate(45deg);
-    border: 2px solid #96c5f2;
-    color: #96c5f2;
-    filter: brightness(115%) drop-shadow(2px 2px 5px #808080);
+.randomVolcaDrumButton_FebruaryC:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #b9ae9e;
+    color: #b9ae9e;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #05222c);
     transition: all 0.4s linear;
 }
 
-.randomVolcaDrumButton_JanuaryC:active {
-    filter: brightness(85%) drop-shadow(0 0 0 #808080);
+.randomVolcaDrumButton_FebruaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #05222c) invert(100%);
     transition: all 0.1s linear;
 }
 
-.aboutVolcaDrumButton_JanuaryC {
+.aboutVolcaDrumButton_FebruaryC {
     backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
     background: transparent;
-    border: 2px solid #000100;
-    color: #000100;
+    border: 2px solid #0c070b;
+    color: #0c070b;
     cursor: pointer;
-    filter: brightness(200%) drop-shadow(6px 6px 5px #808080);
-    font-family: 'MuseoModerno', cursive;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #05222c);
+    font-family: 'Faustina', serif;
     font-size: 18px;
     grid-column: sideCol2 / sideCol5;
     grid-row: sideRow23 / sideRow24;
-    outline-color: #8b90af;
+    outline-color: #8a9596;
     transition: all 0.4s linear;
 }
 
-.aboutVolcaDrumButton_JanuaryC:hover {
-    backdrop-filter: hue-rotate(45deg);
-    border: 2px solid #96c5f2;
-    color: #96c5f2;
-    filter: brightness(115%) drop-shadow(2px 2px 5px #808080);
+.aboutVolcaDrumButton_FebruaryC:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #b9ae9e;
+    color: #b9ae9e;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #05222c);
     transition: all 0.4s linear;
 }
 
-.aboutVolcaDrumButton_JanuaryC:active {
-    filter: brightness(85%) drop-shadow(0 0 0 #808080);
+.aboutVolcaDrumButton_FebruaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #05222c) invert(100%);
     transition: all 0.1s linear;
 }
 
-.aboutTheKorgVolcaDrumDivInactive_JanuaryC {
-    background: #001640;
+.aboutTheKorgVolcaDrumDivInactive_FebruaryC {
+    background: #012a3a;
     border-radius: 0;
-    color: #000000;
-    font-family: 'MuseoModerno', cursive;
+    color: #040204;
+    font-family: 'Faustina', serif;
     font-size: 24px;
     height: 85%;
     left: 5%;
@@ -1120,11 +1112,11 @@
     z-index: 200;
 }
 
-.aboutTheKorgVolcaDrumDivActive_JanuaryC {
-    background: #001640;
+.aboutTheKorgVolcaDrumDivActive_FebruaryC {
+    background: #012a3a;
     border-radius: 0;
-    color: #000000;
-    font-family: 'MuseoModerno', cursive;
+    color: #040204;
+    font-family: 'Faustina', serif;
     font-size: 24px;
     height: 85%;
     left: 5%;
@@ -1136,8 +1128,8 @@
     z-index: 200;
 }
 
-.aboutTheKorgVolcaDrumContent_JanuaryC {
-    background: #9fbfda;
+.aboutTheKorgVolcaDrumContent_FebruaryC {
+    background: #b9ae9e;
     height: 79vh;
     margin-bottom: 15px;
     overflow-x: hidden;
@@ -1145,22 +1137,22 @@
     width: 97%;
 }
 
-.volcaDrumAboutImg_JanuaryC {
-    filter: drop-shadow(8px 8px 5px #808080);
+.volcaDrumAboutImg_FebruaryC {
+    filter: drop-shadow(8px 8px 5px #05222c);
     float: left;
     margin: 12px;
     max-width: 40%;
 }
 
-.aboutTheKorgVolcaDrumContent_JanuaryC h2 {
-    color: #000000;
+.aboutTheKorgVolcaDrumContent_FebruaryC h2 {
+    color: #040204;
     font-family: 'Alata', serif;
     font-size: 36px;
     margin: 5px 0 30px 30px;
 }
 
-.aboutTheKorgVolcaDrumContent_JanuaryC p {
-    color: #000000;
+.aboutTheKorgVolcaDrumContent_FebruaryC p {
+    color: #040204;
     font-family: 'Alata', serif;
     font-size: 18px;
     line-height: 1.3em;
@@ -1168,8 +1160,8 @@
     max-width: 950px;
 }
 
-.aboutTheKorgVolcaDrumContent_JanuaryC h3 {
-    color: #000000;
+.aboutTheKorgVolcaDrumContent_FebruaryC h3 {
+    color: #040204;
     font-family: 'Alata', serif;
     font-size: 24px;
     line-height: 1.3em;
@@ -1177,11 +1169,11 @@
     max-width: 950px;
 }
 
-.volcaDrumPanicOff_JanuaryC {
+.volcaDrumPanicOff_FebruaryC {
     display: none;
 }
 
-.volcaDrumPanicOn_JanuaryC {
+.volcaDrumPanicOn_FebruaryC {
     display: initial;
     height: auto%;
     left: 20%;
@@ -1191,50 +1183,50 @@
     z-index: 101;
 }
 
-.volcaDrumPanicOn_JanuaryC img {
+.volcaDrumPanicOn_FebruaryC img {
     margin-left: 10%;
     opacity: 1;
     width: 40%;
 }
 
-.volcaDrumLoadButton_JanuaryC {
+.volcaDrumLoadButton_FebruaryC {
     backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
     background: transparent;
-    border: 2px solid #000100;
-    color: #000100;
+    border: 2px solid #036a93;
+    color: #036a93;
     cursor: pointer;
-    filter: brightness(200%) drop-shadow(6px 6px 5px #808080);
-    font-family: 'MuseoModerno', cursive;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #05222c);
+    font-family: 'Faustina', serif;
     font-size: 18px;
     grid-column: col6 / col7;
     grid-row: row1 / row2;
     height: 35px;
     margin: 6px 65px 0 35px;
-    outline-color: #8b90af;
+    outline-color: #8a9596;
     padding: 0 15px;
     transition: all 0.4s linear;
     z-index: 44;
 }
 
-.volcaDrumLoadButton_JanuaryC:hover {
-    backdrop-filter: hue-rotate(45deg);
-    border: 2px solid #96c5f2;
-    color: #96c5f2;
-    filter: brightness(115%) drop-shadow(2px 2px 5px #808080);
+.volcaDrumLoadButton_FebruaryC:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #b9ae9e;
+    color: #b9ae9e;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #05222c);
     transition: all 0.4s linear;
 }
 
-.volcaDrumLoadButton_JanuaryC:active {
-    filter: brightness(85%) drop-shadow(0 0 0 #808080);
+.volcaDrumLoadButton_FebruaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #05222c) invert(100%);
     transition: all 0.1s linear;
 }
 
-.volcaDrumLoadModal_Inactive_JanuaryC {
-    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/glacialis_by_joeyjazz_d20vlq6-pre.jpg);
+.volcaDrumLoadModal_Inactive_FebruaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/fabric_15_by_piratelotus_stock_d4ic2b8-fullview.jpg);
     background-position: center;
     background-size: cover;
-    border: 2px solid #1454b6;
-    box-shadow: 5px 5px 5px #808080;
+    border: 2px solid #0e566f;
+    box-shadow: 5px 5px 5px #05222c;
     box-sizing: border-box;
     filter: invert(100%);
     height: 40vh;
@@ -1246,12 +1238,12 @@
     z-index: 200;
 }
 
-.volcaDrumLoadModal_Active_JanuaryC {
-    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/glacialis_by_joeyjazz_d20vlq6-pre.jpg);
+.volcaDrumLoadModal_Active_FebruaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/fabric_15_by_piratelotus_stock_d4ic2b8-fullview.jpg);
     background-position: center;
     background-size: cover;
-    border: 2px solid #1454b6;
-    box-shadow: 5px 5px 5px #808080;
+    border: 2px solid #0e566f;
+    box-shadow: 5px 5px 5px #05222c;
     box-sizing: border-box;
     filter: invert(0%);
     height: 40vh;
@@ -1263,8 +1255,8 @@
     z-index: 200;
 }
 
-.volcaDrumLoadContainer_JanuaryC {
-    backdrop-filter: blur(5px) brightness(50%) contrast(200%) saturate(200%);
+.volcaDrumLoadContainer_FebruaryC {
+    backdrop-filter: blur(25px) brightness(50%) contrast(100%) saturate(200%);
     display: grid;
     grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [rightEdge];
     grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
@@ -1272,85 +1264,85 @@
     width: 100%;
 }
 
-.volcaDrumLoadTitle_JanuaryC {
-    color: #acd6ff;
-    filter: brightness(150%) drop-shadow(8px 8px 5px #808080);
-    font-family: 'Nova Flat', cursive;
+.volcaDrumLoadTitle_FebruaryC {
+    color: #b9ae9e;
+    filter: brightness(250%);
+    font-family: 'Faustina', serif;
     font-size: 24px;
     grid-column: col3 / col9;
     grid-row: row2 / row3;
 }
 
-.volcaDrumLoadSelector_JanuaryC {
+.volcaDrumLoadSelector_FebruaryC {
     background: transparent;
     border: none;
-    color: #acd6ff;
-    filter: brightness(150%) drop-shadow(8px 8px 5px #808080);
-    font-family: 'Nova Flat', cursive;
+    color: #b9ae9e;
+    filter: brightness(250%);
+    font-family: 'Faustina', serif;
     font-size: 24px;
     grid-column: col2 / col10;
     grid-row: row4 / row5;
-    outline-color: #808ba0;
+    outline-color: #8a9596;
 }
 
-.volcaDrumLoadLoadButton_JanuaryC {
+.volcaDrumLoadLoadButton_FebruaryC {
     backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
     background: transparent;
-    border: 2px solid #1454b6;
-    color: #1454b6;
+    border: 2px solid #036a93;
+    color: #036a93;
     cursor: pointer;
-    filter: brightness(200%) drop-shadow(6px 6px 5px #808080);
-    font-family: 'MuseoModerno', cursive;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #05222c);
+    font-family: 'Faustina', serif;
     font-size: 18px;
     grid-column: col3 / col5;
     grid-row: row7 / row8;
     height: 35px;
-    outline-color: #8b90af;
+    outline-color: #8a9596;
     padding: 0 15px;
     transition: all 0.4s linear;
     z-index: 155;
 }
 
-.volcaDrumLoadLoadButton_JanuaryC:hover {
-    backdrop-filter: hue-rotate(45deg);
-    border: 2px solid #96c5f2;
-    color: #96c5f2;
-    filter: brightness(115%) drop-shadow(2px 2px 5px #808080);
+.volcaDrumLoadLoadButton_FebruaryC:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #b9ae9e;
+    color: #b9ae9e;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #05222c);
     transition: all 0.4s linear;
 }
 
-.volcaDrumLoadLoadButton_JanuaryC:active {
-    filter: brightness(85%) drop-shadow(0 0 0 #808080);
+.volcaDrumLoadLoadButton_FebruaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #05222c) invert(100%);
     transition: all 0.1s linear;
 }
 
-.volcaDrumLoadCancelButton_JanuaryC {
+.volcaDrumLoadCancelButton_FebruaryC {
     backdrop-filter: brightness(200%) hue-rotate(-45deg) saturate(50%);
     background: transparent;
-    border: 2px solid #1454b6;
-    color: #1454b6;
+    border: 2px solid #036a93;
+    color: #036a93;
     cursor: pointer;
-    filter: brightness(200%) drop-shadow(6px 6px 5px #808080);
-    font-family: 'MuseoModerno', cursive;
+    filter: brightness(200%) drop-shadow(6px 6px 5px #05222c);
+    font-family: 'Faustina', serif;
     font-size: 18px;
-    grid-column: col7 / col9;
+    grid-column: col7 / col8;
     grid-row: row7 / row8;
     height: 35px;
-    outline-color: #8b90af;
+    outline-color: #8a9596;
     padding: 0 15px;
     transition: all 0.4s linear;
     z-index: 155;
 }
 
-.volcaDrumLoadCancelButton_JanuaryC:hover {
-    backdrop-filter: hue-rotate(45deg);
-    border: 2px solid #96c5f2;
-    color: #96c5f2;
-    filter: brightness(115%) drop-shadow(2px 2px 5px #808080);
+.volcaDrumLoadCancelButton_FebruaryC:hover {
+    backdrop-filter: hue-rotate(135deg);
+    border: 2px solid #b9ae9e;
+    color: #b9ae9e;
+    filter: brightness(250%) drop-shadow(2px 2px 5px #05222c);
     transition: all 0.4s linear;
 }
 
-.volcaDrumLoadCancelButton_JanuaryC:active {
-    filter: brightness(85%) drop-shadow(0 0 0 #808080);
+.volcaDrumLoadCancelButton_FebruaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #05222c) invert(100%);
     transition: all 0.1s linear;
 }

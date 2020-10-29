@@ -14,6 +14,7 @@ import './volcaDrum.style.janb.css';
 import './volcaDrum.style.janc.css';
 import './volcaDrum.style.feba.css';
 import './volcaDrum.style.febb.css';
+import './volcaDrum.style.febc.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaDrumImg1 from '../img/volcaDrumImg1.png';
 import midiConnection from '../midiManager/midiConnection';
@@ -42,10 +43,11 @@ function VolcaDrum(user, patch) {
     const jancSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/spinner/jancdrums.gif';
     const febaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/spinner/3129460143a343c72f39adc53ad7fa62.gif';
     const febbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/spinner/06bdf8ad69ff62062ae7dceb250d8866.gif';
+    const febcSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/spinner/Top-Loading-Washer.gif';
 
     const [midiConnections, setMidiConnections] = useState(undefined);
     const [panicState, setPanicState] = useState('volcaDrumPanicOff');
-    const [currentSpinner, setCurrentSpinner] = useState(febbSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(febcSpinner);
     const [volcaDrumLoadModalState, setVolcaDrumLoadModalState] = useState('_Inactive');
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
@@ -55,7 +57,7 @@ function VolcaDrum(user, patch) {
     const [saveAsName, setSaveAsName] = useState('');
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('Inactive');
     const [aboutVolcaDrumDivState, setAboutVolcaDrumDivState] = useState('Inactive');
-    const [volcaDrumMonth, setVolcaDrumMonth] = useState('_FebruaryB');
+    const [volcaDrumMonth, setVolcaDrumMonth] = useState('_FebruaryC');
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [patchAltered, setPatchAltered] = useState(false);
     const [loadPatchUuid, setLoadPatchUuid] = useState('');
