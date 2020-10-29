@@ -2908,7 +2908,6 @@ function VolcaFm(user, patch) {
     }
 
     const noteOnEvent = (key) => {
-        console.log(user);
         if (connections === null) {
             let indexOut = null;
             if (user.midi_connections) {
@@ -2946,6 +2945,7 @@ function VolcaFm(user, patch) {
                             indexOut = 0;
                         }
                         setCurrentOutput(connections.outputs[indexOut]);
+                        console.log(currentOutput);
                     });
                 }
             } else {

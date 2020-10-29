@@ -19,8 +19,9 @@ import midi5pin from '../img/midi5pin.svg';
 import volcaNubassImg1 from '../img/volcaNubassImg1.png';
 import axios from 'axios';
 import midiConnection from '../midiManager/midiConnection';
+import SkinsTable from '../skins/skins';
 
-let connections;
+let connections = null;
 
 function VolcaNubass(user, patch) {
     
@@ -31,12 +32,6 @@ function VolcaNubass(user, patch) {
     const envelopeEndGraph = 410;
     const breakpointOffset = 4;
     const scaleScaler = 1.12;
-    const januaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif';
-    const januaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif';
-    const januaryCSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif';
-    const februaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif';
-    const februaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif';
-    const februaryCSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif';
 
     let midiOutput = null;
     let inputs = null;
@@ -44,16 +39,18 @@ function VolcaNubass(user, patch) {
     let midiChannel = 0;
     let rootNote = 36;
     let keyEngaged = {};
+    const skins = SkinsTable('nubassEditor');
 
     const [midiConnections, setMidiConnections] = useState(undefined);
+    const [userMidiPatch, setUserMidiPatch] = useState(null);
     const [panicState, setPanicState] = useState('volcaNubassPanicOff');
     const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
     const [nubassContainerState, setNubassContainerState] = useState('Active');
     const [volcaNubassLoadModalState, setVolcaNubassLoadModalState] = useState('_Inactive');
     const [userPatches, setUserPatches] = useState([]);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
-    const [currentSpinner, setCurrentSpinner] = useState(februaryCSpinner);
-    const [volcaNubassEditMonth, setVolcaNubassEditMonth] = useState('_FebruaryC');
+    const [currentSpinner, setCurrentSpinner] = useState(skins.nubassEditor.spinner);
+    const [volcaNubassEditMonth, setVolcaNubassEditMonth] = useState(skins.nubassEditor.skin);
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentOutput, setCurrentOutput] = useState(0);
@@ -579,21 +576,80 @@ function VolcaNubass(user, patch) {
 //                index = i;
 //            }
 //        }
-        if (midiConnections === undefined) {
-            navigator.requestMIDIAccess({ sysex: true })
-            .then((midiAccess) => {               
-                connections = midiConnection(midiAccess);
+        if (connections === null) {
+            let indexOut = null;
+            if (user.midi_connections) {
+                connections = user.midi_connections;
                 setMidiConnections(connections);
-                console.log(connections);
                 setCurrentOutput(connections.currentOutput);
                 setCurrentMidiChannel(connections.currentMidiChannel);
+                for (let i = 0; i < connections.outputs.length; i++) {
+                    connections.outputs[i].label = connections.outputs[i].name;
+                }
                 setAvailableOutputs(connections.outputs);
                 setAvailableInputs(connections.inputs);
-                return;
-            }, () => {
-                alert('No MIDI ports accessible');
-            });
+                if (user.midi_patch) {
+                    axios.get(`/midi_manager_patches/patch/${user.midi_patch}`)
+                    .then(midiPatchData => {
+                        const midiPatch = midiPatchData.data.user_preset.outputs;
+                        let outputsArr = [];
+                        for (let i = 0; i < user.midi_connections.outputs.length; i++) {
+                            outputsArr[i] = {...midiPatch[i]};
+                            connections.outputs[i].label = midiPatch[i].label;
+                        }
+                        
+                        
+                        let volcaFmsList = midiPatch.filter(entry => {
+                            return(entry.deviceUuid === 'e3bfacf5-499a-4247-b512-2c4bd15861ad')
+                        });
+                        for (let j = 0; j < midiPatch.lenth; j++) {
+                           if (indexOut === null) {
+                               if (midiPatch[j].deviceUuid === 'bda73d0e-c18c-472e-add6-1e1a4f123949') {
+                                   indexOut = j;
+                               }
+                           }
+                        }
+                        if (indexOut === null) {
+                            indexOut = 0;
+                        }
+                        setTimeout(() => {
+                            setUserMidiPatch(outputsArr);
+                            setAvailableOutputs(connections.outputs);
+                            setCurrentOutput(connections.outputs[indexOut]);
+                        }, 250);
+                    });
+                }
+            } else {
+                navigator.requestMIDIAccess({ sysex: true })
+                .then((midiAccess) => {               
+                    connections = midiConnection(midiAccess);
+                    setMidiConnections(connections);
+                    setCurrentOutput(connections.currentOutput);
+                    setCurrentMidiChannel(connections.currentMidiChannel);
+                    setAvailableOutputs(connections.outputs);
+                    setAvailableInputs(connections.inputs);
+                    return;
+                }, () => {
+                    alert('No MIDI ports accessible');
+                });
+            }
+            return;
         }
+//        if (midiConnections === undefined) {
+//            navigator.requestMIDIAccess({ sysex: true })
+//            .then((midiAccess) => {               
+//                connections = midiConnection(midiAccess);
+//                setMidiConnections(connections);
+//                console.log(connections);
+//                setCurrentOutput(connections.currentOutput);
+//                setCurrentMidiChannel(connections.currentMidiChannel);
+//                setAvailableOutputs(connections.outputs);
+//                setAvailableInputs(connections.inputs);
+//                return;
+//            }, () => {
+//                alert('No MIDI ports accessible');
+//            });
+//        }
         switch (key.toLowerCase()) {
             case ('q'):
                 if (!keyEngaged.q) {
@@ -898,7 +954,7 @@ function VolcaNubass(user, patch) {
                                 onChange={(e) => updateCurrentOutput(e.target.value)}
                                 value={getVisualOutput(currentOutput)}>
                                 {availableOutputs.map(out => (
-                                <option key={out.id} value={out.id}>{out.name}</option>))}
+                                <option key={out.id} value={out.id}>{out.label}</option>))}
                             </select>
                             <p className={'midiChannelVolcaNubassLabel' + volcaNubassEditMonth}>channel:</p>
                             <input className={'midiChannelVolcaNubassInput' + volcaNubassEditMonth}

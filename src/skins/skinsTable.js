@@ -13,6 +13,288 @@ import akaiProIcon from '../img/akaiProIcon.png';
 function Table(access) {
     
     return({
+        nubassEditor: {
+            available: [
+                {
+                    skin: '_JanuaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif'
+                },
+                {
+                    skin: '_JanuaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif'
+                },
+                {
+                    skin: '_JanuaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif'
+                },
+                {
+                    skin: '_FebruaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif'
+                },
+                {
+                    skin: '_FebruaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif'
+                },
+                {
+                    skin: '_FebruaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif'
+                }
+            ],
+            january: [ 31,
+                { 
+                    skin: '_JanuaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif' 
+                },
+                { 
+                    skin: '_JanuaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif' 
+                },
+                { 
+                    skin: '_JanuaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif' 
+                },
+                { 
+                    skin: '_JanuaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif' 
+                },
+                { 
+                    skin: '_JanuaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif' 
+                },
+                { 
+                    skin: '_JanuaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif' 
+                },
+                { 
+                    skin: '_JanuaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif' 
+                },
+                { 
+                    skin: '_JanuaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif' 
+                },
+                { 
+                    skin: '_JanuaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif' 
+                },
+                { 
+                    skin: '_JanuaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif' 
+                },
+                { 
+                    skin: '_JanuaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif' 
+                },
+                { 
+                    skin: '_JanuaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif' 
+                },
+                { 
+                    skin: '_JanuaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif' 
+                },
+                { 
+                    skin: '_JanuaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif' 
+                },
+                { 
+                    skin: '_JanuaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif' 
+                },
+                { 
+                    skin: '_JanuaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif' 
+                },
+                { 
+                    skin: '_JanuaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif' 
+                },
+                { 
+                    skin: '_JanuaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif' 
+                },
+                { 
+                    skin: '_JanuaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif' 
+                },
+                { 
+                    skin: '_JanuaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif' 
+                },
+                { 
+                    skin: '_JanuaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif' 
+                },
+                { 
+                    skin: '_JanuaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif' 
+                },
+                { 
+                    skin: '_JanuaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif' 
+                },
+                { 
+                    skin: '_JanuaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif' 
+                },
+                { 
+                    skin: '_JanuaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif' 
+                },
+                { 
+                    skin: '_JanuaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif' 
+                },
+                { 
+                    skin: '_JanuaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif' 
+                },
+                { 
+                    skin: '_JanuaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif' 
+                },
+                { 
+                    skin: '_JanuaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif' 
+                },
+                { 
+                    skin: '_JanuaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/loading-animations-preloader-gifs-ui-ux-effects-14.gif' 
+                },
+                { 
+                    skin: '_JanuaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/bea83775357853.5c4a1808c8a7b.gif' 
+                } 
+             ],
+            february: [ 29,
+                { 
+                    skin: '_FebruaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif' 
+                },
+                { 
+                    skin: '_FebruaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif' 
+                },
+                { 
+                    skin: '_FebruaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif' 
+                },
+                { 
+                    skin: '_FebruaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif' 
+                },
+                { 
+                    skin: '_FebruaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif' 
+                },
+                { 
+                    skin: '_FebruaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif' 
+                },
+                { 
+                    skin: '_FebruaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif' 
+                },
+                { 
+                    skin: '_FebruaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif' 
+                },
+                { 
+                    skin: '_FebruaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif' 
+                },
+                { 
+                    skin: '_FebruaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif' 
+                },
+                { 
+                    skin: '_FebruaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif' 
+                },
+                { 
+                    skin: '_FebruaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif' 
+                },
+                { 
+                    skin: '_FebruaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif' 
+                },
+                { 
+                    skin: '_FebruaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif' 
+                },
+                { 
+                    skin: '_FebruaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif' 
+                },
+                { 
+                    skin: '_FebruaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif' 
+                },
+                { 
+                    skin: '_FebruaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif' 
+                },
+                { 
+                    skin: '_FebruaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif' 
+                },
+                { 
+                    skin: '_FebruaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif' 
+                },
+                { 
+                    skin: '_FebruaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif' 
+                },
+                { 
+                    skin: '_FebruaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif' 
+                },
+                { 
+                    skin: '_FebruaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif' 
+                },
+                { 
+                    skin: '_FebruaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif' 
+                },
+                { 
+                    skin: '_FebruaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif' 
+                },
+                { 
+                    skin: '_FebruaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif' 
+                },
+                { 
+                    skin: '_FebruaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif' 
+                },
+                { 
+                    skin: '_FebruaryB',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif' 
+                },
+                { 
+                    skin: '_FebruaryA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif' 
+                },
+                { 
+                    skin: '_FebruaryC',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif' 
+                } 
+            ],
+            march: [31],
+            april: [30],
+            may: [31],
+            june: [30],
+            july: [31],
+            august: [31],
+            september: [30],
+            october: [31],
+            november: [30],
+            december: [31]
+        },
         fmVolcaEditor: {
             available: [
                 {
