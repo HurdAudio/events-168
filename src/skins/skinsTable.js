@@ -320,6 +320,10 @@ function Table(access) {
                 {
                     skin: '_FebruaryC',
                     spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/february/spinner/hexwave.gif'
+                },
+                {
+                    skin: '_MarchA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/march/spinner/heartBeater.gif'
                 }
             ],
             january: [ 31,
