@@ -15,6 +15,7 @@ import './volcaFm.style.janc.css';
 import './volcaFm.style.feba.css';
 import './volcaFm.style.febb.css';
 import './volcaFm.style.febc.css';
+import './volcaFm.style.mara.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaFmImg1 from '../img/volcaFmImg1.png';
 import axios from 'axios';
@@ -46,6 +47,9 @@ function VolcaFm(user, patch) {
     let rootNote = 60;
     let keyEngaged = {};
     const skins = SkinsTable('fmVolcaEditor');
+    
+    skins.fmVolcaEditor.skin = '_MarchA';
+    skins.fmVolcaEditor.spinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/march/spinner/heartBeater.gif';
 
     const [midiConnections, setMidiConnections] = useState(undefined);
     const [userMidiPatch, setUserMidiPatch] = useState(null);
