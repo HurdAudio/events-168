@@ -48,8 +48,8 @@ function VolcaFm(user, patch) {
     let keyEngaged = {};
     const skins = SkinsTable('fmVolcaEditor');
     
-    skins.fmVolcaEditor.skin = '_MarchA';
-    skins.fmVolcaEditor.spinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/march/spinner/heartBeater.gif';
+//    skins.fmVolcaEditor.skin = '_MarchA';
+//    skins.fmVolcaEditor.spinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/march/spinner/heartBeater.gif';
 
     const [midiConnections, setMidiConnections] = useState(undefined);
     const [userMidiPatch, setUserMidiPatch] = useState(null);
