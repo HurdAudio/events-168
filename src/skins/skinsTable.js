@@ -1096,7 +1096,7 @@ function Table(access) {
             december: [31]
         },
         userHub: {
-            available: [{ logo: midi5pin, skin: '_JanuaryA' }, { logo: redMIDI, skin: '_JanuaryB' }, { logo: vectorMidiPng, skin: '_JanuaryC' }, { logo: febaMidi_0, skin: '_FebruaryA' }, { logo: midiKeys, skin: '_FebruaryB' }, { logo: bleu_midi_icon, skin: '_FebruaryC' }, { logo: midiPortCropped1, skin: '_MarchA' }],
+            available: [{ logo: midi5pin, skin: '_JanuaryA' }, { logo: redMIDI, skin: '_JanuaryB' }, { logo: vectorMidiPng, skin: '_JanuaryC' }, { logo: febaMidi_0, skin: '_FebruaryA' }, { logo: midiKeys, skin: '_FebruaryB' }, { logo: bleu_midi_icon, skin: '_FebruaryC' }, { logo: midiPortCropped1, skin: '_MarchA' }, { logo: keyboard2779734960720, skin: '_MarchB' }],
             january: [ 31,
               { logo: redMIDI, skin: '_JanuaryB' },
               { logo: midi5pin, skin: '_JanuaryA' },
