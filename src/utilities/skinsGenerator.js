@@ -30,27 +30,27 @@ function randomizeArray(arr, days) {
 //    arr.push({ skin: '_JanuaryA', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/FrigidBlueGraywolf-small.gif' });
 //}
 
-const days = 29
-
-let arr = [];
-
-for (let i = 0; i < 9; i++) {
-    arr.push({ skin: '_FebruaryA', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif' });
-}
-for (let i = 0; i < 10; i++) {
-    arr.push({ skin: '_FebruaryB', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif' });
-    arr.push({ skin: '_FebruaryC', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif' });
-}
-
-//const days = 31;
+//const days = 29
 //
-//let arr = ['_MarchA'];
+//let arr = [];
 //
-//for (let i = 0; i < 10; i++) {
-//    arr.push('_MarchA');
-//    arr.push('_MarchB');
-//    arr.push('_MarchC');
+//for (let i = 0; i < 9; i++) {
+//    arr.push({ skin: '_FebruaryA', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/vy7OWPZ.gif' });
 //}
+//for (let i = 0; i < 10; i++) {
+//    arr.push({ skin: '_FebruaryB', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/sockhead.gif' });
+//    arr.push({ skin: '_FebruaryC', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif' });
+//}
+
+const days = 31;
+
+let arr = [ { logo: 'midiPortCropped1', skin: '_MarchA' } ];
+
+for (let i = 0; i < 10; i++) {
+    arr.push({ logo: 'midiPortCropped1', skin: '_MarchA' });
+    arr.push({ logo: 'keyboard2779734960720', skin: '_MarchB' });
+    arr.push({ logo: 'akaiProIcon', skin: '_MarchC' });
+}
 
 
 
