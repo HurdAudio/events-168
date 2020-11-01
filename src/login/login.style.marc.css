@@ -1,0 +1,113 @@
+.loginContainer_MarchC {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.loginImageDiv_MarchC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/march/glass-5448291_1920.jpg);
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.loginOuterBox_MarchC {
+    backdrop-filter: blur(4px) hue-rotate(-45deg);
+    background: #846d5d;
+    filter: drop-shadow(5px 5px 2px #413e3d);
+    height: 60vh;
+    left: 25%;
+    opacity: 0.6;
+    position: absolute;
+    top: 20%;
+    width: 50%;
+}
+
+.loginBoxContainer_MarchC {
+    backdrop-filter: hue-rotate(-90deg) saturate(120%);
+    background: transparent;
+    border: 2px solid transparent;
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/march/glass-5448291_1920.jpg) 70 stretch;
+    height: 52.5vh;
+    justify-content: center;
+    left: 27.5%;
+    perspective: 200px;
+    position: absolute;
+    top: 23.5%;
+    transition: all 0.4s linear;
+    width: 45%;
+}
+
+.loginBoxContainer_MarchC:hover {
+    border-image: url(https://events-168-hurdaudio.s3.amazonaws.com/login/march/glass-5448291_1920.jpg) 1 stretch;
+    transition: all 0.4s linear;
+}
+
+.loginBoxContainer_MarchC input {
+    background: #e9eef2;
+    border: none;
+    color: #342b25;
+    font-family: 'Aleo', serif;
+    font-size: 24px;
+    margin: 24px 48px;
+    outline-color: #c7c3bf;
+    padding: 5px 5px 5px 15px;
+    width: 80%;
+}
+
+.loginBoxContainer_MarchC input::placeholder {
+    color: #8e877f;
+}
+
+.loginBoxContainer_MarchC button {
+    background: #e3cdb6;
+    border: none;
+    color: #342b25;
+    cursor: pointer;
+    font-family: 'Aleo', serif;
+    font-size: 24px;
+    left: 41%;
+    margin-top: 18px;
+    outline-color: #c7c3bf;
+    padding: 5px 15px;
+    position: relative;
+    transition: all 0.2s linear;
+}
+.loginBoxContainer_MarchC button:hover {
+    background: #383632;
+    box-shadow: -8px -8px 10px #e9eef2, 8px -8px 10px #e9eef2, -8px 8px 10px #e9eef2, 8px 8px 10px #e9eef2;
+    color: #e9eef2;
+    transition: all 0.2s linear;
+}
+
+.loginTitle_MarchC {
+    color: #342b25;
+    font-family: 'Aleo', serif;
+    font-size: 36px;
+    margin: 24px 48px 12px 48px;
+}
+
+.loginErrorMessaging_MarchC {
+    color: #ff0000;
+    font-family: 'Aleo', serif;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 24px 48px;
+    padding: 6px;
+    width: 78%;
+}
+
+.loginSubmitHide_MarchC {
+    visibility: hidden;
+}
+
+.loginSubmitShow_MarchC {
+    visibility: visible;
+}
