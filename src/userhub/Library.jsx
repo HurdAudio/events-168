@@ -35,6 +35,7 @@ const midiDevices = [
     },
     {
         uuid: '9addd793-6101-408f-899c-4ade38a4e730',
+        patchManager: '/volca-drum-patch-manager',
         name: 'korg volca drum',
         path: '/volca-drum-editor',
         component: '<volcaDrum />'
