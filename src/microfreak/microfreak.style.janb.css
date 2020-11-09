@@ -1,0 +1,3630 @@
+.microfreakEditorContainer_Active_JanuaryB {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.microfreakEditorContainer_Inactive_JanuaryB {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.microfreakEditorImageDiv_JanuaryB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_cold_coat_by_rokis17_by_rokis17_d7zdeyx-pre.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 16.5% [row9] 8.5%[rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.microfreakEditorTopBar_JanuaryB {
+    backdrop-filter: blur(15px) brightness(150%) hue-rotate(90deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.microfreakNavImage_JanuaryB {
+    cursor: pointer;
+    filter: contrast(80%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.microfreakNavImage_JanuaryB:hover {
+    filter: contrast(110%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.microfreakEditorTitle_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Gupter', serif;
+    font-size: 42px;
+    grid-column: col2 / col6;
+    grid-row: row1 / row2;
+    margin: 5px;
+    z-index: 55;
+}
+
+.microfreakLoadButton_JanuaryB {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #eddadc;
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+    margin: 6px 65px 0 35px;
+    outline-color: #8f8f93;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakLoadButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #dbb4b9;
+    color: #dbb4b9;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #8f8f93);
+}
+
+.microfreakLoadButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8f8f93);
+}
+
+.microfreakPatchNameInput_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #eddadc;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #8d90a2;
+    position: absolute;
+    top: 1%;
+}
+
+.microfreakPanicButton_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col10 / rightEdge;
+    grid-row: row1 / row2;
+    outline-color: #8d90a2;
+    z-index: 56;
+}
+
+.microfreakSidebarManager_JanuaryB {
+    backdrop-filter: blur(7px) hue-rotate(-135deg);
+    background: linear-gradient(180deg, transparent, #aba6ac, #444244);
+    border-right: 1px groove #06070c;
+    box-sizing: border-box;
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 0.97;
+}
+
+.microfreakGlideControl_JanuaryB {
+    backdrop-filter: blur(25px) hue-rotate(-75deg);
+    border-bottom: 1px groove #06070c;
+    border-right: 1px groove #06070c;
+    display: grid;
+    grid-column: col3 / col4;
+    grid-row: row2 / row6;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakGlideLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col1 / col4;
+    grid-row: row1 / row2;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakGlideDisplayInput_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #eddadc;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 15px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakGlideRangeInput_JanuaryB {
+    -webkit-appearance: none;
+    appearance: none;
+    grid-column: col1 / rightEdge;
+    grid-row: row4 / row12;
+    height: 5px;
+    outline-color: #8f8f93;
+    transform: rotateZ(-90deg) translateX(-15vh) translateY(-68px);
+    width: 210px;
+}
+
+.microfreakGlideRangeInput_JanuaryB::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #0a0c1b;
+    border-left: 1px groove #020204;
+    border-right: 1px groove #020204;
+    filter: drop-shadow(-3px 3px 2px #0c0c0f);
+    height: 5px;
+}
+
+.microfreakGlideRangeInput_JanuaryB::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_cold_coat_by_rokis17_by_rokis17_d7zdeyx-pre.jpg);
+    background-size: cover;
+    box-sizing: border-box;
+    border-left: 1px outset #06070c;
+    border-radius: 5px;
+    border-right: 2px outset #06070c;
+    cursor: pointer;
+    height: 40px;
+    transform: translateY(-16px);
+    width: 15px;
+}
+
+.microfreakDigitalOscillatorDiv_JanuaryB {
+    backdrop-filter: blur(9px) brightness(40%) grayscale(50%) hue-rotate(-150deg);
+    border-bottom: 1px groove #020204;
+    border-right: 1px groove #020204;
+    display: grid;
+    grid-column: col4 / col8;
+    grid-row: row2 / row6;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakDigitalOscillatorLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col1 / col8;
+    grid-row: row1 / row2;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakDigitalOscilatorTypeLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col1 / col2;
+    grid-row: row5 / rowEnd;
+    transform: translateX(110px) translateY(30px) rotateZ(-90deg);
+}
+
+.microfreakWaveTypeDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col2 / col4;
+    grid-row: row2 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 21px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakOscillatorTypeInputContainer_JanuaryB {
+    grid-column: col2 / col5;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakDigitalOscilatorWaveLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col5 / col6;
+    grid-row: row5 / rowEnd;
+    transform: translateX(110px) translateY(30px) rotateZ(-90deg);
+}
+
+.microfreakOscillatorWaveInputContainer_JanuaryB {
+    grid-column: col6 / col10;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakWaveWaveDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col6 / col9;
+    grid-row: row2 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakDigitalOscilatorTimbreLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col10 / col11;
+    grid-row: row5 / rowEnd;
+    transform: translateX(110px) translateY(30px) rotateZ(-90deg);
+}
+
+.microfreakOscillatorTimbreInputContainer_JanuaryB {
+    grid-column: col11 / col15;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakWaveTimbreDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col11 / col14;
+    grid-row: row2 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakDigitalOscilatorShapeLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col15 / col16;
+    grid-row: row5 / rowEnd;
+    transform: translateX(110px) translateY(30px) rotateZ(-90deg);
+}
+
+.microfreakOscillatorShapeInputContainer_JanuaryB {
+    grid-column: col16 / col20;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakWaveShapeDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col16 / col19;
+    grid-row: row2 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakAnalogFilterDiv_JanuaryB {
+    backdrop-filter: blur(7px) brightness(50%) contrast(150%) grayscale(20%) saturate(50%);
+    border-bottom: 1px groove #020204;
+    border-right: 1px groove #020204;
+    display: grid;
+    grid-column: col8 / rightEdge;
+    grid-row: row2 / row6;
+    grid-template-columns: [col1] 6.66% [col2] 6.66% [col3] 6.66% [col4] 6.66% [col5] 6.66% [col6] 6.66% [col7] 6.66% [col8] 6.66% [col9] 6.66% [col10] 6.66% [col11] 6.66% [col12] 6.66% [col13] 6.66% [col14] 6.66% [col15] 6.66% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakAnalogFilterLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col1 / col8;
+    grid-row: row1 / row2;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakAnalogFilterTypeLPFLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    transition: all 0.5s linear;
+}
+
+.microfreakAnalogFilterTypeLPFLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    transition: all 0.5s linear;
+}
+
+.microfreakAnalogFilterTypebPFLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    transition: all 0.5s linear;
+} 
+
+.microfreakAnalogFilterTypebPFLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    transition: all 0.5s linear;
+}
+
+.microfreakAnalogFilterTypehPFLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    transition: all 0.5s linear;
+} 
+
+.microfreakAnalogFilterTypehPFLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    transition: all 0.5s linear;
+}
+
+.microfreakLPFLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row4 / row5;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLPFLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row4 / row5;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakBPFLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col8;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakBPFLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col8;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakHPFLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row10 / row11;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakHPFLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row10 / row11;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakAnalogFilterCutoffLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col7 / col8;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakFilterCutoffDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col8 / col10;
+    grid-row: row2 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakAnalogFilterCutoffInputContainer_JanuaryB {
+    grid-column: col8 / col11;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakAnalogFilterResonanceLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col11 / col12;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakFilterResonanceDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col12 / col15;
+    grid-row: row2 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakAnalogFilterResonanceInputContainer_JanuaryB {
+    grid-column: col12 / col15;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakEnvelopesDiv_JanuaryB {
+    backdrop-filter: blur(10px) brightness(35%) sepia(100%);
+    border-bottom: 1px groove #06070c;
+    border-right: 1px groove #06070c;
+    display: grid;
+    grid-column: col3 / col8;
+    grid-row: row6 / row9;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakEnvelopesTabStrip_JanuaryB {
+    background: transparent;
+    display: flex;
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.microfreakEnvelopeGeneratorTabtrue_JanuaryB {
+    background: linear-gradient(90deg, #7b8294, #ada9ae, #eddadc, #ada9ae, #7b8294);
+    text-align: center;
+    transition: all 0.5s linear;
+    width: 50%;
+}
+
+.microfreakEnvelopeGeneratorTabtrue_JanuaryB p {
+    color: #020204;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    transition: all 0.5s linear;
+}
+
+.microfreakEnvelopeGeneratorTabfalse_JanuaryB {
+    background: linear-gradient(90deg, #7b8294, #ada9ae, #eddadc, #ada9ae, #7b8294);
+    cursor: pointer;
+    filter: invert(100%) opacity(0.5);
+    text-align: center;
+    transition: all 0.5s linear;
+    width: 50%;
+}
+
+.microfreakEnvelopeGeneratorTabfalse_JanuaryB p {
+    color: #020204;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    transition: all 0.5s linear;
+}
+
+.microfreakEnvelopeContainer_JanuaryB {
+    display: grid;
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakCyclingEnvelopeModeSettingLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col1 / col3;
+    grid-row: row2 / row3;
+    margin-top: 10px;
+    margin-left: 24px;
+}
+
+.microfreakCyclingEnvelopeModeLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row4 / row5;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row4 / row5;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeEnvelopeLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeEnvelopeLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingRunModeLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row7 / row8;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingRunModeLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row7 / row8;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeRunLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeRunLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingLoopModeLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row10 / row11;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingLoopModeLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row10 / row11;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeLoopLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeLoopLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeRiseLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col3 / col4;
+    grid-row: row6 / rowEnd;
+    transform: translateX(90px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeRiseDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col4 / col6;
+    grid-row: row1 / row3;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeRiseInputContainer_JanuaryB {
+    grid-column: col4 / col6;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeRiseShapeLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col5 / col7;
+    grid-row: row6 / rowEnd;
+    transform: translateX(90px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeRiseShapeDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col7 / col9;
+    grid-row: row1 / row3;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeRiseShapeInputContainer_JanuaryB {
+    grid-column: col7 / col9;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeFallLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col9 / col10;
+    grid-row: row6 / rowEnd;
+    transform: translateX(90px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeFallDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col10 / col12;
+    grid-row: row1 / row3;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeFallInputContainer_JanuaryB {
+    grid-column: col10 / col12;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeFallShapeLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col11 / col13;
+    grid-row: row6 / rowEnd;
+    transform: translateX(90px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeFallShapeDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col13 / col15;
+    grid-row: row1 / row3;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeFallShapeInputContainer_JanuaryB {
+    grid-column: col13 / col15;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeHoldSustainLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col14 / col16;
+    grid-row: row6 / rowEnd;
+    transform: translateX(90px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeHoldSustainDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col16 / col18;
+    grid-row: row1 / row3;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeHoldSustainInputContainer_JanuaryB {
+    grid-column: col16 / col18;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeAmountLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col18 / col19;
+    grid-row: row6 / rowEnd;
+    transform: translateX(90px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeAmountDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col19 / rightEdge;
+    grid-row: row1 / row3;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeAmountInputContainer_JanuaryB {
+    grid-column: col19 / rightEdge;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakAmplitudeModulationLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col3 / col4;
+    grid-row: row6 / row7;
+    transition: all 0.5s linear;
+}
+
+.microfreakAmplitudeModulationLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col3 / col4;
+    grid-row: row6 / row7;
+    transition: all 0.5s linear;
+}
+
+.microfreakAmplitudeModulationLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col6;
+    grid-row: row7 / row9;
+    margin-left: 5px;
+    margin-top: 9px;
+    transition: all 0.5s linear;
+}
+
+.microfreakAmplitudeModulationLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col6;
+    grid-row: row7 / row9;
+    margin-left: 5px;
+    margin-top: 9px;
+    transition: all 0.5s linear;
+}
+
+.microfreakEnvelopeGeneratorAttackLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col4 / col5;
+    grid-row: row6 / rowEnd;
+    transform: translateX(130px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakEnvelopeGeneratorAttackDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col6 / col8;
+    grid-row: row2 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8f8f93;
+    text-align: center;
+}
+
+.microfreakEnvelopeGeneratorAttackInputContainer_JanuaryB {
+    grid-column: col6 / col9;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakEnvelopeGeneratorDecayReleaseLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col8 / col9;
+    grid-row: row6 / rowEnd;
+    transform: translateX(130px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakEnvelopeGeneratorDecayReleaseDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col10 / col12;
+    grid-row: row2 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakEnvelopeGeneratorDecayReleaseInputContainer_JanuaryB {
+    grid-column: col10 / col13;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakEnvelopeGeneratorSustainLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col12 / col13;
+    grid-row: row6 / rowEnd;
+    transform: translateX(130px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakEnvelopeGeneratorSustainDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col14 / col16;
+    grid-row: row2 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakEnvelopeGeneratorSustainInputContainer_JanuaryB {
+    grid-column: col14 / col17;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakEnvelopeGeneratorFilterAmountLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col14 / col20;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-80px) rotateZ(-90deg);
+}
+
+.microfreakEnvelopeGeneratorFilterAmountDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col18 / col19;
+    grid-row: row2 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakEnvelopeGeneratorFilterAmountInputContainer_JanuaryB {
+    grid-column: col18 / rightEdge;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakLFODiv_JanuaryB {
+    backdrop-filter: blur(14px) brightness(70%) contrast(140%) hue-rotate(135deg) saturate(50%);
+    border-bottom: 1px groove #06070c;
+    border-right: 1px groove #06070c;
+    display: grid;
+    grid-column: col8 / rightEdge;
+    grid-row: row6 / row9;
+    grid-template-columns: [col1] 6.66% [col2] 6.66% [col3] 6.66% [col4] 6.66% [col5] 6.66% [col6] 6.66% [col7] 6.66% [col8] 6.66% [col9] 6.66% [col10] 6.66% [col11] 6.66% [col12] 6.66% [col13] 6.66% [col14] 6.66% [col15] 6.66% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [rowEnd];
+}
+
+.microfreakLFOLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 30px;
+    grid-column: col1 / col3;
+    grid-row: row1 / row2;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakLFOShapeLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col2 / col4;
+    grid-row: row2 / row3;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakLFOSineLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSineLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSineLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row4 / row5;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSineLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row4 / row5;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOTriangleLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row6 / row7;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOTriangleLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row6 / row7;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOTriangleLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row6 / row7;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOTriangleLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row6 / row7;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSawtoothLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row8 / row9;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSawtoothLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row8 / row9;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSawtoothLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row8 / row9;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSawtoothLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row8 / row9;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSquareLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSquareLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSquareLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row10 / row11;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSquareLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row10 / row11;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSampleHoldLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row12 / row13;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSampleHoldLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row12 / row13;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSampleHoldLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row12 / row13;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSampleHoldLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row12 / row13;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOGlidingLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row14 / row15;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOGlidingLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row14 / row15;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOGlidingLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row14 / row15;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOGlidingLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row14 / row15;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSyncLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col7 / col9;
+    grid-row: row2 / row3;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakLFOSyncLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col7 / col8;
+    grid-row: row4 / row5;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSyncLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col7 / col8;
+    grid-row: row4 / row5;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSyncOnLabel_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col8 / col10;
+    grid-row: row4 / row5;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSyncOffLabel_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col8 / col10;
+    grid-row: row4 / row5;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFORateLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col11 / col12;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakLFORateDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col11 / col14;
+    grid-row: row2 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakLFORateInputContainer_JanuaryB {
+    grid-column: col12 / col14;
+    grid-row: row3 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakArpeggiatorDiv_JanuaryB {
+    backdrop-filter: blur(8px) brightness(100%) contrast(100%) saturate(250%);
+    border-right: 1px groove #06070c;
+    display: grid;
+    grid-column: col3 / col8;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [rowEnd];
+}
+
+.microfreakArpeggiateLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggiateLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggieateOnLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row1 / row3;
+    margin-left: 10px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggieateOnLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row1 / row3;
+    margin-left: 10px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggiateSyncLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row3 / rowEnd;
+    margin: 1px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggiateSyncLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row3 / rowEnd;
+    margin: 1px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggieateSyncLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row3 / rowEnd;
+    margin-left: 10px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggieateSyncLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row3 / rowEnd;
+    margin-left: 10px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggiateOctModeLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col4 / col5;
+    grid-row: row1 / row3;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.microfreakArpeggiateOctModeSelect_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-bottom: 8px;
+    grid-column: col4 / col5;
+    grid-row: row3 / rowEnd;
+    outline-color: #8f8f93;
+    text-align: center;
+}
+
+.microfreakArpeggiateRateLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col6 / col7;
+    grid-row: row2 / row4;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.microfreakARPRateInputContainer_JanuaryB {
+    grid-column: col8 / col14;
+    grid-row: row2 / row4;
+    margin-top: 7px;
+    position: absolute;
+}
+
+.microfreakArpRangeInput_JanuaryB {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 5px;
+    outline-color: #8f8f93;
+    width: 210px;
+}
+
+.microfreakArpRangeInput_JanuaryB::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #0a0c1b;
+    border-left: 1px groove #020204;
+    border-right: 1px groove #020204;
+    filter: drop-shadow(3px 3px 2px #0c0c0f);
+    height: 5px;
+}
+
+.microfreakArpRangeInput_JanuaryB::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_cold_coat_by_rokis17_by_rokis17_d7zdeyx-pre.jpg);
+    background-size: cover;
+    box-sizing: border-box;
+    border-left: 1px outset #06070c;
+    border-radius: 5px;
+    border-right: 2px outset #06070c;
+    cursor: pointer;
+    height: 40px;
+    transform: translateY(-16px);
+    width: 15px;
+}
+
+.microfreakARPRateDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col14 / col16;
+    grid-row: row1 / row4;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8d90a2;
+    text-align: center;
+}
+
+.microfreakArpeggiatePatternLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col16 / col19;
+    grid-row: row1 / row3;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.microfreakArpeggieatePatternSelect_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+    grid-column: col16 / col19;
+    grid-row: row3 / rowEnd;
+    outline-color: #8f8f93;
+    text-align: center;
+}
+
+.microfreakArpHoldLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col19 / col20;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpHoldLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col19 / col20;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggieateHoldLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col19 / col20;
+    grid-row: row3 / rowEnd;
+    margin-left: 50%;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggieateHoldLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col19 / col20;
+    grid-row: row3 / rowEnd;
+    margin-left: 50%;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakSpiceDiv_JanuaryB {
+    backdrop-filter: blur(4px) brightness(400%) hue-rotate(180deg) invert(100%);
+    border-right: 1px groove #06070c;
+    display: grid;
+    grid-column: col8 / col9;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [rowEnd];
+}
+
+.microfreakArpSpiceLightfalsefalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpSpiceLightfalsetrue_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpSpiceLighttruefalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpSpiceLighttruetrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpSpiceLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col1 / col3;
+    grid-row: row3 / rowEnd;
+    margin-left: 20px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpSpiceLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col1 / col3;
+    grid-row: row3 / rowEnd;
+    margin-left: 20px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpDiceLightfalsefalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col3 / col4;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpDiceLightfalsetrue_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col3 / col4;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpDiceLighttruefalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col3 / col4;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpDiceLighttruetrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col3 / col4;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpDiceLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / rightEdge;
+    grid-row: row3 / rowEnd;
+    margin-left: 20px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpDiceLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / rightEdge;
+    grid-row: row3 / rowEnd;
+    margin-left: 20px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakParaphonicDiv_JanuaryB {
+    backdrop-filter: blur(20px) contrast(100%) hue-rotate(-90deg);
+    border-right: 1px groove #06070c;
+    display: grid;
+    grid-column: col9 / col10;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [rowEnd];
+}
+
+.microfreakParaphonicLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row2 / row4;
+    margin: 1px;
+    transform: translateX(15px);
+    transition: all 0.5s linear;
+}
+
+.microfreakParaphonicLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row2 / row4;
+    margin: 1px;
+    transform: translateX(15px);
+    transition: all 0.5s linear;
+}
+
+.microfreakParaphonicLabeltrue_JanuaryB {
+    color: #dbb4b9;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col4;
+    grid-row: row2 / row4;
+    margin-left: 20px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakParaphonicLabelfalse_JanuaryB {
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col2 / col4;
+    grid-row: row2 / row4;
+    margin-left: 20px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakMatrixButtonDiv_JanuaryB {
+    backdrop-filter: blur(10px) hue-rotate(90deg);
+    border-right: 1px groove #06070c;
+    display: grid;
+    grid-column: col10 / rightEdge;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [rowEnd];
+}
+
+.microfreakMatrixButton_JanuaryB {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #eddadc;
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col2 / col4;
+    grid-row: row2 / row4;
+    outline-color: #8f8f93;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakMatrixButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #dbb4b9;
+    color: #dbb4b9;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #8f8f93);
+}
+
+.microfreakMatrixButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8f8f93);
+}
+
+.microfreakSidebarContainer_JanuaryB {
+    display: grid;
+    grid-template-columns: [sideCol1] 1fr [sideCol2] 1fr [sideCol3] 1fr [sideCol4] 1fr [sideCol5] 1fr [sideColEnd];
+    grid-template-rows: [sideRow1] 1fr [sideRow2] 1fr [sideRow3] 1fr [sideRow4] 1fr [sideRow5] 1fr [sideRow6] 1fr [sideRow7] 1fr [sideRow8] 1fr [sideRow9] 1fr [sideRow10] 1fr [sideRow11] 1fr [sideRow12] 1fr [sideRow13] 1fr [sideRow14] 1fr [sideRow15] 1fr [sideRow16] 1fr [sideRow17] 1fr [sideRow18] 1fr [sideRow19] 1fr [sideRow20] 1fr [sideRow21] 1fr [sideRow22] 1fr [sideRow23] 1fr [sideRow24] 1fr [sideRowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.microfreakImage1_JanuaryB {
+    filter: drop-shadow(8px 8px 5px #242025);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow1 / sideRow3;
+    margin: 10px 0 0 15px;
+    max-width: 60%;
+    opacity: 0.9;
+}
+
+.microfreakSaveButtonfalse_JanuaryB {
+    display: none;
+}
+
+.microfreakSaveButtontrue_JanuaryB {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #eddadc;
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow3 / sideRow4;
+    outline-color: #8f8f93;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakSaveButtontrue_JanuaryB:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #dbb4b9;
+    color: #dbb4b9;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #8f8f93);
+}
+
+.microfreakSaveButtontrue_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8f8f93);
+}
+
+.microfreakSaveAsButton_JanuaryB {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #eddadc;
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow5 / sideRow6;
+    outline-color: #8f8f93;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakSaveAsButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #dbb4b9;
+    color: #dbb4b9;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #8f8f93);
+}
+
+.microfreakSaveAsButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8f8f93);
+}
+
+.microfreakSaveAsDialogDiv_Active_JanuaryB {
+    background: #bdc1ca;
+    color: #020204;
+    border: 3px groove #57484a;
+    box-sizing: border-box;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    margin: 0 0 0 0;
+    padding: 2%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.microfreakSaveAsDialogDiv_Inactive_JanuaryB {
+    background: #bdc1ca;
+    color: #020204;
+    border: 3px groove #57484a;
+    box-sizing: border-box;
+    color: #00040a;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    padding: 2%;
+    position: absolute;
+    top: -100%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.microfreakSaveAsInput_JanuaryB {
+    background: #eddadc;
+    border: none;
+    color: #020204;
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    margin: 5% 10% 3% 10%;
+    outline-color: #8f8f93;
+    padding: 2px 5px;
+    width: 80%;
+}
+
+.microfreakSaveAsButtonsDiv_JanuaryB {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 5vh;
+    justify-content: center;
+    margin: 0 10% 1% 10%;
+    width: 82%;
+}
+
+.microfreakSaveAsButtons_JanuaryB {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #020204;
+    color: #020204;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    height: 35px;
+    margin: 0 20px;
+    outline-color: #8f8f93;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakSaveAsButtons_JanuaryB:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #363942;
+    color: #363942;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #8f8f93);
+}
+
+.microfreakSaveAsButtons_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8f8f93);
+}
+
+.microfreakRevertButtonfalse_JanuaryB {
+    display: none;
+}
+
+.microfreakRevertButtontrue_JanuaryB {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #eddadc;
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow7 / sideRow8;
+    outline-color: #8f8f93;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakRevertButtontrue_JanuaryB:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #dbb4b9;
+    color: #dbb4b9;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #8f8f93);
+}
+
+.microfreakRevertButtontrue_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8f8f93);
+}
+
+.microfreakMidiOutputLabel_JanuaryB {
+    color: #020204;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow10 / sideRow11;
+    font-family: 'Gupter', serif;
+    font-size: 15px;
+}
+
+.microfreakMidiOutputSelect_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #020204;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow11 / sideRow12;
+    font-family: 'Gupter', serif;
+    font-size: 15px;
+    outline-color: #8f8f93;
+}
+
+.microfreakMidiChannelLabel_JanuaryB {
+    color: #020204;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow13 / sideRow14;
+    font-family: 'Gupter', serif;
+    font-size: 15px;
+}
+
+.microfreakMidiChannelInput_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #020204;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    grid-column: sideCol3 / sideCol4;
+    grid-row: sideRow14 / sideRow15;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    outline-color: #8f8f93;
+}
+
+.microfreakInitButton_JanuaryB {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #eddadc;
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow19 / sideRow20;
+    outline-color: #8f8f93;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakInitButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #dbb4b9;
+    color: #dbb4b9;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #8f8f93);
+}
+
+.microfreakInitButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8f8f93);
+}
+
+.microfreakRandomButton_JanuaryB {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #eddadc;
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow21 / sideRow22;
+    outline-color: #8f8f93;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakRandomButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #dbb4b9;
+    color: #dbb4b9;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #8f8f93);
+}
+
+.microfreakRandomButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8f8f93);
+}
+
+.aboutMicrofreakButton_JanuaryB {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #eddadc;
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    outline-color: #8f8f93;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.aboutMicrofreakButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #dbb4b9;
+    color: #dbb4b9;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #8f8f93);
+}
+
+.aboutMicrofreakButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8f8f93);
+}
+
+.aboutTheArturiaMicrofreakDiv_Active_JanuaryB {
+    background: #242025;
+    border: 2px groove #5a525d;
+    color: #020204;
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 5%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheArturiaMicrofreakDiv_Inactive_JanuaryB {
+    background: #242025;
+    border: 2px groove #5a525d;
+    color: #020204;
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 115%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutArturiaMicrofreakContent_JanuaryB {
+    background: #aba6ac;
+    height: 79vh;
+    margin-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 97%;
+}
+
+.microfreakAboutImg_JanuaryB {
+    filter: drop-shadow(8px 8px 5px #242025);
+    float: left;
+    margin: 12px;
+    max-width: 40%;
+}
+
+.aboutArturiaMicrofreakContent_JanuaryB h2 {
+    color: #00040a;
+    font-family: 'Alata', serif;
+    font-size: 36px;
+    margin: 5px 0 30px 30px;
+}
+
+.aboutArturiaMicrofreakContent_JanuaryB h3 {
+    color: #020204;
+    font-family: 'Alata', serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 10px 25px 10px 45px;
+    max-width: 950px;
+}
+
+.aboutArturiaMicrofreakContent_JanuaryB p {
+    color: #020204;
+    font-family: 'Alata', serif;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 5px 25px 30px 25px;
+    max-width: 950px;
+}
+
+.microfreakLoadModal_Active_JanuaryB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_cold_coat_by_rokis17_by_rokis17_d7zdeyx-pre.jpg);
+    background-size: cover;
+    border: 2px groove #5a525d;
+    box-shadow: 5px 5px 5px #242025;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.microfreakLoadModal_Inactive_JanuaryB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_cold_coat_by_rokis17_by_rokis17_d7zdeyx-pre.jpg);
+    background-size: cover;
+    border: 2px groove #5a525d;
+    box-shadow: 5px 5px 5px #242025;
+    box-sizing: border-box;
+    filter: invert(100%);
+    height: 40vh;
+    left: 120%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.microfreakLoadContainer_JanuaryB {
+    backdrop-filter: blur(7px) brightness(50%);
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.microfreakLoadTitle_JanuaryB {
+    color: #d5d3d6;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col3 / col9;
+    grid-row: row2 / row3;
+}
+
+.microfreakLoadSelector_JanuaryB {
+    background: transparent;
+    border: none;
+    color: #d5d3d6;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #242025);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col2 / col10;
+    grid-row: row4 / row5;
+    outline-color: #8d90a2;
+}
+
+.microfreakLoadLoadButton_JanuaryB {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #eddadc;
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    height: 35px;
+    outline-color: #8f8f93;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakLoadLoadButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #dbb4b9;
+    color: #dbb4b9;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #8f8f93);
+}
+
+.microfreakLoadLoadButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8f8f93);
+}
+
+.microfreakLoadCancelButton_JanuaryB {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #eddadc;
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col7 / col9;
+    grid-row: row7 / row8;
+    height: 35px;
+    outline-color: #8f8f93;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakLoadCancelButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #dbb4b9;
+    color: #dbb4b9;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #8f8f93);
+}
+
+.microfreakLoadCancelButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8f8f93);
+}
+
+.microfreakMatrixDiv_Active_JanuaryB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_cold_coat_by_rokis17_by_rokis17_d7zdeyx-pre.jpg);
+    background-size: cover;
+    box-shadow: 5px 5px 5px #8f8f93;
+    height: 85.3vh;
+    left: 10%;
+    position: absolute;
+    top: 6.2%;
+    transition: all 0.6s linear;
+    width: 87.5%;
+    z-index: 200;
+}
+
+.microfreakMatrixDiv_Inactive_JanuaryB {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_cold_coat_by_rokis17_by_rokis17_d7zdeyx-pre.jpg);
+    background-size: cover;
+    box-shadow: 5px 5px 5px #8f8f93;
+    height: 0;
+    left: 120%;
+    position: absolute;
+    top: 6.2%;
+    transition: all 0.6s linear;
+    width: 87.5%;
+    z-index: 200;
+}
+
+.microfreakMatrixContainer_JanuaryB {
+    backdrop-filter: blur(12px) brightness(70%) contrast(200%) grayscale(50%) saturate(90%) sepia(50%);
+    display: grid;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [row16] 1fr [row17] 1fr [row18] 1fr [row19] 1fr [row20] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.microfreakMatrixPitchDestinationLabel_JanuaryB {
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col6 / col7;
+    grid-row: row4 / row5;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixWaveDestinationLabel_JanuaryB {
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col7 / col8;
+    grid-row: row4 / row5;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixTimbreDestinationLabel_JanuaryB {
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col8 / col9;
+    grid-row: row4 / row5;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixCutoffDestinationLabel_JanuaryB {
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col9 / col10;
+    grid-row: row4 / row5;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixAssign1Select_JanuaryB {
+    background: transparent;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col10 / col11;
+    grid-row: row4 / row5;
+    outline-color: #8f8f93;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixAssign2Select_JanuaryB {
+    background: transparent;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col11 / col12;
+    grid-row: row4 / row5;
+    outline-color: #8f8f93;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixAssign3Select_JanuaryB {
+    background: transparent;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col12 / col13;
+    grid-row: row4 / row5;
+    outline-color: #8f8f93;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixCycleEnvelopeSourceLabel_JanuaryB {
+    border-bottom: 2px solid #eddadc;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row6 / row7;
+    padding: 2px 0;
+}
+
+.microfreakMatrixEnvelopeSourceLabel_JanuaryB {
+    border-bottom: 2px solid #eddadc;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    padding: 2px 0;
+}
+
+.microfreakMatrixLFOSourceLabel_JanuaryB {
+    border-bottom: 2px solid #eddadc;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row8 / row9;
+    padding: 2px 0;
+}
+
+.microfreakMatrixPressureSourceLabel_JanuaryB {
+    border-bottom: 2px solid #eddadc;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row9 / row10;
+    padding: 2px 0;
+}
+
+.microfreakMatrixKeyArpSourceLabel_JanuaryB {
+    border-bottom: 2px solid #eddadc;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Gupter', serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row10 / row11;
+    padding: 2px 0;
+}
+
+.microfreakCycEnvPitch_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvWave_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvTimbre_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvCutoff_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvAssign1_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvAssign2_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvAssign3_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvPitch_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakEnvWave_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakEnvTimbre_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvCutoff_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvAssign1_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvAssign2_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvAssign3_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOPitch_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakLFOWave_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOTimbre_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOCutoff_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOAssign1_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOAssign2_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOAssign3_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressurePitch_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakPressureWave_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakPressureTimbre_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressureCutoff_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressureAssign1_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressureAssign2_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressureAssign3_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpPitch_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpWave_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpTimbre_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpCutoff_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpAssign1_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpAssign2_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpAssign3_JanuaryB {
+    border: 2px solid #aba6ac;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakMatrixLighttrue_JanuaryB {
+    background: radial-gradient(#dbb4b9, #5a525d, #dbb4b9, #06070c, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    height: 100%;
+    transition: all 0.5s linear;
+    width: 100%;
+}
+
+.microfreakMatrixLightfalse_JanuaryB {
+    background: radial-gradient(#5a525d, #15161a, #5a525d, #020204, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    height: 100%;
+    transition: all 0.5s linear;
+    width: 100%;
+}
+
+.microfreakModulationMatrixAmountLabel_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col17 / col18;
+    grid-row: row2 / rowEnd;
+    transform: translateX(170px) translateY(-40px) rotateZ(-90deg);
+}
+
+.microfreakMatrixModulatorInputContainer_JanuaryB {
+    grid-column: col16 / col19;
+    grid-row: row5 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakModulationMatrixAmountDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col15 / col18;
+    grid-row: row4 / row5;
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8f8f93;
+    text-align: center;
+}
+
+.microfreakCloseMatrixButton_JanuaryB {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #eddadc;
+    color: #eddadc;
+    cursor: pointer;
+    filter: brightness(100%) drop-shadow(8px 8px 5px #8f8f93);
+    font-family: 'Gupter', serif;
+    font-size: 18px;
+    grid-column: col15 / col17;
+    grid-row: row17 / row18;
+    height: 35px;
+    outline-color: #8f8f93;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakCloseMatrixButton_JanuaryB:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #dbb4b9;
+    color: #dbb4b9;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #8f8f93);
+}
+
+.microfreakCloseMatrixButton_JanuaryB:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #8f8f93);
+}
+
+.microfreakModulationThroughputDisplay_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col6 / col18;
+    grid-row: row16 / row17;
+}
+
+.microfreakModulationModulationMessage_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col3 / col15;
+    grid-row: row17 / row18;
+}
+
+.microfreakModulateModulationSubModal_Active_JanuaryB {
+    background: radial-gradient(#020204, #15161a, #31343b);
+    box-shadow: 5px 5px 5px #444244;
+    height: 65.3vh;
+    left: 25%;
+    position: absolute;
+    top: 15.2%;
+    transition: all 0.6s linear;
+    width: 50%;
+    z-index: 200;
+}
+
+.microfreakModulateModulationSubModal_Inactive_JanuaryB {
+    background: radial-gradient(#020204, #15161a, #31343b);
+    box-shadow: 5px 5px 5px #444244;
+    height: 65.3vh;
+    left: 25%;
+    position: absolute;
+    top: 155.2%;
+    transition: all 0.6s linear;
+    width: 50%;
+    z-index: 200;
+}
+
+.microfreakModulationSubModalContainer_JanuaryB {
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 6.25% [col6] 6.25% [col7] 6.25% [col8] 6.25% [col9] 6.25% [col10] 6.25% [col11] 6.25% [col12] 6.25% [col13] 6.25% [col14] 6.25% [col15] 6.25% [col16] 6.25% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.microfreamModulateModulationtitle_JanuaryB {
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col4 / col16;
+    grid-row: row2 / row4;
+}
+
+.microfreakSubTargetPitch_JanuaryB {
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col6 / col7;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetWave_JanuaryB {
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col7 / col8;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetTimbre_JanuaryB {
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col8 / col9;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetCutoff_JanuaryB {
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col9 / col10;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetAssign1_JanuaryB {
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col10 / col11;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetAssign2_JanuaryB {
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col11 / col12;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetAssign3_JanuaryB {
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 24px;
+    grid-column: col12 / col13;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubSourceCycEnv_JanuaryB {
+    border-bottom: 2px solid #eddadc;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    padding: 5px 0;
+}
+
+.microfreakSubSourceEnv_JanuaryB {
+    border-bottom: 2px solid #eddadc;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row8 / row9;
+    padding: 5px 0;
+}
+
+.microfreakSubSourceLfo_JanuaryB {
+    border-bottom: 2px solid #eddadc;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row9 / row10;
+    padding: 5px 0;
+}
+
+.microfreakSubSourcePressure_JanuaryB {
+    border-bottom: 2px solid #eddadc;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row10 / row11;
+    padding: 5px 0;
+}
+
+.microfreakSubSourceKeyArp_JanuaryB {
+    border-bottom: 2px solid #eddadc;
+    border-top: 2px solid #eddadc;
+    color: #eddadc;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Gupter', serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row11 / row12;
+    padding: 5px 0;
+}
+
+.microfreakSubCycEnvPitchBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvWaveBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvTimbreBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvCutoffBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvAssign1Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvAssign2Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvAssign3Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubEnvPitchBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvWaveBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvTimbreBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvCutoffBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvAssign1Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvAssign2Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvAssign3Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubLfoPitchBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoWaveBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoTimbreBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoCutoffBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoAssign1Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoAssign2Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(3150%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoAssign3Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubPressurePitchBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureWaveBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureTimbreBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureCutoffBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureAssign1Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureAssign2Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureAssign3Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubKeyArpPitchBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpWaveBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpTimbreBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpCutoffBox_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpAssign1Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpAssign2Box_JanuaryB {
+    border: 1px solid #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpAssign3Box_JanuaryB {
+    border: 1px groove #dbb4b9;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubModulateSelectButton_JanuaryB {
+    background: #5a525d;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    opacity: 0.1;
+    width: 100%;
+}
+
+.microfreakSubModulateSelectButton_JanuaryB:hover {
+    background: #dbb4b9;
+    opacity: 1;
+}
+
+.microfreakPanic_Inactive_JanuaryB {
+    display: none;
+}
+
+.microfreakPanic_Active_JanuaryB {
+    height: 60%;
+    left: 30%;
+    opacity: 0.5;
+    position: absolute;
+    top: 15%;
+    width: 60%;
+    z-index: 200;
+}
+
+.microfreakPanic_Active_JanuaryB img {
+    opacity: 1;
+    width: 65%;
+}
