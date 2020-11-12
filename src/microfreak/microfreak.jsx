@@ -897,15 +897,11 @@ function Microfreak(user, patch) {
                 break;
             case('filterType'):
                 if (val === 'lpf') {
-                    // NRPN for lowpass filter
-//                    currentOutput.send([0xB0 | currentMidiChannel, 0x63, 0]);
-//                    currentOutput.send([0xB0 | currentMidiChannel, 0x62, 17]);
-//                    currentOutput.send([0xB0 | currentMidiChannel, 0x06, 0]);
-//                    currentOutput.send([0xB0 | currentMidiChannel, 0x26, 0]);
+                    currentOutput.send([0xF0 | currentMidiChannel, 0x00, 0x20, 0x6B, 0x07, 0x01, 0x00, 0x07, 0x40, 0x02, 0x10, 0x01, 0x00, 0x00, 0xF7 ]);
                 } else if (val === 'bpf') {
-                    // NRPN for bandpass filter
+                    currentOutput.send([0xF0 | currentMidiChannel, 0x00, 0x20, 0x6B, 0x07, 0x01, 0x00, 0x07, 0x40, 0x02, 0x10, 0x01, 0xFF, 0x00, 0xF7 ]);
                 } else {
-                    // NRPN for highpass filter
+                    currentOutput.send([0xF0 | currentMidiChannel, 0x00, 0x20, 0x6B, 0x07, 0x01, 0x00, 0x07, 0x40, 0x02, 0x10, 0x01, 0xFF, 0xFF, 0xF7 ]);
                 }
                 break;
             case('cutoff'):
