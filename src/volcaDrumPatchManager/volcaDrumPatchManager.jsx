@@ -14,6 +14,7 @@ import VolcaDrum from '../volcaDrum/volcaDrum';
 import midi5pin from '../img/midi5pin.svg';
 import './volcaDrumPatchManager.style.jana.css';
 import midiConnection from '../midiManager/midiConnection';
+import VolcaDrumPatchTransmitter from './volcaDrumPatchTransmitter';
 import axios from 'axios';
 import uuid4 from 'uuid4';
 
@@ -527,7 +528,7 @@ function VolcaDrumPatchManager(user, banks) {
                 patch = userPatches[i];
             }
         }
-//        VolcaDrumPatchTransmitter(patch, currentOutput, currentMidiChannel);
+        VolcaDrumPatchTransmitter(patch, currentOutput);
     }
     
     const makePatchPatchCurrent = (val) => {
@@ -540,7 +541,7 @@ function VolcaDrumPatchManager(user, banks) {
                 patch = userPatches[i];
             }
         }
-//        VolcaDrumPatchTransmitter(patch, currentOutput, currentMidiChannel);
+        VolcaDrumPatchTransmitter(patch, currentOutput);
     }
     
     const changeBankEdit = (val) => {

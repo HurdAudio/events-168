@@ -10,6 +10,7 @@ import {
     Link
 } from "react-router-dom";
 import './microfreak.style.jana.css';
+import './microfreak.style.janb.css';
 import midi5pin from '../img/midi5pin.svg';
 import axios from 'axios';
 import midiConnection from '../midiManager/midiConnection';
@@ -19,6 +20,7 @@ let connections = null;
 
 const microImage = 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/microfreak-image.png';
 const janASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/microfreak/spinner/january/iceDrink.gif';
+const janBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/microfreak/spinner/january/cbd888bcfac514eccceb6fe4c61c4a6c.gif';
 
 const assignments = [
     {
@@ -109,9 +111,9 @@ function Microfreak(user, patch) {
     const [subModulateModalState, setSubModulateModalState] = useState('_Inactive');
     const [modulationModulation, setModulationModulation] = useState('');
     const [loadPatchUuid, setLoadPatchUuid] = useState('');
-    const [currentSpinner, setCurrentSpinner] = useState(janASpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(janBSpinner);
     const [userPatches, setUserPatches] = useState([]);
-    const [microfreakMonth, setMicrofreakMonth] = useState('_JanuaryA');
+    const [microfreakMonth, setMicrofreakMonth] = useState('_JanuaryB');
     const [panicState, setPanicState] = useState('_Inactive');
     const [saveAsName, setSaveAsName] = useState('');
     const [patchAltered, setPatchAltered] = useState(false);
@@ -895,15 +897,11 @@ function Microfreak(user, patch) {
                 break;
             case('filterType'):
                 if (val === 'lpf') {
-                    // NRPN for lowpass filter
-//                    currentOutput.send([0xB0 | currentMidiChannel, 0x63, 0]);
-//                    currentOutput.send([0xB0 | currentMidiChannel, 0x62, 17]);
-//                    currentOutput.send([0xB0 | currentMidiChannel, 0x06, 0]);
-//                    currentOutput.send([0xB0 | currentMidiChannel, 0x26, 0]);
+                    currentOutput.send([0xF0 | currentMidiChannel, 0x00, 0x20, 0x6B, 0x07, 0x01, 0x00, 0x07, 0x40, 0x02, 0x10, 0x01, 0x00, 0x00, 0xF7 ]);
                 } else if (val === 'bpf') {
-                    // NRPN for bandpass filter
+                    currentOutput.send([0xF0 | currentMidiChannel, 0x00, 0x20, 0x6B, 0x07, 0x01, 0x00, 0x07, 0x40, 0x02, 0x10, 0x01, 0xFF, 0x00, 0xF7 ]);
                 } else {
-                    // NRPN for highpass filter
+                    currentOutput.send([0xF0 | currentMidiChannel, 0x00, 0x20, 0x6B, 0x07, 0x01, 0x00, 0x07, 0x40, 0x02, 0x10, 0x01, 0xFF, 0xFF, 0xF7 ]);
                 }
                 break;
             case('cutoff'):
@@ -3541,7 +3539,7 @@ function Microfreak(user, patch) {
                                 onChange={(e) => updateCurrentOutput(e.target.value)}
                                 value={getVisualOutput(currentOutput)}>
                                 {availableOutputs.map(out => (
-                                <option key={out.id} value={out.id}>{out.label}</option>))}
+                                <option key={out.id} value={out.id}>{out.name}</option>))}
                             </select>
                             <p className={'microfreakMidiChannelLabel' + microfreakMonth}>channel:</p>
                             <input className={'microfreakMidiChannelInput' + microfreakMonth}
@@ -3808,7 +3806,7 @@ function Microfreak(user, patch) {
                         <p className={'microfreakLFOSineLabel' + (patchParams.lfo.shape === 'sine') + microfreakMonth}
                             onClick={() => updateLFOShapeState('sine')}>sine</p>
                         <div className={'microfreakLFOTriangleLight' + (patchParams.lfo.shape === 'triangle') + microfreakMonth}
-                            onClick={() => updateLFOShapeState('trianlge')}></div>
+                            onClick={() => updateLFOShapeState('triangle')}></div>
                         <p className={'microfreakLFOTriangleLabel' + (patchParams.lfo.shape === 'triangle') + microfreakMonth}
                             onClick={() => updateLFOShapeState('trianlge')}>triangle</p>
                         <div className={'microfreakLFOSawtoothLight' + (patchParams.lfo.shape === 'sawtooth') + microfreakMonth}
