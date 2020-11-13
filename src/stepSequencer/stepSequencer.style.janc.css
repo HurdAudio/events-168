@@ -1,0 +1,2898 @@
+.stepSequencerContainer_Active_JanuaryC {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.stepSequencerContainer_Inactive_JanuaryC {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.stepSequencerImageDiv_JanuaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/stepSequencer/january/ice_desert_by_justv23_d9n2p2g-fullview.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [row9] 12.5%[rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 80;
+}
+
+.stepSequencerEditorTopBar_JanuaryC {
+    backdrop-filter: blur(3px) brightness(80%) hue-rotate(135deg);
+    background: linear-gradient(90deg, transparent, #5c575e, #5c575e, #642422, #642422, #272028, transparent);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.stepSeqNavImage_JanuaryC {
+    cursor: pointer;
+    filter: contrast(80%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.stepSeqNavImage_JanuaryC:hover {
+    filter: contrast(110%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTitle_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 36px;
+    grid-column: col2 / col6;
+    grid-row: row1 / row2;
+    margin-left: 10px;
+    margin-top: 9px;
+    z-index: 55;
+}
+
+.stepSequencerLoadButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+    margin: 6px 65px 0 35px;
+    outline-color: #b29291;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.stepSequencerLoadButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+}
+
+.stepSequencerLoadButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+}
+
+.stepSequencerNameInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #b29291;
+    position: absolute;
+    top: 1%;
+}
+
+.stepSequencerPanicButton_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col10 / rightEdge;
+    grid-row: row1 / row2;
+    z-index: 56;
+}
+
+.stepSequencerSidebarManager_JanuaryC {
+    backdrop-filter: hue-rotate(180deg);
+    background: linear-gradient(180deg, #473948, #272028, transparent);
+    border-right: 2px groove #473948;
+    box-sizing: border-box;
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 0.9;
+}
+
+.stepSequencerPositionDisplay_JanuaryC {
+    backdrop-filter: brightness(60%) blur(8px) contrast(100%) sepia(20%);
+    display: flex;
+    grid-column: col3 / col7;
+    grid-row: row2 / row3;
+}
+
+.stepSequencerShuttleControls_JanuaryC {
+    backdrop-filter: blur(8px);
+    background: linear-gradient(90deg, #280e0d, #280e0d, #40282a, #40282a, #50403d, #5c575e, #5c575e, transparent);
+    display: flex;
+    grid-column: col7 / colEnd;
+    grid-row: row2 / row3;
+}
+
+.stepSequencerTempoTracking_JanuaryC {
+    backdrop-filter: blur(15px) brightness(30%) contrast(100%) hue-rotate(-90deg);
+    display: grid;
+    grid-column: col3 / col6;
+    grid-row: row3 / row9;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [rowEnd];
+}
+
+.stepSequencerTracking_JanuaryC {
+    backdrop-filter: blur(12px) brightness(45%) contrast(100%) hue-rotate(135deg);
+    display: grid;
+    grid-column: col6 / col10;
+    grid-row: row3 / row9;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [col17] 1fr [col18] 1fr [col19] 1fr [col20] 1fr [col21] 1fr [col22] 1fr [col23] 1fr [col24] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [rowEnd];
+}
+
+.stepSequencerInputsControl_JanuaryC {
+    backdrop-filter: blur(13px) brightness(50%) contrast(90%) saturate(50%);
+    display: grid;
+    grid-column: col10 / colEnd;
+    grid-row: row3 / row9;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [rowEnd];
+}
+
+.stepSequencerPluginsPanel_JanuaryC {
+    backdrop-filter: blur(9px) hue-rotate(-90deg);
+    display: grid;
+    grid-column: col3 / colEnd;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [rowEnd];
+}
+
+.stepSequencerPositionBarInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    text-align: right;
+    width: 6%;
+}
+
+.stepSequencerPositionSeparator_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 42px;
+    text-align: right;
+    width: 3%;
+}
+
+.stepSequencerPositionTicker_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    text-align: right;
+    width: 10% !important;
+}
+
+.stepSequencerDisplayCurrentMeterAndTempo_JanuaryC {
+    background: transparent;
+    display: flex;
+    grid-column: col1 / colEnd;
+    grid-row: row1 / row2;
+}
+
+.stepSequencerDisplayCurrentMeterNumerator_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 36px;
+    margin: 2px 0 0 10px;
+    text-align: right;
+}
+
+.stepSequencerTempoNote_JanuaryC {
+    filter: brightness(100%) invert(100%);
+    margin-bottom: -10px;
+    margin-right: -5px;
+    margin-left: 20px;
+    max-height: 40px;
+    max-width: 70px;
+}
+
+.stepSequencerTempoNoteWhole_JanuaryC {
+    filter: brightness(100%) invert(100%);
+    margin-left: 20px;
+    margin-top: 20px;
+    max-height: 10px;
+    max-width: 30px;
+}
+
+.stepSequencerTempoTrackTracker_JanuaryC {
+    border: 1px groove #aeabaf;
+    filter: brightness(120%) saturate(200%);
+    grid-column: col1 / colEnd;
+    grid-row: row2 / row15;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.stepSequencerTempoTrackTracker_JanuaryC::-webkit-scrollbar {
+    background: transparent;
+}
+
+.stepSequencerTempoEventLinetrue_JanuaryC {
+    background: #b18680;
+    color: #0f0c10;
+    display: flex;
+    filter: brightness(70%) saturate(50%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    width: 100%;
+}
+
+.stepSequencerTempoEventLinefalse_JanuaryC {
+    background: transparent;
+    color: #e4d1cc;
+    display: flex;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    width: 100%;
+}
+
+.stepSequencerTempoTrackDisplayLine_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin: 2px 3% 0 10px;
+    text-align: right;
+}
+
+.stepSequencerTempoTrackNumericalInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    height: 25px;
+    text-align: right;
+    width: 3vmin;
+}
+
+.stepSequencerTempoTrackNumericalInput2_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    height: 25px;
+    text-align: left;
+    width: 5vmin;
+}
+
+.stepSequencerTempoTrackDisplayLine2_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin: 2px 0 0 0;
+    text-align: right;
+}
+
+.stepSequencerTempoTrackerNoteImg_JanuaryC {
+    cursor: pointer;
+    filter: brightness(100%) invert(100%);
+    margin-bottom: -5px;
+    margin-left: 10px;
+    margin-right: -10px;
+    margin-top: -5px;
+    max-height: 35px;
+    max-width: 35px;
+}
+
+.stepSequencerTempoTrackerNoteImgWhole_JanuaryC {
+    cursor: pointer;
+    filter: brightness(100%) invert(100%);
+    margin-left: 10px;
+    margin-top: 10px;
+    max-height: 15px;
+    max-width: 20px;
+}
+
+.stepSequencerTempoTrackTempoInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    height: 25px;
+    text-align: left;
+    width: 14vmin;
+}
+
+.stepSequencerTrackingBarInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin: 2px 0 0 0;
+    text-align: right;
+    width: 5.5vmin;
+}
+
+.stepSequencerTrackingMeterChangeInputsDiv_JanuaryC {
+    display: flex;
+    margin: 0 0 0 35px;
+}
+
+.stepSequencerTempoTrackerNoteImg2_JanuaryC {
+    cursor: pointer;
+    filter: brightness(100%) invert(100%);
+    margin-left: 1px;
+    margin-right: -10px;
+    margin-top: -5px;
+    max-height: 35px;
+    max-width: 65px;
+}
+
+.stepSequencerTempoTrackerNoteImg2Whole_JanuaryC {
+    cursor: pointer;
+    filter: brightness(100%) invert(100%);
+    margin-left: 10px;
+    margin-top: 10px;
+    max-height: 15px;
+    max-width: 20px;
+}
+
+.stepSequencerCurrentClockPositionDisplay_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin: 13px 0 0 110px;
+    text-align: right;
+    width: 6%;
+}
+
+.stepSequencerTempoTrackEndMarker_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin: 2px 0 0 40px;
+}
+
+.stepSequencerTempoTrackEventDeleteX_JanuaryC {
+    color: transparent;
+    cursor: pointer;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin-top: 5px;
+    right: 100%;
+    position: relative;
+}
+
+.stepSequencerTempoTrackEventDeleteX_JanuaryC:hover {
+    color: #d0b2b4;
+}
+
+.stepSequencerTempoTrackAddLabel_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(130%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col1 / col4;
+    grid-row: row15 / rowEnd;
+    margin: 10px 0 0 15px;
+}
+
+.stepSequencerTempoTrackAddMeterButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col4 / col7;
+    grid-row: row15 / row16;
+    height: 35px;
+    margin: 2px 0 0 2px;
+    outline-color: #b29291;
+    padding: 0 1px;
+    z-index: 155;
+}
+
+.stepSequencerTempoTrackAddMeterButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+}
+
+.stepSequencerTempoTrackAddMeterButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+}
+
+.stepSequencerTempoTrackAddTempoButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col7 / col10;
+    grid-row: row15 / row16;
+    height: 35px;
+    margin: 2px 0 0 2px;
+    outline-color: #b29291;
+    padding: 0 1px;
+    z-index: 155;
+}
+
+.stepSequencerTempoTrackAddTempoButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+}
+
+.stepSequencerTempoTrackAddTempoButton_January:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+}
+
+.stepSequencerTempoTrackRitAccelButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col10 / colEnd;
+    grid-row: row15 / row16;
+    height: 35px;
+    margin: 2px 0 0 2px;
+    outline-color: #b29291;
+    padding: 0 1px;
+    z-index: 155;
+}
+
+.stepSequencerTempoTrackRitAccelButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+}
+
+.stepSequencerTempoTrackRitAccelButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+}
+
+.stepSequencerShuttleHome_JanuaryC {
+    cursor: pointer;
+    margin: 1% 5px;
+    max-height: 80%;
+    max-width: 10%;
+}
+
+.stepSequencerShuttleHome_JanuaryC:hover {
+    filter: invert(100%);
+}
+
+.stepSequencerHomePositionBarInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    text-align: right;
+    width: 6%;
+}
+
+.stepSequencerHomePositionSeparator_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 42px;
+    text-align: right;
+    width: 3%;
+}
+
+.stepSequencerHomePositionTicker_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-right: 50px;
+    text-align: right;
+    width: 10% !important;
+}
+
+.stepSequencerShuttlePlayButton_JanuaryC {
+    cursor: pointer;
+    filter: invert(0);
+    margin: 1% 5px;
+    max-height: 80%;
+    max-width: 10%;
+}
+
+.stepSequencerShuttlePlayButton_JanuaryC:hover {
+    filter: invert(100%);
+}
+
+.stepSequencerStepNote_JanuaryC {
+    cursor: pointer;
+    height: 7vh;
+    margin-left: 10px;
+    max-width: 70px;
+    transform: translateY(-3px);
+}
+
+.stepSequencerStepNote_JanuaryC:hover {
+    filter: invert(100%);
+}
+
+.stepSequencerStepNoteWhole_JanuaryC {
+    cursor: pointer;
+    height: 2vh;
+    margin-left: 50px;
+    max-width: 30px;
+    transform: translateX(-25px) translateY(20px);
+}
+
+.stepSequencerStepTicksInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    outline-color: #b29291;
+    margin-right: 30px;
+    text-align: left;
+    width: 7vmin;
+}
+
+.stepSequencerShuttleSpacer_JanuaryC {
+    width: 4vmin;
+}
+
+.stepSequencerDisplaySequenceTrackDatas_JanuaryC {
+    background: transparent;
+    display: flex;
+    grid-column: col1 / colEnd;
+    grid-row: row1 / row2;
+}
+
+.stepSequencerTrackSelector_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin: 0 10px;
+    outline-color: #b29291;
+    width: 25%;
+}
+
+.stepSequencerTrackMuteButtonfalse_JanuaryC {
+    background: #272028;
+    border: 2px solid #d8c3c0;
+    box-sizing: border-box;
+    color: #d8c3c0;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin: 5px 4px;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackMuteButtonfalse_JanuaryC:hover {
+    background: #a16469;
+    border: 2px solid #280e0d;
+    color: #280e0d;
+    filter: brightness(100%) saturate(200%);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackMuteButtonfalse_JanuaryC:active {
+    background: #aeabaf;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+@keyframes muteOn {
+  from {filter: brightness(150%) hue-rotate(180deg) saturate(400%);}
+  to {filter: brightness(100%) hue-rotate(150deg) saturate(200%);}
+}
+
+.stepSequencerTrackMuteButtontrue_JanuaryC {
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: muteOn;
+    animation-timing-function: linear;
+    background: #c8a299;
+    border: 2px solid #0f0c10;
+    box-sizing: border-box;
+    color: #0f0c10;
+    cursor: pointer;
+    filter: brightness(150%) hue-rotate(180deg) saturate(400%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin: 5px 4px;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackMuteButtontrue_JanuaryC:hover {
+    background: #c8a299;
+    border: 2px solid #c8a299;
+    color: #c8a299;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackMuteButtontrue_JanuaryC:active {
+    background: #0f0c10;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerTrackSoloButtonfalsefalse_JanuaryC {
+    background: #272028;
+    border: 2px solid #d8c3c0;
+    box-sizing: border-box;
+    color: #d8c3c0;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin: 5px 4px;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackSoloButtonfalsefalse_JanuaryC:hover {
+    background: #a16469;
+    border: 2px solid #280e0d;
+    color: #280e0d;
+    filter: brightness(100%) saturate(200%);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackSoloButtonfalsefalse_JanuaryC:active {
+    background: #aeabaf;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerTrackSoloButtonfalsetrue_JanuaryC {
+    background: #5c575e;
+    border: 2px solid #939094;
+    box-sizing: border-box;
+    color: #939094;
+    cursor: pointer;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin: 5px 4px;
+    transition: all 0.2s linear; 
+}
+
+.stepSequencerTrackSoloButtonfalsetrue_JanuaryC:hover {
+    background: #939094;
+    border: 2px solid #5c575e;
+    color: #5c575e;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackSoloButtonfalsetrue_JanuaryC:active {
+    background: #001323;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerTrackSoloButtontruefalse_JanuaryC {
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: muteOn;
+    animation-timing-function: linear;
+    background: #c8a299;
+    border: 2px solid #0f0c10;
+    box-sizing: border-box;
+    color: #0f0c10;
+    cursor: pointer;
+    filter: brightness(150%) hue-rotate(180deg) saturate(400%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin: 5px 4px;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackSoloButtontruefalse_JanuaryC:hover {
+    background: #c8a299;
+    border: 2px solid #c8a299;
+    color: #c8a299;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackSoloButtontruefalse_JanuaryC:active {
+    background: #0f0c10;
+    filter: brightness(50%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerTrackSoloButtontruetrue_JanuaryC {
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: muteOn;
+    animation-timing-function: linear;
+    background: #c8a299;
+    border: 2px solid #0f0c10;
+    box-sizing: border-box;
+    color: #0f0c10;
+    cursor: pointer;
+    filter: brightness(50%) hue-rotate(180deg) saturate(400%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin: 5px 4px;
+    transition: all 0.2s linear; 
+}
+
+.stepSequencerTrackSoloButtontruetrue_JanuaryC:hover {
+    background: #c8a299;
+    border: 2px solid #c8a299;
+    color: #c8a299;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackSoloButtontruetrue_JanuaryC:active {
+    background: #0f0c10;
+    filter: brightness(10%) saturate(10%);
+    transition: all 0.1s linear;
+}
+
+@keyframes rudeSolo {
+  from {background: #003058;
+        color: #dbd4d3;}
+  to {background: #8098ac;
+        color: #072030;}
+}
+
+.stepSequencerRudeSoloLabelDivtrue_JanuaryC {
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: rudeSolo;
+    animation-timing-function: linear;
+    display: flex;
+    filter: hue-rotate(90deg);
+    height: 80%;
+    left: 22%;
+    position: relative;
+    text-align: center;
+    top: 10%;
+    width: 70px;
+}
+
+.stepSequencerRudeSoloLabelDivfalse_JanuaryC {
+    display: none;
+}
+
+.stepSequencerRudeSoloLabel_JanuaryC {
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin-top: 1px;
+}
+
+.stepSequencerAddDeleteTrackButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    outline-color: #b29291;
+    margin: 5px 4px;
+    transition: all 0.2s linear;
+    width: 12%;
+}
+
+.stepSequencerAddDeleteTrackButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+
+}
+
+.stepSequencerAddDeleteTrackButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerTracksContainer_JanuaryC {
+    background: transparent;
+    display: flex;
+    grid-column: col1 / colEnd;
+    grid-row: row2 / row15;
+}
+
+.stepSequencerIndividualTracktrue_JanuaryC {
+    background: transparent;
+    border: 1px groove #aeabaf;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: all 0.5s linear;
+    width: 100%;
+}
+
+.stepSequencerIndividualTracktrue_JanuaryC::-webkit-scrollbar {
+    background: transparent;
+}
+
+.stepSequencerIndividualTrackfalse_JanuaryC {
+    background: transparent;
+    border: 1px groove #aeabaf;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: all 0.5s linear;
+    width: 0.4vmin;
+}
+
+.stepSequencerDeviceSelectLabel_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(180%) saturate(300%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col4;
+    grid-row: row3 / row4;
+    margin-left: 5px;
+    margin-top: 18px;
+}
+
+.stepSequencerDeviceSelector_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(180%) saturate(300%);
+    font-family: 'Mina', sans-serif;
+    font-size: 15px;
+    grid-column: col1 / colEnd;
+    grid-row: row4 / row5;
+    outline-color: #b29291;    
+}
+
+.stepSequencerDeviceImage_JanuaryC {
+    grid-column: col1 / colEnd;
+    grid-row: row1 / row3;
+    margin-left: 5%;
+    max-height: 100%;
+    max-width: 90%;
+    opacity: 0.6;
+}
+
+.stepSequencerCollectionSelectLabel_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(180%) saturate(300%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col4;
+    grid-row: row5 / row6;
+    margin-left: 5px;
+    margin-top: 18px;
+}
+
+.stepSequencerCollectionSelector_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(180%) saturate(300%);
+    font-family: 'Mina', sans-serif;
+    font-size: 15px;
+    grid-column: col1 / colEnd;
+    grid-row: row6 / row7;
+    outline-color: #b29291;
+}
+
+.stepSequencerBankSelectLabel_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(180%) saturate(300%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col4;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 18px;
+}
+
+.stepSequencerBankSelector_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(180%) saturate(300%);
+    font-family: 'Mina', sans-serif;
+    font-size: 15px;
+    grid-column: col1 / colEnd;
+    grid-row: row8 / row9;
+    outline-color: #b29291;
+}
+
+.stepSequencerPatchSelectLabel_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(180%) saturate(300%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col4;
+    grid-row: row9 / row10;
+    margin-left: 5px;
+    margin-top: 18px;
+}
+
+.stepSequencerPatchSelector_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(180%) saturate(300%);
+    font-family: 'Mina', sans-serif;
+    font-size: 15px;
+    grid-column: col1 / colEnd;
+    grid-row: row10 / row11;
+    outline-color: #b29291;
+}
+
+.stepSequencerEventSelectLabel_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(180%) saturate(300%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col4;
+    grid-row: row11 / row12;
+    margin-left: 5px;
+    margin-top: 18px;
+}
+
+.stepSequencerEventSelector_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(180%) saturate(300%);
+    font-family: 'Mina', sans-serif;
+    font-size: 15px;
+    grid-column: col1 / colEnd;
+    grid-row: row12 / row13;
+    outline-color: #b29291;
+}
+
+.stepSequencerAddEventButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col2 / col4;
+    grid-row: row13 / row14;
+    margin-top: 10px;
+    outline-color: #b29291;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerAddEventButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerAddEventButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerRepeatButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col2 / col4;
+    grid-row: row14 / row15;
+    margin-top: 10px;
+    outline-color: #b29291;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerRepeatButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerRepeatButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerEventContainertruetrue_JanuaryC {
+    background: #d0b2b4;
+    color: #0f0c10;
+    display: grid;
+    grid-template-columns: [eventName] 19% [midiChannel] 40px [bar] 30px [barDivider] 3px [beat] 30px [beatDivider] 3px [ticks] 50px [valueDisplay] 60px [col6] 20px [secondData] 50px [col8] 50px [col9] 3px [col10] 30px [col11] 3px [col12] 50px [col13] 100px [col14] 20px [col15] 1fr [rightEdge];
+    filter: brightness(90%) saturate(50%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin: 2px 0;
+    width: 100%;
+    z-index: 155;
+}
+
+.stepSequencerEventContainertruefalse_JanuaryC {
+    background: transparent;
+    color: #dbd4d3;
+    display: grid;
+    grid-template-columns: [eventName] 19% [midiChannel] 40px [bar] 30px [barDivider] 3px [beat] 30px [beatDivider] 3px [ticks] 50px [valueDisplay] 60px [col6] 20px [secondData] 50px [col8] 50px [col9] 3px [col10] 30px [col11] 3px [col12] 50px [col13] 100px [col14] 20px [col15] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [rowEnd];
+    filter: brightness(120%) saturate(300%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin: 2px 0;
+    width: 100%;
+    z-index: 155;
+}
+
+.stepSequencerEventContainerfalsetrue_JanuaryC {
+    display: none;
+}
+ 
+.stepSequencerEventContainerfalsefalse_JanuaryC {
+    display: none;
+}
+
+.stepSequencerEventName_JanuaryC {
+    grid-column: eventName / midiChannel;
+    grid-row: row1 / rowEnd;
+    margin: 1px 5px;
+}
+
+.stepSequencerEventMidiChannelInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: midiChannel / bar;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+    text-align: left;
+}
+
+.stepSequencerEventBarInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: bar / barDivider;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerBarDivider_JanuaryC {
+    grid-column: barDivider / beat;
+    grid-row: row1 / rowEnd;
+}
+
+.stepSequencerEventBeatInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: beat / beatDivider;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerBeatDivider_JanuaryC {
+    grid-column: beatDivider / tics;
+    grid-row: row1 / rowEnd;
+}
+
+.stepSequencerEventTicksInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: ticks / valueDisplay;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventValue_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: valueDisplay / col6;
+    grid-row: row1 / rowEnd;
+    margin-top: 1px;
+    text-align: right;
+}
+
+.stepSequencerEventNoteInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: transparent;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col6 / secondData;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventNoteVelocityInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: secondData / col8;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventNoteOffBarInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col8 / col9;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerNoteOffBarDivider_JanuaryC {
+    grid-column: col9 / col10;
+    grid-row: row1 / rowEnd;
+}
+
+.stepSequencerEventNoteOffBeatInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col10 / col11;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerNoteOffBeatDivider_JanuaryC {
+    grid-column: col11 / col12;
+    grid-row: row1 / rowEnd;
+}
+
+.stepSequencerEventNoteOffTicksInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col12 / col13;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventDeleteEvent_JanuaryC {
+    cursor: pointer;
+    float: right;
+    grid-column: col15 / rightEdge;
+    grid-row: row1 / rowEnd;
+    margin-top: 2px;
+}
+
+.stepSequencerEventDeleteEvent_JanuaryC:hover {
+    filter: brightness(150%) saturate(400%);
+}
+
+.stepSequencerTracksNameAndControlledChangesStrip_JanuaryC {
+    display: flex;
+    grid-column: col1 / rightEdge;
+    grid-row: row15 / rowEnd;
+}
+
+.stepSequencerTrackNameInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin: 2px 0 2px 25px;
+    outline-color: #b29291;
+    text-align: left;
+}
+
+.stepSequencerTrackOperatorsButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col4 / col7;
+    grid-row: row15 / row16;
+    height: 35px;
+    margin: 2px 0 0 2px;
+    margin-top: 10px;
+    outline-color: #b29291;
+    padding: 0 1px;
+    transition: all 0.2s linear;
+    width: 120px;
+    z-index: 155;
+}
+
+.stepSequencerTrackOperatorsButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerTrackOperatorsButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerMidiFXPanelLabel_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 36px;
+    grid-column: col2 / col4;
+    grid-row: row2 / row3;
+    margin-top: 15px;
+}
+
+.stepSequencerMidiFXSelectorLabel_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 27px;
+    grid-column: col4 / col5;
+    grid-row: row2 / row4;
+    margin-right: 5px;
+    margin-top: 17px;
+    text-align: right;
+}
+
+.stepSequencerMidiFXSelector_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col5 / col7;
+    grid-row: row2 / row4;
+    margin-bottom: 12px;
+    margin-top: 10px;
+    outline-color: #b29291;
+}
+
+.stepSequencerMidiFXPresetSelectorLabel_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 27px;
+    grid-column: col8 / col9;
+    grid-row: row2 / row4;
+    margin-right: 5px;
+    margin-top: 17px;
+    text-align: right;
+}
+
+.stepSequencerMidiFXPresetSelector_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col9 / col13;
+    grid-row: row2 / row4;
+    margin-bottom: 12px;
+    margin-top: 10px;
+    outline-color: #b29291;
+}
+
+.stepSequencerMidiFXAddButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #0f0c10;
+    color: #0f0c10;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col14 / col15;
+    grid-row: row2 / row4;
+    height: 35px;
+    margin: 2px 0 0 2px;
+    margin-top: 10px;
+    outline-color: #b29291;
+    padding: 0 1px;
+    transition: all 0.2s linear;
+    width: 120px;
+    z-index: 155;
+}
+
+.stepSequencerMidiFXAddButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerMidiFXAddButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerSidebarContainer_JanuaryC {
+    display: grid;
+    grid-template-columns: [sideCol1] 13% [sideCol2] 1fr [sideCol3] 1fr [sideCol4] 1fr [sideCol5] 1fr [sideColEnd];
+    grid-template-rows: [sideRow1] 1fr [sideRow2] 1fr [sideRow3] 1fr [sideRow4] 1fr [sideRow5] 1fr [sideRow6] 1fr [sideRow7] 1fr [sideRow8] 1fr [sideRow9] 1fr [sideRow10] 1fr [sideRow11] 1fr [sideRow12] 1fr [sideRow13] 1fr [sideRow14] 1fr [sideRow15] 1fr [sideRow16] 1fr [sideRow17] 1fr [sideRow18] 1fr [sideRow19] 1fr [sideRow20] 1fr [sideRow21] 1fr [sideRow22] 1fr [sideRow23] 1fr [sideRow24] 1fr [sideRowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.stepSequencerSaveButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol4;
+    grid-row: sideRow3 / sideRow4;
+    height: 35px;
+    margin: 2px 0 0 2px;
+    outline-color: #b29291;
+    padding: 0 1px;
+    transition: all 0.2s linear;
+    width: 120px;
+    z-index: 155;
+}
+
+.stepSequencerSaveButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerSaveButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerSaveAsButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol4;
+    grid-row: sideRow5 / sideRow6;
+    height: 35px;
+    margin: 2px 0 0 2px;
+    outline-color: #b29291;
+    padding: 0 1px;
+    transition: all 0.2s linear;
+    width: 120px;
+    z-index: 155;
+}
+
+.stepSequencerSaveAsButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerSaveAsButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerRevertButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol4;
+    grid-row: sideRow7 / sideRow8;
+    height: 35px;
+    margin: 2px 0 0 2px;
+    outline-color: #b29291;
+    padding: 0 1px;
+    transition: all 0.2s linear;
+    width: 120px;
+    z-index: 155;
+}
+
+.stepSequencerRevertButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerRevertButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerInitialPatchSelect_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: bar / col8;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+}
+
+.stepSequencerPitchBendValueInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: valueDisplay / col8;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventNoteParameterValue_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: secondData / col8;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventControllerInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) saturate(200%);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: valueDisplay / secondData;
+    grid-row: row1 / rowEnd;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventSwitchtrue_JanuaryC {
+    background: #40282a;
+    border: 1px groove #a16469;
+    box-sizing: border-box;
+    color: #e4d1cc;
+    cursor: pointer;
+    grid-column: secondData / col8;
+    grid-row: row1 / rowEnd;
+    text-align: left;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerEventSwitchtrue_JanuaryC:hover {
+    filter: brightness(150%) hue-rotate(45deg) saturate(120%);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerEventSwitchfalse_JanuaryC {
+    background: #40282a;
+    border: 1px groove #a16469;
+    box-sizing: border-box;
+    color: #e4d1cc;
+    cursor: pointer;
+    grid-column: secondData / col8;
+    grid-row: row1 / rowEnd;
+    text-align: right;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerEventSwitchfalse_JanuaryC:hover {
+    filter: brightness(90%) hue-rotate(-45deg) saturate(100%);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerSaveAsDialogDiv_Active_JanuaryC {
+    background: #473948;
+    color: #e4d1cc;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    height: auto;
+    left: 30%;
+    margin: 0 0 0 0;
+    padding: 2%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.stepSequencerSaveAsDialogDiv_Inactive_JanuaryC {
+    background: #473948;
+    color: #e4d1cc;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    height: auto;
+    left: 30%;
+    padding: 2%;
+    position: absolute;
+    top: -100%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.stepSequencerSaveAsInput_JanuaryC {
+    background: #d8c3c0;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin: 5% 10% 3% 10%;
+    outline-color: #b29291;
+    padding: 2px 5px;
+    width: 80%;
+}
+
+.stepSequencerSaveAsButtonsDiv_JanuaryC {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 7vh;
+    justify-content: center;
+    margin: 0 10% 1% 10%;
+    width: 82%;
+}
+
+.stepSequencerSaveAsButtons_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    height: 35px;
+    margin: 0 45px;
+    outline-color: #b29291;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerSaveAsButtons_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerSaveAsButtons_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerLoadModal_Active_JanuaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/stepSequencer/january/ice_desert_by_justv23_d9n2p2g-fullview.jpg);
+    background-size: cover;
+    border: 2px groove #642422;
+    box-shadow: 5px 5px 5px #242225;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 300;
+}
+
+.stepSequencerLoadModal_Inactive_JanuaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/stepSequencer/january/ice_desert_by_justv23_d9n2p2g-fullview.jpg);
+    background-size: cover;
+    border: 2px groove #642422;
+    box-shadow: 5px 5px 5px #242225;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: 120%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 300;
+}
+
+.stepSequencerLoadContainer_JanuaryC {
+    backdrop-filter: blur(14px) brightness(70%) saturate(30%);
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.stepSequencerLoadTitle_JanuaryC {
+    color: #e4d1cc;
+    filter: brightness(120%) drop-shadow(8px 8px 5px #242225);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col9;
+    grid-row: row2 / row3;
+}
+
+.stepSequencerLoadSelector_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #e4d1cc;
+    filter: brightness(120%) drop-shadow(8px 8px 5px #242225);
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col10;
+    grid-row: row4 / row5;
+    outline-color: #b29291;
+}
+
+.stepSequencerLoadLoadButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    height: 35px;
+    outline-color: #b29291;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerLoadLoadButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerLoadLoadButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerLoadCancelButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #e4d1cc;
+    color: #e4d1cc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col7 / col9;
+    grid-row: row7 / row8;
+    height: 35px;
+    outline-color: #b29291;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+}
+
+.stepSequencerLoadCancelButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerLoadCancelButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerEventRepeatModal_Active_JanuaryC {
+    background: #d8c3c0;
+    border: 4px groove #642422;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 65vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerEventRepeatModal_Inactive_JanuaryC {
+    background: #d8c3c0;
+    border: 4px groove #642422;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 65vh;
+    left: 20%;
+    position: absolute;
+    top: 215%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerEventRepeaterTrackLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col2 / col23;
+    grid-row: row1 / row2;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.stepSequencerEventRepeaterFromLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col3 / col4;
+    grid-row: row3 / row4;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+}
+
+.stepSequencerEventRepeaterFromBarInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col4;
+    grid-row: row4 / row5;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventRepeaterBarDivider_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col4 / col5;
+    grid-row: row4 / row5;
+    margin-top: 8px;
+}
+
+.stepSequencerEventRepeaterFromBeatInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col5 / col6;
+    grid-row: row4 / row5;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventRepeaterBeatDivider_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col6 / col7;
+    grid-row: row4 / row5;
+    margin-top: 8px;
+}
+
+.stepSequencerEventRepeaterFromTicksInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col7 / col9;
+    grid-row: row4 / row5;
+    outline-color: #b29291;
+    text-align: left;
+}
+
+.stepSequencerEventRepeaterToLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col14 / col15;
+    grid-row: row3 / row4;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+}
+
+.stepSequencerEventRepeaterToBarInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col14 / col15;
+    grid-row: row4 / row5;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventRepeaterToBarDivider_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col15 / col16;
+    grid-row: row4 / row5;
+    margin-top: 8px;
+}
+
+.stepSequencerEventRepeaterToBeatInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col16 / col17;
+    grid-row: row4 / row5;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventRepeaterToBeatDivider_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col17 / col18;
+    grid-row: row4 / row5;
+    margin-top: 8px;
+}
+
+.stepSequencerEventRepeaterToTicksInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col18 / col20;
+    grid-row: row4 / row5;
+    outline-color: #b29291;
+    text-align: left;
+}
+
+.stepSequencerEventRepeaterStartingAtLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col3 / col7;
+    grid-row: row7 / row8;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+}
+
+.stepSequencerEventRepeaterStartBarInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col4;
+    grid-row: row8 / row9;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventRepeaterStartBarDivider_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col4 / col5;
+    grid-row: row8 / row9;
+    margin-top: 8px;
+}
+
+.stepSequencerEventRepeaterStartBeatInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col5 / col6;
+    grid-row: row8 / row9;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventRepeaterStartBeatDivider_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col6 / col7;
+    grid-row: row8 / row9;
+    margin-top: 8px;
+}
+
+.stepSequencerEventRepeaterStartTicksInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col7 / col9;
+    grid-row: row8 / row9;
+    outline-color: #b29291;
+    text-align: left;
+}
+
+.stepSequencerEventRepeaterNumberOfLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col14 / col23;
+    grid-row: row7 / row8;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+}
+
+.stepSequencerEventRepeaterNumberOfInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col14 / col15;
+    grid-row: row8 / row9;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerEventRepeaterNumberOfTimeTimes_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col15 / col16;
+    grid-row: row8 / row9;
+    margin-top: 14px;
+}
+
+.stepSequencerRepeaterSubmitButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #0f0c10;
+    color: #0f0c10;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col7 / col10;
+    grid-row: row11 / row12;
+    height: 35px;
+    outline-color: #b29291;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.stepSequencerRepeaterSubmitButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerRepeaterSubmitButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerRepeaterCancelButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #0f0c10;
+    color: #0f0c10;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col13 / col16;
+    grid-row: row11 / row12;
+    height: 35px;
+    outline-color: #b29291;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.stepSequencerRepeaterCancelButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerRepeaterCancelButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerAddMIDIFxModal_Active_JanuaryC {
+    background: #aeabaf;
+    border: 4px groove #642422;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 65vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerAddMIDIFxModal_Inactive_JanuaryC {
+    background: #aeabaf;
+    border: 4px groove #642422;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 65vh;
+    left: 190%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerAddMIDIFXModalTitle_JanuaryC {
+    color: #0f0c10;
+    grid-column: col2 / col23;
+    grid-row: row1 / row2;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.stepSequencerAddMIDIFXTypeIdentifier_JanuaryC {
+    color: #0f0c10;
+    grid-column: col7 / col20;
+    grid-row: row3 / row4;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.stepSequencerAddMIDIFXPresetIdentifier_JanuaryC {
+    color: #0f0c10;
+    grid-column: col7 / col20;
+    grid-row: row4 / row5;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.stepSequencerFXTrackNameLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col7 / col20;
+    grid-row: row6 / row7;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.stepSequencerFXTrackNameInput_JanuaryC {
+    background: #a39ca4;
+    border: none;
+    color: #0f0c10;
+    grid-column: col7 / col17;
+    grid-row: row7 / row8;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    outline-color: #b29291;
+}
+
+.stepSequencerRitAccelModal_Active_JanuaryC {
+    background: #d8c3c0;
+    border: 4px groove #642422;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 65vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerRitAccelModal_Inactive_JanuaryC {
+    background: #d8c3c0;
+    border: 4px groove #642422;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 65vh;
+    left: -190%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerRitAccelTitle_JanuaryC {
+    color: #0f0c10;
+    grid-column: col2 / col23;
+    grid-row: row1 / row2;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.stepSequencerRitAccelStartingTempoLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col2 / col4;
+    grid-row: row3 / row4;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.stepSequencerRitAccelNoteFrom_JanuaryC {
+    cursor: pointer;
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    max-width: 100px;
+}
+
+.stepSequencerRitAccelNoteFrom2_JanuaryC {
+    cursor: pointer;
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    max-width: 30px;
+    transform: translateX(25px) translateY(50px);
+}
+
+.stepSequencerTempoEqualsFrom_JanuaryC {
+    color: #0f0c10;
+    grid-column: col4 / col5;
+    grid-row: row4 / row5;
+    font-family: 'Mina', sans-serif;
+    font-size: 36px;
+    margin-top: 15px;
+    transform: translateY(25px);
+}
+
+.stepSequencerTempoFromInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    grid-column: col5 / col8;
+    grid-row: row4 / row5;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    height: 30px;
+    margin-top: 45px;
+    outline-color: #b29291;
+}
+
+.stepSequencerRitAccelFromBarInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col3;
+    grid-row: row5 / row6;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerRitAccelFromBarDivider_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col4;
+    grid-row: row5 / row6;
+    margin-top: 8px;
+}
+
+.stepSequencerRitAccelFromBeatInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col4 / col5;
+    grid-row: row5 / row6;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerRitAccelFromBeatDivider_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col5 / col6;
+    grid-row: row5 / row6;
+    margin-top: 8px;
+}
+
+.stepSequencerRitAccelFromTicksInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col6 / col8;
+    grid-row: row5 / row6;
+    outline-color: #b29291;
+    text-align: left;
+}
+
+.stepSequencerRitAccelEndingingTempoLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col17 / col19;
+    grid-row: row3 / row4;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.stepSequencerRitAccelNoteTo_JanuaryC {
+    cursor: pointer;
+    grid-column: col16 / col17;
+    grid-row: row4 / row5;
+    max-width: 100px;
+}
+
+.stepSequencerRitAccelNoteTo2_JanuaryC {
+    cursor: pointer;
+    grid-column: col16 / col17;
+    grid-row: row4 / row5;
+    max-width: 30px;
+    transform: translateX(25px) translateY(50px);
+}
+
+.stepSequencerTempoEqualsTo_JanuaryC {
+    color: #0f0c10;
+    grid-column: col18 / col19;
+    grid-row: row4 / row5;
+    font-family: 'Mina', sans-serif;
+    font-size: 36px;
+    margin-top: 15px;
+    transform: translateY(25px);
+}
+
+.stepSequencerTempoToInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    grid-column: col19 / col22;
+    grid-row: row4 / row5;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    height: 30px;
+    margin-top: 45px;
+    outline-color: #b29291;
+}
+
+.stepSequencerRitAccelToBarInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col16 / col17;
+    grid-row: row5 / row6;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerRitAccelToBarDivider_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col17 / col18;
+    grid-row: row5 / row6;
+    margin-top: 8px;
+}
+
+.stepSequencerRitAccelToBeatInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col18 / col19;
+    grid-row: row5 / row6;
+    outline-color: #b29291;
+    text-align: right;
+}
+
+.stepSequencerRitAccelToBeatDivider_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col19 / col20;
+    grid-row: row5 / row6;
+    margin-top: 8px;
+}
+
+.stepSequencerRitAccelToTicksInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col20 / col22;
+    grid-row: row5 / row6;
+    outline-color: #b29291;
+    text-align: left;
+}
+
+.stepSequencerRitAccelCurveDisplayDiv_JanuaryC {
+    background: #aeabaf;
+    border: 2px groove #473948;
+    box-sizing: border-box;
+    grid-column: col7 / col16;
+    grid-row: row3 / row8;
+    height: 260px;
+    width: 350px;
+}
+
+.stepSequencerTempoCurvePath_JanuaryC {
+    fill: none;
+    stroke: #0f0c10;
+    stroke-linecap: round;
+    stroke-width: 6;
+}
+
+.stepSequencerRitAccelXValLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col8 / col9;
+    grid-row: row8 / row9;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-top: 18px;
+}
+
+.stepSequencerRitAccelCurveXInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col9 / col11;
+    grid-row: row8 / row9;
+    margin-top: 15px;
+    outline-color: #b29291;
+    text-align: center;
+}
+
+.stepSequencerRitAccelYValLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col12 / col13;
+    grid-row: row8 / row9;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-top: 18px;
+}
+
+.stepSequencerRitAccelCurveYInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col13 / col15;
+    grid-row: row8 / row9;
+    margin-top: 15px;
+    outline-color: #b29291;
+    text-align: center;
+}
+
+.stepSequencerContinuousParamSelect_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col13 / col22;
+    grid-row: row1 / row2;
+    margin-top: 15px;
+    outline-color: #b29291;
+}
+
+.stepSequencerContinuousFromInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    grid-column: col2 / col6;
+    grid-row: row4 / row5;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    height: 30px;
+    margin-top: 5px;
+    outline-color: #b29291;
+}
+
+.stepSequencerContinuousToInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    grid-column: col17 / col20;
+    grid-row: row4 / row5;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    height: 30px;
+    margin-top: 5px;
+    outline-color: #b29291;
+}
+
+.stepSequencerContinuousXValLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col8 / col9;
+    grid-row: row9 / row10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-top: 18px;
+}
+
+.stepSequencerContinuousCurveXInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col9 / col11;
+    grid-row: row9 / row10;
+    margin-top: 15px;
+    outline-color: #b29291;
+    text-align: center;
+}
+
+.stepSequencerContinuousYValLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col12 / col13;
+    grid-row: row9 / row10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-top: 18px;
+}
+
+.stepSequencerContinuousCurveYInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col13 / col15;
+    grid-row: row9 / row10;
+    margin-top: 15px;
+    outline-color: #b29291;
+    text-align: center;
+}
+
+.stepSequencerContinuousMidiChannelLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col2 / col4;
+    grid-row: row7 / row8;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-top: 18px;
+}
+
+.stepSequencerContinuousMidiChannelInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col4;
+    grid-row: row8 / row9;
+    margin-top: 15px;
+    outline-color: #b29291;
+    text-align: center;
+}
+
+.stepSequencerDuplicateTrackMidiChannelLabel_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-bottom: 22px;
+    margin-top: 18px;
+    margin-left: 20px;
+}
+
+.stepSequencerDuplicateTrackMidiChannelInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 18px;
+    outline-color: #b29291;
+    text-align: center;
+    width: 50px;
+}
+
+.stepSequencerFilterDialogDiv_Active_JanuaryC {
+    background: #d8c3c0;
+    border: 4px groove #642422;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [row16] 1fr [row17] 1fr [row18] 1fr [row19] 1fr [row20] 1fr [rowEnd];
+    height: 95vh;
+    left: 20%;
+    position: absolute;
+    top: 2%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerFilterDialogDiv_Inactive_JanuaryC {
+    background: #d8c3c0;
+    border: 4px groove #642422;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [row16] 1fr [row17] 1fr [row18] 1fr [row19] 1fr [row20] 1fr [rowEnd];
+    height: 95vh;
+    left: 20%;
+    position: absolute;
+    top: -122%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerFilterLabel_JanuaryC {
+    color: #0f0c10;
+    grid-column: col2 / col23;
+    grid-row: row1 / row2;
+    font-family: 'Mina', sans-serif;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.stepSequencerFilterCloseDialogButton_JanuaryC {
+    backdrop-filter: hue-rotate(-75deg);
+    background: transparent;
+    border: 2px solid #0f0c10;
+    color: #0f0c10;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #40282a);
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col11 / col13;
+    grid-row: row19 / row20;
+    height: 35px;
+    outline-color: #b29291;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.stepSequencerFilterCloseDialogButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(75deg);
+    border: 2px solid #aeabaf;
+    color: #aeabaf;
+    filter: brightness(245%) drop-shadow(4px 4px 5px #40282a);
+    transition: all 0.2s linear;
+}
+
+.stepSequencerFilterCloseDialogButton_JanuaryC:active {
+    filter: brightness(85%) invert(100%) drop-shadow(0 0 0 #40282a);
+    transition: all 0.1s linear;
+}
+
+.stepSequencerFilterDiv_JanuaryC {
+    background: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    grid-column: col2 / col22;
+    grid-row: row2 / row18;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.stepSequencerFilterDiv_JanuaryC::-webkit-scrollbar {
+    background: transparent;
+}
+
+.stepSequencerGlobalEventFilterDiv_JanuaryC {
+    box-sizing: border-box;
+    display: inline-flex;
+    height: 40px;
+    margin-bottom: 10px;
+    min-width: 100%;
+    padding: 12px 5px 12px 10px;
+    width: 100%;
+}
+
+.stepSequencerFilterBlockfalse_JanuaryC {
+    background: #272028;
+    border-radius: 10px;
+    cursor: pointer;
+    filter: brightness(50%) saturate(60%);
+    height: 15px;
+    transition: all 0.4s linear;
+    width: 30px;
+}
+
+.stepSequencerFilterBlocktrue_JanuaryC {
+    background: #272028;
+    border-radius: 10px;
+    cursor: pointer;
+    filter: brightness(100%) saturate(160%);
+    height: 15px;
+    transition: all 0.4s linear;
+    width: 30px;
+}
+
+.stepSequencerFilterSwitchfalse_JanuaryC {
+    background: #e4d1cc;
+    border-radius: 100%;
+    height: 15px;
+    left: 0;
+    position: relative;
+    transition: all 0.4s linear;
+    width: 15px;
+}
+
+.stepSequencerFilterSwitchtrue_JanuaryC {
+    background: #e4d1cc;
+    border-radius: 100%;
+    height: 15px;
+    left: 15px;
+    position: relative;
+    transition: all 0.4s linear;
+    width: 15px;
+}
+
+.stepSequencerGlobalEventFilterDiv_JanuaryC p {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.stepSequencerFilterEventDiv_JanuaryC {
+    box-sizing: border-box;
+    display: inline-flex;
+    height: 40px;
+    min-width: 50%;
+    padding: 12px 5px 12px 10px;
+}
+
+.stepSequencerFilterEventDiv_JanuaryC p {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    margin-left: 10px; 
+}
+
+.stepSequencerQuantizeModalDiv_Active_JanuaryC {
+    background: #aeabaf;
+    border: 4px groove #642422;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 45vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerQuantizeModalDiv_Inactive_JanuaryC {
+    background: #aeabaf;
+    border: 4px groove #642422;
+    display: grid;
+    grid-template-columns: [col1] 4.54% [col2] 4.54% [col3] 4.54% [col4] 4.54% [col5] 4.54% [col6] 4.54% [col7] 4.54% [col8] 4.54% [col9] 4.54% [col10] 4.54% [col11] 4.54% [col12] 4.54% [col13] 4.54% [col14] 4.54% [col15] 4.54% [col16] 4.54% [col17] 4.54% [col18] 4.54% [col19] 4.54% [col20] 4.54% [col21] 4.54% [col22] 4.54% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 45vh;
+    left: 145%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s linear;
+    width: 60%;
+    z-index: 201;
+}
+
+.stepSequencerQuantizeEventSelect_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col4 / col9;
+    grid-row: row5 / row6;
+    outline-color: #b29291;
+}
+
+.stepSequencerQuantizeToTheNearest_JanuaryC {
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col9 / col14;
+    grid-row: row5 / row6;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.stepSequencerQuantizeValueInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #0f0c10;
+    font-family: 'Mina', sans-serif;
+    font-size: 18px;
+    grid-column: col14 / col16;
+    grid-row: row5 / row6;
+    outline-color: #b29291;
+}
+
+.stepSequencerPanicDiv_Active_JanuaryC {
+    left: 25%;
+    opacity: 0.96;
+    max-height: 50%;
+    max-width: 90vh;
+    opacity: 0.6;
+    position: absolute;
+    top: 15%;
+    z-index: 200;
+}
+
+.stepSequencerPanicDiv_Active_JanuaryC img {
+    width: 100%;
+}
+
+.stepSequencerPanicDiv_Inactive_JanuaryC {
+    display: none;
+}
