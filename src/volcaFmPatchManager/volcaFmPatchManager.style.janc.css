@@ -275,7 +275,7 @@
     grid-row: row3 / row4;
     margin: 6px 65px 0 35px;
     outline-color: #99a0bd;
-    adding: 0 15px;
+    padding: 0 15px;
     transition: all 0.2s linear;
     width: 50%;
     z-index: 155;
@@ -308,7 +308,7 @@
     grid-row: row5 / row6;
     margin: 6px 65px 0 35px;
     outline-color: #99a0bd;
-    adding: 0 15px;
+    padding: 0 15px;
     transition: all 0.2s linear;
     width: 50%;
     z-index: 155;
@@ -341,7 +341,7 @@
     grid-row: row7 / row8;
     margin: 6px 65px 0 35px;
     outline-color: #99a0bd;
-    adding: 0 15px;
+    padding: 0 15px;
     transition: all 0.2s linear;
     width: 50%;
     z-index: 155;
