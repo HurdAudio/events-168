@@ -49,6 +49,9 @@ function VolcaNubassPatchManager(user, banks) {
     const [collectionLoadModalState, setCollectionLoadModalState] = useState('_Inactive');
     const [volcaNubassPatchManagerMonth, setVolcaNubassPatchManagerMonth] = useState('_JanuaryC');
     const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
+    const [availableCollections, setAvailableCollections] = useState([]);
+    const [currentCollection, setCurrentCollection] = useState('');
+    const [selectedCollectionValue, setSelectedCollectionValue] = useState('');
     const [dragData, setDragData] = useState(null);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
     const [userPatches, setUserPatches] = useState([]);
@@ -89,6 +92,20 @@ function VolcaNubassPatchManager(user, banks) {
     const openLoadCollectionModal = () => {
         setCollectionLoadModalState('_Active');
         setVolcaNubassPatchManagerContainerState('_Inactive');
+        axios.get(`/volca_nubass_banks/byuser/${user.uuid}`)
+        .then(collectionsData => {
+            const collections = collectionsData.data.sort((a, b) => {
+                if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                    return 1;
+                } else if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+            setAvailableCollections(collections);
+            setSelectedCollectionValue(collections[0].uuid);
+        });
     }
     
     const closeCollectionLoadModal = () => {
@@ -97,8 +114,45 @@ function VolcaNubassPatchManager(user, banks) {
     }
     
     const loadCollection = () => {
-        setCollectionLoadModalState('_Inactive');
-        setVolcaNubassPatchManagerContainerState('_Active');
+        let deepCopy = {...patchCollection};
+        if (selectedCollectionValue === '') {
+            setCollectionLoadModalState('_Inactive');
+            setVolcaNubassPatchManagerContainerState('_Active');
+            return;
+        }
+        const selected = selectedCollectionValue;
+        axios.get(`/volca_nubass_banks/collection/${selected}`)
+        .then(loadedCollectionData => {
+            const loadedCollection = loadedCollectionData.data;
+            setCurrentCollection(selected);
+            console.log(loadedCollection);
+            deepCopy.banks = loadedCollection.banks.banks;
+            deepCopy.name = loadedCollection.name;
+            deepCopy.uuid = loadedCollection.uuid;
+            setPatchCollection(deepCopy);
+            setCollectionLoadModalState('_Inactive');
+            setVolcaNubassPatchManagerContainerState('_Active');
+        });        
+    }
+    
+    const saveCopyOfCollection = () => {
+        const volcaNubassPatchManagerSaveAsInput = document.getElementById('volcaNubassPatchManagerSaveAsInput').value;
+        if (volcaNubassPatchManagerSaveAsInput === '') {
+            return;
+        }
+        closeCollectionLoadModal();
+        axios.post(`/volca_nubass_banks/banks`, {
+            user_uuid: user.uuid,
+            banks: {
+                banks: patchCollection.banks
+            },
+            name: volcaNubassPatchManagerSaveAsInput
+        }).then(copySetData => {
+            setTimeout(() => {
+                setSaveAsModalState('_Inactive');
+            }, 200);
+            
+        });
     }
     
     const openAboutModal = () => {
@@ -151,8 +205,39 @@ function VolcaNubassPatchManager(user, banks) {
     }
     
     const submitShareModal = () => {
-        setShareModalState('_Inactive');
-        setVolcaNubassPatchManagerContainerState('_Active');
+        const volcaNubassPatchManagerPublicDescription = document.getElementById('volcaNubassPatchManagerPublicDescription').value;
+        axios.get(`/volca_nubass_shares/byuser/${user.uuid}`)
+        .then(userSharesData => {
+            const userShares = userSharesData.data;
+            const existingShare = userShares.filter(share => {
+                return(share.initial_collection_uuid === currentCollection);
+            });
+            if (existingShare.length === 0) {
+                axios.post(`/volca_nubass_shares/shares`, {
+                    initial_collection_uuid: currentCollection,
+                    user_uuid: user.uuid,
+                    banks: {
+                        banks: patchCollection.banks
+                    },
+                    name: patchCollection.name,
+                    public_description: volcaNubassPatchManagerPublicDescription
+                }).then(() => {
+                    setShareModalState('_Inactive');
+                    setVolcaNubassPatchManagerContainerState('_Active');
+                })
+            } else {
+                axios.patch(`/volca_nubass_shares/shares/${existingShare[0].uuid}`, {
+                    banks: {
+                        banks: patchCollection.banks
+                    },
+                    name: patchCollection.name,
+                    public_description: volcaNubassPatchManagerPublicDescription
+                }).then(() => {
+                    setShareModalState('_Inactive');
+                    setVolcaNubassPatchManagerContainerState('_Active');
+                });
+            }
+        });
     }
     
     const closeSaveAsModal = () => {
@@ -216,13 +301,40 @@ function VolcaNubassPatchManager(user, banks) {
     }
     
     const revertCollection = () => {
-        setCollectionAltered(false);
-        return null;
+        const selectedUuid = currentCollection;
+        axios.get(`/volca_nubass_banks/collection/${selectedUuid}`)
+        .then(revertBankData => {
+            const revertBank = revertBankData.data;
+            setPatchCollection({
+                banks: revertBank.banks.banks,
+                name: revertBank.name
+            });
+            setCollectionAltered(false);
+        });
     }
     
     const saveCollection = () => {
-        setCollectionAltered(false);
-        return null;
+        if (currentCollection === '') {
+            axios.post(`/volca_nubass_banks/banks`, {
+                user_uuid: user.uuid,
+                banks: {
+                    banks: patchCollection.banks
+                },
+                name: patchCollection.name
+            }).then(addedData => {
+                setCurrentCollection(addedData.data.uuid);
+                setCollectionAltered(false);
+            });
+        } else {
+            const collectionUuid = currentCollection;
+            axios.patch(`/volca_nubass_banks/collection/${collectionUuid}`, {
+                banks: {
+                    banks: patchCollection.banks
+                },
+                name: patchCollection.name
+            });
+            setCollectionAltered(false);
+        }
     }
     
     const updateUserNotes = (bankUuid, val) => {
@@ -345,6 +457,10 @@ function VolcaNubassPatchManager(user, banks) {
             }
         }
         return result;
+    }
+    
+    const updateSelectedCollectionValue = (val) => {
+        setSelectedCollectionValue(val);
     }
     
     const patchAlreadyInTheBank = (index, patch) => {
@@ -870,6 +986,17 @@ function VolcaNubassPatchManager(user, banks) {
         return null;
     }
     
+    const deleteCollection = () => {
+        const selectedUuid = currentCollection;
+        axios.delete(`/volca_nubass_banks/${selectedUuid}`)
+        .then(() => {
+            setCurrentCollection('');
+            initializeNewCollection();
+            closeDeleteCollectionModal();
+            setCollectionAltered(false);
+        });
+    }
+    
     
     
     return ( 
@@ -1061,7 +1188,7 @@ function VolcaNubassPatchManager(user, banks) {
                     placeholder={'copy of ' + patchCollection.name}
                     type="text" />
                 <div className={'volcaNubassPatchManagerDeleteGuardrailButtonsDiv' + volcaNubassPatchManagerMonth}>
-                    <button>save</button>
+                    <button onClick={() => saveCopyOfCollection()}>save</button>
                     <button onClick={() => closeSaveAsModal()}>cancel</button>
                 </div>
             </div>
@@ -1074,6 +1201,7 @@ function VolcaNubassPatchManager(user, banks) {
                     <p className={'volcaNubassPatchManagerSubmittedBy' + volcaNubassPatchManagerMonth}>{user.first_name} {user.last_name}</p>
                     <p className={'volcaNubassPatchManagerPublicDescriptionLabel' + volcaNubassPatchManagerMonth}>public description:</p>
                     <textarea className={'volcaNubassPatchManagerPublicDescription' + volcaNubassPatchManagerMonth}
+                        id="volcaNubassPatchManagerPublicDescription"
                         placeholder="Description of this collection"
                         rows="9"></textarea>
                     <button className={'volcaNubassPatchManagerShareSubmitButton' + volcaNubassPatchManagerMonth}
@@ -1086,7 +1214,7 @@ function VolcaNubassPatchManager(user, banks) {
                 <p className={'volcaNubassPatchManagerDeletePatchGuardrailLabel' + volcaNubassPatchManagerMonth}>Delete collection "{patchCollection.name}"?</p>
                 <p className={'volcaNubassPatchManagerDeletePatchGuardrailFinePrint' + volcaNubassPatchManagerMonth}>This will permanently remove collection.</p>
                 <div className={'volcaNubassPatchManagerDeleteGuardrailButtonsDiv' + volcaNubassPatchManagerMonth}>
-                    <button>delete</button>
+                    <button onClick={() => deleteCollection()}>delete</button>
                     <button onClick={() => closeDeleteCollectionModal()}>cancel</button>
                 </div>
             </div>
@@ -1108,8 +1236,12 @@ function VolcaNubassPatchManager(user, banks) {
             <div className={'volcaNubassPatchManagerCollectionLoadModal' + collectionLoadModalState + volcaNubassPatchManagerMonth}>
                 <div className={'volcaNubassPatchManagerCollectionLoadContainer' + volcaNubassPatchManagerMonth}>
                     <p className={'volcaNubassPatchManagerLoadTitle' + volcaNubassPatchManagerMonth}>Load Volca Nubass Collection</p>
-                    <select className={'volcaNubassPatchManagerLoadSelector' + volcaNubassPatchManagerMonth}>
-                        <option>placeholder</option>
+                    <select className={'volcaNubassPatchManagerLoadSelector' + volcaNubassPatchManagerMonth}
+                        onChange={(e) => updateSelectedCollectionValue(e.target.value)}>
+                        {availableCollections.map(collection => (
+                            <option key={collection.uuid}
+                                value={collection.uuid}>{collection.name}</option>
+                        ))}
                     </select>
                     <button className={'volcaNubassPatchManagerLoadLoadButton' + volcaNubassPatchManagerMonth}
                         onClick={() => loadCollection()}>load</button>
