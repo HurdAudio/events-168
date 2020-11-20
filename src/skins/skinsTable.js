@@ -38,6 +38,10 @@ function Table(access) {
                 {
                     skin: '_FebruaryC',
                     spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/february/loadingModelRunway.gif'
+                },
+                {
+                    skin: '_MarchA',
+                    spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassEditor/march/spinners/b766c1d734b1dd2fffcb7d4ea966264d.gif'
                 }
             ],
             january: [ 31,
