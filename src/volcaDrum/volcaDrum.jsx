@@ -19,8 +19,9 @@ import midi5pin from '../img/midi5pin.svg';
 import volcaDrumImg1 from '../img/volcaDrumImg1.png';
 import midiConnection from '../midiManager/midiConnection';
 import axios from 'axios';
+import SkinsTable from '../skins/skins';
 
-let connections;
+let connections = null;
 
 function VolcaDrum(user, patch) {
         
@@ -38,26 +39,23 @@ function VolcaDrum(user, patch) {
     const envelopeEndGraph = 410;
     const breakpointOffset = 4;
     const scaleScaler = 1.12;
-    const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/spinner/cloe-ferrara-loader1-0.gif';
-    const janbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/spinner/CleanGiantFlea-small.gif';
-    const jancSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/spinner/jancdrums.gif';
-    const febaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/spinner/3129460143a343c72f39adc53ad7fa62.gif';
-    const febbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/spinner/06bdf8ad69ff62062ae7dceb250d8866.gif';
-    const febcSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/spinner/Top-Loading-Washer.gif';
+    
+    const skins = SkinsTable('volcaDrumEditor');
 
     const [midiConnections, setMidiConnections] = useState(undefined);
+    const [userMidiPatch, setUserMidiPatch] = useState(null);
     const [panicState, setPanicState] = useState('volcaDrumPanicOff');
-    const [currentSpinner, setCurrentSpinner] = useState(febcSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(skins.volcaDrumEditor.spinner);
     const [volcaDrumLoadModalState, setVolcaDrumLoadModalState] = useState('_Inactive');
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
-    const [currentOutput, setCurrentOutput] = useState([]);
+    const [currentOutput, setCurrentOutput] = useState(0);
     const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
     const [volcaDrumContainerState, setVolcaDrumContainerState] = useState('Active');
     const [saveAsName, setSaveAsName] = useState('');
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('Inactive');
     const [aboutVolcaDrumDivState, setAboutVolcaDrumDivState] = useState('Inactive');
-    const [volcaDrumMonth, setVolcaDrumMonth] = useState('_FebruaryC');
+    const [volcaDrumMonth, setVolcaDrumMonth] = useState(skins.volcaDrumEditor.skin);
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [patchAltered, setPatchAltered] = useState(false);
     const [loadPatchUuid, setLoadPatchUuid] = useState('');
@@ -2341,22 +2339,63 @@ function VolcaDrum(user, patch) {
     }
 
     const noteOnEvent = (key) => {
-        if (midiConnections === undefined) {
-            navigator.requestMIDIAccess({ sysex: true })
-            .then((midiAccess) => {               
-                connections = midiConnection(midiAccess);
+        if (connections === null) {
+            let indexOut = null;
+            console.log(user.midi_connections);
+            if (user.midi_connections) {
+                connections = user.midi_connections;
                 setMidiConnections(connections);
-                console.log(connections);
                 setCurrentOutput(connections.currentOutput);
                 setCurrentMidiChannel(connections.currentMidiChannel);
+                for (let i = 0; i < connections.outputs.length; i++) {
+                    connections.outputs[i].label = connections.outputs[i].name;
+                }
                 setAvailableOutputs(connections.outputs);
                 setAvailableInputs(connections.inputs);
-                return;
-            }, () => {
-                alert('No MIDI ports accessible');
-            });
+                if (user.midi_patch) {
+                    axios.get(`/midi_manager_patches/patch/${user.midi_patch}`)
+                    .then(midiPatchData => {
+                        const midiPatch = midiPatchData.data.user_preset.outputs;
+                        let outputsArr = [];
+                        for (let i = 0; i < user.midi_connections.outputs.length; i++) {
+                            outputsArr[i] = {...midiPatch[i]};
+                            connections.outputs[i].label = midiPatch[i].label;
+                        }
+                        setUserMidiPatch(outputsArr);
+                        setAvailableOutputs(connections.outputs);
+                        let volcaDrumList = midiPatch.filter(entry => {
+                            return(entry.deviceUuid === '3abd3875-667e-4098-abdb-12910b43ba2f')
+                        });
+                        for (let j = 0; j < midiPatch.lenth; j++) {
+                           if (indexOut === null) {
+                               if (midiPatch[j].deviceUuid === '3abd3875-667e-4098-abdb-12910b43ba2f') {
+                                   indexOut = j;
+                               }
+                           }
+                        }
+                        if (indexOut === null) {
+                            indexOut = 0;
+                        }
+                        setCurrentOutput(connections.outputs[indexOut]);
+                        console.log(currentOutput);
+                    });
+                }
+            } else {
+                navigator.requestMIDIAccess({ sysex: true })
+                .then((midiAccess) => {               
+                    connections = midiConnection(midiAccess);
+                    setMidiConnections(connections);
+                    setCurrentOutput(connections.currentOutput);
+                    setCurrentMidiChannel(connections.currentMidiChannel);
+                    setAvailableOutputs(connections.outputs);
+                    setAvailableInputs(connections.inputs);
+                    return;
+                }, () => {
+                    alert('No MIDI ports accessible');
+                });
+            }
+            return;
         }
-        let index = 0;
         switch (key.toLowerCase()) {
             case ('q'):
                 if (!keyEngaged.q) {
@@ -3534,6 +3573,5 @@ function VolcaDrum(user, patch) {
         </div>
         );
 }
-
 
 export default VolcaDrum;
