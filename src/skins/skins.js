@@ -38,6 +38,13 @@ function SkinsTable(access) {
                 skins.nubassEditor = table.nubassEditor[months[now.getMonth()]][now.getDate()];
             }
             break;
+        case('volcaDrumEditor'):
+            if (table.volcaDrumEditor[months[now.getMonth()]].length === 1) {
+                skins.volcaDrumEditor = table.volcaDrumEditor.available[Math.floor(Math.random() * (table.volcaDrumEditor.available.length))];
+            } else {
+                skins.volcaDrumEditor = table.volcaDrumEditor[months[now.getMonth()]][now.getDate()];
+            }
+            break;
         case('userHub'):
             if (table.userHub[months[now.getMonth()]].length === 1) {
                 skins.userHub = table.userHub.available[Math.floor(Math.random() * (table.userHub.available.length))];
