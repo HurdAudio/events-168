@@ -15,6 +15,7 @@ import './volcaNubass.style.janc.css';
 import './volcaNubass.style.feba.css';
 import './volcaNubass.style.febb.css';
 import './volcaNubass.style.febc.css';
+import './volcaNubass.style.mara.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaNubassImg1 from '../img/volcaNubassImg1.png';
 import axios from 'axios';
