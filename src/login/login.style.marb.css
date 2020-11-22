@@ -111,3 +111,51 @@
 .loginSubmitShow_MarchB {
     visibility: visible;
 }
+
+.loginForgotPassword_MarchB {
+    background: #b1bac1;
+    border: none;
+    color: #161210;
+    cursor: pointer;
+    font-family: 'Literata', serif;
+    font-size: 24px;
+    left: 78%;
+    margin-top: 18px;
+    outline-color: #a4a2a3;
+    padding: 5px 15px;
+    position: absolute;
+    top: 80%;
+    transition: all 0.2s linear;
+    width: 250px;
+}
+
+.loginForgotPassword_MarchB:hover {
+    background: #343331;
+    box-shadow: -8px -8px 10px #d8dde0, 8px -8px 10px #d8dde0, -8px 8px 10px #d8dde0, 8px 8px 10px #d8dde0;
+    color: #d8dde0;
+    transition: all 0.2s linear;
+}
+
+.loginNewAccount_MarchB {
+    background: #b1bac1;
+    border: none;
+    color: #161210;
+    cursor: pointer;
+    font-family: 'Literata', serif;
+    font-size: 24px;
+    left: 78%;
+    margin-top: 18px;
+    outline-color: #a4a2a3;
+    padding: 5px 15px;
+    position: absolute;
+    top: 88%;
+    transition: all 0.2s linear;
+    width: 250px;
+}
+
+.loginNewAccount_MarchB:hover {
+    background: #343331;
+    box-shadow: -8px -8px 10px #d8dde0, 8px -8px 10px #d8dde0, -8px 8px 10px #d8dde0, 8px 8px 10px #d8dde0;
+    color: #d8dde0;
+    transition: all 0.2s linear;
+}

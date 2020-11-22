@@ -103,3 +103,47 @@
 .loginSubmitShow_JanuaryB {
     visibility: visible;
 }
+
+.loginForgotPassword_JanuaryB {
+    background: #2b6579;
+    border: none;
+    color: #b6d2df;
+    cursor: pointer;
+    font-family: 'Literata', serif;
+    font-size: 24px;
+    left: 15%;
+    outline-color: #b6d2df;
+    padding: 5px;
+    position: absolute;
+    top: 80%;
+    transition: all 0.2s linear;
+    width: 250px;
+}
+
+.loginForgotPassword_JanuaryB:hover {
+    background: #b6d2df;
+    color: #2b6579;
+    transition: all 0.2s linear;
+}
+
+.loginNewAccount_JanuaryB {
+    background: #2b6579;
+    border: none;
+    color: #b6d2df;
+    cursor: pointer;
+    font-family: 'Literata', serif;
+    font-size: 24px;
+    left: 15%;
+    outline-color: #b6d2df;
+    padding: 5px;
+    position: absolute;
+    top: 86%;
+    transition: all 0.2s linear;
+    width: 250px;
+}
+
+.loginNewAccount_JanuaryB:hover {
+    background: #b6d2df;
+    color: #2b6579;
+    transition: all 0.2s linear;
+}

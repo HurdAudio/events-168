@@ -110,3 +110,51 @@
 .loginSubmitShow_MarchA {
     visibility: visible;
 }
+
+.loginForgotPassword_MarchA {
+    background: #004497;
+    border: none;
+    color: #000008;
+    cursor: pointer;
+    font-family: 'MuseoModerno', cursive;
+    font-size: 24px;
+    left: 78%;
+    margin-top: 18px;
+    outline-color: #818ba1;
+    padding: 5px 15px;
+    position: absolute;
+    top: 80%;
+    transition: all 0.2s linear;
+    width: 250px;
+}
+
+.loginForgotPassword_MarchA:hover {
+    background: #000014;
+    box-shadow: -8px -8px 10px #fcfced, 8px -8px 10px #fcfced, -8px 8px 10px #fcfced, 8px 8px 10px #fcfced;
+    color: #fcfced;
+    transition: all 0.2s linear;
+}
+
+.loginNewAccount_MarchA {
+    background: #004497;
+    border: none;
+    color: #000008;
+    cursor: pointer;
+    font-family: 'MuseoModerno', cursive;
+    font-size: 24px;
+    left: 78%;
+    margin-top: 18px;
+    outline-color: #818ba1;
+    padding: 5px 15px;
+    position: absolute;
+    top: 88%;
+    transition: all 0.2s linear;
+    width: 250px;
+}
+
+.loginNewAccount_MarchA:hover {
+    background: #000014;
+    box-shadow: -8px -8px 10px #fcfced, 8px -8px 10px #fcfced, -8px 8px 10px #fcfced, 8px 8px 10px #fcfced;
+    color: #fcfced;
+    transition: all 0.2s linear;
+}

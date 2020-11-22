@@ -110,3 +110,51 @@
 .loginSubmitShow_FebruaryC {
     visibility: visible;
 }
+
+.loginForgotPassword_FebruaryC {
+    background: #2f3848;
+    border: none;
+    color: #cbd9e7;
+    cursor: pointer;
+    font-family: 'Fondamento', cursive;
+    font-size: 24px;
+    left: 78%;
+    margin-top: 18px;
+    outline-color: #89949f;
+    padding: 5px 15px;
+    position: absolute;
+    top: 80%;
+    transition: all 0.2s linear;
+    width: 250px;
+}
+
+.loginForgotPassword_FebruaryC:hover {
+    background: #02050c;
+    box-shadow: -8px -8px 10px #a4aebc, 8px -8px 10px #a4aebc, -8px 8px 10px #a4aebc, 8px 8px 10px #a4aebc;
+    color: #a4aebc;
+    transition: all 0.2s linear;
+}
+
+.loginNewAccount_FebruaryC {
+    background: #2f3848;
+    border: none;
+    color: #cbd9e7;
+    cursor: pointer;
+    font-family: 'Fondamento', cursive;
+    font-size: 24px;
+    left: 78%;
+    margin-top: 18px;
+    outline-color: #89949f;
+    padding: 5px 15px;
+    position: absolute;
+    top: 86%;
+    transition: all 0.2s linear;
+    width: 250px;
+}
+
+.loginNewAccount_FebruaryC:hover {
+    background: #02050c;
+    box-shadow: -8px -8px 10px #a4aebc, 8px -8px 10px #a4aebc, -8px 8px 10px #a4aebc, 8px 8px 10px #a4aebc;
+    color: #a4aebc;
+    transition: all 0.2s linear;
+}

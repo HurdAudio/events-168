@@ -111,3 +111,51 @@
 .loginSubmitShow_MarchC {
     visibility: visible;
 }
+
+.loginForgotPassword_MarchC {
+    background: #e3cdb6;
+    border: none;
+    color: #342b25;
+    cursor: pointer;
+    font-family: 'Aleo', serif;
+    font-size: 24px;
+    left: 78%;
+    margin-top: 18px;
+    outline-color: #c7c3bf;
+    padding: 5px 15px;
+    position: absolute;
+    top: 80%;
+    transition: all 0.2s linear;
+    width: 250px;
+}
+
+.loginForgotPassword_MarchC:hover {
+    background: #383632;
+    box-shadow: -8px -8px 10px #e9eef2, 8px -8px 10px #e9eef2, -8px 8px 10px #e9eef2, 8px 8px 10px #e9eef2;
+    color: #e9eef2;
+    transition: all 0.2s linear;
+}
+
+.loginNewAccount_MarchC {
+    background: #e3cdb6;
+    border: none;
+    color: #342b25;
+    cursor: pointer;
+    font-family: 'Aleo', serif;
+    font-size: 24px;
+    left: 78%;
+    margin-top: 18px;
+    outline-color: #c7c3bf;
+    padding: 5px 15px;
+    position: absolute;
+    top: 88%;
+    transition: all 0.2s linear;
+    width: 250px;
+}
+
+.loginNewAccount_MarchC:hover {
+    background: #383632;
+    box-shadow: -8px -8px 10px #e9eef2, 8px -8px 10px #e9eef2, -8px 8px 10px #e9eef2, 8px 8px 10px #e9eef2;
+    color: #e9eef2;
+    transition: all 0.2s linear;
+}
