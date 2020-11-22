@@ -16,6 +16,7 @@ import './volcaFm.style.feba.css';
 import './volcaFm.style.febb.css';
 import './volcaFm.style.febc.css';
 import './volcaFm.style.mara.css';
+import './volcaFm.style.marb.css';
 import midi5pin from '../img/midi5pin.svg';
 import volcaFmImg1 from '../img/volcaFmImg1.png';
 import axios from 'axios';
@@ -33,13 +34,6 @@ function VolcaFm(user, patch) {
     const envelopeEndGraph = 410;
     const breakpointOffset = 4;
     const scaleScaler = 1.12;
-    const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/january/spinner/smile_loader_by_gleb.gif';
-    const janbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/january/spinner/material-preloader.gif';
-    const jancSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/spinners/january/giphy-janb.gif';
-    const febaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/february/spinner/Snake_04.gif';
-    const febbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/february/spinner/Animated-Loading-%C3%97-1.gif';
-    const febcSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/february/spinner/hexwave.gif';
-
     let midiOutput = null;
     let inputs = null;
     let outputs = null;
@@ -48,8 +42,8 @@ function VolcaFm(user, patch) {
     let keyEngaged = {};
     const skins = SkinsTable('fmVolcaEditor');
     
-//    skins.fmVolcaEditor.skin = '_MarchA';
-//    skins.fmVolcaEditor.spinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/march/spinner/heartBeater.gif';
+//    skins.fmVolcaEditor.skin = '_MarchB';
+//    skins.fmVolcaEditor.spinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMEditor/march/spinner/windowRain.gif';
 
     const [midiConnections, setMidiConnections] = useState(undefined);
     const [userMidiPatch, setUserMidiPatch] = useState(null);
