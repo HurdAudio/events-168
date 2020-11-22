@@ -20,6 +20,7 @@ import axios from 'axios';
 function Login() {
     
     const skins = SkinsTable('login');
+//    skins.login.skin = '_MarchC';
     
     const [loginMonth, setLoginMonth] = useState(skins.login.skin);
     const [errorMessage, setErrorMessage] = useState('');
@@ -106,6 +107,8 @@ function Login() {
                         </NavLink>
                 </form>
             </div>
+            <button className={'loginForgotPassword' + loginMonth}>forgot password</button>
+            <button className={'loginNewAccount' + loginMonth}>new account</button>
         </div>
         );
 }

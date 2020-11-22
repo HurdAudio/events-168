@@ -112,3 +112,51 @@
 .loginSubmitShow_FebruaryA {
     visibility: visible;
 }
+
+.loginForgotPassword_FebruaryA {
+    background: #39262c;
+    border: none;
+    color: #a5a7a0;
+    cursor: pointer;
+    font-family: 'Fondamento', cursive;
+    font-size: 24px;
+    left: 78%;
+    margin-top: 18px;
+    outline-color: #9c9396;
+    padding: 5px 15px;
+    position: absolute;
+    top: 80%;
+    transition: all 0.2s linear;
+    width: 250px;
+}
+
+.loginForgotPassword_FebruaryA:hover {
+    background: #bca88d;
+    box-shadow: -8px -8px 10px #d39b68, 8px -8px 10px #d39b68, -8px 8px 10px #d39b68, 8px 8px 10px #d39b68;
+    color: #1e1d1b;
+    transition: all 0.2s linear;
+}
+
+.loginNewAccount_FebruaryA {
+    background: #39262c;
+    border: none;
+    color: #a5a7a0;
+    cursor: pointer;
+    font-family: 'Fondamento', cursive;
+    font-size: 24px;
+    left: 78%;
+    margin-top: 18px;
+    outline-color: #9c9396;
+    padding: 5px 15px;
+    position: absolute;
+    top: 86%;
+    transition: all 0.2s linear;
+    width: 250px;
+}
+
+.loginNewAccount_FebruaryA:hover {
+    background: #bca88d;
+    box-shadow: -8px -8px 10px #d39b68, 8px -8px 10px #d39b68, -8px 8px 10px #d39b68, 8px 8px 10px #d39b68;
+    color: #1e1d1b;
+    transition: all 0.2s linear;
+}
