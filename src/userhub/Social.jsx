@@ -14,6 +14,7 @@ import './userhub.style.febb.css';
 import './userhub.style.febc.css';
 import './userhub.style.mara.css';
 import './userhub.style.marb.css';
+import './userhub.style.marc.css';
 import midi5pin from '../img/midi5pin.svg';
 import usersgroup from '../img/usersgroup.svg';
 import gitHub from '../img/gitHub.svg';
