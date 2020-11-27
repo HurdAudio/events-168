@@ -15,6 +15,7 @@ import bleu_midi_icon from '../img/bleu_midi_icon.png';
 import midiPortCropped1 from '../img/midiPortCropped1.jpg';
 import keyboard2779734960720 from '../img/keyboard2779734960720.png';
 import akaiProIcon from '../img/akaiProIcon.png';
+import apraSynth from '../img/apraSynth.png';
 import './landing.style.jana.css';
 import './landing.style.janb.css';
 import './landing.style.janc.css';
@@ -24,6 +25,7 @@ import './landing.style.febc.css';
 import './landing.style.mara.css';
 import './landing.style.marb.css';
 import './landing.style.marc.css';
+import './landing.style.apra.css';
 import Login from '../login/login';
 import SkinsTable from '../skins/skins';
 import LandingCols from './landingCols';
@@ -36,6 +38,8 @@ function Landing() {
     console.log(landingCols);
     
     const skins = SkinsTable('landing');
+//    skins.landing.skin = '_AprilA';
+//    skins.landing.logo = apraSynth;
     
     const [landingMonth, setLandingMonth] = useState(skins.landing.skin);
     const [midiImageClass, setMidiImageClass] = useState('midiImage');
