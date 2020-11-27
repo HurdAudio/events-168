@@ -39,6 +39,7 @@ import Microfreak from '../microfreak/microfreak';
 import VolcaFmPatchManager from '../volcaFmPatchManager/volcaFmPatchManager';
 import VolcaNubassPatchManager from '../volcaNubassPatchManager/volcaNubassPatchManager';
 import VolcaDrumPatchManager from '../volcaDrumPatchManager/volcaDrumPatchManager';
+import Gr1PatchManager from '../gr1PatchManager/gr1PatchManager';
 import MidiManager from '../midiManager/midiManager';
 import StepSequencer from '../stepSequencer/stepSequencer';
 import CheckStatus from '../login/checkLoginStatus';
@@ -275,6 +276,9 @@ function UserHub() {
                     </Route>
                     <Route path="/volca-drum-patch-manager">
                         {VolcaDrumPatchManager(user, null)}
+                    </Route>
+                    <Route path="/gr1-patch-manager">
+                        {Gr1PatchManager(user, null)}
                     </Route>
                     <Route path="/step-sequencer">
                         {StepSequencer(user, null)}

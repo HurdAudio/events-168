@@ -1,0 +1,1412 @@
+.gr1PatchManagerContainer_Active_JanuaryA {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.gr1PatchManagerContainer_Inactive_JanuaryA {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.gr1PatchManagerImageDiv_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/gr1PatchManager/january/double_entrance_by_erezmarom_d5ghl74-fullview.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5% [row9] 12.5%[rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.gr1PatchManagerTopBar_JanuaryA {
+    backdrop-filter: blur(5px) brightness(100%) hue-rotate(-135deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.gr1NavImage_JanuaryA {
+    cursor: pointer;
+    filter: contrast(110%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.gr1NavImage_JanuaryA:hover {
+    filter: contrast(130%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerTitle_JanuaryA {
+    color: #c6ccdc;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 36px;
+    grid-column: col2 / col7;
+    grid-row: row1 / row2;
+    margin: 9px;
+    z-index: 55;
+}
+
+.gr1PatchManagerSidebarManager_JanuaryA {
+    backdrop-filter: blur(13px) brightness(110%) hue-rotate(180deg);
+    border-right: 2px groove #154a58;
+    box-sizing: border-box;
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 1;
+}
+
+.gr1PatchManagerPanicButton_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    grid-column: col10 / rightEdge;
+    grid-row: row1 / row2;
+    z-index: 56;
+}
+
+.gr1PatchManagerLoadButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+    margin: 6px 65px 0 35px;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerLoadButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerLoadButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerNameInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #c6ccdc;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #869198;
+    position: absolute;
+    top: 2%;
+}
+
+.gr1PatchManagerUserPatchesListDiv_JanuaryA {
+    backdrop-filter: blur(16px) grayscale(50%) saturate(50%);
+    border-bottom: 2px groove #154a58;
+    border-right: 2px groove #154a58;
+    box-sizing: border-box;
+    grid-column: col3 / col6;
+    grid-row: row2 / row7;
+}
+
+.gr1PatchManagerUserPatchesListContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1PatchManagerUserPatchesList_JanuaryA {
+    background: linear-gradient(90deg, #c6ccdc, #8d98b8, #383c49, transparent, transparent, transparent, transparent, transparent, transparent, transparent, transparent, transparent, transparent, #383c49, #8d98b8, #c6ccdc);
+    border: 1px outset #154a58;
+    box-sizing: border-box;
+    filter: brightness(75%);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row12;
+}
+
+.gr1PatchManagerUserPatchListRealDiv_JanuaryA {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    grid-column: col3 / rightEdge;
+    grid-row: row2 / row11;
+}
+
+.gr1PatchManagerUserPatchListRealDiv_JanuaryA::-webkit-scrollbar {
+    background: transparent;
+}
+
+.gr1PatchManagerPatchNameDisplaytrue_JanuaryA {
+    background: #8d98b8;
+    color: #000108;
+    cursor: grab;
+    filter: brightness(110%) hue-rotate(-90deg);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    margin: 4px 0;
+}
+
+.gr1PatchManagerPatchNameDisplaytrue_JanuaryA:active {
+    cursor: grabbing;
+}
+
+.gr1PatchManagerPatchNameDisplayfalse_JanuaryA {
+    color: #c6ccdc;
+    cursor: grab;
+    filter: brightness(150%) contrast(150%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    margin: 4px 0;
+}
+
+.gr1PatchManagerPatchNameDisplayfalse_JanuaryA:active {
+    cursor: grabbing;
+}
+
+.gr1PatchManagerPatchNameDisplayfalse_JanuaryA:hover {
+    filter: brightness(150%) contrast(200%);
+}
+
+.gr1PatchManagerUpdateButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col4 / col11;
+    grid-row: row12 / rowEnd;
+    margin: 2px 65px 2px 35px;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerUpdateButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerUpdateButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerPatchActionsDiv_JanuaryA {
+    backdrop-filter: blur(15px) hue-rotate(-135deg);
+    border-bottom: 2px groove #154a58;
+    border-right: 2px groove #154a58;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row2 / row7;
+}
+
+.gr1PatchManagerPatchActionsContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 2fr [col3] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1PatchManagerEditLocator_JanuaryA {
+    grid-column: col2 / col3;
+    grid-row: row3 / row4;
+}
+
+.gr1PatchManagerEditActivePatchButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col2 / col3;
+    grid-row: row3 / row4;
+    margin: 6px 65px 0 35px;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 50%;
+    z-index: 155;
+}
+
+.gr1PatchManagerEditActivePatchButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerEditActivePatchButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerDeleteActivePatchButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col2 / col3;
+    grid-row: row5 / row6;
+    margin: 6px 65px 0 35px;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 50%;
+    z-index: 155;
+}
+
+.gr1PatchManagerDeleteActivePatchButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerDeleteActivePatchButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerMoveActivePatchButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    margin: 6px 65px 0 35px;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 50%;
+    z-index: 155;
+}
+
+.gr1PatchManagerMoveActivePatchButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerMoveActivePatchButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerBanksDiv_JanuaryA {
+    backdrop-filter: blur(16px) brightness(50%) contrast(160%) sepia(65%);
+    border-bottom: 2px groove #154a58;
+    border-right: 2px groove #154a58;
+    box-sizing: border-box;
+    grid-column: col7 / rightEdge;
+    grid-row: row2 / row7;
+}
+
+.gr1PatchManagerBankDisplayReal_JanuaryA {
+    height: 40.5vh;
+    margin-left: 5%;
+    margin-top: 4vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 95%;
+}
+
+.gr1PatchManagerBankDisplayReal_JanuaryA::-webkit-scrollbar {
+    background: transparent;
+}
+
+.gr1PatchManagerBankItemDiv_JanuaryA {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+.gr1PatchManagerBankPatchNamefalse_JanuaryA {
+    background: #161618;
+    color: #8d98b8;
+    cursor: pointer;
+    filter: brightness(200%) contrast(150%) saturate(100%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    opacity: 0.9;
+    padding: 4px 3px;
+    width: 75%;
+}
+
+.gr1PatchManagerBankPatchNamefalse_JanuaryA:hover {
+    filter: brightness(200%) contrast(250%) saturate(300%);
+}
+
+.gr1PatchManagerBankPatchNametrue_JanuaryA {
+    background: #383c49;
+    color: #c6ccdc;
+    cursor: none;
+    filter: brightness(220%) contrast(150%) hue-rotate(-90deg) saturate(100%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    opacity: 0.9;
+    padding: 4px 3px;
+    width: 75%;
+}
+
+.gr1PatchManakerDeleteChar_JanuaryA {
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(220%) contrast(150%) saturate(100%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    opacity: 0.9;
+    padding: 4px 3px;
+    width: 25px; 
+}
+
+.gr1PatchManakerDeleteChar_JanuaryA:hover {
+    color: #458fb4;
+    filter: brightness(500%);
+}
+
+.gr1PatchManagerBanksContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1PatchManagerBanksBar_JanuaryA {
+    background: linear-gradient(90deg, #383c49, #1b3948, #154a58, #1b3948, #383c49);
+    display: flex;
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.gr1PatchManagerBanksLabel_JanuaryA {
+    color: #c6ccdc;
+    filter: brightness(150%) contrast(300%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 30px;
+    transform: translateX(5px) translateY(3px);
+}
+
+.gr1PatchManagerBanksSelect_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #c6ccdc;
+    filter: brightness(150%) contrast(300%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    margin-left: 15px;
+    outline-color: #8993a1;
+    width: 40%;
+}
+
+.gr1PatchManagerAddBankButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    height: 100%;
+    margin-left: 5%;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 15%;
+    z-index: 155;
+}
+
+.gr1PatchManagerAddBankButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerAddBankButton_JanuaryA:active: {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerBankDisplayContainer_JanuaryA {
+    background: transparent;
+    display: flex;
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / row12;
+    transform: translateY(6px);
+}
+
+.gr1PatchManagerBankDisplayertrue_JanuaryA {
+    background: linear-gradient(90deg, #c6ccdc, #8d98b8, #383c49, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, transparent, #383c49, #8d98b8, #c6ccdc);
+    border: 2px groove #154a58;
+    filter: brightness(75%);
+    height: 100%;
+    opacity: 1;
+    transition: all 0.8s linear;
+    width: 100%;
+}
+
+.gr1PatchManagerBankDisplayerfalse_JanuaryA {
+    background: linear-gradient(90deg, #c6ccdc, #8d98b8, #383c49, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, transparent, #383c49, #8d98b8, #c6ccdc);
+    border: 2px groove #154a58;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 100%;
+    opacity: 0.5;
+    transition: all 0.8s linear;
+    width: 2vmin;
+}
+
+.gr1PatchManagerBankNameInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #c6ccdc;
+    filter: brightness(150%) contrast(300%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    grid-column: col4 / col14;
+    grid-row: row12 / rowEnd;
+    height: 75%;
+    outline-color: #869198;
+    transform: translateY(6px);
+}
+
+.gr1PatchManagerDeviceDiv_JanuaryA {
+    backdrop-filter: blur(17px) saturate(150%);
+    border-right: 2px groove #154a58;
+    box-sizing: border-box;
+    grid-column: col3 / col7;
+    grid-row: row7 / rowEnd;
+}
+
+.gr1PatchManagerUserNotesDiv_JanuaryA {
+    backdrop-filter: blur(13px) hue-rotate(-15deg);
+    border-right: 2px groove #154a58;
+    box-sizing: border-box;
+    grid-column: col7 / rightEdge;
+    grid-row: row7 / rowEnd;
+}
+
+.gr1PatchManagerUserNotesContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1PatchManagerUserNotesLabel_JanuaryA {
+    color: #000003;
+    filter: brightness(30%) contrast(300%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col9;
+    grid-row: row1 / row2;
+}
+
+.gr1PatchManagerUserNotesAreafalse_JanuaryA {
+    display: none;
+}
+
+.gr1PatchManagerUserNotesAreatrue_JanuaryA {
+    background: linear-gradient(90deg, #c6ccdc, #8d98b8, #383c49, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, #c6ccdc, transparent, #383c49, #8d98b8, #c6ccdc);
+    border: none;
+    color: #000003;
+    filter: brightness(110%) contrast(100%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col16;
+    grid-row: row2 / rowEnd;
+    margin: 5px 0;
+    opacity: 0.9;
+    outline-color: #869198;
+    padding: 3px 9px;
+}
+
+.gr1PatchManagerDeviceContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1PatchManagerDeviceImage_JanuaryA {
+    filter: drop-shadow(5px 5px 15px #383c49);
+    grid-column: col3 / col13;
+    grid-row: row3 / rowEnd;
+    width: 100%;
+}
+
+.gr1PatchManagerCurrentPatchDisplay_JanuaryA {
+    color: #000003;
+    filter: brightness(100%) contrast(300%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    grid-column: col8 / col15;
+    grid-row: row2 / row3;
+}
+
+.gr1PatchManagerSidebarContainer_JanuaryA {
+    display: grid;
+    grid-template-columns: [sideCol1] 1fr [sideCol2] 1fr [sideCol3] 1fr [sideCol4] 1fr [sideCol5] 1fr [sideColEnd];
+    grid-template-rows: [sideRow1] 1fr [sideRow2] 1fr [sideRow3] 1fr [sideRow4] 1fr [sideRow5] 1fr [sideRow6] 1fr [sideRow7] 1fr [sideRow8] 1fr [sideRow9] 1fr [sideRow10] 1fr [sideRow11] 1fr [sideRow12] 1fr [sideRow13] 1fr [sideRow14] 1fr [sideRow15] 1fr [sideRow16] 1fr [sideRow17] 1fr [sideRow18] 1fr [sideRow19] 1fr [sideRow20] 1fr [sideRow21] 1fr [sideRow22] 1fr [sideRow23] 1fr [sideRow24] 1fr [sideRowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1PatchManagerSaveButtonfalse_JanuaryA {
+    display: none;
+}
+
+.gr1PatchManagerSaveButtontrue_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow3 / sideRow4;
+    height: 100%;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerSaveButtontrue_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerSaveButtontrue_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerSaveAsButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 15px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow5 / sideRow6;
+    height: 100%;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerSaveAsButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerSaveAsButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerRevertButtonfalse_JanuaryA {
+    display: none;
+}
+
+.gr1PatchManagerRevertButtontrue_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow7 / sideRow8;
+    height: 100%;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerRevertButtontrue_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerRevertButtontrue_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerMidiOutputLabel_JanuaryA {
+    color: #c6ccdc;
+    filter: brightness(150%) contrast(300%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 15px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow10 / sideRow11;
+}
+
+.gr1PatchManagerMidiOutputSelect_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #c6ccdc;
+    filter: brightness(150%) contrast(300%);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow11 / sideRow12;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 15px;
+    outline-color: #869198;
+}
+
+.gr1PatchManagerMidiChannelLabel_JanuaryA {
+    color: #c6ccdc;
+    filter: brightness(150%) contrast(300%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 15px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow13 / sideRow14;
+}
+
+.gr1PatchManagerMidiChannelInput_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #c6ccdc;
+    filter: brightness(150%) contrast(300%);
+    grid-column: sideCol3 / sideCol4;
+    grid-row: sideRow14 / sideRow15;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    outline-color: #869198;
+}
+
+.gr1PatchManagerShareButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow17 / sideRow18;
+    height: 100%;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerShareButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerShareButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerInitButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow19 / sideRow20;
+    height: 100%;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerInitButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerInitButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerDeleteCollectionButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow21 / sideRow22;
+    height: 100%;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerDeleteCollectionButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerDeleteCollectionButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerAboutFmManagement_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    height: 100%;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerAboutFmManagement_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerAboutFmManagement_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerDeletePatchGuardrail_Inactive_JanuaryA {
+    background: #39383d;
+    height: 20%;
+    left: -55%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.gr1PatchManagerDeletePatchGuardrail_Active_JanuaryA {
+    background: #39383d;
+    height: 20%;
+    left: 35%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.gr1PatchManagerDeletePatchGuardrailLabel_JanuaryA {
+    color: #c6ccdc;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    margin: 15px 25px;
+}
+
+.gr1PatchManagerDeletePatchGuardrailFinePrint_JanuaryA {
+    color: #c6ccdc;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    margin: 15px;
+}
+
+.gr1PatchManagerDeleteGuardrailButtonsDiv_JanuaryA {
+    display: flex;
+    margin-left: 10%;
+    width: 80%;
+}
+
+.gr1PatchManagerDeleteGuardrailButtonsDiv_JanuaryA button {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    height: 100%;
+    margin-right: 10%;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    width: 40%;
+    z-index: 155;
+}
+
+.gr1PatchManagerDeleteGuardrailButtonsDiv_JanuaryA button:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerDeleteGuardrailButtonsDiv_JanuaryA button:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerSaveAsModal_Inactive_JanuaryA {
+    background: #1b3948;
+    height: 20%;
+    left: 185%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.gr1PatchManagerSaveAsModal_Active_JanuaryA {
+    background: #1b3948;
+    height: 20%;
+    left: 35%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.gr1PatchManagerSaveAsLabel_JanuaryA {
+    color: #c6ccdc;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    margin: 15px 25px;
+}
+
+.gr1PatchManagerSaveAsInput_JanuaryA {
+    background: #a9bbc7;
+    border: none;
+    color: #000003;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    margin: 5px 0 20px 15%;
+    outline-color: #869198;
+    width: 70%;
+}
+
+.gr1PatchManagerShareModal_Inactive_JanuaryA {
+    background: #000108;
+    height: 60%;
+    left: 25%;
+    opacity: 0;
+    position: absolute;
+    top: 15%;
+    transform: rotateY(90deg);
+    transition: all 0.5s linear;
+    width: 50%;
+    z-index: 200;
+}
+
+.gr1PatchManagerShareModal_Active_JanuaryA {
+    background: #000108;
+    height: 60%;
+    left: 25%;
+    opacity: 1;
+    position: absolute;
+    top: 15%;
+    transform: rotateY(0deg);
+    transition: all 0.5s linear;
+    width: 50%;
+    z-index: 200;
+}
+
+.gr1PatchManagerShareLabel_JanuaryA {
+    color: #c6ccdc;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    margin: 15px 25px;
+}
+
+.gr1PatchManagerShareForm_JanuaryA {
+    border-top: 2px groove #c6ccdc;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [col11] 1fr [col12] 1fr [col13] 1fr [col14] 1fr [col15] 1fr [col16] 1fr [colEnd];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1PatchManagerCollectionNameLabel_JanuaryA {
+    color: #c6ccdc;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col7;
+    grid-row: row2 / row3;
+}
+
+.gr1PatchManagerSubmittedByLabel_JanuaryA {
+    color: #c6ccdc;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: col10 / col15;
+    grid-row: row2 / row3;
+}
+
+.gr1PatchManagerCollectionName_JanuaryA {
+    color: #c6ccdc;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col8;
+    grid-row: row3 / row4;
+}
+
+.gr1PatchManagerSubmittedBy_JanuaryA {
+    color: #c6ccdc;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: col11 / col16;
+    grid-row: row3 / row4;
+}
+
+.gr1PatchManagerPublicDescriptionLabel_JanuaryA {
+    color: #c6ccdc;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col9;
+    grid-row: row5 / row6;
+}
+
+.gr1PatchManagerPublicDescription_JanuaryA {
+    background: #a9bbc7;
+    border: none;
+    border-radius: 0 0 15px 0;
+    color: #000003;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col16;
+    grid-row: row6 / row9;
+    outline-color: #869198;
+}
+
+.gr1PatchManagerShareSubmitButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: col6 / col8;
+    grid-row: row10 / row11;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerShareSubmitButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerShareSubmitButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerShareCancelButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: col9 / col11;
+    grid-row: row10 / row11;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerShareCancelButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerShareCancelButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerDeleteCollectionModal_Inactive_JanuaryA {
+    background: #0d2330;
+    height: 20%;
+    left: 35%;
+    position: absolute;
+    top: -120%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.gr1PatchManagerDeleteCollectionModal_Active_JanuaryA {
+    background: #0d2330;
+    height: 20%;
+    left: 35%;
+    position: absolute;
+    top: 20%;
+    transition: all 0.5s linear;
+    width: 30%;
+    z-index: 200;
+}
+
+.gr1PatchManagerAboutModal_Inactive_JanuaryA {
+    background: #8aa5ac;
+    filter: invert(0%);
+    height: 90%;
+    left: 5%;
+    position: absolute;
+    top: 115%;
+    transition: all 0.5s linear;
+    width: 90%;
+    z-index: 200;
+}
+
+.gr1PatchManagerAboutModal_Active_JanuaryA {
+    background: #8aa5ac;
+    filter: invert(100%);
+    height: 90%;
+    left: 5%;
+    position: absolute;
+    top: 5%;
+    transition: all 0.5s linear;
+    width: 90%;
+    z-index: 200;
+}
+
+.gr1PatchManagerAboutContentDiv_JanuaryA {
+    background: #000003;
+    height: 85%;
+    left: 5%;
+    position: relative;
+    top: 5%;
+    width: 90%;
+}
+
+.gr1PatchManagerAboutContentDiv_JanuaryA h2 {
+    color: #c6ccdc;
+    font-family: 'Alata', serif;
+    font-size: 36px;
+    margin: 5px 0 30px 30px;
+}
+
+.gr1PatchManagerAboutContentDiv_JanuaryA h3 {
+    color: #c6ccdc;
+    font-family: 'Alata', serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 10px 25px 10px 45px;
+    max-width: 950px;
+}
+
+.gr1PatchManagerAboutContentDiv_JanuaryA p {
+    color: #c6ccdc;
+    font-family: 'Alata', serif;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 5px 25px 30px 25px;
+    max-width: 950px;
+}
+
+.gr1PatchManagerAboutCloseButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    margin-left: 45%;
+    margin-top: 4.5%;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerAboutCloseButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerAboutCloseButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerCollectionLoadModal_Inactive_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/gr1PatchManager/january/double_entrance_by_erezmarom_d5ghl74-fullview.jpg);
+    background-size: cover;
+    border: 2px groove #154a58;
+    box-shadow: 5px 5px 5px #383c49;
+    box-sizing: border-box;
+    filter: invert(100%);
+    height: 40vh;
+    left: -170%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.gr1PatchManagerCollectionLoadModal_Active_JanuaryA {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/gr1PatchManager/january/double_entrance_by_erezmarom_d5ghl74-fullview.jpg);
+    background-size: cover;
+    border: 2px groove #154a58;
+    box-shadow: 5px 5px 5px #383c49;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.gr1PatchManagerCollectionLoadContainer_JanuaryA {
+    backdrop-filter: blur(15px) brightness(50%) hue-rotate(-30deg);
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.gr1PatchManagerLoadTitle_JanuaryA {
+    color: #c6ccdc;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col9;
+    grid-row: row2 / row3;
+}
+
+.gr1PatchManagerLoadSelector_JanuaryA {
+    background: transparent;
+    border: none;
+    color: #c6ccdc;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col10;
+    grid-row: row4 / row5;
+    outline-color: #869198;
+}
+
+.gr1PatchManagerLoadLoadButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerLoadLoadButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerLoadLoadButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerLoadCancelButton_JanuaryA {
+    backdrop-filter: hue-rotate(25deg);
+    background: transparent;
+    border: 2px solid #c6ccdc;
+    color: #c6ccdc;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #383c49) saturate(200%);
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    grid-column: col7 / col9;
+    grid-row: row7 / row8;
+    outline-color: #869198;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    z-index: 155;
+}
+
+.gr1PatchManagerLoadCancelButton_JanuaryA:hover {
+    backdrop-filter: hue-rotate(-45deg);
+    border: 2px solid #458fb4;
+    color: #458fb4;
+    filter: brightness(115%) drop-shadow(8px 4px 5px #383c49) saturate(300%);
+    transition: all 0.2s linear;
+}
+
+.gr1PatchManagerLoadCancelButton_JanuaryA:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #383c49) invert(100%);
+    transition: all 0.1s linear;
+}
+
+.gr1PatchManagerPanicOff_JanuaryA {
+    display: none;
+}
+
+.gr1PatchManagerPanicOn_JanuaryA {
+    border-radius: 0 0 15px 0;
+    height: 80%;
+    left: 25%;
+    opacity: 0.8;
+    position: absolute;
+    top: 10%;
+    width: 80%;
+    z-index: 400;
+}

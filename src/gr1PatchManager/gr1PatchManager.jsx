@@ -10,17 +10,16 @@ import {
     Link
 } from "react-router-dom";
 
-import VolcaDrum from '../volcaDrum/volcaDrum';
+import Gr1Editor from '../gr1Editor/gr1Editor';
 import midi5pin from '../img/midi5pin.svg';
-import './volcaDrumPatchManager.style.jana.css';
+import './gr1PatchManager.style.jana.css';
 import midiConnection from '../midiManager/midiConnection';
-import VolcaDrumPatchTransmitter from './volcaDrumPatchTransmitter';
 import axios from 'axios';
 import uuid4 from 'uuid4';
 
 let connections = null;
 
-function VolcaDrumPatchManager(user, banks) {
+function Gr1PatchManager(user, banks) {
     
     const keyOnOffset = 20;
     const envelopeGraphTopVal = 220;
@@ -29,7 +28,7 @@ function VolcaDrumPatchManager(user, banks) {
     const envelopeEndGraph = 410;
     const breakpointOffset = 4;
     const scaleScaler = 1.12;
-    const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumPatchEditor/january/spinner/56172d7059b5a527bce0adca75ff6f18.gif';
+    const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1PatchManager/january/spinners/1_5IEruphfrMF6TUVd4uVqCQ.gif';
 
     let midiOutput = null;
     let inputs = null;
@@ -40,15 +39,15 @@ function VolcaDrumPatchManager(user, banks) {
 
     const [midiConnections, setMidiConnections] = useState(undefined);
     const [userMidiPatch, setUserMidiPatch] = useState(null);
-    const [panicState, setPanicState] = useState('volcaDrumPatchManagerPanicOff');
+    const [panicState, setPanicState] = useState('gr1PatchManagerPanicOff');
     const [patchDeleteGuardrailState, setPatchDeleteGuardrailState] = useState('_Inactive');
     const [saveAsModalState, setSaveAsModalState] = useState('_Inactive');
-    const [volcaDrumPatchManagerContainerState, setVolcaDrumPatchManagerContainerState] = useState('_Active');
+    const [gr1PatchManagerContainerState, setGr1PatchManagerContainerState] = useState('_Active');
     const [shareModalState, setShareModalState] = useState('_Inactive');
     const [deleteCollectionModalState, setDeleteCollectionModalState] = useState('_Inactive');
     const [aboutModalState, setAboutModalState] = useState('_Inactive');
     const [collectionLoadModalState, setCollectionLoadModalState] = useState('_Inactive');
-    const [volcaDrumPatchManagerMonth, setVolcaDrumPatchManagerMonth] = useState('_JanuaryA');
+    const [gr1PatchManagerMonth, setGr1PatchManagerMonth] = useState('_JanuaryA');
     const [availableCollections, setAvailableCollections] = useState([]);
     const [currentCollection, setCurrentCollection] = useState('');
     const [selectedCollectionValue, setSelectedCollectionValue] = useState('');
@@ -67,20 +66,20 @@ function VolcaDrumPatchManager(user, banks) {
     const [patchCollection, setPatchCollection] = useState({
         banks: [
             {
-                uuid: 'e5f17697-d71e-421c-93e0-9f809593c05b',
-                name: 'tuned',
+                uuid: '3736a856-eb3c-4e9e-ba08-b3a9f8738acb',
+                name: 'wavetable drone',
                 notes: '',
                 patches: []
             },
             {
-                uuid: '5c7bccdf-a84a-454f-861f-dc791002354b',
-                name: 'enharmonic kit',
+                uuid: '9d984b07-4301-4a4c-99f3-10e0ff94212e',
+                name: 'semiotic expansions',
                 notes: '',
                 patches: []
             },
             {
-                uuid: 'fb7992a0-a318-42ce-aba3-0e8ac2919fc6',
-                name: 'plastic kit',
+                uuid: 'a0d022c2-7e7b-4801-ad19-1cda04ec020e',
+                name: 'pythagorean drone',
                 notes: '',
                 patches: []
             }
@@ -92,7 +91,7 @@ function VolcaDrumPatchManager(user, banks) {
     
     const openLoadCollectionModal = () => {
         setCollectionLoadModalState('_Active');
-        setVolcaDrumPatchManagerContainerState('_Inactive');
+        setGr1PatchManagerContainerState('_Inactive');
 //        axios.get(`/volca_fm_banks/byuser/${user.uuid}`)
 //        .then(collectionsData => {
 //            const collections = collectionsData.data.sort((a, b) => {
@@ -111,14 +110,14 @@ function VolcaDrumPatchManager(user, banks) {
     
     const closeCollectionLoadModal = () => {
         setCollectionLoadModalState('_Inactive');
-        setVolcaDrumPatchManagerContainerState('_Active');
+        setGr1PatchManagerContainerState('_Active');
     }
     
     const loadCollection = () => {
         let deepCopy = {...patchCollection};
         if (selectedCollectionValue === '') {
             setCollectionLoadModalState('_Inactive');
-            setVolcaDrumPatchManagerContainerState('_Active');
+            setGr1PatchManagerContainerState('_Active');
             return;
         }
         const selected = selectedCollectionValue;
@@ -132,28 +131,28 @@ function VolcaDrumPatchManager(user, banks) {
 //            deepCopy.uuid = loadedCollection.uuid;
 //            setPatchCollection(deepCopy);
 //            setCollectionLoadModalState('_Inactive');
-//            setvolcaDrumPatchManagerContainerState('_Active');
+//            setgr1PatchManagerContainerState('_Active');
 //        });
     }
     
     const openAboutModal = () => {
         setAboutModalState('_Active');
-        setVolcaDrumPatchManagerContainerState('_Inactive');
+        setGr1PatchManagerContainerState('_Inactive');
     }
     
     const closeAboutModal = () => {
         setAboutModalState('_Inactive');
-        setVolcaDrumPatchManagerContainerState('_Active');
+        setGr1PatchManagerContainerState('_Active');
     }
     
     const openDeleteCollectionModal = () => {
         setDeleteCollectionModalState('_Active');
-        setVolcaDrumPatchManagerContainerState('_Inactive');
+        setGr1PatchManagerContainerState('_Inactive');
     }
     
     const closeDeleteCollectionModal = () => {
         setDeleteCollectionModalState('_Inactive');
-        setVolcaDrumPatchManagerContainerState('_Active');
+        setGr1PatchManagerContainerState('_Active');
     }
     
     const initializeNewCollection = () => {
@@ -177,18 +176,18 @@ function VolcaDrumPatchManager(user, banks) {
     
     const openShareModal = () => {
         setShareModalState('_Active');
-        setVolcaDrumPatchManagerContainerState('_Inactive');
+        setGr1PatchManagerContainerState('_Inactive');
     }
     
     const closeShareModal = () => {
         setShareModalState('_Inactive');
-        setVolcaDrumPatchManagerContainerState('_Active');
+        setGr1PatchManagerContainerState('_Active');
     }
     
     const submitShareModal = () => {
-        const volcaDrumPatchManagerPublicDescription = document.getElementById('volcaDrumPatchManagerPublicDescription').value;
+        const gr1PatchManagerPublicDescription = document.getElementById('gr1PatchManagerPublicDescription').value;
         setShareModalState('_Inactive');
-        setVolcaDrumPatchManagerContainerState('_Active');
+        setGr1PatchManagerContainerState('_Active');
 //        axios.get(`/volca_fm_shares/byuser/${user.uuid}`)
 //        .then(userSharesData => {
 //            const userShares = userSharesData.data;
@@ -203,10 +202,10 @@ function VolcaDrumPatchManager(user, banks) {
 //                        banks: patchCollection.banks
 //                    },
 //                    name: patchCollection.name,
-//                    public_description: volcaDrumPatchManagerPublicDescription
+//                    public_description: gr1PatchManagerPublicDescription
 //                }).then(() => {
 //                    setShareModalState('_Inactive');
-//                    setvolcaDrumPatchManagerContainerState('_Active');
+//                    setGr1PatchManagerContainerState('_Active');
 //                })
 //            } else {
 //                axios.patch(`/volca_fm_shares/shares/${existingShare[0].uuid}`, {
@@ -214,10 +213,10 @@ function VolcaDrumPatchManager(user, banks) {
 //                        banks: patchCollection.banks
 //                    },
 //                    name: patchCollection.name,
-//                    public_description: volcaDrumPatchManagerPublicDescription
+//                    public_description: gr1PatchManagerPublicDescription
 //                }).then(() => {
 //                    setShareModalState('_Inactive');
-//                    setvolcaDrumPatchManagerContainerState('_Active');
+//                    setGr1PatchManagerContainerState('_Active');
 //                });
 //            }
 //        });
@@ -225,16 +224,16 @@ function VolcaDrumPatchManager(user, banks) {
     
     const closeSaveAsModal = () => {
         setSaveAsModalState('_Inactive');
-        setVolcaDrumPatchManagerContainerState('_Active');
-        document.getElementById('volcaDrumPatchManagerSaveAsInput').value = '';
+        setGr1PatchManagerContainerState('_Active');
+        document.getElementById('gr1PatchManagerSaveAsInput').value = '';
     }
     
     const openSaveAsModal = () => {
         setSaveAsModalState('_Active');
-        setVolcaDrumPatchManagerContainerState('_Inactive');
-//        setTimeout(() => {
-//            document.getElementById('volcaDrumPatchManagerSaveAsInput').focus();
-//        }, 150);
+        setGr1PatchManagerContainerState('_Inactive');
+        setTimeout(() => {
+            document.getElementById('gr1PatchManagerSaveAsInput').focus();
+        }, 150);
         
     }
     
@@ -242,7 +241,7 @@ function VolcaDrumPatchManager(user, banks) {
         let deepCopy = {...patchCollection};
         let deepUserCopy = [...userPatches];
         let index = null;
-        setVolcaDrumPatchManagerContainerState('_Active');
+        setGr1PatchManagerContainerState('_Active');
         setPatchDeleteGuardrailState('_Inactive');
         
 //        axios.delete(`/volca_fm_patches/${selectedPatchPatch}`)
@@ -270,18 +269,18 @@ function VolcaDrumPatchManager(user, banks) {
 //            setSelectedPatchPatch('');
 //            setPatchCollection(deepCopy);
 //            setUserPatches(deepUserCopy);
-//            setvolcaDrumPatchManagerContainerState('_Active');
+//            setGr1PatchManagerContainerState('_Active');
 //            setPatchDeleteGuardrailState('_Inactive');
 //        });
     }
     
     const cancelPatchDeleteGuardrail = () => {
-        setVolcaDrumPatchManagerContainerState('_Active');
+        setGr1PatchManagerContainerState('_Active');
         setPatchDeleteGuardrailState('_Inactive');
     }
     
     const deletePatchGuardrail = () => {
-        setVolcaDrumPatchManagerContainerState('_Inactive');
+        setGr1PatchManagerContainerState('_Inactive');
         setPatchDeleteGuardrailState('_Active');
     }
     
@@ -528,7 +527,7 @@ function VolcaDrumPatchManager(user, banks) {
                 patch = userPatches[i];
             }
         }
-        VolcaDrumPatchTransmitter(patch, currentOutput);
+//        gr1PatchTransmitter(patch, currentOutput);
     }
     
     const makePatchPatchCurrent = (val) => {
@@ -541,7 +540,7 @@ function VolcaDrumPatchManager(user, banks) {
                 patch = userPatches[i];
             }
         }
-        VolcaDrumPatchTransmitter(patch, currentOutput);
+//        gr1PatchTransmitter(patch, currentOutput);
     }
     
     const changeBankEdit = (val) => {
@@ -611,7 +610,7 @@ function VolcaDrumPatchManager(user, banks) {
     }
     
     const updateUserPatches = () => {
-        axios.get(`/volca_drum_patches/byuser/${user.uuid}`)
+        axios.get(`/gr1_patches/byuser/${user.uuid}`)
         .then(patchesData => {
             console.log(patchesData);
             const patches = patchesData.data.sort((a, b) => {
@@ -660,7 +659,7 @@ function VolcaDrumPatchManager(user, banks) {
                         }
                         setUserMidiPatch(outputsArr);
                         setAvailableOutputs(connections.outputs);
-                        let volcaDrumsList = midiPatch.filter(entry => {
+                        let gr1sList = midiPatch.filter(entry => {
                             return(entry.deviceUuid === 'e3bfacf5-499a-4247-b512-2c4bd15861ad')
                         });
                         for (let j = 0; j < midiPatch.lenth; j++) {
@@ -909,8 +908,8 @@ function VolcaDrumPatchManager(user, banks) {
     
     const panic = () => {
 //        if(availableOutputs[0]) {
-            setPanicState('volcaDrumPatchManagerPanicOn');
-            setVolcaDrumPatchManagerContainerState('_Inactive');
+            setPanicState('gr1PatchManagerPanicOn');
+            setGr1PatchManagerContainerState('_Inactive');
 //            for (let i = 0; i < availableOutputs.length; i++) {
 //                for (let channel = 0; channel < 16; channel++) {
 //                    for (let note = 0; note < 128; note++) {
@@ -919,12 +918,12 @@ function VolcaDrumPatchManager(user, banks) {
 //                }
 //            }
 //            setTimeout(() => {
-//                setPanicState('volcaDrumPatchManagerPanicOff');
-//                setvolcaDrumPatchManagerContainerState('_Active');
+//                setPanicState('gr1PatchManagerPanicOff');
+//                setGr1PatchManagerContainerState('_Active');
 //            }, availableOutputs.length * 2000);
             setTimeout(() => {
-                setPanicState('volcaDrumPatchManagerPanicOff');
-                setVolcaDrumPatchManagerContainerState('_Active');
+                setPanicState('gr1PatchManagerPanicOff');
+                setGr1PatchManagerContainerState('_Active');
             }, 7000);
 //        }
     }
@@ -1036,8 +1035,8 @@ function VolcaDrumPatchManager(user, banks) {
     }
     
     const saveCopyOfCollection = () => {
-        const volcaDrumPatchManagerSaveAsInput = document.getElementById('volcaDrumPatchManagerSaveAsInput').value;
-        if (volcaDrumPatchManagerSaveAsInput === '') {
+        const gr1PatchManagerSaveAsInput = document.getElementById('gr1PatchManagerSaveAsInput').value;
+        if (gr1PatchManagerSaveAsInput === '') {
             return;
         }
         closeCollectionLoadModal();
@@ -1046,7 +1045,7 @@ function VolcaDrumPatchManager(user, banks) {
 //            banks: {
 //                banks: patchCollection.banks
 //            },
-//            name: volcaDrumPatchManagerSaveAsInput
+//            name: gr1PatchManagerSaveAsInput
 //        }).then(copySetData => {
 //            console.log(copySetData.data.uuid);
 //            setTimeout(() => {
@@ -1058,7 +1057,7 @@ function VolcaDrumPatchManager(user, banks) {
     
     const deleteCollection = () => {
         const selectedUuid = currentCollection;
-        axios.delete(`/volca_fm_banks/${selectedUuid}`)
+        axios.delete(`/gr1_banks/${selectedUuid}`)
         .then(() => {
             setCurrentCollection('');
             initializeNewCollection();
@@ -1073,69 +1072,69 @@ function VolcaDrumPatchManager(user, banks) {
         <div>
             <Router>
                 <Switch>
-                    <Route path="/volca-drum-editor">
-                        {VolcaDrum(user, getActivePatch())}
+                    <Route path="/gr1-editor">
+                        {Gr1Editor(user, getActivePatch())}
                     </Route>
                 </Switch>
             </Router>
             <div>
-                <div className={'volcaDrumPatchManagerContainer' + volcaDrumPatchManagerContainerState + volcaDrumPatchManagerMonth}
+                <div className={'gr1PatchManagerContainer' + gr1PatchManagerContainerState + gr1PatchManagerMonth}
                     tabIndex="1"
                     onKeyDown={(e) => noteOnEvent(e.key)}
                     onKeyUp={(e) => noteOffEvent(e.key)}>
-                    <div className={'volcaDrumPatchManagerImageDiv' + volcaDrumPatchManagerMonth}>
-                        <div className={'volcaDrumPatchManagerTopBar' + volcaDrumPatchManagerMonth}>
-                            <NavLink to="/"><img className={'volcaDrumNavImage' + volcaDrumPatchManagerMonth}
+                    <div className={'gr1PatchManagerImageDiv' + gr1PatchManagerMonth}>
+                        <div className={'gr1PatchManagerTopBar' + gr1PatchManagerMonth}>
+                            <NavLink to="/"><img className={'gr1NavImage' + gr1PatchManagerMonth}
                                 src={midiImage}></img></NavLink>
                         </div>
-                        <h3 className={'volcaDrumPatchManagerTitle' + volcaDrumPatchManagerMonth}>Volca Drum Patch Manager</h3>
-                        <button className={'volcaDrumPatchManagerLoadButton' + volcaDrumPatchManagerMonth}
+                        <h3 className={'gr1PatchManagerTitle' + gr1PatchManagerMonth}>GR-1 Patch Manager</h3>
+                        <button className={'gr1PatchManagerLoadButton' + gr1PatchManagerMonth}
                             onClick={() => openLoadCollectionModal()}>load</button>
-                        <input className={'volcaDrumPatchManagerNameInput' + volcaDrumPatchManagerMonth}
+                        <input className={'gr1PatchManagerNameInput' + gr1PatchManagerMonth}
                             onChange={(e) => patchCollectionNameUpdate(e.target.value)}
                             type="text"
                             value={patchCollection.name}/>
-                        <button className={'volcaDrumPatchManagerPanicButton' + volcaDrumPatchManagerMonth}
+                        <button className={'gr1PatchManagerPanicButton' + gr1PatchManagerMonth}
                             onClick={() => panic()}>panic!</button>
-                        <div className={'volcaDrumPatchManagerSidebarManager' + volcaDrumPatchManagerMonth}>
-                            <div className={'volcaDrumPatchManagerSidebarContainer' + volcaDrumPatchManagerMonth}>
-                                <button className={'volcaDrumPatchManagerSaveButton' + collectionAltered + volcaDrumPatchManagerMonth}
+                        <div className={'gr1PatchManagerSidebarManager' + gr1PatchManagerMonth}>
+                            <div className={'gr1PatchManagerSidebarContainer' + gr1PatchManagerMonth}>
+                                <button className={'gr1PatchManagerSaveButton' + collectionAltered + gr1PatchManagerMonth}
                                     onClick={() => saveCollection()}>save</button>
-                                <button className={'volcaDrumPatchManagerSaveAsButton' + volcaDrumPatchManagerMonth}
+                                <button className={'gr1PatchManagerSaveAsButton' + gr1PatchManagerMonth}
                                     onClick={() => openSaveAsModal()}>save as...</button>
-                                <button className={'volcaDrumPatchManagerRevertButton' + collectionAltered + volcaDrumPatchManagerMonth}
+                                <button className={'gr1PatchManagerRevertButton' + collectionAltered + gr1PatchManagerMonth}
                                     onClick={() => revertCollection()}>revert</button>
-                                <p className={'volcaDrumPatchManagerMidiOutputLabel' + volcaDrumPatchManagerMonth}>midi output:</p>
-                                <select className={'volcaDrumPatchManagerMidiOutputSelect' + volcaDrumPatchManagerMonth}
+                                <p className={'gr1PatchManagerMidiOutputLabel' + gr1PatchManagerMonth}>midi output:</p>
+                                <select className={'gr1PatchManagerMidiOutputSelect' + gr1PatchManagerMonth}
                                     onChange={(e) => updateCurrentOutput(e.target.value)}
                                     value={getVisualOutput(currentOutput)}>
                                     {availableOutputs.map(out => (
                                 <option key={out.id} value={out.id}>{out.label}</option>))}
                                 </select>
-                                <p className={'volcaDrumPatchManagerMidiChannelLabel' + volcaDrumPatchManagerMonth}>channel:</p>
-                                <input className={'volcaDrumPatchManagerMidiChannelInput' + volcaDrumPatchManagerMonth}
+                                <p className={'gr1PatchManagerMidiChannelLabel' + gr1PatchManagerMonth}>channel:</p>
+                                <input className={'gr1PatchManagerMidiChannelInput' + gr1PatchManagerMonth}
                                     max="15"
                                     min="0"
                                     onChange={(e) => updateCurrentMidiChannel(parseInt(e.target.value))}
                                     step="1"
                                     type="number"
                                     value={currentMidiChannel}/>
-                                <button className={'volcaDrumPatchManagerShareButton' + volcaDrumPatchManagerMonth}
+                                <button className={'gr1PatchManagerShareButton' + gr1PatchManagerMonth}
                                     onClick={() => openShareModal()}>share</button>
-                                <button className={'volcaDrumPatchManagerInitButton' + volcaDrumPatchManagerMonth}
+                                <button className={'gr1PatchManagerInitButton' + gr1PatchManagerMonth}
                                     onClick={() => initializeNewCollection()}>init</button>
-                                <button className={'volcaDrumPatchManagerDeleteCollectionButton' + volcaDrumPatchManagerMonth}
+                                <button className={'gr1PatchManagerDeleteCollectionButton' + gr1PatchManagerMonth}
                                     onClick={() => openDeleteCollectionModal()}>delete</button>
-                                <button className={'volcaDrumPatchManagerAboutFmManagement' + volcaDrumPatchManagerMonth}
+                                <button className={'gr1PatchManagerAboutFmManagement' + gr1PatchManagerMonth}
                                     onClick={() => openAboutModal()}>about</button>
                             </div>
                         </div>
-                        <div className={'volcaDrumPatchManagerUserPatchesListDiv' + volcaDrumPatchManagerMonth}>
-                            <div className={'volcaDrumPatchManagerUserPatchesListContainer' + volcaDrumPatchManagerMonth}>
-                                <div className={'volcaDrumPatchManagerUserPatchesList' + volcaDrumPatchManagerMonth}></div>
-                                {(userPatches.length > 0) && (<div className={'volcaDrumPatchManagerUserPatchListRealDiv' + volcaDrumPatchManagerMonth}>
+                        <div className={'gr1PatchManagerUserPatchesListDiv' + gr1PatchManagerMonth}>
+                            <div className={'gr1PatchManagerUserPatchesListContainer' + gr1PatchManagerMonth}>
+                                <div className={'gr1PatchManagerUserPatchesList' + gr1PatchManagerMonth}></div>
+                                {(userPatches.length > 0) && (<div className={'gr1PatchManagerUserPatchListRealDiv' + gr1PatchManagerMonth}>
                                     {userPatches.map(patch => 
-                                        <p className={'volcaDrumPatchManagerPatchNameDisplay' + (selectedPatchPatch === patch.uuid) + volcaDrumPatchManagerMonth}
+                                        <p className={'gr1PatchManagerPatchNameDisplay' + (selectedPatchPatch === patch.uuid) + gr1PatchManagerMonth}
                                             draggable={true}
                                             onClick={() => makePatchPatchCurrent(patch.uuid)}
                                             onDragOver={(e) => e.preventDefault()}
@@ -1143,66 +1142,66 @@ function VolcaDrumPatchManager(user, banks) {
                                             key={patch.uuid}>{patch.globalParams.name}</p>
                                     )}
                                 </div>)}
-                                <button className={'volcaDrumPatchManagerUpdateButton' + volcaDrumPatchManagerMonth}
+                                <button className={'gr1PatchManagerUpdateButton' + gr1PatchManagerMonth}
                                     onClick={() => updateUserPatches()}>update</button>
                             </div>
                         </div>
-                        <div className={'volcaDrumPatchManagerPatchActionsDiv' + volcaDrumPatchManagerMonth}>
-                            <div className={'volcaDrumPatchManagerPatchActionsContainer' + volcaDrumPatchManagerMonth}>
+                        <div className={'gr1PatchManagerPatchActionsDiv' + gr1PatchManagerMonth}>
+                            <div className={'gr1PatchManagerPatchActionsContainer' + gr1PatchManagerMonth}>
                                 {((selectedPatchPatch !== '') || (selectedBankPatch !== '')) && (
-                                    <Link className={'volcaDrumPatchManagerEditLocator' + volcaDrumPatchManagerMonth}
-                                        to="/volca-drum-editor">
-                                        <button className={'volcaDrumPatchManagerEditActivePatchButton' + volcaDrumPatchManagerMonth}>edit</button>
+                                    <Link className={'gr1PatchManagerEditLocator' + gr1PatchManagerMonth}
+                                        to="/gr1-editor">
+                                        <button className={'gr1PatchManagerEditActivePatchButton' + gr1PatchManagerMonth}>edit</button>
                                     </Link>
                                 )}
                                 {(selectedPatchPatch !== '') && (
-                                    <button className={'volcaDrumPatchManagerDeleteActivePatchButton' + volcaDrumPatchManagerMonth}
+                                    <button className={'gr1PatchManagerDeleteActivePatchButton' + gr1PatchManagerMonth}
                                         onClick={() => deletePatchGuardrail()}>delete</button>
                                 )}
                                 {(selectedPatchPatch !== '') && (
-                                    <button className={'volcaDrumPatchManagerMoveActivePatchButton' + volcaDrumPatchManagerMonth}
+                                    <button className={'gr1PatchManagerMoveActivePatchButton' + gr1PatchManagerMonth}
                                         onClick={() => addActivePatchToBank()}>&#8594;</button>
                                 )}
                             </div>
                         </div>
-                        <div className={'volcaDrumPatchManagerBanksDiv' + volcaDrumPatchManagerMonth}>
-                            <div className={'volcaDrumPatchManagerBanksContainer' + volcaDrumPatchManagerMonth}>
-                                <div className={'volcaDrumPatchManagerBanksBar' + volcaDrumPatchManagerMonth}>
-                                    <p className={'volcaDrumPatchManagerBanksLabel' + volcaDrumPatchManagerMonth}>banks:</p>
-                                    <select className={'volcaDrumPatchManagerBanksSelect' + volcaDrumPatchManagerMonth}
+                        <div className={'gr1PatchManagerBanksDiv' + gr1PatchManagerMonth}>
+                            <div className={'gr1PatchManagerBanksContainer' + gr1PatchManagerMonth}>
+                                <div className={'gr1PatchManagerBanksBar' + gr1PatchManagerMonth}>
+                                    <p className={'gr1PatchManagerBanksLabel' + gr1PatchManagerMonth}>banks:</p>
+                                    <select className={'gr1PatchManagerBanksSelect' + gr1PatchManagerMonth}
                                         onChange={(e) => changeBankEdit(e.target.value)}
                                         value={currentEditBank}>
                                         {patchCollection.banks.map(item => 
                                             <option key={item.uuid} value={item.uuid}>{item.name}</option>
                                         )}
                                     </select>
-                                    <button className={'volcaDrumPatchManagerAddBankButton' + volcaDrumPatchManagerMonth}
+                                    <button className={'gr1PatchManagerAddBankButton' + gr1PatchManagerMonth}
                                         onClick={() => addNewBank()}>add</button>
                                     {(patchCollection.banks.length > 1) && (
-                                        <button className={'volcaDrumPatchManagerAddBankButton' + volcaDrumPatchManagerMonth}
+                                        <button className={'gr1PatchManagerAddBankButton' + gr1PatchManagerMonth}
                                             onClick={() => deleteCurrentBank()}>delete</button>
                                     )}
                                 </div>
-                                <div className={'volcaDrumPatchManagerBankDisplayContainer' + volcaDrumPatchManagerMonth}>
+                                <div className={'gr1PatchManagerBankDisplayContainer' + gr1PatchManagerMonth}>
                                     {patchCollection.banks.map(item => 
-                                        <div className={'volcaDrumPatchManagerBankDisplayer' + (item.uuid === currentEditBank) + volcaDrumPatchManagerMonth}
+                                        <div className={'gr1PatchManagerBankDisplayer' + (item.uuid === currentEditBank) + gr1PatchManagerMonth}
                                             onClick={() => {if (item.uuid !== currentEditBank) changeBankEdit(item.uuid)}}
                                             onDragOver={(e) => e.preventDefault()}
                                             onDrop={() => { if (item.uuid === currentEditBank) addPatchToBank(item)}}
                                             key={item.uuid}>
-                                            {(item.uuid === currentEditBank) && (<div className={'volcaDrumPatchManagerBankDisplayReal' + volcaDrumPatchManagerMonth}>
+                                            {(item.uuid === currentEditBank) && (<div className={'gr1PatchManagerBankDisplayReal' + gr1PatchManagerMonth}>
                                                 {(item.patches.length > 0) && (
                                                     <div>
                                                         {item.patches.map(patch => 
-                                                            <div className={'volcaDrumPatchManagerBankItemDiv' + volcaDrumPatchManagerMonth}
+                                                            <div className={'gr1PatchManagerBankItemDiv' + gr1PatchManagerMonth}
                                                                 key={patch.uuid}>
-                                                                <p className={'volcaDrumPatchManagerBankPatchName' + (patch.uuid === selectedBankPatch) + volcaDrumPatchManagerMonth}
+                                                                <p className={'gr1PatchManagerBankPatchName' + (patch.uuid === selectedBankPatch) + gr1PatchManagerMonth}
                                                                     onClick={() => updateSelectedBankPatch(patch.uuid)}>{patch.globalParams.name}</p>
-                                                                <p className={'volcaDrumPatchManakerDeleteChar' + volcaDrumPatchManagerMonth}
+                                                                <p className={'gr1PatchManakerDeleteChar' + gr1PatchManagerMonth}
                                                                     onClick={() => moveBankPatchUp(patch)}>&#8593;</p>
-                                                                <p className={'volcaDrumPatchManakerDeleteChar' + volcaDrumPatchManagerMonth}
+                                                                <p className={'gr1PatchManakerDeleteChar' + gr1PatchManagerMonth}
                                                                     onClick={() => moveBankPatchDown(patch)}>&#8595;</p>
-                                                                <p className={'volcaDrumPatchManakerDeleteChar' + volcaDrumPatchManagerMonth}
+                                                                <p className={'gr1PatchManakerDeleteChar' + gr1PatchManagerMonth}
                                                                     onClick={() => removeBankPatch(patch)}>&#127303;</p>
                                                             </div>
                                                         )}
@@ -1212,26 +1211,26 @@ function VolcaDrumPatchManager(user, banks) {
                                         </div>
                                     )}
                                 </div>
-                                <input className={'volcaDrumPatchManagerBankNameInput' + volcaDrumPatchManagerMonth}
+                                <input className={'gr1PatchManagerBankNameInput' + gr1PatchManagerMonth}
                                     onChange={(e) => updateBankName(e.target.value)}
                                     type="text"
                                     value={getCurrentBankName()}/>
                             </div>
                         </div>
-                        <div className={'volcaDrumPatchManagerDeviceDiv' + volcaDrumPatchManagerMonth}>
-                            <div className={'volcaDrumPatchManagerDeviceContainer' + volcaDrumPatchManagerMonth}>
-                                <p className={'volcaDrumPatchManagerCurrentPatchDisplay' + volcaDrumPatchManagerMonth}>
+                        <div className={'gr1PatchManagerDeviceDiv' + gr1PatchManagerMonth}>
+                            <div className={'gr1PatchManagerDeviceContainer' + gr1PatchManagerMonth}>
+                                <p className={'gr1PatchManagerCurrentPatchDisplay' + gr1PatchManagerMonth}>
                                     {currentPatchName()}
                                 </p>
-                                <img className={'volcaDrumPatchManagerDeviceImage' + volcaDrumPatchManagerMonth} 
-                                    src={'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/7d9e95d93948da4072dadc31fd718325_pc.png'}/>
+                                <img className={'gr1PatchManagerDeviceImage' + gr1PatchManagerMonth} 
+                                    src={'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/tastychipselectronics_gr-1_01.jpg'}/>
                             </div>
                         </div>
-                        <div className={'volcaDrumPatchManagerUserNotesDiv' + volcaDrumPatchManagerMonth}>
-                            <div className={'volcaDrumPatchManagerUserNotesContainer' + volcaDrumPatchManagerMonth}>
-                                <p className={'volcaDrumPatchManagerUserNotesLabel' + volcaDrumPatchManagerMonth}>user notes</p>
+                        <div className={'gr1PatchManagerUserNotesDiv' + gr1PatchManagerMonth}>
+                            <div className={'gr1PatchManagerUserNotesContainer' + gr1PatchManagerMonth}>
+                                <p className={'gr1PatchManagerUserNotesLabel' + gr1PatchManagerMonth}>user notes</p>
                                 {patchCollection.banks.map(bank => 
-                                    <textarea className={'volcaDrumPatchManagerUserNotesArea' + (bank.uuid === currentEditBank) + volcaDrumPatchManagerMonth}
+                                    <textarea className={'gr1PatchManagerUserNotesArea' + (bank.uuid === currentEditBank) + gr1PatchManagerMonth}
                                         key={bank.uuid}
                                         onChange={(e) => updateUserNotes(bank.uuid, e.target.value)}
                                         rows={12}
@@ -1242,70 +1241,70 @@ function VolcaDrumPatchManager(user, banks) {
                     </div>
                 </div>
             </div>
-            <div className={'volcaDrumPatchManagerDeletePatchGuardrail' + patchDeleteGuardrailState + volcaDrumPatchManagerMonth}>
-                <p className={'volcaDrumPatchManagerDeletePatchGuardrailLabel' + volcaDrumPatchManagerMonth}>Delete patch?</p>
-                <p className={'volcaDrumPatchManagerDeletePatchGuardrailFinePrint' + volcaDrumPatchManagerMonth}>This will permanently delete patch and remove it from all banks in all collections.</p>
-                <div className={'volcaDrumPatchManagerDeleteGuardrailButtonsDiv' + volcaDrumPatchManagerMonth}>
+            <div className={'gr1PatchManagerDeletePatchGuardrail' + patchDeleteGuardrailState + gr1PatchManagerMonth}>
+                <p className={'gr1PatchManagerDeletePatchGuardrailLabel' + gr1PatchManagerMonth}>Delete patch?</p>
+                <p className={'gr1PatchManagerDeletePatchGuardrailFinePrint' + gr1PatchManagerMonth}>This will permanently delete patch and remove it from all banks in all collections.</p>
+                <div className={'gr1PatchManagerDeleteGuardrailButtonsDiv' + gr1PatchManagerMonth}>
                     <button onClick={() => deleteActivePatch()}>delete</button>
                     <button onClick={() => cancelPatchDeleteGuardrail()}>cancel</button>
                 </div>
             </div>
-            <div className={'volcaDrumPatchManagerSaveAsModal' + saveAsModalState + volcaDrumPatchManagerMonth}>
-                <p className={'volcaDrumPatchManagerSaveAsLabel' + volcaDrumPatchManagerMonth}>Save collection as:</p>
-                <input className={'volcaDrumPatchManagerSaveAsInput' + volcaDrumPatchManagerMonth}
-                    id="volcaDrumPatchManagerSaveAsInput"
+            <div className={'gr1PatchManagerSaveAsModal' + saveAsModalState + gr1PatchManagerMonth}>
+                <p className={'gr1PatchManagerSaveAsLabel' + gr1PatchManagerMonth}>Save collection as:</p>
+                <input className={'gr1PatchManagerSaveAsInput' + gr1PatchManagerMonth}
+                    id="gr1PatchManagerSaveAsInput"
                     placeholder={'copy of ' + patchCollection.name}
                     type="text" />
-                <div className={'volcaDrumPatchManagerDeleteGuardrailButtonsDiv' + volcaDrumPatchManagerMonth}>
+                <div className={'gr1PatchManagerDeleteGuardrailButtonsDiv' + gr1PatchManagerMonth}>
                     <button onClick={() => saveCopyOfCollection()}>save</button>
                     <button onClick={() => closeSaveAsModal()}>cancel</button>
                 </div>
             </div>
-            <div className={'volcaDrumPatchManagerShareModal' + shareModalState + volcaDrumPatchManagerMonth}>
-                <p className={'volcaDrumPatchManagerShareLabel' + volcaDrumPatchManagerMonth}>Submit collection "{patchCollection.name}" to Volca Drum Marketplace:</p>
-                <div className={'volcaDrumPatchManagerShareForm' + volcaDrumPatchManagerMonth}>
-                    <p className={'volcaDrumPatchManagerCollectionNameLabel' + volcaDrumPatchManagerMonth}>collection name:</p>
-                    <p className={'volcaDrumPatchManagerCollectionName' + volcaDrumPatchManagerMonth}>{patchCollection.name}</p>
-                    <p className={'volcaDrumPatchManagerSubmittedByLabel' + volcaDrumPatchManagerMonth}>submitted by:</p>
-                    <p className={'volcaDrumPatchManagerSubmittedBy' + volcaDrumPatchManagerMonth}>{user.first_name} {user.last_name}</p>
-                    <p className={'volcaDrumPatchManagerPublicDescriptionLabel' + volcaDrumPatchManagerMonth}>public description:</p>
-                    <textarea className={'volcaDrumPatchManagerPublicDescription' + volcaDrumPatchManagerMonth}
-                        id="volcaDrumPatchManagerPublicDescription"
+            <div className={'gr1PatchManagerShareModal' + shareModalState + gr1PatchManagerMonth}>
+                <p className={'gr1PatchManagerShareLabel' + gr1PatchManagerMonth}>Submit collection "{patchCollection.name}" to GR-1 Patch Marketplace:</p>
+                <div className={'gr1PatchManagerShareForm' + gr1PatchManagerMonth}>
+                    <p className={'gr1PatchManagerCollectionNameLabel' + gr1PatchManagerMonth}>collection name:</p>
+                    <p className={'gr1PatchManagerCollectionName' + gr1PatchManagerMonth}>{patchCollection.name}</p>
+                    <p className={'gr1PatchManagerSubmittedByLabel' + gr1PatchManagerMonth}>submitted by:</p>
+                    <p className={'gr1PatchManagerSubmittedBy' + gr1PatchManagerMonth}>{user.first_name} {user.last_name}</p>
+                    <p className={'gr1PatchManagerPublicDescriptionLabel' + gr1PatchManagerMonth}>public description:</p>
+                    <textarea className={'gr1PatchManagerPublicDescription' + gr1PatchManagerMonth}
+                        id="gr1PatchManagerPublicDescription"
                         placeholder="Description of this collection"
                         rows="9"></textarea>
-                    <button className={'volcaDrumPatchManagerShareSubmitButton' + volcaDrumPatchManagerMonth}
+                    <button className={'gr1PatchManagerShareSubmitButton' + gr1PatchManagerMonth}
                         onClick={() => submitShareModal()}>submit</button>
-                    <button className={'volcaDrumPatchManagerShareCancelButton' + volcaDrumPatchManagerMonth}
+                    <button className={'gr1PatchManagerShareCancelButton' + gr1PatchManagerMonth}
                         onClick={() => closeShareModal()}>cancel</button>
                 </div>
             </div>
-            <div className={'volcaDrumPatchManagerDeleteCollectionModal' + deleteCollectionModalState + volcaDrumPatchManagerMonth}>
-                <p className={'volcaDrumPatchManagerDeletePatchGuardrailLabel' + volcaDrumPatchManagerMonth}>Delete collection "{patchCollection.name}"?</p>
-                <p className={'volcaDrumPatchManagerDeletePatchGuardrailFinePrint' + volcaDrumPatchManagerMonth}>This will permanently remove collection.</p>
-                <div className={'volcaDrumPatchManagerDeleteGuardrailButtonsDiv' + volcaDrumPatchManagerMonth}>
+            <div className={'gr1PatchManagerDeleteCollectionModal' + deleteCollectionModalState + gr1PatchManagerMonth}>
+                <p className={'gr1PatchManagerDeletePatchGuardrailLabel' + gr1PatchManagerMonth}>Delete collection "{patchCollection.name}"?</p>
+                <p className={'gr1PatchManagerDeletePatchGuardrailFinePrint' + gr1PatchManagerMonth}>This will permanently remove collection.</p>
+                <div className={'gr1PatchManagerDeleteGuardrailButtonsDiv' + gr1PatchManagerMonth}>
                     <button onClick={() => deleteCollection()}>delete</button>
                     <button onClick={() => closeDeleteCollectionModal()}>cancel</button>
                 </div>
             </div>
-            <div className={'volcaDrumPatchManagerAboutModal' + aboutModalState + volcaDrumPatchManagerMonth}>
-                <div className={'volcaDrumPatchManagerAboutContentDiv' + volcaDrumPatchManagerMonth}>
-                    <h2>The Korg Volca Drum Patch Manager</h2>
+            <div className={'gr1PatchManagerAboutModal' + aboutModalState + gr1PatchManagerMonth}>
+                <div className={'gr1PatchManagerAboutContentDiv' + gr1PatchManagerMonth}>
+                    <h2>The Tasty Chips GR-1 Patch Manager</h2>
                     <p>This patch manager is a utility for organizing collections of custom patches into banks for exporting into the 168 Events sequencing environment or for sharing with other users of 168 Events.</p>
-                    <p>Some useful definitions for understanding the Volca Drum Patch Manager heirarchy:</p>
+                    <p>Some useful definitions for understanding the GR-1 Patch Manager heirarchy:</p>
                     <h3>Patches</h3>
-                    <p>A patch is an individual "preset" that one creates in the Volca Drum Editor. Think of it as a single instrument.</p>
+                    <p>A patch is an individual "preset" that one creates in the GR-1 Editor. Think of it as a single instrument.</p>
                     <h3>Banks</h3>
                     <p>A bank is an organized set of patches. Think of it as an ensemble of instruments. Each bank comes with a scratch pad for storing notes to help you track your bank structure.</p>
                     <h3>Collections</h3>
                     <p>A collection is an organized set of banks. Think of it as an orchestra made up of discreet sections of instrument types. Collections are available for import into sequences and are the standard format for sharing one's patches with other users.</p>
                 </div>
-                <button className={'volcaDrumPatchManagerAboutCloseButton' + volcaDrumPatchManagerMonth}
+                <button className={'gr1PatchManagerAboutCloseButton' + gr1PatchManagerMonth}
                     onClick={() => closeAboutModal()}>close</button>
             </div>
-            <div className={'volcaDrumPatchManagerCollectionLoadModal' + collectionLoadModalState + volcaDrumPatchManagerMonth}>
-                <div className={'volcaDrumPatchManagerCollectionLoadContainer' + volcaDrumPatchManagerMonth}>
-                    <p className={'volcaDrumPatchManagerLoadTitle' + volcaDrumPatchManagerMonth}>Load Volca Drum Collection</p>
-                    <select className={'volcaDrumPatchManagerLoadSelector' + volcaDrumPatchManagerMonth}
+            <div className={'gr1PatchManagerCollectionLoadModal' + collectionLoadModalState + gr1PatchManagerMonth}>
+                <div className={'gr1PatchManagerCollectionLoadContainer' + gr1PatchManagerMonth}>
+                    <p className={'gr1PatchManagerLoadTitle' + gr1PatchManagerMonth}>Load GR-1 Collection</p>
+                    <select className={'gr1PatchManagerLoadSelector' + gr1PatchManagerMonth}
                         onChange={(e) => updateSelectedCollectionValue(e.target.value)}
                         value={selectedCollectionValue}>
                         {availableCollections.map(collection => (
@@ -1313,13 +1312,13 @@ function VolcaDrumPatchManager(user, banks) {
                                 value={collection.uuid}>{collection.name}</option>
                         ))}
                     </select>
-                    <button className={'volcaDrumPatchManagerLoadLoadButton' + volcaDrumPatchManagerMonth}
+                    <button className={'gr1PatchManagerLoadLoadButton' + gr1PatchManagerMonth}
                         onClick={() => loadCollection()}>load</button>
-                    <button className={'volcaDrumPatchManagerLoadCancelButton' + volcaDrumPatchManagerMonth}
+                    <button className={'gr1PatchManagerLoadCancelButton' + gr1PatchManagerMonth}
                         onClick={() => closeCollectionLoadModal()}>cancel</button>
                 </div>
             </div>
-            <div className={panicState + volcaDrumPatchManagerMonth}>
+            <div className={panicState + gr1PatchManagerMonth}>
                 <img src={currentSpinner} />
             </div>
         </div>
@@ -1327,4 +1326,4 @@ function VolcaDrumPatchManager(user, banks) {
 }
 
 
-export default VolcaDrumPatchManager;
+export default Gr1PatchManager;
