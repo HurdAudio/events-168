@@ -43,6 +43,7 @@ const midiDevices = [
     },
     {
         uuid: '3d89af9b-a1a9-424d-bc82-0c7dd99a0340',
+        patchManager: '/gr1-patch-manager',
         name: 'tasty chips gr-1',
         path: '/gr1-editor',
         component: '<gr1Editor />'
