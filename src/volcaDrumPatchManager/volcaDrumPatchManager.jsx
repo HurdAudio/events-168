@@ -13,6 +13,7 @@ import {
 import VolcaDrum from '../volcaDrum/volcaDrum';
 import midi5pin from '../img/midi5pin.svg';
 import './volcaDrumPatchManager.style.jana.css';
+import './volcaDrumPatchManager.style.janb.css';
 import midiConnection from '../midiManager/midiConnection';
 import VolcaDrumPatchTransmitter from './volcaDrumPatchTransmitter';
 import axios from 'axios';
@@ -30,6 +31,7 @@ function VolcaDrumPatchManager(user, banks) {
     const breakpointOffset = 4;
     const scaleScaler = 1.12;
     const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumPatchEditor/january/spinner/56172d7059b5a527bce0adca75ff6f18.gif';
+    const janbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumPatchEditor/january/spinner/atomicIce.gif';
 
     let midiOutput = null;
     let inputs = null;
@@ -48,7 +50,7 @@ function VolcaDrumPatchManager(user, banks) {
     const [deleteCollectionModalState, setDeleteCollectionModalState] = useState('_Inactive');
     const [aboutModalState, setAboutModalState] = useState('_Inactive');
     const [collectionLoadModalState, setCollectionLoadModalState] = useState('_Inactive');
-    const [volcaDrumPatchManagerMonth, setVolcaDrumPatchManagerMonth] = useState('_JanuaryA');
+    const [volcaDrumPatchManagerMonth, setVolcaDrumPatchManagerMonth] = useState('_JanuaryB');
     const [availableCollections, setAvailableCollections] = useState([]);
     const [currentCollection, setCurrentCollection] = useState('');
     const [selectedCollectionValue, setSelectedCollectionValue] = useState('');
@@ -56,7 +58,7 @@ function VolcaDrumPatchManager(user, banks) {
     const [dragData, setDragData] = useState(null);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
     const [userPatches, setUserPatches] = useState([]);
-    const [currentSpinner, setCurrentSpinner] = useState(janaSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(janbSpinner);
     const [selectedPatchPatch, setSelectedPatchPatch] = useState('');
     const [selectedBankPatch, setSelectedBankPatch] = useState('');
     const [availableInputs, setAvailableInputs] = useState([]);
