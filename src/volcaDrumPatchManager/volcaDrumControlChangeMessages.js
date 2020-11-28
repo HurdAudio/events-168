@@ -1,8 +1,5 @@
 import React from 'react';
 
-const controlMessages = ['bitReduction', 'overdriveGain', 'pan', 'premixGain', 'send', 'waveFolder', 'waveguideBody', 'waveguideDecay', 'waveguideTune', 'layer1EGAttack', 'layer1EGRelease', 'layer1Level', 'layer1ModulationAmount', 'layer1ModulationRate', 'layer1Pitch', 'layer1WaveguideModel', 'layer2EGAttack', 'layer2EGRelease', 'layer2Level', 'layer2ModulationAmount', 'layer2ModulationRate', 'layer2Pitch', 'layer2WaveguideModel', 'layer12EGAttack', 'layer12EGRelease', 'layer12Level', 'layer12ModulationAmount', 'layer12ModulationRate', 'layer12Pitch', 'layer12WaveguideModel'];
-
-
 function VolcaDrumControlChangeMessages(patch, currentMidiChannel, message) {
     
     let transmitArray = [];
@@ -239,6 +236,8 @@ function VolcaDrumControlChangeMessages(patch, currentMidiChannel, message) {
         default:
             console.log('no message');
     }
+    
+    return transmitArray;
     
 }
 
