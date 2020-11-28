@@ -16,6 +16,7 @@ import './gr1PatchManager.style.jana.css';
 import midiConnection from '../midiManager/midiConnection';
 import axios from 'axios';
 import uuid4 from 'uuid4';
+import Gr1PatchTransmitter from './gr1PatchTransmitter';
 
 let connections = null;
 
@@ -527,7 +528,7 @@ function Gr1PatchManager(user, banks) {
                 patch = userPatches[i];
             }
         }
-//        gr1PatchTransmitter(patch, currentOutput);
+        Gr1PatchTransmitter(patch, currentOutput, currentMidiChannel);
     }
     
     const makePatchPatchCurrent = (val) => {
@@ -540,7 +541,7 @@ function Gr1PatchManager(user, banks) {
                 patch = userPatches[i];
             }
         }
-//        gr1PatchTransmitter(patch, currentOutput);
+        Gr1PatchTransmitter(patch, currentOutput, currentMidiChannel);
     }
     
     const changeBankEdit = (val) => {

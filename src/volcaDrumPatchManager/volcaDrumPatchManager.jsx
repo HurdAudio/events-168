@@ -611,13 +611,13 @@ function VolcaDrumPatchManager(user, banks) {
     }
     
     const updateUserPatches = () => {
-        axios.get(`/volca_drum_patches/byuser/${user.uuid}`)
+        axios.get(`/gr1_patches/byuser/${user.uuid}`)
         .then(patchesData => {
             console.log(patchesData);
             const patches = patchesData.data.sort((a, b) => {
-                if (a.patch_name.toLowerCase() > b.patch_name.toLowerCase()) {
+                if (a.globalParams.name.toLowerCase() > b.globalParams.name.toLowerCase()) {
                     return 1;
-                } else if (a.patch_name.toLowerCase() < b.patch_name.toLowerCase()) {
+                } else if (a.globalParams.name.toLowerCase() < b.globalParams.name.toLowerCase()) {
                     return -1;
                 } else {
                     return 0;
