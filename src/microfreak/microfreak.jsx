@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import './microfreak.style.jana.css';
 import './microfreak.style.janb.css';
+import './microfreak.style.janc.css';
 import midi5pin from '../img/midi5pin.svg';
 import axios from 'axios';
 import midiConnection from '../midiManager/midiConnection';
@@ -21,6 +22,7 @@ let connections = null;
 const microImage = 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/microfreak-image.png';
 const janASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/microfreak/spinner/january/iceDrink.gif';
 const janBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/microfreak/spinner/january/cbd888bcfac514eccceb6fe4c61c4a6c.gif';
+const janCSpinnter = 'https://events-168-hurdaudio.s3.amazonaws.com/microfreak/spinner/january/melting-gif-16.gif';
 
 const assignments = [
     {
@@ -111,9 +113,9 @@ function Microfreak(user, patch) {
     const [subModulateModalState, setSubModulateModalState] = useState('_Inactive');
     const [modulationModulation, setModulationModulation] = useState('');
     const [loadPatchUuid, setLoadPatchUuid] = useState('');
-    const [currentSpinner, setCurrentSpinner] = useState(janBSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(janCSpinnter);
     const [userPatches, setUserPatches] = useState([]);
-    const [microfreakMonth, setMicrofreakMonth] = useState('_JanuaryB');
+    const [microfreakMonth, setMicrofreakMonth] = useState('_JanuaryC');
     const [panicState, setPanicState] = useState('_Inactive');
     const [saveAsName, setSaveAsName] = useState('');
     const [patchAltered, setPatchAltered] = useState(false);
