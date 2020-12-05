@@ -1,0 +1,3665 @@
+.microfreakEditorContainer_Active_JanuaryC {
+    filter: blur(0);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.microfreakEditorContainer_Inactive_JanuaryC {
+    filter: blur(10px);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s linear;
+    width: 100%;
+    z-index: 100;
+}
+
+.microfreakEditorImageDiv_JanuaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_distortion_by_daemare_d8igt85-fullview.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 12.5% [col6] 12.5% [col7] 12.5% [col8] 12.5% [col9] 12.5% [col10] 12.5% [rightEdge];
+    grid-template-rows: [row1] 6.25% [row2] 6.25% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 16.5% [row9] 8.5%[rowEnd];
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.microfreakEditorTopBar_JanuaryC {
+    backdrop-filter: blur(15px) brightness(50%) contrast(200%) hue-rotate(90deg);
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.microfreakNavImage_JanuaryC {
+    cursor: pointer;
+    filter: contrast(100%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row2;
+    margin: 3px 0 0 5px;
+    transform: rotateZ(180deg);
+    transition: all 0.2s linear;
+    width: 3%;
+}
+
+.microfreakNavImage_JanuaryC:hover {
+    filter: contrast(110%);
+    transform: rotateZ(210deg);
+    transition: all 0.2s linear;
+}
+
+.microfreakEditorTitle_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 42px;
+    grid-column: col2 / col6;
+    grid-row: row1 / row2;
+    margin: 5px;
+    z-index: 55;
+}
+
+.microfreakLoadButton_JanuaryC {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col6 / col7;
+    grid-row: row1 / row2;
+    margin: 6px 65px 0 35px;
+    outline-color: #959397;
+    transition: all 0.3s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakLoadButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #8e2a12;
+    color: #8e2a12;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #2a282d);
+    transition: all 0.3s linear;
+}
+
+.microfreakLoadButton_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #2a282d);
+    transition: all 0.1s linear;
+}
+
+.microfreakPatchNameInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    left: 50%;
+    outline-color: #959397;
+    position: absolute;
+    top: 1%;
+}
+
+.microfreakPanicButton_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(400%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col10 / rightEdge;
+    grid-row: row1 / row2;
+    outline-color: #959397;
+    z-index: 56;
+}
+
+.microfreakSidebarManager_JanuaryC {
+    backdrop-filter: blur(17px) hue-rotate(-135deg);
+    background: linear-gradient(180deg, transparent, #59443f, #231b19);
+    border-right: 1px groove #2a272e;
+    box-sizing: border-box;
+    grid-column: col1 / col3;
+    grid-row: row2 / rowEnd;
+    opacity: 0.85;
+}
+
+.microfreakGlideControl_JanuaryC {
+    backdrop-filter: blur(5px) hue-rotate(-175deg);
+    border-bottom: 1px groove #2a272e;
+    border-right: 1px groove #2a272e;
+    display: grid;
+    grid-column: col3 / col4;
+    grid-row: row2 / row6;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakGlideLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(300%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col1 / col4;
+    grid-row: row1 / row2;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakGlideDisplayInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #c4bfbf;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 15px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakGlideRangeInput_JanuaryC {
+    -webkit-appearance: none;
+    appearance: none;
+    grid-column: col1 / rightEdge;
+    grid-row: row4 / row12;
+    height: 5px;
+    outline-color: #8f8f93;
+    transform: rotateZ(-90deg) translateX(-15vh) translateY(-68px);
+    width: 210px;
+}
+
+.microfreakGlideRangeInput_JanuaryC::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #100f12;
+    border-left: 1px groove #381007;
+    border-right: 1px groove #381007;
+    filter: drop-shadow(-3px 3px 2px #2a282d);
+    height: 5px;
+}
+
+.microfreakGlideRangeInput_JanuaryC::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_distortion_by_daemare_d8igt85-fullview.jpg);
+    background-size: cover;
+    box-sizing: border-box;
+    border-left: 1px outset #8e2a12;
+    border-radius: 5px;
+    border-right: 2px outset #8e2a12;
+    cursor: pointer;
+    height: 40px;
+    transform: translateY(-16px);
+    width: 15px;
+}
+
+.microfreakDigitalOscillatorDiv_JanuaryC {
+    backdrop-filter: blur(9px) brightness(50%) hue-rotate(75deg);
+    border-bottom: 1px groove #2a272e;
+    border-right: 1px groove #2a272e;
+    display: grid;
+    grid-column: col4 / col8;
+    grid-row: row2 / row6;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakDigitalOscillatorLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col1 / col8;
+    grid-row: row1 / row2;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakDigitalOscilatorTypeLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col1 / col2;
+    grid-row: row5 / rowEnd;
+    transform: translateX(110px) translateY(30px) rotateZ(-90deg);
+}
+
+.microfreakWaveTypeDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col2 / col4;
+    grid-row: row2 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 21px;
+    margin-top: 10px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakOscillatorTypeInputContainer_JanuaryC {
+    grid-column: col2 / col5;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakDigitalOscilatorWaveLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col5 / col6;
+    grid-row: row5 / rowEnd;
+    transform: translateX(110px) translateY(30px) rotateZ(-90deg);
+}
+
+.microfreakOscillatorWaveInputContainer_JanuaryC {
+    grid-column: col6 / col10;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakWaveWaveDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col6 / col9;
+    grid-row: row2 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakDigitalOscilatorTimbreLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col10 / col11;
+    grid-row: row5 / rowEnd;
+    transform: translateX(110px) translateY(30px) rotateZ(-90deg);
+}
+
+.microfreakOscillatorTimbreInputContainer_JanuaryC {
+    grid-column: col11 / col15;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakWaveTimbreDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col11 / col14;
+    grid-row: row2 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakDigitalOscilatorShapeLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col15 / col16;
+    grid-row: row5 / rowEnd;
+    transform: translateX(110px) translateY(30px) rotateZ(-90deg);
+}
+
+.microfreakOscillatorShapeInputContainer_JanuaryC {
+    grid-column: col16 / col20;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakWaveShapeDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(300%) saturate(300%);
+    grid-column: col16 / col19;
+    grid-row: row2 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakAnalogFilterDiv_JanuaryC {
+    backdrop-filter: blur(17px) brightness(70%) contrast(200%) hue-rotate(-35deg) saturate(150%);
+    border-bottom: 1px groove #2a272e;
+    border-right: 1px groove #2a272e;
+    display: grid;
+    grid-column: col8 / rightEdge;
+    grid-row: row2 / row6;
+    grid-template-columns: [col1] 6.66% [col2] 6.66% [col3] 6.66% [col4] 6.66% [col5] 6.66% [col6] 6.66% [col7] 6.66% [col8] 6.66% [col9] 6.66% [col10] 6.66% [col11] 6.66% [col12] 6.66% [col13] 6.66% [col14] 6.66% [col15] 6.66% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakAnalogFilterLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(300%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col1 / col8;
+    grid-row: row1 / row2;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakAnalogFilterTypeLPFLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    transition: all 0.5s linear;
+}
+
+.microfreakAnalogFilterTypeLPFLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    transition: all 0.5s linear;
+}
+
+.microfreakAnalogFilterTypebPFLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    transition: all 0.5s linear;
+} 
+
+.microfreakAnalogFilterTypebPFLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    transition: all 0.5s linear;
+}
+
+.microfreakAnalogFilterTypehPFLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    transition: all 0.5s linear;
+} 
+
+.microfreakAnalogFilterTypehPFLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    transition: all 0.5s linear;
+}
+
+.microfreakLPFLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row4 / row5;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLPFLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row4 / row5;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakBPFLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col8;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakBPFLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col8;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakHPFLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(200%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row10 / row11;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakHPFLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row10 / row11;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: all 0.5s linear;
+}
+
+.microfreakAnalogFilterCutoffLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col7 / col8;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakFilterCutoffDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col8 / col10;
+    grid-row: row2 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakAnalogFilterCutoffInputContainer_JanuaryC {
+    grid-column: col8 / col11;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakAnalogFilterResonanceLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col11 / col12;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakFilterResonanceDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col12 / col15;
+    grid-row: row2 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakAnalogFilterResonanceInputContainer_JanuaryC {
+    grid-column: col12 / col15;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakEnvelopesDiv_JanuaryC {
+    backdrop-filter: blur(20px) brightness(55%) hue-rotate(180deg);
+    border-bottom: 1px groove #2a272e;
+    border-right: 1px groove #2a272e;
+    display: grid;
+    grid-column: col3 / col8;
+    grid-row: row6 / row9;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakEnvelopesTabStrip_JanuaryC {
+    background: transparent;
+    display: flex;
+    grid-column: col1 / rightEdge;
+    grid-row: row1 / row2;
+}
+
+.microfreakEnvelopeGeneratorTabtrue_JanuaryC {
+    background: linear-gradient(90deg, #363232, #c4bfbf, #c4bfbf, #c4bfbf, #363232);
+    text-align: center;
+    transition: all 0.5s linear;
+    width: 50%;
+}
+
+.microfreakEnvelopeGeneratorTabtrue_JanuaryC p {
+    color: #060000;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    transition: all 0.5s linear;
+}
+
+.microfreakEnvelopeGeneratorTabfalse_JanuaryC {
+    background: linear-gradient(90deg, #c4bfbf, #363232, #363232, #363232, #c4bfbf);
+    cursor: pointer;
+    filter: invert(100%) opacity(0.5);
+    text-align: center;
+    transition: all 0.5s linear;
+    width: 50%;
+}
+
+.microfreakEnvelopeGeneratorTabfalse_JanuaryC p {
+    color: #060000;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    transition: all 0.5s linear;
+}
+
+.microfreakEnvelopeContainer_JanuaryC {
+    display: grid;
+    grid-column: col1 / rightEdge;
+    grid-row: row2 / rowEnd;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [rowEnd];
+}
+
+.microfreakCyclingEnvelopeModeSettingLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col1 / col3;
+    grid-row: row2 / row3;
+    margin-top: 10px;
+    margin-left: 24px;
+}
+
+.microfreakCyclingEnvelopeModeLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row4 / row5;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row4 / row5;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeEnvelopeLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeEnvelopeLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingRunModeLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row7 / row8;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingRunModeLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row7 / row8;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeRunLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeRunLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row7 / row8;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingLoopModeLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row10 / row11;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingLoopModeLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row10 / row11;
+    margin-left: 3px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeLoopLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeModeLoopLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    margin-left: 5px;
+    margin-top: 2px;
+    transition: all 0.5s linear;
+}
+
+.microfreakCyclingEnvelopeRiseLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col4;
+    grid-row: row6 / rowEnd;
+    transform: translateX(90px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeRiseDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col4 / col6;
+    grid-row: row1 / row3;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeRiseInputContainer_JanuaryC {
+    grid-column: col4 / col6;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeRiseShapeLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col5 / col7;
+    grid-row: row6 / rowEnd;
+    transform: translateX(90px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeRiseShapeDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col7 / col9;
+    grid-row: row1 / row3;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeRiseShapeInputContainer_JanuaryC {
+    grid-column: col7 / col9;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeFallLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col9 / col10;
+    grid-row: row6 / rowEnd;
+    transform: translateX(90px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeFallDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col10 / col12;
+    grid-row: row1 / row3;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeFallInputContainer_JanuaryC {
+    grid-column: col10 / col12;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeFallShapeLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col11 / col13;
+    grid-row: row6 / rowEnd;
+    transform: translateX(90px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeFallShapeDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col13 / col15;
+    grid-row: row1 / row3;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeFallShapeInputContainer_JanuaryC {
+    grid-column: col13 / col15;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeHoldSustainLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col14 / col16;
+    grid-row: row6 / rowEnd;
+    transform: translateX(90px) translateY(-10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeHoldSustainDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col16 / col18;
+    grid-row: row1 / row3;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeHoldSustainInputContainer_JanuaryC {
+    grid-column: col16 / col18;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakCyclingEnvelopeAmountLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col18 / col19;
+    grid-row: row6 / rowEnd;
+    transform: translateX(90px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakCyclingEnvelopeAmountDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col19 / rightEdge;
+    grid-row: row1 / row3;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakCyclingEnvelopeAmountInputContainer_JanuaryC {
+    grid-column: col19 / rightEdge;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakAmplitudeModulationLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col3 / col4;
+    grid-row: row6 / row7;
+    transition: all 0.5s linear;
+}
+
+.microfreakAmplitudeModulationLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col3 / col4;
+    grid-row: row6 / row7;
+    transition: all 0.5s linear;
+}
+
+.microfreakAmplitudeModulationLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col6;
+    grid-row: row7 / row9;
+    margin-left: 5px;
+    margin-top: 9px;
+    transition: all 0.5s linear;
+}
+
+.microfreakAmplitudeModulationLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col6;
+    grid-row: row7 / row9;
+    margin-left: 5px;
+    margin-top: 9px;
+    transition: all 0.5s linear;
+}
+
+.microfreakEnvelopeGeneratorAttackLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col4 / col5;
+    grid-row: row6 / rowEnd;
+    transform: translateX(130px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakEnvelopeGeneratorAttackDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col6 / col8;
+    grid-row: row2 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #8f8f93;
+    text-align: center;
+}
+
+.microfreakEnvelopeGeneratorAttackInputContainer_JanuaryC {
+    grid-column: col6 / col9;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakEnvelopeGeneratorDecayReleaseLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col8 / col9;
+    grid-row: row6 / rowEnd;
+    transform: translateX(130px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakEnvelopeGeneratorDecayReleaseDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col10 / col12;
+    grid-row: row2 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakEnvelopeGeneratorDecayReleaseInputContainer_JanuaryC {
+    grid-column: col10 / col13;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakEnvelopeGeneratorSustainLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col12 / col13;
+    grid-row: row6 / rowEnd;
+    transform: translateX(130px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakEnvelopeGeneratorSustainDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col14 / col16;
+    grid-row: row2 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakEnvelopeGeneratorSustainInputContainer_JanuaryC {
+    grid-column: col14 / col17;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakEnvelopeGeneratorFilterAmountLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col14 / col20;
+    grid-row: row6 / rowEnd;
+    transform: translateX(110px) translateY(-80px) rotateZ(-90deg);
+}
+
+.microfreakEnvelopeGeneratorFilterAmountDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col18 / col19;
+    grid-row: row2 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakEnvelopeGeneratorFilterAmountInputContainer_JanuaryC {
+    grid-column: col18 / rightEdge;
+    grid-row: row4 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakLFODiv_JanuaryC {
+    backdrop-filter: blur(14px) brightness(70%) contrast(140%) hue-rotate(135deg) saturate(50%);
+    border-bottom: 1px groove #2a272e;
+    border-right: 1px groove #2a272e;
+    display: grid;
+    grid-column: col8 / rightEdge;
+    grid-row: row6 / row9;
+    grid-template-columns: [col1] 6.66% [col2] 6.66% [col3] 6.66% [col4] 6.66% [col5] 6.66% [col6] 6.66% [col7] 6.66% [col8] 6.66% [col9] 6.66% [col10] 6.66% [col11] 6.66% [col12] 6.66% [col13] 6.66% [col14] 6.66% [col15] 6.66% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [rowEnd];
+}
+
+.microfreakLFOLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 30px;
+    grid-column: col1 / col3;
+    grid-row: row1 / row2;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakLFOShapeLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col4;
+    grid-row: row2 / row3;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakLFOSineLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSineLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row4 / row5;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSineLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row4 / row5;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSineLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row4 / row5;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOTriangleLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row6 / row7;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOTriangleLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row6 / row7;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOTriangleLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row6 / row7;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOTriangleLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row6 / row7;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSawtoothLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row8 / row9;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSawtoothLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row8 / row9;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSawtoothLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row8 / row9;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSawtoothLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row8 / row9;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSquareLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSquareLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row10 / row11;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSquareLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row10 / row11;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSquareLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col5;
+    grid-row: row10 / row11;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSampleHoldLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row12 / row13;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSampleHoldLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row12 / row13;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSampleHoldLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row12 / row13;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSampleHoldLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row12 / row13;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOGlidingLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col2 / col3;
+    grid-row: row14 / row15;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOGlidingLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col2 / col3;
+    grid-row: row14 / row15;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOGlidingLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row14 / row15;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOGlidingLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / col7;
+    grid-row: row14 / row15;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSyncLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col7 / col9;
+    grid-row: row2 / row3;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.microfreakLFOSyncLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col7 / col8;
+    grid-row: row4 / row5;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSyncLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col7 / col8;
+    grid-row: row4 / row5;
+    margin-left: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSyncOnLabel_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col8 / col10;
+    grid-row: row4 / row5;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFOSyncOffLabel_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col8 / col10;
+    grid-row: row4 / row5;
+    margin-left: 10px;
+    transition: all 0.5s linear;
+}
+
+.microfreakLFORateLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col11 / col12;
+    grid-row: row6 / rowEnd;
+    transform: translateX(100px) translateY(10px) rotateZ(-90deg);
+}
+
+.microfreakLFORateDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col11 / col14;
+    grid-row: row2 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakLFORateInputContainer_JanuaryC {
+    grid-column: col12 / col14;
+    grid-row: row3 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakArpeggiatorDiv_JanuaryC {
+    backdrop-filter: blur(8px) brightness(80%) contrast(100%) saturate(250%);
+    border-right: 1px groove #2a272e;
+    display: grid;
+    grid-column: col3 / col8;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [rowEnd];
+}
+
+.microfreakArpeggiateLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggiateLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggieateOnLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row1 / row3;
+    margin-left: 10px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggieateOnLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row1 / row3;
+    margin-left: 10px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggiateSyncLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row3 / rowEnd;
+    margin: 1px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggiateSyncLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row3 / rowEnd;
+    margin: 1px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggieateSyncLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row3 / rowEnd;
+    margin-left: 10px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggieateSyncLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col3;
+    grid-row: row3 / rowEnd;
+    margin-left: 10px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggiateOctModeLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col4 / col5;
+    grid-row: row1 / row3;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.microfreakArpeggiateOctModeSelect_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-bottom: 8px;
+    grid-column: col4 / col5;
+    grid-row: row3 / rowEnd;
+    outline-color: #8f8f93;
+    text-align: center;
+}
+
+.microfreakArpeggiateRateLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col6 / col7;
+    grid-row: row2 / row4;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.microfreakARPRateInputContainer_JanuaryC {
+    grid-column: col8 / col14;
+    grid-row: row2 / row4;
+    margin-top: 7px;
+    position: absolute;
+}
+
+.microfreakArpRangeInput_JanuaryC {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 5px;
+    outline-color: #8f8f93;
+    width: 210px;
+}
+
+.microfreakArpRangeInput_JanuaryC::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #100f12;
+    border-left: 1px groove #381007;
+    border-right: 1px groove #381007;
+    filter: drop-shadow(3px 3px 2px #0c0c0f);
+    height: 5px;
+}
+
+.microfreakArpRangeInput_JanuaryC::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_distortion_by_daemare_d8igt85-fullview.jpg);
+    background-size: cover;
+    box-sizing: border-box;
+    border-left: 1px outset #8e2a12;
+    border-radius: 5px;
+    border-right: 2px outset #8e2a12;
+    cursor: pointer;
+    height: 40px;
+    transform: translateY(-16px);
+    width: 15px;
+}
+
+.microfreakARPRateDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col14 / col16;
+    grid-row: row1 / row4;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    outline-color: #959397;
+    text-align: center;
+}
+
+.microfreakArpeggiatePatternLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col16 / col19;
+    grid-row: row1 / row3;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.microfreakArpeggieatePatternSelect_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+    grid-column: col16 / col19;
+    grid-row: row3 / rowEnd;
+    outline-color: #8f8f93;
+    text-align: center;
+}
+
+.microfreakArpHoldLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col19 / col20;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpHoldLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col19 / col20;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggieateHoldLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col19 / col20;
+    grid-row: row3 / rowEnd;
+    margin-left: 50%;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpeggieateHoldLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col19 / col20;
+    grid-row: row3 / rowEnd;
+    margin-left: 50%;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakSpiceDiv_JanuaryC {
+    backdrop-filter: blur(4px) brightness(400%) hue-rotate(180deg) invert(100%);
+    border-right: 1px groove #2a272e;
+    display: grid;
+    grid-column: col8 / col9;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [rowEnd];
+}
+
+.microfreakArpSpiceLightfalsefalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpSpiceLightfalsetrue_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpSpiceLighttruefalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpSpiceLighttruetrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpSpiceLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col3;
+    grid-row: row3 / rowEnd;
+    margin-left: 20px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpSpiceLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col1 / col3;
+    grid-row: row3 / rowEnd;
+    margin-left: 20px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpDiceLightfalsefalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col3 / col4;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpDiceLightfalsetrue_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col3 / col4;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpDiceLighttruefalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col3 / col4;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpDiceLighttruetrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col3 / col4;
+    grid-row: row1 / row3;
+    margin: 1px;
+    transform: translateX(50%);
+    transition: all 0.5s linear;
+}
+
+.microfreakArpDiceLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / rightEdge;
+    grid-row: row3 / rowEnd;
+    margin-left: 20px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakArpDiceLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col3 / rightEdge;
+    grid-row: row3 / rowEnd;
+    margin-left: 20px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakParaphonicDiv_JanuaryC {
+    backdrop-filter: blur(20px) contrast(100%) hue-rotate(-90deg);
+    border-right: 1px groove #2a272e;
+    display: grid;
+    grid-column: col9 / col10;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [rowEnd];
+}
+
+.microfreakParaphonicLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    grid-column: col1 / col2;
+    grid-row: row2 / row4;
+    margin: 1px;
+    transform: translateX(15px);
+    transition: all 0.5s linear;
+}
+
+.microfreakParaphonicLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    grid-column: col1 / col2;
+    grid-row: row2 / row4;
+    margin: 1px;
+    transform: translateX(15px);
+    transition: all 0.5s linear;
+}
+
+.microfreakParaphonicLabeltrue_JanuaryC {
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col4;
+    grid-row: row2 / row4;
+    margin-left: 20px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakParaphonicLabelfalse_JanuaryC {
+    color: #897f7e;
+    cursor: pointer;
+    filter: brightness(70%) saturate(100%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    grid-column: col2 / col4;
+    grid-row: row2 / row4;
+    margin-left: 20px;
+    margin-top: 7px;
+    transition: all 0.5s linear;
+}
+
+.microfreakMatrixButtonDiv_JanuaryC {
+    backdrop-filter: blur(10px) hue-rotate(90deg);
+    border-right: 1px groove #2a272e;
+    display: grid;
+    grid-column: col10 / rightEdge;
+    grid-row: row9 / rowEnd;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [rowEnd];
+}
+
+.microfreakMatrixButton_JanuaryC {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col2 / col4;
+    grid-row: row2 / row4;
+    outline-color: #959397;
+    transition: all 0.3s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakMatrixButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #8e2a12;
+    color: #8e2a12;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #2a282d);
+    transition: all 0.3s linear;
+}
+
+.microfreakMatrixButton_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #2a282d);
+    transition: all 0.1s linear;
+}
+
+.microfreakSidebarContainer_JanuaryC {
+    display: grid;
+    grid-template-columns: [sideCol1] 1fr [sideCol2] 1fr [sideCol3] 1fr [sideCol4] 1fr [sideCol5] 1fr [sideColEnd];
+    grid-template-rows: [sideRow1] 1fr [sideRow2] 1fr [sideRow3] 1fr [sideRow4] 1fr [sideRow5] 1fr [sideRow6] 1fr [sideRow7] 1fr [sideRow8] 1fr [sideRow9] 1fr [sideRow10] 1fr [sideRow11] 1fr [sideRow12] 1fr [sideRow13] 1fr [sideRow14] 1fr [sideRow15] 1fr [sideRow16] 1fr [sideRow17] 1fr [sideRow18] 1fr [sideRow19] 1fr [sideRow20] 1fr [sideRow21] 1fr [sideRow22] 1fr [sideRow23] 1fr [sideRow24] 1fr [sideRowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.microfreakImage1_JanuaryC {
+    filter: drop-shadow(8px 8px 5px #381007);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow1 / sideRow3;
+    margin: 10px 0 0 15px;
+    max-width: 60%;
+    opacity: 0.9;
+}
+
+.microfreakSaveButtonfalse_JanuaryC {
+    display: none;
+}
+
+.microfreakSaveButtontrue_JanuaryC {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow3 / sideRow4;
+    outline-color: #959397;
+    transition: all 0.3s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakSaveButtontrue_JanuaryC:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #8e2a12;
+    color: #8e2a12;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #2a282d);
+    transition: all 0.3s linear;
+}
+
+.microfreakSaveButtontrue_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #2a282d);
+    transition: all 0.1s linear;
+}
+
+.microfreakSaveAsButton_JanuaryC {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow5 / sideRow6;
+    outline-color: #959397;
+    transition: all 0.3s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakSaveAsButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #8e2a12;
+    color: #8e2a12;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #2a282d);
+    transition: all 0.3s linear;
+}
+
+.microfreakSaveAsButton_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #2a282d);
+    transition: all 0.1s linear;
+}
+
+.microfreakSaveAsDialogDiv_Active_JanuaryC {
+    background: #c4bfbf;
+    color: #060000;
+    border: 3px groove #381007;
+    box-sizing: border-box;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    margin: 0 0 0 0;
+    padding: 2%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.microfreakSaveAsDialogDiv_Inactive_JanuaryC {
+    background: #c4bfbf;
+    color: #060000;
+    border: 3px groove #381007;
+    box-sizing: border-box;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    height: auto;
+    left: 30%;
+    padding: 2%;
+    position: absolute;
+    top: -100%;
+    transition: all 0.6s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.microfreakSaveAsInput_JanuaryC {
+    background: #c79589;
+    border: none;
+    color: #060000;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    margin: 5% 10% 3% 10%;
+    outline-color: #8f8f93;
+    padding: 2px 5px;
+    width: 80%;
+}
+
+.microfreakSaveAsButtonsDiv_JanuaryC {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 5vh;
+    justify-content: center;
+    margin: 0 10% 1% 10%;
+    width: 82%;
+}
+
+.microfreakSaveAsButtons_JanuaryC {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #060000;
+    color: #060000;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    margin: 0 20px;
+    outline-color: #959397;
+    transition: all 0.3s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakSaveAsButtons_JanuaryC:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #8e2a12;
+    color: #8e2a12;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #2a282d);
+    transition: all 0.3s linear;
+}
+
+.microfreakSaveAsButtons_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #2a282d);
+    transition: all 0.1s linear;
+}
+
+.microfreakRevertButtonfalse_JanuaryC {
+    display: none;
+}
+
+.microfreakRevertButtontrue_JanuaryC {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow7 / sideRow8;
+    outline-color: #959397;
+    transition: all 0.3s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakRevertButtontrue_JanuaryC:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #8e2a12;
+    color: #8e2a12;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #2a282d);
+    transition: all 0.3s linear;
+}
+
+.microfreakRevertButtontrue_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #2a282d);
+    transition: all 0.1s linear;
+}
+
+.microfreakMidiOutputLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow10 / sideRow11;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 15px;
+}
+
+.microfreakMidiOutputSelect_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #c4bfbf;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow11 / sideRow12;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 15px;
+    outline-color: #8f8f93;
+}
+
+.microfreakMidiChannelLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow13 / sideRow14;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 15px;
+}
+
+.microfreakMidiChannelInput_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #c4bfbf;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    grid-column: sideCol3 / sideCol4;
+    grid-row: sideRow14 / sideRow15;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    outline-color: #8f8f93;
+}
+
+.microfreakInitButton_JanuaryC {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow19 / sideRow20;
+    outline-color: #959397;
+    transition: all 0.3s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakInitButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #8e2a12;
+    color: #8e2a12;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #2a282d);
+    transition: all 0.3s linear;
+}
+
+.microfreakInitButton_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #2a282d);
+    transition: all 0.1s linear;
+}
+
+.microfreakRandomButton_JanuaryC {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow21 / sideRow22;
+    outline-color: #959397;
+    transition: all 0.3s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakRandomButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #8e2a12;
+    color: #8e2a12;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #2a282d);
+    transition: all 0.3s linear;
+}
+
+.microfreakRandomButton_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #2a282d);
+    transition: all 0.1s linear;
+}
+
+.aboutMicrofreakButton_JanuaryC {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: sideCol2 / sideCol5;
+    grid-row: sideRow23 / sideRow24;
+    outline-color: #959397;
+    transition: all 0.3s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.aboutMicrofreakButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #8e2a12;
+    color: #8e2a12;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #2a282d);
+    transition: all 0.3s linear;
+}
+
+.aboutMicrofreakButton_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #2a282d);
+    transition: all 0.1s linear;
+}
+
+.aboutTheArturiaMicrofreakDiv_Active_JanuaryC {
+    background: #231b19;
+    border: 2px groove #8e2a12;
+    color: #060000;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 5%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutTheArturiaMicrofreakDiv_Inactive_JanuaryC {
+    background: #242025;
+    border: 2px groove #8e2a12;
+    color: #060000;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 85%;
+    left: 5%;
+    padding: 2%;
+    position: absolute;
+    top: 115%;
+    transition: all 0.6s linear;
+    width: 85%;
+    z-index: 200;
+}
+
+.aboutArturiaMicrofreakContent_JanuaryC {
+    background: #c4bfbf;
+    height: 79vh;
+    margin-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 97%;
+}
+
+.microfreakAboutImg_JanuaryC {
+    filter: drop-shadow(8px 8px 5px #381007);
+    float: left;
+    margin: 12px;
+    max-width: 40%;
+}
+
+.aboutArturiaMicrofreakContent_JanuaryC h2 {
+    color: #060000;
+    font-family: 'Alata', serif;
+    font-size: 36px;
+    margin: 5px 0 30px 30px;
+}
+
+.aboutArturiaMicrofreakContent_JanuaryC h3 {
+    color: #060000;
+    font-family: 'Alata', serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 10px 25px 10px 45px;
+    max-width: 950px;
+}
+
+.aboutArturiaMicrofreakContent_JanuaryC p {
+    color: #060000;
+    font-family: 'Alata', serif;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 5px 25px 30px 25px;
+    max-width: 950px;
+}
+
+.microfreakLoadModal_Active_JanuaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_distortion_by_daemare_d8igt85-fullview.jpg);
+    background-size: cover;
+    border: 2px groove #8e2a12;
+    box-shadow: 5px 5px 5px #381007;
+    box-sizing: border-box;
+    filter: invert(0%);
+    height: 40vh;
+    left: 20%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.microfreakLoadModal_Inactive_JanuaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_distortion_by_daemare_d8igt85-fullview.jpg);
+    background-size: cover;
+    border: 2px groove #8e2a12;
+    box-shadow: 5px 5px 5px #381007;
+    box-sizing: border-box;
+    filter: invert(100%);
+    height: 40vh;
+    left: 120%;
+    position: absolute;
+    top: 15%;
+    transition: all 0.45s linear;
+    width: 40%;
+    z-index: 200;
+}
+
+.microfreakLoadContainer_JanuaryC {
+    backdrop-filter: blur(7px) brightness(50%);
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [col9] 1fr [col10] 1fr [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.microfreakLoadTitle_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col9;
+    grid-row: row2 / row3;
+}
+
+.microfreakLoadSelector_JanuaryC {
+    background: transparent;
+    border: none;
+    color: #c4bfbf;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #242025);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col2 / col10;
+    grid-row: row4 / row5;
+    outline-color: #959397;
+}
+
+.microfreakLoadLoadButton_JanuaryC {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    outline-color: #959397;
+    transition: all 0.3s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakLoadLoadButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #8e2a12;
+    color: #8e2a12;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #2a282d);
+    transition: all 0.3s linear;
+}
+
+.microfreakLoadLoadButton_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #2a282d);
+    transition: all 0.1s linear;
+}
+
+.microfreakLoadCancelButton_JanuaryC {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col7 / col9;
+    grid-row: row7 / row8;
+    outline-color: #959397;
+    transition: all 0.3s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakLoadCancelButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #8e2a12;
+    color: #8e2a12;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #2a282d);
+    transition: all 0.3s linear;
+}
+
+.microfreakLoadCancelButton_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #2a282d);
+    transition: all 0.1s linear;
+}
+
+.microfreakMatrixDiv_Active_JanuaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_distortion_by_daemare_d8igt85-fullview.jpg);
+    background-size: cover;
+    box-shadow: 5px 5px 5px #381007;
+    height: 85.3vh;
+    left: 10%;
+    position: absolute;
+    top: 6.2%;
+    transition: all 0.6s linear;
+    width: 87.5%;
+    z-index: 200;
+}
+
+.microfreakMatrixDiv_Inactive_JanuaryC {
+    background-image: url(https://events-168-hurdaudio.s3.amazonaws.com/microfreak/january/ice_distortion_by_daemare_d8igt85-fullview.jpg);
+    background-size: cover;
+    box-shadow: 5px 5px 5px #381007;
+    height: 0;
+    left: 120%;
+    position: absolute;
+    top: 6.2%;
+    transition: all 0.6s linear;
+    width: 87.5%;
+    z-index: 200;
+}
+
+.microfreakMatrixContainer_JanuaryC {
+    backdrop-filter: blur(22px) brightness(60%) contrast(200%) grayscale(60%) saturate(90%) sepia(50%);
+    display: grid;
+    grid-template-columns: [col1] 5% [col2] 5% [col3] 5% [col4] 5% [col5] 5% [col6] 5% [col7] 5% [col8] 5% [col9] 5% [col10] 5% [col11] 5% [col12] 5% [col13] 5% [col14] 5% [col15] 5% [col16] 5% [col17] 5% [col18] 5% [col19] 5% [col20] 5% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [row15] 1fr [row16] 1fr [row17] 1fr [row18] 1fr [row19] 1fr [row20] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.microfreakMatrixPitchDestinationLabel_JanuaryC {
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col6 / col7;
+    grid-row: row4 / row5;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixWaveDestinationLabel_JanuaryC {
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col7 / col8;
+    grid-row: row4 / row5;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixTimbreDestinationLabel_JanuaryC {
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col8 / col9;
+    grid-row: row4 / row5;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixCutoffDestinationLabel_JanuaryC {
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col9 / col10;
+    grid-row: row4 / row5;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixAssign1Select_JanuaryC {
+    background: transparent;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col10 / col11;
+    grid-row: row4 / row5;
+    outline-color: #8f8f93;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixAssign2Select_JanuaryC {
+    background: transparent;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col11 / col12;
+    grid-row: row4 / row5;
+    outline-color: #8f8f93;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixAssign3Select_JanuaryC {
+    background: transparent;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col12 / col13;
+    grid-row: row4 / row5;
+    outline-color: #8f8f93;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakMatrixCycleEnvelopeSourceLabel_JanuaryC {
+    border-bottom: 2px solid #c4bfbf;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row6 / row7;
+    padding: 2px 0;
+}
+
+.microfreakMatrixEnvelopeSourceLabel_JanuaryC {
+    border-bottom: 2px solid #c4bfbf;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    padding: 2px 0;
+}
+
+.microfreakMatrixLFOSourceLabel_JanuaryC {
+    border-bottom: 2px solid #c4bfbf;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row8 / row9;
+    padding: 2px 0;
+}
+
+.microfreakMatrixPressureSourceLabel_JanuaryC {
+    border-bottom: 2px solid #c4bfbf;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row9 / row10;
+    padding: 2px 0;
+}
+
+.microfreakMatrixKeyArpSourceLabel_JanuaryC {
+    border-bottom: 2px solid #c4bfbf;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row10 / row11;
+    padding: 2px 0;
+}
+
+.microfreakCycEnvPitch_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvWave_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvTimbre_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvCutoff_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvAssign1_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvAssign2_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakCycEnvAssign3_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row6 / row7;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvPitch_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakEnvWave_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakEnvTimbre_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvCutoff_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvAssign1_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvAssign2_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakEnvAssign3_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row7 / row8;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOPitch_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakLFOWave_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOTimbre_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOCutoff_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOAssign1_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOAssign2_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakLFOAssign3_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row8 / row9;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressurePitch_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakPressureWave_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px); 
+}
+
+.microfreakPressureTimbre_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressureCutoff_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressureAssign1_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressureAssign2_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakPressureAssign3_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row9 / row10;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpPitch_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col6 / col7;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpWave_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col7 / col8;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpTimbre_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col8 / col9;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpCutoff_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col9 / col10;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpAssign1_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col10 / col11;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpAssign2_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col11 / col12;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakKeyarpAssign3_JanuaryC {
+    border: 2px solid #c4bfbf;
+    box-sizing: border-box;
+    grid-column: col12 / col13;
+    grid-row: row10 / row11;
+    margin: 0 10px;
+    transform: translateX(-10px);
+}
+
+.microfreakMatrixLighttrue_JanuaryC {
+    background: radial-gradient(#c79589, #8e2a12, #c79589, #381007, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(150%) saturate(200%);
+    height: 100%;
+    transition: all 0.5s linear;
+    width: 100%;
+}
+
+.microfreakMatrixLightfalse_JanuaryC {
+    background: radial-gradient(#524f58, #381007, #524f58, #363232, transparent);
+    border-radius: 25%;
+    cursor: pointer;
+    filter: brightness(80%) saturate(100%);
+    height: 100%;
+    transition: all 0.5s linear;
+    width: 100%;
+}
+
+.microfreakModulationMatrixAmountLabel_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col17 / col18;
+    grid-row: row2 / rowEnd;
+    transform: translateX(170px) translateY(-40px) rotateZ(-90deg);
+}
+
+.microfreakMatrixModulatorInputContainer_JanuaryC {
+    grid-column: col16 / col19;
+    grid-row: row5 / rowEnd;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.microfreakModulationMatrixAmountDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(300%);
+    grid-column: col15 / col18;
+    grid-row: row4 / row5;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    outline-color: #8f8f93;
+    text-align: center;
+}
+
+.microfreakCloseMatrixButton_JanuaryC {
+    backdrop-filter: hue-rotate(-25deg);
+    background: transparent;
+    border: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    cursor: pointer;
+    filter: brightness(150%) drop-shadow(8px 8px 5px #2a282d);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    height: 35px;
+    grid-column: col15 / col17;
+    grid-row: row17 / row18;
+    outline-color: #959397;
+    transition: all 0.3s linear;
+    padding: 0 15px;
+    z-index: 155;
+}
+
+.microfreakCloseMatrixButton_JanuaryC:hover {
+    backdrop-filter: hue-rotate(25deg);
+    border: 2px solid #8e2a12;
+    color: #8e2a12;
+    filter: brightness(115%) drop-shadow(3px 3px 5px #2a282d);
+    transition: all 0.3s linear;
+}
+
+.microfreakCloseMatrixButton_JanuaryC:active {
+    filter: brightness(85%) drop-shadow(0 0 0 #2a282d);
+    transition: all 0.1s linear;
+}
+
+.microfreakModulationThroughputDisplay_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col6 / col18;
+    grid-row: row16 / row17;
+}
+
+.microfreakModulationModulationMessage_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col3 / col15;
+    grid-row: row17 / row18;
+}
+
+.microfreakModulateModulationSubModal_Active_JanuaryC {
+    background: radial-gradient(#100f12, #2a272e, #381007);
+    box-shadow: 5px 5px 5px #381007;
+    height: 65.3vh;
+    left: 25%;
+    position: absolute;
+    top: 15.2%;
+    transition: all 0.6s linear;
+    width: 50%;
+    z-index: 200;
+}
+
+.microfreakModulateModulationSubModal_Inactive_JanuaryC {
+    background: radial-gradient(#100f12, #2a272e, #381007);
+    box-shadow: 5px 5px 5px #381007;
+    height: 65.3vh;
+    left: 25%;
+    position: absolute;
+    top: 155.2%;
+    transition: all 0.6s linear;
+    width: 50%;
+    z-index: 200;
+}
+
+.microfreakModulationSubModalContainer_JanuaryC {
+    display: grid;
+    grid-template-columns: [col1] 6.25% [col2] 6.25% [col3] 6.25% [col4] 6.25% [col5] 6.25% [col6] 6.25% [col7] 6.25% [col8] 6.25% [col9] 6.25% [col10] 6.25% [col11] 6.25% [col12] 6.25% [col13] 6.25% [col14] 6.25% [col15] 6.25% [col16] 6.25% [rightEdge];
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [row8] 1fr [row9] 1fr [row10] 1fr [row11] 1fr [row12] 1fr [row13] 1fr [row14] 1fr [rowEnd];
+    height: 100%;
+    width: 100%;
+}
+
+.microfreamModulateModulationtitle_JanuaryC {
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col4 / col16;
+    grid-row: row2 / row4;
+}
+
+.microfreakSubTargetPitch_JanuaryC {
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col6 / col7;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetWave_JanuaryC {
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col7 / col8;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetTimbre_JanuaryC {
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col8 / col9;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetCutoff_JanuaryC {
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col9 / col10;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetAssign1_JanuaryC {
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col10 / col11;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetAssign2_JanuaryC {
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col11 / col12;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubTargetAssign3_JanuaryC {
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 24px;
+    grid-column: col12 / col13;
+    grid-row: row5 / row6;
+    padding-top: 3px;
+    transform: rotateZ(-50deg);
+    width: 150%;
+}
+
+.microfreakSubSourceCycEnv_JanuaryC {
+    border-bottom: 2px solid #c4bfbf;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row7 / row8;
+    padding: 5px 0;
+}
+
+.microfreakSubSourceEnv_JanuaryC {
+    border-bottom: 2px solid #c4bfbf;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row8 / row9;
+    padding: 5px 0;
+}
+
+.microfreakSubSourceLfo_JanuaryC {
+    border-bottom: 2px solid #c4bfbf;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row9 / row10;
+    padding: 5px 0;
+}
+
+.microfreakSubSourcePressure_JanuaryC {
+    border-bottom: 2px solid #c4bfbf;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row10 / row11;
+    padding: 5px 0;
+}
+
+.microfreakSubSourceKeyArp_JanuaryC {
+    border-bottom: 2px solid #c4bfbf;
+    border-top: 2px solid #c4bfbf;
+    color: #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 23px;
+    grid-column: col3 / col5;
+    grid-row: row11 / row12;
+    padding: 5px 0;
+}
+
+.microfreakSubCycEnvPitchBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvWaveBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvTimbreBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvCutoffBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvAssign1Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvAssign2Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubCycEnvAssign3Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row7 / row8;
+}
+
+.microfreakSubEnvPitchBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvWaveBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvTimbreBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvCutoffBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvAssign1Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvAssign2Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubEnvAssign3Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row8 / row9;
+}
+
+.microfreakSubLfoPitchBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoWaveBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoTimbreBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoCutoffBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoAssign1Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoAssign2Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(3150%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubLfoAssign3Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row9 / row10;
+}
+
+.microfreakSubPressurePitchBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureWaveBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureTimbreBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureCutoffBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureAssign1Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureAssign2Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubPressureAssign3Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row10 / row11;
+}
+
+.microfreakSubKeyArpPitchBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col6 / col7;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpWaveBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col7 / col8;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpTimbreBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col8 / col9;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpCutoffBox_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col9 / col10;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpAssign1Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col10 / col11;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpAssign2Box_JanuaryC {
+    border: 1px solid #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col11 / col12;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubKeyArpAssign3Box_JanuaryC {
+    border: 1px groove #c4bfbf;
+    filter: brightness(150%) saturate(600%);
+    grid-column: col12 / col13;
+    grid-row: row11 / row12;
+}
+
+.microfreakSubModulateSelectButton_JanuaryC {
+    background: #2a272e;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    opacity: 0.1;
+    width: 100%;
+}
+
+.microfreakSubModulateSelectButton_JanuaryC:hover {
+    background: #c79589;
+    opacity: 1;
+}
+
+.microfreakPanic_Inactive_JanuaryC {
+    display: none;
+}
+
+.microfreakPanic_Active_JanuaryC {
+    height: 60%;
+    left: 35%;
+    opacity: 0.5;
+    position: absolute;
+    top: 25%;
+    width: 60%;
+    z-index: 200;
+}
+
+.microfreakPanic_Active_JanuaryC img {
+    opacity: 1;
+    width: 65%;
+}
