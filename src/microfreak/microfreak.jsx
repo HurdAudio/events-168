@@ -914,9 +914,9 @@ function Microfreak(user, patch) {
                 break;
             case('amplitudeModulation'):
                 if (val) {
-                    // Switch amplitude modulation on
+                    currentOutput.send([0xF0 | currentMidiChannel, 0x00, 0x20, 0x6B, 0x07, 0x01, 0x00, 0x07, 0x40, 0x14, 0x10, 0x40, 0x00, 0x00, 0xF7 ]);
                 } else {
-                    // Switch amplitude modulation off
+                    currentOutput.send([0xF0 | currentMidiChannel, 0x00, 0x20, 0x6B, 0x07, 0x01, 0x00, 0x07, 0x40, 0x14, 0x10, 0x40, 0xFF, 0xFF, 0xF7 ]);
                 }
                 break;
             case('attack'):
