@@ -86,6 +86,9 @@ function StepSequencer(user, seq) {
     const [midiOutputs, setMidiOutputs] = useState(userOutputs);
     const [saveAsName, setSaveAsName] = useState('');
     const [globalEventFilter, setGlobalEventFilter] = useState(false);
+    const [availableSequences, setAvailableSequences] = useState([]);
+    const [currentSequence, setCurrentSequence] = useState('');
+    const [selectedSequence, setSelectedSequence] = useState('');
     const [midiEvents, setMidiEvents] = useState([
         {
             continuous: false,
@@ -1124,16 +1127,30 @@ function StepSequencer(user, seq) {
     }
     
     const loadModalOn = () => {
+        let selectSeq = '';
         setStepSequencerLoadModalState('_Active');
         setStepSequencerState('_Inactive');
+        axios.get(`/sequences/byuser/${user.uuid}`)
+        .then(availableSequencesData => {
+            const availableSeq = availableSequencesData.data.sort((a, b) => {
+                if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                    return 1;
+                } else if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+            setAvailableSequences(availableSeq);
+            if (availableSequencesData.data.length > 0) {
+                selectSeq = availableSequencesData.data[0].uuid;
+            }
+            setSelectedSequence(selectSeq);
+        });
     }
     
     const updateChangeAsName = (val) => {
         setSaveAsName(val);
-    }
-    
-    const submitSaveAsDialog = (name) => {
-        console.log(name);
     }
     
     const cancelSaveAsDialog = () => {
@@ -7747,6 +7764,304 @@ function StepSequencer(user, seq) {
             setStepSequencerState('_Active');
         }, user.midi_connections.outputs.length * 2000);
     }
+    
+    const updateSelectedSequence = (val) => {
+        setSelectedSequence(val);
+    }
+    
+    const loadSequence = () => {
+        const sequenceForLoad = selectedSequence;
+        const beatResolution = parseInt(user.clock_resolution);
+        let intervalTicks, note;
+        setCurrentSequence(sequenceForLoad);
+        axios.get(`/sequences/sequence/${sequenceForLoad}`)
+        .then(loadedSequenceData => {
+            const loadedSequence = loadedSequenceData.data;
+            for (let i = 0; i < loadedSequence.tempoTrack.tick.length; i++) {
+                loadedSequence.tempoTrack.tick[i].index = i;
+                if (loadedSequence.tempoTrack.tick[i].ticks !== 0) {
+                    loadedSequence.tempoTrack.tick[i].ticks = Math.round((loadedSequence.tempoTrack.tick[i].ticks / 100000000) * beatResolution);
+                }
+            }
+            if (loadedSequence.sequence.duration.ticks !== 0) {
+                loadedSequence.sequence.duration.ticks = Math.round((loadedSequence.sequence.duration.ticks / 100000000) * beatResolution);
+            }
+            for (let j = 0; j < loadedSequence.sequence.tracks.length; j++) {
+                for (let k = 0; k < loadedSequence.sequence.tracks[j].events.length; k++) {
+                    if (loadedSequence.sequence.tracks[j].events[k].event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') {
+                        if (loadedSequence.sequence.tracks[j].events[k].noteOn.time.ticks !== 0) {
+                            loadedSequence.sequence.tracks[j].events[k].noteOn.time.ticks = Math.round((loadedSequence.sequence.tracks[j].events[k].noteOn.time.ticks / 100000000) * beatResolution);  
+                        }
+                        if (loadedSequence.sequence.tracks[j].events[k].noteOff.time.ticks !== 0) {
+                            loadedSequence.sequence.tracks[j].events[k].noteOff.time.ticks = Math.round((loadedSequence.sequence.tracks[j].events[k].noteOff.time.ticks / 100000000) * beatResolution);
+                        }
+                    } else {
+                        if (loadedSequence.sequence.tracks[j].events[k].time.ticks !== 0) {
+                            loadedSequence.sequence.tracks[j].events[k].time.ticks = Math.round((loadedSequence.sequence.tracks[j].events[k].time.ticks / 100000000) * beatResolution);
+                        }
+                    }
+                }
+            }
+            setCurrentMidiEvent('439da322-bd74-4dc5-8e4b-b4ca664657a9');
+            switch(loadedSequence.tempoTrack.tick[0].meterDenominator) {
+                case(1):
+                    intervalTicks = Math.round(beatResolution * 4);
+                    note = 'wholeNote';
+                    break;
+                case(2):
+                    intervalTicks = Math.round(beatResolution * 2);
+                    note = 'halfNote';
+                    break;
+                case(4):
+                    intervalTicks = Math.round(beatResolution);
+                    note = 'quarter';
+                    break;
+                case(8):
+                    intervalTicks = Math.round(beatResolution / 2);
+                    note = 'eighthNote';
+                    break;
+                case(16):
+                    intervalTicks = Math.round(beatResolution / 4);
+                    note = 'sixteenthNote';
+                    break;
+                case(32):
+                    intervalTicks = Math.round(beatResolution / 8);
+                    note = 'thirtySecondNote';
+                    break;
+                case(64):
+                    intervalTicks = Math.round(beatResolution / 16);
+                    note = 'sixtyFourthNote';
+                    break;
+                case(128):
+                    intervalTicks = Math.round(beatResolution / 32);
+                    note = 'oneHundredTwentyEighthNote';
+                    break;
+                default:
+                    console.log('ERROR - unaccounted for meter denominator');
+            }
+            setStepInterval({ intervalTicks: intervalTicks, note: note });
+            setSequence(loadedSequence.sequence);
+            setActiveTrack(loadedSequence.sequence.tracks[0].id);
+            setCurrentPosition({
+                measure: {
+                    bar: 1,
+                    beat: 1,
+                    ticks: 0
+                }
+            });
+            setHomePosition({
+                measure: {
+                    bar: 1,
+                    beat: 1,
+                    ticks: 0
+                }
+            });
+            setTempoTrack(loadedSequence.tempoTrack);
+            setCurrentMeter({
+                numerator: loadedSequence.tempoTrack.tick[0].meterNumerator,
+                denominator: loadedSequence.tempoTrack.tick[0].meterDenominator
+            });
+            setCurrentTempo({
+                tempo: loadedSequence.tempoTrack.tick[0].tempo,
+                tempoBase: loadedSequence.tempoTrack.tick[0].tempoBase
+            });
+            setCurrentClockPosition('0:00.000');
+            cancelPatchLoad();
+        });        
+    }
+    
+    const revertSequence = (current) => {
+        if (current !== '') {
+            const beatResolution = parseInt(user.clock_resolution);
+            let intervalTicks, note;
+            axios.get(`/sequences/sequence/${current}`)
+            .then(loadedSequenceData => {
+                const loadedSequence = loadedSequenceData.data;
+                for (let i = 0; i < loadedSequence.tempoTrack.tick.length; i++) {
+                    loadedSequence.tempoTrack.tick[i].index = i;
+                    if (loadedSequence.tempoTrack.tick[i].ticks !== 0) {
+                        loadedSequence.tempoTrack.tick[i].ticks = Math.round((loadedSequence.tempoTrack.tick[i].ticks / 100000000) * beatResolution);
+                    }
+                }
+                if (loadedSequence.sequence.duration.ticks !== 0) {
+                    loadedSequence.sequence.duration.ticks = Math.round((loadedSequence.sequence.duration.ticks / 100000000) * beatResolution);
+                }
+                for (let j = 0; j < loadedSequence.sequence.tracks.length; j++) {
+                    for (let k = 0; k < loadedSequence.sequence.tracks[j].events.length; k++) {
+                        if (loadedSequence.sequence.tracks[j].events[k].event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') {
+                            if (loadedSequence.sequence.tracks[j].events[k].noteOn.time.ticks !== 0) {
+                                loadedSequence.sequence.tracks[j].events[k].noteOn.time.ticks = Math.round((loadedSequence.sequence.tracks[j].events[k].noteOn.time.ticks / 100000000) * beatResolution);  
+                            }
+                            if (loadedSequence.sequence.tracks[j].events[k].noteOff.time.ticks !== 0) {
+                                loadedSequence.sequence.tracks[j].events[k].noteOff.time.ticks = Math.round((loadedSequence.sequence.tracks[j].events[k].noteOff.time.ticks / 100000000) * beatResolution);
+                            }
+                        } else {
+                            if (loadedSequence.sequence.tracks[j].events[k].time.ticks !== 0) {
+                                loadedSequence.sequence.tracks[j].events[k].time.ticks = Math.round((loadedSequence.sequence.tracks[j].events[k].time.ticks / 100000000) * beatResolution);
+                            }
+                        }
+                    }
+                }
+                setCurrentMidiEvent('439da322-bd74-4dc5-8e4b-b4ca664657a9');
+                switch(loadedSequence.tempoTrack.tick[0].meterDenominator) {
+                    case(1):
+                        intervalTicks = Math.round(beatResolution * 4);
+                        note = 'wholeNote';
+                        break;
+                    case(2):
+                        intervalTicks = Math.round(beatResolution * 2);
+                        note = 'halfNote';
+                        break;
+                    case(4):
+                        intervalTicks = Math.round(beatResolution);
+                        note = 'quarter';
+                        break;
+                    case(8):
+                        intervalTicks = Math.round(beatResolution / 2);
+                        note = 'eighthNote';
+                        break;
+                    case(16):
+                        intervalTicks = Math.round(beatResolution / 4);
+                        note = 'sixteenthNote';
+                        break;
+                    case(32):
+                        intervalTicks = Math.round(beatResolution / 8);
+                        note = 'thirtySecondNote';
+                        break;
+                    case(64):
+                        intervalTicks = Math.round(beatResolution / 16);
+                        note = 'sixtyFourthNote';
+                        break;
+                    case(128):
+                        intervalTicks = Math.round(beatResolution / 32);
+                        note = 'oneHundredTwentyEighthNote';
+                        break;
+                    default:
+                        console.log('ERROR - unaccounted for meter denominator');
+                }
+                setStepInterval({ intervalTicks: intervalTicks, note: note });
+                setSequence(loadedSequence.sequence);
+                setActiveTrack(loadedSequence.sequence.tracks[0].id);
+                setCurrentPosition({
+                    measure: {
+                        bar: 1,
+                        beat: 1,
+                        ticks: 0
+                    }
+                });
+                setHomePosition({
+                    measure: {
+                        bar: 1,
+                        beat: 1,
+                        ticks: 0
+                    }
+                });
+                setTempoTrack(loadedSequence.tempoTrack);
+                setCurrentMeter({
+                    numerator: loadedSequence.tempoTrack.tick[0].meterNumerator,
+                    denominator: loadedSequence.tempoTrack.tick[0].meterDenominator
+                });
+                setCurrentTempo({
+                    tempo: loadedSequence.tempoTrack.tick[0].tempo,
+                    tempoBase: loadedSequence.tempoTrack.tick[0].tempoBase
+                });
+                setCurrentClockPosition('0:00.000');
+            }); 
+        }
+    }
+    
+    const saveCurrentSequence = () => {
+        const beatResolution = parseInt(user.clock_resolution);
+        const seq = {...sequence};
+        const tTrack = {...tempoTrack};
+        const current = currentSequence;
+        for (let i = 0; i < tTrack.tick.length; i++) {
+            if (tTrack.tick[i].ticks !== 0) {
+                tTrack.tick[i].ticks = Math.round((tTrack.tick[i].ticks / beatResolution) * 100000000);
+            }
+        }
+        if (seq.duration.ticks !== 0) {
+            seq.duration.ticks = Math.round((seq.duration.ticks / beatResolution) * 100000000);
+        }
+        for (let j = 0; j < seq.tracks.length; j++) {
+            for (let k = 0; k < seq.tracks[j].events.length; k++) {
+                if (seq.tracks[j].events[k].event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') {
+                    if (seq.tracks[j].events[k].noteOn.time.ticks !== 0) {
+                       seq.tracks[j].events[k].noteOn.time.ticks = Math.round((seq.tracks[j].events[k].noteOn.time.ticks / beatResolution) * 100000000); 
+                    }
+                    if (seq.tracks[j].events[k].noteOff.time.ticks !== 0) {
+                        seq.tracks[j].events[k].noteOff.time.ticks = Math.round((seq.tracks[j].events[k].noteOff.time.ticks / beatResolution) * 100000000);
+                    }
+                } else {
+                    if (seq.tracks[j].events[k].time.ticks !== 0) {
+                        seq.tracks[j].events[k].time.ticks = Math.round((seq.tracks[j].events[k].time.ticks / beatResolution) * 100000000);
+                    }
+                }
+            }
+        }
+        if (current === '') {
+            axios.post(`/sequences/sequence`, {
+                user_uuid: user.uuid,
+                tempoTrack: tTrack,
+                sequence: seq,
+                name: seq.header.name
+            })
+            .then(postedSequenceData => {
+                setCurrentSequence(postedSequenceData.data[0].uuid);
+                revertSequence(postedSequenceData.data[0].uuid);
+            });
+        } else {
+            axios.patch(`sequences/sequence/${current}`, {
+                tempoTrack: tTrack,
+                sequence: seq,
+                name: seq.header.name
+            });
+        }
+    }
+    
+    const submitSaveAsDialog = (name) => {
+        const beatResolution = parseInt(user.clock_resolution);
+        const seq = {...sequence};
+        const tTrack = {...tempoTrack};
+        if (name !== '') {
+            seq.header.name = name;
+            for (let i = 0; i < tTrack.tick.length; i++) {
+                if (tTrack.tick[i].ticks !== 0) {
+                    tTrack.tick[i].ticks = Math.round((tTrack.tick[i].ticks / beatResolution) * 100000000);
+                }
+            }
+            if (seq.duration.ticks !== 0) {
+                seq.duration.ticks = Math.round((seq.duration.ticks / beatResolution) * 100000000);
+            }
+            for (let j = 0; j < seq.tracks.length; j++) {
+                for (let k = 0; k < seq.tracks[j].events.length; k++) {
+                    if (seq.tracks[j].events[k].event === '439da322-bd74-4dc5-8e4b-b4ca664657a9') {
+                        if (seq.tracks[j].events[k].noteOn.time.ticks !== 0) {
+                           seq.tracks[j].events[k].noteOn.time.ticks = Math.round((seq.tracks[j].events[k].noteOn.time.ticks / beatResolution) * 100000000); 
+                        }
+                        if (seq.tracks[j].events[k].noteOff.time.ticks !== 0) {
+                            seq.tracks[j].events[k].noteOff.time.ticks = Math.round((seq.tracks[j].events[k].noteOff.time.ticks / beatResolution) * 100000000);
+                        }
+                    } else {
+                        if (seq.tracks[j].events[k].time.ticks !== 0) {
+                            seq.tracks[j].events[k].time.ticks = Math.round((seq.tracks[j].events[k].time.ticks / beatResolution) * 100000000);
+                        }
+                    }
+                }
+            }
+            axios.post(`/sequences/sequence`, {
+                user_uuid: user.uuid,
+                tempoTrack: tTrack,
+                sequence: seq,
+                name: name
+            })
+            .then(postedSequenceData => {
+                setCurrentSequence(postedSequenceData.data[0].uuid);
+                revertSequence(postedSequenceData.data[0].uuid);
+                cancelSaveAsDialog();
+            });
+        }
+    }
             
     return(
         <div>
@@ -7770,10 +8085,12 @@ function StepSequencer(user, seq) {
                         onClick={() => panic()}>panic!</button>
                     <div className={'stepSequencerSidebarManager' + stepSequenceMonth}>
                         <div className={'stepSequencerSidebarContainer' + stepSequenceMonth}>
-                            <button className={'stepSequencerSaveButton' + stepSequenceMonth}>save</button>
+                            <button className={'stepSequencerSaveButton' + stepSequenceMonth}
+                                onClick={() => saveCurrentSequence()}>save</button>
                             <button className={'stepSequencerSaveAsButton' + stepSequenceMonth}
                                 onClick={() => executeSaveAsDialog()}>save as...</button>
-                            <button className={'stepSequencerRevertButton' + stepSequenceMonth}>revert</button>
+                            <button className={'stepSequencerRevertButton' + stepSequenceMonth}
+                                onClick={() => revertSequence(currentSequence)}>revert</button>
                         </div>
                     </div>
                     <div className={'stepSequencerPositionDisplay' + stepSequenceMonth}>
@@ -8694,9 +9011,16 @@ function StepSequencer(user, seq) {
             <div className={'stepSequencerLoadModal' + stepSequencerLoadModalState + stepSequenceMonth}>
                 <div className={'stepSequencerLoadContainer' + stepSequenceMonth}>
                     <p className={'stepSequencerLoadTitle' + stepSequenceMonth}>Load Sequence</p>
-                    <select className={'stepSequencerLoadSelector' + stepSequenceMonth}>
+                    <select className={'stepSequencerLoadSelector' + stepSequenceMonth}
+                        onChange={(e) => updateSelectedSequence(e.target.value)}>
+                        {availableSequences.map(seq => (
+                            <option 
+                                key={seq.uuid}
+                                value={seq.uuid}>{seq.name}</option>
+                        ))}
                     </select>
-                    <button className={'stepSequencerLoadLoadButton' + stepSequenceMonth}>load</button>
+                    <button className={'stepSequencerLoadLoadButton' + stepSequenceMonth}
+                        onClick={() => loadSequence()}>load</button>
                     <button className={'stepSequencerLoadCancelButton' + stepSequenceMonth}
                         onClick={() => cancelPatchLoad()}>cancel</button>
                 </div>
