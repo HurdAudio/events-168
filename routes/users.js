@@ -287,7 +287,8 @@ router.use(function (req,res,next) {
 // });
 
 router.post('/login', (req, res, next) => {
-    
+    var salt = bcrypt.genSaltSync(parseInt(process.env.SALT_ROUNDS));
+        
   function decryptPasswords(arr, security) {
     let asciiLimit = 65535;
     let indexChar = 0;
@@ -362,13 +363,14 @@ router.post('/login', (req, res, next) => {
     }
     let passwords = decryptPasswords(req.body.password, result.security);
     let clearance = false;
-
-    // bcrypt.hashSync(process.env.SALT_PASSWORD + req.body.password, salt);
+      
+     
 
     for (let q = 0; q < passwords.length; q++) {
-      if (bcrypt.compareSync(process.env.SALT_PASSWORD + passwords[q], result.hashed_password)) {
-        clearance = true;
-      }
+        bcrypt.hashSync(process.env.SALT_PASSWORD + passwords[q], salt);
+        if (bcrypt.compareSync(process.env.SALT_PASSWORD + passwords[q], result.hashed_password)) {
+            clearance = true;
+        }
     }
 
     if (!clearance) {

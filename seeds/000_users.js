@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
           email: 'devin@devinhurd.com',
           first_name: 'Devin',
           last_name: 'Hurd',
-          hashed_password: '$2b$05$Ri88Zi4.Z3P/Fyj5Th/npOVkmSDHsSszALXm0NzwH09r5gh1xz8Im',
+          hashed_password: '$2b$05$titE7MFS2VCGIHlCmtBx8.4LQym/PkC/Oyq3J1W3hnbOUCt/8q5GW',
           is_admin: true,
           email_confirmed: true,
           avatar_path: 'https://habits168-hurdaudio.s3.amazonaws.com/avatars/lovecraftAvatar.jpg',
