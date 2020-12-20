@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   BrowserRouter as Router,
@@ -31,6 +31,8 @@ import backward from '../img/backward.png';
 import forward from '../img/forward.png';
 import axios from 'axios';
 import AvailableDevices from '../midiManager/availableDevices';
+import MidiEventsList from './midiEventsList';
+import PatchSender from './patchSender';
 
 const sequencePlaying = false;
 const svgHeight = 260;
@@ -40,11 +42,13 @@ const januaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/stepSeque
 const januaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/stepSequencer/january/spinners/loaderStepSeqb.gif';
 const januaryCSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/stepSequencer/january/spinners/runnerruns.gif';
 
+const initialEvents = MidiEventsList('e3bfacf5-499a-4247-b512-2c4bd15861ad');
+let connections = null;
 
 function StepSequencer(user, seq) {
     
     let beatDigits;
-    let userOutputs;
+    let userOutputs = [];
     
     const beatResolution = parseInt(user.clock_resolution);
     if (beatResolution > 99999) {
@@ -60,13 +64,18 @@ function StepSequencer(user, seq) {
     } else {
         beatDigits = 1;
     }
-    console.log(user.midi_connections);
-    if (user.midi_connections) {
-        userOutputs = user.midi_connections.outputs;
-    } else {
-        userOutputs = [];
-    }
+//    if (user.midi_connections) {
+//        userOutputs = user.midi_connections.outputs;
+//    } else {
+//        userOutputs = [];
+//    }
     
+    const [midiConnections, setMidiConnections] = useState(undefined);
+    const [userMidiPatch, setUserMidiPatch] = useState(null);
+    const [currentOutput, setCurrentOutput] = useState(0);
+    const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
+    const [availableInputs, setAvailableInputs] = useState([]);
+    const [availableOutputs, setAvailableOutputs] = useState([]);
     const [availableDevices, setAvailableDevices] = useState(AvailableDevices());
     const [stepSequenceMonth, setStepSequenceMonth] = useState('_JanuaryC');
     const [stepSequencerState, setStepSequencerState] = useState('_Active');
@@ -89,320 +98,13 @@ function StepSequencer(user, seq) {
     const [availableSequences, setAvailableSequences] = useState([]);
     const [currentSequence, setCurrentSequence] = useState('');
     const [selectedSequence, setSelectedSequence] = useState('');
-    const [midiEvents, setMidiEvents] = useState([
-        {
-            continuous: false,
-            filter: false,
-            name: 'initial patch',
-            uuid: '9f4db083-23fa-4c1c-b7a5-ee3f57288aa7'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'note event',
-            uuid: '439da322-bd74-4dc5-8e4b-b4ca664657a9'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'pitch bend',
-            uuid: 'd1595e03-bcd9-4ca7-9247-4d54723c5a05'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'program change',
-            uuid: '2fdb9151-68ad-46f7-b11e-adbb15d12a09'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'aftertouch poly',
-            uuid: '9a141aff-eea8-46c4-8650-679d9218fb08'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'aftertouch channel',
-            uuid: 'd1c6b635-d413-40aa-97dd-7d795230d5f4'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'controller change',
-            uuid: '884e57d3-f5a5-4192-b640-78891802867b'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'bank select',
-            uuid: '042b257f-f1de-488d-900b-6d7c49361748'
-        },
-        {   
-            continuous: true,
-            filter: false,
-            name: 'modulation wheel',
-            uuid: '89265cc9-9ce5-4219-bfb6-371b18ed42b1'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'breath controller',
-            uuid: '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'foot controller',
-            uuid: '2a3b9983-d175-4bde-aca9-63b70944ec7e'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'portamento time',
-            uuid: '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'data entry msb',
-            uuid: 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'channel volume',
-            uuid: '5138de25-1d5c-473e-8a68-ddbeadc32bd4'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'balance',
-            uuid: '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'pan',
-            uuid: 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'expression controller',
-            uuid: '15a9c413-3dbe-4890-bd52-287c2a48f615'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'effect control 1',
-            uuid: '9434ea7e-6a63-423c-9be5-77584bd587e4'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'effect control 2',
-            uuid: 'a97eee86-2a5e-47db-99b1-74b61bc994c1'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'general purpose controller 1',
-            uuid: '6eaceab3-35bb-49e2-ad82-5bd4c3a32679'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'general purpose controller 2',
-            uuid: 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'general purpose controller 3',
-            uuid: '3474f1bf-5aae-434e-ba95-102114de0dd2'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'general purpose controller 4',
-            uuid: '221e9b45-0ec8-421e-adb6-cfaf19b69610'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'damper pedal on/off',
-            uuid: 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'portamento on/off',
-            uuid: 'c3543d3c-ccc5-45e2-ac42-c62c8b364690'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'sostenuto on/off',
-            uuid: '26a0ab85-b2cc-4442-84c0-bd30fb239869'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'soft pedal on/off',
-            uuid: '890d5a31-859b-4958-8eca-dd0b52f1fbec'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'legato footswitch',
-            uuid: 'f31779f1-2599-487b-8e96-5b0abd35394e'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'hold 2',
-            uuid: '75cf0bca-6196-4219-9eef-54272e8020a8'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'sound variation',
-            uuid: 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'timbre/harmonic intensity',
-            uuid: '5531a226-bc2c-4c60-9505-9b8da30b86c2'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'release time',
-            uuid: 'cb30f654-a1c1-4e76-b479-d41821ede969'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'attack time',
-            uuid: '9390dbb8-efe9-4b41-adf3-47c6531f7aa1'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'brightness',
-            uuid: 'f61546fe-fd2a-4c89-813c-44dde15e6aa2'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'decay time',
-            uuid: '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'vibrato rate',
-            uuid: '752a2e67-911e-45b5-801d-0841c38cf8c2'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'vibrato depth',
-            uuid: '97fb8e80-b937-464d-8830-212dcac90675'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'vibrato delay',
-            uuid: '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'undefined',
-            uuid: '1ab83a91-21b1-4d56-b333-3a59c4ade431'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'general purpose controller 5',
-            uuid: 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'general purpose controller 6',
-            uuid: 'faf99fca-87c1-4e8e-81f5-b0f14251db08'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'general purpose controller 7',
-            uuid: '4c64d103-e813-4c4a-80b5-01cd8186635c'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'general purpose controller 8',
-            uuid: 'e181eaf9-1b61-4e5b-8982-833fb9594529'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'portamento control',
-            uuid: '246e9232-3d6a-4352-8957-d0ff9c1c834e'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'high resolution velocity prefix',
-            uuid: '80e77d4b-c523-4393-a279-6d7b15e65d8a'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'effects 1 depth',
-            uuid: 'c3b8b079-4994-480e-9b0a-8cbce11fba46'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'effects 2 depth',
-            uuid: '206ff86e-6894-4b56-9f5b-f5387d18f2ea'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'effects 3 depth',
-            uuid: '2517d341-7ae3-4dae-b866-49bd2fc9b21c'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'effects 4 depth',
-            uuid: '269524b5-a240-42e5-abfe-bf074ab7cb11'
-        },
-        {
-            continuous: true,
-            filter: false,
-            name: 'effects 5 depth',
-            uuid: 'e1568b69-6246-469f-9654-a398a1606ef9'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'mono mode',
-            uuid: '44feabcb-b735-4980-a3fc-1e229b4bd115'
-        },
-        {
-            continuous: false,
-            filter: false,
-            name: 'poly mode',
-            uuid: '40fc271b-2b22-40ff-a43d-90404ff07c69'
-        }
-    ]);
+    const [midiEvents, setMidiEvents] = useState(initialEvents);
+    const [currentCollections, setCurrentCollections] = useState([]);
+    const [selectedCollection, setSelectedCollection] = useState('');
+    const [selectedBank, setSelectedBank] = useState('');
+    const [currentBanks, setCurrentBanks] = useState([]);
+    const [currentPatches, setCurrentPatches] = useState([]);
+    const [selectedPatch, setSelectedPatch] = useState('');
     const [quantizeParams, setQuantizeParams] = useState({
         event: '439da322-bd74-4dc5-8e4b-b4ca664657a9',
         value: 240
@@ -3495,6 +3197,11 @@ function StepSequencer(user, seq) {
                 sequence.tracks[i].active = false;
             }
         }
+        if ((sequence.tracks[val].deviceUuid !== undefined) && (sequence.tracks[val].deviceUuid !== null)) {
+            updateTrackDevice(sequence.tracks[val].deviceUuid);
+        } else {
+            updateTrackDevice(sequence.tracks[val].device);
+        }
         setActiveTrack(val);
         setSequence(deepSequence);
     }
@@ -3543,6 +3250,7 @@ function StepSequencer(user, seq) {
                             channel: midiPatch[i].channel,
                             connection: user.midi_connections.outputs[i].connection,
                             device: midiPatch[i].device,
+                            deviceUuid: midiPatch[i].deviceUuid,
                             hardwareIn: midiPatch[i].hardwareIn,
                             id: user.midi_connections.outputs[i].id,
                             label: midiPatch[i].label,
@@ -3552,6 +3260,7 @@ function StepSequencer(user, seq) {
                             type: user.midi_connections.outputs[i].type
                         }
                     }
+                    updateTrackDevice(midiPatch[0].deviceUuid);
                     updateOutputObject(outputsArr);
                 });
             } else if (user.midi_connections) {
@@ -3563,8 +3272,15 @@ function StepSequencer(user, seq) {
     const updateActiveTrackOutput = (val) => {
         let deepSequence = {...sequence};
         
-        sequence.tracks[activeTrack].output = val;
+        deepSequence.tracks[activeTrack].output = val;
         
+        for (let i = 0; i < midiOutputs.length; i++) {
+            if (midiOutputs[i].id === val) {
+                deepSequence.tracks[activeTrack].device = midiOutputs[i].deviceUuid;
+                deepSequence.tracks[activeTrack].deviceUuid = midiOutputs[i].deviceUuid;
+                updateTrackDevice(midiOutputs[i].deviceUuid);
+            }
+        }
         setSequence(deepSequence);
     }
     
@@ -3640,6 +3356,167 @@ function StepSequencer(user, seq) {
         
     }
     
+    const collectionUpdate = (collection) => {
+        setCurrentCollections(collection);
+        setSelectedCollection(collection[0].uuid);
+        setCurrentBanks(collection[0].banks.banks);
+        if (collection[0].banks.banks.length > 0) {
+            setSelectedBank(collection[0].banks.banks[0].uuid);
+            if (collection[0].banks.banks[0].patches.length > 0) {
+                setCurrentPatches(collection[0].banks.banks[0].patches);
+                setSelectedPatch(collection[0].banks.banks[0].patches[0].uuid);
+                let output = 0;
+                for (let o = 0; o < user.midi_connections.outputs.length; o++) {
+                    if (user.midi_connections.outputs[o].id === sequence.tracks[activeTrack].output) {
+                        output = o;
+                    }
+                }
+                PatchSender({
+                    deviceId: sequence.tracks[activeTrack].device,
+                    currentOutput: user.midi_connections.outputs[output],
+                    patch: collection[0].banks.banks[0].patches[0],
+                    currentMidiChannel: 0
+                });
+            } else {
+                setCurrentPatches([]);
+                setSelectedPatch('');
+            }
+        } else {
+            setSelectedBank('');
+            setCurrentPatches([]);
+            setSelectedPatch('');
+        }
+    }
+    
+    const updateCurrentCollections = (val) => {
+        let apiString = '';
+        
+        switch(val) {
+            case('e3bfacf5-499a-4247-b512-2c4bd15861ad'):
+                apiString = `/volca_fm_banks/byuser/${user.uuid}`;
+                break;
+            default:
+                console.log('ERROR: Device Collection API not yet supported');
+        }
+        if (apiString.length > 0) {
+            axios.get(apiString).then(collection => collectionUpdate(collection.data));
+        } else {
+            setCurrentCollections([]);
+            setSelectedCollection('');
+            setCurrentBanks([]);
+            setSelectedBank('');
+            setCurrentPatches([]);
+            
+        }
+    }
+    
+    const updatePatch = (val) => {
+        let collectionIndex;
+        let bankIndex;
+        let patchIndex;
+        
+        setSelectedPatch(val);
+        for (let i = 0; i < currentCollections.length; i++) {
+            if (currentCollections[i].uuid === selectedCollection) {
+                collectionIndex = i;
+            }
+        }
+        for (let j = 0; j < currentCollections[collectionIndex].banks.banks.length; j++) {
+            if (currentCollections[collectionIndex].banks.banks[j].uuid === selectedBank) {
+                bankIndex = j;
+            }
+        }
+        for (let k = 0; k < currentCollections[collectionIndex].banks.banks[bankIndex].patches.length; k++) {
+            if (currentCollections[collectionIndex].banks.banks[bankIndex].patches[k] === val) {
+                patchIndex = k;
+            }
+        }
+        let output = 0;
+        for (let o = 0; o < user.midi_connections.outputs.length; o++) {
+            if (user.midi_connections.outputs[o].id === sequence.tracks[activeTrack].output) {
+                output = o;
+            }
+        }
+        PatchSender({
+            deviceId: sequence.tracks[activeTrack].device,
+            currentOutput: user.midi_connections.outputs[output],
+            patch: currentCollections[collectionIndex].banks.banks[bankIndex].patches[patchIndex],
+            currentMidiChannel: 0
+        });
+    }
+    
+    const updateBank = (val) => {
+        let collectionIndex;
+        let bankIndex;
+        
+        setSelectedBank(val);
+        for (let i = 0; i < currentCollections.length; i++) {
+            if (currentCollections[i].uuid === selectedCollection) {
+                collectionIndex = i;
+            }
+        }
+        for (let j = 0; j < currentCollections[collectionIndex].banks.banks.length; j++) {
+            if (currentCollections[collectionIndex].banks.banks[j].uuid === val) {
+                bankIndex = j;
+            }
+        }
+        setCurrentPatches(currentCollections[collectionIndex].banks.banks[bankIndex].patches);
+        if (currentCollections[collectionIndex].banks.banks[bankIndex].patches.length > 0) {
+            setSelectedPatch(currentCollections[collectionIndex].banks.banks[bankIndex].patches[0].uuid);
+        } else {
+            setSelectedPatch('');
+        }
+        let output = 0;
+        for (let o = 0; o < user.midi_connections.outputs.length; o++) {
+            if (user.midi_connections.outputs[o].id === sequence.tracks[activeTrack].output) {
+                output = o;
+            }
+        }
+        PatchSender({
+            deviceId: sequence.tracks[activeTrack].device,
+            currentOutput: user.midi_connections.outputs[output],
+            patch: currentCollections[collectionIndex].banks.banks[bankIndex].patches[0],
+            currentMidiChannel: 0
+        });
+    }
+    
+    const updateCollection = (val) => {
+        let collectionIndex;
+        
+        setSelectedCollection(val);
+        
+        for (let i = 0; i < currentCollections.length; i++) {
+            if (currentCollections[i].uuid === val) {
+                collectionIndex = i;
+            }
+        }
+        setCurrentBanks(currentCollections[collectionIndex].banks.banks);
+        if (currentCollections[collectionIndex].banks.banks.length > 0) {
+            setSelectedBank(currentCollections[collectionIndex].banks.banks[0].uuid);
+        } else {
+            setSelectedBank('');
+        }
+        setCurrentPatches(currentCollections[collectionIndex].banks.banks[0].patches);
+        if (currentCollections[collectionIndex].banks.banks[0].patches.length > 0) {
+            setSelectedPatch(currentCollections[collectionIndex].banks.banks[0].patches[0].uuid);
+        } else {
+            setSelectedPatch('');
+        }
+        let output = 0;
+        for (let o = 0; o < user.midi_connections.outputs.length; o++) {
+            if (user.midi_connections.outputs[o].id === sequence.tracks[activeTrack].output) {
+                output = o;
+            }
+        }
+        PatchSender({
+            deviceId: sequence.tracks[activeTrack].device,
+            currentOutput: user.midi_connections.outputs[output],
+            patch: currentCollections[collectionIndex].banks.banks[0].patches[0],
+            currentMidiChannel: 0
+        });
+        
+    }
+    
     const updateTrackDevice = (val) => {
         let deepSequence = {...sequence};
         let imgSrce = availableDevices.filter(dev => {
@@ -3647,9 +3524,11 @@ function StepSequencer(user, seq) {
         });
         
         deepSequence.tracks[activeTrack].device = val;
+        deepSequence.tracks[activeTrack].deviceUuid = val;
         deepSequence.tracks[activeTrack].image = imgSrce[0].imagePath;
-        
+        setMidiEvents(MidiEventsList(val));
         setSequence(deepSequence);
+        updateCurrentCollections(val);
     }
     
     const updateCurrentMidiEvent = (val) => {
@@ -7624,6 +7503,9 @@ function StepSequencer(user, seq) {
         let deepFilter = deepCopy.filter(event => {
             return(event.uuid === uuid);
         });
+        if (deepFilter.length === 0) {
+            return true;
+        }
         
         return deepFilter[0].filter;
     }
@@ -8062,6 +7944,64 @@ function StepSequencer(user, seq) {
             });
         }
     }
+    
+    useEffect(() => {
+        let indexOut = null;
+        if (user.midi_connections) {
+            connections = user.midi_connections;
+            setMidiConnections(connections);
+            setCurrentOutput(connections.currentOutput);
+            setCurrentMidiChannel(connections.currentMidiChannel);
+            for (let i = 0; i < connections.outputs.length; i++) {
+                connections.outputs[i].label = connections.outputs[i].name;
+            }
+            setAvailableOutputs(connections.outputs);
+            setAvailableInputs(connections.inputs);
+            if (user.midi_patch) {
+                axios.get(`/midi_manager_patches/patch/${user.midi_patch}`)
+                .then(midiPatchData => {
+                    const midiPatch = midiPatchData.data.user_preset.outputs;
+                    let outputsArr = [];
+                    for (let i = 0; i < user.midi_connections.outputs.length; i++) {
+                        outputsArr[i] = {...midiPatch[i]};
+                        connections.outputs[i].label = midiPatch[i].label;
+                    }
+                    setUserMidiPatch(outputsArr);
+                    setAvailableOutputs(connections.outputs);
+//                        let volcaFmsList = midiPatch.filter(entry => {
+//                            return(entry.deviceUuid === 'e3bfacf5-499a-4247-b512-2c4bd15861ad')
+//                        });
+//                        for (let j = 0; j < midiPatch.lenth; j++) {
+//                           if (indexOut === null) {
+//                               if (midiPatch[j].deviceUuid === 'e3bfacf5-499a-4247-b512-2c4bd15861ad') {
+//                                   indexOut = j;
+//                               }
+//                           }
+//                        }
+//                        if (indexOut === null) {
+//                            indexOut = 0;
+//                        }
+                    console.log(outputsArr);
+                    updateOutputObject(outputsArr);
+                    setMidiOutputs(connections.outputs[indexOut]);
+                    console.log(currentOutput);
+                });
+            }
+        } else {
+            navigator.requestMIDIAccess({ sysex: true })
+            .then((midiAccess) => {               
+                connections = midiConnection(midiAccess);
+                setMidiConnections(connections);
+                setCurrentOutput(connections.currentOutput);
+                setCurrentMidiChannel(connections.currentMidiChannel);
+                setAvailableOutputs(connections.outputs);
+                setAvailableInputs(connections.inputs);
+                return;
+            }, () => {
+                alert('No MIDI ports accessible');
+            });
+        }
+    }, []);
             
     return(
         <div>
@@ -8956,11 +8896,34 @@ function StepSequencer(user, seq) {
                             ))}
                         </select>
                         <p className={'stepSequencerCollectionSelectLabel' + stepSequenceMonth}>collection:</p>
-                        <select className={'stepSequencerCollectionSelector' + stepSequenceMonth}></select>
+                        <select className={'stepSequencerCollectionSelector' + stepSequenceMonth}
+                            onChange={(e) => updateCollection(e.target.value)}
+                            value={selectedCollection}>
+                            {currentCollections.map(collect => (
+                                <option key={collect.uuid} value={collect.uuid}>{collect.name}</option>
+                            ))}
+                        </select>
                         <p className={'stepSequencerBankSelectLabel' + stepSequenceMonth}>bank:</p>
-                        <select className={'stepSequencerBankSelector' + stepSequenceMonth}></select>
+                        <select className={'stepSequencerBankSelector' + stepSequenceMonth}
+                            onChange={(e) => updateBank(e.target.value)}
+                            value={selectedBank}>
+                            {currentBanks.map(bank => (
+                                <option key={bank.uuid} value={bank.uuid}>{bank.name}</option>
+                            ))}
+                        </select>
                         <p className={'stepSequencerPatchSelectLabel' + stepSequenceMonth}>patch:</p>
-                        <select className={'stepSequencerPatchSelector' + stepSequenceMonth}></select>
+                        {(sequence.tracks[activeTrack].device === 'e3bfacf5-499a-4247-b512-2c4bd15861ad') && (
+                            <select className={'stepSequencerPatchSelector' + stepSequenceMonth}
+                                onChange={(e) => updatePatch(e.target.value)}
+                                value={selectedPatch}>
+                                {currentPatches.map(patch => (
+                                    <option key={patch.uuid} value={patch.uuid}>{patch.patch_name}</option>
+                                ))}
+                            </select>
+                        )}
+                        {(sequence.tracks[activeTrack].device !== 'e3bfacf5-499a-4247-b512-2c4bd15861ad') && (
+                            <select className={'stepSequencerPatchSelector' + stepSequenceMonth}></select>
+                        )}
                         <p className={'stepSequencerEventSelectLabel' + stepSequenceMonth}>event:</p>
                         <select className={'stepSequencerEventSelector' + stepSequenceMonth}
                             onChange={(e) => updateCurrentMidiEvent(e.target.value)}
