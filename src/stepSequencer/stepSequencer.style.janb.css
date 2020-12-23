@@ -1544,7 +1544,7 @@
     filter: brightness(120%) saturate(200%);
     font-family: 'Kulim Park', sans-serif;
     font-size: 18px;
-    grid-column: bar / col8;
+    grid-column: col8 / col13;
     grid-row: row1 / rowEnd;
     outline-color: #89a9bc;
 }

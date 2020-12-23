@@ -1532,7 +1532,7 @@
     filter: brightness(150%) saturate(400%);
     font-family: 'Epilogue', sans-serif;
     font-size: 18px;
-    grid-column: bar / col8;
+    grid-column: col8 / col13;
     grid-row: row1 / rowEnd;
     outline-color: #8f9193;
 }

@@ -322,16 +322,12 @@ export const volcaFmList = [
         name: 'initial patch',
         uuid: '9f4db083-23fa-4c1c-b7a5-ee3f57288aa7'
     },
-    
-    
     {
         continuous: false,
         filter: false,
         name: 'load patch',
         uuid: '2f59c143-bfd5-4141-80e9-b0b2ec3d74e1'
     },
-    
-    
     {
         continuous: false,
         filter: false,
@@ -566,7 +562,7 @@ export const volcaFmList = [
     {
         continuous: false,
         filter: false,
-        name: 'sysex: op1 - env: L3',
+        name: 'sysex: op1 - env:L3',
         uuid: '1d4e058c-c54c-4bb1-85e2-3dc6bca56a14'
     },
     {
