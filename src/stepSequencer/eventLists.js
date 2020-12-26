@@ -1401,3 +1401,175 @@ export const volcaFmList = [
     }
     
 ];
+
+export const volcaNubassList = [
+    {
+        continuous: false,
+        filter: false,
+        name: 'initial patch',
+        uuid: '9f4db083-23fa-4c1c-b7a5-ee3f57288aa7'
+    },
+    {
+        continusous: false,
+        filter: false,
+        name: 'load patch',
+        uuid: '26580577-0c31-4ca1-86f3-a2c906ab04bc'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'note event',
+        uuid: '439da322-bd74-4dc5-8e4b-b4ca664657a9'
+    },
+    {
+        continuous: true,
+        filter: false,
+        name: 'pitch bend',
+        uuid: 'd1595e03-bcd9-4ca7-9247-4d54723c5a05'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'program change',
+        uuid: '2fdb9151-68ad-46f7-b11e-adbb15d12a09'
+    },
+    {   
+        continuous: true,
+        filter: false,
+        name: 'modulation wheel',
+        uuid: '89265cc9-9ce5-4219-bfb6-371b18ed42b1'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'damper pedal on/off',
+        uuid: 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0'
+    },
+    
+    {
+        continuous: true,
+        filter: false,
+        name: 'pitch',
+        uuid: 'b30dde65-6be3-464f-9d17-b56eb74b5f41'
+    },
+    {
+        continuous: true,
+        filter: false,
+        name: 'saturation',
+        uuid: '0a4ef120-f878-4159-bde0-5380fd301a41'
+    },
+    {
+        continuous: true,
+        filter: false,
+        name: 'level',
+        uuid: '805cbaf4-bc89-45a0-81ea-b9baa965f5ce'
+    },
+    {
+        continuous: true,
+        filter: false,
+        name: 'cutoff',
+        uuid: '29c9abf3-597d-469d-b8a9-6687c62ba4a9'
+    },
+    {
+        continuous: true,
+        filter: false,
+        name: 'peak',
+        uuid: 'a49a79fe-3159-414d-b4f2-a804e7d0496f'
+    },
+    {
+        continuous: true,
+        filter: false,
+        name: 'attack',
+        uuid: 'c993c5e1-d170-4555-a659-efd7c01ce88a'
+    },
+    {
+        continuous: true,
+        filter: false,
+        name: 'decay',
+        uuid: 'c867b7b2-a808-4401-8123-fa1361af87d7'
+    },
+    {
+        continuous: true,
+        filter: false,
+        name: 'egInt',
+        uuid: '9aab0ca5-681d-456f-97ec-11362f1e35cb'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'accent',
+        uuid: 'e17ae33d-6d89-4b74-90b0-49b09e2c6461'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'lfoRate',
+        uuid: '51b35aa7-220d-4ad2-a477-3276667ecc53'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'lfoInt',
+        uuid: '66c2a144-f268-4aac-bdb5-cd629c54ae71'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'vtoWave',
+        uuid: '4a6d026f-d882-456f-ac20-602c37b01c82'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'lfoWave',
+        uuid: '9825b17e-4bfd-46ed-bb7b-7b9f14cc4fd0'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'lfo target: amplitude',
+        uuid: 'cd74df19-1aa1-483c-99d9-9c20f6a643a8'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'lfo target: pitch',
+        uuid: '51486d4d-6396-4a51-8b61-59a6506d4e17'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'lfo target: cutoff',
+        uuid: '82f5b537-8b2c-4e0a-9fc3-a7cdb2be87b6'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'lfo sync',
+        uuid: 'e746c184-23ed-470a-9548-c3d1d99c1dae'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'sustain',
+        uuid: '57f77c91-a331-4dd0-bdb2-cb6592955d09'
+    },
+    {
+        continuous: true,
+        filter: false,
+        name: 'pan',
+        uuid: '9bf83ad0-3562-4fbb-a47c-75b7c05a7b9f'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'portamento',
+        uuid: '41f82101-0f77-4ae5-9d69-1679e6a47d7e'
+    },
+    {
+        continuous: false,
+        filter: false,
+        name: 'portamento time',
+        uuid: '49b7f4a5-6ff0-48e9-b38c-ea9767406c98'
+    }
+];

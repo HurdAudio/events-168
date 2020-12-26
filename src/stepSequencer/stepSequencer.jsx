@@ -35,6 +35,7 @@ import MidiEventsList from './midiEventsList';
 import PatchSender from './patchSender';
 import VolcaFmControlChangeMessages from '../volcaFmPatchManager/volcaFmControlChangeMessages';
 import VolcaFmSysexMessages from '../volcaFmPatchManager/volcaFmSysexMessages';
+import VolcaNubassControlChangeMessages from '../volcaNubassPatchManager/volcaNubassControlChangeMessages';
 
 const sequencePlaying = false;
 const svgHeight = 260;
@@ -2226,6 +2227,148 @@ function StepSequencer(user, seq) {
                                 track.instrument.patch.operatorParams.settings.transpose = track.events[index].value;
                                 user.midi_connections.outputs[output].send(VolcaFmSysexMessages(track.instrument.patch, track.events[index].midiChannel), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
                                 break;
+                             case('26580577-0c31-4ca1-86f3-a2c906ab04bc'):
+                                // LOAD PATCH event
+                                // Specific to Volca Nubass device
+                                axios.get(`/volca_nubass_patches/patch/${track.events[index].value}`)
+                                .then(volcaNubassPatch => {
+                                    const patch = volcaNubassPatch.data;
+                                    track.instrument.patch = patch;
+                                    PatchSender({
+                                        deviceId: 'bda73d0e-c18c-472e-add6-1e1a4f123949',
+                                        currentOutput: user.midi_connections.outputs[output],
+                                        patch: patch,
+                                        currentMidiChannel: track.events[index].midiChannel,
+                                        time: (timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }))
+                                    });
+                                });
+                                break;
+                            case('b30dde65-6be3-464f-9d17-b56eb74b5f41'):
+                                // PITCH event
+                                // Specific to Volca Nubass device
+                                 track.instrument.patch.nubass_parameters.pitch = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'pitch'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('0a4ef120-f878-4159-bde0-5380fd301a41'):
+                                // SATURATION event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_parameters.saturation = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'saturation'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('805cbaf4-bc89-45a0-81ea-b9baa965f5ce'):
+                                // LEVEL event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_parameters.level = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'level'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('29c9abf3-597d-469d-b8a9-6687c62ba4a9'):
+                                // CUTOFF event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_parameters.cutoff = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'cutoff'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('a49a79fe-3159-414d-b4f2-a804e7d0496f'):
+                                // PEAK event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_parameters.peak = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'peak'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('c993c5e1-d170-4555-a659-efd7c01ce88a'):
+                                // ATTACK event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_parameters.attack = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'attack'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('c867b7b2-a808-4401-8123-fa1361af87d7'):
+                                // DECAY event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_parameters.decay = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'decay'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('9aab0ca5-681d-456f-97ec-11362f1e35cb'):
+                                // EG INT event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_parameters.egInt = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'egInt'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('e17ae33d-6d89-4b74-90b0-49b09e2c6461'):
+                                // ACCENT event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_parameters.accent = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'accent'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('51b35aa7-220d-4ad2-a477-3276667ecc53'):
+                                // LFO RATE event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_parameters.lfoRate = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'lfoRate'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('66c2a144-f268-4aac-bdb5-cd629c54ae71'):
+                                // LFO INT event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_parameters.lfoInt = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'lfoInt'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('4a6d026f-d882-456f-ac20-602c37b01c82'):
+                                // VTO WAVE event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_faceplate_params.vtoWave = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'vtoWave'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('9825b17e-4bfd-46ed-bb7b-7b9f14cc4fd0'):
+                                // LFO WAVE event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_faceplate_params.lfoWave = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'lfoWave'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('cd74df19-1aa1-483c-99d9-9c20f6a643a8'):
+                                // AMPLITUDE event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_faceplate_params.amplitude = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'amplitude'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('51486d4d-6396-4a51-8b61-59a6506d4e17'):
+                                // FACEPLATE PITCH event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_faceplate_params.pitch = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'faceplatePitch'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('82f5b537-8b2c-4e0a-9fc3-a7cdb2be87b6'):
+                                // FACEPLATE CUTOFF event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_faceplate_params.cutoff = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'faceplateCutoff'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('e746c184-23ed-470a-9548-c3d1d99c1dae'):
+                                // LFO SYNC event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_faceplate_params.lfoSync = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'lfoSync'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('57f77c91-a331-4dd0-bdb2-cb6592955d09'):
+                                // SUSTAIN event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.nubass_faceplate_params.sustain = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'sustain'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('9bf83ad0-3562-4fbb-a47c-75b7c05a7b9f'):
+                                // PAN event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.global_params.pan = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'pan'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('41f82101-0f77-4ae5-9d69-1679e6a47d7e'):
+                                // PORTAMENTO event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.global_params.portamento = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'portamento'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('49b7f4a5-6ff0-48e9-b38c-ea9767406c98'):
+                                // PORTAMENTO TIME event
+                                // Specific to Volca Nubass device
+                                track.instrument.patch.global_params.portamentoTime = track.events[index].value;
+                                user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'portamentoTime'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
                             default:
                                 console.log('unsupported event');
                         }
@@ -4365,6 +4508,9 @@ function StepSequencer(user, seq) {
         switch(val) {
             case('e3bfacf5-499a-4247-b512-2c4bd15861ad'):
                 apiString = `/volca_fm_banks/byuser/${user.uuid}`;
+                break;
+            case('bda73d0e-c18c-472e-add6-1e1a4f123949'):
+                apiString = `/volca_nubass_banks/byuser/${user.uuid}`;
                 break;
             default:
                 console.log('ERROR: Device Collection API not yet supported');
@@ -7805,6 +7951,292 @@ function StepSequencer(user, seq) {
                     value: 0
                 });
                 break;
+            case('26580577-0c31-4ca1-86f3-a2c906ab04bc'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '26580577-0c31-4ca1-86f3-a2c906ab04bc',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'load patch',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: ''
+                });
+                break;
+            case('b30dde65-6be3-464f-9d17-b56eb74b5f41'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: 'b30dde65-6be3-464f-9d17-b56eb74b5f41',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'pitch',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 64
+                });
+                break;
+            case('0a4ef120-f878-4159-bde0-5380fd301a41'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '0a4ef120-f878-4159-bde0-5380fd301a41',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'saturation',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 0
+                });
+                break;
+            case('805cbaf4-bc89-45a0-81ea-b9baa965f5ce'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '805cbaf4-bc89-45a0-81ea-b9baa965f5ce',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'level',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 64
+                });
+                break;
+            case('29c9abf3-597d-469d-b8a9-6687c62ba4a9'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '29c9abf3-597d-469d-b8a9-6687c62ba4a9',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'cutoff',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 32
+                });
+                break;
+            case('a49a79fe-3159-414d-b4f2-a804e7d0496f'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: 'a49a79fe-3159-414d-b4f2-a804e7d0496f',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'peak',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 0
+                });
+                break;
+            case('c993c5e1-d170-4555-a659-efd7c01ce88a'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: 'c993c5e1-d170-4555-a659-efd7c01ce88a',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'attack',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 13
+                });
+                break;
+            case('c867b7b2-a808-4401-8123-fa1361af87d7'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: 'c867b7b2-a808-4401-8123-fa1361af87d7',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'decay',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 16
+                });
+                break;
+            case('9aab0ca5-681d-456f-97ec-11362f1e35cb'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '9aab0ca5-681d-456f-97ec-11362f1e35cb',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'eg Int',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 32
+                });
+                break;
+            case('e17ae33d-6d89-4b74-90b0-49b09e2c6461'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: 'e17ae33d-6d89-4b74-90b0-49b09e2c6461',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'accent',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 12
+                });
+                break;
+            case('51b35aa7-220d-4ad2-a477-3276667ecc53'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '51b35aa7-220d-4ad2-a477-3276667ecc53',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'lfo rate',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 8
+                });
+                break;
+            case('66c2a144-f268-4aac-bdb5-cd629c54ae71'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '66c2a144-f268-4aac-bdb5-cd629c54ae71',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'lfo int',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 8
+                });
+                break;
+            case('4a6d026f-d882-456f-ac20-602c37b01c82'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '4a6d026f-d882-456f-ac20-602c37b01c82',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'vto wav',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: false
+                });
+                break;
+            case('9825b17e-4bfd-46ed-bb7b-7b9f14cc4fd0'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '9825b17e-4bfd-46ed-bb7b-7b9f14cc4fd0',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'lfo wav',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: false
+                });
+                break;
+            case('cd74df19-1aa1-483c-99d9-9c20f6a643a8'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: 'cd74df19-1aa1-483c-99d9-9c20f6a643a8',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'lfo target: amplitude',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: false
+                });
+                break;
+            case('51486d4d-6396-4a51-8b61-59a6506d4e17'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '51486d4d-6396-4a51-8b61-59a6506d4e17',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'lfo target: pitch',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: false
+                });
+                break;
+            case('82f5b537-8b2c-4e0a-9fc3-a7cdb2be87b6'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '82f5b537-8b2c-4e0a-9fc3-a7cdb2be87b6',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'lfo target: cutoff',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: false
+                });
+                break;
+            case('e746c184-23ed-470a-9548-c3d1d99c1dae'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: 'e746c184-23ed-470a-9548-c3d1d99c1dae',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'lfo sync',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: false
+                });
+                break;
+            case('57f77c91-a331-4dd0-bdb2-cb6592955d09'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '57f77c91-a331-4dd0-bdb2-cb6592955d09',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'sustain',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: false
+                });
+                break;
+            case('9bf83ad0-3562-4fbb-a47c-75b7c05a7b9f'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '9bf83ad0-3562-4fbb-a47c-75b7c05a7b9f',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'pan',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 64
+                });
+                break;
+            case('41f82101-0f77-4ae5-9d69-1679e6a47d7e'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '41f82101-0f77-4ae5-9d69-1679e6a47d7e',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'portamento',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 0
+                });
+                break;
+            case('49b7f4a5-6ff0-48e9-b38c-ea9767406c98'):
+                deepSequence.tracks[activeTrack].events.push({
+                    event: '49b7f4a5-6ff0-48e9-b38c-ea9767406c98',
+                    midiChannel: currentMidiChannelInput,
+                    name: 'portamento time',
+                    time: {
+                        bar: currentPosition.measure.bar,
+                        beat: currentPosition.measure.beat,
+                        ticks: currentPosition.measure.ticks
+                    },
+                    value: 0
+                });
+                break;
             default:
                 console.log('Unsupported MIDI event');
         }
@@ -8015,6 +8447,13 @@ function StepSequencer(user, seq) {
         } else {
             deepSequence.tracks[activeTrack].events[index].value = 64;
         }
+        
+        setSequence(deepSequence);
+    }
+    
+    const toggleEventSwitchBoolean = (index) => {
+        let deepSequence = {...sequence};
+        deepSequence.tracks[activeTrack].events[index].value = !deepSequence.tracks[activeTrack].events[index].value;
         
         setSequence(deepSequence);
     }
@@ -8574,7 +9013,7 @@ function StepSequencer(user, seq) {
                                 value: selectedFragment[j].value
                             }
                             break;
-                        case('042b257f-f1de-488d-900b-6d7c49361748' || '89265cc9-9ce5-4219-bfb6-371b18ed42b1' || '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e' || '2a3b9983-d175-4bde-aca9-63b70944ec7e' || '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c' || 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb' || '5138de25-1d5c-473e-8a68-ddbeadc32bd4' || '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24' || 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb' || '15a9c413-3dbe-4890-bd52-287c2a48f615' || '9434ea7e-6a63-423c-9be5-77584bd587e4' || 'a97eee86-2a5e-47db-99b1-74b61bc994c1' || '6eaceab3-35bb-49e2-ad82-5bd4c3a32679' || 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c' || '3474f1bf-5aae-434e-ba95-102114de0dd2' || '221e9b45-0ec8-421e-adb6-cfaf19b69610' || 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0' || 'c3543d3c-ccc5-45e2-ac42-c62c8b364690' || '26a0ab85-b2cc-4442-84c0-bd30fb239869' || '890d5a31-859b-4958-8eca-dd0b52f1fbec' || 'f31779f1-2599-487b-8e96-5b0abd35394e' || '75cf0bca-6196-4219-9eef-54272e8020a8' || 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3' || '5531a226-bc2c-4c60-9505-9b8da30b86c2' || 'cb30f654-a1c1-4e76-b479-d41821ede969' || '9390dbb8-efe9-4b41-adf3-47c6531f7aa1' || 'f61546fe-fd2a-4c89-813c-44dde15e6aa2' || '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b' || '752a2e67-911e-45b5-801d-0841c38cf8c2' || '97fb8e80-b937-464d-8830-212dcac90675' || '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c' || '1ab83a91-21b1-4d56-b333-3a59c4ade431' || 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1' || 'faf99fca-87c1-4e8e-81f5-b0f14251db08' || '4c64d103-e813-4c4a-80b5-01cd8186635c' || 'e181eaf9-1b61-4e5b-8982-833fb9594529' || '246e9232-3d6a-4352-8957-d0ff9c1c834e' || '80e77d4b-c523-4393-a279-6d7b15e65d8a' || 'c3b8b079-4994-480e-9b0a-8cbce11fba46' || '206ff86e-6894-4b56-9f5b-f5387d18f2ea' || '2517d341-7ae3-4dae-b866-49bd2fc9b21c' || '269524b5-a240-42e5-abfe-bf074ab7cb11' || 'e1568b69-6246-469f-9654-a398a1606ef9' || '44feabcb-b735-4980-a3fc-1e229b4bd115' || '40fc271b-2b22-40ff-a43d-90404ff07c69' || '2f59c143-bfd5-4141-80e9-b0b2ec3d74e1' || 'caaa3877-344d-4995-8df3-00bd0ffc7f90' || '54fd1baa-10d2-40e9-8521-e06f7a70a70b' || 'f6aaa494-2171-4365-ac4a-8b0c28e60bc1' || '4e5582b2-d5cd-45f5-aa60-96e172e31540' || '4efc7e31-f200-4303-b210-175afa769c3f' || 'bea713bd-afc8-4b54-bbe6-91086bd2f881' || 'c4659d3b-640f-4455-9ce3-1217067eff24' || 'b7f48962-7f4c-4a9b-b669-0f4c256dfca1' || '224a46f1-c76c-43b4-a61a-04f160957faa' || '3b7f50cb-6034-4882-b7cb-5473dd7f7bff' || '3dafe7ca-eaef-4e47-9107-25e08f1abb73' || 'aa33c5ae-c7c4-4751-93d2-1d914dbb1683' || '5a136a68-802a-4809-a4a1-494be8293e68' || 'e6f8f626-865d-4dfa-80e5-6d2722b9fbf1' || '1be925fe-4d02-4aab-b048-2334ed162acf' || '35e42b19-366b-4f84-8071-87a233aef06d' || '5b6715d4-62f5-4cfa-a030-a0d33d9098d6' || '871923a5-37aa-46a0-8c3e-a913d5e83e56' || '2f9b927e-8665-4711-bdbf-8dc6cddef46a' || '1d4e058c-c54c-4bb1-85e2-3dc6bca56a14' || '4c427c39-ac73-4150-8da3-e277043b5150' || 'ad95234e-f73e-47ed-9f66-21df2ae9f716' || 'a3ee7485-1fe5-43a0-8bc7-729e26f9563d' || 'df0d272c-92b3-4b29-bb83-0c69672c5b54' || '8031d6df-2c1d-43f3-b888-abe4a6f36784' || '603884a1-eb01-4baa-8ddd-9ad0b71c6448' || 'e7f15462-1f3a-470f-9c1f-9ec605e70497' || 'f445579a-f7bf-4ac2-a850-b1238901b6e6' || '29424082-bc3b-4a6a-96c2-803674b9170f' || 'eae9cb19-1e0f-4ad3-8ce6-2dda927e7ecd' || '9b798a2d-a548-4f06-8fb1-03e470557815' || '925a07e2-33e1-4953-a4ed-4b231bd4fd9e' || '6de9a586-d4a3-4139-be2c-f6bd1b7aa29c' || '094f6e47-5be5-4165-a9de-efde762b324b' || 'cad76a1c-73b8-4793-8f8f-9c72e590710a' || '11c71431-e764-4e84-b523-2ac158c2b6a4' || 'bf00bec1-38c1-4197-9020-39ecf09a82a5' || '299df40e-d045-440e-8bcd-05aa57717019' || '3ef8f85c-7f3c-4baa-8dd4-2a716e119a70' || '2c355a87-fa9b-46b2-af88-81d498be5ed2' || 'b7fff893-5b36-4d00-b49f-2f8e79da653f' || 'ee5ad081-9a9c-4278-9c7f-ea5ddbfd610a' || '2dde600e-a6b9-4af2-88a0-51cfb790c96b' || 'd1589414-2f6e-45ed-83ff-3fa321002b1d' || '50dec097-b09f-495c-a66a-d83ea97130f8' || '402e74d8-fff1-467c-b9dd-becefe781a48' || 'd2f89025-1ac7-4137-ba0f-3ab7d06b3cc7' || 'f7c75e32-ce0b-43b5-a7fb-46eb8f667001' || '1be3b09d-9073-449b-8414-eaef709c0cb9' || '82b868e2-ff53-482f-aceb-cf90b3a166bc' || 'af5c9726-3f4c-48f2-af1b-0e93e43bbc04' || '3e89a11d-741e-421d-8511-d62f14e101cf' || 'ce21fc38-8729-4da3-8868-26d1d2fbe482' || '57cec941-a764-4bc5-b598-7ad2ec4a9565' || '5eff5602-eec2-4819-b897-251e6e2c849f' || '1e054ee5-f80f-4cff-8b75-77c0f348505f' || 'a33f2a4f-125d-4232-b640-2b5573a7befa' || '390e08c3-ddf5-4332-b21d-970a757366b1' || 'ea1c3e55-9537-4f4a-a37a-3c06bcc7fe7b' || '9c2efd7c-e099-4d8f-bfe7-e313bfed8958' || '975b75ac-548e-41a5-b115-30f755690ed0' || '6a709b04-971d-438b-bc26-8de4b3206dcd' || 'f7202602-e1e9-47fe-9ce7-250e13a46f2f' || 'c0ec20f2-abb8-41f2-94cb-0a681ffe4162' || '1d7069d7-fa0a-49de-9478-4923121f76b4' || '109dd381-db13-4a2e-9ac9-673348b23cf0' || 'e8991541-f5e9-4559-ab20-9805c723d1b2' || '7aa638f8-2da2-4c4a-bccf-304e7cf57825' || '3b0c11dd-5cf9-4351-9808-b8037e1b1ccc' || '766a74e6-7611-48f3-933a-54d07cb18ed5' || '43ccb0c3-409b-4d9b-9548-d1c3ad9ed690' || '01aa9203-9383-4905-9e5a-72114c68b5c4' || '90510387-bb4e-4acd-a4d6-bbab4881cc33' || '76912065-8afa-484b-8478-504aa9aa1530' || '36249d27-24ce-4524-9ca8-fd4412b22466' || '90ae32f0-19f0-4113-b40c-3939c56a737d' || '15ff0c56-5f2e-42ee-9c72-cc7b3a97c0db' || 'd5cfde1b-0c7e-4065-aec9-c744ad0e8483' || '417018f5-596b-4119-a814-5873cbff497c' || '51bf9ec2-0bcc-440e-80c0-8552d9651ec6' || '101ac2d7-39bd-4038-894b-fb85afe29a72' || 'f8570f5c-0670-487a-8684-c216928c37d4' || '376f9042-e721-4802-807d-12df4723cdb2' || '3516d326-9905-4cec-8c01-dd4deb7f7cbe' || 'fe3140d7-4460-4bd4-a97d-53eab08a9f54' || '3ea02eee-d9bf-4d61-90d4-b6e0493d9ad4' || '12675445-8e98-4e8d-b841-992d476aeb4d' || '742dc434-9ddf-4eee-9dac-751d69f71703' || '7643a88b-658e-4373-8c2e-7d5bd7078656' || 'fcf1ebc1-d0cd-43af-a208-6ae925d55a03' || 'dc06d9bf-06ba-40f2-96e6-b85e69a0d5ff' || 'cb70d043-2fd7-47d4-9406-55c7088529db' || 'fad73ff0-b993-4a8b-902b-8b5924ffebc7' || '8a176ca9-d522-49ae-92cc-ae7d1809db4d' || 'f7c0d8fe-b146-4a57-a2b6-033be0fe741c' || 'a87a2f5c-d1bb-49a1-ad44-6e7e45abf0f7' || 'a352ef96-6318-4ee3-989f-ddf93197d67c' || '1cf2720e-14d5-407e-8461-774cc93f43a6' || '188b4483-3a5e-410c-a7dd-4d48e41a3b73' || '205410ed-1442-458f-a008-32d434068284' || '8c53079b-2612-4426-9b40-e22edbdff69a' || '6c4218c9-9ec8-4155-a07a-758118ed9789' || '65989850-9f0f-4eb1-985e-f7ade6ee8d20' || '9ecbe9d6-a04f-4424-993d-dca0f80d3333' || '5f3172ba-851a-45ee-a42c-032da34e423a' || 'a74a30dc-5f5d-4dce-8452-7e7a90cb0026' || 'b971f17d-0412-4e24-a4c9-772d13cce658' || 'c1ea50d6-26e5-40b7-9160-f06e44bbaa09' || 'a5dd124c-662a-4aaa-b2fd-0a0c9595829b' || '09c8c5f1-d191-4cc2-bf0b-3ca630479f21' || '326df12f-e7bd-47c9-80e8-ee4e4d0922d7' || '261d4dd3-10fc-4228-884d-4f14e870c5e5' || 'faea2eff-a8e3-49d3-8ac4-2c3a9de40225' || '0f89c999-f671-42a0-a03a-06d3bcbac8cb' || '20691486-6536-4995-9fc4-c0a24bd538b1' || '25f8aacb-c83b-424a-8a54-7ead7b2df96a' || 'd925109b-1647-40ad-b74b-7ba9d70750ee' || '03f73bff-4e8d-44ff-a7c6-acb6421c8474' || 'ee90952e-44ee-4bd9-904e-c7c3984d4794' || 'c7f3e409-ccea-4e4e-8b94-da9ceec577b6' || '15a9728f-3b5f-4ad2-a135-2926c5c4dc42' || 'eb1e21a4-219a-419a-9910-a32f3a53c73b' || 'caf44168-7ac2-4828-adc8-e950e7f00938' || '6258d778-7be2-498b-a323-3b00a0966195' || 'c1bcef98-18a0-438a-b248-8c3056198bea' || '1efd3282-3446-4aca-b7e4-e89a40b78afb' || '39492610-9cf9-4162-90f6-92fa74654fbf' || 'd07683e3-52a3-4ae3-9d68-fad2e5dd8260' || 'f869194b-d7b7-4c4d-976a-fe001570bceb' || '8ffc6b90-ed89-4d20-bc86-9bcd4e9ce7ff' || '257956a1-4927-4de6-b8cd-b4f5a55caba0' || '871a666e-43ca-4327-add7-2091c25a66b4' || '7354fead-0fe1-43e6-98b4-ad93fc61a471' || 'b00c52a4-2f58-4ccf-8de6-4ba6808f6c3b' || '1dae51f6-cb1b-4745-9d8c-fff1595abc33' || 'c65c646d-f07f-4ad0-8f39-7435f76dc273' || 'c0cdb2f1-5802-45a2-a424-30aa6f81d45f' || '6fbd9ae8-45de-4e50-a017-170f4770c0a7' || '8c49476b-5897-4135-8e9d-e3301e3056a9' || 'a087f8ab-9bea-4114-97cb-a3b39893b43a' || '37239481-9eb7-48fc-8117-10776919deec' || '330754de-b7f0-4be7-a91a-f7f1ad607ef2' || '2045211c-81b5-46c3-8f54-f43f528464fb' || 'bff5117f-ed12-4cd9-9a1f-256beb2bb683' || 'da12b8a1-0bcd-40ac-881b-8c865581daf1' || '79ec6d66-1a80-41fe-9417-237028ad8030' || '4f3a6f4e-7ba8-420e-af2f-e80439f9fa10' || '3ba1587a-bff7-4dcd-b915-945139ad7d51' || '22fcb27e-cd99-4be7-8eb2-7aa6c521d54d' || '69e24ada-2145-48e7-a6b2-3f936839d091' || 'bf9dc540-a6eb-4831-bd53-1ddf9fb039cb' || 'e13d29b6-430d-4c38-8386-5ebceea2ce4d' || 'a2d0e8f8-9632-44d3-b13e-680f8f998442' || '6342b2ec-dbe5-43a9-b424-44ba67dee34c' || 'e2ca8dc4-9e33-4685-8ce2-17d9d1ba5837' || '762992e4-0c16-44ce-a72f-727f6c16d91e' || 'e6882c9b-b4e7-44ce-b497-0ded83beb5c0' || 'd7657c3c-081c-4373-8104-35bb42235229' || '5575948b-a38c-4710-92e1-b8986d6f7ccd'):
+                        case('042b257f-f1de-488d-900b-6d7c49361748' || '89265cc9-9ce5-4219-bfb6-371b18ed42b1' || '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e' || '2a3b9983-d175-4bde-aca9-63b70944ec7e' || '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c' || 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb' || '5138de25-1d5c-473e-8a68-ddbeadc32bd4' || '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24' || 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb' || '15a9c413-3dbe-4890-bd52-287c2a48f615' || '9434ea7e-6a63-423c-9be5-77584bd587e4' || 'a97eee86-2a5e-47db-99b1-74b61bc994c1' || '6eaceab3-35bb-49e2-ad82-5bd4c3a32679' || 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c' || '3474f1bf-5aae-434e-ba95-102114de0dd2' || '221e9b45-0ec8-421e-adb6-cfaf19b69610' || 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0' || 'c3543d3c-ccc5-45e2-ac42-c62c8b364690' || '26a0ab85-b2cc-4442-84c0-bd30fb239869' || '890d5a31-859b-4958-8eca-dd0b52f1fbec' || 'f31779f1-2599-487b-8e96-5b0abd35394e' || '75cf0bca-6196-4219-9eef-54272e8020a8' || 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3' || '5531a226-bc2c-4c60-9505-9b8da30b86c2' || 'cb30f654-a1c1-4e76-b479-d41821ede969' || '9390dbb8-efe9-4b41-adf3-47c6531f7aa1' || 'f61546fe-fd2a-4c89-813c-44dde15e6aa2' || '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b' || '752a2e67-911e-45b5-801d-0841c38cf8c2' || '97fb8e80-b937-464d-8830-212dcac90675' || '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c' || '1ab83a91-21b1-4d56-b333-3a59c4ade431' || 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1' || 'faf99fca-87c1-4e8e-81f5-b0f14251db08' || '4c64d103-e813-4c4a-80b5-01cd8186635c' || 'e181eaf9-1b61-4e5b-8982-833fb9594529' || '246e9232-3d6a-4352-8957-d0ff9c1c834e' || '80e77d4b-c523-4393-a279-6d7b15e65d8a' || 'c3b8b079-4994-480e-9b0a-8cbce11fba46' || '206ff86e-6894-4b56-9f5b-f5387d18f2ea' || '2517d341-7ae3-4dae-b866-49bd2fc9b21c' || '269524b5-a240-42e5-abfe-bf074ab7cb11' || 'e1568b69-6246-469f-9654-a398a1606ef9' || '44feabcb-b735-4980-a3fc-1e229b4bd115' || '40fc271b-2b22-40ff-a43d-90404ff07c69' || '2f59c143-bfd5-4141-80e9-b0b2ec3d74e1' || 'caaa3877-344d-4995-8df3-00bd0ffc7f90' || '54fd1baa-10d2-40e9-8521-e06f7a70a70b' || 'f6aaa494-2171-4365-ac4a-8b0c28e60bc1' || '4e5582b2-d5cd-45f5-aa60-96e172e31540' || '4efc7e31-f200-4303-b210-175afa769c3f' || 'bea713bd-afc8-4b54-bbe6-91086bd2f881' || 'c4659d3b-640f-4455-9ce3-1217067eff24' || 'b7f48962-7f4c-4a9b-b669-0f4c256dfca1' || '224a46f1-c76c-43b4-a61a-04f160957faa' || '3b7f50cb-6034-4882-b7cb-5473dd7f7bff' || '3dafe7ca-eaef-4e47-9107-25e08f1abb73' || 'aa33c5ae-c7c4-4751-93d2-1d914dbb1683' || '5a136a68-802a-4809-a4a1-494be8293e68' || 'e6f8f626-865d-4dfa-80e5-6d2722b9fbf1' || '1be925fe-4d02-4aab-b048-2334ed162acf' || '35e42b19-366b-4f84-8071-87a233aef06d' || '5b6715d4-62f5-4cfa-a030-a0d33d9098d6' || '871923a5-37aa-46a0-8c3e-a913d5e83e56' || '2f9b927e-8665-4711-bdbf-8dc6cddef46a' || '1d4e058c-c54c-4bb1-85e2-3dc6bca56a14' || '4c427c39-ac73-4150-8da3-e277043b5150' || 'ad95234e-f73e-47ed-9f66-21df2ae9f716' || 'a3ee7485-1fe5-43a0-8bc7-729e26f9563d' || 'df0d272c-92b3-4b29-bb83-0c69672c5b54' || '8031d6df-2c1d-43f3-b888-abe4a6f36784' || '603884a1-eb01-4baa-8ddd-9ad0b71c6448' || 'e7f15462-1f3a-470f-9c1f-9ec605e70497' || 'f445579a-f7bf-4ac2-a850-b1238901b6e6' || '29424082-bc3b-4a6a-96c2-803674b9170f' || 'eae9cb19-1e0f-4ad3-8ce6-2dda927e7ecd' || '9b798a2d-a548-4f06-8fb1-03e470557815' || '925a07e2-33e1-4953-a4ed-4b231bd4fd9e' || '6de9a586-d4a3-4139-be2c-f6bd1b7aa29c' || '094f6e47-5be5-4165-a9de-efde762b324b' || 'cad76a1c-73b8-4793-8f8f-9c72e590710a' || '11c71431-e764-4e84-b523-2ac158c2b6a4' || 'bf00bec1-38c1-4197-9020-39ecf09a82a5' || '299df40e-d045-440e-8bcd-05aa57717019' || '3ef8f85c-7f3c-4baa-8dd4-2a716e119a70' || '2c355a87-fa9b-46b2-af88-81d498be5ed2' || 'b7fff893-5b36-4d00-b49f-2f8e79da653f' || 'ee5ad081-9a9c-4278-9c7f-ea5ddbfd610a' || '2dde600e-a6b9-4af2-88a0-51cfb790c96b' || 'd1589414-2f6e-45ed-83ff-3fa321002b1d' || '50dec097-b09f-495c-a66a-d83ea97130f8' || '402e74d8-fff1-467c-b9dd-becefe781a48' || 'd2f89025-1ac7-4137-ba0f-3ab7d06b3cc7' || 'f7c75e32-ce0b-43b5-a7fb-46eb8f667001' || '1be3b09d-9073-449b-8414-eaef709c0cb9' || '82b868e2-ff53-482f-aceb-cf90b3a166bc' || 'af5c9726-3f4c-48f2-af1b-0e93e43bbc04' || '3e89a11d-741e-421d-8511-d62f14e101cf' || 'ce21fc38-8729-4da3-8868-26d1d2fbe482' || '57cec941-a764-4bc5-b598-7ad2ec4a9565' || '5eff5602-eec2-4819-b897-251e6e2c849f' || '1e054ee5-f80f-4cff-8b75-77c0f348505f' || 'a33f2a4f-125d-4232-b640-2b5573a7befa' || '390e08c3-ddf5-4332-b21d-970a757366b1' || 'ea1c3e55-9537-4f4a-a37a-3c06bcc7fe7b' || '9c2efd7c-e099-4d8f-bfe7-e313bfed8958' || '975b75ac-548e-41a5-b115-30f755690ed0' || '6a709b04-971d-438b-bc26-8de4b3206dcd' || 'f7202602-e1e9-47fe-9ce7-250e13a46f2f' || 'c0ec20f2-abb8-41f2-94cb-0a681ffe4162' || '1d7069d7-fa0a-49de-9478-4923121f76b4' || '109dd381-db13-4a2e-9ac9-673348b23cf0' || 'e8991541-f5e9-4559-ab20-9805c723d1b2' || '7aa638f8-2da2-4c4a-bccf-304e7cf57825' || '3b0c11dd-5cf9-4351-9808-b8037e1b1ccc' || '766a74e6-7611-48f3-933a-54d07cb18ed5' || '43ccb0c3-409b-4d9b-9548-d1c3ad9ed690' || '01aa9203-9383-4905-9e5a-72114c68b5c4' || '90510387-bb4e-4acd-a4d6-bbab4881cc33' || '76912065-8afa-484b-8478-504aa9aa1530' || '36249d27-24ce-4524-9ca8-fd4412b22466' || '90ae32f0-19f0-4113-b40c-3939c56a737d' || '15ff0c56-5f2e-42ee-9c72-cc7b3a97c0db' || 'd5cfde1b-0c7e-4065-aec9-c744ad0e8483' || '417018f5-596b-4119-a814-5873cbff497c' || '51bf9ec2-0bcc-440e-80c0-8552d9651ec6' || '101ac2d7-39bd-4038-894b-fb85afe29a72' || 'f8570f5c-0670-487a-8684-c216928c37d4' || '376f9042-e721-4802-807d-12df4723cdb2' || '3516d326-9905-4cec-8c01-dd4deb7f7cbe' || 'fe3140d7-4460-4bd4-a97d-53eab08a9f54' || '3ea02eee-d9bf-4d61-90d4-b6e0493d9ad4' || '12675445-8e98-4e8d-b841-992d476aeb4d' || '742dc434-9ddf-4eee-9dac-751d69f71703' || '7643a88b-658e-4373-8c2e-7d5bd7078656' || 'fcf1ebc1-d0cd-43af-a208-6ae925d55a03' || 'dc06d9bf-06ba-40f2-96e6-b85e69a0d5ff' || 'cb70d043-2fd7-47d4-9406-55c7088529db' || 'fad73ff0-b993-4a8b-902b-8b5924ffebc7' || '8a176ca9-d522-49ae-92cc-ae7d1809db4d' || 'f7c0d8fe-b146-4a57-a2b6-033be0fe741c' || 'a87a2f5c-d1bb-49a1-ad44-6e7e45abf0f7' || 'a352ef96-6318-4ee3-989f-ddf93197d67c' || '1cf2720e-14d5-407e-8461-774cc93f43a6' || '188b4483-3a5e-410c-a7dd-4d48e41a3b73' || '205410ed-1442-458f-a008-32d434068284' || '8c53079b-2612-4426-9b40-e22edbdff69a' || '6c4218c9-9ec8-4155-a07a-758118ed9789' || '65989850-9f0f-4eb1-985e-f7ade6ee8d20' || '9ecbe9d6-a04f-4424-993d-dca0f80d3333' || '5f3172ba-851a-45ee-a42c-032da34e423a' || 'a74a30dc-5f5d-4dce-8452-7e7a90cb0026' || 'b971f17d-0412-4e24-a4c9-772d13cce658' || 'c1ea50d6-26e5-40b7-9160-f06e44bbaa09' || 'a5dd124c-662a-4aaa-b2fd-0a0c9595829b' || '09c8c5f1-d191-4cc2-bf0b-3ca630479f21' || '326df12f-e7bd-47c9-80e8-ee4e4d0922d7' || '261d4dd3-10fc-4228-884d-4f14e870c5e5' || 'faea2eff-a8e3-49d3-8ac4-2c3a9de40225' || '0f89c999-f671-42a0-a03a-06d3bcbac8cb' || '20691486-6536-4995-9fc4-c0a24bd538b1' || '25f8aacb-c83b-424a-8a54-7ead7b2df96a' || 'd925109b-1647-40ad-b74b-7ba9d70750ee' || '03f73bff-4e8d-44ff-a7c6-acb6421c8474' || 'ee90952e-44ee-4bd9-904e-c7c3984d4794' || 'c7f3e409-ccea-4e4e-8b94-da9ceec577b6' || '15a9728f-3b5f-4ad2-a135-2926c5c4dc42' || 'eb1e21a4-219a-419a-9910-a32f3a53c73b' || 'caf44168-7ac2-4828-adc8-e950e7f00938' || '6258d778-7be2-498b-a323-3b00a0966195' || 'c1bcef98-18a0-438a-b248-8c3056198bea' || '1efd3282-3446-4aca-b7e4-e89a40b78afb' || '39492610-9cf9-4162-90f6-92fa74654fbf' || 'd07683e3-52a3-4ae3-9d68-fad2e5dd8260' || 'f869194b-d7b7-4c4d-976a-fe001570bceb' || '8ffc6b90-ed89-4d20-bc86-9bcd4e9ce7ff' || '257956a1-4927-4de6-b8cd-b4f5a55caba0' || '871a666e-43ca-4327-add7-2091c25a66b4' || '7354fead-0fe1-43e6-98b4-ad93fc61a471' || 'b00c52a4-2f58-4ccf-8de6-4ba6808f6c3b' || '1dae51f6-cb1b-4745-9d8c-fff1595abc33' || 'c65c646d-f07f-4ad0-8f39-7435f76dc273' || 'c0cdb2f1-5802-45a2-a424-30aa6f81d45f' || '6fbd9ae8-45de-4e50-a017-170f4770c0a7' || '8c49476b-5897-4135-8e9d-e3301e3056a9' || 'a087f8ab-9bea-4114-97cb-a3b39893b43a' || '37239481-9eb7-48fc-8117-10776919deec' || '330754de-b7f0-4be7-a91a-f7f1ad607ef2' || '2045211c-81b5-46c3-8f54-f43f528464fb' || 'bff5117f-ed12-4cd9-9a1f-256beb2bb683' || 'da12b8a1-0bcd-40ac-881b-8c865581daf1' || '79ec6d66-1a80-41fe-9417-237028ad8030' || '4f3a6f4e-7ba8-420e-af2f-e80439f9fa10' || '3ba1587a-bff7-4dcd-b915-945139ad7d51' || '22fcb27e-cd99-4be7-8eb2-7aa6c521d54d' || '69e24ada-2145-48e7-a6b2-3f936839d091' || 'bf9dc540-a6eb-4831-bd53-1ddf9fb039cb' || 'e13d29b6-430d-4c38-8386-5ebceea2ce4d' || 'a2d0e8f8-9632-44d3-b13e-680f8f998442' || '6342b2ec-dbe5-43a9-b424-44ba67dee34c' || 'e2ca8dc4-9e33-4685-8ce2-17d9d1ba5837' || '762992e4-0c16-44ce-a72f-727f6c16d91e' || 'e6882c9b-b4e7-44ce-b497-0ded83beb5c0' || 'd7657c3c-081c-4373-8104-35bb42235229' || '5575948b-a38c-4710-92e1-b8986d6f7ccd' || '26580577-0c31-4ca1-86f3-a2c906ab04bc' || 'b30dde65-6be3-464f-9d17-b56eb74b5f41' || '0a4ef120-f878-4159-bde0-5380fd301a41' || '805cbaf4-bc89-45a0-81ea-b9baa965f5ce' || '29c9abf3-597d-469d-b8a9-6687c62ba4a9' || 'a49a79fe-3159-414d-b4f2-a804e7d0496f' || 'c993c5e1-d170-4555-a659-efd7c01ce88a' || 'c867b7b2-a808-4401-8123-fa1361af87d7' || '9aab0ca5-681d-456f-97ec-11362f1e35cb' || 'e17ae33d-6d89-4b74-90b0-49b09e2c6461' || '51b35aa7-220d-4ad2-a477-3276667ecc53' || '66c2a144-f268-4aac-bdb5-cd629c54ae71' || '4a6d026f-d882-456f-ac20-602c37b01c82' || '9825b17e-4bfd-46ed-bb7b-7b9f14cc4fd0' || 'cd74df19-1aa1-483c-99d9-9c20f6a643a8' || '51486d4d-6396-4a51-8b61-59a6506d4e17' || '82f5b537-8b2c-4e0a-9fc3-a7cdb2be87b6' || 'e746c184-23ed-470a-9548-c3d1d99c1dae' || '57f77c91-a331-4dd0-bdb2-cb6592955d09' || '9bf83ad0-3562-4fbb-a47c-75b7c05a7b9f' || '41f82101-0f77-4ae5-9d69-1679e6a47d7e' || '49b7f4a5-6ff0-48e9-b38c-ea9767406c98'):
                             eventAdd = {
                                 event: selectedFragment[j].event,
                                 midiChannel: selectedFragment[j].midiChannel,
@@ -11649,7 +12088,7 @@ function StepSequencer(user, seq) {
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
                                             )}
-                                            {((event.event === '2f59c143-bfd5-4141-80e9-b0b2ec3d74e1') && (!isFiltered('2f59c143-bfd5-4141-80e9-b0b2ec3d74e1'))) && (
+                                            {(((event.event === '26580577-0c31-4ca1-86f3-a2c906ab04bc') || (event.event === '2f59c143-bfd5-4141-80e9-b0b2ec3d74e1')) && (!isFiltered(event.event))) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + 'false' + stepSequenceMonth}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
                                                      <input className={'stepSequencerEventMidiChannelInput' + stepSequenceMonth} 
@@ -11900,7 +12339,7 @@ function StepSequencer(user, seq) {
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
                                             )}
-                                            {(((event.event === '042b257f-f1de-488d-900b-6d7c49361748') || (event.event === '89265cc9-9ce5-4219-bfb6-371b18ed42b1') || (event.event === '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e') || (event.event === '2a3b9983-d175-4bde-aca9-63b70944ec7e') || (event.event === '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c') || (event.event === 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb') || (event.event === '5138de25-1d5c-473e-8a68-ddbeadc32bd4') || (event.event === '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24') || (event.event === 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb') || (event.event === '15a9c413-3dbe-4890-bd52-287c2a48f615') || (event.event === '9434ea7e-6a63-423c-9be5-77584bd587e4') || (event.event === 'a97eee86-2a5e-47db-99b1-74b61bc994c1') || (event.event === '6eaceab3-35bb-49e2-ad82-5bd4c3a32679') || (event.event === 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c') || (event.event === '3474f1bf-5aae-434e-ba95-102114de0dd2') || (event.event === '221e9b45-0ec8-421e-adb6-cfaf19b69610') || (event.event === 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3') || (event.event === '5531a226-bc2c-4c60-9505-9b8da30b86c2') || (event.event === 'cb30f654-a1c1-4e76-b479-d41821ede969') || (event.event === '9390dbb8-efe9-4b41-adf3-47c6531f7aa1') || (event.event === 'f61546fe-fd2a-4c89-813c-44dde15e6aa2') || (event.event === '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b') || (event.event === '752a2e67-911e-45b5-801d-0841c38cf8c2') || (event.event === '97fb8e80-b937-464d-8830-212dcac90675') || (event.event === '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c') || (event.event === '1ab83a91-21b1-4d56-b333-3a59c4ade431') || (event.event === 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1') || (event.event === 'faf99fca-87c1-4e8e-81f5-b0f14251db08') || (event.event === '4c64d103-e813-4c4a-80b5-01cd8186635c') || (event.event === 'e181eaf9-1b61-4e5b-8982-833fb9594529') || (event.event === '246e9232-3d6a-4352-8957-d0ff9c1c834e') || (event.event === '80e77d4b-c523-4393-a279-6d7b15e65d8a') || (event.event === 'c3b8b079-4994-480e-9b0a-8cbce11fba46') || (event.event === '206ff86e-6894-4b56-9f5b-f5387d18f2ea') || (event.event === '2517d341-7ae3-4dae-b866-49bd2fc9b21c') || (event.event === '269524b5-a240-42e5-abfe-bf074ab7cb11') || (event.event === 'e1568b69-6246-469f-9654-a398a1606ef9') || (event.event === '54fd1baa-10d2-40e9-8521-e06f7a70a70b') || (event.event === 'f6aaa494-2171-4365-ac4a-8b0c28e60bc1') || (event.event === '4e5582b2-d5cd-45f5-aa60-96e172e31540') || (event.event === '4efc7e31-f200-4303-b210-175afa769c3f') || (event.event === 'bea713bd-afc8-4b54-bbe6-91086bd2f881') || (event.event === 'c4659d3b-640f-4455-9ce3-1217067eff24') || (event.event === 'b7f48962-7f4c-4a9b-b669-0f4c256dfca1') || (event.event === '224a46f1-c76c-43b4-a61a-04f160957faa') || (event.event === '3b7f50cb-6034-4882-b7cb-5473dd7f7bff') || (event.event === '3dafe7ca-eaef-4e47-9107-25e08f1abb73') || (event.event === 'aa33c5ae-c7c4-4751-93d2-1d914dbb1683') || (event.event === '5a136a68-802a-4809-a4a1-494be8293e68') || (event.event === 'e6f8f626-865d-4dfa-80e5-6d2722b9fbf1') || (event.event === '1be925fe-4d02-4aab-b048-2334ed162acf') || (event.event === '35e42b19-366b-4f84-8071-87a233aef06d') || (event.event === '5b6715d4-62f5-4cfa-a030-a0d33d9098d6') || (event.event === '871923a5-37aa-46a0-8c3e-a913d5e83e56') || (event.event === '2f9b927e-8665-4711-bdbf-8dc6cddef46a') || (event.event === '1d4e058c-c54c-4bb1-85e2-3dc6bca56a14') || (event.event === '4c427c39-ac73-4150-8da3-e277043b5150') || (event.event === 'ad95234e-f73e-47ed-9f66-21df2ae9f716') || (event.event === 'a3ee7485-1fe5-43a0-8bc7-729e26f9563d') || (event.event === '8031d6df-2c1d-43f3-b888-abe4a6f36784') || (event.event === '603884a1-eb01-4baa-8ddd-9ad0b71c6448') || (event.event === 'e7f15462-1f3a-470f-9c1f-9ec605e70497') || (event.event === 'df0d272c-92b3-4b29-bb83-0c69672c5b54') || (event.event === 'f445579a-f7bf-4ac2-a850-b1238901b6e6') || (event.event === '29424082-bc3b-4a6a-96c2-803674b9170f') || (event.event === 'eae9cb19-1e0f-4ad3-8ce6-2dda927e7ecd') || (event.event === '9b798a2d-a548-4f06-8fb1-03e470557815') || (event.event === '925a07e2-33e1-4953-a4ed-4b231bd4fd9e') || (event.event === '6de9a586-d4a3-4139-be2c-f6bd1b7aa29c') || (event.event === '094f6e47-5be5-4165-a9de-efde762b324b') || (event.event === 'cad76a1c-73b8-4793-8f8f-9c72e590710a') || (event.event === '11c71431-e764-4e84-b523-2ac158c2b6a4') || (event.event === 'bf00bec1-38c1-4197-9020-39ecf09a82a5') || (event.event === '299df40e-d045-440e-8bcd-05aa57717019') || (event.event === '3ef8f85c-7f3c-4baa-8dd4-2a716e119a70') || (event.event === '2c355a87-fa9b-46b2-af88-81d498be5ed2') || (event.event === 'b7fff893-5b36-4d00-b49f-2f8e79da653f') || (event.event === 'ee5ad081-9a9c-4278-9c7f-ea5ddbfd610a') || (event.event === '2dde600e-a6b9-4af2-88a0-51cfb790c96b') || (event.event === 'd1589414-2f6e-45ed-83ff-3fa321002b1d') || (event.event === '50dec097-b09f-495c-a66a-d83ea97130f8') || (event.event === '402e74d8-fff1-467c-b9dd-becefe781a48') || (event.event === 'd2f89025-1ac7-4137-ba0f-3ab7d06b3cc7') || (event.event === 'f7c75e32-ce0b-43b5-a7fb-46eb8f667001') || (event.event === '1be3b09d-9073-449b-8414-eaef709c0cb9') || (event.event === '82b868e2-ff53-482f-aceb-cf90b3a166bc') || (event.event === 'af5c9726-3f4c-48f2-af1b-0e93e43bbc04') || (event.event === '3e89a11d-741e-421d-8511-d62f14e101cf') || (event.event === 'ce21fc38-8729-4da3-8868-26d1d2fbe482') || (event.event === '57cec941-a764-4bc5-b598-7ad2ec4a9565') || (event.event === '5eff5602-eec2-4819-b897-251e6e2c849f') || (event.event === '1e054ee5-f80f-4cff-8b75-77c0f348505f') || (event.event === 'a33f2a4f-125d-4232-b640-2b5573a7befa') || (event.event === '390e08c3-ddf5-4332-b21d-970a757366b1') || (event.event === 'ea1c3e55-9537-4f4a-a37a-3c06bcc7fe7b') || (event.event === '9c2efd7c-e099-4d8f-bfe7-e313bfed8958') || (event.event === '975b75ac-548e-41a5-b115-30f755690ed0') || (event.event === '6a709b04-971d-438b-bc26-8de4b3206dcd') || (event.event === 'f7202602-e1e9-47fe-9ce7-250e13a46f2f') || (event.event === 'c0ec20f2-abb8-41f2-94cb-0a681ffe4162') || (event.event === '1d7069d7-fa0a-49de-9478-4923121f76b4') || (event.event === '109dd381-db13-4a2e-9ac9-673348b23cf0') || (event.event === 'e8991541-f5e9-4559-ab20-9805c723d1b2') || (event.event === '7aa638f8-2da2-4c4a-bccf-304e7cf57825') || (event.event === '3b0c11dd-5cf9-4351-9808-b8037e1b1ccc') || (event.event === '766a74e6-7611-48f3-933a-54d07cb18ed5') || (event.event === '43ccb0c3-409b-4d9b-9548-d1c3ad9ed690') || (event.event === '01aa9203-9383-4905-9e5a-72114c68b5c4') || (event.event === '90510387-bb4e-4acd-a4d6-bbab4881cc33') || (event.event === '76912065-8afa-484b-8478-504aa9aa1530') || (event.event === '36249d27-24ce-4524-9ca8-fd4412b22466') || (event.event === '15ff0c56-5f2e-42ee-9c72-cc7b3a97c0db') || (event.event === 'd5cfde1b-0c7e-4065-aec9-c744ad0e8483') || (event.event === '417018f5-596b-4119-a814-5873cbff497c') || (event.event === '90ae32f0-19f0-4113-b40c-3939c56a737d') || (event.event === '101ac2d7-39bd-4038-894b-fb85afe29a72') || (event.event === 'f8570f5c-0670-487a-8684-c216928c37d4') || (event.event === '376f9042-e721-4802-807d-12df4723cdb2') || (event.event === '51bf9ec2-0bcc-440e-80c0-8552d9651ec6') || (event.event === '3516d326-9905-4cec-8c01-dd4deb7f7cbe') || (event.event === 'fe3140d7-4460-4bd4-a97d-53eab08a9f54') || (event.event === '3ea02eee-d9bf-4d61-90d4-b6e0493d9ad4') || (event.event === '12675445-8e98-4e8d-b841-992d476aeb4d') || (event.event === '742dc434-9ddf-4eee-9dac-751d69f71703') || (event.event === '7643a88b-658e-4373-8c2e-7d5bd7078656') || (event.event === 'fcf1ebc1-d0cd-43af-a208-6ae925d55a03') || (event.event === 'dc06d9bf-06ba-40f2-96e6-b85e69a0d5ff') || (event.event === 'cb70d043-2fd7-47d4-9406-55c7088529db') || (event.event === 'fad73ff0-b993-4a8b-902b-8b5924ffebc7') || (event.event === '8a176ca9-d522-49ae-92cc-ae7d1809db4d') || (event.event === 'a87a2f5c-d1bb-49a1-ad44-6e7e45abf0f7') || (event.event === 'f7c0d8fe-b146-4a57-a2b6-033be0fe741c') || (event.event === 'a352ef96-6318-4ee3-989f-ddf93197d67c') || (event.event === '1cf2720e-14d5-407e-8461-774cc93f43a6') || (event.event === '188b4483-3a5e-410c-a7dd-4d48e41a3b73') || (event.event === '205410ed-1442-458f-a008-32d434068284') || (event.event === '8c53079b-2612-4426-9b40-e22edbdff69a') || (event.event === '6c4218c9-9ec8-4155-a07a-758118ed9789') || (event.event === '65989850-9f0f-4eb1-985e-f7ade6ee8d20') || (event.event === '9ecbe9d6-a04f-4424-993d-dca0f80d3333') || (event.event === '5f3172ba-851a-45ee-a42c-032da34e423a') || (event.event === 'a74a30dc-5f5d-4dce-8452-7e7a90cb0026') || (event.event === 'b971f17d-0412-4e24-a4c9-772d13cce658') || (event.event === 'c1ea50d6-26e5-40b7-9160-f06e44bbaa09') || (event.event === 'a5dd124c-662a-4aaa-b2fd-0a0c9595829b') || (event.event === '09c8c5f1-d191-4cc2-bf0b-3ca630479f21') || (event.event === '326df12f-e7bd-47c9-80e8-ee4e4d0922d7') || (event.event === '261d4dd3-10fc-4228-884d-4f14e870c5e5') || (event.event === 'faea2eff-a8e3-49d3-8ac4-2c3a9de40225') || (event.event === '0f89c999-f671-42a0-a03a-06d3bcbac8cb') || (event.event === '20691486-6536-4995-9fc4-c0a24bd538b1') || (event.event === '25f8aacb-c83b-424a-8a54-7ead7b2df96a') || (event.event === 'd925109b-1647-40ad-b74b-7ba9d70750ee') || (event.event === '03f73bff-4e8d-44ff-a7c6-acb6421c8474') || (event.event === 'c7f3e409-ccea-4e4e-8b94-da9ceec577b6') || (event.event === 'ee90952e-44ee-4bd9-904e-c7c3984d4794') || (event.event === '15a9728f-3b5f-4ad2-a135-2926c5c4dc42') || (event.event === 'eb1e21a4-219a-419a-9910-a32f3a53c73b') || (event.event === 'caf44168-7ac2-4828-adc8-e950e7f00938') || (event.event === '6258d778-7be2-498b-a323-3b00a0966195') || (event.event === 'c1bcef98-18a0-438a-b248-8c3056198bea') || (event.event === '1efd3282-3446-4aca-b7e4-e89a40b78afb') || (event.event === '39492610-9cf9-4162-90f6-92fa74654fbf') || (event.event === 'd07683e3-52a3-4ae3-9d68-fad2e5dd8260') || (event.event === 'f869194b-d7b7-4c4d-976a-fe001570bceb') || (event.event === '8ffc6b90-ed89-4d20-bc86-9bcd4e9ce7ff') || (event.event === '257956a1-4927-4de6-b8cd-b4f5a55caba0') || (event.event === '871a666e-43ca-4327-add7-2091c25a66b4') || (event.event === '7354fead-0fe1-43e6-98b4-ad93fc61a471') || (event.event === 'b00c52a4-2f58-4ccf-8de6-4ba6808f6c3b') || (event.event === '1dae51f6-cb1b-4745-9d8c-fff1595abc33') || (event.event === 'c65c646d-f07f-4ad0-8f39-7435f76dc273') || (event.event === 'c0cdb2f1-5802-45a2-a424-30aa6f81d45f') || (event.event === '6fbd9ae8-45de-4e50-a017-170f4770c0a7') || (event.event === '8c49476b-5897-4135-8e9d-e3301e3056a9') || (event.event === 'a087f8ab-9bea-4114-97cb-a3b39893b43a') || (event.event === '37239481-9eb7-48fc-8117-10776919deec') || (event.event === '330754de-b7f0-4be7-a91a-f7f1ad607ef2') || (event.event === '2045211c-81b5-46c3-8f54-f43f528464fb') || (event.event === 'bff5117f-ed12-4cd9-9a1f-256beb2bb683') || (event.event === 'da12b8a1-0bcd-40ac-881b-8c865581daf1') || (event.event === '79ec6d66-1a80-41fe-9417-237028ad8030') || (event.event === '4f3a6f4e-7ba8-420e-af2f-e80439f9fa10') || (event.event === '3ba1587a-bff7-4dcd-b915-945139ad7d51') || (event.event === '22fcb27e-cd99-4be7-8eb2-7aa6c521d54d') || (event.event === '69e24ada-2145-48e7-a6b2-3f936839d091') || (event.event === 'e13d29b6-430d-4c38-8386-5ebceea2ce4d') || (event.event === 'bf9dc540-a6eb-4831-bd53-1ddf9fb039cb') || (event.event === 'a2d0e8f8-9632-44d3-b13e-680f8f998442') || (event.event === '6342b2ec-dbe5-43a9-b424-44ba67dee34c') || (event.event === 'e2ca8dc4-9e33-4685-8ce2-17d9d1ba5837') || (event.event === '762992e4-0c16-44ce-a72f-727f6c16d91e') || (event.event === 'e6882c9b-b4e7-44ce-b497-0ded83beb5c0') || (event.event === 'd7657c3c-081c-4373-8104-35bb42235229') || (event.event === '5575948b-a38c-4710-92e1-b8986d6f7ccd')) && (!isFiltered(event.event))) && (
+                                            {(((event.event === '042b257f-f1de-488d-900b-6d7c49361748') || (event.event === '89265cc9-9ce5-4219-bfb6-371b18ed42b1') || (event.event === '4d7dd3e6-7ef9-4e0f-8e26-0b39bdbac59e') || (event.event === '2a3b9983-d175-4bde-aca9-63b70944ec7e') || (event.event === '96a94fa3-cf34-4ab5-8cb4-586b25e8b40c') || (event.event === 'babe6a4b-8e25-4fd2-acf5-2e7f9c52e4eb') || (event.event === '5138de25-1d5c-473e-8a68-ddbeadc32bd4') || (event.event === '598a5aaa-346c-4e2c-80ce-08cbcb1e7c24') || (event.event === 'ebb8da3b-fcf4-4747-809b-e3fd5c9e26fb') || (event.event === '15a9c413-3dbe-4890-bd52-287c2a48f615') || (event.event === '9434ea7e-6a63-423c-9be5-77584bd587e4') || (event.event === 'a97eee86-2a5e-47db-99b1-74b61bc994c1') || (event.event === '6eaceab3-35bb-49e2-ad82-5bd4c3a32679') || (event.event === 'cdd20c5c-f942-4f8f-a15f-a750ecfd957c') || (event.event === '3474f1bf-5aae-434e-ba95-102114de0dd2') || (event.event === '221e9b45-0ec8-421e-adb6-cfaf19b69610') || (event.event === 'eaf504e8-217f-4e76-b6cc-ba78ff99aba3') || (event.event === '5531a226-bc2c-4c60-9505-9b8da30b86c2') || (event.event === 'cb30f654-a1c1-4e76-b479-d41821ede969') || (event.event === '9390dbb8-efe9-4b41-adf3-47c6531f7aa1') || (event.event === 'f61546fe-fd2a-4c89-813c-44dde15e6aa2') || (event.event === '79d3c79f-6d9b-4eb1-ae78-51dd9362e21b') || (event.event === '752a2e67-911e-45b5-801d-0841c38cf8c2') || (event.event === '97fb8e80-b937-464d-8830-212dcac90675') || (event.event === '5ee455bb-dea9-4a3d-a6ee-c2a7866d8b8c') || (event.event === '1ab83a91-21b1-4d56-b333-3a59c4ade431') || (event.event === 'b64c45f7-cf57-4864-a07f-e8f82dbf63b1') || (event.event === 'faf99fca-87c1-4e8e-81f5-b0f14251db08') || (event.event === '4c64d103-e813-4c4a-80b5-01cd8186635c') || (event.event === 'e181eaf9-1b61-4e5b-8982-833fb9594529') || (event.event === '246e9232-3d6a-4352-8957-d0ff9c1c834e') || (event.event === '80e77d4b-c523-4393-a279-6d7b15e65d8a') || (event.event === 'c3b8b079-4994-480e-9b0a-8cbce11fba46') || (event.event === '206ff86e-6894-4b56-9f5b-f5387d18f2ea') || (event.event === '2517d341-7ae3-4dae-b866-49bd2fc9b21c') || (event.event === '269524b5-a240-42e5-abfe-bf074ab7cb11') || (event.event === 'e1568b69-6246-469f-9654-a398a1606ef9') || (event.event === '54fd1baa-10d2-40e9-8521-e06f7a70a70b') || (event.event === 'f6aaa494-2171-4365-ac4a-8b0c28e60bc1') || (event.event === '4e5582b2-d5cd-45f5-aa60-96e172e31540') || (event.event === '4efc7e31-f200-4303-b210-175afa769c3f') || (event.event === 'bea713bd-afc8-4b54-bbe6-91086bd2f881') || (event.event === 'c4659d3b-640f-4455-9ce3-1217067eff24') || (event.event === 'b7f48962-7f4c-4a9b-b669-0f4c256dfca1') || (event.event === '224a46f1-c76c-43b4-a61a-04f160957faa') || (event.event === '3b7f50cb-6034-4882-b7cb-5473dd7f7bff') || (event.event === '3dafe7ca-eaef-4e47-9107-25e08f1abb73') || (event.event === 'aa33c5ae-c7c4-4751-93d2-1d914dbb1683') || (event.event === '5a136a68-802a-4809-a4a1-494be8293e68') || (event.event === 'e6f8f626-865d-4dfa-80e5-6d2722b9fbf1') || (event.event === '1be925fe-4d02-4aab-b048-2334ed162acf') || (event.event === '35e42b19-366b-4f84-8071-87a233aef06d') || (event.event === '5b6715d4-62f5-4cfa-a030-a0d33d9098d6') || (event.event === '871923a5-37aa-46a0-8c3e-a913d5e83e56') || (event.event === '2f9b927e-8665-4711-bdbf-8dc6cddef46a') || (event.event === '1d4e058c-c54c-4bb1-85e2-3dc6bca56a14') || (event.event === '4c427c39-ac73-4150-8da3-e277043b5150') || (event.event === 'ad95234e-f73e-47ed-9f66-21df2ae9f716') || (event.event === 'a3ee7485-1fe5-43a0-8bc7-729e26f9563d') || (event.event === '8031d6df-2c1d-43f3-b888-abe4a6f36784') || (event.event === '603884a1-eb01-4baa-8ddd-9ad0b71c6448') || (event.event === 'e7f15462-1f3a-470f-9c1f-9ec605e70497') || (event.event === 'df0d272c-92b3-4b29-bb83-0c69672c5b54') || (event.event === 'f445579a-f7bf-4ac2-a850-b1238901b6e6') || (event.event === '29424082-bc3b-4a6a-96c2-803674b9170f') || (event.event === 'eae9cb19-1e0f-4ad3-8ce6-2dda927e7ecd') || (event.event === '9b798a2d-a548-4f06-8fb1-03e470557815') || (event.event === '925a07e2-33e1-4953-a4ed-4b231bd4fd9e') || (event.event === '6de9a586-d4a3-4139-be2c-f6bd1b7aa29c') || (event.event === '094f6e47-5be5-4165-a9de-efde762b324b') || (event.event === 'cad76a1c-73b8-4793-8f8f-9c72e590710a') || (event.event === '11c71431-e764-4e84-b523-2ac158c2b6a4') || (event.event === 'bf00bec1-38c1-4197-9020-39ecf09a82a5') || (event.event === '299df40e-d045-440e-8bcd-05aa57717019') || (event.event === '3ef8f85c-7f3c-4baa-8dd4-2a716e119a70') || (event.event === '2c355a87-fa9b-46b2-af88-81d498be5ed2') || (event.event === 'b7fff893-5b36-4d00-b49f-2f8e79da653f') || (event.event === 'ee5ad081-9a9c-4278-9c7f-ea5ddbfd610a') || (event.event === '2dde600e-a6b9-4af2-88a0-51cfb790c96b') || (event.event === 'd1589414-2f6e-45ed-83ff-3fa321002b1d') || (event.event === '50dec097-b09f-495c-a66a-d83ea97130f8') || (event.event === '402e74d8-fff1-467c-b9dd-becefe781a48') || (event.event === 'd2f89025-1ac7-4137-ba0f-3ab7d06b3cc7') || (event.event === 'f7c75e32-ce0b-43b5-a7fb-46eb8f667001') || (event.event === '1be3b09d-9073-449b-8414-eaef709c0cb9') || (event.event === '82b868e2-ff53-482f-aceb-cf90b3a166bc') || (event.event === 'af5c9726-3f4c-48f2-af1b-0e93e43bbc04') || (event.event === '3e89a11d-741e-421d-8511-d62f14e101cf') || (event.event === 'ce21fc38-8729-4da3-8868-26d1d2fbe482') || (event.event === '57cec941-a764-4bc5-b598-7ad2ec4a9565') || (event.event === '5eff5602-eec2-4819-b897-251e6e2c849f') || (event.event === '1e054ee5-f80f-4cff-8b75-77c0f348505f') || (event.event === 'a33f2a4f-125d-4232-b640-2b5573a7befa') || (event.event === '390e08c3-ddf5-4332-b21d-970a757366b1') || (event.event === 'ea1c3e55-9537-4f4a-a37a-3c06bcc7fe7b') || (event.event === '9c2efd7c-e099-4d8f-bfe7-e313bfed8958') || (event.event === '975b75ac-548e-41a5-b115-30f755690ed0') || (event.event === '6a709b04-971d-438b-bc26-8de4b3206dcd') || (event.event === 'f7202602-e1e9-47fe-9ce7-250e13a46f2f') || (event.event === 'c0ec20f2-abb8-41f2-94cb-0a681ffe4162') || (event.event === '1d7069d7-fa0a-49de-9478-4923121f76b4') || (event.event === '109dd381-db13-4a2e-9ac9-673348b23cf0') || (event.event === 'e8991541-f5e9-4559-ab20-9805c723d1b2') || (event.event === '7aa638f8-2da2-4c4a-bccf-304e7cf57825') || (event.event === '3b0c11dd-5cf9-4351-9808-b8037e1b1ccc') || (event.event === '766a74e6-7611-48f3-933a-54d07cb18ed5') || (event.event === '43ccb0c3-409b-4d9b-9548-d1c3ad9ed690') || (event.event === '01aa9203-9383-4905-9e5a-72114c68b5c4') || (event.event === '90510387-bb4e-4acd-a4d6-bbab4881cc33') || (event.event === '76912065-8afa-484b-8478-504aa9aa1530') || (event.event === '36249d27-24ce-4524-9ca8-fd4412b22466') || (event.event === '15ff0c56-5f2e-42ee-9c72-cc7b3a97c0db') || (event.event === 'd5cfde1b-0c7e-4065-aec9-c744ad0e8483') || (event.event === '417018f5-596b-4119-a814-5873cbff497c') || (event.event === '90ae32f0-19f0-4113-b40c-3939c56a737d') || (event.event === '101ac2d7-39bd-4038-894b-fb85afe29a72') || (event.event === 'f8570f5c-0670-487a-8684-c216928c37d4') || (event.event === '376f9042-e721-4802-807d-12df4723cdb2') || (event.event === '51bf9ec2-0bcc-440e-80c0-8552d9651ec6') || (event.event === '3516d326-9905-4cec-8c01-dd4deb7f7cbe') || (event.event === 'fe3140d7-4460-4bd4-a97d-53eab08a9f54') || (event.event === '3ea02eee-d9bf-4d61-90d4-b6e0493d9ad4') || (event.event === '12675445-8e98-4e8d-b841-992d476aeb4d') || (event.event === '742dc434-9ddf-4eee-9dac-751d69f71703') || (event.event === '7643a88b-658e-4373-8c2e-7d5bd7078656') || (event.event === 'fcf1ebc1-d0cd-43af-a208-6ae925d55a03') || (event.event === 'dc06d9bf-06ba-40f2-96e6-b85e69a0d5ff') || (event.event === 'cb70d043-2fd7-47d4-9406-55c7088529db') || (event.event === 'fad73ff0-b993-4a8b-902b-8b5924ffebc7') || (event.event === '8a176ca9-d522-49ae-92cc-ae7d1809db4d') || (event.event === 'a87a2f5c-d1bb-49a1-ad44-6e7e45abf0f7') || (event.event === 'f7c0d8fe-b146-4a57-a2b6-033be0fe741c') || (event.event === 'a352ef96-6318-4ee3-989f-ddf93197d67c') || (event.event === '1cf2720e-14d5-407e-8461-774cc93f43a6') || (event.event === '188b4483-3a5e-410c-a7dd-4d48e41a3b73') || (event.event === '205410ed-1442-458f-a008-32d434068284') || (event.event === '8c53079b-2612-4426-9b40-e22edbdff69a') || (event.event === '6c4218c9-9ec8-4155-a07a-758118ed9789') || (event.event === '65989850-9f0f-4eb1-985e-f7ade6ee8d20') || (event.event === '9ecbe9d6-a04f-4424-993d-dca0f80d3333') || (event.event === '5f3172ba-851a-45ee-a42c-032da34e423a') || (event.event === 'a74a30dc-5f5d-4dce-8452-7e7a90cb0026') || (event.event === 'b971f17d-0412-4e24-a4c9-772d13cce658') || (event.event === 'c1ea50d6-26e5-40b7-9160-f06e44bbaa09') || (event.event === 'a5dd124c-662a-4aaa-b2fd-0a0c9595829b') || (event.event === '09c8c5f1-d191-4cc2-bf0b-3ca630479f21') || (event.event === '326df12f-e7bd-47c9-80e8-ee4e4d0922d7') || (event.event === '261d4dd3-10fc-4228-884d-4f14e870c5e5') || (event.event === 'faea2eff-a8e3-49d3-8ac4-2c3a9de40225') || (event.event === '0f89c999-f671-42a0-a03a-06d3bcbac8cb') || (event.event === '20691486-6536-4995-9fc4-c0a24bd538b1') || (event.event === '25f8aacb-c83b-424a-8a54-7ead7b2df96a') || (event.event === 'd925109b-1647-40ad-b74b-7ba9d70750ee') || (event.event === '03f73bff-4e8d-44ff-a7c6-acb6421c8474') || (event.event === 'c7f3e409-ccea-4e4e-8b94-da9ceec577b6') || (event.event === 'ee90952e-44ee-4bd9-904e-c7c3984d4794') || (event.event === '15a9728f-3b5f-4ad2-a135-2926c5c4dc42') || (event.event === 'eb1e21a4-219a-419a-9910-a32f3a53c73b') || (event.event === 'caf44168-7ac2-4828-adc8-e950e7f00938') || (event.event === '6258d778-7be2-498b-a323-3b00a0966195') || (event.event === 'c1bcef98-18a0-438a-b248-8c3056198bea') || (event.event === '1efd3282-3446-4aca-b7e4-e89a40b78afb') || (event.event === '39492610-9cf9-4162-90f6-92fa74654fbf') || (event.event === 'd07683e3-52a3-4ae3-9d68-fad2e5dd8260') || (event.event === 'f869194b-d7b7-4c4d-976a-fe001570bceb') || (event.event === '8ffc6b90-ed89-4d20-bc86-9bcd4e9ce7ff') || (event.event === '257956a1-4927-4de6-b8cd-b4f5a55caba0') || (event.event === '871a666e-43ca-4327-add7-2091c25a66b4') || (event.event === '7354fead-0fe1-43e6-98b4-ad93fc61a471') || (event.event === 'b00c52a4-2f58-4ccf-8de6-4ba6808f6c3b') || (event.event === '1dae51f6-cb1b-4745-9d8c-fff1595abc33') || (event.event === 'c65c646d-f07f-4ad0-8f39-7435f76dc273') || (event.event === 'c0cdb2f1-5802-45a2-a424-30aa6f81d45f') || (event.event === '6fbd9ae8-45de-4e50-a017-170f4770c0a7') || (event.event === '8c49476b-5897-4135-8e9d-e3301e3056a9') || (event.event === 'a087f8ab-9bea-4114-97cb-a3b39893b43a') || (event.event === '37239481-9eb7-48fc-8117-10776919deec') || (event.event === '330754de-b7f0-4be7-a91a-f7f1ad607ef2') || (event.event === '2045211c-81b5-46c3-8f54-f43f528464fb') || (event.event === 'bff5117f-ed12-4cd9-9a1f-256beb2bb683') || (event.event === 'da12b8a1-0bcd-40ac-881b-8c865581daf1') || (event.event === '79ec6d66-1a80-41fe-9417-237028ad8030') || (event.event === '4f3a6f4e-7ba8-420e-af2f-e80439f9fa10') || (event.event === '3ba1587a-bff7-4dcd-b915-945139ad7d51') || (event.event === '22fcb27e-cd99-4be7-8eb2-7aa6c521d54d') || (event.event === '69e24ada-2145-48e7-a6b2-3f936839d091') || (event.event === 'e13d29b6-430d-4c38-8386-5ebceea2ce4d') || (event.event === 'bf9dc540-a6eb-4831-bd53-1ddf9fb039cb') || (event.event === 'a2d0e8f8-9632-44d3-b13e-680f8f998442') || (event.event === '6342b2ec-dbe5-43a9-b424-44ba67dee34c') || (event.event === 'e2ca8dc4-9e33-4685-8ce2-17d9d1ba5837') || (event.event === '762992e4-0c16-44ce-a72f-727f6c16d91e') || (event.event === 'e6882c9b-b4e7-44ce-b497-0ded83beb5c0') || (event.event === 'd7657c3c-081c-4373-8104-35bb42235229') || (event.event === '5575948b-a38c-4710-92e1-b8986d6f7ccd') || (event.event === 'b30dde65-6be3-464f-9d17-b56eb74b5f41') || (event.event === '0a4ef120-f878-4159-bde0-5380fd301a41') || (event.event === '805cbaf4-bc89-45a0-81ea-b9baa965f5ce') || (event.event === '29c9abf3-597d-469d-b8a9-6687c62ba4a9') || (event.event === 'a49a79fe-3159-414d-b4f2-a804e7d0496f') || (event.event === 'c993c5e1-d170-4555-a659-efd7c01ce88a') || (event.event === 'c867b7b2-a808-4401-8123-fa1361af87d7') || (event.event === '9aab0ca5-681d-456f-97ec-11362f1e35cb') || (event.event === 'e17ae33d-6d89-4b74-90b0-49b09e2c6461') || (event.event === '51b35aa7-220d-4ad2-a477-3276667ecc53') || (event.event === '66c2a144-f268-4aac-bdb5-cd629c54ae71') || (event.event === '9bf83ad0-3562-4fbb-a47c-75b7c05a7b9f') || (event.event === '49b7f4a5-6ff0-48e9-b38c-ea9767406c98')) && (!isFiltered(event.event))) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
                                                     onClick={() => noteEditEventCurrentPosition(event.id)}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
@@ -11936,7 +12375,7 @@ function StepSequencer(user, seq) {
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
                                             )}
-                                            {(((event.event === 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0') || (event.event === '26a0ab85-b2cc-4442-84c0-bd30fb239869') || (event.event === '890d5a31-859b-4958-8eca-dd0b52f1fbec') || (event.event === 'f31779f1-2599-487b-8e96-5b0abd35394e') || (event.event === '75cf0bca-6196-4219-9eef-54272e8020a8') || (event.event === '44feabcb-b735-4980-a3fc-1e229b4bd115') || (event.event === '40fc271b-2b22-40ff-a43d-90404ff07c69') || (event.event === 'c3543d3c-ccc5-45e2-ac42-c62c8b364690')) && (!isFiltered(event.event))) && (
+                                            {(((event.event === 'a889cf3f-3986-46ef-9bb3-d4b42fc41fb0') || (event.event === '26a0ab85-b2cc-4442-84c0-bd30fb239869') || (event.event === '890d5a31-859b-4958-8eca-dd0b52f1fbec') || (event.event === 'f31779f1-2599-487b-8e96-5b0abd35394e') || (event.event === '75cf0bca-6196-4219-9eef-54272e8020a8') || (event.event === '44feabcb-b735-4980-a3fc-1e229b4bd115') || (event.event === '40fc271b-2b22-40ff-a43d-90404ff07c69') || (event.event === 'c3543d3c-ccc5-45e2-ac42-c62c8b364690') || (event.event === '41f82101-0f77-4ae5-9d69-1679e6a47d7e')) && (!isFiltered(event.event))) && (
                                                 <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
                                                     onClick={() => noteEditEventCurrentPosition(event.id)}>
                                                     <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
@@ -12008,6 +12447,123 @@ function StepSequencer(user, seq) {
                                                         )}
                                                         {(event.value === 0) && (
                                                             <p>poly</p>
+                                                        )}
+                                                    </div>
+                                                    <p className={'stepSequencerEventDeleteEvent' + stepSequenceMonth}
+                                                        onClick={() => deleteEventAt(event.id)} >&#127303;</p>
+                                                </div>
+                                            )}
+                                            {((event.event === '4a6d026f-d882-456f-ac20-602c37b01c82') && (!isFiltered(event.event))) && (
+                                                <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
+                                                    onClick={() => noteEditEventCurrentPosition(event.id)}>
+                                                    <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
+                                                    <input className={'stepSequencerEventMidiChannelInput' + stepSequenceMonth} 
+                                                        max="15"
+                                                        min="0"
+                                                        onChange={(e) => {updateTrackEventMIDIChannel(e.target.value, event.id)}}
+                                                        type="number"
+                                                        value={event.midiChannel}/>
+                                                    <input className={'stepSequencerEventBarInput' + stepSequenceMonth}
+                                                        max={sequence.duration.bar - 1}
+                                                        min="1"
+                                                        onChange={(e) => updateEventBarPosition(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.time.bar}/>
+                                                    <p className={'stepSequencerBarDivider' + stepSequenceMonth}>.</p>
+                                                    <input className={'stepSequencerEventBeatInput' + stepSequenceMonth} 
+                                                        onChange={(e) => updateEventBeatPosition(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.time.beat}/>
+                                                    <p className={'stepSequencerBeatDivider' + stepSequenceMonth}>.</p>
+                                                    <input className={'stepSequencerEventTicksInput' + stepSequenceMonth} 
+                                                        onChange={(e) => updateEventTicksPosition(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.time.ticks}/>
+                                                    <div className={'stepSequencerEventSwitch' + (event.value) + stepSequenceMonth}
+                                                        onClick={() => toggleEventSwitchBoolean(event.id)}>
+                                                        {(event.value === true) && (
+                                                            <p>saw</p>
+                                                        )}
+                                                        {(event.value === false) && (
+                                                            <p>sq</p>
+                                                        )}
+                                                    </div>
+                                                    <p className={'stepSequencerEventDeleteEvent' + stepSequenceMonth}
+                                                        onClick={() => deleteEventAt(event.id)} >&#127303;</p>
+                                                </div>
+                                            )}
+                                            {((event.event === '9825b17e-4bfd-46ed-bb7b-7b9f14cc4fd0') && (!isFiltered(event.event))) && (
+                                                <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
+                                                    onClick={() => noteEditEventCurrentPosition(event.id)}>
+                                                    <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
+                                                    <input className={'stepSequencerEventMidiChannelInput' + stepSequenceMonth} 
+                                                        max="15"
+                                                        min="0"
+                                                        onChange={(e) => {updateTrackEventMIDIChannel(e.target.value, event.id)}}
+                                                        type="number"
+                                                        value={event.midiChannel}/>
+                                                    <input className={'stepSequencerEventBarInput' + stepSequenceMonth}
+                                                        max={sequence.duration.bar - 1}
+                                                        min="1"
+                                                        onChange={(e) => updateEventBarPosition(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.time.bar}/>
+                                                    <p className={'stepSequencerBarDivider' + stepSequenceMonth}>.</p>
+                                                    <input className={'stepSequencerEventBeatInput' + stepSequenceMonth} 
+                                                        onChange={(e) => updateEventBeatPosition(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.time.beat}/>
+                                                    <p className={'stepSequencerBeatDivider' + stepSequenceMonth}>.</p>
+                                                    <input className={'stepSequencerEventTicksInput' + stepSequenceMonth} 
+                                                        onChange={(e) => updateEventTicksPosition(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.time.ticks}/>
+                                                    <div className={'stepSequencerEventSwitch' + (event.value) + stepSequenceMonth}
+                                                        onClick={() => toggleEventSwitchBoolean(event.id)}>
+                                                        {(event.value === true) && (
+                                                            <p>tri</p>
+                                                        )}
+                                                        {(event.value === false) && (
+                                                            <p>sq</p>
+                                                        )}
+                                                    </div>
+                                                    <p className={'stepSequencerEventDeleteEvent' + stepSequenceMonth}
+                                                        onClick={() => deleteEventAt(event.id)} >&#127303;</p>
+                                                </div>
+                                            )}
+                                            {(((event.event === 'cd74df19-1aa1-483c-99d9-9c20f6a643a8') || (event.event === '51486d4d-6396-4a51-8b61-59a6506d4e17') || (event.event === '82f5b537-8b2c-4e0a-9fc3-a7cdb2be87b6') || (event.event === 'e746c184-23ed-470a-9548-c3d1d99c1dae') || (event.event === '57f77c91-a331-4dd0-bdb2-cb6592955d09')) && (!isFiltered(event.event))) && (
+                                                <div className={'stepSequencerEventContainer' + track.active + ((parseInt(event.time.bar) === parseInt(currentPosition.measure.bar)) && (parseInt(event.time.beat) === parseInt(currentPosition.measure.beat)) && (parseInt(event.time.ticks) === parseInt(currentPosition.measure.ticks))) + stepSequenceMonth}
+                                                    onClick={() => noteEditEventCurrentPosition(event.id)}>
+                                                    <p className={'stepSequencerEventName' + stepSequenceMonth}>{event.name}</p>
+                                                    <input className={'stepSequencerEventMidiChannelInput' + stepSequenceMonth} 
+                                                        max="15"
+                                                        min="0"
+                                                        onChange={(e) => {updateTrackEventMIDIChannel(e.target.value, event.id)}}
+                                                        type="number"
+                                                        value={event.midiChannel}/>
+                                                    <input className={'stepSequencerEventBarInput' + stepSequenceMonth}
+                                                        max={sequence.duration.bar - 1}
+                                                        min="1"
+                                                        onChange={(e) => updateEventBarPosition(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.time.bar}/>
+                                                    <p className={'stepSequencerBarDivider' + stepSequenceMonth}>.</p>
+                                                    <input className={'stepSequencerEventBeatInput' + stepSequenceMonth} 
+                                                        onChange={(e) => updateEventBeatPosition(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.time.beat}/>
+                                                    <p className={'stepSequencerBeatDivider' + stepSequenceMonth}>.</p>
+                                                    <input className={'stepSequencerEventTicksInput' + stepSequenceMonth} 
+                                                        onChange={(e) => updateEventTicksPosition(e.target.value, event.id)}
+                                                        type="number"
+                                                        value={event.time.ticks}/>
+                                                    <div className={'stepSequencerEventSwitch' + (event.value) + stepSequenceMonth}
+                                                        onClick={() => toggleEventSwitchBoolean(event.id)}>
+                                                        {(event.value === true) && (
+                                                            <p>on</p>
+                                                        )}
+                                                        {(event.value === false) && (
+                                                            <p>off</p>
                                                         )}
                                                     </div>
                                                     <p className={'stepSequencerEventDeleteEvent' + stepSequenceMonth}
