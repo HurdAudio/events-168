@@ -206,7 +206,7 @@ function StepSequencer(user, seq) {
                         event: '9f4db083-23fa-4c1c-b7a5-ee3f57288aa7',
                         midiChannel: 0,
                         name: 'initial patch',
-                        patch: 'fake patch',
+                        patch: '',
                         time: {
                             bar: 0,
                             beat: 1,
@@ -2368,6 +2368,38 @@ function StepSequencer(user, seq) {
                                 // Specific to Volca Nubass device
                                 track.instrument.patch.global_params.portamentoTime = track.events[index].value;
                                 user.midi_connections.outputs[output].send(VolcaNubassControlChangeMessages(track.instrument.patch, track.events[index].midiChannel, 'portamentoTime'), timeStart + timePosition({ bar: track.events[index].time.bar, beat: track.events[index].time.beat, ticks: track.events[index].time.ticks }));
+                                break;
+                            case('9f4db083-23fa-4c1c-b7a5-ee3f57288aa7'):
+                                // initial patch
+                                if (sequence.tracks[activeTrack].device === 'e3bfacf5-499a-4247-b512-2c4bd15861ad') {
+                                    // Volca FM
+                                    axios.get(`/volca_fm_patches/patch/${track.events[index].patch}`)
+                                    .then(volcaFmPatch => {
+                                        const patch = volcaFmPatch.data;
+                                        track.instrument.patch = patch;
+                                        PatchSender({
+                                            deviceId: 'e3bfacf5-499a-4247-b512-2c4bd15861ad',
+                                            currentOutput: user.midi_connections.outputs[output],
+                                            patch: patch,
+                                            currentMidiChannel: track.events[index].midiChannel,
+                                            time: undefined
+                                        });
+                                    });
+                                } else if (sequence.tracks[activeTrack].device === 'bda73d0e-c18c-472e-add6-1e1a4f123949') {
+                                    // Volca Nubass
+                                    axios.get(`/volca_nubass_patches/patch/${track.events[index].patch}`)
+                                    .then(volcaNubassPatch => {
+                                        const patch0 = volcaNubassPatch.data;
+                                        track.instrument.patch = patch0;
+                                        PatchSender({
+                                            deviceId: 'bda73d0e-c18c-472e-add6-1e1a4f123949',
+                                            currentOutput: user.midi_connections.outputs[output],
+                                            patch: patch0,
+                                            currentMidiChannel: track.events[index].midiChannel,
+                                            time: undefined
+                                        });
+                                    });
+                                }
                                 break;
                             default:
                                 console.log('unsupported event');
@@ -4751,6 +4783,14 @@ function StepSequencer(user, seq) {
         deepSequence.tracks[activeTrack].events[index].midiChannel = val;
         
         setCurrentMidiChannelInput(parseInt(val));
+        setSequence(deepSequence);
+    }
+    
+    const updateInitialPatchSetting = (val, index) => {
+        let deepSequence = {...sequence};
+        
+        deepSequence.tracks[activeTrack].events[index].patch = val;
+        
         setSequence(deepSequence);
     }
     
@@ -12079,11 +12119,25 @@ function StepSequencer(user, seq) {
                                                         onChange={(e) => {updateTrackEventMIDIChannel(e.target.value, event.id)}}
                                                         type="number"
                                                         value={event.midiChannel}/>
-                                                    <select className={'stepSequencerInitialPatchSelect' + stepSequenceMonth}
-                                                        value={event.patch}>
-                                                        <option value="fake patch">fake patch</option>
-                                                        <option value="other fake patch">other fake patch</option>
-                                                    </select>
+                                                    {(sequence.tracks[activeTrack].device === 'e3bfacf5-499a-4247-b512-2c4bd15861ad') && (
+                                                        <select className={'stepSequencerInitialPatchSelect' + stepSequenceMonth}
+                                                            onChange={(e) => updateInitialPatchSetting(e.target.value, event.id)}
+                                                            value={event.patch}>
+                                                            {currentPatches.map(patch => (
+                                                                <option key={patch.uuid} value={patch.uuid}>{patch.patch_name}</option>
+                                                            ))}
+                                                        </select>
+                                                    )}
+                                                    {(sequence.tracks[activeTrack].device !== 'e3bfacf5-499a-4247-b512-2c4bd15861ad') && (
+                                                        <select className={'stepSequencerInitialPatchSelect' + stepSequenceMonth}
+                                                            onChange={(e) => updateInitialPatchSetting(e.target.value, event.id)}
+                                                            value={event.patch}>
+                                                            {currentPatches.map(patch => (
+                                                                <option key={patch.uuid} value={patch.uuid}>{patch.global_params.name}</option>
+                                                            ))}
+                                                        </select>
+                                                    )}
+                                                    
                                                     <p className={'stepSequencerEventDeleteEvent' + stepSequenceMonth}
                                                         onClick={() => deleteEventAt(event.id)} >&#127303;</p>
                                                 </div>
@@ -12628,7 +12682,11 @@ function StepSequencer(user, seq) {
                             </select>
                         )}
                         {(sequence.tracks[activeTrack].device !== 'e3bfacf5-499a-4247-b512-2c4bd15861ad') && (
-                            <select className={'stepSequencerPatchSelector' + stepSequenceMonth}></select>
+                            <select className={'stepSequencerPatchSelector' + stepSequenceMonth}>
+                                {currentPatches.map(patch => (
+                                    <option key={patch.uuid} value={patch.uuid}>{patch.global_params.name}</option>
+                                ))}
+                            </select>
                         )}
                         <p className={'stepSequencerEventSelectLabel' + stepSequenceMonth}>event:</p>
                         <select className={'stepSequencerEventSelector' + stepSequenceMonth}
