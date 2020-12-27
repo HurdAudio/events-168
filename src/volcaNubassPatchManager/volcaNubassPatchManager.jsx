@@ -14,6 +14,7 @@ import VolcaNubass from '../volcaNubass/volcaNubass';
 import './volcaNubassPatchManager.style.jana.css';
 import './volcaNubassPatchManager.style.janb.css';
 import './volcaNubassPatchManager.style.janc.css';
+import './volcaNubassPatchManager.style.feba.css';
 import VolcaNubassPatchTransmitter from './volcaNubassPatchTransmitter';
 import axios from 'axios';
 import uuid4 from 'uuid4';
@@ -30,7 +31,7 @@ function VolcaNubassPatchManager(user, banks) {
     const janaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassPatchManager/january/spinner/27947ac14af627677a43510cf7ccfe70.gif';
     const janbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassPatchManager/january/spinner/q9bLT0l.gif';
     const jancSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/january/spinners/tumblr_p0hpi7yj8g1r2geqjo1_540.gif';
-    const febaSpinner = '';
+    const febaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaNubassPatchManager/february/spinner/4f932047f96fa94a01bf0f51cada47e9.gif';
 
     let midiOutput = null;
     let inputs = null;
@@ -47,7 +48,7 @@ function VolcaNubassPatchManager(user, banks) {
     const [deleteCollectionModalState, setDeleteCollectionModalState] = useState('_Inactive');
     const [aboutModalState, setAboutModalState] = useState('_Inactive');
     const [collectionLoadModalState, setCollectionLoadModalState] = useState('_Inactive');
-    const [volcaNubassPatchManagerMonth, setVolcaNubassPatchManagerMonth] = useState('_JanuaryC');
+    const [volcaNubassPatchManagerMonth, setVolcaNubassPatchManagerMonth] = useState('_FebruaryA');
     const [currentPatchUuid, setCurrentPatchUuid] = useState(null);
     const [availableCollections, setAvailableCollections] = useState([]);
     const [currentCollection, setCurrentCollection] = useState('');
@@ -55,7 +56,7 @@ function VolcaNubassPatchManager(user, banks) {
     const [dragData, setDragData] = useState(null);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
     const [userPatches, setUserPatches] = useState([]);
-    const [currentSpinner, setCurrentSpinner] = useState(jancSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(febaSpinner);
     const [selectedPatchPatch, setSelectedPatchPatch] = useState('');
     const [selectedBankPatch, setSelectedBankPatch] = useState('');
     const [availableInputs, setAvailableInputs] = useState([]);
