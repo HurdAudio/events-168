@@ -16,6 +16,7 @@ import './volcaFmPatchManager.style.jana.css';
 import './volcaFmPatchManager.style.janb.css';
 import './volcaFmPatchManager.style.janc.css';
 import './volcaFmPatchManager.style.feba.css';
+import './volcaFmPatchManager.style.febb.css';
 import midiConnection from '../midiManager/midiConnection';
 import axios from 'axios';
 import uuid4 from 'uuid4';
@@ -35,6 +36,7 @@ function VolcaFmPatchManager(user, banks) {
     const janbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/january/spinners/b2f1177cea910d95dca3048224b419d6.gif';
     const jancSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/january/spinners/cj3rpvd3ai3z.gif';
     const febaSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/february/spinners/e3c2dfab3ec1856fd36f2ee4afcadf6e.gif';
+    const febbSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/volcaFMPatchManager/february/spinners/shot_2.gif';
 
     let midiOutput = null;
     let inputs = null;
@@ -53,7 +55,7 @@ function VolcaFmPatchManager(user, banks) {
     const [deleteCollectionModalState, setDeleteCollectionModalState] = useState('_Inactive');
     const [aboutModalState, setAboutModalState] = useState('_Inactive');
     const [collectionLoadModalState, setCollectionLoadModalState] = useState('_Inactive');
-    const [volcaFmPatchManagerMonth, setVolcaFmPatchManagerMonth] = useState('_FebruaryA');
+    const [volcaFmPatchManagerMonth, setVolcaFmPatchManagerMonth] = useState('_FebruaryB');
     const [availableCollections, setAvailableCollections] = useState([]);
     const [currentCollection, setCurrentCollection] = useState('');
     const [selectedCollectionValue, setSelectedCollectionValue] = useState('');
@@ -61,7 +63,7 @@ function VolcaFmPatchManager(user, banks) {
     const [dragData, setDragData] = useState(null);
     const [loadPatchUuid, setLoadPatchUuid] = useState(null);
     const [userPatches, setUserPatches] = useState([]);
-    const [currentSpinner, setCurrentSpinner] = useState(febaSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(febbSpinner);
     const [selectedPatchPatch, setSelectedPatchPatch] = useState('');
     const [selectedBankPatch, setSelectedBankPatch] = useState('');
     const [availableInputs, setAvailableInputs] = useState([]);
