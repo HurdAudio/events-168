@@ -15,6 +15,7 @@ import './gr1Editor.style.janb.css';
 import './gr1Editor.style.janc.css';
 import './gr1Editor.style.feba.css';
 import './gr1Editor.style.febb.css';
+import './gr1Editor.style.febc.css';
 import axios from 'axios';
 import midi5pin from '../img/midi5pin.svg';
 import midiConnection from '../midiManager/midiConnection';
@@ -26,6 +27,7 @@ const januaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1-edito
 const januaryCSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/spinners/JVQ25yB.gif';
 const februaryASpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/spinners/GratefulTornDavidstiger-max-1mb.gif';
 const februaryBSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/spinners/Material-Loading-Animation__ss.gif';
+const februaryCSpinner = 'https://events-168-hurdaudio.s3.amazonaws.com/gr1-editor/spinners/ab683e549ce6be7bcded205943e11c76.gif';
 
 function Gr1Editor(user, incomingPatch) {
         
@@ -52,7 +54,7 @@ function Gr1Editor(user, incomingPatch) {
     const [userPatches, setUserPatches] = useState([]);
     const [saveAsDialogStatus, setSaveAsDialogStatus] = useState('_Inactive');
     const [aboutGR1DivState, setAboutGR1DivState] = useState('_Inactive');
-    const [currentSpinner, setCurrentSpinner] = useState(februaryBSpinner);
+    const [currentSpinner, setCurrentSpinner] = useState(februaryCSpinner);
     const [saveAsName, setSaveAsName] = useState('');
     const [currentOutput, setCurrentOutput] = useState(null);
     const [midiConnections, setMidiConnections] = useState(undefined);
@@ -60,7 +62,7 @@ function Gr1Editor(user, incomingPatch) {
     const [availableInputs, setAvailableInputs] = useState([]);
     const [availableOutputs, setAvailableOutputs] = useState([]);
     const [currentMidiChannel, setCurrentMidiChannel] = useState(0);
-    const [gr1Month, setGr1Month] = useState('_FebruaryB');
+    const [gr1Month, setGr1Month] = useState('_FebruaryC');
     const [midiImage, setMidiImage] = useState(midi5pin);
     const [patchAltered, setPatchAltered] = useState(false);
     const [globalParams, setGlobalParams] =  useState({
