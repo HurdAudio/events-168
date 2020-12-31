@@ -14,9 +14,19 @@ function AvailableDevices() {
             uuid: '5e3a4543-97c4-43eb-b1a0-b90a1ca13ffe'
         },
         {
+            device: 'ASM Hydrasynth',
+            imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/ASM_SYNTH%2BDesktop_Angle01.png',
+            uuid: '73f5efff-75d8-4a21-b350-e50e3ea9d002'
+        },
+        {
             device: 'Bastil Thyme',
             imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/bastl-instruments-thyme.jpg',
             uuid: 'fc30dcf7-aeba-4a66-8630-0ec44622231d'
+        },
+        {
+            device: 'Empress Zoia',
+            imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/zoia-tb.png',
+            uuid: '94be96ed-7b2e-4e59-a932-a4b3776090f2'
         },
         {
             device: 'Eventide Space',
@@ -32,6 +42,11 @@ function AvailableDevices() {
             device: 'Gamechanger Audio Motor Synth',
             imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/xkkm8romonmuu44oonbd.jpeg',
             uuid: 'd18af509-2452-4055-9ce2-e7a91ea61233'
+        },
+        {
+            device: 'Kenton Pro CV-to-MIDI Converter',
+            imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/PRo-CV-to-MIDI-Main.png',
+            uuid: '1f9a3d8f-d375-44a3-a2f9-3d46d052c0ec'
         },
         {
             device: 'Korg Kaoss Pad 3',
@@ -62,6 +77,11 @@ function AvailableDevices() {
             device: 'M-Audio Venom',
             imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/venom.jpeg',
             uuid: 'c725bfdd-8829-477d-a0dc-d9b95ddc2189'
+        },
+        {
+            device: 'Moog Subharmonicon',
+            imagePath: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/devices/moog-sub-3.png',
+            uuid: '79f3e27b-c9e1-471f-bf31-93137a23b47d'
         },
         {
             device: 'Tasty Chips GR-1',

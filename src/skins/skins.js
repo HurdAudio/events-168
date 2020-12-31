@@ -31,6 +31,13 @@ function SkinsTable(access) {
                 skins.login = table.login[months[now.getMonth()]][now.getDate()];
             }
             break;
+        case('midiManager'):
+            if (table.midiManager[months[now.getMonth()]].length === 1) {
+                skins.midiManager = table.midiManager.available[Math.floor(Math.random() * (table.midiManager.available.length))];
+            } else {
+                skins.midiManager = table.midiManager[months[now.getMonth()]][now.getDate()];
+            }
+            break;
         case('nubassEditor'):
             if (table.nubassEditor[months[now.getMonth()]].length === 1) {
                 skins.nubassEditor = table.nubassEditor.available[Math.floor(Math.random() * (table.nubassEditor.available.length))];
