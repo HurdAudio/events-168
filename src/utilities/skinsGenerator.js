@@ -22,12 +22,12 @@ function randomizeArray(arr, days) {
 
 //const days = 31;
 //
-//let arr = [{ skin: '_JanuaryA', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/spinner/cloe-ferrara-loader1-0.gif'}];
+//let arr = [{ skin: '_JanuaryA', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/dynamic-scifi-hud-element.gif'}];
 //
 //for (let i = 0; i < 10; i++) {
-//    arr.push({ skin: '_JanuaryC', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/spinner/jancdrums.gif' });
-//    arr.push({ skin: '_JanuaryB', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/spinner/CleanGiantFlea-small.gif' });
-//    arr.push({ skin: '_JanuaryA', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/january/spinner/cloe-ferrara-loader1-0.gif' });
+//    arr.push({ skin: '_JanuaryC', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/gear_plant2.gif' });
+//    arr.push({ skin: '_JanuaryB', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/2316bf07d0598a9892debf49f09b4f03.gif' });
+//    arr.push({ skin: '_JanuaryA', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/dynamic-scifi-hud-element.gif' });
 //}
 
 const days = 29
@@ -35,11 +35,11 @@ const days = 29
 let arr = [];
 
 for (let i = 0; i < 9; i++) {
-    arr.push({ skin: '_FebruaryA', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/spinner/3129460143a343c72f39adc53ad7fa62.gif' });
+    arr.push({ skin: '_FebruaryA', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/59097644ada257296db3d19882f84ed6.gif' });
 }
 for (let i = 0; i < 10; i++) {
-    arr.push({ skin: '_FebruaryB', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/spinner/06bdf8ad69ff62062ae7dceb250d8866.gif' });
-    arr.push({ skin: '_FebruaryC', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/volcaDrumEditor/february/spinner/Top-Loading-Washer.gif' });
+    arr.push({ skin: '_FebruaryB', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/inn-anim-560.gif' });
+    arr.push({ skin: '_FebruaryC', spinner: 'https://events-168-hurdaudio.s3.amazonaws.com/midi-manager/spinners/21sl_thriftsmells-jumbo-v2.gif' });
 }
 
 //const days = 31;
